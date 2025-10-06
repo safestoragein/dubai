@@ -1,0 +1,10 @@
+{
+  "name": "safestorage-dubai",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ]
+}
