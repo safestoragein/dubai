@@ -111,11 +111,39 @@ export default function StorageSizes() {
                 )}
 
                 <div className="relative h-48">
-                  <img
-                    src={option.image || `/placeholder.svg?height=300&width=400&query=storage+${option.name}`}
-                    alt={`${option.name} - ${option.size}`}
-                    className="w-full h-full object-cover"
-                  />
+                  {option.isCustom ? (
+                    // Custom plan design for >3BHK
+                    <div className="w-full h-full bg-gradient-to-br from-dubai-gold/20 to-dubai-navy/20 flex flex-col items-center justify-center">
+                      <Warehouse className="h-16 w-16 text-dubai-gold mb-4" />
+                      <span className="text-dubai-navy font-bold text-lg">Customized Plan</span>
+                      <span className="text-gray-600 text-sm">Tailored to your needs</span>
+                    </div>
+                  ) : option.palletCount ? (
+                    // Pallet images layout
+                    <div className="w-full h-full bg-gray-50 flex items-center justify-center p-4">
+                      <div className={`flex gap-2 ${option.palletCount === 1 ? 'justify-center' : 'justify-center flex-wrap'}`}>
+                        {Array.from({ length: option.palletCount }, (_, index) => (
+                          <img
+                            key={index}
+                            src="/pallet.png"
+                            alt={`Pallet ${index + 1}`}
+                            className={`object-contain ${
+                              option.palletCount === 1 ? 'h-32 w-32' :
+                              option.palletCount === 2 ? 'h-24 w-24' :
+                              'h-20 w-20'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    // Business storage images
+                    <img
+                      src={option.image || `/placeholder.svg?height=300&width=400&query=storage+${option.name}`}
+                      alt={`${option.name} - ${option.size}`}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
                     <div className="flex items-center gap-2 text-white">
                       <Box className="h-4 w-4 text-dubai-gold" />
@@ -136,7 +164,7 @@ export default function StorageSizes() {
 
                   <Button asChild className="w-full bg-dubai-gold hover:bg-dubai-darkgold text-white">
                     <Link href={`/get-quote?size=${option.id}&type=${option.type}`}>
-                      Get A Free Quote
+                      {option.isCustom ? "Fill Your Details" : "Get A Free Quote"}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>

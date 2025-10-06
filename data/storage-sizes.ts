@@ -9,6 +9,8 @@ export interface StorageOption {
   icon?: any
   popular?: boolean
   type: 'household' | 'business'
+  palletCount?: number
+  isCustom?: boolean
 }
 
 // Household Storage Options (Closed containers - 35 SqFt Standard)
@@ -19,7 +21,8 @@ export const householdStorage: StorageOption[] = [
     size: "1 Container (35 SqFt)",
     description: "Perfect for studio apartment belongings and essentials.",
     icon: Home,
-    image: "/organized-storage-boxes.png",
+    image: "/pallet.png",
+    palletCount: 1,
     type: "household",
   },
   {
@@ -28,7 +31,8 @@ export const householdStorage: StorageOption[] = [
     size: "1-2 Containers (35-70 SqFt)",
     description: "Ideal for 1 bedroom apartment furniture and belongings.",
     icon: Home,
-    image: "/cluttered-storage-nook.png",
+    image: "/pallet.png",
+    palletCount: 1,
     type: "household",
   },
   {
@@ -37,7 +41,8 @@ export const householdStorage: StorageOption[] = [
     size: "2-3 Containers (70-105 SqFt)",
     description: "Spacious storage for 2 bedroom apartment contents.",
     icon: Building2,
-    image: "/cluttered-storage.png",
+    image: "/pallet.png",
+    palletCount: 2,
     popular: true,
     type: "household",
   },
@@ -47,16 +52,18 @@ export const householdStorage: StorageOption[] = [
     size: "3-4 Containers (105-140 SqFt)",
     description: "Comprehensive storage for 3 bedroom house belongings.",
     icon: Building2,
-    image: "/expansive-storage.png",
+    image: "/pallet.png",
+    palletCount: 3,
     type: "household",
   },
   {
     id: "above-3bhk",
     name: "> 3 BHK",
-    size: "4+ Containers (140+ SqFt)",
-    description: "Extensive storage for large homes and villas.",
+    size: "Customized Plan",
+    description: "Click and fill your details below for a customized storage solution.",
     icon: Warehouse,
-    image: "/overflowing-storage.png",
+    image: "",
+    isCustom: true,
     type: "household",
   },
 ]
