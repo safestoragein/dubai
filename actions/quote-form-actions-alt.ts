@@ -4,6 +4,7 @@ export async function submitQuoteFormAlt(formData: FormData) {
   try {
     // Extract form data
     const customer_name = formData.get("customer_name")?.toString() || ""
+    const company_name = formData.get("company_name")?.toString() || ""
     const customer_email = formData.get("customer_email")?.toString() || ""
     const customer_contact1 = formData.get("customer_contact1")?.toString() || ""
     const storage_type = formData.get("storage_type")?.toString() || ""
@@ -12,28 +13,48 @@ export async function submitQuoteFormAlt(formData: FormData) {
     // Log the data for debugging
     console.log("Form data received:", {
       customer_name,
+      company_name,
       customer_email,
       customer_contact1,
       storage_type,
       storage_size,
     })
 
-    // Create a simple object for the request body
-    const requestBody = {
-      customer_name,
-      customer_email,
-      customer_contact1,
-      storage_type,
-      storage_size,
+    // Determine which API endpoint to use based on storage_type
+    let apiUrl: string
+    let urlEncodedData: string
+
+    if (storage_type === 'business') {
+      // Use business API endpoint
+      apiUrl = 'https://safestorage.in/back/app/insert_business_customer_details_dubai'
+      urlEncodedData = new URLSearchParams({
+        customer_name: customer_name,
+        company_name: company_name,
+        customer_contact1: customer_contact1,
+        customer_email: customer_email,
+        storage_size: storage_size,
+      }).toString()
+    } else {
+      // Use household API endpoint (default)
+      apiUrl = 'https://safestorage.in/back/app/insert_customer_details_dubai'
+      urlEncodedData = new URLSearchParams({
+        customer_name: customer_name,
+        customer_contact1: customer_contact1,
+        customer_email: customer_email,
+        storage_size: storage_size,
+      }).toString()
     }
 
-    // Try a direct fetch to local API with minimal options
-    const response = await fetch("http://localhost:3000/api/insert-customer-details-dubai", {
+    console.log("Submitting to API:", apiUrl)
+    console.log("Form data:", urlEncodedData)
+
+    // Send data directly to your backend API
+    const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: JSON.stringify(requestBody),
+      body: urlEncodedData,
     })
 
     // For debugging
