@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Box, ArrowRight, Home, Briefcase } from "lucide-react"
+import { Box, ArrowRight, Home, Briefcase, Warehouse } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { householdStorage, businessStorage } from "@/data/storage-sizes"
