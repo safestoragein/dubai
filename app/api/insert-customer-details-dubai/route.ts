@@ -1,36 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import mysql from 'mysql2/promise'
-
-// Database configuration - use environment variables for production
-const dbConfig = {
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'safestor_india',
-  port: parseInt(process.env.DB_PORT || '3306')
-}
-
-// Fallback function to log data when database is not available
-async function logFormSubmission(formData: any) {
-  try {
-    const logData = {
-      ...formData,
-      timestamp: new Date().toISOString(),
-      source: 'safestorage.ae'
-    }
-    
-    // Log to console (visible in Vercel logs)
-    console.log('FORM_SUBMISSION:', JSON.stringify(logData, null, 2))
-    
-    // In production, you could also send to a webhook, email service, or external API
-    // Example: await fetch('YOUR_WEBHOOK_URL', { method: 'POST', body: JSON.stringify(logData) })
-    
-    return { success: true, id: `temp_${Date.now()}` }
-  } catch (error) {
-    console.error('Fallback logging error:', error)
-    throw error
-  }
-}
 
 export async function POST(request: NextRequest) {
   try {
@@ -55,7 +23,7 @@ export async function POST(request: NextRequest) {
 
     const { customer_name, company_name, customer_contact1, customer_email, storage_type, storage_size } = data
 
-    // Basic validation - match PHP logic
+    // Basic validation
     if (!customer_contact1 || !customer_email) {
       return NextResponse.json(
         { error: 'Failed to submit data: Missing required fields.' },
@@ -63,81 +31,64 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Prepare data for insertion
-    const insertData = {
-      customer_name: customer_name || '',
-      company_name: company_name || '',
-      customer_contact1,
-      customer_email,
-      storage_type: storage_type || '',
-      storage_size: storage_size || '',
-      created_at: new Date().toISOString().slice(0, 19).replace('T', ' ')
+    console.log('Form submission received:', { customer_name, storage_type, customer_email })
+
+    // Determine which API endpoint to use based on storage_type
+    let apiUrl: string
+    let formBody: URLSearchParams
+
+    if (storage_type === 'business') {
+      // Use business API endpoint
+      apiUrl = 'https://safestorage.in/back/app/insert_business_customer_details_dubai'
+      formBody = new URLSearchParams({
+        customer_name: customer_name || '',
+        company_name: company_name || '',
+        customer_contact1: customer_contact1,
+        customer_email: customer_email,
+        storage_size: storage_size || ''
+      })
+    } else {
+      // Use household API endpoint (default)
+      apiUrl = 'https://safestorage.in/back/app/insert_customer_details_dubai'
+      formBody = new URLSearchParams({
+        customer_name: customer_name || '',
+        customer_contact1: customer_contact1,
+        customer_email: customer_email,
+        storage_size: storage_size || ''
+      })
     }
 
-    // Try database connection first, fall back if it fails
-    let result
-    try {
-      // Only attempt database connection if we have valid database config
-      if (dbConfig.host && dbConfig.host !== 'localhost' || process.env.NODE_ENV === 'development') {
-        const connection = await mysql.createConnection(dbConfig)
-        
-        try {
-          // Set timezone to Asia/Kolkata (matching PHP code)
-          await connection.execute("SET time_zone = '+05:30'")
+    console.log('Submitting to API:', apiUrl)
+    console.log('Form data:', formBody.toString())
 
-          // Insert into database - lead_id is auto-increment
-          const [dbResult] = await connection.execute(
-            'INSERT INTO safestorage_dubai_form (customer_name, company_name, customer_contact1, customer_email, storage_type, storage_size, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)',
-            [
-              insertData.customer_name,
-              insertData.company_name,
-              insertData.customer_contact1,
-              insertData.customer_email,
-              insertData.storage_type,
-              insertData.storage_size,
-              insertData.created_at
-            ]
-          )
+    // Submit to the appropriate backend API
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formBody.toString()
+    })
 
-          console.log('Data inserted successfully to database:', dbResult)
-          result = dbResult
+    const responseText = await response.text()
+    console.log('Backend API response:', response.status, responseText)
 
-        } finally {
-          await connection.end()
-        }
-      } else {
-        throw new Error('Database not configured for production')
-      }
-    } catch (dbError) {
-      console.warn('Database connection failed, using fallback logging:', dbError)
-      
-      // Use fallback logging
-      result = await logFormSubmission(insertData)
+    if (response.ok && responseText.includes('success')) {
+      // Return success response to match expected format
+      return new NextResponse('success', { status: 200 })
+    } else {
+      // Handle error response
+      console.error('Backend API error:', response.status, responseText)
+      return NextResponse.json(
+        { error: responseText || 'Failed to submit data: Backend error.' },
+        { status: response.status || 500 }
+      )
     }
-
-    // Return success response - match PHP response
-    return new NextResponse('success', { status: 200 })
 
   } catch (error) {
     console.error('Form submission error:', error)
-    
-    // Try fallback even if main process fails
-    try {
-      const fallbackData = {
-        customer_name: request.url.includes('customer_name') ? 'Parse Error' : '',
-        customer_email: request.url.includes('customer_email') ? 'Parse Error' : '',
-        customer_contact1: 'Parse Error',
-        storage_type: 'unknown',
-        storage_size: 'unknown',
-        error: error.message
-      }
-      await logFormSubmission(fallbackData)
-    } catch (fallbackError) {
-      console.error('Fallback also failed:', fallbackError)
-    }
-    
     return NextResponse.json(
-      { error: 'Failed to submit data: Please try again or contact support.' },
+      { error: 'Failed to submit data: Network error.' },
       { status: 500 }
     )
   }
