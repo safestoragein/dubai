@@ -39,7 +39,7 @@ export default function Header() {
       {/* Dubai-style decorative top border */}
       <div className="h-1 w-full bg-gradient-to-r from-dubai-gold via-dubai-sand to-dubai-gold"></div>
 
-      <div className="container px-4 h-16 flex items-center justify-between lg:justify-start lg:space-x-10">
+      <div className="container px-6 md:px-8 h-16 flex items-center justify-between lg:justify-start lg:space-x-10">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image

@@ -12,7 +12,7 @@ export const contactFaqs = [
   {
     question: "How long does it take for a response?",
     answer:
-      "We aim to respond to all inquiries within 24 hours. For urgent matters, we recommend calling +971 0505773388 for immediate assistance.",
+      "We aim to respond to all inquiries within 24 hours. For urgent matters, we recommend calling +971 50 577 3388 for immediate assistance.",
   },
   {
     question: "Can I visit your office in person?",
