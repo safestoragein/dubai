@@ -1,6 +1,6 @@
-import { Box, Home, Building, Warehouse } from "lucide-react"
+import { Home, Building2, Briefcase, Car, Warehouse } from "lucide-react"
 
-export interface StorageRoom {
+export interface StorageOption {
   id: string
   name: string
   size: string
@@ -8,40 +8,90 @@ export interface StorageRoom {
   image?: string
   icon?: any
   popular?: boolean
+  type: 'household' | 'business'
 }
 
-export const storageRooms: StorageRoom[] = [
+// Household Storage Options (Closed containers - 35 SqFt Standard)
+export const householdStorage: StorageOption[] = [
   {
-    id: "small",
-    name: "Small Room",
-    size: "25 sq ft (5×5)",
-    description: "Perfect for storing small furniture, boxes, and personal items.",
-    icon: Box,
-    image: "/cluttered-storage-nook.png",
+    id: "1rk",
+    name: "1 RK",
+    size: "1 Container (35 SqFt)",
+    description: "Perfect for studio apartment belongings and essentials.",
+    icon: Home,
+    image: "/organized-storage-boxes.png",
+    type: "household",
   },
   {
-    id: "medium",
-    name: "Medium Room",
-    size: "100 sq ft (10×10)",
-    description: "Ideal for storing the contents of a 1-2 bedroom apartment.",
+    id: "1bhk",
+    name: "1 BHK",
+    size: "1-2 Containers (35-70 SqFt)",
+    description: "Ideal for 1 bedroom apartment furniture and belongings.",
     icon: Home,
+    image: "/cluttered-storage-nook.png",
+    type: "household",
+  },
+  {
+    id: "2bhk",
+    name: "2 BHK",
+    size: "2-3 Containers (70-105 SqFt)",
+    description: "Spacious storage for 2 bedroom apartment contents.",
+    icon: Building2,
     image: "/cluttered-storage.png",
     popular: true,
+    type: "household",
   },
   {
-    id: "large",
-    name: "Large Room",
-    size: "200 sq ft (10×20)",
-    description: "Spacious storage for the contents of a 3-4 bedroom house.",
-    icon: Building,
+    id: "3bhk",
+    name: "3 BHK",
+    size: "3-4 Containers (105-140 SqFt)",
+    description: "Comprehensive storage for 3 bedroom house belongings.",
+    icon: Building2,
     image: "/expansive-storage.png",
+    type: "household",
   },
   {
-    id: "extra-large",
-    name: "Extra Large Room",
-    size: "300 sq ft (10×30)",
-    description: "Our largest units for extensive storage needs and commercial use.",
+    id: "above-3bhk",
+    name: "> 3 BHK",
+    size: "4+ Containers (140+ SqFt)",
+    description: "Extensive storage for large homes and villas.",
     icon: Warehouse,
     image: "/overflowing-storage.png",
+    type: "household",
   },
 ]
+
+// Business Storage Options (Open shared space)
+export const businessStorage: StorageOption[] = [
+  {
+    id: "small-business",
+    name: "Small Business",
+    size: "50-100 sq ft",
+    description: "Perfect for small business inventory and supplies.",
+    icon: Briefcase,
+    image: "/organized-warehouse-space.png",
+    type: "business",
+  },
+  {
+    id: "medium-business",
+    name: "Medium Business",
+    size: "100-300 sq ft",
+    description: "Ideal for growing business storage needs.",
+    icon: Building2,
+    image: "/varied-storage-row.png",
+    popular: true,
+    type: "business",
+  },
+  {
+    id: "large-business",
+    name: "Large Business",
+    size: "300+ sq ft",
+    description: "Spacious storage for extensive business operations.",
+    icon: Warehouse,
+    image: "/expansive-storage.png",
+    type: "business",
+  },
+]
+
+// Combined storage options for backward compatibility
+export const storageRooms: StorageOption[] = [...householdStorage, ...businessStorage]
