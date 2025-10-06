@@ -13,12 +13,12 @@ export interface StorageOption {
   isCustom?: boolean
 }
 
-// Household Storage Options (Closed containers - 35 SqFt Standard)
+// Household Storage Options (Closed containers - 30 SqFt Standard)
 export const householdStorage: StorageOption[] = [
   {
     id: "1rk",
     name: "1 RK",
-    size: "1 Container (35 SqFt)",
+    size: "1 Container (30 SqFt)",
     description: "Perfect for studio apartment belongings and essentials.",
     icon: Home,
     image: "/pallet.png",
@@ -28,7 +28,7 @@ export const householdStorage: StorageOption[] = [
   {
     id: "1bhk",
     name: "1 BHK",
-    size: "1-2 Containers (35-70 SqFt)",
+    size: "1-2 Containers (30-60 SqFt)",
     description: "Ideal for 1 bedroom apartment furniture and belongings.",
     icon: Home,
     image: "/pallet.png",
@@ -38,7 +38,7 @@ export const householdStorage: StorageOption[] = [
   {
     id: "2bhk",
     name: "2 BHK",
-    size: "2-3 Containers (70-105 SqFt)",
+    size: "2-3 Containers (60-90 SqFt)",
     description: "Spacious storage for 2 bedroom apartment contents.",
     icon: Building2,
     image: "/pallet.png",
@@ -49,7 +49,7 @@ export const householdStorage: StorageOption[] = [
   {
     id: "3bhk",
     name: "3 BHK",
-    size: "3-4 Containers (105-140 SqFt)",
+    size: "3-4 Containers (90-120 SqFt)",
     description: "Comprehensive storage for 3 bedroom house belongings.",
     icon: Building2,
     image: "/pallet.png",
