@@ -38,6 +38,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
+        {/* Google Analytics (gtag.js) - G-EHB5H09SGY */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-EHB5H09SGY" strategy="afterInteractive" />
+        <Script id="google-analytics-g-ehb5h09sgy" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EHB5H09SGY');
+          `}
+        </Script>
+
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
