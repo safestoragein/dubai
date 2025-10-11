@@ -31,14 +31,40 @@ export default function NewBlogPost() {
     e.preventDefault()
     setIsLoading(true)
     
-    // Simulate saving (in production, this would be an API call)
-    setTimeout(() => {
-      setSuccess(true)
+    try {
+      // Call the API to save to backend
+      const response = await fetch('/api/blogs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: formData.title,
+          content: formData.content,
+          meta_description: formData.excerpt,
+          tags: formData.category,
+          author: formData.author,
+          category: formData.category,
+          featured_image: formData.image,
+        }),
+      })
+
+      const data = await response.json()
+      
+      if (data.status === 'success') {
+        setSuccess(true)
+        setTimeout(() => {
+          router.push("/admin/dashboard/blogs")
+        }, 2000)
+      } else {
+        alert(data.message || 'Failed to create blog post')
+      }
+    } catch (error) {
+      console.error('Error:', error)
+      alert('Failed to create blog post')
+    } finally {
       setIsLoading(false)
-      setTimeout(() => {
-        router.push("/admin/dashboard/blogs")
-      }, 2000)
-    }, 1000)
+    }
   }
 
   const handleChange = (field: string, value: string) => {

@@ -1,8 +1,6 @@
 import BlogPostDetail from "@/components/blog/blog-post-detail"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import { getPostBySlug, blogPosts } from "@/data/blog-data"
-import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 
 interface BlogPostPageProps {
@@ -12,47 +10,47 @@ interface BlogPostPageProps {
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = getPostBySlug(params.slug)
-
-  if (!post) {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/blogs/${params.slug}`)
+    const data = await response.json()
+    
+    if (data.status !== 'success' || !data.data) {
+      return {
+        title: "Blog Post Not Found | SafeStorage Dubai",
+        description: "The requested blog post could not be found.",
+      }
+    }
+    
+    const post = data.data
+    const extraData = post.extra_data ? 
+      (typeof post.extra_data === 'string' ? JSON.parse(post.extra_data) : post.extra_data) : {}
+    
     return {
-      title: "Blog Post Not Found | SafeStorage Dubai",
-      description: "The requested blog post could not be found.",
+      title: `${post.meta_title} | SafeStorage Dubai Blog`,
+      description: post.meta_description,
+      keywords: post.tags || "",
+      openGraph: {
+        title: post.meta_title,
+        description: post.meta_description,
+        images: extraData.featured_image ? [
+          {
+            url: extraData.featured_image,
+            width: 1200,
+            height: 630,
+            alt: post.meta_title,
+          },
+        ] : [],
+      },
+    }
+  } catch (error) {
+    return {
+      title: "Blog | SafeStorage Dubai",
+      description: "Expert storage tips and guides from SafeStorage Dubai",
     }
   }
-
-  return {
-    title: `${post.title} | SafeStorage Dubai Blog`,
-    description: post.excerpt,
-    keywords: post.tags?.join(", ") || "",
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      images: [
-        {
-          url: post.image,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
-    },
-  }
-}
-
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }))
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getPostBySlug(params.slug)
-
-  if (!post) {
-    notFound()
-  }
-
   return (
     <div className="flex min-h-screen flex-col">
       <Header />

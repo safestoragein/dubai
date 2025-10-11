@@ -4,10 +4,67 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
-import { blogPosts } from "@/data/blog-posts"
 
 export default function BlogsManagement() {
-  const [blogs, setBlogs] = useState(blogPosts)
+  const [blogs, setBlogs] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetchBlogs()
+  }, [])
+
+  const fetchBlogs = async () => {
+    try {
+      const response = await fetch('/api/blogs')
+      const data = await response.json()
+      
+      if (data.status === 'success' && data.data) {
+        // Process the data to match our format
+        const processedBlogs = data.data.map((blog: any) => {
+          const extraData = blog.extra_data ? JSON.parse(blog.extra_data) : {}
+          return {
+            id: blog.blog_id,
+            slug: blog.slug,
+            title: blog.meta_title,
+            excerpt: blog.meta_description,
+            content: blog.content,
+            author: { name: extraData.author || 'SafeStorage Team' },
+            category: extraData.category || 'General',
+            categories: [extraData.category || 'General'],
+            date: extraData.created_at || new Date().toISOString(),
+            featured_image: extraData.featured_image,
+            views: extraData.views || 0,
+            likes: extraData.likes || 0,
+          }
+        })
+        setBlogs(processedBlogs)
+      }
+    } catch (error) {
+      console.error('Error fetching blogs:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleDelete = async (blogId: number) => {
+    if (confirm("Are you sure you want to delete this post?")) {
+      try {
+        const response = await fetch(`/api/blogs/${blogId}`, {
+          method: 'DELETE',
+        })
+        const data = await response.json()
+        
+        if (data.status === 'success') {
+          setBlogs(blogs.filter(b => b.id !== blogId))
+        } else {
+          alert('Failed to delete blog post')
+        }
+      } catch (error) {
+        console.error('Error deleting blog:', error)
+        alert('Failed to delete blog post')
+      }
+    }
+  }
 
   return (
     <div className="space-y-6">
@@ -60,11 +117,7 @@ export default function BlogsManagement() {
                           size="sm" 
                           variant="outline" 
                           className="text-red-600 hover:text-red-700"
-                          onClick={() => {
-                            if (confirm("Are you sure you want to delete this post?")) {
-                              setBlogs(blogs.filter(b => b.id !== blog.id))
-                            }
-                          }}
+                          onClick={() => handleDelete(blog.id)}
                         >
                           Delete
                         </Button>

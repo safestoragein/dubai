@@ -12,12 +12,13 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import EditorWrapper from "@/components/admin/editor-wrapper"
 import ImageUpload from "@/components/admin/image-upload"
-import { blogPosts } from "@/data/blog-posts"
 
 export default function EditBlogPost() {
   const router = useRouter()
   const params = useParams()
+  const blogId = params.id as string
   const [isLoading, setIsLoading] = useState(false)
+  const [isFetching, setIsFetching] = useState(true)
   const [success, setSuccess] = useState(false)
   const [notFound, setNotFound] = useState(false)
   const [formData, setFormData] = useState({
@@ -28,39 +29,89 @@ export default function EditBlogPost() {
     category: "",
     image: "",
     readTime: "",
+    slug: "",
   })
 
   useEffect(() => {
-    // Find the blog post by ID
-    const blogPost = blogPosts.find(post => post.id === params.id)
-    
-    if (blogPost) {
-      setFormData({
-        title: blogPost.title,
-        excerpt: blogPost.excerpt,
-        content: blogPost.content,
-        author: blogPost.author.name,
-        category: blogPost.categories[0] || "Storage Tips",
-        image: blogPost.coverImage || "",
-        readTime: `${blogPost.readTime} min read`,
-      })
-    } else {
+    fetchBlogData()
+  }, [blogId])
+
+  const fetchBlogData = async () => {
+    try {
+      setIsFetching(true)
+      // Fetch blog by ID using the backend API
+      const response = await fetch(`/api/blogs/${blogId}`)
+      const data = await response.json()
+      
+      if (data.status === 'success' && data.data) {
+        const blog = data.data
+        const extraData = blog.extra_data ? (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
+        
+        setFormData({
+          title: blog.meta_title || "",
+          excerpt: blog.meta_description || "",
+          content: blog.content || "",
+          author: extraData.author || "SafeStorage Team",
+          category: extraData.category || "Storage Tips",
+          image: extraData.featured_image || "",
+          readTime: extraData.read_time ? `${extraData.read_time} min read` : "5 min read",
+          slug: blog.slug || "",
+        })
+      } else {
+        setNotFound(true)
+      }
+    } catch (error) {
+      console.error('Error fetching blog:', error)
       setNotFound(true)
+    } finally {
+      setIsFetching(false)
     }
-  }, [params.id])
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     
-    // Simulate saving (in production, this would be an API call)
-    setTimeout(() => {
-      setSuccess(true)
+    try {
+      const response = await fetch(`/api/blogs/${formData.slug}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          blog_id: blogId,
+          title: formData.title,
+          content: formData.content,
+          meta_title: formData.title,
+          meta_description: formData.excerpt,
+          slug: formData.slug,
+          tags: formData.category,
+          extra_data: JSON.stringify({
+            author: formData.author,
+            category: formData.category,
+            featured_image: formData.image,
+            read_time: parseInt(formData.readTime) || 5,
+            updated_at: new Date().toISOString()
+          })
+        }),
+      })
+
+      const data = await response.json()
+      
+      if (data.status === 'success') {
+        setSuccess(true)
+        setTimeout(() => {
+          router.push("/admin/dashboard/blogs")
+        }, 2000)
+      } else {
+        alert(data.message || 'Failed to update blog post')
+      }
+    } catch (error) {
+      console.error('Error:', error)
+      alert('Failed to update blog post')
+    } finally {
       setIsLoading(false)
-      setTimeout(() => {
-        router.push("/admin/dashboard/blogs")
-      }, 2000)
-    }, 1000)
+    }
   }
 
   const handleChange = (field: string, value: string) => {
@@ -68,6 +119,14 @@ export default function EditBlogPost() {
       ...prev,
       [field]: value
     }))
+  }
+
+  if (isFetching) {
+    return (
+      <div className="flex justify-center items-center h-96">
+        <div className="text-gray-500">Loading blog post...</div>
+      </div>
+    )
   }
 
   if (notFound) {
@@ -159,6 +218,16 @@ export default function EditBlogPost() {
                   value={formData.readTime}
                   onChange={(e) => handleChange("readTime", e.target.value)}
                   placeholder="e.g., 5 min read"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="slug">Slug</Label>
+                <Input
+                  id="slug"
+                  value={formData.slug}
+                  onChange={(e) => handleChange("slug", e.target.value)}
+                  placeholder="URL slug"
                 />
               </div>
 

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Submit Examples</title>
+</head>
+<body>
+
+<h1>Blog Content Submission Examples</h1>
+
+<!-- Example 1: Submit Blog Post from Admin Dashboard -->
+<script>
+// Submit blog post from your admin dashboard
+function submitBlogPost() {
+    const formData = new FormData();
+    formData.append('title', document.getElementById('title').value);
+    formData.append('content', document.getElementById('editor').innerHTML); // HTML from TipTap
+    formData.append('excerpt', document.getElementById('excerpt').value);
+    formData.append('category', document.getElementById('category').value);
+    formData.append('author', 'SafeStorage Team');
+    formData.append('featured_image', document.getElementById('image').value);
+    formData.append('tags[]', 'storage');
+    formData.append('tags[]', 'dubai');
+    formData.append('tags[]', 'tips');
+    formData.append('is_published', true);
+    
+    fetch('https://your-server.com/controller/insert_blog_post', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert('Blog post created successfully!');
+            console.log('Blog ID:', data.blog_id);
+            console.log('Slug:', data.slug);
+            window.location.href = data.url;
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+</script>
+
+<!-- Example 2: Submit Generic Blog Content -->
+<script>
+function submitBlogContent() {
+    const blogData = {
+        content_type: 'post',
+        content: '<h1>Blog Title</h1><p>This is the HTML content from TipTap editor...</p>',
+        meta_title: '10 Best Storage Tips for Dubai',
+        meta_description: 'Discover the best storage tips...',
+        slug: 'best-storage-tips',
+        tags: JSON.stringify(['storage', 'dubai', 'tips']),
+        extra_data: JSON.stringify({
+            author: 'SafeStorage Team',
+            category: 'Storage Tips',
+            featured_image: 'https://example.com/image.jpg',
+            read_time: 5,
+            is_published: true
+        })
+    };
+    
+    $.ajax({
+        url: 'https://your-server.com/controller/insert_blog_content',
+        type: 'POST',
+        data: blogData,
+        success: function(response) {
+            const data = JSON.parse(response);
+            if (data.status === 'success') {
+                console.log('Blog created with ID:', data.blog_id);
+                alert('Blog content created successfully!');
+            }
+        },
+        error: function(xhr, status, error) {
+            alert('Error: ' + error);
+        }
+    });
+}
+</script>
+
+<!-- Example 3: Submit Lead/Inquiry (like customer details) -->
+<script>
+function submitLead() {
+    const leadData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value,
+        storage_size: document.getElementById('storage_size').value,
+        company: document.getElementById('company').value
+    };
+    
+    $.ajax({
+        url: 'https://your-server.com/controller/insert_lead',
+        type: 'POST',
+        data: leadData,
+        success: function(response) {
+            if (response === 'success') {
+                alert('Thank you for your inquiry!');
+                document.getElementById('lead-form').reset();
+            }
+        },
+        error: function(xhr, status, error) {
+            alert('Error submitting form: ' + error);
+        }
+    });
+}
+</script>
+
+<!-- Example 4: Get All Blog Posts -->
+<script>
+function getBlogPosts() {
+    fetch('https://your-server.com/controller/get_blog_posts')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                data.data.forEach(post => {
+                    console.log('Title:', post.meta_title);
+                    console.log('Slug:', post.slug);
+                    console.log('Content:', post.content);
+                    
+                    // Access extra data
+                    if (post.extra_data) {
+                        console.log('Author:', post.extra_data.author);
+                        console.log('Views:', post.extra_data.views);
+                    }
+                });
+            }
+        });
+}
+</script>
+
+<!-- Example 5: Get Single Blog Post by Slug -->
+<script>
+function getBlogBySlug(slug) {
+    fetch('https://your-server.com/controller/get_blog_by_slug/' + slug)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById('blog-title').innerHTML = data.data.meta_title;
+                document.getElementById('blog-content').innerHTML = data.data.content;
+                
+                // Display tags
+                if (data.data.tags) {
+                    data.data.tags.forEach(tag => {
+                        console.log('Tag:', tag);
+                    });
+                }
+            }
+        });
+}
+</script>
+
+<!-- Example 6: Update Blog Post -->
+<script>
+function updateBlogPost(blogId) {
+    const updateData = {
+        title: 'Updated Blog Title',
+        content: '<h1>Updated Content</h1><p>New content...</p>',
+        excerpt: 'Updated excerpt',
+        tags: JSON.stringify(['updated', 'tags'])
+    };
+    
+    $.ajax({
+        url: 'https://your-server.com/controller/update_blog_post/' + blogId,
+        type: 'POST',
+        data: updateData,
+        success: function(response) {
+            const data = JSON.parse(response);
+            if (data.status === 'success') {
+                alert('Blog post updated successfully!');
+            }
+        }
+    });
+}
+</script>
+
+<!-- Example 7: Delete Blog Post -->
+<script>
+function deleteBlogPost(blogId) {
+    if (confirm('Are you sure you want to delete this blog post?')) {
+        fetch('https://your-server.com/controller/delete_blog_post/' + blogId, {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Blog post deleted successfully!');
+                location.reload();
+            }
+        });
+    }
+}
+</script>
+
+<!-- Example HTML Form for Blog Submission -->
+<form id="blog-form" onsubmit="event.preventDefault(); submitBlogPost();">
+    <input type="text" id="title" placeholder="Blog Title" required>
+    <textarea id="excerpt" placeholder="Short description"></textarea>
+    
+    <select id="category">
+        <option value="Storage Tips">Storage Tips</option>
+        <option value="Moving Guide">Moving Guide</option>
+        <option value="Business Storage">Business Storage</option>
+    </select>
+    
+    <input type="text" id="image" placeholder="Image URL">
+    
+    <!-- TipTap Editor Container -->
+    <div id="editor"></div>
+    
+    <button type="submit">Submit Blog Post</button>
+</form>
+
+<!-- Example Form for Lead Submission -->
+<form id="lead-form" onsubmit="event.preventDefault(); submitLead();">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="tel" id="phone" placeholder="Phone" required>
+    <input type="text" id="company" placeholder="Company">
+    <select id="storage_size">
+        <option value="30 sqft">30 sqft</option>
+        <option value="60 sqft">60 sqft</option>
+        <option value="100 sqft">100 sqft</option>
+    </select>
+    <textarea id="message" placeholder="Message"></textarea>
+    <button type="submit">Submit Inquiry</button>
+</form>
+
+</body>
+</html>

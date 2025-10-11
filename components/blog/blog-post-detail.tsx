@@ -8,20 +8,79 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { formatDate } from "@/lib/utils"
-import { getPostBySlug } from "@/data/blog-data"
 import LikeButton from "./like-button"
 import ShareButtons from "./share-buttons"
 import CommentSection from "./comment-section"
 
+interface BlogPost {
+  id: number
+  title: string
+  excerpt: string
+  content: string
+  slug: string
+  author: { name: string }
+  categories: string[]
+  image?: string
+  readTime?: string
+  likes: number
+  views: number
+  comments?: any[]
+  date: string
+  tags?: string[]
+}
+
 export default function BlogPostDetail({ slug }: { slug: string }) {
   const [mounted, setMounted] = useState(false)
-
-  // Get the post data
-  const post = getPostBySlug(slug)
+  const [post, setPost] = useState<BlogPost | null>(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setMounted(true)
-  }, [])
+    fetchBlogPost()
+  }, [slug])
+
+  const fetchBlogPost = async () => {
+    try {
+      const response = await fetch(`/api/blogs/${slug}`)
+      const data = await response.json()
+      
+      if (data.status === 'success' && data.data) {
+        const blog = data.data
+        const extraData = blog.extra_data ? 
+          (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
+        
+        setPost({
+          id: blog.blog_id,
+          slug: blog.slug,
+          title: blog.meta_title,
+          excerpt: blog.meta_description,
+          content: blog.content,
+          author: { name: extraData.author || 'SafeStorage Team' },
+          categories: [extraData.category || 'General'],
+          date: extraData.created_at || new Date().toISOString(),
+          image: extraData.featured_image,
+          readTime: extraData.read_time ? `${extraData.read_time} min read` : "5 min read",
+          likes: extraData.likes || 0,
+          views: extraData.views || 0,
+          comments: [],
+          tags: blog.tags ? (typeof blog.tags === 'string' ? JSON.parse(blog.tags) : blog.tags) : []
+        })
+      }
+    } catch (error) {
+      console.error('Error fetching blog:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="container py-20 text-center">
+        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-dubai-gold"></div>
+        <p className="mt-4 text-gray-600">Loading article...</p>
+      </div>
+    )
+  }
 
   if (!post) {
     return (

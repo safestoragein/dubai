@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Search, ChevronRight, User, ArrowRight, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -9,18 +9,79 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import Link from "next/link"
 import Image from "next/image"
-import { getFeaturedPosts, getPopularPosts, getRecommendedPosts, getAllCategories } from "@/data/blog-data"
-import type { BlogPost } from "@/types/blog-types"
 import LikeButtonMini from "./like-button-mini"
 // If there are any Clock imports from icons.tsx, update them
 import { Clock } from "@/components/icons"
 
+interface BlogPost {
+  id: number
+  title: string
+  excerpt: string
+  content: string
+  slug: string
+  author: { name: string }
+  categories: string[]
+  image?: string
+  readTime?: string
+  likes: number
+  views: number
+  comments?: any[]
+  date: string
+}
+
 export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState("")
-  const featuredPosts = getFeaturedPosts()
-  const popularPosts = getPopularPosts()
-  const recommendedPosts = getRecommendedPosts()
-  const allCategories = getAllCategories()
+  const [blogs, setBlogs] = useState<BlogPost[]>([])
+  const [loading, setLoading] = useState(true)
+  const [selectedCategory, setSelectedCategory] = useState("all")
+  
+  const allCategories = ["Storage Tips", "Moving Guide", "Business Storage", "Organization", "News"]
+  
+  useEffect(() => {
+    fetchBlogs()
+  }, [])
+  
+  const fetchBlogs = async () => {
+    try {
+      const response = await fetch('/api/blogs')
+      const data = await response.json()
+      
+      if (data.status === 'success' && data.data) {
+        const processedBlogs = data.data.map((blog: any) => {
+          const extraData = blog.extra_data ? 
+            (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
+          return {
+            id: blog.blog_id,
+            slug: blog.slug,
+            title: blog.meta_title,
+            excerpt: blog.meta_description,
+            content: blog.content,
+            author: { name: extraData.author || 'SafeStorage Team' },
+            categories: [extraData.category || 'General'],
+            date: extraData.created_at || new Date().toISOString(),
+            image: extraData.featured_image,
+            readTime: extraData.read_time ? `${extraData.read_time} min read` : "5 min read",
+            likes: extraData.likes || 0,
+            views: extraData.views || 0,
+            comments: []
+          }
+        })
+        setBlogs(processedBlogs)
+      }
+    } catch (error) {
+      console.error('Error fetching blogs:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+  
+  const filteredBlogs = selectedCategory === "all" 
+    ? blogs
+    : blogs.filter(blog => blog.categories[0] === selectedCategory)
+    
+  const popularPosts = [...blogs].sort((a, b) => b.views - a.views).slice(0, 5)
+  const recommendedPosts = [...blogs].sort((a, b) => b.likes - a.likes).slice(0, 5)
+  const featuredPosts = blogs
 
   return (
     <div className="container px-4 md:px-6 py-12 md:py-16">
@@ -75,18 +136,30 @@ export default function BlogPage() {
               </TabsList>
 
               <TabsContent value="all" className="space-y-8">
-                {featuredPosts.map((post) => (
-                  <BlogPostRow key={post.id} post={post} />
-                ))}
+                {loading ? (
+                  <div className="text-center py-12">
+                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-dubai-gold"></div>
+                  </div>
+                ) : (
+                  blogs.map((post) => (
+                    <BlogPostRow key={post.id} post={post} />
+                  ))
+                )}
               </TabsContent>
 
               {allCategories.map((category) => (
                 <TabsContent key={category} value={category} className="space-y-8">
-                  {featuredPosts
-                    .filter((post) => post.categories.includes(category))
-                    .map((post) => (
-                      <BlogPostRow key={post.id} post={post} />
-                    ))}
+                  {loading ? (
+                    <div className="text-center py-12">
+                      <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-dubai-gold"></div>
+                    </div>
+                  ) : (
+                    blogs
+                      .filter((post) => post.categories.includes(category))
+                      .map((post) => (
+                        <BlogPostRow key={post.id} post={post} />
+                      ))
+                  )}
                 </TabsContent>
               ))}
             </Tabs>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Submit Form - All Columns</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>Complete Blog Submission Form</h1>
+<p>Form includes ALL columns from blog_content table</p>
+
+<!-- Blog Submission Form with ALL fields -->
+<form id="complete-blog-form">
+    
+    <!-- Meta Title (for SEO) -->
+    <div>
+        <label>Meta Title (SEO Title) *</label>
+        <input type="text" id="meta_title" name="meta_title" placeholder="SEO optimized title" required>
+    </div>
+    
+    <!-- Meta Description (for SEO) -->
+    <div>
+        <label>Meta Description (SEO Description) *</label>
+        <textarea id="meta_description" name="meta_description" placeholder="Meta description for search engines (160 chars)" maxlength="160" required></textarea>
+    </div>
+    
+    <!-- Content Type -->
+    <div>
+        <label>Content Type</label>
+        <select id="content_type" name="content_type">
+            <option value="post">Blog Post</option>
+            <option value="category">Category</option>
+            <option value="lead">Lead</option>
+            <option value="media">Media</option>
+        </select>
+    </div>
+    
+    <!-- Slug (URL) -->
+    <div>
+        <label>Slug (leave empty to auto-generate)</label>
+        <input type="text" id="slug" name="slug" placeholder="url-friendly-slug">
+    </div>
+    
+    <!-- Tags -->
+    <div>
+        <label>Tags (comma separated)</label>
+        <input type="text" id="tags" name="tags" placeholder="storage, dubai, tips">
+    </div>
+    
+    <!-- Main Content (from TipTap Editor) -->
+    <div>
+        <label>Content (HTML from editor) *</label>
+        <div id="editor-container">
+            <!-- TipTap editor would go here -->
+            <textarea id="content" name="content" rows="10" required>
+                <h1>Blog Post Title</h1>
+                <p>This is the HTML content from your TipTap editor...</p>
+            </textarea>
+        </div>
+    </div>
+    
+    <!-- Extra Data Fields -->
+    <fieldset>
+        <legend>Additional Information (stored in extra_data)</legend>
+        
+        <div>
+            <label>Author</label>
+            <input type="text" id="author" name="author" value="SafeStorage Team">
+        </div>
+        
+        <div>
+            <label>Category</label>
+            <select id="category" name="category">
+                <option value="Storage Tips">Storage Tips</option>
+                <option value="Moving Guide">Moving Guide</option>
+                <option value="Business Storage">Business Storage</option>
+                <option value="Organization">Organization</option>
+            </select>
+        </div>
+        
+        <div>
+            <label>Featured Image URL</label>
+            <input type="url" id="featured_image" name="featured_image" placeholder="https://example.com/image.jpg">
+        </div>
+        
+        <div>
+            <label>Excerpt</label>
+            <textarea id="excerpt" name="excerpt" placeholder="Short description"></textarea>
+        </div>
+        
+        <div>
+            <label>
+                <input type="checkbox" id="is_published" name="is_published" checked>
+                Publish immediately
+            </label>
+        </div>
+        
+        <div>
+            <label>
+                <input type="checkbox" id="is_featured" name="is_featured">
+                Featured post
+            </label>
+        </div>
+    </fieldset>
+    
+    <button type="submit">Submit Blog Post</button>
+</form>
+
+<div id="response"></div>
+
+<script>
+// Submit form with ALL columns
+$('#complete-blog-form').on('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    var formData = new FormData(this);
+    
+    // Convert tags to array
+    var tags = $('#tags').val();
+    if (tags) {
+        var tagsArray = tags.split(',').map(function(tag) {
+            return tag.trim();
+        });
+        formData.delete('tags');
+        formData.append('tags', JSON.stringify(tagsArray));
+    }
+    
+    // Collect extra_data fields
+    var extraData = {
+        author: $('#author').val(),
+        category: $('#category').val(),
+        featured_image: $('#featured_image').val(),
+        excerpt: $('#excerpt').val(),
+        is_published: $('#is_published').is(':checked'),
+        is_featured: $('#is_featured').is(':checked')
+    };
+    
+    // Add extra_data to form
+    formData.append('extra_data', JSON.stringify(extraData));
+    
+    // Submit via AJAX
+    $.ajax({
+        url: 'https://your-server.com/controller/insert_blog_complete',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+            var data = JSON.parse(response);
+            if (data.status === 'success') {
+                $('#response').html(
+                    '<div style="color: green;">' +
+                    '<h3>Success!</h3>' +
+                    '<p>Blog ID: ' + data.data.blog_id + '</p>' +
+                    '<p>Slug: ' + data.data.slug + '</p>' +
+                    '<p>URL: <a href="' + data.data.url + '">' + data.data.url + '</a></p>' +
+                    '</div>'
+                );
+                $('#complete-blog-form')[0].reset();
+            } else {
+                $('#response').html('<div style="color: red;">Error: ' + data.message + '</div>');
+            }
+        },
+        error: function(xhr, status, error) {
+            $('#response').html('<div style="color: red;">Error: ' + error + '</div>');
+        }
+    });
+});
+
+// Alternative: Simple submission with only required fields
+function submitSimpleBlog() {
+    var data = {
+        content_type: 'post',
+        content: document.getElementById('content').value,
+        meta_title: document.getElementById('meta_title').value,
+        meta_description: document.getElementById('meta_description').value,
+        slug: document.getElementById('slug').value || null,
+        tags: null,
+        extra_data: null
+    };
+    
+    $.post('https://your-server.com/controller/insert_blog_simple', data)
+        .done(function(response) {
+            if (response === 'success') {
+                alert('Blog posted successfully!');
+            }
+        })
+        .fail(function(xhr) {
+            alert('Error: ' + xhr.responseText);
+        });
+}
+
+// Example: Minimal required fields only
+function submitMinimalBlog() {
+    // Only content is truly required, others can be null
+    var data = {
+        content: '<h1>My Blog</h1><p>Content here...</p>'
+    };
+    
+    $.post('https://your-server.com/controller/insert_blog_simple', data)
+        .done(function(response) {
+            console.log('Blog created!');
+        });
+}
+
+// Example: Submit from TipTap editor in your React app
+function submitFromReactApp() {
+    // Get HTML from TipTap editor
+    const editorContent = editor.getHTML(); // From TipTap
+    
+    fetch('https://your-server.com/controller/insert_blog_complete', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            content_type: 'post',
+            content: editorContent,
+            meta_title: document.getElementById('title').value,
+            meta_description: document.getElementById('description').value,
+            slug: '', // Let backend generate
+            tags: JSON.stringify(['storage', 'dubai']),
+            extra_data: JSON.stringify({
+                author: 'Admin',
+                category: 'Storage Tips',
+                featured_image: imageUrl
+            })
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Blog created:', data);
+    });
+}
+</script>
+
+<hr>
+
+<h2>Table Structure Reminder</h2>
+<table border="1">
+    <tr>
+        <th>Column Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>blog_id</td>
+        <td>INT (AI)</td>
+        <td>Auto</td>
+        <td>Auto-increment primary key</td>
+    </tr>
+    <tr>
+        <td>content_type</td>
+        <td>VARCHAR</td>
+        <td>Yes</td>
+        <td>Type: post, category, lead, etc.</td>
+    </tr>
+    <tr>
+        <td>content</td>
+        <td>LONGTEXT</td>
+        <td>Yes</td>
+        <td>HTML content from editor</td>
+    </tr>
+    <tr>
+        <td>meta_title</td>
+        <td>VARCHAR</td>
+        <td>No</td>
+        <td>SEO title</td>
+    </tr>
+    <tr>
+        <td>meta_description</td>
+        <td>TEXT</td>
+        <td>No</td>
+        <td>SEO meta description</td>
+    </tr>
+    <tr>
+        <td>slug</td>
+        <td>VARCHAR</td>
+        <td>No</td>
+        <td>URL-friendly identifier</td>
+    </tr>
+    <tr>
+        <td>tags</td>
+        <td>JSON</td>
+        <td>No</td>
+        <td>Array of tags as JSON</td>
+    </tr>
+    <tr>
+        <td>extra_data</td>
+        <td>JSON</td>
+        <td>No</td>
+        <td>Additional data as JSON</td>
+    </tr>
+</table>
+
+</body>
+</html>
