@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import RichTextEditor from "@/components/admin/rich-text-editor"
+import EditorWrapper from "@/components/admin/editor-wrapper"
 import ImageUpload from "@/components/admin/image-upload"
 
 export default function NewBlogPost() {
@@ -145,7 +145,7 @@ export default function NewBlogPost() {
                     <TabsTrigger value="preview">Preview</TabsTrigger>
                   </TabsList>
                   <TabsContent value="editor" className="mt-4">
-                    <RichTextEditor
+                    <EditorWrapper
                       value={formData.content}
                       onChange={(value) => handleChange("content", value)}
                       placeholder="Start writing your amazing blog post..."

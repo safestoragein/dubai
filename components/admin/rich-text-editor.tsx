@@ -2,10 +2,24 @@
 
 import { useEffect, useState } from "react"
 import dynamic from "next/dynamic"
-import "react-quill/dist/quill.snow.css"
 
-// Dynamic import to avoid SSR issues
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
+// Dynamic import to avoid SSR issues - DO NOT import CSS at top level
+const ReactQuill = dynamic(
+  async () => {
+    const { default: RQ } = await import("react-quill")
+    await import("react-quill/dist/quill.snow.css")
+    return RQ
+  },
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="border rounded-md p-4 bg-gray-50 animate-pulse" style={{ minHeight: "400px" }}>
+        <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+      </div>
+    )
+  }
+)
 
 interface RichTextEditorProps {
   value: string
