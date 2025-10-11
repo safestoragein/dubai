@@ -7,7 +7,7 @@ const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-producti
 // Hardcoded credentials (in production, store hashed password in database)
 const ADMIN_EMAIL = "kushal@safestorage.ae"
 // This is the bcrypt hash of "Kushi14@3!"
-const ADMIN_PASSWORD_HASH = "$2a$10$YKvXEGx5cR9F0xD0Wb8oAeROF5VLPCQXWzqOWLQoS2AXQvhRH5qVm"
+const ADMIN_PASSWORD_HASH = "$2b$10$6PvaZ6VLGcQeVKZ3hXiVQ.TWweE5uxW9PI4fTb7kLJnL6glss2eza"
 
 export async function POST(request: Request) {
   try {
