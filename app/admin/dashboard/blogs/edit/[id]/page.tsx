@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useState, useEffect } from "react"
+import { useRouter, useParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -12,20 +12,42 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import RichTextEditor from "@/components/admin/rich-text-editor"
 import ImageUpload from "@/components/admin/image-upload"
+import { blogPosts } from "@/data/blog-posts"
 
-export default function NewBlogPost() {
+export default function EditBlogPost() {
   const router = useRouter()
+  const params = useParams()
   const [isLoading, setIsLoading] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [notFound, setNotFound] = useState(false)
   const [formData, setFormData] = useState({
     title: "",
     excerpt: "",
     content: "",
-    author: "SafeStorage Team",
-    category: "Storage Tips",
+    author: "",
+    category: "",
     image: "",
-    readTime: "5 min read",
+    readTime: "",
   })
+
+  useEffect(() => {
+    // Find the blog post by ID
+    const blogPost = blogPosts.find(post => post.id === params.id)
+    
+    if (blogPost) {
+      setFormData({
+        title: blogPost.title,
+        excerpt: blogPost.excerpt,
+        content: blogPost.content,
+        author: blogPost.author.name,
+        category: blogPost.categories[0] || "Storage Tips",
+        image: blogPost.coverImage || "",
+        readTime: `${blogPost.readTime} min read`,
+      })
+    } else {
+      setNotFound(true)
+    }
+  }, [params.id])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -48,17 +70,40 @@ export default function NewBlogPost() {
     }))
   }
 
+  if (notFound) {
+    return (
+      <div className="space-y-6">
+        <Alert variant="destructive">
+          <AlertDescription>
+            Blog post not found. Please check the URL or go back to the blog list.
+          </AlertDescription>
+        </Alert>
+        <Button onClick={() => router.push("/admin/dashboard/blogs")}>
+          Back to Blogs
+        </Button>
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-3xl font-bold text-gray-900">Create New Blog Post</h2>
-        <p className="mt-2 text-gray-600">Add a new blog post to your website</p>
+      <div className="flex justify-between items-center">
+        <div>
+          <h2 className="text-3xl font-bold text-gray-900">Edit Blog Post</h2>
+          <p className="mt-2 text-gray-600">Update your existing blog post</p>
+        </div>
+        <Button
+          variant="outline"
+          onClick={() => router.push("/admin/dashboard/blogs")}
+        >
+          Cancel
+        </Button>
       </div>
 
       {success && (
         <Alert className="bg-green-50 border-green-200">
           <AlertDescription className="text-green-800">
-            Blog post created successfully! Redirecting...
+            Blog post updated successfully! Redirecting...
           </AlertDescription>
         </Alert>
       )}
@@ -160,7 +205,7 @@ export default function NewBlogPost() {
                       <CardContent>
                         <div 
                           className="prose prose-lg max-w-none"
-                          dangerouslySetInnerHTML={{ __html: formData.content || '<p class="text-gray-400">Start writing to see preview...</p>' }}
+                          dangerouslySetInnerHTML={{ __html: formData.content || '<p class="text-gray-400">No content to preview...</p>' }}
                         />
                       </CardContent>
                     </Card>
@@ -179,7 +224,7 @@ export default function NewBlogPost() {
                 Cancel
               </Button>
               <Button type="submit" disabled={isLoading}>
-                {isLoading ? "Creating..." : "Create Blog Post"}
+                {isLoading ? "Updating..." : "Update Blog Post"}
               </Button>
             </div>
           </form>
