@@ -12,6 +12,7 @@ import Image from "next/image"
 import LikeButtonMini from "./like-button-mini"
 // If there are any Clock imports from icons.tsx, update them
 import { Clock } from "@/components/icons"
+import { getRandomBlogImage, getCategoryColor } from "@/lib/blog-images"
 
 interface BlogPost {
   id: number
@@ -149,8 +150,8 @@ export default function BlogPage() {
                   <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-dubai-gold"></div>
                 </div>
               ) : featuredPosts.length > 0 ? (
-                featuredPosts.slice(0, 4).map((post) => (
-                  <BlogPostCard key={post.id} post={post} />
+                featuredPosts.slice(0, 4).map((post, index) => (
+                  <BlogPostCard key={post.id} post={post} index={index} />
                 ))
               ) : (
                 <div className="col-span-2 text-center py-8">
@@ -182,8 +183,8 @@ export default function BlogPage() {
                     <p className="text-gray-600">No articles found matching your search.</p>
                   </div>
                 ) : (
-                  filteredBlogs.map((post) => (
-                    <BlogPostRow key={post.id} post={post} />
+                  filteredBlogs.map((post, index) => (
+                    <BlogPostRow key={post.id} post={post} index={index} />
                   ))
                 )}
               </TabsContent>
@@ -197,8 +198,8 @@ export default function BlogPage() {
                   ) : (
                     blogs
                       .filter((post) => post.categories.includes(category))
-                      .map((post) => (
-                        <BlogPostRow key={post.id} post={post} />
+                      .map((post, index) => (
+                        <BlogPostRow key={post.id} post={post} index={index} />
                       ))
                   )}
                 </TabsContent>
@@ -221,8 +222,8 @@ export default function BlogPage() {
             <h3 className="text-xl font-bold mb-4 text-dubai-navy">Popular Posts</h3>
             <div className="space-y-4">
               {popularPosts.length > 0 ? (
-                popularPosts.slice(0, 4).map((post) => (
-                  <SidebarPostCard key={post.id} post={post} />
+                popularPosts.slice(0, 4).map((post, index) => (
+                  <SidebarPostCard key={post.id} post={post} index={index} />
                 ))
               ) : (
                 <p className="text-gray-600 text-sm">Loading popular posts...</p>
@@ -235,8 +236,8 @@ export default function BlogPage() {
             <h3 className="text-xl font-bold mb-4 text-dubai-navy">Recommended For You</h3>
             <div className="space-y-4">
               {recommendedPosts.length > 0 ? (
-                recommendedPosts.slice(0, 3).map((post) => (
-                  <SidebarPostCard key={post.id} post={post} />
+                recommendedPosts.slice(0, 3).map((post, index) => (
+                  <SidebarPostCard key={post.id} post={post} index={index + 10} />
                 ))
               ) : (
                 <p className="text-gray-600 text-sm">Loading recommendations...</p>
@@ -281,7 +282,7 @@ export default function BlogPage() {
 }
 
 // Blog Post Card Component
-function BlogPostCard({ post }: { post: BlogPost }) {
+function BlogPostCard({ post, index }: { post: BlogPost; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -292,15 +293,15 @@ function BlogPostCard({ post }: { post: BlogPost }) {
       <Link href={`/blog/${post.slug}`} target="_blank" rel="noopener noreferrer">
         <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
           <Image
-            src={post.image || "/placeholder.svg"}
+            src={getRandomBlogImage(post.categories[0], post.id)}
             alt={post.title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
           {post.categories.length > 0 && (
-            <div className="absolute top-3 left-3 bg-dubai-gold/90 text-white text-xs font-medium px-2 py-1 rounded">
+            <Badge className="absolute top-3 left-3 bg-dubai-gold/90 text-white border-0">
               {post.categories[0]}
-            </div>
+            </Badge>
           )}
         </div>
         <h3 className="text-xl font-bold mb-2 group-hover:text-dubai-gold transition-colors">{post.title}</h3>
@@ -330,7 +331,7 @@ function BlogPostCard({ post }: { post: BlogPost }) {
 }
 
 // Blog Post Row Component
-function BlogPostRow({ post }: { post: BlogPost }) {
+function BlogPostRow({ post, index }: { post: BlogPost; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -341,7 +342,7 @@ function BlogPostRow({ post }: { post: BlogPost }) {
       <Link href={`/blog/${post.slug}`} className="md:col-span-1" target="_blank" rel="noopener noreferrer">
         <div className="relative h-40 overflow-hidden rounded-lg">
           <Image
-            src={post.image || "/placeholder.svg"}
+            src={getRandomBlogImage(post.categories[0], post.id)}
             alt={post.title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -349,17 +350,17 @@ function BlogPostRow({ post }: { post: BlogPost }) {
         </div>
       </Link>
       <div className="md:col-span-2">
-        <div className="flex flex-wrap gap-2 mb-2">
-          {post.categories.map((category) => (
-            <Badge key={category} variant="outline" className="bg-dubai-gold/10 text-dubai-gold border-dubai-gold/20">
-              {category}
-            </Badge>
-          ))}
-        </div>
         <Link href={`/blog/${post.slug}`} target="_blank" rel="noopener noreferrer">
           <h3 className="text-xl font-bold mb-2 group-hover:text-dubai-gold transition-colors">{post.title}</h3>
         </Link>
         <p className="text-dubai-navy/70 mb-3 line-clamp-2">{post.excerpt}</p>
+        <div className="flex flex-wrap gap-2 mb-3">
+          {post.categories.slice(0, 1).map((category) => (
+            <Badge key={category} variant="secondary" className="bg-gray-100 text-gray-600 border-0 text-xs">
+              {category}
+            </Badge>
+          ))}
+        </div>
         <div className="flex items-center text-sm text-dubai-navy/60 mb-3">
           <Clock className="h-4 w-4 mr-1" />
           <span>{post.readTime}</span>
@@ -384,12 +385,12 @@ function BlogPostRow({ post }: { post: BlogPost }) {
 }
 
 // Sidebar Post Card Component
-function SidebarPostCard({ post }: { post: BlogPost }) {
+function SidebarPostCard({ post, index }: { post: BlogPost; index: number }) {
   return (
     <div className="group flex gap-3 items-start">
       <Link href={`/blog/${post.slug}`} className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded" target="_blank" rel="noopener noreferrer">
         <Image
-          src={post.image || "/placeholder.svg"}
+          src={getRandomBlogImage(post.categories[0], post.id)}
           alt={post.title}
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"

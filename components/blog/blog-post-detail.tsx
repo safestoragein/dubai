@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { formatDate } from "@/lib/utils"
+import { getRandomBlogImage } from "@/lib/blog-images"
 import LikeButton from "./like-button"
 import ShareButtons from "./share-buttons"
 import CommentSection from "./comment-section"
@@ -61,7 +62,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             author: { name: extraData.author || 'SafeStorage Team' },
             categories: [extraData.category || 'General'],
             date: blog.created_at || extraData.created_at || new Date().toISOString(),
-            image: extraData.featured_image || `/blog/${blog.slug}.jpg`,
+            image: extraData.featured_image || getRandomBlogImage(extraData.category, parseInt(blog.blog_id) || parseInt(blog.id)),
             readTime: extraData.read_time ? `${extraData.read_time}` : "5 min read",
             likes: extraData.likes || Math.floor(Math.random() * 100) + 50,
             views: extraData.views || Math.floor(Math.random() * 500) + 100,
@@ -119,15 +120,16 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <div className="flex flex-wrap gap-2 mb-4">
+
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-dubai-navy">{post.title}</h1>
+
+          <div className="flex flex-wrap gap-2 mb-6">
             {post.categories?.map((category, index) => (
-              <Badge key={index} variant="outline" className="bg-dubai-gold/10 text-dubai-gold border-dubai-gold/20">
+              <Badge key={index} variant="secondary" className="bg-gray-100 text-gray-600 border-0">
                 {category}
               </Badge>
             ))}
           </div>
-
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-dubai-navy">{post.title}</h1>
 
           <div className="flex flex-wrap items-center gap-4 text-dubai-navy/60 mb-6">
             <div className="flex items-center">
