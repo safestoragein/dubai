@@ -1,6 +1,4 @@
 import BlogPostDetail from "@/components/blog/blog-post-detail"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
 import type { Metadata } from "next"
 
 interface BlogPostPageProps {
@@ -51,13 +49,5 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1">
-        <BlogPostDetail slug={params.slug} />
-      </main>
-      <Footer />
-    </div>
-  )
+  return <BlogPostDetail slug={params.slug} />
 }

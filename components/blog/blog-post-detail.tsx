@@ -30,6 +30,37 @@ interface BlogPost {
   tags?: string[]
 }
 
+// Function to format blog content with proper spacing and structure
+function formatBlogContent(content: string): string {
+  // Remove excessive whitespace and clean up the content
+  let formattedContent = content
+    .replace(/\n\s*\n\s*\n/g, '\n\n') // Remove triple line breaks
+    .replace(/([.!?])\s*\n/g, '$1</p><p>') // Convert sentences to paragraphs
+    .replace(/\n\n+/g, '</p><p>') // Convert double line breaks to paragraphs
+    .trim()
+  
+  // Wrap content in paragraph tags if not already wrapped
+  if (!formattedContent.startsWith('<p>')) {
+    formattedContent = `<p>${formattedContent}</p>`
+  }
+  
+  // Add styling classes for better readability
+  formattedContent = formattedContent
+    .replace(/<h1/g, '<h1 class="text-3xl font-bold mb-6 mt-8 text-dubai-navy"')
+    .replace(/<h2/g, '<h2 class="text-2xl font-bold mb-4 mt-6 text-dubai-navy"')
+    .replace(/<h3/g, '<h3 class="text-xl font-semibold mb-3 mt-5 text-dubai-navy"')
+    .replace(/<h4/g, '<h4 class="text-lg font-semibold mb-2 mt-4 text-dubai-navy"')
+    .replace(/<p>/g, '<p class="mb-4 text-gray-700 leading-relaxed text-base">')
+    .replace(/<ul/g, '<ul class="list-disc pl-6 mb-4 space-y-2"')
+    .replace(/<ol/g, '<ol class="list-decimal pl-6 mb-4 space-y-2"')
+    .replace(/<li/g, '<li class="text-gray-700 leading-relaxed"')
+    .replace(/<blockquote/g, '<blockquote class="border-l-4 border-dubai-gold pl-4 py-2 mb-4 italic text-gray-600"')
+    .replace(/<strong/g, '<strong class="font-semibold text-dubai-navy"')
+    .replace(/<em/g, '<em class="italic text-gray-600"')
+  
+  return formattedContent
+}
+
 export default function BlogPostDetail({ slug }: { slug: string }) {
   const [mounted, setMounted] = useState(false)
   const [post, setPost] = useState<BlogPost | null>(null)
@@ -174,9 +205,13 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="prose prose-lg max-w-none mb-12 text-dubai-navy/80"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+          className="mb-12"
+        >
+          <div 
+            className="blog-content prose prose-lg max-w-none"
+            dangerouslySetInnerHTML={{ __html: formatBlogContent(post.content) }}
+          />
+        </motion.div>
 
         {/* Author Info */}
         <motion.div
