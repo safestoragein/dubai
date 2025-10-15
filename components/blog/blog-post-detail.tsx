@@ -19,7 +19,7 @@ interface BlogPost {
   excerpt: string
   content: string
   slug: string
-  author: { name: string }
+  author: { name: string; avatar?: string; role?: string }
   categories: string[]
   image?: string
   readTime?: string
@@ -65,6 +65,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
   const [mounted, setMounted] = useState(false)
   const [post, setPost] = useState<BlogPost | null>(null)
   const [loading, setLoading] = useState(true)
+  const [imageError, setImageError] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -187,15 +188,17 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-8 relative rounded-xl overflow-hidden"
+          className="mb-8 relative rounded-xl overflow-hidden bg-gray-100"
         >
           <div className="aspect-video relative">
             <Image
-              src={post.image || "/placeholder.svg?height=600&width=1200"}
+              src={imageError ? "/blog-placeholder.svg" : (post.image || "/blog-placeholder.svg")}
               alt={post.title}
               fill
               className="object-cover"
               priority
+              onError={() => setImageError(true)}
+              unoptimized
             />
           </div>
         </motion.div>
@@ -221,17 +224,14 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
           className="bg-gray-50 p-6 rounded-xl mb-12"
         >
           <div className="flex items-center gap-4">
-            <div className="relative h-16 w-16 rounded-full overflow-hidden">
-              <Image
-                src={post.author.avatar || "/placeholder.svg?height=64&width=64"}
-                alt={post.author.name}
-                fill
-                className="object-cover"
-              />
+            <div className="relative h-16 w-16 rounded-full overflow-hidden bg-dubai-gold/10">
+              <div className="h-16 w-16 flex items-center justify-center bg-dubai-gold/20 text-dubai-navy font-bold text-xl">
+                {post.author.name.charAt(0).toUpperCase()}
+              </div>
             </div>
             <div>
               <h3 className="text-lg font-bold text-dubai-navy">{post.author.name}</h3>
-              <p className="text-dubai-navy/60">{post.author.role || "Author"}</p>
+              <p className="text-dubai-navy/60">Storage Expert</p>
             </div>
           </div>
         </motion.div>
