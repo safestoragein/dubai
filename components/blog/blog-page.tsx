@@ -51,32 +51,48 @@ export default function BlogPage() {
       })
       const data = await response.json()
       
-      if (data.status === 'success' && data.data) {
+      console.log('API Response:', data) // Debug log
+      
+      if (data.status === 'success' && data.data && data.data.length > 0) {
         const processedBlogs = data.data.map((blog: any) => {
-          const extraData = blog.extra_data ? 
-            (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
+          let extraData = {}
+          try {
+            extraData = blog.extra_data ? 
+              (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
+          } catch (e) {
+            console.error('Error parsing extra_data for blog:', blog.blog_id, e)
+            extraData = {}
+          }
+          
           return {
-            id: blog.id || blog.blog_id,
-            slug: blog.slug,
-            title: blog.meta_title,
-            excerpt: blog.meta_description,
-            content: blog.content,
+            id: parseInt(blog.blog_id) || parseInt(blog.id) || Math.random(),
+            slug: blog.slug || '',
+            title: blog.meta_title || 'Untitled',
+            excerpt: blog.meta_description || '',
+            content: blog.content || '',
             author: { name: extraData.author || 'SafeStorage Team' },
-            categories: [extraData.category || 'General'],
+            categories: [extraData.category || 'Storage Tips'],
             date: blog.created_at || extraData.created_at || new Date().toISOString(),
-            image: extraData.featured_image || `/blog/${blog.slug}.jpg`,
+            image: extraData.featured_image || `/blog-placeholder.jpg`,
             readTime: extraData.read_time ? `${extraData.read_time}` : "5 min read",
             likes: extraData.likes || Math.floor(Math.random() * 100) + 50,
             views: extraData.views || Math.floor(Math.random() * 500) + 100,
             comments: []
           }
         })
-        // Sort by date, newest first
-        processedBlogs.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        
+        // Sort by blog_id (newest first - assuming higher ID = newer)
+        processedBlogs.sort((a: any, b: any) => b.id - a.id)
+        
+        console.log('Processed blogs:', processedBlogs.length) // Debug log
         setBlogs(processedBlogs)
+      } else {
+        console.log('No blogs found in response')
+        setBlogs([])
       }
     } catch (error) {
       console.error('Error fetching blogs:', error)
+      setBlogs([])
     } finally {
       setLoading(false)
     }
@@ -128,9 +144,19 @@ export default function BlogPage() {
             </div>
 
             <div className="grid gap-8 md:grid-cols-2">
-              {featuredPosts.slice(0, 4).map((post) => (
-                <BlogPostCard key={post.id} post={post} />
-              ))}
+              {loading ? (
+                <div className="col-span-2 text-center py-8">
+                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-dubai-gold"></div>
+                </div>
+              ) : featuredPosts.length > 0 ? (
+                featuredPosts.slice(0, 4).map((post) => (
+                  <BlogPostCard key={post.id} post={post} />
+                ))
+              ) : (
+                <div className="col-span-2 text-center py-8">
+                  <p className="text-gray-600">Loading articles...</p>
+                </div>
+              )}
             </div>
           </div>
 
@@ -194,9 +220,13 @@ export default function BlogPage() {
           <div className="bg-gray-50 rounded-xl p-6 mb-8">
             <h3 className="text-xl font-bold mb-4 text-dubai-navy">Popular Posts</h3>
             <div className="space-y-4">
-              {popularPosts.slice(0, 4).map((post) => (
-                <SidebarPostCard key={post.id} post={post} />
-              ))}
+              {popularPosts.length > 0 ? (
+                popularPosts.slice(0, 4).map((post) => (
+                  <SidebarPostCard key={post.id} post={post} />
+                ))
+              ) : (
+                <p className="text-gray-600 text-sm">Loading popular posts...</p>
+              )}
             </div>
           </div>
 
@@ -204,9 +234,13 @@ export default function BlogPage() {
           <div className="bg-dubai-gold/5 rounded-xl p-6 mb-8 border border-dubai-gold/20">
             <h3 className="text-xl font-bold mb-4 text-dubai-navy">Recommended For You</h3>
             <div className="space-y-4">
-              {recommendedPosts.slice(0, 3).map((post) => (
-                <SidebarPostCard key={post.id} post={post} />
-              ))}
+              {recommendedPosts.length > 0 ? (
+                recommendedPosts.slice(0, 3).map((post) => (
+                  <SidebarPostCard key={post.id} post={post} />
+                ))
+              ) : (
+                <p className="text-gray-600 text-sm">Loading recommendations...</p>
+              )}
             </div>
           </div>
 
