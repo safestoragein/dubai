@@ -81,7 +81,7 @@ export const localBusinessSchema = {
         name: "Ahmed Hassan"
       },
       datePublished: "2024-11-15",
-      reviewBody: "Excellent storage facility with top-notch security and climate control. The free pickup service made everything so convenient!"
+      reviewBody: "Excellent storage facility with top-notch security and climate control. The hassle-free pickup service made everything so convenient!"
     },
     {
       "@type": "Review",
@@ -111,7 +111,7 @@ export const localBusinessSchema = {
     },
     {
       "@type": "LocationFeatureSpecification",
-      name: "Free Pickup & Delivery",
+      name: "Hassle-Free Pickup & Delivery",
       value: true
     },
     {
@@ -132,7 +132,7 @@ export const serviceSchema = {
   "@type": "Service",
   serviceType: "Self Storage Service",
   name: "Premium Storage Solutions Dubai",
-  description: "Secure, climate-controlled storage units with free pickup and delivery across Dubai. Perfect for personal, business, and vehicle storage.",
+  description: "Secure, climate-controlled storage units with hassle-free pickup and delivery across Dubai. Perfect for personal, business, and vehicle storage.",
   provider: {
     "@type": "Organization",
     name: "SafeStorage Dubai",
@@ -230,7 +230,7 @@ export const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Do you offer free pickup and delivery services?",
+      name: "Do you offer hassle-free pickup and delivery services?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Yes! We provide complimentary pickup and delivery services across Dubai. Our professional team will collect your items from your location, transport them safely to our facility, and return them whenever you need them back."
@@ -294,7 +294,7 @@ export const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
   name: "Self Storage Units Dubai",
-  description: "Premium climate-controlled storage units in Dubai with free pickup and delivery",
+  description: "Premium climate-controlled storage units in Dubai with hassle-free pickup and delivery",
   brand: {
     "@type": "Brand",
     name: "SafeStorage"

@@ -12,7 +12,7 @@ export const pricingPlans = [
     price: "49.99",
     description: "Ideal for medium-sized storage requirements",
     space: "Medium Box (5m³)",
-    features: ["All Basic Features", "Free Pickup", "Priority Support", "Extended Insurance", "Flexible Duration"],
+    features: ["All Basic Features", "Hassle-Free Pickup", "Priority Support", "Extended Insurance", "Flexible Duration"],
     popular: true,
   },
   {

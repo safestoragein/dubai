@@ -20,7 +20,7 @@ const features = [
     others: "no",
   },
   {
-    name: "Free Pickup & Delivery",
+    name: "Hassle-Free Pickup & Delivery",
     safestorage: "yes",
     others: "no",
   },

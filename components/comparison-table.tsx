@@ -5,7 +5,7 @@ export default function ComparisonTable() {
     { name: "24/7 Security & CCTV Monitoring", safestorage: "yes", others: "limited" },
     { name: "Climate-Controlled Units", safestorage: "yes", others: "no" },
     { name: "Flexible Payment Plans", safestorage: "yes", others: "no" },
-    { name: "Free Pickup & Delivery", safestorage: "yes", others: "no" },
+    { name: "Hassle-Free Pickup & Delivery", safestorage: "yes", others: "no" },
     { name: "Online Booking & Instant Quote", safestorage: "yes", others: "no" },
     { name: "Customer Support 24/7", safestorage: "yes", others: "no" },
     { name: "No Hidden Fees", safestorage: "yes", others: "limited" },

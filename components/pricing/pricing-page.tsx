@@ -47,7 +47,7 @@ export default function PricingPage() {
               {[
                 { icon: Shield, text: "No Hidden Fees" },
                 { icon: Lock, text: "Secure Storage" },
-                { icon: Truck, text: "Free Pickup" },
+                { icon: Truck, text: "Hassle-Free Pickup" },
                 { icon: Clock, text: "Easy Returns" },
               ].map((item, index) => (
                 <div key={index} className="flex flex-col items-center space-y-2 p-4 rounded-lg bg-white shadow-sm">
@@ -104,7 +104,7 @@ export default function PricingPage() {
                 icon: Lock,
               },
               {
-                title: "Free Pickup & Delivery",
+                title: "Hassle-Free Pickup & Delivery",
                 description: "We handle the logistics so you don't have to.",
                 icon: Truck,
               },
