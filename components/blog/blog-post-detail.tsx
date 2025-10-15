@@ -41,7 +41,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
 
   const fetchBlogPost = async () => {
     try {
-      const response = await fetch('https://safestorage.in/back/app/get_blog_content')
+      const response = await fetch('/api/blogs/fetch')
       const data = await response.json()
       
       if (data.status === 'success' && data.data) {

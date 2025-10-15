@@ -43,7 +43,12 @@ export default function BlogPage() {
   
   const fetchBlogs = async () => {
     try {
-      const response = await fetch('https://safestorage.in/back/app/get_blog_content')
+      const response = await fetch('/api/blogs/fetch', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
       const data = await response.json()
       
       if (data.status === 'success' && data.data) {
@@ -77,9 +82,13 @@ export default function BlogPage() {
     }
   }
   
-  const filteredBlogs = selectedCategory === "all" 
-    ? blogs
-    : blogs.filter(blog => blog.categories[0] === selectedCategory)
+  const filteredBlogs = blogs.filter(blog => {
+    const matchesCategory = selectedCategory === "all" || blog.categories[0] === selectedCategory
+    const matchesSearch = searchQuery === "" || 
+      blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+    return matchesCategory && matchesSearch
+  })
     
   const popularPosts = [...blogs].sort((a, b) => b.views - a.views).slice(0, 5)
   const recommendedPosts = [...blogs].sort((a, b) => b.likes - a.likes).slice(0, 5)
@@ -113,9 +122,9 @@ export default function BlogPage() {
           <div className="mb-12">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-dubai-navy">Featured Articles</h2>
-              <Link href="/blog/category/all" className="text-dubai-gold flex items-center hover:underline">
-                View all <ChevronRight className="h-4 w-4 ml-1" />
-              </Link>
+              <span className="text-dubai-gold flex items-center">
+                {blogs.length} Articles
+              </span>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2">
@@ -142,8 +151,12 @@ export default function BlogPage() {
                   <div className="text-center py-12">
                     <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-dubai-gold"></div>
                   </div>
+                ) : filteredBlogs.length === 0 ? (
+                  <div className="text-center py-12">
+                    <p className="text-gray-600">No articles found matching your search.</p>
+                  </div>
                 ) : (
-                  blogs.map((post) => (
+                  filteredBlogs.map((post) => (
                     <BlogPostRow key={post.id} post={post} />
                   ))
                 )}
@@ -202,11 +215,14 @@ export default function BlogPage() {
             <h3 className="text-xl font-bold mb-4 text-dubai-navy">Categories</h3>
             <div className="flex flex-wrap gap-2">
               {allCategories.map((category) => (
-                <Link key={category} href={`/blog/category/${category.toLowerCase()}`}>
-                  <Badge variant="outline" className="hover:bg-dubai-gold/10 hover:text-dubai-gold cursor-pointer">
-                    {category}
-                  </Badge>
-                </Link>
+                <Badge 
+                  key={category} 
+                  variant="outline" 
+                  className="hover:bg-dubai-gold/10 hover:text-dubai-gold cursor-pointer"
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </Badge>
               ))}
             </div>
           </div>
