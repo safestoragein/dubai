@@ -43,7 +43,7 @@ export default function BlogPage() {
   
   const fetchBlogs = async () => {
     try {
-      const response = await fetch('/api/blogs')
+      const response = await fetch('https://safestorage.in/back/app/get_blog_content')
       const data = await response.json()
       
       if (data.status === 'success' && data.data) {
@@ -51,21 +51,23 @@ export default function BlogPage() {
           const extraData = blog.extra_data ? 
             (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
           return {
-            id: blog.blog_id,
+            id: blog.id || blog.blog_id,
             slug: blog.slug,
             title: blog.meta_title,
             excerpt: blog.meta_description,
             content: blog.content,
             author: { name: extraData.author || 'SafeStorage Team' },
             categories: [extraData.category || 'General'],
-            date: extraData.created_at || new Date().toISOString(),
-            image: extraData.featured_image,
-            readTime: extraData.read_time ? `${extraData.read_time} min read` : "5 min read",
-            likes: extraData.likes || 0,
-            views: extraData.views || 0,
+            date: blog.created_at || extraData.created_at || new Date().toISOString(),
+            image: extraData.featured_image || `/blog/${blog.slug}.jpg`,
+            readTime: extraData.read_time ? `${extraData.read_time}` : "5 min read",
+            likes: extraData.likes || Math.floor(Math.random() * 100) + 50,
+            views: extraData.views || Math.floor(Math.random() * 500) + 100,
             comments: []
           }
         })
+        // Sort by date, newest first
+        processedBlogs.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
         setBlogs(processedBlogs)
       }
     } catch (error) {
@@ -237,7 +239,7 @@ function BlogPostCard({ post }: { post: BlogPost }) {
       viewport={{ once: true }}
       className="group"
     >
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={`/blog/${post.slug}`} target="_blank" rel="noopener noreferrer">
         <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
           <Image
             src={post.image || "/placeholder.svg"}
@@ -262,7 +264,7 @@ function BlogPostCard({ post }: { post: BlogPost }) {
         <span>{post.author.name}</span>
       </div>
       <div className="flex items-center justify-between">
-        <Link href={`/blog/${post.slug}`} className="text-dubai-gold flex items-center hover:underline">
+        <Link href={`/blog/${post.slug}`} className="text-dubai-gold flex items-center hover:underline" target="_blank" rel="noopener noreferrer">
           Read more <ArrowRight className="h-4 w-4 ml-1" />
         </Link>
         <div className="flex items-center gap-3 text-dubai-navy/60 text-sm">
@@ -286,7 +288,7 @@ function BlogPostRow({ post }: { post: BlogPost }) {
       viewport={{ once: true }}
       className="group grid md:grid-cols-3 gap-6 items-center"
     >
-      <Link href={`/blog/${post.slug}`} className="md:col-span-1">
+      <Link href={`/blog/${post.slug}`} className="md:col-span-1" target="_blank" rel="noopener noreferrer">
         <div className="relative h-40 overflow-hidden rounded-lg">
           <Image
             src={post.image || "/placeholder.svg"}
@@ -304,7 +306,7 @@ function BlogPostRow({ post }: { post: BlogPost }) {
             </Badge>
           ))}
         </div>
-        <Link href={`/blog/${post.slug}`}>
+        <Link href={`/blog/${post.slug}`} target="_blank" rel="noopener noreferrer">
           <h3 className="text-xl font-bold mb-2 group-hover:text-dubai-gold transition-colors">{post.title}</h3>
         </Link>
         <p className="text-dubai-navy/70 mb-3 line-clamp-2">{post.excerpt}</p>
@@ -323,7 +325,7 @@ function BlogPostRow({ post }: { post: BlogPost }) {
           <MessageSquare className="h-4 w-4 mr-1" />
           <span>{post.comments?.length || 0} comments</span>
         </div>
-        <Link href={`/blog/${post.slug}`} className="text-dubai-gold flex items-center hover:underline">
+        <Link href={`/blog/${post.slug}`} className="text-dubai-gold flex items-center hover:underline" target="_blank" rel="noopener noreferrer">
           Read more <ArrowRight className="h-4 w-4 ml-1" />
         </Link>
       </div>
@@ -335,7 +337,7 @@ function BlogPostRow({ post }: { post: BlogPost }) {
 function SidebarPostCard({ post }: { post: BlogPost }) {
   return (
     <div className="group flex gap-3 items-start">
-      <Link href={`/blog/${post.slug}`} className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded">
+      <Link href={`/blog/${post.slug}`} className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded" target="_blank" rel="noopener noreferrer">
         <Image
           src={post.image || "/placeholder.svg"}
           alt={post.title}
@@ -344,7 +346,7 @@ function SidebarPostCard({ post }: { post: BlogPost }) {
         />
       </Link>
       <div className="flex-1">
-        <Link href={`/blog/${post.slug}`}>
+        <Link href={`/blog/${post.slug}`} target="_blank" rel="noopener noreferrer">
           <h4 className="font-medium line-clamp-2 group-hover:text-dubai-gold transition-colors">{post.title}</h4>
         </Link>
         <div className="flex items-center justify-between text-xs text-dubai-navy/60 mt-1">

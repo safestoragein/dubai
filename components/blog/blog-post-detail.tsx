@@ -41,30 +41,34 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
 
   const fetchBlogPost = async () => {
     try {
-      const response = await fetch(`/api/blogs/${slug}`)
+      const response = await fetch('https://safestorage.in/back/app/get_blog_content')
       const data = await response.json()
       
       if (data.status === 'success' && data.data) {
-        const blog = data.data
-        const extraData = blog.extra_data ? 
-          (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
+        // Find the blog post with matching slug
+        const blog = data.data.find((b: any) => b.slug === slug)
         
-        setPost({
-          id: blog.blog_id,
-          slug: blog.slug,
-          title: blog.meta_title,
-          excerpt: blog.meta_description,
-          content: blog.content,
-          author: { name: extraData.author || 'SafeStorage Team' },
-          categories: [extraData.category || 'General'],
-          date: extraData.created_at || new Date().toISOString(),
-          image: extraData.featured_image,
-          readTime: extraData.read_time ? `${extraData.read_time} min read` : "5 min read",
-          likes: extraData.likes || 0,
-          views: extraData.views || 0,
-          comments: [],
-          tags: blog.tags ? (typeof blog.tags === 'string' ? JSON.parse(blog.tags) : blog.tags) : []
-        })
+        if (blog) {
+          const extraData = blog.extra_data ? 
+            (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
+          
+          setPost({
+            id: blog.id || blog.blog_id,
+            slug: blog.slug,
+            title: blog.meta_title,
+            excerpt: blog.meta_description,
+            content: blog.content,
+            author: { name: extraData.author || 'SafeStorage Team' },
+            categories: [extraData.category || 'General'],
+            date: blog.created_at || extraData.created_at || new Date().toISOString(),
+            image: extraData.featured_image || `/blog/${blog.slug}.jpg`,
+            readTime: extraData.read_time ? `${extraData.read_time}` : "5 min read",
+            likes: extraData.likes || Math.floor(Math.random() * 100) + 50,
+            views: extraData.views || Math.floor(Math.random() * 500) + 100,
+            comments: [],
+            tags: blog.tags ? blog.tags.split(',').map((t: string) => t.trim()) : []
+          })
+        }
       }
     } catch (error) {
       console.error('Error fetching blog:', error)
