@@ -8,6 +8,7 @@ import Footer from "@/components/footer"
 import FloatingContactButtons from "@/components/floating-contact-buttons"
 import PerformanceOptimizer from "@/components/performance-optimizer"
 import Script from "next/script"
+import { organizationSchema, localBusinessSchema, webSiteSchema } from "@/lib/structured-data"
 
 // Optimize font loading
 const inter = Inter({
@@ -18,9 +19,62 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "SafeStorage Dubai",
-  description: "Secure storage solutions in Dubai",
-    generator: 'v0.app'
+  metadataBase: new URL('https://safestorage.ae'),
+  title: {
+    default: "SafeStorage Dubai - Premium Self Storage Solutions | Call +971505773388",
+    template: "%s | SafeStorage Dubai"
+  },
+  description: "Dubai's most trusted self storage facility offering climate-controlled units, 24/7 security, and free pickup & delivery. Call +971505773388 for instant quote.",
+  keywords: "self storage dubai, storage units dubai, climate controlled storage, secure storage dubai, business storage, personal storage, vehicle storage, document storage, storage facility dubai, dubai storage solutions, furniture storage dubai, moving storage dubai",
+  authors: [{ name: "SafeStorage Dubai" }],
+  creator: "SafeStorage Dubai",
+  publisher: "SafeStorage Dubai",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "SafeStorage Dubai - Premium Self Storage Solutions | +971505773388",
+    description: "Dubai's most trusted self storage facility with climate-controlled units, 24/7 security, and free pickup & delivery service. Call now!",
+    url: "https://safestorage.ae",
+    siteName: "SafeStorage Dubai",
+    locale: "en_AE",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SafeStorage Dubai - Premium Storage Facility"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SafeStorage Dubai - Premium Self Storage | +971505773388",
+    description: "Dubai's most trusted self storage facility with climate-controlled units and free pickup & delivery.",
+    images: ["/twitter-image.jpg"],
+    creator: "@safestoragedubai"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://safestorage.ae",
+    languages: {
+      'en-AE': 'https://safestorage.ae',
+      'ar-AE': 'https://safestorage.ae/ar'
+    }
+  }
 }
 
 export const viewport: Viewport = {
@@ -38,6 +92,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
+        {/* Structured Data / Schema.org */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              organizationSchema,
+              localBusinessSchema,
+              webSiteSchema
+            ])
+          }}
+        />
+        
         {/* Google Analytics (gtag.js) - G-EHB5H09SGY */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-EHB5H09SGY" strategy="afterInteractive" />
         <Script id="google-analytics-g-ehb5h09sgy" strategy="afterInteractive">

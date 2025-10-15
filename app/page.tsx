@@ -18,11 +18,36 @@ import BlogSection from "@/components/blog-section"
 import { blogPosts } from "@/data/blog-posts"
 
 export const metadata: Metadata = {
-  title: "Secure Storage Solutions in Dubai | SafeStorage Dubai",
+  title: "Secure Storage Solutions in Dubai | SafeStorage Dubai | +971505773388",
   description:
-    "SafeStorage Dubai offers secure, climate-controlled storage solutions with free pickup & delivery. Personal, business & vehicle storage available across Dubai.",
+    "SafeStorage Dubai offers secure, climate-controlled storage solutions with free pickup & delivery. Personal, business & vehicle storage. Call +971505773388 for instant quote.",
   keywords:
-    "storage dubai, self storage, secure storage, climate controlled storage, business storage, personal storage, dubai storage solutions, storage units dubai",
+    "storage dubai, self storage, secure storage, climate controlled storage, business storage, personal storage, dubai storage solutions, storage units dubai, safestorage, storage facility dubai, furniture storage, document storage",
+  openGraph: {
+    title: "SafeStorage Dubai - Secure Storage Solutions | Free Pickup",
+    description: "Premium climate-controlled storage units in Dubai. 24/7 security, free pickup & delivery. Call +971505773388.",
+    url: "https://safestorage.ae",
+    siteName: "SafeStorage Dubai",
+    images: [
+      {
+        url: "/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SafeStorage Dubai Facility"
+      }
+    ],
+    locale: "en_AE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SafeStorage Dubai - Secure Storage Solutions",
+    description: "Premium storage units in Dubai with free pickup & delivery. Call +971505773388.",
+    images: ["/twitter-home.jpg"],
+  },
+  alternates: {
+    canonical: "https://safestorage.ae",
+  },
 }
 
 export default function LandingPage() {

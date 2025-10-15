@@ -2,11 +2,36 @@ import PricingPage from "@/components/pricing/pricing-page"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Storage Pricing in Dubai | Affordable Storage Solutions",
+  title: "Storage Pricing Dubai | From AED 199/month | +971505773388",
   description:
-    "Transparent pricing for storage solutions in Dubai. Starting from AED 99/month with free pickup & delivery. No hidden fees. Compare our affordable storage plans.",
+    "Transparent storage pricing in Dubai starting from AED 199/month. Various unit sizes with flexible plans. Free pickup & delivery included. Call +971505773388 for best rates.",
   keywords:
-    "storage pricing dubai, cheap storage dubai, storage costs, affordable storage, storage rates dubai, self storage prices",
+    "storage pricing dubai, cheap storage dubai, storage costs, affordable storage, storage rates dubai, self storage prices, monthly storage cost, storage unit prices",
+  openGraph: {
+    title: "SafeStorage Pricing - Affordable Storage from AED 199",
+    description: "Competitive storage rates in Dubai. All sizes available with free pickup & delivery. Call +971505773388.",
+    url: "https://safestorage.ae/pricing",
+    siteName: "SafeStorage Dubai",
+    images: [
+      {
+        url: "/og-pricing.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SafeStorage Pricing"
+      }
+    ],
+    locale: "en_AE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SafeStorage Pricing - From AED 199/month",
+    description: "Affordable storage units in Dubai with transparent pricing. Call +971505773388.",
+    images: ["/twitter-pricing.jpg"],
+  },
+  alternates: {
+    canonical: "https://safestorage.ae/pricing",
+  },
 }
 
 export default function Pricing() {

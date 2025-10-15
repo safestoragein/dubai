@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { faqSchema } from "@/lib/structured-data"
 
 const faqs = [
   {
@@ -39,6 +40,12 @@ const faqs = [
 export default function FAQSection() {
   return (
     <section className="w-full py-20 bg-white" id="faq">
+      {/* Add FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        suppressHydrationWarning
+      />
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <motion.h2
