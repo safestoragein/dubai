@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import "./globals.css"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
+import { NavigationGuardProvider } from "@/components/providers/navigation-guard"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import FloatingContactButtons from "@/components/floating-contact-buttons"
@@ -160,11 +161,13 @@ export default function RootLayout({
         </noscript>
 
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <PerformanceOptimizer />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <FloatingContactButtons />
+          <NavigationGuardProvider>
+            <PerformanceOptimizer />
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <FloatingContactButtons />
+          </NavigationGuardProvider>
         </ThemeProvider>
       </body>
     </html>

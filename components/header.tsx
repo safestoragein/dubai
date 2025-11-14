@@ -43,7 +43,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/design-mode/logo%20%281%29.png"
+            src="/images/design-mode/logo.png"
             alt="SafeStorage Dubai Logo"
             width={180}
             height={60}

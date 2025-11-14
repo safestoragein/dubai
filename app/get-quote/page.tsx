@@ -1,4 +1,4 @@
-import QuotePage from "@/components/quote/quote-page"
+import QuotePage from "@/components/quote/quote-page-alternative2"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
