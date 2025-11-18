@@ -247,12 +247,18 @@ export default function ThankYouPage() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
+                <Link href="/get-quote">
+                  <Package className="mr-2 h-5 w-5" />
+                  Back to Quote
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-dubai-navy" asChild>
                 <Link href="/">
                   <Home className="mr-2 h-5 w-5" />
                   Return to Homepage
                 </Link>
               </Button>
-              <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-dubai-navy" asChild>
                 <Link href="/services">
                   Explore Our Services
                   <ArrowRight className="ml-2 h-5 w-5" />

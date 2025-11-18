@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { useNavigationGuard } from "@/components/providers/navigation-guard"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -418,6 +419,7 @@ const getCategoryColors = (color: string, isSelected: boolean = false) => {
 }
 
 export default function QuotePage() {
+  const router = useRouter()
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -880,12 +882,24 @@ export default function QuotePage() {
       localStorage.removeItem('safestorage_quote_step')
       console.log('🧹 Cleared form data from localStorage')
       
-      toast.success(`Quote #${formData.quotationId} confirmed! Redirecting to payment...`)
+      // Trigger confetti effect
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#D4AF37', '#0A2463', '#FFFFFF']
+      })
+      
+      toast.success(`Quote #${formData.quotationId} confirmed! Thank you for choosing SafeStorage Dubai.`)
+      
+      // Redirect to thank-you page after 20-25 seconds (randomly between 20-25)
+      const redirectDelay = 20000 + Math.random() * 5000 // 20-25 seconds
+      console.log(`🔄 Will redirect to thank-you page in ${redirectDelay/1000} seconds`)
       
       setTimeout(() => {
-        // Redirect to payment with the final price
-        window.location.href = `https://payment.safestorage.ae/checkout?amount=${finalPrice}&quotationId=${formData.quotationId}`
-      }, 2000)
+        console.log('🔄 Redirecting to thank-you page...')
+        router.push('/thank-you')
+      }, redirectDelay)
 
     } catch (error) {
       console.error('❌ Error updating quote:', error)
