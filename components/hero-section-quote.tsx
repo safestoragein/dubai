@@ -239,12 +239,12 @@ export default function HeroSectionQuote() {
       </div>
 
       <div className="container px-4 md:px-6 relative z-10 py-16 md:py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="flex justify-center items-center min-h-[400px]">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-white text-center md:text-left mx-auto max-w-4xl"
+            className="text-white text-center max-w-5xl mx-auto"
           >
             <div className="inline-block px-4 py-1 bg-dubai-gold text-white text-sm font-medium rounded-full mb-6">
               Secure Storage Solutions
@@ -252,11 +252,11 @@ export default function HeroSectionQuote() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Secure, Affordable & <span className="text-dubai-gold">Hassle-Free</span> Storage in Dubai
             </h1>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto md:mx-0">
+            <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
               Flexible self-storage solutions for homes & businesses. Safe, climate-controlled, and accessible 24/7.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 max-w-3xl mx-auto md:mx-0">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 max-w-4xl mx-auto">
               {[
                 { icon: Truck, text: "Hassle free Pickup & Delivery" },
                 { icon: Building, text: "Climate-Controlled Units" },
@@ -278,7 +278,7 @@ export default function HeroSectionQuote() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
                 <Link href="/get-quote">
                   Get a Free Quote
