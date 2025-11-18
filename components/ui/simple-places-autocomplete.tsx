@@ -53,7 +53,12 @@ export default function SimplePlacesAutocomplete({
         if (!document.getElementById('google-maps-script')) {
           const script = document.createElement('script')
           script.id = 'google-maps-script'
-          script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCse5f97FoDXrT5kKoeB1XGCxeCs12-mOE&libraries=places&callback=initGooglePlaces`
+          const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+          if (!apiKey) {
+            console.error('Google Maps API key not configured')
+            return
+          }
+          script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initGooglePlaces`
           script.async = true
           script.defer = true
           

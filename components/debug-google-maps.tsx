@@ -8,8 +8,14 @@ export default function DebugGoogleMaps() {
   useEffect(() => {
     const testAPI = async () => {
       try {
+        const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+        if (!apiKey) {
+          setStatus("❌ API Key not configured")
+          return
+        }
+        
         // Test the API key directly
-        const response = await fetch(`https://maps.googleapis.com/maps/api/js?key=AIzaSyCse5f97FoDXrT5kKoeB1XGCxeCs12-mOE&libraries=places`)
+        const response = await fetch(`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`)
         console.log('API Response status:', response.status)
         
         if (response.ok) {
@@ -30,7 +36,7 @@ export default function DebugGoogleMaps() {
     <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
       <h3 className="font-bold">Google Maps API Debug</h3>
       <p>Status: {status}</p>
-      <p>Key: AIzaSyCse5f97FoDXrT5kKoeB1XGCxeCs12-mOE</p>
+      <p>Key: {process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ? '[CONFIGURED]' : '[NOT SET]'}</p>
     </div>
   )
 }

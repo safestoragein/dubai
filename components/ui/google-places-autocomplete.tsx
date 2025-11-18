@@ -70,7 +70,13 @@ export default function GooglePlacesAutocomplete({
         // Load the script
         isScriptLoading = true
         const script = document.createElement('script')
-        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCse5f97FoDXrT5kKoeB1XGCxeCs12-mOE&libraries=places&loading=async'
+        const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+        if (!apiKey) {
+          console.error('Google Maps API key not configured')
+          setIsLoading(false)
+          return
+        }
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&loading=async`
         
         script.onload = () => {
           console.log('Google Maps script loaded successfully')
