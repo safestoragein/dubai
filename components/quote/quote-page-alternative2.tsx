@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import WorkingPlacesAutocomplete from "@/components/ui/working-places-autocomplete"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Progress } from "@/components/ui/progress"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -80,6 +81,7 @@ import confetti from "canvas-confetti"
 interface ApiItem {
   storage_item_name: string
   aed_item_points: string
+  storage_item_point: string // New column for storage points
 }
 
 interface ApiResponse {
@@ -91,6 +93,7 @@ interface SelectedItem {
   name: string
   quantity: number
   price: number
+  storagePoints: number // Points per item
 }
 
 interface FormData {
@@ -103,15 +106,91 @@ interface FormData {
   storageType: "short-term" | "long-term" | "business"
   selectedItems: SelectedItem[]
   storageOption?: "closed" | "shared"
+  // Added fields for saved data
+  customerId?: number
+  quotationId?: number
+  totalPoints?: number
+  totalPallets?: number
+  totalSqft?: number
+  closedPrice?: number
+  sharedPrice?: number
+}
+
+// Storage calculation functions
+const calculateTotalPoints = (selectedItems: SelectedItem[]): number => {
+  return selectedItems.reduce((total, item) => {
+    return total + (item.storagePoints * item.quantity)
+  }, 0)
+}
+
+const calculatePallets = (totalPoints: number): number => {
+  // 13 points = 1 pallet
+  return Math.ceil(totalPoints / 13)
+}
+
+const calculateSquareFeet = (pallets: number): number => {
+  // 1 pallet = 16 sqft
+  return pallets * 16
+}
+
+// Shared space pricing functions
+const calculateSharedSpacePricing = (selectedItems: SelectedItem[]) => {
+  const totalPoints = calculateTotalPoints(selectedItems)
+  const pallets = calculatePallets(totalPoints)
+  const calculatedSqft = calculateSquareFeet(pallets)
+  
+  // Minimum 30 sqft for shared space
+  const chargeableSqft = Math.max(calculatedSqft, 30)
+  
+  // 20 AED per sqft
+  const pricePerSqft = 20
+  const totalCost = chargeableSqft * pricePerSqft
+  
+  return {
+    calculatedSqft,
+    chargeableSqft,
+    pricePerSqft,
+    totalCost,
+    isMinimumApplied: calculatedSqft < 30
+  }
+}
+
+// Closed space pricing functions
+const calculateClosedSpacePricing = (selectedItems: SelectedItem[]) => {
+  const totalPoints = calculateTotalPoints(selectedItems)
+  const pallets = calculatePallets(totalPoints)
+  const calculatedSqft = calculateSquareFeet(pallets)
+  
+  // Each container is 30 sqft
+  const containerSize = 30
+  const pricePerContainer = 700
+  
+  // Calculate number of containers needed (round up)
+  const containersNeeded = Math.ceil(calculatedSqft / containerSize)
+  
+  // Total sqft provided (containers * 30 sqft each)
+  const totalProvidedSqft = containersNeeded * containerSize
+  
+  // Total cost
+  const totalCost = containersNeeded * pricePerContainer
+  
+  return {
+    calculatedSqft,
+    containersNeeded,
+    containerSize,
+    totalProvidedSqft,
+    pricePerContainer,
+    totalCost
+  }
 }
 
 const initialFormData: FormData = {
-  fullName: "Ahmed Al-Mansouri",
-  email: "ahmed.mansouri@gmail.com",
-  phone: "+971 50 123 4567",
-  address: "Villa 123, Dubai Marina, Dubai, UAE",
-  floor: "2",
-  liftAvailable: "yes",
+  fullName: "",
+  email: "",
+  phone: "",
+  address: "",
+  floor: "",
+  liftAvailable: "",
   storageType: "long-term",
   selectedItems: [],
 }
@@ -361,50 +440,62 @@ export default function QuotePage() {
     { number: 3, title: "View Quote", icon: DollarSign },
   ]
 
-  // Check for saved form data on mount
+  // Auto-restore saved form data on mount
   useEffect(() => {
-    const savedForm = localStorage.getItem('savedQuoteForm')
-    const savedStep = localStorage.getItem('savedQuoteStep')
+    const savedForm = localStorage.getItem('safestorage_quote_data')
+    const savedStep = localStorage.getItem('safestorage_quote_step')
     
     if (savedForm && savedStep) {
-      const parsedForm = JSON.parse(savedForm)
-      const parsedStep = parseInt(savedStep)
-      
-      // Show a toast asking if user wants to restore
-      toast.info(
-        <div>
-          <p className="font-semibold mb-1">Welcome back! 👋</p>
-          <p className="text-sm mb-2">We saved your progress. Continue where you left off?</p>
-          <div className="flex gap-2 mt-2">
-            <button
-              onClick={() => {
-                setFormData(parsedForm)
-                setCurrentStep(parsedStep)
-                localStorage.removeItem('savedQuoteForm')
-                localStorage.removeItem('savedQuoteStep')
-                toast.success("Progress restored!")
-              }}
-              className="px-3 py-1 bg-blue-600 text-white rounded text-sm"
-            >
-              Yes, restore
-            </button>
-            <button
-              onClick={() => {
-                localStorage.removeItem('savedQuoteForm')
-                localStorage.removeItem('savedQuoteStep')
-                toast.dismiss()
-              }}
-              className="px-3 py-1 bg-slate-200 text-slate-700 rounded text-sm"
-            >
-              Start fresh
-            </button>
-          </div>
-        </div>,
-        {
-          duration: 10000,
-          id: 'restore-progress'
+      try {
+        const parsedForm = JSON.parse(savedForm)
+        const parsedStep = parseInt(savedStep)
+        
+        // Only restore if step is 1 or 2 (not 3)
+        if (parsedStep < 3) {
+          // Show a toast asking if user wants to restore
+          toast.info(
+            <div>
+              <p className="font-semibold mb-1">Welcome back! 👋</p>
+              <p className="text-sm mb-2">We found your saved progress from Step {parsedStep}. Continue where you left off?</p>
+              <div className="flex gap-2 mt-2">
+                <button
+                  onClick={() => {
+                    setFormData(parsedForm)
+                    setCurrentStep(parsedStep)
+                    toast.success("Progress restored!")
+                  }}
+                  className="px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors"
+                >
+                  Yes, restore
+                </button>
+                <button
+                  onClick={() => {
+                    localStorage.removeItem('safestorage_quote_data')
+                    localStorage.removeItem('safestorage_quote_step')
+                    toast.dismiss()
+                  }}
+                  className="px-3 py-1 bg-slate-200 text-slate-700 rounded text-sm hover:bg-slate-300 transition-colors"
+                >
+                  Start fresh
+                </button>
+              </div>
+            </div>,
+            {
+              duration: 15000,
+              id: 'restore-progress'
+            }
+          )
+        } else {
+          // Clear data if step 3 was saved (shouldn't happen but just in case)
+          localStorage.removeItem('safestorage_quote_data')
+          localStorage.removeItem('safestorage_quote_step')
         }
-      )
+      } catch (error) {
+        console.error('Error parsing saved form data:', error)
+        // Clear corrupted data
+        localStorage.removeItem('safestorage_quote_data')
+        localStorage.removeItem('safestorage_quote_step')
+      }
     }
   }, [])
 
@@ -470,13 +561,148 @@ export default function QuotePage() {
     return { finalPrice, monthlyPrice, basePrice, savings }
   }
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentStep === 1 && !validateStep1()) {
       return
     }
     if (currentStep === 2 && !validateStep2()) {
       return
     }
+
+    // If moving from Step 2 to Step 3, save all data to database first
+    if (currentStep === 2) {
+      console.log('🚀 Moving from Step 2 to Step 3 - Saving data to database...')
+      setIsSubmitting(true)
+      
+      try {
+        // Calculate totals for both storage options
+        const totalPoints = calculateTotalPoints(formData.selectedItems)
+        const totalPallets = calculatePallets(totalPoints)
+        const totalSqft = calculateSquareFeet(totalPallets)
+        const closedPrice = calculateClosedSpacePricing(formData.selectedItems).totalCost
+        const sharedPrice = calculateSharedSpacePricing(formData.selectedItems).totalCost
+
+        // Step 1: Insert/Check Customer
+        console.log('💾 Step 1: Inserting customer...')
+        const customerResponse = await fetch("https://safestorage.in/back/app/insert_customer_dubai", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({
+            customer_name: formData.fullName,
+            customer_email: formData.email,
+            customer_contact1: formData.phone,
+            pickup_address: formData.address,
+          }),
+        })
+
+        const customerResult = await customerResponse.json()
+        console.log('✅ Customer API Response:', customerResult)
+
+        if (!customerResult.status) {
+          throw new Error(customerResult.message || "Failed to save customer data")
+        }
+
+        let customerId = customerResult.data.customer_id || customerResult.data.id
+
+        if (!customerId) {
+          console.log('Using timestamp ID as fallback')
+          customerId = Date.now()
+        }
+
+        console.log('👤 Using customer ID:', customerId)
+        const finalCustomerId = customerId
+
+        // Step 2: Insert Quotation with both pricing options
+        console.log('💾 Step 2: Inserting quotation with dual pricing...')
+        
+        const quotationResponse = await fetch("https://safestorage.in/back/app/insert_quotation_dubai", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({
+            customer_id: finalCustomerId.toString(),
+            closed_storage_price: closedPrice.toString(), // storage_price field = closed price
+            shared_storage_price: sharedPrice.toString(), // shared_storage_price field = shared price
+            selected_storage_type: '', // Will be set later when user selects
+            lift: formData.liftAvailable,
+            floor: formData.floor,
+            total_sqft: totalSqft.toString(),
+            total_points: totalPoints.toString(),
+            total_pallets: totalPallets.toString(),
+          }),
+        })
+
+        // Debug the raw response first
+        const quotationText = await quotationResponse.text()
+        console.log('🔍 Raw Quotation Response:', quotationText)
+        console.log('🔍 Response Status:', quotationResponse.status)
+        console.log('🔍 Response Headers:', Object.fromEntries(quotationResponse.headers.entries()))
+        
+        let quotationResult
+        try {
+          quotationResult = JSON.parse(quotationText)
+          console.log('✅ Parsed Quotation API Response:', quotationResult)
+        } catch (parseError) {
+          console.error('❌ JSON Parse Error:', parseError)
+          console.error('❌ Raw response that failed to parse:', quotationText)
+          throw new Error(`Invalid JSON response from quotation API: ${quotationText.substring(0, 200)}...`)
+        }
+
+        if (!quotationResult.status) {
+          throw new Error(quotationResult.message || "Failed to save quotation data")
+        }
+
+        const quotationId = quotationResult.data.quotation_id
+        console.log('📋 Quotation ID:', quotationId)
+
+        // Step 3: Insert Selected Items
+        console.log('💾 Step 3: Inserting items...')
+        const itemsResponse = await fetch("https://safestorage.in/back/app/insert_quotation_items_dubai", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({
+            quotation_id: quotationId.toString(),
+            customer_id: finalCustomerId.toString(),
+            selected_items: JSON.stringify(formData.selectedItems.map(item => ({
+              name: item.name,
+              quantity: item.quantity,
+              price: item.price,
+              storagePoints: item.storagePoints
+            }))),
+          }),
+        })
+
+        const itemsResult = await itemsResponse.json()
+        console.log('✅ Items API Response:', itemsResult)
+
+        if (!itemsResult.status) {
+          throw new Error(itemsResult.message || "Failed to save items data")
+        }
+
+        // Save IDs to state for later use
+        setFormData(prev => ({
+          ...prev,
+          customerId: finalCustomerId,
+          quotationId: quotationId,
+          totalPoints,
+          totalPallets,
+          totalSqft,
+          closedPrice,
+          sharedPrice
+        }))
+
+        console.log('🎉 All data saved successfully!')
+        toast.success('Quote data saved successfully!')
+        
+      } catch (error) {
+        console.error('❌ Error saving data:', error)
+        toast.error(error.message || "Failed to save data. Please try again.")
+        setIsSubmitting(false)
+        return // Don't proceed to next step if save fails
+      } finally {
+        setIsSubmitting(false)
+      }
+    }
+
     setCurrentStep(currentStep + 1)
     // Scroll to top when moving to next step
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -486,6 +712,25 @@ export default function QuotePage() {
   useEffect(() => {
     console.log('showGuide state changed to:', showGuide)
   }, [showGuide])
+
+  // Auto-save form data to localStorage (steps 1 and 2 only)
+  useEffect(() => {
+    if (currentStep < 3) {
+      // Only save if there's meaningful data
+      const hasData = formData.fullName || formData.email || formData.phone || formData.address || formData.selectedItems.length > 0
+      
+      if (hasData) {
+        // Add a small delay to avoid excessive saves during rapid typing
+        const timeoutId = setTimeout(() => {
+          localStorage.setItem('safestorage_quote_data', JSON.stringify(formData))
+          localStorage.setItem('safestorage_quote_step', currentStep.toString())
+          console.log('Auto-saved form data for step:', currentStep)
+        }, 500) // 500ms delay
+        
+        return () => clearTimeout(timeoutId)
+      }
+    }
+  }, [formData, currentStep])
 
   // Track form interactions and update navigation guard
   useEffect(() => {
@@ -557,46 +802,93 @@ export default function QuotePage() {
   }
 
   const handleStorageSelection = (storageOption: "closed" | "shared") => {
+    console.log('DEBUG: Storage option selected:', storageOption)
     setSelectedStorageOption(storageOption)
     setShowPickupDateModal(true)
   }
 
   const handleSubmitWithDate = async () => {
+    console.log('🚀 handleSubmitWithDate called!')
+    console.log('📋 Form Data:', formData)
+    console.log('📅 Selected Pickup Date:', selectedPickupDate)
+    console.log('🏪 Selected Storage Option:', selectedStorageOption)
+    
     if (!selectedPickupDate) {
+      console.error('❌ No pickup date selected')
       toast.error("Please select a pickup date")
       return
     }
 
+    if (!selectedStorageOption) {
+      console.error('❌ No storage option selected')
+      toast.error("Please select a storage option")
+      return
+    }
+
+    if (!formData.quotationId) {
+      console.error('❌ No quotation ID found - data was not saved in step 2')
+      toast.error("Quote data not found. Please go back and try again.")
+      return
+    }
+
+    console.log('✅ All validation passed. Updating final quote price...')
     setIsSubmitting(true)
     
-    // Calculate final price based on storage option
-    const basePrice = calculatePrice().finalPrice
-    const finalPrice = selectedStorageOption === 'closed' ? Math.round(basePrice * 1.2) : basePrice
-    
     try {
-      const response = await fetch("/api/insert-customer-details-dubai", {
+      // Get the final price based on selected storage option
+      const finalPrice = selectedStorageOption === 'closed' 
+        ? formData.closedPrice
+        : formData.sharedPrice
+
+      console.log('💰 Final price for', selectedStorageOption, 'storage:', finalPrice)
+      
+      // Update the quotation with final selected price and storage type
+      console.log('📝 Updating quotation with selected storage type...')
+      const updateResponse = await fetch("https://safestorage.in/back/app/insert_quotation_dubai", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          storageOption: selectedStorageOption,
-          pickupDate: selectedPickupDate,
-          quotedPrice: finalPrice,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          customer_id: formData.customerId!.toString(),
+          storage_price: finalPrice!.toString(),
+          closed_storage_price: formData.closedPrice!.toString(),
+          shared_storage_price: formData.sharedPrice!.toString(),
+          selected_storage_type: selectedStorageOption,
+          lift: formData.liftAvailable,
+          floor: formData.floor,
+          total_sqft: formData.totalSqft!.toString(),
+          total_points: formData.totalPoints!.toString(),
+          total_pallets: formData.totalPallets!.toString(),
         }),
       })
-
-      if (response.ok) {
-        // Redirect to payment gateway
-        toast.success("Redirecting to payment...")
-        setTimeout(() => {
-          // Replace with actual payment gateway URL
-          window.location.href = `https://payment.safestorage.ae/checkout?amount=${finalPrice}&orderId=${Date.now()}`
-        }, 1000)
-      } else {
-        toast.error("Failed to submit quote. Please try again.")
+      
+      const updateResult = await updateResponse.json()
+      console.log('✅ Price update response:', updateResult)
+      
+      // Save complete form data to localStorage
+      const completeFormData = {
+        ...formData,
+        pickupDate: selectedPickupDate,
+        storageOption: selectedStorageOption,
+        finalPrice,
+        submissionTimestamp: new Date().toISOString()
       }
+      localStorage.setItem('safestorage_complete_quote', JSON.stringify(completeFormData))
+      
+      // Clear form data from localStorage
+      localStorage.removeItem('safestorage_quote_data')
+      localStorage.removeItem('safestorage_quote_step')
+      console.log('🧹 Cleared form data from localStorage')
+      
+      toast.success(`Quote #${formData.quotationId} confirmed! Redirecting to payment...`)
+      
+      setTimeout(() => {
+        // Redirect to payment with the final price
+        window.location.href = `https://payment.safestorage.ae/checkout?amount=${finalPrice}&quotationId=${formData.quotationId}`
+      }, 2000)
+
     } catch (error) {
-      toast.error("An error occurred. Please try again.")
+      console.error('❌ Error updating quote:', error)
+      toast.error("Failed to finalize quote. Please try again.")
     } finally {
       setIsSubmitting(false)
       setShowPickupDateModal(false)
@@ -615,7 +907,8 @@ export default function QuotePage() {
       const newItem: SelectedItem = {
         name: item.storage_item_name,
         quantity: 1,
-        price: parseInt(item.aed_item_points)
+        price: parseInt(item.aed_item_points),
+        storagePoints: parseInt(item.storage_item_point || '0') // Add storage points
       }
       setFormData({
         ...formData,
@@ -661,8 +954,8 @@ export default function QuotePage() {
           <div className="flex items-center justify-center mt-6 mb-4">
             <div className="flex items-center space-x-4">
               {steps.map((step, index) => {
-                const isCompleted = step.number < currentStep
-                const isCurrent = step.number === currentStep
+                const isCompleted = step.number < currentStep || (step.number === 3 && currentStep === 3)
+                const isCurrent = step.number === currentStep && step.number !== 3
                 
                 return (
                   <div key={step.number} className="flex items-center">
@@ -677,12 +970,15 @@ export default function QuotePage() {
                       )}
                     </div>
                     <div className="ml-3">
-                      <div className={`text-sm font-medium ${isCurrent ? "text-blue-600" : "text-slate-500"}`}>
+                      <div className={`text-sm font-medium ${
+                        isCompleted ? "text-emerald-600" : 
+                        isCurrent ? "text-blue-600" : "text-slate-500"
+                      }`}>
                         {step.title}
                       </div>
                     </div>
                     {index < steps.length - 1 && (
-                      <div className={`w-12 h-px mx-4 ${isCompleted ? "bg-emerald-500" : "bg-slate-300"}`}></div>
+                      <div className={`w-12 h-px mx-4 ${isCompleted || (step.number === 2 && currentStep === 3) ? "bg-emerald-500" : "bg-slate-300"}`}></div>
                     )}
                   </div>
                 )
@@ -727,7 +1023,7 @@ export default function QuotePage() {
                       <Label className="text-sm font-semibold text-slate-700">Phone Number *</Label>
                       <Input
                         type="tel"
-                        placeholder="+971 50 123 4567"
+                        placeholder="+971 50 577 3388"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="h-12 border-2 border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-lg"
@@ -751,16 +1047,12 @@ export default function QuotePage() {
                   <div className="bg-slate-50 rounded-xl p-6">
                     <h3 className="font-semibold text-slate-800 mb-4">Pickup Location</h3>
                     <div className="space-y-4">
-                      <div className="space-y-2">
-                        <Label className="text-sm font-semibold text-slate-700">Complete Address *</Label>
-                        <Textarea
-                          placeholder="Villa 123, Dubai Marina, Dubai, UAE"
-                          value={formData.address}
-                          onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                          className="border-2 border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-lg resize-none"
-                          rows={3}
-                        />
-                      </div>
+                      <WorkingPlacesAutocomplete
+                        label="Complete Address *"
+                        placeholder="Villa 123, Dubai Marina, Dubai, UAE"
+                        value={formData.address}
+                        onChange={(value) => setFormData({ ...formData, address: value })}
+                      />
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-2">
@@ -804,57 +1096,6 @@ export default function QuotePage() {
                     </div>
                   </div>
 
-                  {/* Storage Type */}
-                  <div className="space-y-4">
-                    <div>
-                      <Label className="text-lg font-semibold text-slate-800">Storage Duration *</Label>
-                      <p className="text-sm text-slate-600 mt-1">Choose the option that best fits your needs</p>
-                    </div>
-                    <RadioGroup
-                      value={formData.storageType}
-                      onValueChange={(value) => setFormData({ ...formData, storageType: value as any })}
-                      className="grid grid-cols-1 md:grid-cols-3 gap-3"
-                    >
-                      <Label htmlFor="short-term" className="relative flex items-center p-3 rounded-xl border-2 border-slate-200 cursor-pointer hover:border-blue-300 hover:bg-blue-50 transition-all">
-                        <RadioGroupItem value="short-term" id="short-term" className="text-blue-600 mr-3" />
-                        <div className="flex-1">
-                          <div className="font-semibold text-slate-800 text-sm">Short-term Storage</div>
-                          <div className="text-xs text-slate-600 mt-0.5">Perfect for 1-3 months • Flexible terms</div>
-                          <div className="mt-2">
-                            <div className="text-xs text-slate-500">Starting from</div>
-                            <div className="font-bold text-blue-600 text-sm">AED 50/month</div>
-                          </div>
-                        </div>
-                      </Label>
-                      
-                      <Label htmlFor="long-term" className="relative flex items-center p-3 rounded-xl border-2 border-slate-200 cursor-pointer hover:border-emerald-300 hover:bg-emerald-50 transition-all">
-                        <RadioGroupItem value="long-term" id="long-term" className="text-emerald-600 mr-3" />
-                        <div className="flex-1">
-                          <div className="font-semibold text-slate-800 text-sm">Long-term Storage</div>
-                          <div className="text-xs text-emerald-600 font-medium mt-0.5">3+ months • Save 15% on total cost</div>
-                          <div className="mt-2">
-                            <div className="text-xs text-slate-500">Starting from</div>
-                            <div className="font-bold text-emerald-600 text-sm">AED 42/month</div>
-                          </div>
-                        </div>
-                        <span className="absolute top-2 right-2 bg-emerald-500 text-white text-xs px-2 py-1 rounded-full font-bold">
-                          BEST VALUE
-                        </span>
-                      </Label>
-                      
-                      <Label htmlFor="business" className="relative flex items-center p-3 rounded-xl border-2 border-slate-200 cursor-pointer hover:border-purple-300 hover:bg-purple-50 transition-all">
-                        <RadioGroupItem value="business" id="business" className="text-purple-600 mr-3" />
-                        <div className="flex-1">
-                          <div className="font-semibold text-slate-800 text-sm">Business Storage</div>
-                          <div className="text-xs text-slate-600 mt-0.5">Commercial solutions • Bulk discounts available</div>
-                          <div className="mt-2">
-                            <div className="text-xs text-slate-500">Custom pricing</div>
-                            <div className="font-bold text-purple-600 text-sm">Contact us</div>
-                          </div>
-                        </div>
-                      </Label>
-                    </RadioGroup>
-                  </div>
                 </div>
               </motion.div>
             )}
@@ -1170,20 +1411,27 @@ export default function QuotePage() {
                                   key={item.storage_item_name}
                                   layout
                                   whileHover={{ scale: 1.02 }}
-                                  whileTap={{ scale: 0.98 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                                   onClick={() => toggleItemSelection(item)}
-                                  className={`relative rounded-lg p-4 cursor-pointer border-2 transition-all ${
+                                  className={`relative rounded-lg p-4 cursor-pointer border-2 transition-all duration-150 ${
                                     isSelected
-                                      ? `${colors.selectedBg} ${colors.selectedBorder} shadow-md ring-2 ring-offset-1`
-                                      : `bg-white border-slate-200 ${colors.hover}`
+                                      ? `${colors.selectedBg} ${colors.selectedBorder} shadow-lg ring-2 ring-offset-2 ring-opacity-50`
+                                      : `bg-white border-slate-200 ${colors.hover} hover:shadow-md`
                                   }`}
                                 >
-                                  {/* Selection Indicator */}
-                                  <div className="absolute top-2 right-2">
+                                  {/* Selection Indicator - Instant feedback */}
+                                  <div className="absolute top-2 right-2 transition-transform duration-100">
                                     {isSelected ? (
-                                      <CheckCircle2 className={`w-6 h-6 ${colors.text}`} />
+                                      <motion.div
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.15, type: "spring", stiffness: 400 }}
+                                      >
+                                        <CheckCircle2 className={`w-6 h-6 ${colors.text} drop-shadow-sm`} />
+                                      </motion.div>
                                     ) : (
-                                      <Circle className="w-6 h-6 text-slate-300" />
+                                      <Circle className="w-6 h-6 text-slate-300 hover:text-slate-400 transition-colors duration-100" />
                                     )}
                                   </div>
 
@@ -1199,21 +1447,27 @@ export default function QuotePage() {
                                     {item.storage_item_name}
                                   </div>
 
-                                  {/* Quantity Controls */}
+                                  {/* Quantity Controls - Fast animation */}
                                   {isSelected && selectedItem && (
-                                    <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t">
+                                    <motion.div 
+                                      initial={{ opacity: 0, height: 0 }}
+                                      animate={{ opacity: 1, height: "auto" }}
+                                      exit={{ opacity: 0, height: 0 }}
+                                      transition={{ duration: 0.2, ease: "easeOut" }}
+                                      className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-slate-200"
+                                    >
                                       <button
                                         onClick={(e) => {
                                           e.stopPropagation()
                                           updateItemQuantity(item.storage_item_name, -1)
                                         }}
-                                        className="w-7 h-7 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition-colors"
+                                        className="w-7 h-7 rounded-full bg-slate-200 hover:bg-slate-300 active:bg-slate-400 flex items-center justify-center transition-all duration-100"
                                         disabled={selectedItem.quantity <= 1}
                                       >
                                         <Minus className="w-4 h-4 text-slate-600" />
                                       </button>
                                       
-                                      <span className="w-12 text-center font-semibold text-slate-800">
+                                      <span className="w-12 text-center font-semibold text-slate-800 transition-all duration-100">
                                         {selectedItem.quantity}
                                       </span>
                                       
@@ -1226,7 +1480,7 @@ export default function QuotePage() {
                                       >
                                         <Plus className="w-4 h-4" />
                                       </button>
-                                    </div>
+                                    </motion.div>
                                   )}
                                 </motion.div>
                               )
@@ -1343,6 +1597,7 @@ export default function QuotePage() {
                     </p>
                   </div>
 
+
                   {/* Storage Options Cards - Narrow & Tall */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 max-w-2xl mx-auto">
                     {/* Closed Storage Card - Narrow & Tall */}
@@ -1369,15 +1624,21 @@ export default function QuotePage() {
                           </div>
 
                           {/* Price Display */}
-                          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-5 text-center mb-6">
-                            <div className="text-blue-100 text-xs uppercase tracking-wide mb-2">Monthly Rate</div>
-                            <div className="text-3xl font-bold text-white mb-2">
-                              AED {Math.round(calculatePrice().finalPrice * 1.2)}
-                            </div>
-                            <div className="text-blue-200 text-sm">
-                              {formData.selectedItems.reduce((sum, item) => sum + item.quantity, 0)} items stored
-                            </div>
-                          </div>
+                          {(() => {
+                            const closedPricing = calculateClosedSpacePricing(formData.selectedItems)
+                            return (
+                              <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-5 text-center mb-6">
+                                <div className="text-blue-100 text-xs uppercase tracking-wide mb-2">Monthly Rate</div>
+                                <div className="text-3xl font-bold text-white mb-2">
+                                  AED {closedPricing.totalCost.toLocaleString()}
+                                </div>
+                                <div className="text-blue-200 text-sm">
+                                  {closedPricing.containersNeeded} container{closedPricing.containersNeeded > 1 ? 's' : ''} × AED {closedPricing.pricePerContainer}
+                                </div>
+                              </div>
+                            )
+                          })()}
+
 
                           {/* Features */}
                           <div className="space-y-3 mb-6 flex-grow">
@@ -1397,7 +1658,7 @@ export default function QuotePage() {
                             ))}
                           </div>
 
-                          {/* Select Button */}
+                          {/* Select Button - ENABLED */}
                           <button
                             onClick={() => handleStorageSelection('closed')}
                             className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg"
@@ -1432,15 +1693,26 @@ export default function QuotePage() {
                           </div>
 
                           {/* Price Display */}
-                          <div className="bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl p-5 text-center mb-6">
-                            <div className="text-emerald-50 text-xs uppercase tracking-wide mb-2">Monthly Rate</div>
-                            <div className="text-3xl font-bold text-white mb-2">
-                              AED {calculatePrice().finalPrice}
-                            </div>
-                            <div className="text-emerald-100 text-sm">
-                              Save 20% vs closed storage
-                            </div>
-                          </div>
+                          {(() => {
+                            const sharedPricing = calculateSharedSpacePricing(formData.selectedItems)
+                            return (
+                              <div className="bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl p-5 text-center mb-6">
+                                <div className="text-emerald-50 text-xs uppercase tracking-wide mb-2">Monthly Rate</div>
+                                <div className="text-3xl font-bold text-white mb-2">
+                                  AED {sharedPricing.totalCost.toLocaleString()}
+                                </div>
+                                <div className="text-emerald-100 text-sm">
+                                  {sharedPricing.chargeableSqft} sqft × AED {sharedPricing.pricePerSqft}
+                                </div>
+                                {sharedPricing.isMinimumApplied && (
+                                  <div className="text-emerald-200 text-xs mt-1">
+                                    *Minimum 30 sqft applied
+                                  </div>
+                                )}
+                              </div>
+                            )
+                          })()}
+
 
                           {/* Features */}
                           <div className="space-y-3 mb-6 flex-grow">
@@ -1460,7 +1732,7 @@ export default function QuotePage() {
                             ))}
                           </div>
 
-                          {/* Select Button */}
+                          {/* Select Button - ENABLED */}
                           <button
                             onClick={() => handleStorageSelection('shared')}
                             className="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white py-3.5 rounded-xl font-semibold hover:from-emerald-600 hover:to-green-700 transition-all shadow-lg"
@@ -1546,12 +1818,22 @@ export default function QuotePage() {
                 {currentStep < 3 ? (
                   <motion.button
                     onClick={handleNext}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold shadow-lg shadow-blue-200 hover:shadow-xl transition-all"
+                    disabled={isSubmitting}
+                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold shadow-lg shadow-blue-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span>Continue</span>
-                    <ArrowRight className="w-5 h-5" />
+                    {isSubmitting && currentStep === 2 ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span>Saving...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Continue</span>
+                        <ArrowRight className="w-5 h-5" />
+                      </>
+                    )}
                   </motion.button>
                 ) : null}
               </div>
@@ -1611,8 +1893,8 @@ export default function QuotePage() {
                       <p className="text-sm text-slate-600">Monthly Rate</p>
                       <p className="font-semibold text-blue-600">
                         AED {selectedStorageOption === 'closed' 
-                          ? Math.round(calculatePrice().finalPrice * 1.2)
-                          : calculatePrice().finalPrice}
+                          ? calculateClosedSpacePricing(formData.selectedItems).totalCost.toLocaleString()
+                          : calculateSharedSpacePricing(formData.selectedItems).totalCost.toLocaleString()}
                       </p>
                     </div>
                   </div>

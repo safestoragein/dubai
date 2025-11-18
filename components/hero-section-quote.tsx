@@ -5,7 +5,6 @@ import { Truck, Building, Box, Package, ArrowRight, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import MovingVehicles from "./quote/moving-vehicles"
-import QuoteForm from "./quote/quote-form"
 import { useEffect, useState } from "react"
 
 export default function HeroSectionQuote() {
@@ -245,19 +244,19 @@ export default function HeroSectionQuote() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-white"
+            className="text-white text-center md:text-left mx-auto max-w-4xl"
           >
             <div className="inline-block px-4 py-1 bg-dubai-gold text-white text-sm font-medium rounded-full mb-6">
               Secure Storage Solutions
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Secure, Affordable & <span className="text-dubai-gold">Hassle-Free</span> Storage in Dubai
             </h1>
-            <p className="text-xl text-white/80 mb-8 max-w-lg">
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto md:mx-0">
               Flexible self-storage solutions for homes & businesses. Safe, climate-controlled, and accessible 24/7.
             </p>
 
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 max-w-3xl mx-auto md:mx-0">
               {[
                 { icon: Truck, text: "Hassle free Pickup & Delivery" },
                 { icon: Building, text: "Climate-Controlled Units" },
@@ -274,12 +273,12 @@ export default function HeroSectionQuote() {
                   <div className="rounded-full bg-dubai-gold/20 p-2">
                     <feature.icon className="h-4 w-4 text-dubai-gold" />
                   </div>
-                  <span className="text-white/90">{feature.text}</span>
+                  <span className="text-white/90 text-sm">{feature.text}</span>
                 </motion.div>
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
                 <Link href="/get-quote">
                   Get a Free Quote
@@ -299,8 +298,6 @@ export default function HeroSectionQuote() {
               </Button>
             </div>
           </motion.div>
-
-          <QuoteForm />
         </div>
       </div>
 

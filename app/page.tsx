@@ -12,7 +12,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from 'lucide-react'
 import StorageSizes from "@/components/storage-sizes"
-import LandingQuoteSection from "@/components/landing-quote-section"
 import type { Metadata } from "next"
 import BlogSection from "@/components/blog-section"
 import { blogPosts } from "@/data/blog-posts"
@@ -81,7 +80,6 @@ export default function LandingPage() {
       </div> */}
       {/* <DubaiMapSection /> */}
       <BlogSection posts={blogPosts.filter((post) => post.featured).slice(0, 3)} />
-      <LandingQuoteSection />
     </div>
   )
 }

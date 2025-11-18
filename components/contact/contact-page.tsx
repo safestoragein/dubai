@@ -20,7 +20,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { contactFaqs } from "./contact-data"
-import QuoteForm from "../quote/quote-form"
 import { env } from "@/lib/env"
 
 export default function ContactPage() {
@@ -399,42 +398,17 @@ export default function ContactPage() {
             <Button
               size="lg"
               className="text-lg bg-dubai-gold hover:bg-dubai-darkgold text-white"
-              onClick={() => {
-                document.getElementById("quote-form")?.scrollIntoView({ behavior: "smooth" })
-              }}
+              asChild
             >
-              Reach Out Now
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <a href={env.PHONE_LINK}>
+                <Phone className="mr-2 h-5 w-5" />
+                Call Us Now
+              </a>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Get a Quote Section */}
-      <section id="quote-form" className="w-full py-20 bg-white relative overflow-hidden">
-        {/* Dubai-style decorative pattern */}
-        <div className="absolute inset-0 opacity-5 bg-dubai-pattern"></div>
-
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-dubai-navy">Get Your Free Storage Quote</h2>
-            <div className="flex items-center justify-center mb-4">
-              <div className="h-px w-12 bg-dubai-gold"></div>
-              <div className="px-4">
-                <div className="w-3 h-3 rotate-45 bg-dubai-gold"></div>
-              </div>
-              <div className="h-px w-12 bg-dubai-gold"></div>
-            </div>
-            <p className="text-lg text-dubai-navy/70 max-w-3xl mx-auto">
-              Fill out our simple form and receive a personalized storage solution quote tailored to your specific needs
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <QuoteForm />
-          </div>
-        </div>
-      </section>
     </>
   )
 }
