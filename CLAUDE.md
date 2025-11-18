@@ -1,2 +1,3 @@
 - whiGbLTGZjNNtwsrwKvo3sST vercel token remember it
 - whenevr there is change push to git and then deploy chnages to safestorage.ae into vercel make a note of all keys and all
+- pls remember the end points links we wil work on it

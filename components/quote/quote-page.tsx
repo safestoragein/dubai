@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import GooglePlacesAutocomplete from "@/components/ui/google-places-autocomplete"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Progress } from "@/components/ui/progress"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -95,7 +96,7 @@ interface FormData {
 const initialFormData: FormData = {
   fullName: "Ahmed Al-Mansouri",
   email: "ahmed.mansouri@gmail.com",
-  phone: "+971 50 123 4567",
+  phone: "+971 50 577 3388",
   address: "Villa 123, Dubai Marina, Dubai, UAE",
   floor: "2",
   liftAvailable: "yes",
@@ -559,7 +560,7 @@ export default function QuotePage() {
                         <Label className="text-sm font-semibold text-slate-700">Phone Number *</Label>
                         <Input
                           type="tel"
-                          placeholder="+971 50 123 4567"
+                          placeholder="+971 50 577 3388"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           className="h-12 border-2 border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-lg"
@@ -583,16 +584,12 @@ export default function QuotePage() {
                     <div className="bg-slate-50 rounded-xl p-6">
                       <h3 className="font-semibold text-slate-800 mb-4">Pickup Location</h3>
                       <div className="space-y-4">
-                        <div className="space-y-2">
-                          <Label className="text-sm font-semibold text-slate-700">Complete Address *</Label>
-                          <Textarea
-                            placeholder="Villa 123, Dubai Marina, Dubai, UAE"
-                            value={formData.address}
-                            onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                            className="border-2 border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-lg resize-none"
-                            rows={3}
-                          />
-                        </div>
+                        <GooglePlacesAutocomplete
+                          label="Complete Address *"
+                          placeholder="Villa 123, Dubai Marina, Dubai, UAE"
+                          value={formData.address}
+                          onChange={(value) => setFormData({ ...formData, address: value })}
+                        />
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="space-y-2">

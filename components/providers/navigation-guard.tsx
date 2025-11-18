@@ -166,43 +166,101 @@ export function NavigationGuardProvider({ children }: NavigationGuardProviderPro
               
               {/* Close button */}
               <button
-                onClick={() => setShowExitPopup(false)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  setShowExitPopup(false)
+                }}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors z-20"
               >
                 <X className="w-5 h-5 text-slate-600" />
               </button>
 
-              {/* Emoji and Title */}
-              <div className="text-center mb-6 relative z-10">
-                <motion.div
-                  animate={{ 
-                    rotate: [0, -10, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1]
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="text-6xl mb-4"
-                >
-                  🛑
-                </motion.div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-2">
-                  Hold up! Your quote isn't finished!
-                </h3>
-                <p className="text-slate-600">
-                  "Leaving now? That's like packing without bubble wrap!" 📦
-                </p>
-              </div>
+              {/* Main Content Container */}
+              <div className="text-center mb-6 relative z-10 mt-8">
+                {/* Centered Crying Box Illustration */}
+                <div className="flex justify-center mb-6 mt-4">
+                  <motion.div
+                    animate={{ 
+                      y: [0, -8, 0],
+                    }}
+                    transition={{ 
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    className="relative"
+                  >
+                    {/* Main Box - Made Bigger */}
+                    <div className="relative w-32 h-32 mx-auto">
+                      {/* Box body */}
+                      <div className="w-28 h-28 bg-gradient-to-br from-orange-300 to-orange-400 rounded-xl border-2 border-orange-500 relative">
+                        {/* Box flaps */}
+                        <div className="absolute -top-2 -left-3 w-8 h-8 bg-orange-200 border-2 border-orange-400 rounded-t-xl transform -rotate-12"></div>
+                        <div className="absolute -top-2 -right-3 w-8 h-8 bg-orange-200 border-2 border-orange-400 rounded-t-xl transform rotate-12"></div>
+                        
+                        {/* Face */}
+                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                          {/* Eyes with tears */}
+                          <div className="flex gap-3 mb-2">
+                            <div className="relative">
+                              <div className="w-3 h-3 bg-black rounded-full"></div>
+                              <motion.div 
+                                animate={{ 
+                                  scale: [1, 0.8, 1],
+                                  y: [0, 3, 6, 9]
+                                }}
+                                transition={{ 
+                                  duration: 1.5,
+                                  repeat: Infinity
+                                }}
+                                className="absolute -bottom-2 left-0 w-1.5 h-4 bg-blue-400 rounded-full opacity-80"
+                              />
+                            </div>
+                            <div className="relative">
+                              <div className="w-3 h-3 bg-black rounded-full"></div>
+                              <motion.div 
+                                animate={{ 
+                                  scale: [1, 0.8, 1],
+                                  y: [0, 3, 6, 9]
+                                }}
+                                transition={{ 
+                                  duration: 1.5,
+                                  repeat: Infinity,
+                                  delay: 0.3
+                                }}
+                                className="absolute -bottom-2 right-0 w-1.5 h-4 bg-blue-400 rounded-full opacity-80"
+                              />
+                            </div>
+                          </div>
+                          
+                          {/* Mouth */}
+                          <div className="w-4 h-3 border-2 border-black border-t-0 rounded-b-full"></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Speech bubble */}
+                    <div className="absolute -top-16 -right-6 bg-white rounded-lg p-3 shadow-md border border-slate-200">
+                      <div className="text-sm text-slate-600 whitespace-nowrap">I wasn't expecting...</div>
+                      <div className="absolute bottom-0 left-6 w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-t-4 border-t-white"></div>
+                    </div>
+                  </motion.div>
+                </div>
 
-              {/* Warning message */}
-              <div className="bg-amber-50 border-2 border-amber-200 rounded-xl p-4 mb-6 relative z-10">
-                <div className="flex items-start gap-3">
-                  <div className="text-2xl">⚠️</div>
-                  <div>
-                    <p className="text-amber-900 font-semibold mb-1">
-                      You're about to lose your progress!
-                    </p>
-                    <p className="text-amber-700 text-sm">
-                      Your carefully selected items will disappear faster than moving day donuts! 🍩
-                    </p>
+                {/* Content */}
+                <div className="max-w-md mx-auto">
+                  <h3 className="text-2xl font-bold text-slate-800 mb-2">
+                    Leaving us so soon?
+                  </h3>
+                  <p className="text-lg text-orange-500 font-semibold mb-4">
+                    Get answers directly from our team..
+                  </p>
+                  <div className="flex items-center justify-center gap-2 text-sm text-slate-500">
+                    <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-xs">✓</span>
+                    </div>
+                    <span>Trusted by more than 20,000 customers.</span>
                   </div>
                 </div>
               </div>
@@ -211,40 +269,27 @@ export function NavigationGuardProvider({ children }: NavigationGuardProviderPro
               <div className="space-y-3 relative z-10">
                 <button
                   onClick={handleContinue}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg"
+                  className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-4 rounded-xl font-semibold hover:from-orange-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-lg"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <ArrowRight className="w-5 h-5" />
-                    Stay & Complete Quote (You're almost there! 🏁)
+                    Stay & Complete Quote
                   </span>
                 </button>
 
                 <button
                   onClick={() => {
-                    window.open('tel:+971555555555', '_self')
+                    window.open('tel:971505773388', '_self')
                     setShowExitPopup(false)
                   }}
                   className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white py-4 rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <Phone className="w-5 h-5" />
-                    Call for Instant Quote! ☎️
+                    Call for Instant Quote
                   </span>
                 </button>
 
-                <button
-                  onClick={handleLeave}
-                  className="w-full bg-slate-100 text-slate-600 py-3 rounded-xl font-medium hover:bg-slate-200 transition-all"
-                >
-                  Save & Leave (We'll keep your spot warm! 🔥)
-                </button>
-              </div>
-
-              {/* Fun footer message */}
-              <div className="text-center mt-6 relative z-10">
-                <p className="text-xs text-slate-500">
-                  Pro tip: Completing the form unlocks our best discounts! 💰
-                </p>
               </div>
             </motion.div>
           </motion.div>
