@@ -1673,13 +1673,15 @@ export default function QuotePage() {
                             ))}
                           </div>
 
-                          {/* Select Button - ENABLED */}
+                          {/* Select Button - HIDDEN */}
+                          {/* 
                           <button
                             onClick={() => handleStorageSelection('closed')}
                             className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg"
                           >
                             Select Closed Storage
                           </button>
+                          */}
                         </div>
                       </div>
                     </motion.div>
@@ -1747,13 +1749,15 @@ export default function QuotePage() {
                             ))}
                           </div>
 
-                          {/* Select Button - ENABLED */}
+                          {/* Select Button - HIDDEN */}
+                          {/* 
                           <button
                             onClick={() => handleStorageSelection('shared')}
                             className="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white py-3.5 rounded-xl font-semibold hover:from-emerald-600 hover:to-green-700 transition-all shadow-lg"
                           >
                             Select Shared Storage
                           </button>
+                          */}
                         </div>
                       </div>
                     </motion.div>
