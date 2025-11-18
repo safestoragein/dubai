@@ -110,7 +110,7 @@ export default function StorageSizes() {
                   </div>
                 )}
 
-                <div className="relative h-48">
+                <div className="relative h-48 bg-gray-50">
                   {option.isCustom ? (
                     // Custom plan design for >3BHK
                     <div className="w-full h-full bg-gradient-to-br from-dubai-gold/20 to-dubai-navy/20 flex flex-col items-center justify-center">
@@ -119,40 +119,87 @@ export default function StorageSizes() {
                       <span className="text-gray-600 text-sm">Tailored to your needs</span>
                     </div>
                   ) : option.palletCount ? (
-                    // Pallet images layout
-                    <div className="w-full h-full bg-gray-50 flex items-center justify-center p-4">
-                      <div className={`flex gap-1 justify-center flex-wrap ${
-                        option.palletCount && option.palletCount > 6 ? 'max-w-[180px]' : ''
-                      }`}>
-                        {Array.from({ length: option.palletCount }, (_, index) => (
-                          <img
-                            key={index}
-                            src="/pallet.png"
-                            alt={`Pallet ${index + 1}`}
-                            className={`object-contain ${
-                              option.palletCount === 1 ? 'h-32 w-32' :
-                              option.palletCount <= 3 ? 'h-24 w-24' :
-                              option.palletCount <= 5 ? 'h-20 w-20' :
-                              'h-16 w-16'
-                            }`}
-                          />
-                        ))}
+                    // Enhanced pallet display with better spacing
+                    <div className="w-full h-full flex flex-col">
+                      {/* Header with count */}
+                      <div className="bg-dubai-navy/90 text-white px-3 py-2 text-center">
+                        <div className="flex items-center justify-center gap-2">
+                          <Box className="h-4 w-4 text-dubai-gold" />
+                          <span className="font-medium text-sm">{option.size}</span>
+                        </div>
+                      </div>
+                      
+                      {/* Scrollable container display */}
+                      <div className="flex-1 p-3 overflow-hidden">
+                        {option.palletCount <= 5 ? (
+                          // Normal grid for smaller counts
+                          <div className="h-full flex items-center justify-center">
+                            <div className={`grid gap-2 ${
+                              option.palletCount === 1 ? 'grid-cols-1' :
+                              option.palletCount <= 3 ? 'grid-cols-2' :
+                              'grid-cols-3'
+                            }`}>
+                              {Array.from({ length: option.palletCount }, (_, index) => (
+                                <div key={index} className="flex flex-col items-center">
+                                  <img
+                                    src="/pallet.png"
+                                    alt={`Container ${index + 1}`}
+                                    className={`object-contain ${
+                                      option.palletCount === 1 ? 'h-20 w-20' :
+                                      option.palletCount <= 3 ? 'h-16 w-16' :
+                                      'h-12 w-12'
+                                    }`}
+                                  />
+                                  <span className="text-xs text-gray-600 mt-1">{index + 1}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          // Horizontal scroll for larger counts
+                          <div className="h-full flex flex-col">
+                            <div className="text-center mb-2">
+                              <span className="text-xs font-medium text-dubai-navy">
+                                {option.palletCount} Containers
+                              </span>
+                            </div>
+                            <div className="flex-1 overflow-x-auto">
+                              <div className="flex gap-2 h-full items-center min-w-max px-2">
+                                {Array.from({ length: option.palletCount }, (_, index) => (
+                                  <div key={index} className="flex flex-col items-center flex-shrink-0">
+                                    <img
+                                      src="/pallet.png"
+                                      alt={`Container ${index + 1}`}
+                                      className="h-12 w-12 object-contain"
+                                    />
+                                    <span className="text-xs text-gray-600 mt-1">{index + 1}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                            <div className="text-center mt-1">
+                              <span className="text-xs text-gray-500">← Scroll to view all →</span>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ) : (
                     // Business storage images
-                    <img
-                      src={option.image || `/placeholder.svg?height=300&width=400&query=storage+${option.name}`}
-                      alt={`${option.name} - ${option.size}`}
-                      className="w-full h-full object-cover"
-                    />
+                    <>
+                      <img
+                        src={option.image || `/placeholder.svg?height=300&width=400&query=storage+${option.name}`}
+                        alt={`${option.name} - ${option.size}`}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
+                        <div className="flex items-center gap-2 text-white">
+                          <Box className="h-4 w-4 text-dubai-gold" />
+                          <span className="font-medium text-sm">{option.size}</span>
+                        </div>
+                      </div>
+                    </>
                   )}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
-                    <div className="flex items-center gap-2 text-white">
-                      <Box className="h-4 w-4 text-dubai-gold" />
-                      <span className="font-medium text-sm">{option.size}</span>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="p-5">
