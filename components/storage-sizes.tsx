@@ -121,7 +121,9 @@ export default function StorageSizes() {
                   ) : option.palletCount ? (
                     // Pallet images layout
                     <div className="w-full h-full bg-gray-50 flex items-center justify-center p-4">
-                      <div className={`flex gap-2 ${option.palletCount === 1 ? 'justify-center' : 'justify-center flex-wrap'}`}>
+                      <div className={`flex gap-1 justify-center flex-wrap ${
+                        option.palletCount && option.palletCount > 6 ? 'max-w-[180px]' : ''
+                      }`}>
                         {Array.from({ length: option.palletCount }, (_, index) => (
                           <img
                             key={index}
@@ -129,8 +131,9 @@ export default function StorageSizes() {
                             alt={`Pallet ${index + 1}`}
                             className={`object-contain ${
                               option.palletCount === 1 ? 'h-32 w-32' :
-                              option.palletCount === 2 ? 'h-24 w-24' :
-                              'h-20 w-20'
+                              option.palletCount <= 3 ? 'h-24 w-24' :
+                              option.palletCount <= 5 ? 'h-20 w-20' :
+                              'h-16 w-16'
                             }`}
                           />
                         ))}
