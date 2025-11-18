@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
 import { useNavigationGuard } from "@/components/providers/navigation-guard"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -419,8 +418,6 @@ const getCategoryColors = (color: string, isSelected: boolean = false) => {
 }
 
 export default function QuotePage() {
-  const router = useRouter()
-  const searchParams = useSearchParams()
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -743,18 +740,6 @@ export default function QuotePage() {
     setGuardCurrentStep(currentStep)
   }, [formData, currentStep, setNavigationGuard, setGuardFormData, setGuardCurrentStep])
 
-  // URL management for Step 3
-  useEffect(() => {
-    if (currentStep === 3) {
-      // Update URL to show /get-quote/step3 when reaching step 3
-      router.push('/get-quote/step3', { scroll: false })
-    } else {
-      // For steps 1 and 2, keep the regular /get-quote URL
-      if (window.location.pathname !== '/get-quote') {
-        router.push('/get-quote', { scroll: false })
-      }
-    }
-  }, [currentStep, router])
 
   // Show guide when entering step 2 and scroll to top
   useEffect(() => {
