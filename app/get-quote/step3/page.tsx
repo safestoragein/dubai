@@ -1,5 +1,6 @@
 import QuotePage from "@/components/quote/quote-page-alternative2"
 import type { Metadata } from "next"
+import { Suspense } from "react"
 
 export const metadata: Metadata = {
   title: "Storage Pricing & Quote Confirmation | SafeStorage Dubai",
@@ -10,5 +11,9 @@ export const metadata: Metadata = {
 }
 
 export default function GetQuoteStep3() {
-  return <QuotePage />
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <QuotePage />
+    </Suspense>
+  )
 }
