@@ -5,9 +5,9 @@ import jwt from "jsonwebtoken"
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production-2024"
 
 // Hardcoded credentials (in production, store hashed password in database)
-const ADMIN_EMAIL = "kushal@safestorage.ae"
-// This is the bcrypt hash of "Kushi14@3!"
-const ADMIN_PASSWORD_HASH = "$2b$10$6PvaZ6VLGcQeVKZ3hXiVQ.TWweE5uxW9PI4fTb7kLJnL6glss2eza"
+const ADMIN_EMAIL = "kushal@safestorage.in"
+// This is the bcrypt hash of "kushal@3344"
+const ADMIN_PASSWORD_HASH = "$2b$10$WKDjvx/93z.8A.4lbxJhUOvs4mMOx/3ai1Ut0B1eVy6MxcLW6ROGi"
 
 export async function POST(request: Request) {
   try {

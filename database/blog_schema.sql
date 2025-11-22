@@ -135,8 +135,8 @@ INSERT INTO blog_categories (name, slug, description) VALUES
 ('Seasonal Storage', 'seasonal-storage', 'Seasonal storage tips and solutions')
 ON DUPLICATE KEY UPDATE name=name;
 
--- Insert admin user (password: Kushi14@3!)
+-- Insert admin user (password: kushal@3344)
 -- Note: In production, never store plain text passwords
 INSERT INTO admin_users (email, password_hash, full_name, role) VALUES
-('kushal@safestorage.ae', '$2b$10$6PvaZ6VLGcQeVKZ3hXiVQ.TWweE5uxW9PI4fTb7kLJnL6glss2eza', 'Kushal', 'admin')
+('kushal@safestorage.in', '$2b$10$WKDjvx/93z.8A.4lbxJhUOvs4mMOx/3ai1Ut0B1eVy6MxcLW6ROGi', 'Kushal', 'admin')
 ON DUPLICATE KEY UPDATE email=email;
