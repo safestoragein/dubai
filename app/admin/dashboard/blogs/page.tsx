@@ -120,25 +120,6 @@ export default function BlogsManagement() {
     }
   }
 
-  const handleDelete = async (blogId: number) => {
-    if (confirm("Are you sure you want to delete this post?")) {
-      try {
-        const response = await fetch(`/api/blogs/${blogId}`, {
-          method: 'DELETE',
-        })
-        const data = await response.json()
-        
-        if (data.status === 'success') {
-          setBlogs(blogs.filter(b => b.id !== blogId))
-        } else {
-          alert('Failed to delete blog post')
-        }
-      } catch (error) {
-        console.error('Error deleting blog:', error)
-        alert('Failed to delete blog post')
-      }
-    }
-  }
 
   return (
     <div className="space-y-6">
@@ -217,19 +198,9 @@ export default function BlogsManagement() {
                         {new Date(blog.date).toLocaleDateString()}
                       </td>
                       <td className="py-3 px-4">
-                        <div className="flex space-x-2">
-                          <Link href={`/admin/dashboard/blogs/edit/${blog.id}`}>
-                            <Button size="sm" variant="outline">Edit</Button>
-                          </Link>
-                          <Button 
-                            size="sm" 
-                            variant="outline" 
-                            className="text-red-600 hover:text-red-700"
-                            onClick={() => handleDelete(blog.id)}
-                          >
-                            Delete
-                          </Button>
-                        </div>
+                        <Link href={`/admin/dashboard/blogs/edit/${blog.id}`}>
+                          <Button size="sm" variant="outline">Edit</Button>
+                        </Link>
                       </td>
                     </tr>
                   ))}

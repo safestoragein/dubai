@@ -48,33 +48,62 @@ export default function EditBlogPost() {
   const fetchBlogData = async () => {
     try {
       setIsFetching(true)
-      // Fetch blog by ID using the get_blog_content endpoint
-      const response = await fetch(`https://safestorage.in/back/app/get_blog_content_by_id/${blogId}`)
+      console.log('Fetching blog data for ID:', blogId)
+      
+      // Fetch all blogs and find the specific one by ID
+      const response = await fetch('https://safestorage.in/back/app/get_blog_content')
       const data = await response.json()
       
-      if (data.status === 'success' && data.data) {
-        const blog = data.data
-        const extraData = blog.extra_data || {}
+      console.log('All blogs response:', data)
+      
+      let blog = null
+      
+      // Handle direct array response
+      if (Array.isArray(data)) {
+        blog = data.find((item: any) => item.blog_id === blogId || item.id === blogId)
+      } else if (data.status === 'success' && data.data) {
+        // Handle wrapped response
+        const allBlogs = data.data.all_content || data.data.posts || data.data
+        if (Array.isArray(allBlogs)) {
+          blog = allBlogs.find((item: any) => item.blog_id === blogId || item.id === blogId)
+        }
+      }
+      
+      console.log('Found blog:', blog)
+      
+      if (blog) {
+        // Parse extra_data if it's a JSON string
+        let extraData = {}
+        if (blog.extra_data) {
+          try {
+            extraData = typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data
+          } catch (e) {
+            console.warn('Could not parse extra_data:', e)
+          }
+        }
+        
+        console.log('Extra data:', extraData)
         
         setFormData({
-          title: blog.title || blog.meta_title || "",
+          title: blog.meta_title || blog.title || "",
           excerpt: blog.meta_description || "",
           content: blog.content || "",
-          author: blog.author || extraData.author || "SafeStorage Team",
-          category: blog.category || extraData.category || "Storage Tips",
-          image: blog.featured_image || extraData.featured_image || "",
-          readTime: blog.read_time ? `${blog.read_time}` : extraData.read_time || "5",
+          author: (extraData as any).author || "SafeStorage Team",
+          category: (extraData as any).category || "Storage Tips",
+          image: (extraData as any).featured_image || "",
+          readTime: (extraData as any).read_time ? `${(extraData as any).read_time}` : "5",
           slug: blog.slug || "",
           meta_title: blog.meta_title || "",
           meta_description: blog.meta_description || "",
           tags: Array.isArray(blog.tags) ? blog.tags.join(", ") : (blog.tags || ""),
           status: blog.status || "active",
-          is_published: blog.is_published !== false,
-          is_featured: blog.is_featured || false,
-          views: blog.views || extraData.views || 0,
-          likes: blog.likes || extraData.likes || 0,
+          is_published: (extraData as any).is_published !== false,
+          is_featured: (extraData as any).is_featured || false,
+          views: (extraData as any).views || 0,
+          likes: (extraData as any).likes || 0,
         })
       } else {
+        console.log('Blog not found with ID:', blogId)
         setNotFound(true)
       }
     } catch (error) {
