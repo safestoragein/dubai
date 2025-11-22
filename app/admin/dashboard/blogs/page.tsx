@@ -15,27 +15,75 @@ export default function BlogsManagement() {
 
   const fetchBlogs = async () => {
     try {
-      // Use the get_blog_content endpoint to get all blogs with full content
-      const response = await fetch('https://safestorage.in/back/app/get_blog_content')
-      const data = await response.json()
+      console.log('Fetching blogs from endpoint...')
+      
+      // Try the get_blog_content endpoint first
+      let response = await fetch('https://safestorage.in/back/app/get_blog_content')
+      let data = await response.json()
+      
+      console.log('Primary API Response:', data)
+      
+      // If the first endpoint doesn't work, try the fallback
+      if (!data.status || data.status !== 'success' || !data.data) {
+        console.log('Primary endpoint failed, trying fallback...')
+        response = await fetch('/api/blogs')
+        data = await response.json()
+        console.log('Fallback API Response:', data)
+      }
       
       if (data.status === 'success' && data.data) {
-        // Get only the posts from the response
-        const posts = data.data.posts || data.data.all_content?.filter((item: any) => item.content_type === 'post') || []
+        let posts = []
         
-        // Process the data to match our format
+        // Handle different response structures
+        if (data.data.posts && Array.isArray(data.data.posts)) {
+          posts = data.data.posts
+          console.log('Using data.data.posts')
+        } else if (data.data.all_content && Array.isArray(data.data.all_content)) {
+          posts = data.data.all_content.filter((item: any) => item.content_type === 'post')
+          console.log('Using data.data.all_content filtered for posts')
+        } else if (Array.isArray(data.data)) {
+          // Handle the /api/blogs response format
+          posts = data.data.map((blog: any) => {
+            const extraData = blog.extra_data ? (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
+            return {
+              id: blog.blog_id,
+              slug: blog.slug,
+              meta_title: blog.meta_title,
+              title: blog.meta_title,
+              meta_description: blog.meta_description,
+              content: blog.content,
+              content_type: 'post',
+              author: extraData.author || 'SafeStorage Team',
+              category: extraData.category || 'General',
+              featured_image: extraData.featured_image,
+              views: extraData.views || 0,
+              likes: extraData.likes || 0,
+              is_published: extraData.is_published !== false,
+              is_featured: extraData.is_featured || false,
+              created_at: extraData.created_at || new Date().toISOString(),
+              status: 'active'
+            }
+          })
+          console.log('Using direct data.data array (fallback format)')
+        } else {
+          console.log('No posts found. Data structure:', data.data ? Object.keys(data.data) : 'No data.data')
+        }
+        
+        console.log('Found posts:', posts.length)
+        
+        // Process the data to match our display format
         const processedBlogs = posts.map((blog: any) => {
           return {
-            id: blog.id,
-            slug: blog.slug,
-            title: blog.meta_title || blog.title,
-            excerpt: blog.meta_description,
-            content: blog.content,
+            id: blog.id || blog.blog_id,
+            slug: blog.slug || '',
+            title: blog.meta_title || blog.title || 'Untitled',
+            excerpt: blog.meta_description || blog.excerpt || 'No excerpt',
+            content: blog.content || '',
             author: { name: blog.author || 'SafeStorage Team' },
             category: blog.category || 'General',
             categories: [blog.category || 'General'],
             date: blog.created_at || new Date().toISOString(),
-            featured_image: blog.featured_image,
+            featured_image: blog.featured_image || '',
             views: blog.views || 0,
             likes: blog.likes || 0,
             status: blog.status || 'active',
@@ -43,7 +91,11 @@ export default function BlogsManagement() {
             is_featured: blog.is_featured || false,
           }
         })
+        
+        console.log('Processed blogs:', processedBlogs.length, processedBlogs)
         setBlogs(processedBlogs)
+      } else {
+        console.log('Both APIs failed or returned no data')
       }
     } catch (error) {
       console.error('Error fetching blogs:', error)
