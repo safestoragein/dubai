@@ -23,7 +23,9 @@ export default function EditBlogPost() {
   const [success, setSuccess] = useState(false)
   const [notFound, setNotFound] = useState(false)
   const [formData, setFormData] = useState({
-    title: "",
+    title: "", // Page title (H1)
+    metaTitle: "", // SEO meta title
+    metaDescription: "", // SEO meta description
     excerpt: "",
     content: "",
     author: "",
@@ -31,8 +33,6 @@ export default function EditBlogPost() {
     image: "",
     readTime: "",
     slug: "",
-    meta_title: "",
-    meta_description: "",
     tags: "",
     status: "active",
     is_published: true,
@@ -85,16 +85,16 @@ export default function EditBlogPost() {
         console.log('Extra data:', extraData)
         
         setFormData({
-          title: blog.meta_title || blog.title || "",
-          excerpt: blog.meta_description || "",
+          title: (extraData as any).page_title || blog.meta_title || blog.title || "",
+          metaTitle: blog.meta_title || "",
+          metaDescription: blog.meta_description || "",
+          excerpt: (extraData as any).excerpt || blog.meta_description || "",
           content: blog.content || "",
           author: (extraData as any).author || "SafeStorage Team",
           category: (extraData as any).category || "Storage Tips",
           image: (extraData as any).featured_image || "",
-          readTime: (extraData as any).read_time ? `${(extraData as any).read_time}` : "5",
+          readTime: (extraData as any).read_time ? `${(extraData as any).read_time}`.replace(' min read', '') : "5",
           slug: blog.slug || "",
-          meta_title: blog.meta_title || "",
-          meta_description: blog.meta_description || "",
           tags: Array.isArray(blog.tags) ? blog.tags.join(", ") : (blog.tags || ""),
           status: blog.status || "active",
           is_published: (extraData as any).is_published !== false,
@@ -116,27 +116,52 @@ export default function EditBlogPost() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Validation
+    if (!formData.title || !formData.metaTitle || !formData.metaDescription || !formData.content) {
+      alert('Please fill in all required fields: Page Title, Meta Title, Meta Description, and Content')
+      return
+    }
+    
+    if (formData.metaTitle.length > 60) {
+      alert('Meta Title must be 60 characters or less')
+      return
+    }
+    
+    if (formData.metaDescription.length > 160) {
+      alert('Meta Description must be 160 characters or less')
+      return
+    }
+    
     setIsLoading(true)
     
     try {
       const updateData = new FormData()
       updateData.append('id', blogId)
-      updateData.append('title', formData.title)
       updateData.append('content', formData.content)
-      updateData.append('meta_title', formData.meta_title || formData.title)
-      updateData.append('meta_description', formData.meta_description || formData.excerpt)
+      updateData.append('meta_title', formData.metaTitle || formData.title)
+      updateData.append('meta_description', formData.metaDescription)
       updateData.append('slug', formData.slug)
       updateData.append('tags', formData.tags)
       updateData.append('status', formData.status)
-      updateData.append('author', formData.author)
-      updateData.append('category', formData.category)
-      updateData.append('featured_image', formData.image)
-      updateData.append('excerpt', formData.excerpt)
-      updateData.append('is_published', formData.is_published.toString())
-      updateData.append('is_featured', formData.is_featured.toString())
-      updateData.append('read_time', formData.readTime)
-      updateData.append('views', formData.views.toString())
-      updateData.append('likes', formData.likes.toString())
+      
+      // Create extra_data object
+      const extraData = {
+        author: formData.author,
+        category: formData.category,
+        featured_image: formData.image,
+        excerpt: formData.excerpt,
+        page_title: formData.title, // H1 title for the page
+        read_time: formData.readTime + ' min read',
+        is_published: formData.is_published,
+        is_featured: formData.is_featured,
+        views: formData.views,
+        likes: formData.likes,
+        updated_at: new Date().toISOString(),
+        updated_by: 'admin'
+      }
+      
+      updateData.append('extra_data', JSON.stringify(extraData))
 
       const response = await fetch('https://safestorage.in/back/app/update_blog_content', {
         method: 'POST',
@@ -220,33 +245,86 @@ export default function EditBlogPost() {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
-            <Tabs defaultValue="basic" className="w-full">
-              <TabsList className="grid w-full max-w-[600px] grid-cols-3">
-                <TabsTrigger value="basic">Basic Info</TabsTrigger>
-                <TabsTrigger value="seo">SEO & Meta</TabsTrigger>
-                <TabsTrigger value="settings">Settings</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="basic" className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="title">Title *</Label>
-                    <Input
-                      id="title"
-                      value={formData.title}
-                      onChange={(e) => handleChange("title", e.target.value)}
-                      required
-                      placeholder="Enter blog title"
-                    />
-                  </div>
+            {/* SEO Section */}
+            <Card className="bg-blue-50 border-blue-200">
+              <CardHeader>
+                <CardTitle className="text-blue-800">SEO Settings</CardTitle>
+                <CardDescription>These fields control how your blog appears in Google search results</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="title" className="text-blue-800">Page Title (H1) *</Label>
+                  <Input
+                    id="title"
+                    value={formData.title}
+                    onChange={(e) => handleChange("title", e.target.value)}
+                    required
+                    placeholder="Best Storage Tips for Dubai Homes"
+                  />
+                  <p className="text-xs text-blue-600">This appears as the main heading on your blog page</p>
+                </div>
 
+                <div className="space-y-2">
+                  <Label htmlFor="metaTitle" className="text-blue-800">SEO Meta Title *</Label>
+                  <Input
+                    id="metaTitle"
+                    value={formData.metaTitle}
+                    onChange={(e) => handleChange("metaTitle", e.target.value)}
+                    required
+                    placeholder="Best Storage Tips for Dubai Homes | SafeStorage Dubai"
+                    maxLength={60}
+                  />
+                  <p className="text-xs text-blue-600">This appears in Google search results and browser tabs (max 60 chars)</p>
+                  <div className="text-xs text-blue-600">
+                    Characters: {formData.metaTitle.length}/60
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="metaDescription" className="text-blue-800">SEO Meta Description *</Label>
+                  <Textarea
+                    id="metaDescription"
+                    value={formData.metaDescription}
+                    onChange={(e) => handleChange("metaDescription", e.target.value)}
+                    required
+                    placeholder="Discover expert storage tips for Dubai homes. Learn how to maximize space, organize efficiently, and choose the right storage solutions."
+                    rows={3}
+                    maxLength={160}
+                  />
+                  <p className="text-xs text-blue-600">This appears under your title in Google search results (max 160 chars)</p>
+                  <div className="text-xs text-blue-600">
+                    Characters: {formData.metaDescription.length}/160
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="tags" className="text-blue-800">Keywords/Tags</Label>
+                  <Input
+                    id="tags"
+                    value={formData.tags}
+                    onChange={(e) => handleChange("tags", e.target.value)}
+                    placeholder="storage tips, dubai, home organization"
+                  />
+                  <p className="text-xs text-blue-600">Separate keywords with commas</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Content Section */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Blog Content</CardTitle>
+                <CardDescription>Main content and blog details</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="author">Author</Label>
                     <Input
                       id="author"
                       value={formData.author}
                       onChange={(e) => handleChange("author", e.target.value)}
-                      placeholder="Author name"
+                      placeholder="SafeStorage Team"
                     />
                   </div>
 
@@ -267,35 +345,24 @@ export default function EditBlogPost() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="readTime">Read Time (minutes)</Label>
+                    <Label htmlFor="readTime">Read Time</Label>
                     <Input
                       id="readTime"
-                      type="number"
                       value={formData.readTime}
                       onChange={(e) => handleChange("readTime", e.target.value)}
-                      placeholder="5"
-                      min="1"
+                      placeholder="e.g., 5"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="slug">Slug</Label>
+                    <Label htmlFor="slug">URL Slug</Label>
                     <Input
                       id="slug"
                       value={formData.slug}
                       onChange={(e) => handleChange("slug", e.target.value)}
-                      placeholder="URL slug"
+                      placeholder="best-storage-tips-dubai"
                     />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="tags">Tags (comma-separated)</Label>
-                    <Input
-                      id="tags"
-                      value={formData.tags}
-                      onChange={(e) => handleChange("tags", e.target.value)}
-                      placeholder="storage, tips, organization"
-                    />
+                    <p className="text-xs text-gray-600">The URL path for this blog post</p>
                   </div>
 
                   <div className="space-y-2 md:col-span-2">
@@ -307,51 +374,28 @@ export default function EditBlogPost() {
                   </div>
 
                   <div className="space-y-2 md:col-span-2">
-                    <Label htmlFor="excerpt">Excerpt *</Label>
+                    <Label htmlFor="excerpt">Blog Excerpt/Summary *</Label>
                     <Textarea
                       id="excerpt"
                       value={formData.excerpt}
                       onChange={(e) => handleChange("excerpt", e.target.value)}
                       required
-                      placeholder="Brief description of the blog post"
+                      placeholder="Write a brief summary of your blog post that will appear on the blog listing page..."
                       rows={3}
                     />
+                    <p className="text-xs text-gray-600">This summary appears on blog listing pages and social media previews</p>
                   </div>
                 </div>
-              </TabsContent>
+              </CardContent>
+            </Card>
 
-              <TabsContent value="seo" className="space-y-6">
-                <div className="grid grid-cols-1 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="meta_title">SEO Title</Label>
-                    <Input
-                      id="meta_title"
-                      value={formData.meta_title}
-                      onChange={(e) => handleChange("meta_title", e.target.value)}
-                      placeholder="SEO optimized title"
-                    />
-                    <p className="text-sm text-gray-500">
-                      Leave empty to use the regular title. Recommended length: 50-60 characters
-                    </p>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="meta_description">SEO Description</Label>
-                    <Textarea
-                      id="meta_description"
-                      value={formData.meta_description}
-                      onChange={(e) => handleChange("meta_description", e.target.value)}
-                      placeholder="SEO meta description"
-                      rows={3}
-                    />
-                    <p className="text-sm text-gray-500">
-                      Leave empty to use the excerpt. Recommended length: 150-160 characters
-                    </p>
-                  </div>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="settings" className="space-y-6">
+            {/* Settings Section */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Blog Settings</CardTitle>
+                <CardDescription>Publication and advanced settings</CardDescription>
+              </CardHeader>
+              <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="status">Status</Label>
@@ -409,39 +453,48 @@ export default function EditBlogPost() {
                     />
                   </div>
                 </div>
-              </TabsContent>
-            </Tabs>
+              </CardContent>
+            </Card>
 
-            <div className="space-y-2">
-              <Label>Content *</Label>
-              <Tabs defaultValue="editor" className="w-full">
-                <TabsList className="grid w-full max-w-[400px] grid-cols-2">
-                  <TabsTrigger value="editor">Editor</TabsTrigger>
-                  <TabsTrigger value="preview">Preview</TabsTrigger>
-                </TabsList>
-                <TabsContent value="editor" className="mt-4">
-                  <EditorWrapper
-                    value={formData.content}
-                    onChange={(value) => handleChange("content", value)}
-                    placeholder="Start writing your amazing blog post..."
-                    height="500px"
-                  />
-                </TabsContent>
-                <TabsContent value="preview" className="mt-4">
-                  <Card>
-                    <CardHeader>
-                      <CardDescription>This is how your blog post will appear</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div 
-                        className="prose prose-lg max-w-none"
-                        dangerouslySetInnerHTML={{ __html: formData.content || '<p class="text-gray-400">No content to preview...</p>' }}
+            {/* Content Editor Section */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Blog Content Editor</CardTitle>
+                <CardDescription>Write your blog post content here</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <Label>Blog Content *</Label>
+                  <Tabs defaultValue="editor" className="w-full">
+                    <TabsList className="grid w-full max-w-[400px] grid-cols-2">
+                      <TabsTrigger value="editor">Editor</TabsTrigger>
+                      <TabsTrigger value="preview">Preview</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="editor" className="mt-4">
+                      <EditorWrapper
+                        value={formData.content}
+                        onChange={(value) => handleChange("content", value)}
+                        placeholder="Start writing your amazing blog post..."
+                        height="500px"
                       />
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              </Tabs>
-            </div>
+                    </TabsContent>
+                    <TabsContent value="preview" className="mt-4">
+                      <Card>
+                        <CardHeader>
+                          <CardDescription>This is how your blog post will appear</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <div 
+                            className="prose prose-lg max-w-none"
+                            dangerouslySetInnerHTML={{ __html: formData.content || '<p class="text-gray-400">No content to preview...</p>' }}
+                          />
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                  </Tabs>
+                </div>
+              </CardContent>
+            </Card>
 
             <div className="flex justify-end space-x-4">
               <Button
