@@ -88,8 +88,8 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
           setPost({
             id: blog.id || blog.blog_id,
             slug: blog.slug,
-            title: blog.meta_title,
-            excerpt: blog.meta_description,
+            title: extraData.page_title || blog.meta_title, // Use page_title for H1, fallback to meta_title
+            excerpt: extraData.excerpt || blog.meta_description,
             content: blog.content,
             author: { name: extraData.author || 'SafeStorage Team' },
             categories: [extraData.category || 'General'],

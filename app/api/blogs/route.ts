@@ -43,7 +43,8 @@ export async function POST(request: NextRequest) {
       author: body.author || 'SafeStorage Team',
       category: body.category || 'General',
       featured_image: body.featured_image || '',
-      excerpt: body.meta_description || '',
+      excerpt: body.excerpt || '',
+      page_title: body.title || '', // H1 title for the page
       read_time: '5 min read',
       created_by: 'admin'
     }
@@ -52,9 +53,9 @@ export async function POST(request: NextRequest) {
     const formData = new URLSearchParams()
     formData.append('content_type', 'post')
     formData.append('content', body.content || '')
-    formData.append('meta_title', body.title || '')
+    formData.append('meta_title', body.meta_title || body.title || '')
     formData.append('meta_description', body.meta_description || '')
-    formData.append('slug', body.slug || generateSlug(body.title || ''))
+    formData.append('slug', body.slug || generateSlug(body.meta_title || body.title || ''))
     formData.append('tags', body.tags || '')
     formData.append('extra_data', JSON.stringify(extraData))
     formData.append('status', '1') // Active status
