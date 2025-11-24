@@ -1,6 +1,9 @@
 import BlogPostDetail from "@/components/blog/blog-post-detail"
 import type { Metadata } from "next"
 
+// Force dynamic generation for blog posts
+export const dynamic = 'force-dynamic'
+
 interface BlogPostPageProps {
   params: {
     slug: string
@@ -15,7 +18,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       : process.env.NEXT_PUBLIC_BASE_URL || 'https://safestorage.ae'
     
     const response = await fetch(`${baseUrl}/api/blogs/${params.slug}`, {
-      cache: 'no-store'
+      cache: 'no-store',
+      next: { revalidate: 0 }
     })
     const data = await response.json()
     
