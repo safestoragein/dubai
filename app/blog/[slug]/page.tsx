@@ -9,10 +9,20 @@ interface BlogPostPageProps {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/blogs/${params.slug}`)
+    console.log('Generating metadata for slug:', params.slug)
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}`
+      : process.env.NEXT_PUBLIC_BASE_URL || 'https://safestorage.ae'
+    
+    const response = await fetch(`${baseUrl}/api/blogs/${params.slug}`, {
+      cache: 'no-store'
+    })
     const data = await response.json()
     
+    console.log('API Response for metadata:', data)
+    
     if (data.status !== 'success' || !data.data) {
+      console.log('Blog not found, using fallback metadata')
       return {
         title: "Blog Post Not Found | SafeStorage Dubai",
         description: "The requested blog post could not be found.",
@@ -23,24 +33,30 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     const extraData = post.extra_data ? 
       (typeof post.extra_data === 'string' ? JSON.parse(post.extra_data) : post.extra_data) : {}
     
+    console.log('Post data:', { meta_title: post.meta_title, meta_description: post.meta_description })
+    
+    const title = post.meta_title || extraData.page_title || "Blog Post"
+    const description = post.meta_description || extraData.excerpt || "Read this blog post on SafeStorage Dubai"
+    
     return {
-      title: `${post.meta_title} | SafeStorage Dubai Blog`,
-      description: post.meta_description,
+      title: `${title} | SafeStorage Dubai`,
+      description: description,
       keywords: post.tags || "",
       openGraph: {
-        title: post.meta_title,
-        description: post.meta_description,
+        title: title,
+        description: description,
         images: extraData.featured_image ? [
           {
             url: extraData.featured_image,
             width: 1200,
             height: 630,
-            alt: post.meta_title,
+            alt: title,
           },
         ] : [],
       },
     }
   } catch (error) {
+    console.error('Error generating metadata:', error)
     return {
       title: "Blog | SafeStorage Dubai",
       description: "Expert storage tips and guides from SafeStorage Dubai",

@@ -7,14 +7,8 @@ export async function GET(
   { params }: { params: { slug: string } }
 ) {
   try {
-    // Check if the slug is a numeric ID
-    const isId = /^\d+$/.test(params.slug)
-    
-    const url = isId 
-      ? `${BACKEND_URL}/get_blog/${params.slug}` 
-      : `${BACKEND_URL}/get_blog_by_slug/${params.slug}`
-    
-    const response = await fetch(url, {
+    // Fetch all blogs and find the one with matching slug
+    const response = await fetch(`${BACKEND_URL}/get_blog_content`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -22,7 +16,35 @@ export async function GET(
     })
 
     const data = await response.json()
-    return NextResponse.json(data)
+    
+    // Handle different response formats
+    let blogs = []
+    if (Array.isArray(data)) {
+      blogs = data
+    } else if (data.status === 'success' && data.data) {
+      blogs = Array.isArray(data.data) ? data.data : [data.data]
+    } else if (data.all_content) {
+      blogs = Array.isArray(data.all_content) ? data.all_content : [data.all_content]
+    }
+
+    // Find blog by slug
+    const blog = blogs.find((b: any) => b.slug === params.slug)
+    
+    if (blog) {
+      return NextResponse.json({
+        status: 'success',
+        data: blog
+      })
+    } else {
+      return NextResponse.json(
+        { 
+          status: 'error',
+          message: 'Blog not found',
+          error: 'Blog post with this slug does not exist'
+        },
+        { status: 404 }
+      )
+    }
   } catch (error) {
     console.error('Error fetching blog:', error)
     return NextResponse.json(
