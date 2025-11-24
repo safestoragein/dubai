@@ -28,19 +28,38 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     
-    // Create FormData for CodeIgniter backend matching the expected fields
+    // Generate slug from title if not provided
+    const generateSlug = (title: string) => {
+      return title
+        .toLowerCase()
+        .replace(/[^a-z0-9 -]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim('-')
+    }
+    
+    // Prepare extra_data with additional fields
+    const extraData = {
+      author: body.author || 'SafeStorage Team',
+      category: body.category || 'General',
+      featured_image: body.featured_image || '',
+      excerpt: body.meta_description || '',
+      read_time: '5 min read',
+      created_by: 'admin'
+    }
+    
+    // Create FormData for CodeIgniter backend matching the insert_blog_content endpoint
     const formData = new URLSearchParams()
     formData.append('content_type', 'post')
     formData.append('content', body.content || '')
     formData.append('meta_title', body.title || '')
     formData.append('meta_description', body.meta_description || '')
+    formData.append('slug', body.slug || generateSlug(body.title || ''))
     formData.append('tags', body.tags || '')
-    formData.append('author', body.author || 'SafeStorage Team')
-    formData.append('category', body.category || 'General')
-    formData.append('featured_image', body.featured_image || '')
-    formData.append('excerpt', body.meta_description || '')
+    formData.append('extra_data', JSON.stringify(extraData))
+    formData.append('status', '1') // Active status
 
-    const response = await fetch(`${BACKEND_URL}/insert_blog_post`, {
+    const response = await fetch(`${BACKEND_URL}/insert_blog_content`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -50,20 +69,19 @@ export async function POST(request: NextRequest) {
 
     const responseText = await response.text()
     
-    // Try to parse as JSON, fallback to text
-    let data
-    try {
-      data = JSON.parse(responseText)
-    } catch (e) {
-      // If response is not JSON, create a standard response
-      if (response.ok) {
-        data = { status: 'success', message: 'Blog post created successfully' }
-      } else {
-        data = { status: 'error', message: responseText || 'Failed to create blog post' }
-      }
+    // Handle the response - the endpoint returns "success" on success
+    if (response.ok && responseText.includes('success')) {
+      return NextResponse.json({
+        status: 'success',
+        message: 'Blog post created successfully'
+      })
+    } else {
+      return NextResponse.json({
+        status: 'error',
+        message: responseText || 'Failed to create blog post'
+      }, { status: response.status || 400 })
     }
 
-    return NextResponse.json(data, { status: response.status })
   } catch (error) {
     console.error('Error creating blog:', error)
     return NextResponse.json(
