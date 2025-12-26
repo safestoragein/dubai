@@ -2,7 +2,12 @@ import { NextResponse } from "next/server"
 import jwt from "jsonwebtoken"
 import { cookies } from "next/headers"
 
+// Use the same JWT secret as login
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production-2024"
+
+if (!process.env.JWT_SECRET) {
+  console.warn("JWT_SECRET environment variable not set! Using fallback.")
+}
 
 export async function GET() {
   try {

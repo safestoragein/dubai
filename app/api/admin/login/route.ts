@@ -2,7 +2,12 @@ import { NextResponse } from "next/server"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 
+// Use a consistent JWT secret
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production-2024"
+
+if (!process.env.JWT_SECRET) {
+  console.warn("JWT_SECRET environment variable not set! Using fallback.")
+}
 
 // Hardcoded credentials (in production, store hashed password in database)
 const ADMIN_EMAIL = "kushal@safestorage.in"
@@ -66,23 +71,20 @@ export async function POST(request: Request) {
       { status: 200 }
     )
 
-    // Set HTTP-only cookie with token
-    const isProduction = process.env.NODE_ENV === "production"
-    const cookieOptions = {
+    // Set HTTP-only cookie with token - simplified for reliability
+    response.cookies.set({
       name: "admin-token",
       value: token,
       httpOnly: true,
-      secure: isProduction, // Only secure in production (HTTPS)
-      sameSite: "lax" as const,
+      secure: true, // Always secure since we're on HTTPS
+      sameSite: "lax",
       maxAge: 60 * 60 * 8, // 8 hours
       path: "/"
-    }
+    })
 
-    console.log('Environment:', process.env.NODE_ENV)
-    console.log('Is Production:', isProduction)
-
-    console.log('Setting cookie with options:', { ...cookieOptions, value: '[HIDDEN]' })
-    response.cookies.set(cookieOptions)
+    console.log('Cookie set successfully')
+    console.log('Token length:', token.length)
+    console.log('JWT_SECRET available:', !!JWT_SECRET)
 
     return response
   } catch (error) {
