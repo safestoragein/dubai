@@ -40,6 +40,9 @@ export async function POST(request: Request) {
     }
 
     // Create JWT token
+    console.log('Login endpoint - JWT_SECRET:', JWT_SECRET ? 'SET' : 'NOT SET')
+    console.log('Login endpoint - Creating token for:', ADMIN_EMAIL)
+    
     const token = jwt.sign(
       { 
         email: ADMIN_EMAIL,
@@ -49,6 +52,9 @@ export async function POST(request: Request) {
       JWT_SECRET,
       { expiresIn: "8h" }
     )
+    
+    console.log('Token created successfully, length:', token.length)
+    console.log('Token starts with:', token.substring(0, 20))
 
     // Create response with token
     const response = NextResponse.json(
@@ -61,15 +67,22 @@ export async function POST(request: Request) {
     )
 
     // Set HTTP-only cookie with token
-    response.cookies.set({
+    const isProduction = process.env.NODE_ENV === "production"
+    const cookieOptions = {
       name: "admin-token",
       value: token,
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
+      secure: isProduction, // Only secure in production (HTTPS)
+      sameSite: "lax" as const,
       maxAge: 60 * 60 * 8, // 8 hours
       path: "/"
-    })
+    }
+
+    console.log('Environment:', process.env.NODE_ENV)
+    console.log('Is Production:', isProduction)
+
+    console.log('Setting cookie with options:', { ...cookieOptions, value: '[HIDDEN]' })
+    response.cookies.set(cookieOptions)
 
     return response
   } catch (error) {
