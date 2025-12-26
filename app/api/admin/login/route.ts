@@ -2,12 +2,12 @@ import { NextResponse } from "next/server"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 
-// Use a consistent JWT secret
-const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production-2024"
+// Use a consistent JWT secret - ensuring both login and verify use the same secret
+const FALLBACK_SECRET = "safestorage-jwt-production-secret-2024-v2"
+const JWT_SECRET = process.env.JWT_SECRET || FALLBACK_SECRET
 
-if (!process.env.JWT_SECRET) {
-  console.warn("JWT_SECRET environment variable not set! Using fallback.")
-}
+console.log("Login - JWT_SECRET source:", process.env.JWT_SECRET ? "ENV_VAR" : "FALLBACK")
+console.log("Login - Secret length:", JWT_SECRET.length)
 
 // Hardcoded credentials (in production, store hashed password in database)
 const ADMIN_EMAIL = "kushal@safestorage.in"
@@ -45,9 +45,6 @@ export async function POST(request: Request) {
     }
 
     // Create JWT token
-    console.log('Login endpoint - JWT_SECRET:', JWT_SECRET ? 'SET' : 'NOT SET')
-    console.log('Login endpoint - Creating token for:', ADMIN_EMAIL)
-    
     const token = jwt.sign(
       { 
         email: ADMIN_EMAIL,
@@ -58,8 +55,7 @@ export async function POST(request: Request) {
       { expiresIn: "8h" }
     )
     
-    console.log('Token created successfully, length:', token.length)
-    console.log('Token starts with:', token.substring(0, 20))
+    console.log('Login successful - Token created for:', ADMIN_EMAIL)
 
     // Create response with token
     const response = NextResponse.json(
@@ -82,9 +78,7 @@ export async function POST(request: Request) {
       path: "/"
     })
 
-    console.log('Cookie set successfully')
-    console.log('Token length:', token.length)
-    console.log('JWT_SECRET available:', !!JWT_SECRET)
+    console.log('Login completed - Cookie set')
 
     return response
   } catch (error) {

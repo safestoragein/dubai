@@ -2,36 +2,29 @@ import { NextResponse } from "next/server"
 import jwt from "jsonwebtoken"
 import { cookies } from "next/headers"
 
-// Use the same JWT secret as login
-const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production-2024"
+// Use the exact same secret as login - CRITICAL FOR JWT TO WORK
+const FALLBACK_SECRET = "safestorage-jwt-production-secret-2024-v2"
+const JWT_SECRET = process.env.JWT_SECRET || FALLBACK_SECRET
 
-if (!process.env.JWT_SECRET) {
-  console.warn("JWT_SECRET environment variable not set! Using fallback.")
-}
+console.log("Verify - JWT_SECRET source:", process.env.JWT_SECRET ? "ENV_VAR" : "FALLBACK")
+console.log("Verify - Secret length:", JWT_SECRET.length)
 
 export async function GET() {
   try {
     const cookieStore = cookies()
     const token = cookieStore.get("admin-token")
 
-    console.log('Verify endpoint - JWT_SECRET:', JWT_SECRET ? 'SET' : 'NOT SET')
-    console.log('Verify endpoint - Token exists:', !!token)
-    console.log('Verify endpoint - All cookies:', cookieStore.getAll().map(c => c.name))
-
     if (!token) {
-      console.log('No token found in cookies')
+      console.log('Verify failed - No token found')
       return NextResponse.json(
         { error: "Not authenticated" },
         { status: 401 }
       )
     }
 
-    console.log('Token value length:', token.value.length)
-    console.log('Token starts with:', token.value.substring(0, 20))
-
     // Verify JWT token
     const decoded = jwt.verify(token.value, JWT_SECRET) as any
-    console.log('Token decoded successfully:', { email: decoded.email, role: decoded.role })
+    console.log('Verify successful for:', decoded.email)
 
     return NextResponse.json(
       { 
@@ -44,8 +37,7 @@ export async function GET() {
       { status: 200 }
     )
   } catch (error) {
-    console.error('JWT verification error:', error)
-    console.error('JWT_SECRET used:', JWT_SECRET ? 'SET' : 'NOT SET')
+    console.error('JWT verification failed:', (error as Error).message)
     return NextResponse.json(
       { error: "Invalid or expired token" },
       { status: 401 }
