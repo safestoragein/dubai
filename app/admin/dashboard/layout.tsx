@@ -12,20 +12,55 @@ export default function DashboardLayout({
 }) {
   const router = useRouter()
   const [userEmail, setUserEmail] = useState("")
+  const [isLoading, setIsLoading] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
-    // Verify authentication
-    fetch("/api/admin/verify")
-      .then(res => res.json())
-      .then(data => {
-        if (data.user) {
-          setUserEmail(data.user.email)
-        } else {
-          router.push("/admin/login")
-        }
+    // Add a small delay to ensure cookie is set properly
+    const timer = setTimeout(() => {
+      // Verify authentication
+      fetch("/api/admin/verify", {
+        credentials: 'include' // Ensure cookies are sent
       })
-      .catch(() => router.push("/admin/login"))
+        .then(res => res.json())
+        .then(data => {
+          console.log('Verification response:', data)
+          if (data.user) {
+            setUserEmail(data.user.email)
+            setIsAuthenticated(true)
+          } else {
+            console.log('No user found, redirecting to login')
+            router.push("/admin/login")
+          }
+        })
+        .catch((error) => {
+          console.error('Verification error:', error)
+          router.push("/admin/login")
+        })
+        .finally(() => {
+          setIsLoading(false)
+        })
+    }, 100) // Small delay to ensure cookie is set
+
+    return () => clearTimeout(timer)
   }, [router])
+
+  // Show loading state while verifying
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 mx-auto"></div>
+          <p className="mt-2 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Don't render dashboard if not authenticated
+  if (!isAuthenticated) {
+    return null
+  }
 
   const handleLogout = async () => {
     try {

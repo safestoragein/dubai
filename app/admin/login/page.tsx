@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -13,7 +13,40 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true)
   const router = useRouter()
+
+  // Check if user is already authenticated
+  useEffect(() => {
+    fetch("/api/admin/verify", {
+      credentials: 'include'
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.user) {
+          // User is already authenticated, redirect to dashboard
+          router.push("/admin/dashboard")
+        }
+      })
+      .catch(() => {
+        // Not authenticated, stay on login page
+      })
+      .finally(() => {
+        setIsCheckingAuth(false)
+      })
+  }, [router])
+
+  // Show loading while checking authentication
+  if (isCheckingAuth) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 mx-auto"></div>
+          <p className="mt-2 text-gray-600">Checking authentication...</p>
+        </div>
+      </div>
+    )
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -35,8 +68,12 @@ export default function AdminLoginPage() {
         throw new Error(data.error || "Login failed")
       }
 
-      // Redirect to dashboard
-      router.push("/admin/dashboard")
+      console.log('Login successful:', data)
+      
+      // Small delay to ensure cookie is set properly before redirecting
+      setTimeout(() => {
+        router.push("/admin/dashboard")
+      }, 100)
     } catch (err: any) {
       setError(err.message || "An error occurred during login")
     } finally {
