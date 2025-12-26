@@ -75,9 +75,9 @@ export async function POST(request: NextRequest) {
     // Handle multiple image uploads
     const images = formData.getAll('images') as File[]
     if (images && images.length > 0) {
-      // Add each image to FormData as 'image[]' for PHP array handling
+      // Add each image to FormData - PHP backend expects 'image' field with array notation
       images.forEach((image, index) => {
-        backendFormData.append('image[]', image, image.name)
+        backendFormData.append(`image[${index}]`, image, image.name)
       })
     }
     

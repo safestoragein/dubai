@@ -85,10 +85,11 @@ export default function EditBlogPost() {
         }
         
         console.log('Extra data:', extraData)
+        console.log('Blog data:', blog)
         
-        // Check if blog has uploaded images
-        if (blog.image) {
-          const imageList = blog.image.split(',').filter((img: string) => img.trim())
+        // Check if blog has uploaded images (backend stores in 'images' field)
+        if (blog.images) {
+          const imageList = blog.images.split(',').filter((img: string) => img.trim())
           setExistingImages(imageList)
         }
         
@@ -144,41 +145,34 @@ export default function EditBlogPost() {
     setIsLoading(true)
     
     try {
+      console.log('Submitting form data:', formData)
+      console.log('Blog ID:', blogId)
+      
       const updateData = new FormData()
       updateData.append('id', blogId)
-      updateData.append('content', formData.content)
-      updateData.append('meta_title', formData.metaTitle || formData.title)
-      updateData.append('meta_description', formData.metaDescription)
-      updateData.append('slug', formData.slug)
-      updateData.append('tags', formData.tags)
-      updateData.append('status', formData.status)
+      updateData.append('content', formData.content || '')
+      updateData.append('meta_title', formData.metaTitle || formData.title || '')
+      updateData.append('meta_description', formData.metaDescription || '')
+      updateData.append('slug', formData.slug || '')
+      updateData.append('tags', formData.tags || '')
+      updateData.append('status', formData.status || '1')
       
-      // Create extra_data object
-      const extraData = {
-        author: formData.author,
-        category: formData.category,
-        featured_image: formData.image,
-        excerpt: formData.excerpt,
-        page_title: formData.title, // H1 title for the page
-        read_time: formData.readTime + ' min read',
-        is_published: formData.is_published,
-        is_featured: formData.is_featured,
-        views: formData.views,
-        likes: formData.likes,
-        updated_at: new Date().toISOString(),
-        updated_by: 'admin'
-      }
+      // Backend expects these in POST fields for merging with extra_data
+      updateData.append('author', formData.author || 'SafeStorage Team')
+      updateData.append('category', formData.category || 'Storage Tips')
+      updateData.append('excerpt', formData.excerpt || '')
+      updateData.append('read_time', String(parseInt(formData.readTime) || 5))
+      updateData.append('views', String(formData.views || 0))
+      updateData.append('likes', String(formData.likes || 0))
       
-      updateData.append('extra_data', JSON.stringify(extraData))
-      
-      // Add new images to FormData if any
+      // Add new images to FormData if any (backend expects 'image' field)
       if (selectedImages.length > 0) {
-        selectedImages.forEach((image) => {
-          updateData.append('image[]', image, image.name)
+        selectedImages.forEach((image, index) => {
+          updateData.append(`image[${index}]`, image, image.name)
         })
       }
       
-      // Add existing images to preserve them
+      // The backend manages existing images, but we send them for reference
       if (existingImages.length > 0) {
         updateData.append('existing_images', existingImages.join(','))
       }
