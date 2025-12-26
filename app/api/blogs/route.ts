@@ -26,7 +26,8 @@ export async function GET(request: NextRequest) {
 // POST new blog
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
+    // Parse multipart form data
+    const formData = await request.formData()
     
     // Generate slug from title if not provided
     const generateSlug = (title: string) => {
@@ -35,42 +36,60 @@ export async function POST(request: NextRequest) {
         .replace(/[^a-z0-9 -]/g, '')
         .replace(/\s+/g, '-')
         .replace(/-+/g, '-')
-        .trim('-')
+        .trim()
     }
     
-    // Prepare extra_data with additional fields
+    // Get form fields
+    const title = formData.get('title') as string
+    const content = formData.get('content') as string
+    const metaTitle = formData.get('meta_title') as string || title
+    const metaDescription = formData.get('meta_description') as string
+    const tags = formData.get('tags') as string
+    const author = formData.get('author') as string || 'SafeStorage Team'
+    const category = formData.get('category') as string || 'General'
+    const featuredImage = formData.get('featured_image') as string || ''
+    const excerpt = formData.get('excerpt') as string || ''
+    
+    // Prepare extra_data
     const extraData = {
-      author: body.author || 'SafeStorage Team',
-      category: body.category || 'General',
-      featured_image: body.featured_image || '',
-      excerpt: body.excerpt || '',
-      page_title: body.title || '', // H1 title for the page
+      author: author,
+      category: category,
+      featured_image: featuredImage,
+      excerpt: excerpt,
+      page_title: title,
       read_time: '5 min read',
       created_by: 'admin'
     }
     
-    // Create FormData for CodeIgniter backend matching the insert_blog_content endpoint
-    const formData = new URLSearchParams()
-    formData.append('content_type', 'post')
-    formData.append('content', body.content || '')
-    formData.append('meta_title', body.meta_title || body.title || '')
-    formData.append('meta_description', body.meta_description || '')
-    formData.append('slug', body.slug || generateSlug(body.meta_title || body.title || ''))
-    formData.append('tags', body.tags || '')
-    formData.append('extra_data', JSON.stringify(extraData))
-    formData.append('status', '1') // Active status
-
+    // Create new FormData for backend
+    const backendFormData = new FormData()
+    backendFormData.append('content_type', 'post')
+    backendFormData.append('content', content)
+    backendFormData.append('meta_title', metaTitle)
+    backendFormData.append('meta_description', metaDescription)
+    backendFormData.append('slug', generateSlug(metaTitle))
+    backendFormData.append('tags', tags)
+    backendFormData.append('extra_data', JSON.stringify(extraData))
+    backendFormData.append('status', '1')
+    
+    // Handle multiple image uploads
+    const images = formData.getAll('images') as File[]
+    if (images && images.length > 0) {
+      // Add each image to FormData as 'image[]' for PHP array handling
+      images.forEach((image, index) => {
+        backendFormData.append('image[]', image, image.name)
+      })
+    }
+    
+    // Send to backend with FormData
     const response = await fetch(`${BACKEND_URL}/insert_blog_content`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: formData.toString(),
+      body: backendFormData, // Send as FormData
     })
 
     const responseText = await response.text()
     
-    // Handle the response - the endpoint returns "success" on success
+    // Handle the response
     if (response.ok && responseText.includes('success')) {
       return NextResponse.json({
         status: 'success',

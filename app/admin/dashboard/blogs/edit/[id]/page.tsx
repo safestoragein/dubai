@@ -22,6 +22,8 @@ export default function EditBlogPost() {
   const [isFetching, setIsFetching] = useState(true)
   const [success, setSuccess] = useState(false)
   const [notFound, setNotFound] = useState(false)
+  const [selectedImages, setSelectedImages] = useState<File[]>([])
+  const [existingImages, setExistingImages] = useState<string[]>([])
   const [formData, setFormData] = useState({
     title: "", // Page title (H1)
     metaTitle: "", // SEO meta title
@@ -83,6 +85,12 @@ export default function EditBlogPost() {
         }
         
         console.log('Extra data:', extraData)
+        
+        // Check if blog has uploaded images
+        if (blog.image) {
+          const imageList = blog.image.split(',').filter((img: string) => img.trim())
+          setExistingImages(imageList)
+        }
         
         setFormData({
           title: (extraData as any).page_title || blog.meta_title || blog.title || "",
@@ -162,6 +170,18 @@ export default function EditBlogPost() {
       }
       
       updateData.append('extra_data', JSON.stringify(extraData))
+      
+      // Add new images to FormData if any
+      if (selectedImages.length > 0) {
+        selectedImages.forEach((image) => {
+          updateData.append('image[]', image, image.name)
+        })
+      }
+      
+      // Add existing images to preserve them
+      if (existingImages.length > 0) {
+        updateData.append('existing_images', existingImages.join(','))
+      }
 
       const response = await fetch('https://safestorage.in/back/app/update_blog_content', {
         method: 'POST',
@@ -191,6 +211,22 @@ export default function EditBlogPost() {
       ...prev,
       [field]: value
     }))
+  }
+  
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (files) {
+      const fileArray = Array.from(files)
+      setSelectedImages(prev => [...prev, ...fileArray])
+    }
+  }
+  
+  const removeImage = (index: number) => {
+    setSelectedImages(prev => prev.filter((_, i) => i !== index))
+  }
+  
+  const removeExistingImage = (index: number) => {
+    setExistingImages(prev => prev.filter((_, i) => i !== index))
   }
 
   if (isFetching) {
@@ -369,8 +405,75 @@ export default function EditBlogPost() {
                     <ImageUpload
                       value={formData.image}
                       onChange={(value) => handleChange("image", value)}
-                      label="Featured Image"
+                      label="Featured Image URL"
                     />
+                  </div>
+                  
+                  <div className="space-y-2 md:col-span-2">
+                    <Label>Blog Images</Label>
+                    
+                    {/* Show existing images */}
+                    {existingImages.length > 0 && (
+                      <div className="mb-4">
+                        <p className="text-sm font-medium mb-2">Current Images:</p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          {existingImages.map((image, index) => (
+                            <div key={`existing-${index}`} className="relative">
+                              <img
+                                src={`https://safestorage.in/upload/blog_images/${image}`}
+                                alt={`Existing ${index + 1}`}
+                                className="w-full h-24 object-cover rounded border"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => removeExistingImage(index)}
+                                className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600"
+                              >
+                                ×
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Upload new images */}
+                    <Label htmlFor="imageFiles">Upload New Images</Label>
+                    <Input
+                      id="imageFiles"
+                      type="file"
+                      multiple
+                      accept="image/jpg,image/jpeg,image/png,image/gif"
+                      onChange={handleImageUpload}
+                      className="cursor-pointer"
+                    />
+                    <p className="text-xs text-gray-600">You can select multiple images (JPG, JPEG, PNG, GIF)</p>
+                    
+                    {/* Show newly selected images */}
+                    {selectedImages.length > 0 && (
+                      <div className="mt-4">
+                        <p className="text-sm font-medium mb-2">New Images ({selectedImages.length}):</p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          {selectedImages.map((image, index) => (
+                            <div key={`new-${index}`} className="relative">
+                              <img
+                                src={URL.createObjectURL(image)}
+                                alt={`New ${index + 1}`}
+                                className="w-full h-24 object-cover rounded border"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => removeImage(index)}
+                                className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600"
+                              >
+                                ×
+                              </button>
+                              <p className="text-xs text-gray-600 mt-1 truncate">{image.name}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="space-y-2 md:col-span-2">

@@ -17,6 +17,7 @@ export default function NewBlogPost() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [selectedImages, setSelectedImages] = useState<File[]>([])
   const [formData, setFormData] = useState({
     title: "",
     metaTitle: "",
@@ -52,23 +53,27 @@ export default function NewBlogPost() {
     setIsLoading(true)
     
     try {
+      // Create FormData to handle file uploads
+      const submitData = new FormData()
+      submitData.append('title', formData.title)
+      submitData.append('content', formData.content)
+      submitData.append('meta_title', formData.metaTitle || formData.title)
+      submitData.append('meta_description', formData.metaDescription)
+      submitData.append('tags', formData.tags)
+      submitData.append('author', formData.author)
+      submitData.append('category', formData.category)
+      submitData.append('featured_image', formData.image)
+      submitData.append('excerpt', formData.excerpt)
+      
+      // Add multiple images to FormData
+      selectedImages.forEach((image, index) => {
+        submitData.append('images', image)
+      })
+      
       // Call the API to save to backend
       const response = await fetch('/api/blogs', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          title: formData.metaTitle || formData.title,
-          content: formData.content,
-          meta_title: formData.metaTitle || formData.title,
-          meta_description: formData.metaDescription,
-          tags: formData.tags,
-          author: formData.author,
-          category: formData.category,
-          featured_image: formData.image,
-          excerpt: formData.excerpt,
-        }),
+        body: submitData, // Send as FormData, not JSON
       })
 
       const data = await response.json()
@@ -94,6 +99,18 @@ export default function NewBlogPost() {
       ...prev,
       [field]: value
     }))
+  }
+  
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (files) {
+      const fileArray = Array.from(files)
+      setSelectedImages(prev => [...prev, ...fileArray])
+    }
+  }
+  
+  const removeImage = (index: number) => {
+    setSelectedImages(prev => prev.filter((_, i) => i !== index))
   }
 
   return (
@@ -230,8 +247,46 @@ export default function NewBlogPost() {
                     <ImageUpload
                       value={formData.image}
                       onChange={(value) => handleChange("image", value)}
-                      label="Featured Image"
+                      label="Featured Image URL"
                     />
+                  </div>
+                  
+                  <div className="space-y-2 md:col-span-2">
+                    <Label htmlFor="imageFiles">Upload Blog Images</Label>
+                    <Input
+                      id="imageFiles"
+                      type="file"
+                      multiple
+                      accept="image/jpg,image/jpeg,image/png,image/gif"
+                      onChange={handleImageUpload}
+                      className="cursor-pointer"
+                    />
+                    <p className="text-xs text-gray-600">You can select multiple images (JPG, JPEG, PNG, GIF)</p>
+                    
+                    {selectedImages.length > 0 && (
+                      <div className="mt-4 space-y-2">
+                        <p className="text-sm font-medium">Selected Images ({selectedImages.length}):</p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          {selectedImages.map((image, index) => (
+                            <div key={index} className="relative">
+                              <img
+                                src={URL.createObjectURL(image)}
+                                alt={`Preview ${index + 1}`}
+                                className="w-full h-24 object-cover rounded border"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => removeImage(index)}
+                                className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600"
+                              >
+                                ×
+                              </button>
+                              <p className="text-xs text-gray-600 mt-1 truncate">{image.name}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="space-y-2 md:col-span-2">
