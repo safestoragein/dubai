@@ -28,7 +28,7 @@ import {
   WashingMachine,
   Stethoscope,
   Box,
-  Cane
+  Cog
 } from "lucide-react"
 
 interface StorageItem {
@@ -40,7 +40,7 @@ const getItemIcon = (itemName: string) => {
   const name = itemName.toLowerCase()
   
   // Walking stick specifically
-  if (name.includes("walking stick")) return Cane
+  if (name.includes("walking stick")) return Cog
   
   // BEDS & BEDROOM - Check beds BEFORE baby items
   if (name.includes("king size") && (name.includes("cot") || name.includes("bed"))) return Bed
