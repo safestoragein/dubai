@@ -80,8 +80,7 @@ export default function BusinessStoragePage() {
               </Button>
               <Button
                 size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10 text-lg px-8 py-6"
+                className="bg-transparent border-2 border-dubai-gold text-dubai-gold hover:bg-dubai-gold hover:text-white text-lg px-8 py-6"
                 asChild
               >
                 <a href="tel:+971505773388">Call +971 50 577 3388</a>
