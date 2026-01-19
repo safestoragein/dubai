@@ -51,14 +51,14 @@ module.exports = {
           DEFAULT: "hsl(0, 0%, 100%)",
           foreground: "hsl(222, 47%, 11%)",
         },
-        // Dubai-inspired colors
+        // SafeStorage brand colors
         dubai: {
-          gold: "#D4AF37",
-          darkgold: "#AA8C2C",
-          sand: "#E2D0A2",
-          navy: "#0A2463",
+          gold: "#f05301",
+          darkgold: "#d94a01",
+          sand: "#fff4ed",
+          navy: "#031a5c",
           skyblue: "#7EC8E3",
-          midnight: "#050A30",
+          midnight: "#021242",
         },
       },
       borderRadius: {
