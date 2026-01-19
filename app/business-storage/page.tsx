@@ -90,6 +90,32 @@ export default function BusinessStoragePage() {
         </div>
       </section>
 
+      {/* Trusted By Section */}
+      <section className="py-12 bg-gray-50 border-b border-gray-100">
+        <div className="container px-6 md:px-8">
+          <p className="text-center text-gray-500 text-sm uppercase tracking-wider mb-8">
+            Trusted by Leading Businesses in Dubai
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 lg:gap-20">
+            {[
+              "Emirates NBD",
+              "DAMAC",
+              "Emaar",
+              "Noon",
+              "Careem",
+              "Chalhoub Group",
+            ].map((client, index) => (
+              <div
+                key={index}
+                className="text-gray-400 hover:text-dubai-navy font-semibold text-lg md:text-xl tracking-tight transition-colors duration-300"
+              >
+                {client}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="container px-6 md:px-8">
