@@ -4,6 +4,16 @@ import type { Metadata } from "next"
 // Force dynamic generation for blog posts
 export const dynamic = 'force-dynamic'
 
+// Helper function to generate slug from title
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9 -]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
 interface BlogPostPageProps {
   params: Promise<{
     slug: string
@@ -13,30 +23,27 @@ interface BlogPostPageProps {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   try {
     const { slug } = await params
-    console.log('Generating metadata for slug:', slug)
-    const baseUrl = process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : process.env.NEXT_PUBLIC_BASE_URL || 'https://safestorage.ae'
 
-    const response = await fetch(`${baseUrl}/api/blogs/${slug}`, {
-      cache: 'no-store',
-      next: { revalidate: 0 }
+    // Fetch directly from backend to avoid issues with calling own API
+    const response = await fetch('https://safestorage.in/get_blog_content', {
+      cache: 'no-store'
     })
     const data = await response.json()
 
-    console.log('API Response for metadata:', data)
+    // Find the blog post by matching slug
+    const blogs = Array.isArray(data) ? data : []
+    const post = blogs.find((b: any) => {
+      const title = b.title || b.seo_title || ''
+      return generateSlug(title) === slug
+    })
 
-    if (data.status !== 'success' || !data.data) {
-      console.log('Blog not found, using fallback metadata')
+    if (!post) {
       return {
         title: "Blog Post Not Found | SafeStorage Dubai",
         description: "The requested blog post could not be found.",
       }
     }
 
-    const post = data.data
-
-    // Use new field names: title/seo_title, seo_desc, post_images
     const title = post.title || post.seo_title || "Blog Post"
     const description = post.seo_desc || "Read this blog post on SafeStorage Dubai"
 
