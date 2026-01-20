@@ -72,34 +72,46 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
     fetchBlogPost()
   }, [slug])
 
+  const generateSlug = (title: string) => {
+    return title
+      .toLowerCase()
+      .replace(/[^a-z0-9 -]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim()
+  }
+
   const fetchBlogPost = async () => {
     try {
       const response = await fetch('/api/blogs/fetch')
       const data = await response.json()
-      
+
       if (data.status === 'success' && data.data) {
-        // Find the blog post with matching slug
-        const blog = data.data.find((b: any) => b.slug === slug)
-        
+        // Find the blog post with matching slug (generate slug from title)
+        const blog = data.data.find((b: any) => {
+          const blogTitle = b.title || b.seo_title || ''
+          const blogSlug = generateSlug(blogTitle)
+          return blogSlug === slug
+        })
+
         if (blog) {
-          const extraData = blog.extra_data ? 
-            (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
-          
+          const title = blog.title || blog.seo_title || 'Untitled'
+
           setPost({
-            id: blog.id || blog.blog_id,
-            slug: blog.slug,
-            title: extraData.page_title || blog.meta_title, // Use page_title for H1, fallback to meta_title
-            excerpt: extraData.excerpt || blog.meta_description,
-            content: blog.content,
-            author: { name: extraData.author || 'SafeStorage Team' },
-            categories: [extraData.category || 'General'],
-            date: blog.created_at || extraData.created_at || new Date().toISOString(),
-            image: extraData.featured_image || getRandomBlogImage(extraData.category, parseInt(blog.blog_id) || parseInt(blog.id)),
-            readTime: extraData.read_time ? `${extraData.read_time}` : "5 min read",
-            likes: extraData.likes || Math.floor(Math.random() * 100) + 50,
-            views: extraData.views || Math.floor(Math.random() * 500) + 100,
+            id: parseInt(blog.post_id) || 0,
+            slug: generateSlug(title),
+            title: title,
+            excerpt: blog.seo_desc || '',
+            content: blog.description || '',
+            author: { name: 'SafeStorage Team' },
+            categories: [blog.post_category || 'Storage Tips'],
+            date: blog.created_at || new Date().toISOString(),
+            image: blog.post_images || getRandomBlogImage(blog.post_category, parseInt(blog.post_id)),
+            readTime: "5 min read",
+            likes: Math.floor(Math.random() * 100) + 50,
+            views: Math.floor(Math.random() * 500) + 100,
             comments: [],
-            tags: blog.tags ? blog.tags.split(',').map((t: string) => t.trim()) : []
+            tags: blog.tags ? (Array.isArray(blog.tags) ? blog.tags : blog.tags.split(',').map((t: string) => t.trim())) : []
           })
         }
       }

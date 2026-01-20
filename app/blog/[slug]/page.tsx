@@ -13,18 +13,18 @@ interface BlogPostPageProps {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   try {
     console.log('Generating metadata for slug:', params.slug)
-    const baseUrl = process.env.VERCEL_URL 
+    const baseUrl = process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : process.env.NEXT_PUBLIC_BASE_URL || 'https://safestorage.ae'
-    
+
     const response = await fetch(`${baseUrl}/api/blogs/${params.slug}`, {
       cache: 'no-store',
       next: { revalidate: 0 }
     })
     const data = await response.json()
-    
+
     console.log('API Response for metadata:', data)
-    
+
     if (data.status !== 'success' || !data.data) {
       console.log('Blog not found, using fallback metadata')
       return {
@@ -32,16 +32,13 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         description: "The requested blog post could not be found.",
       }
     }
-    
+
     const post = data.data
-    const extraData = post.extra_data ? 
-      (typeof post.extra_data === 'string' ? JSON.parse(post.extra_data) : post.extra_data) : {}
-    
-    console.log('Post data:', { meta_title: post.meta_title, meta_description: post.meta_description })
-    
-    const title = post.meta_title || extraData.page_title || "Blog Post"
-    const description = post.meta_description || extraData.excerpt || "Read this blog post on SafeStorage Dubai"
-    
+
+    // Use new field names: title/seo_title, seo_desc, post_images
+    const title = post.title || post.seo_title || "Blog Post"
+    const description = post.seo_desc || "Read this blog post on SafeStorage Dubai"
+
     return {
       title: `${title} | SafeStorage Dubai`,
       description: description,
@@ -49,9 +46,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       openGraph: {
         title: title,
         description: description,
-        images: extraData.featured_image ? [
+        images: post.post_images ? [
           {
-            url: extraData.featured_image,
+            url: post.post_images,
             width: 1200,
             height: 630,
             alt: title,

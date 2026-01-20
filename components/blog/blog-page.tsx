@@ -55,34 +55,36 @@ export default function BlogPage() {
       console.log('API Response:', data) // Debug log
       
       if (data.status === 'success' && data.data && data.data.length > 0) {
+        const generateSlug = (title: string) => {
+          return title
+            .toLowerCase()
+            .replace(/[^a-z0-9 -]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .trim()
+        }
+
         const processedBlogs = data.data.map((blog: any) => {
-          let extraData = {}
-          try {
-            extraData = blog.extra_data ? 
-              (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
-          } catch (e) {
-            console.error('Error parsing extra_data for blog:', blog.blog_id, e)
-            extraData = {}
-          }
-          
+          const title = blog.title || blog.seo_title || 'Untitled'
+
           return {
-            id: parseInt(blog.blog_id) || parseInt(blog.id) || Math.random(),
-            slug: blog.slug || '',
-            title: blog.meta_title || 'Untitled',
-            excerpt: blog.meta_description || '',
-            content: blog.content || '',
-            author: { name: extraData.author || 'SafeStorage Team' },
-            categories: [extraData.category || 'Storage Tips'],
-            date: blog.created_at || extraData.created_at || new Date().toISOString(),
-            image: extraData.featured_image || `/blog-placeholder.jpg`,
-            readTime: extraData.read_time ? `${extraData.read_time}` : "5 min read",
-            likes: extraData.likes || Math.floor(Math.random() * 100) + 50,
-            views: extraData.views || Math.floor(Math.random() * 500) + 100,
+            id: parseInt(blog.post_id) || Math.random(),
+            slug: generateSlug(title),
+            title: title,
+            excerpt: blog.seo_desc || '',
+            content: blog.description || '',
+            author: { name: 'SafeStorage Team' },
+            categories: [blog.post_category || 'Storage Tips'],
+            date: blog.created_at || new Date().toISOString(),
+            image: blog.post_images || `/blog-placeholder.jpg`,
+            readTime: "5 min read",
+            likes: Math.floor(Math.random() * 100) + 50,
+            views: Math.floor(Math.random() * 500) + 100,
             comments: []
           }
         })
-        
-        // Sort by blog_id (newest first - assuming higher ID = newer)
+
+        // Sort by post_id (newest first - assuming higher ID = newer)
         processedBlogs.sort((a: any, b: any) => b.id - a.id)
         
         console.log('Processed blogs:', processedBlogs.length) // Debug log

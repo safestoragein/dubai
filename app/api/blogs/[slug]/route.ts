@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const BACKEND_URL = 'https://safestorage.in/back/app'
+const BACKEND_URL = 'https://safestorage.in'
+
+// Helper function to generate slug from title
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9 -]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim()
+}
 
 export async function GET(
   request: NextRequest,
@@ -16,7 +26,7 @@ export async function GET(
     })
 
     const data = await response.json()
-    
+
     // Handle different response formats
     let blogs = []
     if (Array.isArray(data)) {
@@ -27,8 +37,12 @@ export async function GET(
       blogs = Array.isArray(data.all_content) ? data.all_content : [data.all_content]
     }
 
-    // Find blog by slug
-    const blog = blogs.find((b: any) => b.slug === params.slug)
+    // Find blog by slug (generate slug from title since new API doesn't have slug field)
+    const blog = blogs.find((b: any) => {
+      const blogTitle = b.title || b.seo_title || ''
+      const blogSlug = generateSlug(blogTitle)
+      return blogSlug === params.slug
+    })
     
     if (blog) {
       return NextResponse.json({
