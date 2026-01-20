@@ -162,22 +162,6 @@ export default function BlogPage() {
             </div>
           </div>
 
-          {/* All Articles */}
-          <div className="mb-12 space-y-8">
-            {loading ? (
-              <div className="text-center py-12">
-                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-dubai-gold"></div>
-              </div>
-            ) : filteredBlogs.length === 0 ? (
-              <div className="text-center py-12">
-                <p className="text-gray-600">No articles found matching your search.</p>
-              </div>
-            ) : (
-              filteredBlogs.map((post, index) => (
-                <BlogPostRow key={post.id} post={post} index={index} />
-              ))
-            )}
-          </div>
         </div>
 
         {/* Sidebar */}
