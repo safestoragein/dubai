@@ -78,7 +78,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
       .replace(/[^a-z0-9 -]/g, '')
       .replace(/\s+/g, '-')
       .replace(/-+/g, '-')
-      .trim()
+      .replace(/^-+|-+$/g, '')
   }
 
   const fetchBlogPost = async () => {

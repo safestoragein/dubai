@@ -60,7 +60,7 @@ export default function BlogPage() {
             .replace(/[^a-z0-9 -]/g, '')
             .replace(/\s+/g, '-')
             .replace(/-+/g, '-')
-            .trim()
+            .replace(/^-+|-+$/g, '')
         }
 
         const processedBlogs = data.data.map((blog: any) => {
