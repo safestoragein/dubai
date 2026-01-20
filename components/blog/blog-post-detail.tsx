@@ -74,8 +74,10 @@ function generateSlug(title: string): string {
 export default function BlogPostDetail({ slug }: { slug: string }) {
   const [mounted, setMounted] = useState(false)
   const [post, setPost] = useState<BlogPost | null>(null)
+  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
   const [imageError, setImageError] = useState(false)
+  const [relatedImageErrors, setRelatedImageErrors] = useState<Record<number, boolean>>({})
 
   useEffect(() => {
     setMounted(true)
@@ -98,7 +100,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         if (blog) {
           const title = blog.title || blog.seo_title || 'Untitled'
 
-          setPost({
+          const currentPost = {
             id: parseInt(blog.post_id) || 0,
             slug: generateSlug(title),
             title: title,
@@ -113,12 +115,59 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             views: Math.floor(Math.random() * 500) + 100,
             comments: [],
             tags: blog.tags ? (Array.isArray(blog.tags) ? blog.tags : blog.tags.split(',').map((t: string) => t.trim())) : []
-          })
+          }
+          setPost(currentPost)
+
+          // Fetch related posts
+          fetchRelatedPosts(currentPost.id, currentPost.categories[0])
         }
       } catch (error) {
         console.error('Error fetching blog:', error)
       } finally {
         setLoading(false)
+      }
+    }
+
+    const fetchRelatedPosts = async (currentPostId: number, category: string) => {
+      try {
+        const response = await fetch('/api/blogs/fetch', {
+          cache: 'no-store'
+        })
+        const data = await response.json()
+
+        if (data.status === 'success' && Array.isArray(data.data)) {
+          const allPosts = data.data
+            .filter((blog: any) => parseInt(blog.post_id) !== currentPostId)
+            .map((blog: any) => {
+              const blogTitle = blog.title || blog.seo_title || 'Untitled'
+              return {
+                id: parseInt(blog.post_id) || 0,
+                slug: generateSlug(blogTitle),
+                title: blogTitle,
+                excerpt: blog.seo_desc || '',
+                content: blog.description || '',
+                author: { name: 'SafeStorage Team' },
+                categories: [blog.post_category || 'Storage Tips'],
+                date: blog.created_at || new Date().toISOString(),
+                image: blog.post_images || getRandomBlogImage(blog.post_category, parseInt(blog.post_id)),
+                readTime: "5 min read",
+                likes: Math.floor(Math.random() * 100) + 50,
+                views: Math.floor(Math.random() * 500) + 100,
+                comments: [],
+                tags: blog.tags ? (Array.isArray(blog.tags) ? blog.tags : blog.tags.split(',').map((t: string) => t.trim())) : []
+              }
+            })
+
+          // Prioritize posts from the same category
+          const sameCategory = allPosts.filter((p: BlogPost) => p.categories[0] === category)
+          const otherPosts = allPosts.filter((p: BlogPost) => p.categories[0] !== category)
+
+          // Take up to 2 related posts (prioritize same category)
+          const related = [...sameCategory, ...otherPosts].slice(0, 2)
+          setRelatedPosts(related)
+        }
+      } catch (error) {
+        console.error('Error fetching related posts:', error)
       }
     }
 
@@ -265,18 +314,40 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         <CommentSection postId={post.id.toString()} />
 
         {/* Related Posts */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold mb-6 text-dubai-navy">You Might Also Like</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* This would typically be populated with related posts */}
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <p className="text-dubai-navy/60 text-center">Related posts will appear here</p>
-            </div>
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <p className="text-dubai-navy/60 text-center">Related posts will appear here</p>
+        {relatedPosts.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold mb-6 text-dubai-navy">You Might Also Like</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {relatedPosts.map((relatedPost) => (
+                <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`}>
+                  <div className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                    <div className="relative h-48 bg-gray-200">
+                      <Image
+                        src={relatedImageErrors[relatedPost.id] ? "/blog-placeholder.svg" : (relatedPost.image || "/blog-placeholder.svg")}
+                        alt={relatedPost.title}
+                        fill
+                        className="object-cover"
+                        onError={() => setRelatedImageErrors(prev => ({...prev, [relatedPost.id]: true}))}
+                        unoptimized
+                      />
+                    </div>
+                    <div className="p-4">
+                      <Badge variant="secondary" className="bg-gray-100 text-gray-600 border-0 mb-2">
+                        {relatedPost.categories[0]}
+                      </Badge>
+                      <h3 className="font-bold text-lg text-dubai-navy line-clamp-2 mb-2">{relatedPost.title}</h3>
+                      <p className="text-dubai-navy/60 text-sm line-clamp-2">{relatedPost.excerpt}</p>
+                      <div className="flex items-center mt-3 text-sm text-dubai-navy/50">
+                        <Calendar className="h-3 w-3 mr-1" />
+                        <span>{formatDate(relatedPost.date)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )
