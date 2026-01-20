@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
-    const response = await fetch('https://safestorage.in/back/app/get_blog_content', {
+    const response = await fetch('https://safestorage.in/get_blog_content', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
