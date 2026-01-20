@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ArrowLeft, Calendar, User, Tag, MessageCircle } from "lucide-react"
+import { ArrowLeft, Calendar, User, Tag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
@@ -11,7 +11,6 @@ import { formatDate } from "@/lib/utils"
 import { getRandomBlogImage } from "@/lib/blog-images"
 import LikeButton from "./like-button"
 import ShareButtons from "./share-buttons"
-import CommentSection from "./comment-section"
 
 interface BlogPost {
   id: number
@@ -240,10 +239,6 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
               <Tag className="h-4 w-4 mr-2" />
               <span>{post.readTime}</span>
             </div>
-            <div className="flex items-center">
-              <MessageCircle className="h-4 w-4 mr-2" />
-              <span>{post.comments?.length || 0} comments</span>
-            </div>
           </div>
         </motion.div>
 
@@ -309,9 +304,6 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             <ShareButtons url={`/blog/${slug}`} title={post.title} />
           </div>
         </div>
-
-        {/* Comments Section */}
-        <CommentSection postId={post.id.toString()} />
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
