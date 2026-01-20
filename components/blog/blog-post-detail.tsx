@@ -82,14 +82,18 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
 
     const fetchBlogPost = async () => {
       try {
-        // Fetch directly from backend to ensure fresh data
-        const response = await fetch('https://safestorage.in/get_blog_content', {
+        // Use internal API to avoid CORS issues
+        const response = await fetch('/api/blogs/fetch', {
           cache: 'no-store'
         })
         const data = await response.json()
 
-        // Data is an array directly from the backend
-        const blogs = Array.isArray(data) ? data : []
+        // API returns { status: 'success', data: [...] }
+        if (data.status !== 'success' || !data.data) {
+          return
+        }
+
+        const blogs = data.data
 
         // Find the blog post with matching slug
         const blog = blogs.find((b: any) => {
