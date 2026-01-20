@@ -151,7 +151,7 @@ export default function BlogPage() {
                   <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-dubai-gold"></div>
                 </div>
               ) : featuredPosts.length > 0 ? (
-                featuredPosts.slice(0, 4).map((post, index) => (
+                featuredPosts.map((post, index) => (
                   <BlogPostCard key={post.id} post={post} index={index} />
                 ))
               ) : (
