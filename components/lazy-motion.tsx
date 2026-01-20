@@ -1,15 +1,16 @@
 "use client"
 
 import { useEffect, useState, type ReactNode } from "react"
-import { motion, type MotionProps } from "framer-motion"
+import { m, type MotionProps } from "framer-motion"
 
 interface LazyMotionProps extends MotionProps {
   children: ReactNode
   as?: keyof JSX.IntrinsicElements
   threshold?: number
+  className?: string
 }
 
-export default function LazyMotion({ children, as = "div", threshold = 0.1, ...motionProps }: LazyMotionProps) {
+export default function LazyMotion({ children, as = "div", threshold = 0.1, className, ...motionProps }: LazyMotionProps) {
   const [isInView, setIsInView] = useState(false)
   const [ref, setRef] = useState<HTMLElement | null>(null)
 
@@ -23,7 +24,7 @@ export default function LazyMotion({ children, as = "div", threshold = 0.1, ...m
           observer.disconnect()
         }
       },
-      { threshold },
+      { threshold, rootMargin: '50px' },
     )
 
     observer.observe(ref)
@@ -33,11 +34,12 @@ export default function LazyMotion({ children, as = "div", threshold = 0.1, ...m
     }
   }, [ref, threshold])
 
-  const Component = motion[as as keyof typeof motion] || motion.div
+  const Component = m[as as keyof typeof m] || m.div
 
   return (
     <Component
       ref={setRef}
+      className={className}
       {...motionProps}
       animate={isInView ? motionProps.animate : undefined}
       initial={motionProps.initial}

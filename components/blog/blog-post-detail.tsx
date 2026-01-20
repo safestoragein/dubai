@@ -267,10 +267,10 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
               src={imageError ? "/blog-placeholder.svg" : (post.image || "/blog-placeholder.svg")}
               alt={post.title}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
               className="object-cover"
               priority
               onError={() => setImageError(true)}
-              unoptimized
             />
           </div>
         </motion.div>
@@ -331,9 +331,9 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
                         src={relatedImageErrors[relatedPost.id] ? "/blog-placeholder.svg" : (relatedPost.image || "/blog-placeholder.svg")}
                         alt={relatedPost.title}
                         fill
+                        sizes="(max-width: 768px) 100vw, 400px"
                         className="object-cover"
                         onError={() => setRelatedImageErrors(prev => ({...prev, [relatedPost.id]: true}))}
-                        unoptimized
                       />
                     </div>
                     <div className="p-4 flex-1 overflow-y-auto">

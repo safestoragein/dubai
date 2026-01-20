@@ -259,7 +259,9 @@ function BlogPostCard({ post, index }: { post: BlogPost; index: number }) {
             src={getRandomBlogImage(post.categories[0], post.id)}
             alt={post.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
           />
           {post.categories.length > 0 && (
             <Badge className="absolute top-3 left-3 bg-dubai-gold/90 text-white border-0">
@@ -308,7 +310,9 @@ function BlogPostRow({ post, index }: { post: BlogPost; index: number }) {
             src={getRandomBlogImage(post.categories[0], post.id)}
             alt={post.title}
             fill
+            sizes="(max-width: 768px) 100vw, 300px"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
           />
         </div>
       </Link>
@@ -356,7 +360,9 @@ function SidebarPostCard({ post, index }: { post: BlogPost; index: number }) {
           src={getRandomBlogImage(post.categories[0], post.id)}
           alt={post.title}
           fill
+          sizes="64px"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
         />
       </Link>
       <div className="flex-1">

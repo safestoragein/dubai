@@ -7,7 +7,7 @@ import { NavigationGuardProvider } from "@/components/providers/navigation-guard
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import FloatingContactButtons from "@/components/floating-contact-buttons"
-import PerformanceOptimizer from "@/components/performance-optimizer"
+import MotionProvider from "@/components/motion-provider"
 import Script from "next/script"
 import { organizationSchema, localBusinessSchema, webSiteSchema } from "@/lib/structured-data"
 
@@ -93,6 +93,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
+        {/* Preconnect to critical domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+        {/* DNS Prefetch for analytics */}
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
+
         {/* Structured Data / Schema.org */}
         <script
           type="application/ld+json"
@@ -104,20 +113,9 @@ export default function RootLayout({
             ])
           }}
         />
-        
-        {/* Google Analytics (gtag.js) - G-EHB5H09SGY */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-EHB5H09SGY" strategy="afterInteractive" />
-        <Script id="google-analytics-g-ehb5h09sgy" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-EHB5H09SGY');
-          `}
-        </Script>
 
-        {/* Google Tag Manager */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
+        {/* Google Tag Manager - Single consolidated script */}
+        <Script id="google-tag-manager" strategy="lazyOnload">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -127,19 +125,20 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Google Analytics */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-952888343" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        {/* Google Analytics - Consolidated */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-EHB5H09SGY" strategy="lazyOnload" />
+        <Script id="google-analytics-consolidated" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+            gtag('config', 'G-EHB5H09SGY');
             gtag('config', 'AW-952888343');
           `}
         </Script>
 
-        {/* Microsoft Clarity */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
+        {/* Microsoft Clarity - Deferred */}
+        <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -162,11 +161,12 @@ export default function RootLayout({
 
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <NavigationGuardProvider>
-            <PerformanceOptimizer />
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <FloatingContactButtons />
+            <MotionProvider>
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <FloatingContactButtons />
+            </MotionProvider>
           </NavigationGuardProvider>
         </ThemeProvider>
       </body>
