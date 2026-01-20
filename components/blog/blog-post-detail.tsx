@@ -312,8 +312,8 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             <div className="grid md:grid-cols-2 gap-8">
               {relatedPosts.map((relatedPost) => (
                 <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`}>
-                  <div className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer">
-                    <div className="relative h-48 bg-gray-200">
+                  <div className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer h-[380px] flex flex-col">
+                    <div className="relative h-48 bg-gray-200 flex-shrink-0">
                       <Image
                         src={relatedImageErrors[relatedPost.id] ? "/blog-placeholder.svg" : (relatedPost.image || "/blog-placeholder.svg")}
                         alt={relatedPost.title}
@@ -323,12 +323,12 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
                         unoptimized
                       />
                     </div>
-                    <div className="p-4">
+                    <div className="p-4 flex-1 overflow-y-auto">
                       <Badge variant="secondary" className="bg-gray-100 text-gray-600 border-0 mb-2">
                         {relatedPost.categories[0]}
                       </Badge>
                       <h3 className="font-bold text-lg text-dubai-navy line-clamp-2 mb-2">{relatedPost.title}</h3>
-                      <p className="text-dubai-navy/60 text-sm line-clamp-2">{relatedPost.excerpt}</p>
+                      <p className="text-dubai-navy/60 text-sm line-clamp-3">{relatedPost.excerpt}</p>
                       <div className="flex items-center mt-3 text-sm text-dubai-navy/50">
                         <Calendar className="h-3 w-3 mr-1" />
                         <span>{formatDate(relatedPost.date)}</span>
