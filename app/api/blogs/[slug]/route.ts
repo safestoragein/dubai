@@ -61,11 +61,21 @@ export async function GET(
         data: blog
       })
     } else {
+      // Return debug info to help troubleshoot
+      const allSlugs = blogs.map((b: any) => {
+        const t = b.title || b.seo_title || ''
+        return generateSlug(t)
+      })
       return NextResponse.json(
-        { 
+        {
           status: 'error',
           message: 'Blog not found',
-          error: 'Blog post with this slug does not exist'
+          error: 'Blog post with this slug does not exist',
+          debug: {
+            searchedSlug: targetSlug,
+            totalBlogs: blogs.length,
+            availableSlugs: allSlugs.slice(0, 5)
+          }
         },
         { status: 404 }
       )
