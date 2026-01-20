@@ -13,6 +13,19 @@ import LikeButtonMini from "./like-button-mini"
 import { Clock } from "@/components/icons"
 import { getRandomBlogImage, getCategoryColor } from "@/lib/blog-images"
 
+// Generate consistent likes/views based on post ID (deterministic)
+function getConsistentLikes(postId: number): number {
+  // Use a simple hash to generate consistent number
+  const hash = ((postId * 2654435761) % 100) + 50
+  return hash
+}
+
+function getConsistentViews(postId: number): number {
+  // Use a different multiplier for views
+  const hash = ((postId * 1597334677) % 400) + 100
+  return hash
+}
+
 interface BlogPost {
   id: number
   title: string
@@ -66,8 +79,9 @@ export default function BlogPage() {
         const processedBlogs = data.data.map((blog: any) => {
           const title = blog.title || blog.seo_title || 'Untitled'
 
+          const postId = parseInt(blog.post_id) || 1
           return {
-            id: parseInt(blog.post_id) || Math.random(),
+            id: postId,
             slug: generateSlug(title),
             title: title,
             excerpt: blog.seo_desc || '',
@@ -77,8 +91,8 @@ export default function BlogPage() {
             date: blog.created_at || new Date().toISOString(),
             image: blog.post_images || `/blog-placeholder.jpg`,
             readTime: "5 min read",
-            likes: Math.floor(Math.random() * 100) + 50,
-            views: Math.floor(Math.random() * 500) + 100,
+            likes: getConsistentLikes(postId),
+            views: getConsistentViews(postId),
             comments: []
           }
         })

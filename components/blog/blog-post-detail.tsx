@@ -12,6 +12,17 @@ import { getRandomBlogImage } from "@/lib/blog-images"
 import LikeButton from "./like-button"
 import ShareButtons from "./share-buttons"
 
+// Generate consistent likes/views based on post ID (deterministic)
+function getConsistentLikes(postId: number): number {
+  const hash = ((postId * 2654435761) % 100) + 50
+  return hash
+}
+
+function getConsistentViews(postId: number): number {
+  const hash = ((postId * 1597334677) % 400) + 100
+  return hash
+}
+
 interface BlogPost {
   id: number
   title: string
@@ -99,8 +110,9 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         if (blog) {
           const title = blog.title || blog.seo_title || 'Untitled'
 
+          const postId = parseInt(blog.post_id) || 0
           const currentPost = {
-            id: parseInt(blog.post_id) || 0,
+            id: postId,
             slug: generateSlug(title),
             title: title,
             excerpt: blog.seo_desc || '',
@@ -108,10 +120,10 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             author: { name: 'SafeStorage Team' },
             categories: [blog.post_category || 'Storage Tips'],
             date: blog.created_at || new Date().toISOString(),
-            image: blog.post_images || getRandomBlogImage(blog.post_category, parseInt(blog.post_id)),
+            image: blog.post_images || getRandomBlogImage(blog.post_category, postId),
             readTime: "5 min read",
-            likes: Math.floor(Math.random() * 100) + 50,
-            views: Math.floor(Math.random() * 500) + 100,
+            likes: getConsistentLikes(postId),
+            views: getConsistentViews(postId),
             comments: [],
             tags: blog.tags ? (Array.isArray(blog.tags) ? blog.tags : blog.tags.split(',').map((t: string) => t.trim())) : []
           }
@@ -139,8 +151,9 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             .filter((blog: any) => parseInt(blog.post_id) !== currentPostId)
             .map((blog: any) => {
               const blogTitle = blog.title || blog.seo_title || 'Untitled'
+              const blogPostId = parseInt(blog.post_id) || 0
               return {
-                id: parseInt(blog.post_id) || 0,
+                id: blogPostId,
                 slug: generateSlug(blogTitle),
                 title: blogTitle,
                 excerpt: blog.seo_desc || '',
@@ -148,10 +161,10 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
                 author: { name: 'SafeStorage Team' },
                 categories: [blog.post_category || 'Storage Tips'],
                 date: blog.created_at || new Date().toISOString(),
-                image: blog.post_images || getRandomBlogImage(blog.post_category, parseInt(blog.post_id)),
+                image: blog.post_images || getRandomBlogImage(blog.post_category, blogPostId),
                 readTime: "5 min read",
-                likes: Math.floor(Math.random() * 100) + 50,
-                views: Math.floor(Math.random() * 500) + 100,
+                likes: getConsistentLikes(blogPostId),
+                views: getConsistentViews(blogPostId),
                 comments: [],
                 tags: blog.tags ? (Array.isArray(blog.tags) ? blog.tags : blog.tags.split(',').map((t: string) => t.trim())) : []
               }
