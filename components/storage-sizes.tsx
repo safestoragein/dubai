@@ -1,8 +1,9 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Box, ArrowRight, Home, Briefcase, Warehouse } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { householdStorage, businessStorage } from "@/data/storage-sizes"
 import { useState } from "react"
@@ -15,7 +16,7 @@ export default function StorageSizes() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -25,10 +26,10 @@ export default function StorageSizes() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Explore our range of storage unit sizes to fit your specific needs
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Toggle Buttons */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -58,11 +59,11 @@ export default function StorageSizes() {
               Business
             </button>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Storage Type Description */}
         <div className="text-center mb-8">
-          <motion.div
+          <m.div
             key={activeTab}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,11 +79,11 @@ export default function StorageSizes() {
                 : 'Flexible square footage for business storage needs'
               }
             </p>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Storage Cards */}
-        <motion.div
+        <m.div
           key={activeTab}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,7 +98,7 @@ export default function StorageSizes() {
             const Icon = option.icon
 
             return (
-              <motion.div
+              <m.div
                 key={option.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -141,14 +142,13 @@ export default function StorageSizes() {
                             }`}>
                               {Array.from({ length: option.palletCount }, (_, index) => (
                                 <div key={index} className="flex flex-col items-center">
-                                  <img
+                                  <Image
                                     src="/pallet.png"
                                     alt={`Container ${index + 1}`}
-                                    className={`object-contain ${
-                                      option.palletCount === 1 ? 'h-20 w-20' :
-                                      option.palletCount <= 3 ? 'h-16 w-16' :
-                                      'h-12 w-12'
-                                    }`}
+                                    width={option.palletCount === 1 ? 80 : option.palletCount <= 3 ? 64 : 48}
+                                    height={option.palletCount === 1 ? 80 : option.palletCount <= 3 ? 64 : 48}
+                                    className="object-contain"
+                                    loading="lazy"
                                   />
                                   <span className="text-xs text-gray-600 mt-1">{index + 1}</span>
                                 </div>
@@ -167,10 +167,13 @@ export default function StorageSizes() {
                               <div className="flex gap-2 h-full items-center min-w-max px-2">
                                 {Array.from({ length: option.palletCount }, (_, index) => (
                                   <div key={index} className="flex flex-col items-center flex-shrink-0">
-                                    <img
+                                    <Image
                                       src="/pallet.png"
                                       alt={`Container ${index + 1}`}
-                                      className="h-12 w-12 object-contain"
+                                      width={48}
+                                      height={48}
+                                      className="object-contain"
+                                      loading="lazy"
                                     />
                                     <span className="text-xs text-gray-600 mt-1">{index + 1}</span>
                                   </div>
@@ -187,10 +190,13 @@ export default function StorageSizes() {
                   ) : (
                     // Business storage images
                     <>
-                      <img
+                      <Image
                         src={option.image || `/placeholder.svg?height=300&width=400&query=storage+${option.name}`}
                         alt={`${option.name} - ${option.size}`}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 300px"
+                        className="object-cover"
+                        loading="lazy"
                       />
                       <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
                         <div className="flex items-center gap-2 text-white">
@@ -219,10 +225,10 @@ export default function StorageSizes() {
                     </Link>
                   </Button>
                 </div>
-              </motion.div>
+              </m.div>
             )
           })}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

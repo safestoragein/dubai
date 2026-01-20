@@ -240,12 +240,7 @@ export default function HeroSectionQuote() {
 
       <div className="container px-4 md:px-6 relative z-10 py-16 md:py-20">
         <div className="flex justify-center items-center min-h-[400px]">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-white text-center max-w-5xl mx-auto"
-          >
+          <div className="text-white text-center max-w-5xl mx-auto">
             <div className="inline-block px-4 py-1 bg-dubai-gold text-white text-sm font-medium rounded-full mb-6">
               Secure Storage Solutions
             </div>
@@ -263,18 +258,15 @@ export default function HeroSectionQuote() {
                 { icon: Box, text: "Flexible Storage Terms" },
                 { icon: Package, text: "Secure Facilities" },
               ].map((feature, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + index * 0.1 }}
                   className="flex items-center gap-2"
                 >
                   <div className="rounded-full bg-dubai-gold/20 p-2">
                     <feature.icon className="h-4 w-4 text-dubai-gold" />
                   </div>
                   <span className="text-white/90 text-sm">{feature.text}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -297,44 +289,10 @@ export default function HeroSectionQuote() {
                 </a>
               </Button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Add CSS for animations */}
-      <style jsx global>{`
-        @keyframes windowPulse {
-          0%, 100% { opacity: 0.7; }
-          50% { opacity: 0.3; }
-        }
-        
-        @keyframes burjWindowPulse {
-          0%, 100% { opacity: 0.7; }
-          50% { opacity: 0.2; }
-        }
-        
-        @keyframes floatBuildingVertical {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-        }
-        
-        @keyframes floatBuildingHorizontal {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(5px); }
-        }
-        
-        @keyframes floatBuildingDiagonal {
-          0%, 100% { transform: translate(0, 0); }
-          25% { transform: translate(3px, -5px); }
-          50% { transform: translate(0, -7px); }
-          75% { transform: translate(-3px, -5px); }
-        }
-        
-        @keyframes floatBuildingScale {
-          0%, 100% { transform: scaleY(1); }
-          50% { transform: scaleY(1.02); }
-        }
-      `}</style>
     </section>
   )
 }
