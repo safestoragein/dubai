@@ -6,7 +6,6 @@ import { Search, ChevronRight, User, ArrowRight, MessageSquare } from "lucide-re
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import Link from "next/link"
 import Image from "next/image"
 import LikeButtonMini from "./like-button-mini"
@@ -163,57 +162,21 @@ export default function BlogPage() {
             </div>
           </div>
 
-          {/* Tabs for Different Categories */}
-          <div className="mb-12">
-            <Tabs defaultValue="all">
-              <TabsList className="mb-6">
-                <TabsTrigger value="all">All</TabsTrigger>
-                {allCategories.map((category) => (
-                  <TabsTrigger key={category} value={category}>
-                    {category}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-
-              <TabsContent value="all" className="space-y-8">
-                {loading ? (
-                  <div className="text-center py-12">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-dubai-gold"></div>
-                  </div>
-                ) : filteredBlogs.length === 0 ? (
-                  <div className="text-center py-12">
-                    <p className="text-gray-600">No articles found matching your search.</p>
-                  </div>
-                ) : (
-                  filteredBlogs.map((post, index) => (
-                    <BlogPostRow key={post.id} post={post} index={index} />
-                  ))
-                )}
-              </TabsContent>
-
-              {allCategories.map((category) => (
-                <TabsContent key={category} value={category} className="space-y-8">
-                  {loading ? (
-                    <div className="text-center py-12">
-                      <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-dubai-gold"></div>
-                    </div>
-                  ) : (
-                    blogs
-                      .filter((post) => post.categories.includes(category))
-                      .map((post, index) => (
-                        <BlogPostRow key={post.id} post={post} index={index} />
-                      ))
-                  )}
-                </TabsContent>
-              ))}
-            </Tabs>
-          </div>
-
-          {/* Load More Button */}
-          <div className="flex justify-center">
-            <Button variant="outline" size="lg" className="border-dubai-gold text-dubai-gold hover:bg-dubai-gold/10">
-              Load More Articles
-            </Button>
+          {/* All Articles */}
+          <div className="mb-12 space-y-8">
+            {loading ? (
+              <div className="text-center py-12">
+                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-dubai-gold"></div>
+              </div>
+            ) : filteredBlogs.length === 0 ? (
+              <div className="text-center py-12">
+                <p className="text-gray-600">No articles found matching your search.</p>
+              </div>
+            ) : (
+              filteredBlogs.map((post, index) => (
+                <BlogPostRow key={post.id} post={post} index={index} />
+              ))
+            )}
           </div>
         </div>
 
