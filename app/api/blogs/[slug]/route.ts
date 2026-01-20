@@ -14,10 +14,11 @@ function generateSlug(title: string): string {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const targetSlug = params.slug
+    const { slug } = await params
+    const targetSlug = slug
     console.log('Looking for blog with slug:', targetSlug)
 
     // Fetch all blogs and find the one with matching slug
@@ -92,9 +93,10 @@ export async function GET(
 // UPDATE blog
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params
     const body = await request.json()
     
     const formData = new URLSearchParams()
@@ -126,11 +128,12 @@ export async function PUT(
 // DELETE blog
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params
     // Assuming the slug here is the blog_id for delete
-    const response = await fetch(`${BACKEND_URL}/delete_blog/${params.slug}`, {
+    const response = await fetch(`${BACKEND_URL}/delete_blog/${slug}`, {
       method: 'POST', // CodeIgniter often uses POST for delete operations
       headers: {
         'Content-Type': 'application/json',
