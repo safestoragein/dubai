@@ -146,6 +146,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
       <div className="container py-20 text-center">
         <h1 className="text-3xl font-bold mb-4">Post Not Found</h1>
         <p className="mb-8">The blog post you're looking for doesn't exist or has been moved.</p>
+        <p className="mb-4 text-sm text-gray-500">Debug: Looking for slug "{slug}"</p>
         <Button asChild>
           <Link href="/blog">
             <ArrowLeft className="mr-2 h-4 w-4" />
