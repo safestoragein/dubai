@@ -5,19 +5,20 @@ import type { Metadata } from "next"
 export const dynamic = 'force-dynamic'
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   try {
-    console.log('Generating metadata for slug:', params.slug)
+    const { slug } = await params
+    console.log('Generating metadata for slug:', slug)
     const baseUrl = process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : process.env.NEXT_PUBLIC_BASE_URL || 'https://safestorage.ae'
 
-    const response = await fetch(`${baseUrl}/api/blogs/${params.slug}`, {
+    const response = await fetch(`${baseUrl}/api/blogs/${slug}`, {
       cache: 'no-store',
       next: { revalidate: 0 }
     })
@@ -65,6 +66,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  return <BlogPostDetail slug={params.slug} />
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params
+  return <BlogPostDetail slug={slug} />
 }
