@@ -17,18 +17,23 @@ export async function GET(
   { params }: { params: { slug: string } }
 ) {
   try {
+    const targetSlug = params.slug
+    console.log('Looking for blog with slug:', targetSlug)
+
     // Fetch all blogs and find the one with matching slug
     const response = await fetch(`${BACKEND_URL}/get_blog_content`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
+      cache: 'no-store'
     })
 
     const data = await response.json()
+    console.log('Backend response type:', Array.isArray(data) ? 'array' : typeof data, 'Length:', Array.isArray(data) ? data.length : 'N/A')
 
-    // Handle different response formats
-    let blogs = []
+    // Handle different response formats - backend returns array directly
+    let blogs: any[] = []
     if (Array.isArray(data)) {
       blogs = data
     } else if (data.status === 'success' && data.data) {
@@ -37,11 +42,17 @@ export async function GET(
       blogs = Array.isArray(data.all_content) ? data.all_content : [data.all_content]
     }
 
+    console.log('Total blogs to search:', blogs.length)
+
     // Find blog by slug (generate slug from title since new API doesn't have slug field)
     const blog = blogs.find((b: any) => {
       const blogTitle = b.title || b.seo_title || ''
       const blogSlug = generateSlug(blogTitle)
-      return blogSlug === params.slug
+      const isMatch = blogSlug === targetSlug
+      if (blogTitle.toLowerCase().includes('villa')) {
+        console.log('Villa blog:', blogTitle, '-> slug:', blogSlug, 'match:', isMatch)
+      }
+      return isMatch
     })
     
     if (blog) {
