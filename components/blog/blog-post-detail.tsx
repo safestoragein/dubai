@@ -61,6 +61,16 @@ function formatBlogContent(content: string): string {
   return formattedContent
 }
 
+// Helper function to generate slug from title
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9 -]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
 export default function BlogPostDetail({ slug }: { slug: string }) {
   const [mounted, setMounted] = useState(false)
   const [post, setPost] = useState<BlogPost | null>(null)
@@ -69,58 +79,56 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
 
   useEffect(() => {
     setMounted(true)
+
+    const fetchBlogPost = async () => {
+      try {
+        const response = await fetch('/api/blogs/fetch')
+        const data = await response.json()
+
+        console.log('Fetched data:', data.status, 'Count:', data.data?.length)
+        console.log('Looking for slug:', slug)
+
+        if (data.status === 'success' && data.data) {
+          // Find the blog post with matching slug (generate slug from title)
+          const blog = data.data.find((b: any) => {
+            const blogTitle = b.title || b.seo_title || ''
+            const blogSlug = generateSlug(blogTitle)
+            console.log('Comparing:', blogSlug, '===', slug, ':', blogSlug === slug)
+            return blogSlug === slug
+          })
+
+          if (blog) {
+            const title = blog.title || blog.seo_title || 'Untitled'
+
+            setPost({
+              id: parseInt(blog.post_id) || 0,
+              slug: generateSlug(title),
+              title: title,
+              excerpt: blog.seo_desc || '',
+              content: blog.description || '',
+              author: { name: 'SafeStorage Team' },
+              categories: [blog.post_category || 'Storage Tips'],
+              date: blog.created_at || new Date().toISOString(),
+              image: blog.post_images || getRandomBlogImage(blog.post_category, parseInt(blog.post_id)),
+              readTime: "5 min read",
+              likes: Math.floor(Math.random() * 100) + 50,
+              views: Math.floor(Math.random() * 500) + 100,
+              comments: [],
+              tags: blog.tags ? (Array.isArray(blog.tags) ? blog.tags : blog.tags.split(',').map((t: string) => t.trim())) : []
+            })
+          } else {
+            console.log('Blog not found for slug:', slug)
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching blog:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
     fetchBlogPost()
   }, [slug])
-
-  const generateSlug = (title: string) => {
-    return title
-      .toLowerCase()
-      .replace(/[^a-z0-9 -]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-+|-+$/g, '')
-  }
-
-  const fetchBlogPost = async () => {
-    try {
-      const response = await fetch('/api/blogs/fetch')
-      const data = await response.json()
-
-      if (data.status === 'success' && data.data) {
-        // Find the blog post with matching slug (generate slug from title)
-        const blog = data.data.find((b: any) => {
-          const blogTitle = b.title || b.seo_title || ''
-          const blogSlug = generateSlug(blogTitle)
-          return blogSlug === slug
-        })
-
-        if (blog) {
-          const title = blog.title || blog.seo_title || 'Untitled'
-
-          setPost({
-            id: parseInt(blog.post_id) || 0,
-            slug: generateSlug(title),
-            title: title,
-            excerpt: blog.seo_desc || '',
-            content: blog.description || '',
-            author: { name: 'SafeStorage Team' },
-            categories: [blog.post_category || 'Storage Tips'],
-            date: blog.created_at || new Date().toISOString(),
-            image: blog.post_images || getRandomBlogImage(blog.post_category, parseInt(blog.post_id)),
-            readTime: "5 min read",
-            likes: Math.floor(Math.random() * 100) + 50,
-            views: Math.floor(Math.random() * 500) + 100,
-            comments: [],
-            tags: blog.tags ? (Array.isArray(blog.tags) ? blog.tags : blog.tags.split(',').map((t: string) => t.trim())) : []
-          })
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching blog:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
 
   if (loading) {
     return (
