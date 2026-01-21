@@ -333,7 +333,7 @@ export default function HeroSectionQuote() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white bg-white/10 text-white hover:bg-white/20"
+                className="border-white bg-white/10 text-white hover:bg-white hover:text-black"
                 asChild
               >
                 <a href={`tel:${phoneNumber.replace(/\s/g, "")}`}>

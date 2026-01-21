@@ -89,7 +89,7 @@ export default function StorageDubaiPage() {
                 <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
                   <Link href="/get-quote">Get Business Quote</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 border-white text-white" asChild>
+                <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white hover:text-black border-white text-white" asChild>
                   <a href="tel:+971505773388">Talk to Storage Advisor</a>
                 </Button>
               </div>
@@ -565,12 +565,12 @@ export default function StorageDubaiPage() {
                     Talk to Storage Advisor
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" asChild>
+                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black" asChild>
                   <Link href="/storage-dubai/business-storage">
                     Get Business Quote
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" asChild>
+                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black" asChild>
                   <a href="https://wa.me/971505773388">
                     WhatsApp Operations
                   </a>

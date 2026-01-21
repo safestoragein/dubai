@@ -409,7 +409,7 @@ export default function StorageUnitsDubaiPage() {
                   WhatsApp Us
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6" asChild>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black text-lg px-8 py-6" asChild>
                 <a href={env.PHONE_LINK}>
                   <Phone className="mr-2 h-5 w-5" />
                   050-577-3388

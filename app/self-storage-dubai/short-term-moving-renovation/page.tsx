@@ -43,7 +43,7 @@ export default function ShortTermStoragePage() {
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
                 <Link href="/get-quote">Get Short-Term Quote</Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 border-white text-white" asChild>
+              <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white hover:text-black border-white text-white" asChild>
                 <a href="tel:+971505773388">Need Storage Today? Call</a>
               </Button>
             </div>
@@ -550,12 +550,12 @@ export default function ShortTermStoragePage() {
                   Get Instant Quote <ArrowRight className="ml-2" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" asChild>
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black" asChild>
                 <a href="tel:+971505773388">
                   Call for Same-Day Storage
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" asChild>
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black" asChild>
                 <a href="https://wa.me/971505773388">
                   WhatsApp Us
                 </a>
