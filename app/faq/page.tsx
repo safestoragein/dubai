@@ -87,7 +87,7 @@ const faqCategories = [
     faqs: [
       {
         question: "How much does storage cost at SafeStorage Dubai?",
-        answer: "Our storage units start from AED 199 per month for small units (25 sq ft). Medium units range from AED 399-599, and large units from AED 899-2,999 depending on size. Vehicle storage starts at AED 899 per month. We offer flexible payment plans and discounts for long-term storage (3+ months)."
+        answer: "Our storage units start from AED 99 per month. We offer flexible storage solutions for all needs - from small boxes to full villa contents. Contact us at +971505773388 for a personalized quote based on your storage requirements. We also offer flexible payment plans and discounts for long-term storage (3+ months)."
       },
       {
         question: "Are there any hidden fees?",

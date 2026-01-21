@@ -98,7 +98,7 @@ export const localBusinessSchema = {
   url: "https://safestorage.ae",
   telephone: "+971505773388",
   email: "info@safestoragedubai.com",
-  priceRange: "AED 199 - AED 4999",
+  priceRange: "From AED 99",
   currenciesAccepted: "AED",
   paymentAccepted: "Cash, Credit Card, Debit Card, Bank Transfer, Cheque",
   areaServed: [
@@ -281,7 +281,7 @@ export const faqSchema = {
       name: "How much does storage cost in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Storage in Dubai costs between AED 199-4999 per month depending on unit size. At SafeStorage Dubai: Small units (25-50 sq ft) start at AED 199/month, Medium units (50-100 sq ft) cost AED 399-599/month, Large units (100-200 sq ft) cost AED 899-1299/month, and Extra Large units (200+ sq ft) cost AED 1499-2999/month. Vehicle storage starts at AED 899/month. Free pickup and delivery within Dubai is included."
+        text: "Storage in Dubai starts from AED 99 per month at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units include climate control, 24/7 security, and hassle-free pickup & delivery within Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
       }
     },
     {
@@ -289,7 +289,7 @@ export const faqSchema = {
       name: "What is the cheapest storage option in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The cheapest storage in Dubai starts at AED 199 per month for small units (25 sq ft) at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with free pickup & delivery, climate control, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
+        text: "The cheapest storage in Dubai starts from AED 99 per month at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with hassle-free pickup & delivery, climate control, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
       }
     },
     {
@@ -314,7 +314,7 @@ export const faqSchema = {
       name: "What sizes of storage units are available at SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai offers 5 main unit sizes: Small (25-50 sq ft) for boxes, seasonal items, small furniture - AED 199-299/month; Medium (50-100 sq ft) for 1-2 bedroom apartment contents - AED 399-599/month; Large (100-200 sq ft) for 3 bedroom home - AED 899-1299/month; Extra Large (200-300+ sq ft) for villas or business inventory - AED 1499-2999/month; Vehicle Storage for cars, bikes, boats - AED 899-1499/month."
+        text: "SafeStorage Dubai offers flexible storage solutions for all needs: Small units for boxes, seasonal items, and small furniture; Medium units for 1-2 bedroom apartment contents; Large units for 3 bedroom home contents; Extra Large units for villas or business inventory; Vehicle Storage for cars, bikes, and boats. Prices start from AED 99/month. Contact us at +971505773388 for a personalized quote."
       }
     },
     {
@@ -665,7 +665,7 @@ export const productSchema = {
   "@type": "Product",
   "@id": "https://safestorage.ae/#product",
   name: "Self Storage Units Dubai",
-  description: "Premium climate-controlled storage units in Dubai with free pickup and delivery. Personal, business, and vehicle storage from AED 199/month.",
+  description: "Premium climate-controlled storage units in Dubai with hassle-free pickup and delivery. Personal, business, and vehicle storage from AED 99/month.",
   brand: {
     "@type": "Brand",
     name: "SafeStorage Dubai"
@@ -674,7 +674,7 @@ export const productSchema = {
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "AED",
-    lowPrice: "199",
+    lowPrice: "99",
     highPrice: "4999",
     offerCount: "5",
     offers: [
@@ -825,7 +825,7 @@ export const speakableSchema = {
         name: "How much does storage cost in Dubai?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Storage in Dubai starts at AED 199 per month at SafeStorage Dubai. Prices range from AED 199 for small units to AED 4999 for extra large units. This includes climate control, security, and free pickup and delivery."
+          text: "Storage in Dubai starts from AED 99 per month at SafeStorage Dubai. We offer flexible pricing for all unit sizes. This includes climate control, security, and hassle-free pickup and delivery."
         }
       },
       {
