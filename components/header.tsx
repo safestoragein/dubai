@@ -27,7 +27,6 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/services", label: "Personal Storage" },
     { href: "/business-storage", label: "Business Storage" },
-    { href: "/pricing", label: "Unit Sizes & Pricing" },
     { href: "/how-it-works", label: "How It Works" },
     { href: "/about", label: "About Us" },
     { href: "/blog", label: "Blog" },
