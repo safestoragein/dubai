@@ -163,7 +163,7 @@ export default function BusinessStoragePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-black text-lg px-10 py-6"
+                className="bg-white text-black border-white hover:bg-gray-100 text-lg px-10 py-6"
                 asChild
               >
                 <Link href="/contact">Contact Us</Link>

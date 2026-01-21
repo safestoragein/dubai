@@ -423,7 +423,7 @@ export default function TestimonialVideosPage() {
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
                 <a href="/get-quote">Get a Free Quote</a>
               </Button>
-              <a href='tel:+971505773388'><Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-black">
+              <a href='tel:+971505773388'><Button variant="outline" size="lg" className="bg-white text-black border-white hover:bg-gray-100">
                 Contact Us
               </Button></a>
             </div>

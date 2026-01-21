@@ -48,7 +48,7 @@ export default function HeroSection() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-white bg-white/10 text-white hover:bg-white hover:text-black">
+              <Button variant="outline" size="lg" className="bg-white text-black border-white hover:bg-gray-100">
                 View Pricing
               </Button>
             </div>

@@ -332,7 +332,7 @@ export default function HowItWorksPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10 h-14 px-8 text-lg"
+                className="bg-white text-black border-white hover:bg-gray-100 h-14 px-8 text-lg"
                 asChild
               >
                 <a href={`tel:${phoneNumber.replace(/\s/g, "")}`}>

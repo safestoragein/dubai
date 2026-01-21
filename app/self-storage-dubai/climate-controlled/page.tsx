@@ -43,7 +43,7 @@ export default function ClimateControlledPage() {
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
                 <Link href="/get-quote">Get Climate Storage Quote</Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white hover:text-black border-white text-white" asChild>
+              <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
                 <a href="tel:+971505773388">Call +971 50 577 3388</a>
               </Button>
             </div>
@@ -549,12 +549,12 @@ export default function ClimateControlledPage() {
                   Get Protected Storage <ArrowRight className="ml-2" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black" asChild>
+              <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
                 <a href="tel:+971505773388">
                   Call +971 50 577 3388
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black" asChild>
+              <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
                 <a href="https://wa.me/971505773388">
                   WhatsApp Us
                 </a>

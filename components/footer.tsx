@@ -174,7 +174,7 @@ export default function Footer() {
               <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-dubai-midnight font-medium" asChild>
                 <Link href="/get-quote">Get Free Quote</Link>
               </Button>
-              <Button variant="outline" className="border-white/20 text-white hover:bg-white hover:text-black" asChild>
+              <Button variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
                 <a href={env.PHONE_LINK}>Call: 050-577-3388</a>
               </Button>
             </div>
