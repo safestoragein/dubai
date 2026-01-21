@@ -1,5 +1,7 @@
 import HeroSectionQuote from "@/components/hero-section-quote"
+import TrustBadges from "@/components/trust-badges"
 import USPSection from "@/components/usp-section"
+import WhyChooseUs from "@/components/why-choose-us"
 import ComparisonSection from "@/components/comparison-section"
 import HowItWorks from "@/components/how-it-works"
 import Testimonials from "@/components/testimonials"
@@ -53,7 +55,9 @@ export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <HeroSectionQuote />
+      <TrustBadges />
       <StorageSizes />
+      <WhyChooseUs />
       <USPSection />
       <ComparisonSection />
       <HowItWorks />

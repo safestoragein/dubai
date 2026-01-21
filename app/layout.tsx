@@ -9,7 +9,7 @@ import Footer from "@/components/footer"
 import FloatingContactButtons from "@/components/floating-contact-buttons"
 import MotionProvider from "@/components/motion-provider"
 import Script from "next/script"
-import { organizationSchema, localBusinessSchema, webSiteSchema } from "@/lib/structured-data"
+import { organizationSchema, localBusinessSchema, webSiteSchema, faqSchema, serviceSchema } from "@/lib/structured-data"
 
 // Optimize font loading
 const inter = Inter({
@@ -109,7 +109,9 @@ export default function RootLayout({
             __html: JSON.stringify([
               organizationSchema,
               localBusinessSchema,
-              webSiteSchema
+              webSiteSchema,
+              faqSchema,
+              serviceSchema
             ])
           }}
         />

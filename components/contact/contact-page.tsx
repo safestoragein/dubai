@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { contactFaqs } from "./contact-data"
 import { env } from "@/lib/env"
+import TrustBadges from "@/components/trust-badges"
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -127,6 +128,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <TrustBadges />
 
       {/* Contact Methods Section */}
       <section className="w-full py-20 bg-white relative">

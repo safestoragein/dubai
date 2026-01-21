@@ -25,6 +25,8 @@ export const localBusinessSchema = {
   "@type": "SelfStorage",
   "@id": "https://safestorage.ae/#business",
   name: "SafeStorage Dubai - Premium Storage Solutions",
+  alternateName: "SafeStorage Dubai",
+  description: "Dubai's most trusted storage partner since 2018. Climate-controlled units, 24/7 security, free pickup & delivery, and free insurance up to AED 5000.",
   image: [
     "https://safestorage.ae/images/facility-1.jpg",
     "https://safestorage.ae/images/facility-2.jpg",
@@ -32,7 +34,18 @@ export const localBusinessSchema = {
   ],
   url: "https://safestorage.ae",
   telephone: "+971505773388",
-  priceRange: "AED 199 - AED 4999 per month",
+  priceRange: "AED 199 - AED 4999",
+  currenciesAccepted: "AED",
+  paymentAccepted: "Cash, Credit Card, Bank Transfer",
+  areaServed: [
+    { "@type": "City", name: "Dubai" },
+    { "@type": "Place", name: "Dubai Investment Park" },
+    { "@type": "Place", name: "Al Quoz" },
+    { "@type": "Place", name: "JLT" },
+    { "@type": "Place", name: "Business Bay" },
+    { "@type": "Place", name: "Dubai Marina" },
+    { "@type": "Place", name: "Jumeirah" }
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "Dubai Investment Park 2",

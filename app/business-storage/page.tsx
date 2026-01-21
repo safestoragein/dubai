@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Building2, ShieldCheck, Truck, Clock, FileBox, Headphones } from "lucide-react"
+import { Building2, ShieldCheck, Truck, Clock, FileBox, Headphones, Star, Users, Award, ArrowRight } from "lucide-react"
+import TrustBadges from "@/components/trust-badges"
+import Testimonials from "@/components/testimonials"
 
 export const metadata: Metadata = {
   title: "Business Storage Dubai | Secure Document & Inventory Storage | SafeStorage",
@@ -63,6 +65,17 @@ export default function BusinessStoragePage() {
         <div className="absolute inset-0 bg-dubai-pattern opacity-5"></div>
         <div className="container px-6 md:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
+            {/* Trust indicators */}
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                <span className="text-white text-sm font-medium">4.9/5 (487+ Reviews)</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                <Users className="h-4 w-4 text-dubai-gold" />
+                <span className="text-white text-sm font-medium">Trusted by 100+ Businesses</span>
+              </div>
+            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Business Storage <span className="text-dubai-gold">Solutions</span>
             </h1>
@@ -76,19 +89,24 @@ export default function BusinessStoragePage() {
                 className="bg-dubai-gold hover:bg-dubai-darkgold text-white text-lg px-8 py-6"
                 asChild
               >
-                <Link href="/get-quote">Get a Free Quote</Link>
+                <Link href="/get-quote">
+                  Get Your Free Quote in 2 Minutes
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
                 size="lg"
                 className="bg-transparent border-2 border-dubai-gold text-dubai-gold hover:bg-dubai-gold hover:text-white text-lg px-8 py-6"
                 asChild
               >
-                <a href="tel:+971505773388">Call +971 50 577 3388</a>
+                <a href="tel:+971505773388">Call: 050-577-3388</a>
               </Button>
             </div>
           </div>
         </div>
       </section>
+
+      <TrustBadges />
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -119,23 +137,38 @@ export default function BusinessStoragePage() {
         </div>
       </section>
 
+      <Testimonials />
+
       {/* CTA Section */}
-      <section className="py-20 bg-dubai-sand/20">
+      <section className="py-20 bg-dubai-navy text-white">
         <div className="container px-6 md:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-dubai-navy mb-4">
-              Ready to Simplify Your Storage?
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Simplify Your Business Storage?
             </h2>
-            <p className="text-gray-600 mb-8">
-              Get a customized quote for your business storage needs. No obligations, no hidden fees.
+            <p className="text-white/80 mb-8">
+              Join 100+ businesses who trust SafeStorage Dubai. Get a customized quote in just 2 minutes.
             </p>
-            <Button
-              size="lg"
-              className="bg-dubai-gold hover:bg-dubai-darkgold text-white text-lg px-10 py-6"
-              asChild
-            >
-              <Link href="/get-quote">Get Your Free Quote</Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-dubai-gold hover:bg-dubai-darkgold text-white text-lg px-10 py-6"
+                asChild
+              >
+                <Link href="/get-quote" className="group">
+                  Get Your Free Quote
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10 text-lg px-10 py-6"
+                asChild
+              >
+                <Link href="/contact">Contact Us</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

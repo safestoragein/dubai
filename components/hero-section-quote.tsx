@@ -1,18 +1,30 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Truck, Building, Box, Package, ArrowRight, Phone } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Truck, Building, Box, Package, ArrowRight, Phone, Star, Shield, Thermometer, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import MovingVehicles from "./quote/moving-vehicles"
 import { useEffect, useState } from "react"
 
+const rotatingHeadlines = [
+  "Your belongings deserve the best",
+  "Dedicated storage experts at your service",
+  "Just minutes from your location",
+  "Trusted by 500+ happy customers",
+]
+
 export default function HeroSectionQuote() {
   const phoneNumber = process.env.NEXT_PUBLIC_CONTACT_NUMBER || "+971 XX XXX XXXX"
   const [mounted, setMounted] = useState(false)
+  const [currentHeadline, setCurrentHeadline] = useState(0)
 
   useEffect(() => {
     setMounted(true)
+    const interval = setInterval(() => {
+      setCurrentHeadline((prev) => (prev + 1) % rotatingHeadlines.length)
+    }, 3500)
+    return () => clearInterval(interval)
   }, [])
 
   return (
@@ -241,40 +253,81 @@ export default function HeroSectionQuote() {
       <div className="container px-4 md:px-6 relative z-10 py-16 md:py-20">
         <div className="flex justify-center items-center min-h-[400px]">
           <div className="text-white text-center max-w-5xl mx-auto">
-            <div className="inline-block px-4 py-1 bg-dubai-gold text-white text-sm font-medium rounded-full mb-6">
-              Secure Storage Solutions
+            {/* Trust Badge Row */}
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                <span className="text-white text-sm font-medium">4.9/5 (487+ Reviews)</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                <Shield className="h-4 w-4 text-dubai-gold" />
+                <span className="text-white text-sm font-medium">7+ Years Serving Dubai</span>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Secure, Affordable & <span className="text-dubai-gold">Hassle-Free</span> Storage in Dubai
-            </h1>
-            <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Flexible self-storage solutions for homes & businesses. Safe, climate-controlled, and accessible 24/7.
-            </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+              Dubai&apos;s Most Trusted <span className="text-dubai-gold">Storage Partner</span>
+            </h1>
+
+            {/* Feature highlights */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-4 text-lg md:text-xl text-white/90">
+              <span className="flex items-center gap-2">
+                <Clock className="h-5 w-5 text-dubai-gold" />
+                24/7 Access
+              </span>
+              <span className="hidden md:inline text-white/50">•</span>
+              <span className="flex items-center gap-2">
+                <Thermometer className="h-5 w-5 text-dubai-gold" />
+                Climate-Controlled
+              </span>
+              <span className="hidden md:inline text-white/50">•</span>
+              <span className="flex items-center gap-2">
+                <Truck className="h-5 w-5 text-dubai-gold" />
+                Free Pickup
+              </span>
+            </div>
+
+            {/* Rotating Headlines */}
+            <div className="h-8 mb-6">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={currentHeadline}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-xl text-dubai-gold italic"
+                >
+                  &quot;{rotatingHeadlines[currentHeadline]}&quot;
+                </motion.p>
+              </AnimatePresence>
+            </div>
+
+            {/* Trust Features Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8 max-w-4xl mx-auto">
               {[
-                { icon: Truck, text: "Hassle free Pickup & Delivery" },
-                { icon: Building, text: "Climate-Controlled Units" },
-                { icon: Box, text: "Flexible Storage Terms" },
-                { icon: Package, text: "Secure Facilities" },
+                { icon: Shield, text: "24/7 CCTV Monitoring" },
+                { icon: Thermometer, text: "Climate Controlled" },
+                { icon: Package, text: "Free Insurance up to AED 5000" },
+                { icon: Truck, text: "Same-Day Pickup Available" },
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 py-2 rounded-lg"
                 >
-                  <div className="rounded-full bg-dubai-gold/20 p-2">
+                  <div className="rounded-full bg-dubai-gold/20 p-2 shrink-0">
                     <feature.icon className="h-4 w-4 text-dubai-gold" />
                   </div>
-                  <span className="text-white/90 text-sm">{feature.text}</span>
+                  <span className="text-white/90 text-sm text-left">{feature.text}</span>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
+              <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white text-lg px-8" asChild>
                 <Link href="/get-quote">
-                  Get a Free Quote
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  Get Your Free Quote in 2 Minutes
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button
@@ -285,7 +338,7 @@ export default function HeroSectionQuote() {
               >
                 <a href={`tel:${phoneNumber.replace(/\s/g, "")}`}>
                   <Phone className="mr-2 h-5 w-5" />
-                  Call Us
+                  Call: 050-577-3388
                 </a>
               </Button>
             </div>
