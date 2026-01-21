@@ -16,7 +16,7 @@ import {
 import { env } from "@/lib/env"
 
 export const metadata: Metadata = {
-  title: "Storage Units in Dubai - From AED 99/Month | FREE Pickup | SafeStorage",
+  title: "Storage Units in Dubai - From AED 99/Month | Hassle-Free Pickup | SafeStorage",
   description: "Rent secure, climate-controlled storage units in Dubai from AED 99/mo. Hassle-free pickup & delivery, 24/7 access, AED 5000 free insurance. Trusted by 500+ customers. Call 050-577-3388.",
   keywords: "storage units dubai, self storage dubai, storage dubai price, storage units near me, cheap storage dubai, climate controlled storage, furniture storage dubai, storage facility dubai, storage space dubai, storage rental dubai",
   openGraph: {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Storage Units in Dubai - From AED 99/Month",
-    description: "Climate-controlled storage with FREE pickup. 500+ happy customers.",
+    description: "Climate-controlled storage with Hassle-Free pickup. 500+ happy customers.",
   },
   alternates: {
     canonical: "https://safestorage.ae/storage-units-dubai",
@@ -85,7 +85,7 @@ const pricingData = [
 const features = [
   {
     icon: Truck,
-    title: "FREE Pickup & Delivery",
+    title: "Hassle-Free Pickup & Delivery",
     description: "We collect from your location and deliver back when needed. No extra charges, no hidden fees.",
     highlight: "Save AED 300+",
   },
@@ -332,7 +332,7 @@ const faqs = [
   },
   {
     question: "Where is your storage facility located?",
-    answer: "Our main facility is in Dubai Investment Park 2, strategically located with easy access from all Dubai areas. But location doesn't matter much - we provide FREE pickup from YOUR location (Dubai Marina, Business Bay, JLT, Downtown, wherever you are) and FREE delivery back!",
+    answer: "Our main facility is in Dubai Investment Park 2, strategically located with easy access from all Dubai areas. But location doesn't matter much - we provide hassle-free pickup from YOUR location (Dubai Marina, Business Bay, JLT, Downtown, wherever you are) and delivery back!",
   },
   {
     question: "How quickly can I start using storage?",
@@ -376,7 +376,7 @@ export default function StorageUnitsDubaiPage() {
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Truck className="h-4 w-4 text-green-400" />
-                <span className="text-white text-sm font-medium">FREE Pickup</span>
+                <span className="text-white text-sm font-medium">Hassle-Free Pickup</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Thermometer className="h-4 w-4 text-blue-400" />
@@ -392,7 +392,7 @@ export default function StorageUnitsDubaiPage() {
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-              FREE pickup & delivery • 24/7 access • Climate controlled • No hidden fees
+              Hassle-Free pickup & delivery • 24/7 access • Climate controlled • No hidden fees
             </p>
 
             {/* CTAs */}
@@ -693,7 +693,7 @@ export default function StorageUnitsDubaiPage() {
               Storage Unit Pickup in All Dubai Areas
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              FREE pickup & delivery from these locations (and anywhere else in Dubai!)
+              Hassle-Free pickup & delivery from these locations (and anywhere else in Dubai!)
             </p>
           </div>
 
@@ -869,7 +869,7 @@ export default function StorageUnitsDubaiPage() {
             <div className="flex flex-wrap justify-center gap-6 text-sm text-white/70">
               <span className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-400" />
-                FREE Pickup & Delivery
+                Hassle-Free Pickup & Delivery
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-400" />
