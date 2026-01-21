@@ -190,7 +190,7 @@ export const localBusinessSchema = {
   amenityFeature: [
     { "@type": "LocationFeatureSpecification", name: "24/7 CCTV Security", value: true },
     { "@type": "LocationFeatureSpecification", name: "Climate Control (20-25°C)", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Free Pickup & Delivery", value: true },
+    { "@type": "LocationFeatureSpecification", name: "Hassle-Free Pickup & Delivery", value: true },
     { "@type": "LocationFeatureSpecification", name: "Biometric Access Control", value: true },
     { "@type": "LocationFeatureSpecification", name: "Free Insurance (up to AED 5000)", value: true },
     { "@type": "LocationFeatureSpecification", name: "Fire Detection & Suppression", value: true },
@@ -602,7 +602,7 @@ export const serviceSchema = {
         "@type": "OfferCatalog",
         name: "Pickup & Delivery",
         itemListElement: [
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Free Pickup", description: "FREE collection from your location" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hassle-Free Pickup", description: "FREE collection from your location" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Free Delivery", description: "FREE return delivery when needed" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Packing Service", description: "Professional packing assistance" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Same-Day Service", description: "Urgent pickup/delivery available" } }
@@ -726,7 +726,7 @@ export const howToSchema = {
     },
     {
       "@type": "HowToStep",
-      name: "Schedule Free Pickup",
+      name: "Schedule Hassle-Free Pickup",
       text: "Choose your preferred pickup date and time. Our professional team will come to your home, office, or any Dubai location to collect your items. Pickup is FREE.",
       image: "https://safestorage.ae/images/step2-pickup.jpg"
     },

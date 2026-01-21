@@ -283,7 +283,7 @@ export default function HeroSectionQuote() {
               <span className="hidden md:inline text-white/50">•</span>
               <span className="flex items-center gap-2">
                 <Truck className="h-5 w-5 text-dubai-gold" />
-                Free Pickup
+                Hassle-Free Pickup
               </span>
             </div>
 

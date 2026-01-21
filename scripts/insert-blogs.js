@@ -95,7 +95,7 @@ const blogPosts = [
         <tr><th>Feature</th><th>SafeStorage</th><th>TheBox</th></tr>
         <tr><td>Climate Control</td><td>✓ Advanced HVAC</td><td>✓ Basic</td></tr>
         <tr><td>24/7 Access</td><td>✓ Available</td><td>Limited hours</td></tr>
-        <tr><td>Free Pickup</td><td>✓ Yes</td><td>Extra charge</td></tr>
+        <tr><td>Hassle-Free Pickup</td><td>✓ Yes</td><td>Extra charge</td></tr>
         <tr><td>Indexing Service</td><td>✓ Included</td><td>Not available</td></tr>
       </table>
       
@@ -2031,7 +2031,7 @@ const additionalBlogPosts = [
       <h3>Service Comparison</h3>
       <table>
         <tr><th>Service</th><th>SafeStorage</th><th>TheBox</th></tr>
-        <tr><td>Free Pickup</td><td>✓</td><td>✗</td></tr>
+        <tr><td>Hassle-Free Pickup</td><td>✓</td><td>✗</td></tr>
         <tr><td>24/7 Support</td><td>✓</td><td>Limited</td></tr>
         <tr><td>Same-Day Access</td><td>✓</td><td>✓</td></tr>
         <tr><td>Online Booking</td><td>✓</td><td>✓</td></tr>

@@ -840,7 +840,7 @@ export default function QuotePage() {
                   </div>
                   <div className="text-center">
                     <Truck className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
-                    <div className="text-sm">Free Pickup</div>
+                    <div className="text-sm">Hassle-Free Pickup</div>
                   </div>
                   <div className="text-center">
                     <Clock className="w-8 h-8 text-purple-600 mx-auto mb-2" />

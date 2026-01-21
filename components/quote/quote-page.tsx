@@ -1041,7 +1041,7 @@ export default function QuotePage() {
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
                           { icon: Shield, label: "24/7 Security", color: "text-blue-600" },
-                          { icon: Truck, label: "Free Pickup", color: "text-emerald-600" },
+                          { icon: Truck, label: "Hassle-Free Pickup", color: "text-emerald-600" },
                           { icon: Clock, label: "Flexible Access", color: "text-purple-600" },
                           { icon: Users, label: "Expert Team", color: "text-orange-600" },
                         ].map((feature, index) => {

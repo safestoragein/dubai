@@ -1795,7 +1795,7 @@ export default function QuotePage() {
                     <h3 className="font-semibold text-slate-800 mb-3 text-center text-sm">Included With Both Options</h3>
                     <div className="flex flex-wrap justify-center gap-2">
                       {[
-                        { icon: Truck, label: "Free Pickup" },
+                        { icon: Truck, label: "Hassle-Free Pickup" },
                         { icon: Shield, label: "Secure" },
                         { icon: Wind, label: "Climate Control" },
                         { icon: Clock, label: "Flexible" },
