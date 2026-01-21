@@ -9,7 +9,7 @@ import Footer from "@/components/footer"
 import FloatingContactButtons from "@/components/floating-contact-buttons"
 import MotionProvider from "@/components/motion-provider"
 import Script from "next/script"
-import { organizationSchema, localBusinessSchema, webSiteSchema, faqSchema, serviceSchema } from "@/lib/structured-data"
+import { allSchemas } from "@/lib/structured-data"
 
 // Optimize font loading
 const inter = Inter({
@@ -102,17 +102,11 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
 
-        {/* Structured Data / Schema.org */}
+        {/* Structured Data / Schema.org - All 13+ Schema Types for AI Overviews & Rich Snippets */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              organizationSchema,
-              localBusinessSchema,
-              webSiteSchema,
-              faqSchema,
-              serviceSchema
-            ])
+            __html: JSON.stringify(allSchemas)
           }}
         />
 
