@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Starting a Business in Dubai 2026: Complete Entrepreneur Guide",
     description: "Everything you need to know about starting a business in Dubai - licenses, costs, free zones, visas, and practical tips.",
-    images: ["/images/warehouse-exterior.jpg"],
+    images: ["https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&h=800&fit=crop&q=80"],
   },
 }
 
@@ -221,7 +221,7 @@ export default function StartingBusinessDubai2026() {
       needs: "Product inventory, packaging supplies, seasonal stock",
       solution: "Climate-controlled storage with easy access for order fulfillment",
       savings: "Save AED 15,000-30,000/year vs full warehouse rental",
-      image: "/images/warehouse-boxes.jpg",
+      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop&q=80",
     },
     {
       type: "Trading Company",
@@ -229,7 +229,7 @@ export default function StartingBusinessDubai2026() {
       needs: "Import/export documents, contracts, customs papers",
       solution: "Secure document archival with 5-year record keeping",
       savings: "Professional document management from AED 199/month",
-      image: "/images/warehouse-interior.jpg",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80",
     },
     {
       type: "Consulting Firm",
@@ -237,7 +237,7 @@ export default function StartingBusinessDubai2026() {
       needs: "Client files, legal documents, office equipment",
       solution: "Flexible storage lets you use flexi-desk instead of expensive office",
       savings: "Save AED 20,000-40,000/year on office rent",
-      image: "/images/warehouse-exterior.jpg",
+      image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&h=800&fit=crop&q=80",
     },
     {
       type: "Retail Business",
@@ -245,7 +245,7 @@ export default function StartingBusinessDubai2026() {
       needs: "Extra inventory, seasonal products, display materials",
       solution: "24/7 accessible storage for restocking whenever needed",
       savings: "Pay only for space you use, scale up or down anytime",
-      image: "/images/warehouse-interior.jpg",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80",
     },
   ]
 
@@ -278,9 +278,9 @@ export default function StartingBusinessDubai2026() {
   ]
 
   const warehouseImages = [
-    "/images/warehouse-interior.jpg",
-    "/images/warehouse-exterior.jpg",
-    "/images/warehouse-boxes.jpg",
+    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&h=800&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop&q=80",
   ]
 
   return (
@@ -339,7 +339,7 @@ export default function StartingBusinessDubai2026() {
             <div className="grid md:grid-cols-3 gap-4">
               <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/warehouse-exterior.jpg"
+                  src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&h=800&fit=crop&q=80"
                   alt="SafeStorage facility exterior"
                   fill
                   className="object-cover"
@@ -352,7 +352,7 @@ export default function StartingBusinessDubai2026() {
               </div>
               <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/warehouse-interior.jpg"
+                  src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80"
                   alt="SafeStorage facility interior"
                   fill
                   className="object-cover"
@@ -365,7 +365,7 @@ export default function StartingBusinessDubai2026() {
               </div>
               <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/warehouse-boxes.jpg"
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop&q=80"
                   alt="Business storage boxes"
                   fill
                   className="object-cover"
@@ -561,7 +561,7 @@ export default function StartingBusinessDubai2026() {
               </div>
               <div className="relative h-64 w-full overflow-hidden rounded-lg md:w-80">
                 <Image
-                  src="/images/warehouse-interior.jpg"
+                  src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80"
                   alt="SafeStorage business storage facility"
                   fill
                   className="object-cover"
@@ -712,7 +712,7 @@ export default function StartingBusinessDubai2026() {
               <div className="grid gap-4">
                 <div className="relative h-48 overflow-hidden rounded-lg">
                   <Image
-                    src="/images/warehouse-interior.jpg"
+                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80"
                     alt="SafeStorage document storage"
                     fill
                     className="object-cover"
@@ -721,7 +721,7 @@ export default function StartingBusinessDubai2026() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="relative h-32 overflow-hidden rounded-lg">
                     <Image
-                      src="/images/warehouse-exterior.jpg"
+                      src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&h=800&fit=crop&q=80"
                       alt="SafeStorage facility exterior"
                       fill
                       className="object-cover"
@@ -729,7 +729,7 @@ export default function StartingBusinessDubai2026() {
                   </div>
                   <div className="relative h-32 overflow-hidden rounded-lg">
                     <Image
-                      src="/images/warehouse-boxes.jpg"
+                      src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop&q=80"
                       alt="SafeStorage inventory storage"
                       fill
                       className="object-cover"
