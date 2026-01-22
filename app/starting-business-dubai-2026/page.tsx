@@ -214,41 +214,6 @@ export default function StartingBusinessDubai2026() {
     },
   ]
 
-  const businessStorageSolutions = [
-    {
-      type: "E-Commerce Business",
-      icon: Package,
-      needs: "Product inventory, packaging supplies, seasonal stock",
-      solution: "Climate-controlled storage with easy access for order fulfillment",
-      savings: "Save AED 15,000-30,000/year vs full warehouse rental",
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop&q=80",
-    },
-    {
-      type: "Trading Company",
-      icon: Briefcase,
-      needs: "Import/export documents, contracts, customs papers",
-      solution: "Secure document archival with 5-year record keeping",
-      savings: "Professional document management from AED 199/month",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80",
-    },
-    {
-      type: "Consulting Firm",
-      icon: FileText,
-      needs: "Client files, legal documents, office equipment",
-      solution: "Flexible storage lets you use flexi-desk instead of expensive office",
-      savings: "Save AED 20,000-40,000/year on office rent",
-      image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&h=800&fit=crop&q=80",
-    },
-    {
-      type: "Retail Business",
-      icon: Shield,
-      needs: "Extra inventory, seasonal products, display materials",
-      solution: "24/7 accessible storage for restocking whenever needed",
-      savings: "Pay only for space you use, scale up or down anytime",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80",
-    },
-  ]
-
   const commonMistakes = [
     {
       icon: XCircle,
@@ -568,61 +533,6 @@ export default function StartingBusinessDubai2026() {
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Business Storage Solutions */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-4 text-center text-4xl font-bold text-gray-900">
-            Storage Solutions for Every Business
-          </h2>
-          <p className="mb-12 text-center text-xl text-gray-600">
-            Professional storage helps you save costs and stay organized
-          </p>
-          <div className="grid gap-8 md:grid-cols-2">
-            {businessStorageSolutions.map((solution, index) => (
-              <div key={index} className="rounded-xl border-2 border-gray-200 bg-white overflow-hidden shadow-md hover:border-[#D8315B] transition-all">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={solution.image}
-                    alt={`${solution.type} storage solution`}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                    <solution.icon className="h-8 w-8 text-white" />
-                    <h3 className="text-2xl font-bold text-white">{solution.type}</h3>
-                  </div>
-                </div>
-                <div className="p-6 space-y-4">
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">What You Need:</p>
-                    <p className="text-gray-600">{solution.needs}</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">SafeStorage Solution:</p>
-                    <p className="text-gray-700">{solution.solution}</p>
-                  </div>
-                  <div className="rounded-lg bg-[#D8315B]/10 p-4 border border-[#D8315B]/20">
-                    <p className="font-bold text-[#D8315B] flex items-center gap-2">
-                      <DollarSign className="h-5 w-5" />
-                      {solution.savings}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Button size="lg" asChild className="bg-[#D8315B] text-white hover:bg-[#c02a50]">
-              <Link href="/contact">
-                Get Custom Storage Quote
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
           </div>
         </div>
       </section>
