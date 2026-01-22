@@ -98,12 +98,12 @@ export default function ContactPage() {
                 <Button
                   size="lg"
                   className="bg-dubai-gold hover:bg-dubai-darkgold text-white"
-                  onClick={() => {
-                    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })
-                  }}
+                  asChild
                 >
-                  Contact Us Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <a href={env.PHONE_LINK}>
+                    <Phone className="mr-2 h-5 w-5" />
+                    Contact Us Now
+                  </a>
                 </Button>
               </div>
             </motion.div>
