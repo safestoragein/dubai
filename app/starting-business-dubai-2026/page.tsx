@@ -286,8 +286,8 @@ export default function StartingBusinessDubai2026() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-dubai-gold via-dubai-red to-dubai-sand py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative overflow-hidden bg-gradient-to-r from-[#0A2463] via-[#3E92CC] to-[#0A2463] py-20">
+        <div className="absolute inset-0 bg-black/10"></div>
         <div className="container relative z-10 mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center text-white">
             <Building2 className="mx-auto mb-6 h-20 w-20" />
@@ -298,13 +298,13 @@ export default function StartingBusinessDubai2026() {
               Complete step-by-step guide for entrepreneurs. Learn about licenses, free zones, costs, visas, and everything you need to start your business in Dubai.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" asChild className="bg-white text-dubai-red hover:bg-gray-100">
+              <Button size="lg" asChild className="bg-[#D8315B] text-white hover:bg-[#c02a50]">
                 <a href="tel:+971505773388">
                   <Phone className="mr-2 h-5 w-5" />
                   Call Now: +971 800 72337
                 </a>
               </Button>
-              <Button size="lg" asChild variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" asChild className="bg-white text-[#0A2463] hover:bg-gray-100">
                 <Link href="/contact">
                   Get Business Storage Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -327,7 +327,7 @@ export default function StartingBusinessDubai2026() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {whyDubai.map((benefit, index) => (
               <div key={index} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-all">
-                <benefit.icon className="mb-4 h-12 w-12 text-dubai-gold" />
+                <benefit.icon className="mb-4 h-12 w-12 text-[#D8315B]" />
                 <h3 className="mb-2 text-xl font-bold text-gray-900">{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.description}</p>
               </div>
@@ -347,8 +347,8 @@ export default function StartingBusinessDubai2026() {
           </p>
           <div className="grid gap-8 lg:grid-cols-3">
             {businessTypes.map((type, index) => (
-              <div key={index} className="rounded-xl border-2 border-gray-200 bg-white p-8 shadow-lg hover:border-dubai-gold transition-all">
-                <type.icon className="mb-4 h-12 w-12 text-dubai-gold" />
+              <div key={index} className="rounded-xl border-2 border-gray-200 bg-white p-8 shadow-lg hover:border-[#D8315B] transition-all">
+                <type.icon className="mb-4 h-12 w-12 text-[#D8315B]" />
                 <h3 className="mb-4 text-2xl font-bold text-gray-900">{type.type}</h3>
                 <div className="space-y-3 text-sm">
                   <div>
@@ -369,7 +369,7 @@ export default function StartingBusinessDubai2026() {
                   </div>
                   <div className="pt-3 border-t border-gray-200">
                     <span className="font-semibold text-gray-900">Annual Cost:</span>
-                    <p className="text-lg font-bold text-dubai-gold">{type.cost}</p>
+                    <p className="text-lg font-bold text-[#D8315B]">{type.cost}</p>
                   </div>
                   <div>
                     <span className="font-semibold text-gray-900">Visas:</span>
@@ -400,13 +400,13 @@ export default function StartingBusinessDubai2026() {
               <div key={index}>
                 <div className="rounded-xl border-2 border-gray-200 bg-white p-8 shadow-md hover:shadow-lg transition-all">
                   <div className="mb-4 flex items-start gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-dubai-gold text-xl font-bold text-white">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#D8315B] text-xl font-bold text-white">
                       {step.step}
                     </div>
                     <div className="flex-1">
                       <h3 className="mb-2 text-2xl font-bold text-gray-900">{step.title}</h3>
                       <p className="mb-2 text-gray-600">{step.description}</p>
-                      <p className="text-sm font-semibold text-dubai-red">
+                      <p className="text-sm font-semibold text-[#0A2463]">
                         Timeline: {step.timeline}
                       </p>
                     </div>
@@ -416,7 +416,7 @@ export default function StartingBusinessDubai2026() {
                     <ul className="space-y-1">
                       {step.tips.map((tip, tipIndex) => (
                         <li key={tipIndex} className="flex items-start gap-2 text-gray-600">
-                          <CheckCircle2 className="mt-1 h-4 w-4 flex-shrink-0 text-dubai-gold" />
+                          <CheckCircle2 className="mt-1 h-4 w-4 flex-shrink-0 text-[#D8315B]" />
                           <span>{tip}</span>
                         </li>
                       ))}
@@ -425,11 +425,11 @@ export default function StartingBusinessDubai2026() {
                 </div>
 
                 {step.storageConnection && (
-                  <div className="mt-6 rounded-xl bg-gradient-to-r from-dubai-gold/10 to-dubai-sand/10 p-6 border border-dubai-gold/20">
+                  <div className="mt-6 rounded-xl bg-gradient-to-r from-[#D8315B]/10 to-[#3E92CC]/10 p-6 border border-[#D8315B]/20">
                     <div className="flex flex-col gap-6 md:flex-row md:items-center">
                       <div className="flex-1">
                         <div className="mb-2 flex items-center gap-2">
-                          <Package className="h-6 w-6 text-dubai-gold" />
+                          <Package className="h-6 w-6 text-[#D8315B]" />
                           <h4 className="text-xl font-bold text-gray-900">Storage Solution</h4>
                         </div>
                         {step.step === 5 ? (
@@ -476,7 +476,7 @@ export default function StartingBusinessDubai2026() {
                   {section.items.map((item, itemIndex) => (
                     <div key={itemIndex} className="flex items-start justify-between border-b border-gray-100 pb-3 last:border-0 last:pb-0">
                       <span className="text-gray-700">{item.item}</span>
-                      <span className="font-semibold text-dubai-gold whitespace-nowrap ml-4">
+                      <span className="font-semibold text-[#D8315B] whitespace-nowrap ml-4">
                         AED {item.amount}
                       </span>
                     </div>
@@ -487,7 +487,7 @@ export default function StartingBusinessDubai2026() {
           </div>
 
           {/* Storage Savings */}
-          <div className="mx-auto mt-12 max-w-4xl rounded-xl bg-gradient-to-r from-dubai-gold to-dubai-sand p-8 text-white shadow-xl">
+          <div className="mx-auto mt-12 max-w-4xl rounded-xl bg-gradient-to-r from-[#0A2463] to-[#3E92CC] p-8 text-white shadow-xl">
             <div className="flex flex-col gap-6 md:flex-row md:items-center">
               <div className="flex-1">
                 <h3 className="mb-4 text-3xl font-bold">Smart Savings with SafeStorage</h3>
@@ -506,7 +506,7 @@ export default function StartingBusinessDubai2026() {
                   </li>
                 </ul>
                 <div className="mt-6">
-                  <Button size="lg" asChild className="bg-white text-dubai-gold hover:bg-gray-100">
+                  <Button size="lg" asChild className="bg-white text-[#D8315B] hover:bg-gray-100">
                     <Link href="/contact">
                       Get Business Storage Quote
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -538,38 +538,38 @@ export default function StartingBusinessDubai2026() {
           </p>
           <div className="grid gap-8 md:grid-cols-2">
             {popularFreeZones.map((zone, index) => (
-              <div key={index} className="rounded-xl border-2 border-gray-200 bg-white p-8 shadow-md hover:border-dubai-gold transition-all">
+              <div key={index} className="rounded-xl border-2 border-gray-200 bg-white p-8 shadow-md hover:border-[#D8315B] transition-all">
                 <h3 className="mb-4 text-2xl font-bold text-gray-900">{zone.name}</h3>
                 <div className="space-y-3">
                   <div className="flex items-start gap-2">
-                    <MapPin className="mt-1 h-5 w-5 text-dubai-gold flex-shrink-0" />
+                    <MapPin className="mt-1 h-5 w-5 text-[#D8315B] flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-gray-900">Location: </span>
                       <span className="text-gray-600">{zone.location}</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Briefcase className="mt-1 h-5 w-5 text-dubai-gold flex-shrink-0" />
+                    <Briefcase className="mt-1 h-5 w-5 text-[#D8315B] flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-gray-900">Activities: </span>
                       <span className="text-gray-600">{zone.activities}</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <DollarSign className="mt-1 h-5 w-5 text-dubai-gold flex-shrink-0" />
+                    <DollarSign className="mt-1 h-5 w-5 text-[#D8315B] flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-gray-900">Cost: </span>
                       <span className="text-gray-600">{zone.cost}</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Users className="mt-1 h-5 w-5 text-dubai-gold flex-shrink-0" />
+                    <Users className="mt-1 h-5 w-5 text-[#D8315B] flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-gray-900">Visas: </span>
                       <span className="text-gray-600">{zone.visas}</span>
                     </div>
                   </div>
-                  <div className="mt-4 rounded-lg bg-dubai-gold/10 p-4">
+                  <div className="mt-4 rounded-lg bg-[#D8315B]/10 p-4">
                     <p className="font-semibold text-gray-900 mb-2">Why Choose This:</p>
                     <p className="text-gray-700">{zone.pros}</p>
                   </div>
@@ -597,7 +597,7 @@ export default function StartingBusinessDubai2026() {
                   <div>
                     <h3 className="mb-2 text-xl font-bold text-gray-900">{item.mistake}</h3>
                     <p className="text-gray-700">
-                      <strong className="text-dubai-gold">Solution: </strong>
+                      <strong className="text-[#D8315B]">Solution: </strong>
                       {item.fix}
                     </p>
                   </div>
@@ -614,7 +614,7 @@ export default function StartingBusinessDubai2026() {
           <div className="mx-auto max-w-5xl rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 text-white shadow-2xl">
             <div className="grid gap-8 lg:grid-cols-2">
               <div>
-                <Package className="mb-6 h-16 w-16 text-dubai-gold" />
+                <Package className="mb-6 h-16 w-16 text-[#D8315B]" />
                 <h2 className="mb-4 text-4xl font-bold">
                   Complete Business Storage Solutions
                 </h2>
@@ -624,21 +624,21 @@ export default function StartingBusinessDubai2026() {
 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <Shield className="mt-1 h-6 w-6 flex-shrink-0 text-dubai-gold" />
+                    <Shield className="mt-1 h-6 w-6 flex-shrink-0 text-[#D8315B]" />
                     <div>
                       <h4 className="font-bold text-white">Document & License Storage</h4>
                       <p className="text-gray-300">Store trade licenses, contracts, invoices safely. UAE requires 5-year record keeping.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Package className="mt-1 h-6 w-6 flex-shrink-0 text-dubai-gold" />
+                    <Package className="mt-1 h-6 w-6 flex-shrink-0 text-[#D8315B]" />
                     <div>
                       <h4 className="font-bold text-white">Inventory & Product Storage</h4>
                       <p className="text-gray-300">E-commerce sellers save AED 15,000-30,000/year vs full warehouse rental.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Clock className="mt-1 h-6 w-6 flex-shrink-0 text-dubai-gold" />
+                    <Clock className="mt-1 h-6 w-6 flex-shrink-0 text-[#D8315B]" />
                     <div>
                       <h4 className="font-bold text-white">24/7 Access</h4>
                       <p className="text-gray-300">Access your documents and inventory anytime. Climate-controlled facility.</p>
@@ -647,7 +647,7 @@ export default function StartingBusinessDubai2026() {
                 </div>
 
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <Button size="lg" asChild className="bg-dubai-gold text-white hover:bg-dubai-gold/90">
+                  <Button size="lg" asChild className="bg-[#D8315B] text-white hover:bg-[#c02a50]">
                     <Link href="/contact">
                       Get Free Quote
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -756,7 +756,7 @@ export default function StartingBusinessDubai2026() {
               Get expert help with your business setup and secure storage solutions for documents and inventory.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" asChild className="bg-dubai-gold text-white hover:bg-dubai-gold/90">
+              <Button size="lg" asChild className="bg-[#D8315B] text-white hover:bg-[#c02a50]">
                 <Link href="/contact">
                   Get Free Storage Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
