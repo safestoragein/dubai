@@ -52,10 +52,10 @@ export default function StartingBusinessDubai2026() {
       icon: Building2,
     },
     {
-      type: "Mainland Company (LLC)",
+      type: "Mainland Company",
       ownership: "100% foreign ownership (most activities)",
       activities: "Any business activity allowed",
-      office: "Must have physical office or Ejari contract",
+      office: "Must have physical office or tenancy contract",
       trading: "Full access to UAE market and worldwide",
       cost: "AED 25,000 - 60,000/year",
       visa: "Unlimited visas (based on office size)",
@@ -94,10 +94,10 @@ export default function StartingBusinessDubai2026() {
       description: "Free zones are faster and easier. Mainland gives you full UAE market access.",
       timeline: "1-3 days",
       tips: [
-        "Free zones: DMCC, JAFZA, Dubai Airport Free Zone, IFZA",
+        "Free zones available across Dubai with different specializations",
         "Mainland: Need local service agent (no ownership share required)",
-        "Free zones great for online businesses",
-        "Mainland better for retail or local customers",
+        "Free zones great for online businesses and e-commerce",
+        "Mainland better for retail shops or local customer services",
       ],
     },
     {
@@ -115,7 +115,7 @@ export default function StartingBusinessDubai2026() {
     {
       step: 4,
       title: "Get Initial Approval",
-      description: "Submit documents and get initial approval from Department of Economic Development (DED) or free zone authority.",
+      description: "Submit documents and get initial approval from Dubai government or free zone authority.",
       timeline: "3-7 days",
       tips: [
         "Passport copies of all shareholders",
@@ -133,7 +133,7 @@ export default function StartingBusinessDubai2026() {
         "Flexi-desk: AED 5,000 - 15,000/year (cheapest)",
         "Virtual office: AED 8,000 - 20,000/year",
         "Physical office: AED 30,000+ /year",
-        "Ejari (tenancy contract) required for mainland",
+        "Official tenancy contract required for mainland companies",
       ],
       storageConnection: true,
     },
@@ -170,8 +170,8 @@ export default function StartingBusinessDubai2026() {
       tips: [
         "Need: Trade license, passport, proof of address, business plan",
         "Initial deposit: AED 10,000 - 50,000 minimum",
-        "Popular banks: Emirates NBD, Mashreq, ADCB, RAK Bank",
-        "Some banks require in-person visit, others online",
+        "Multiple UAE banks available with business banking services",
+        "Some banks require in-person visit, others offer online setup",
       ],
     },
   ]
@@ -181,7 +181,7 @@ export default function StartingBusinessDubai2026() {
       category: "License & Registration",
       items: [
         { item: "Free Zone License (basic package)", amount: "15,000 - 30,000/year" },
-        { item: "Mainland LLC License", amount: "25,000 - 50,000/year" },
+        { item: "Mainland License", amount: "25,000 - 50,000/year" },
         { item: "Freelance Permit", amount: "7,500 - 15,000/year" },
         { item: "Trade name reservation", amount: "600 - 1,200" },
       ],
@@ -192,7 +192,7 @@ export default function StartingBusinessDubai2026() {
         { item: "Flexi-desk (shared workspace)", amount: "5,000 - 15,000/year" },
         { item: "Virtual office", amount: "8,000 - 20,000/year" },
         { item: "Small physical office (200 sqft)", amount: "30,000 - 60,000/year" },
-        { item: "Ejari registration fee", amount: "220" },
+        { item: "Tenancy registration fee", amount: "220" },
       ],
     },
     {
@@ -214,38 +214,38 @@ export default function StartingBusinessDubai2026() {
     },
   ]
 
-  const popularFreeZones = [
+  const businessStorageSolutions = [
     {
-      name: "DMCC (Dubai Multi Commodities Centre)",
-      location: "Jumeirah Lakes Towers (JLT)",
-      activities: "Trading, e-commerce, consulting, commodities",
-      cost: "AED 18,000 - 40,000/year",
-      visas: "1-6 visas depending on package",
-      pros: "Central location, prestigious, good for commodities trading",
+      type: "E-Commerce Business",
+      icon: Package,
+      needs: "Product inventory, packaging supplies, seasonal stock",
+      solution: "Climate-controlled storage with easy access for order fulfillment",
+      savings: "Save AED 15,000-30,000/year vs full warehouse rental",
+      image: "/images/warehouse-boxes.jpg",
     },
     {
-      name: "JAFZA (Jebel Ali Free Zone)",
-      location: "Jebel Ali (near port)",
-      activities: "Import/export, manufacturing, logistics",
-      cost: "AED 15,000 - 35,000/year",
-      visas: "Flexible visa options",
-      pros: "Best for import/export, port access, warehousing facilities",
+      type: "Trading Company",
+      icon: Briefcase,
+      needs: "Import/export documents, contracts, customs papers",
+      solution: "Secure document archival with 5-year record keeping",
+      savings: "Professional document management from AED 199/month",
+      image: "/images/warehouse-interior.jpg",
     },
     {
-      name: "IFZA (International Free Zone Authority)",
-      location: "Dubai Airport Free Zone",
-      activities: "E-commerce, general trading, consulting",
-      cost: "AED 13,000 - 25,000/year",
-      visas: "1-3 visas",
-      pros: "Affordable, fast setup, good for online businesses",
+      type: "Consulting Firm",
+      icon: FileText,
+      needs: "Client files, legal documents, office equipment",
+      solution: "Flexible storage lets you use flexi-desk instead of expensive office",
+      savings: "Save AED 20,000-40,000/year on office rent",
+      image: "/images/warehouse-exterior.jpg",
     },
     {
-      name: "Dubai Silicon Oasis (DSO)",
-      location: "Dubai Silicon Oasis",
-      activities: "Technology, software, IT services",
-      cost: "AED 15,000 - 30,000/year",
-      visas: "Flexible visa quota",
-      pros: "Tech-focused, affordable, good community",
+      type: "Retail Business",
+      icon: Shield,
+      needs: "Extra inventory, seasonal products, display materials",
+      solution: "24/7 accessible storage for restocking whenever needed",
+      savings: "Pay only for space you use, scale up or down anytime",
+      image: "/images/warehouse-interior.jpg",
     },
   ]
 
@@ -324,7 +324,7 @@ export default function StartingBusinessDubai2026() {
           <p className="mb-12 text-center text-xl text-gray-600">
             Dubai offers unique advantages for entrepreneurs worldwide
           </p>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-12">
             {whyDubai.map((benefit, index) => (
               <div key={index} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-all">
                 <benefit.icon className="mb-4 h-12 w-12 text-[#D8315B]" />
@@ -332,6 +332,51 @@ export default function StartingBusinessDubai2026() {
                 <p className="text-gray-600">{benefit.description}</p>
               </div>
             ))}
+          </div>
+
+          {/* Storage Visual */}
+          <div className="mt-16 mx-auto max-w-5xl">
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/warehouse-exterior.jpg"
+                  alt="SafeStorage facility exterior"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="font-bold text-lg">Secure Facilities</h4>
+                  <p className="text-sm">24/7 monitored storage</p>
+                </div>
+              </div>
+              <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/warehouse-interior.jpg"
+                  alt="SafeStorage facility interior"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="font-bold text-lg">Climate Controlled</h4>
+                  <p className="text-sm">Protect your inventory</p>
+                </div>
+              </div>
+              <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/warehouse-boxes.jpg"
+                  alt="Business storage boxes"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="font-bold text-lg">Organized Storage</h4>
+                  <p className="text-sm">Easy access anytime</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -527,55 +572,57 @@ export default function StartingBusinessDubai2026() {
         </div>
       </section>
 
-      {/* Popular Free Zones */}
+      {/* Business Storage Solutions */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-4 text-center text-4xl font-bold text-gray-900">
-            Top 4 Free Zones for Startups
+            Storage Solutions for Every Business
           </h2>
           <p className="mb-12 text-center text-xl text-gray-600">
-            Most popular choices for entrepreneurs in 2026
+            Professional storage helps you save costs and stay organized
           </p>
           <div className="grid gap-8 md:grid-cols-2">
-            {popularFreeZones.map((zone, index) => (
-              <div key={index} className="rounded-xl border-2 border-gray-200 bg-white p-8 shadow-md hover:border-[#D8315B] transition-all">
-                <h3 className="mb-4 text-2xl font-bold text-gray-900">{zone.name}</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="mt-1 h-5 w-5 text-[#D8315B] flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold text-gray-900">Location: </span>
-                      <span className="text-gray-600">{zone.location}</span>
-                    </div>
+            {businessStorageSolutions.map((solution, index) => (
+              <div key={index} className="rounded-xl border-2 border-gray-200 bg-white overflow-hidden shadow-md hover:border-[#D8315B] transition-all">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={solution.image}
+                    alt={`${solution.type} storage solution`}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 flex items-center gap-3">
+                    <solution.icon className="h-8 w-8 text-white" />
+                    <h3 className="text-2xl font-bold text-white">{solution.type}</h3>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <Briefcase className="mt-1 h-5 w-5 text-[#D8315B] flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold text-gray-900">Activities: </span>
-                      <span className="text-gray-600">{zone.activities}</span>
-                    </div>
+                </div>
+                <div className="p-6 space-y-4">
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">What You Need:</p>
+                    <p className="text-gray-600">{solution.needs}</p>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <DollarSign className="mt-1 h-5 w-5 text-[#D8315B] flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold text-gray-900">Cost: </span>
-                      <span className="text-gray-600">{zone.cost}</span>
-                    </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">SafeStorage Solution:</p>
+                    <p className="text-gray-700">{solution.solution}</p>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <Users className="mt-1 h-5 w-5 text-[#D8315B] flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold text-gray-900">Visas: </span>
-                      <span className="text-gray-600">{zone.visas}</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 rounded-lg bg-[#D8315B]/10 p-4">
-                    <p className="font-semibold text-gray-900 mb-2">Why Choose This:</p>
-                    <p className="text-gray-700">{zone.pros}</p>
+                  <div className="rounded-lg bg-[#D8315B]/10 p-4 border border-[#D8315B]/20">
+                    <p className="font-bold text-[#D8315B] flex items-center gap-2">
+                      <DollarSign className="h-5 w-5" />
+                      {solution.savings}
+                    </p>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Button size="lg" asChild className="bg-[#D8315B] text-white hover:bg-[#c02a50]">
+              <Link href="/contact">
+                Get Custom Storage Quote
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -705,7 +752,7 @@ export default function StartingBusinessDubai2026() {
             {[
               {
                 q: "How long does it take to set up a business in Dubai?",
-                a: "Free zone businesses: 2-4 weeks. Mainland LLC: 4-8 weeks. Freelance permit: 1-2 weeks. Banking can add 2-4 weeks to any option.",
+                a: "Free zone businesses: 2-4 weeks. Mainland businesses: 4-8 weeks. Freelance permit: 1-2 weeks. Banking can add 2-4 weeks to any option.",
               },
               {
                 q: "Do I need to live in Dubai to own a business?",
@@ -717,7 +764,7 @@ export default function StartingBusinessDubai2026() {
               },
               {
                 q: "Can I run an online business from Dubai?",
-                a: "Yes! E-commerce and online businesses are very popular. Get an e-commerce license from free zones like IFZA, DMCC, or RAKEZ. You can sell worldwide from Dubai.",
+                a: "Yes! E-commerce and online businesses are very popular. Get an e-commerce license from any of Dubai's free zones. You can sell worldwide from Dubai with no restrictions.",
               },
               {
                 q: "Do I need an office or can I work from home?",
