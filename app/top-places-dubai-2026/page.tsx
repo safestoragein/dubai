@@ -111,7 +111,7 @@ const places = [
     ],
     bestTime: "November-March (cooler months, full bloom)",
     storageConnection: "Event planners and photographers love Dubai's seasonal attractions. Store your equipment, props, and seasonal decor with us during off-seasons.",
-    image: "https://images.unsplash.com/photo-1582408921715-18e7806365c1?w=1200&h=800&fit=crop"
+    image: "https://hobletsonthego.com/wp-content/uploads/2023/08/121122-Mircale-Gardens-1-of-31.jpg"
   },
   {
     id: 6,
