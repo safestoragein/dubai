@@ -47,7 +47,7 @@ const places = [
     ],
     bestTime: "Sunset (6-7 PM) for stunning views",
     storageConnection: "Moving to Downtown Dubai? Store your extra furniture and belongings with us while you settle into your new high-rise apartment. We offer hassle-free pickup from all Downtown areas.",
-    image: "/images/places/burj-khalifa.jpg"
+    image: "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=1200&h=800&fit=crop"
   },
   {
     id: 2,
@@ -63,7 +63,7 @@ const places = [
     ],
     bestTime: "Weekday mornings (10 AM) to avoid crowds",
     storageConnection: "Planning an extended stay to explore Dubai's innovation scene? We provide secure storage for your belongings, documents, and equipment while you're in the city.",
-    image: "/images/places/museum-future.jpg"
+    image: "https://images.unsplash.com/photo-1644486920521-16c1b0754c8f?w=1200&h=800&fit=crop"
   },
   {
     id: 3,
@@ -79,7 +79,7 @@ const places = [
     ],
     bestTime: "Early morning (9 AM) for waterpark",
     storageConnection: "Seasonal resident at Palm Jumeirah? Our climate-controlled storage keeps your summer wardrobe, water sports gear, and luxury items safe year-round.",
-    image: "/images/places/palm-jumeirah.jpg"
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&h=800&fit=crop"
   },
   {
     id: 4,
@@ -95,7 +95,7 @@ const places = [
     ],
     bestTime: "Evening (5-9 PM) for vibrant atmosphere",
     storageConnection: "Living in Marina towers? Maximize your apartment space by storing seasonal items, sports equipment, and extra luggage with SafeStorage. We serve all Marina residents.",
-    image: "/images/places/dubai-marina.jpg"
+    image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&h=800&fit=crop"
   },
   {
     id: 5,
@@ -111,7 +111,7 @@ const places = [
     ],
     bestTime: "November-March (cooler months, full bloom)",
     storageConnection: "Event planners and photographers love Dubai's seasonal attractions. Store your equipment, props, and seasonal decor with us during off-seasons.",
-    image: "/images/places/miracle-garden.jpg"
+    image: "https://images.unsplash.com/photo-1582408921715-18e7806365c1?w=1200&h=800&fit=crop"
   },
   {
     id: 6,
@@ -127,7 +127,7 @@ const places = [
     ],
     bestTime: "October-April season, weekday evenings",
     storageConnection: "Importing goods or running an e-commerce business? We offer warehouse storage solutions perfect for international sellers and traders operating in Dubai.",
-    image: "/images/places/global-village.jpg"
+    image: "https://images.unsplash.com/photo-1580837119756-563d608dd119?w=1200&h=800&fit=crop"
   }
 ]
 
@@ -199,17 +199,19 @@ export default function TopPlacesDubai2026() {
                 <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300">
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Image */}
-                    <div className="relative h-80 md:h-auto bg-gradient-to-br from-gray-200 to-gray-300">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center">
-                          <MapPin className="h-16 w-16 text-gray-400 mx-auto mb-2" />
-                          <p className="text-gray-500 text-sm">Image: {place.name}</p>
-                        </div>
-                      </div>
-                      <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full font-bold text-[#0A2463]">
+                    <div className="relative h-80 md:h-auto">
+                      <Image
+                        src={place.image}
+                        alt={place.name}
+                        width={600}
+                        height={400}
+                        className="object-cover w-full h-full"
+                        priority={index < 2}
+                      />
+                      <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full font-bold text-[#0A2463] shadow-lg">
                         #{place.id}
                       </div>
-                      <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full flex items-center gap-1">
+                      <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
                         <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                         <span className="font-semibold text-sm">{place.rating}</span>
                       </div>
@@ -289,14 +291,17 @@ export default function TopPlacesDubai2026() {
                     </div>
                   </div>
 
-                  {/* Warehouse Image Placeholder */}
-                  <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <Package className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-                        <p className="text-gray-500 text-sm">SafeStorage Warehouse</p>
-                        <p className="text-gray-400 text-xs">Climate-Controlled Facility</p>
-                      </div>
+                  {/* Warehouse Image */}
+                  <div className="relative h-48 rounded-lg overflow-hidden">
+                    <Image
+                      src={index % 3 === 0 ? "/organized-warehouse-space.png" : index % 3 === 1 ? "/expansive-storage.png" : "/images/storage-facility-background.png"}
+                      alt="SafeStorage Climate-Controlled Warehouse"
+                      width={500}
+                      height={300}
+                      className="object-cover w-full h-full"
+                    />
+                    <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg">
+                      <p className="text-xs font-semibold text-[#0A2463]">Climate-Controlled • 24/7 Security</p>
                     </div>
                   </div>
                 </div>
