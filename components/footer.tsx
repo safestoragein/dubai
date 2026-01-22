@@ -80,13 +80,13 @@ export default function Footer() {
                 <Link href="/business-storage" className="hover:text-dubai-gold transition-colors">Business Storage</Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-dubai-gold transition-colors">Vehicle Storage</Link>
+                <Link href="/storage-dubai/vehicle-storage" className="hover:text-dubai-gold transition-colors">Vehicle Storage</Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-dubai-gold transition-colors">Document Storage</Link>
+                <Link href="/storage-dubai/records-archival" className="hover:text-dubai-gold transition-colors">Document Storage</Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-dubai-gold transition-colors">E-commerce Storage</Link>
+                <Link href="/storage-dubai/ecommerce-fulfilment" className="hover:text-dubai-gold transition-colors">E-commerce Storage</Link>
               </li>
             </ul>
           </div>
