@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { Building2, FileText, DollarSign, Briefcase, MapPin, CreditCard, TrendingUp, CheckCircle2, XCircle, Phone, ArrowRight, Package, Shield, Clock, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { env } from "@/lib/env.client"
 
 export const metadata: Metadata = {
   title: "Starting a Business in Dubai 2026: Complete Entrepreneur Guide | SafeStorage UAE",
@@ -300,7 +299,7 @@ export default function StartingBusinessDubai2026() {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" asChild className="bg-white text-dubai-red hover:bg-gray-100">
-                <a href={env.PHONE_LINK}>
+                <a href=tel:+971505773388>
                   <Phone className="mr-2 h-5 w-5" />
                   Call Now: +971 800 72337
                 </a>
@@ -655,7 +654,7 @@ export default function StartingBusinessDubai2026() {
                     </Link>
                   </Button>
                   <Button size="lg" asChild variant="outline" className="border-white text-white hover:bg-white/10">
-                    <a href={env.PHONE_LINK}>
+                    <a href=tel:+971505773388>
                       <Phone className="mr-2 h-5 w-5" />
                       Call: +971 800 72337
                     </a>
@@ -764,7 +763,7 @@ export default function StartingBusinessDubai2026() {
                 </Link>
               </Button>
               <Button size="lg" asChild variant="outline">
-                <a href={env.PHONE_LINK}>
+                <a href=tel:+971505773388>
                   <Phone className="mr-2 h-5 w-5" />
                   Call: +971 800 72337
                 </a>
