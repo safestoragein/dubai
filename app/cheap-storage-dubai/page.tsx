@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
   title: "Cheap Storage Dubai 2026: Best Affordable Storage - Starts from AED 99/Month",
-  description: "Find the cheapest storage in Dubai! Transparent pricing starts from AED 99/month. Compare costs, save money, and get flexible storage solutions. No hidden fees. Free pickup included.",
+  description: "Find the cheapest storage in Dubai! Transparent pricing starts from AED 99/month. Compare costs, save money, and get flexible storage solutions. No hidden fees. Hassle-Free Pickup included.",
   keywords: "cheap storage dubai, affordable storage dubai, storage prices dubai, budget storage uae, cheapest storage dubai, low cost storage, storage deals dubai, student storage dubai, small business storage",
   openGraph: {
     title: "Cheap Storage Dubai 2026: Best Affordable Options - Starts from AED 99",
@@ -200,8 +200,8 @@ export default function CheapStorageDubai() {
       icon: AlertCircle,
       cost: "Moving/Pickup Service",
       typical: "AED 300-800",
-      ourPrice: "FREE pickup",
-      avoid: "Look for free pickup and delivery services",
+      ourPrice: "Hassle-Free Pickup",
+      avoid: "Look for hassle-free pickup and delivery services",
     },
     {
       icon: AlertCircle,
@@ -308,7 +308,7 @@ export default function CheapStorageDubai() {
             <div className="mb-8 grid gap-4 md:grid-cols-3">
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
                 <CheckCircle2 className="mx-auto mb-2 h-8 w-8" />
-                <p className="font-bold">FREE Pickup</p>
+                <p className="font-bold">Hassle-Free Pickup</p>
                 <p className="text-sm">Save AED 300-800</p>
               </div>
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
@@ -413,7 +413,7 @@ export default function CheapStorageDubai() {
 
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-700">
-              <strong>All prices include:</strong> FREE pickup, FREE delivery, 24/7 access, climate control, security monitoring
+              <strong>All prices include:</strong> Hassle-Free Pickup, FREE delivery, 24/7 access, climate control, security monitoring
             </p>
           </div>
         </div>
@@ -660,7 +660,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "Are there really no hidden fees?",
-                a: "Absolutely! Our price includes FREE pickup, FREE delivery, 24/7 access, security, and climate control. No setup fees, no access fees, no lock deposit. What you see is what you pay.",
+                a: "Absolutely! Our price includes Hassle-Free Pickup, FREE delivery, 24/7 access, security, and climate control. No setup fees, no access fees, no lock deposit. What you see is what you pay.",
               },
               {
                 q: "Can I pay monthly or do I need to commit long-term?",
@@ -688,7 +688,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "What's included in the monthly price?",
-                a: "Everything! Climate control, 24/7 security, free pickup, free delivery, unlimited access, and your own lock. The only optional extra is additional insurance (if you want coverage above the basic amount).",
+                a: "Everything! Climate control, 24/7 security, Hassle-Free Pickup, FREE delivery, unlimited access, and your own lock. The only optional extra is additional insurance (if you want coverage above the basic amount).",
               },
               {
                 q: "Can I share a unit with friends to save money?",
@@ -733,7 +733,7 @@ export default function CheapStorageDubai() {
               Start Saving Money Today!
             </h2>
             <p className="mb-8 text-xl">
-              Starts from AED 99/month. No hidden fees. FREE pickup. 24/7 access. Climate controlled. Cancel anytime.
+              Starts from AED 99/month. No hidden fees. Hassle-Free Pickup. 24/7 access. Climate controlled. Cancel anytime.
             </p>
             <div className="mb-8 grid gap-4 md:grid-cols-3">
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
