@@ -1,6 +1,16 @@
 import type { MetadataRoute } from "next"
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// Helper function to generate slug from title (matches blog page logic)
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9 -]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://safestorage.ae"
 
   // Create the base routes
@@ -229,67 +239,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // All 50 blog post slugs
-  const blogSlugs = [
-    "complete-guide-household-storage-dubai-2024",
-    "document-storage-solutions-dubai-businesses",
-    "business-storage-units-dubai-save-costs",
-    "furniture-storage-dubai-climate-controlled",
-    "moving-storage-dubai-relocation",
-    "storage-unit-sizes-guide-dubai",
-    "climate-controlled-storage-dubai",
-    "storage-facility-security-dubai",
-    "ecommerce-storage-solutions-dubai",
-    "vehicle-storage-dubai-cars-bikes-boats",
-    "storage-insurance-dubai-protection",
-    "seasonal-storage-dubai-summer-winter",
-    "student-storage-dubai-university",
-    "storage-for-expats-dubai-guide",
-    "wine-storage-dubai-climate-controlled",
-    "art-storage-dubai-museum-quality",
-    "sports-equipment-storage-dubai",
-    "medical-equipment-storage-dubai-healthcare",
-    "retail-inventory-storage-dubai",
-    "law-firm-document-storage-dubai",
-    "construction-storage-dubai-tools-materials",
-    "event-storage-dubai-equipment-decorations",
-    "photography-equipment-storage-dubai",
-    "restaurant-equipment-storage-dubai",
-    "gym-equipment-storage-dubai-fitness",
-    "musical-instrument-storage-dubai",
-    "baby-items-storage-dubai-nursery",
-    "hobby-storage-dubai-crafts-collections",
-    "salon-equipment-storage-dubai-beauty",
-    "it-equipment-storage-dubai-server-computer",
-    "hotel-storage-dubai-hospitality",
-    "school-storage-dubai-educational",
-    "pharmaceutical-storage-dubai-medicine",
-    "antique-storage-dubai-preserve-valuables",
-    "library-storage-dubai-book-archive",
-    "fashion-storage-dubai-clothing-accessories",
-    "electronics-storage-dubai-gadget-device",
-    "textile-storage-dubai-fabric-material",
-    "automotive-parts-storage-dubai-car",
-    "compare-safestorage-vs-thebox-dubai",
-    "storage-pricing-guide-dubai-2024",
-    "dubai-storage-locations-guide-best-areas",
-    "storage-tips-tricks-dubai-packing-guide",
-    "short-term-vs-long-term-storage-dubai",
-    "storage-during-ramadan-dubai",
-    "storage-small-businesses-dubai-startups",
-    "dubai-free-zone-storage-solutions",
-    "emergency-storage-dubai-last-minute",
-    "eco-friendly-storage-dubai-sustainable",
-    "storage-mistakes-avoid-dubai-expert-guide"
-  ]
+  // Fetch actual blog posts from API
+  let blogRoutes: MetadataRoute.Sitemap = []
 
-  // Add blog post routes
-  const blogRoutes = blogSlugs.map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }))
+  try {
+    const response = await fetch('https://safestorage.in/get_blog_content', {
+      cache: 'no-store'
+    })
+    const data = await response.json()
+
+    const blogs = Array.isArray(data) ? data : []
+
+    // Generate blog routes from actual blog posts
+    blogRoutes = blogs.map((post: any) => {
+      const title = post.title || post.seo_title || ''
+      const slug = generateSlug(title)
+
+      return {
+        url: `${baseUrl}/blog/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      }
+    }).filter((route: any) => route.url.includes('/blog/') && route.url.split('/blog/')[1].length > 0)
+  } catch (error) {
+    console.error('Error fetching blog posts for sitemap:', error)
+    // Return empty blog routes if fetch fails
+    blogRoutes = []
+  }
 
   return [...routes, ...blogRoutes]
 }
