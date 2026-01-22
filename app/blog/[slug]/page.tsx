@@ -1,5 +1,6 @@
 import BlogPostDetail from "@/components/blog/blog-post-detail"
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 
 // Force dynamic generation for blog posts
 export const dynamic = 'force-dynamic'
@@ -75,5 +76,28 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
+
+  // Check if blog post exists before rendering
+  try {
+    const response = await fetch('https://safestorage.in/get_blog_content', {
+      cache: 'no-store'
+    })
+    const data = await response.json()
+
+    const blogs = Array.isArray(data) ? data : []
+    const post = blogs.find((b: any) => {
+      const title = b.title || b.seo_title || ''
+      return generateSlug(title) === slug
+    })
+
+    // Return 404 if post not found
+    if (!post) {
+      notFound()
+    }
+  } catch (error) {
+    console.error('Error checking blog post:', error)
+    // If API fails, let the component handle it (will show "Post Not Found")
+  }
+
   return <BlogPostDetail slug={slug} />
 }
