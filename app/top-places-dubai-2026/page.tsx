@@ -63,7 +63,7 @@ const places = [
     ],
     bestTime: "Weekday mornings (10 AM) to avoid crowds",
     storageConnection: "Planning an extended stay to explore Dubai's innovation scene? We provide secure storage for your belongings, documents, and equipment while you're in the city.",
-    image: "https://images.unsplash.com/photo-1644486920521-16c1b0754c8f?w=1200&h=800&fit=crop"
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyetJU4hidcRzV3nom4Zxs3X6i3QZVpVDel5JGUvGUlLJjdGIMX-TK7v-y7TwlAvH0XkN5yXvngfWWHNefseNEAwcRRect9Pxp34g2nh1Koww1F-LF2cEle87FxAtMJiCwu8fnGKiml4l4=s1360-w1360-h1020-rw"
   },
   {
     id: 3,
