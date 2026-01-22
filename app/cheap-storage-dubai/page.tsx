@@ -81,7 +81,7 @@ export default function CheapStorageDubai() {
 
   const savingsTips = [
     {
-      icon: Calendar,
+      icon: Clock,
       title: "Book for 6+ Months",
       tip: "Save 10-15% when you commit to longer periods. Annual plans save you AED 200-1,000/year",
       savings: "Up to AED 1,000/year",
@@ -299,8 +299,6 @@ export default function CheapStorageDubai() {
       price: "AED 999/month",
     },
   ]
-
-  const Calendar = Clock
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
