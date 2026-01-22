@@ -47,6 +47,60 @@ const nextConfig = {
     ],
   },
 
+  // Redirects for old/removed pages
+  async redirects() {
+    return [
+      // Redirect old /near/* location pages to main self-storage page
+      {
+        source: '/self-storage-dubai/near/:location',
+        destination: '/self-storage-dubai',
+        permanent: true,
+      },
+      // Redirect old storage-dubai subpages that don't exist
+      {
+        source: '/storage-dubai/business-storage',
+        destination: '/business-storage',
+        permanent: true,
+      },
+      {
+        source: '/storage-dubai/warehouse-storage',
+        destination: '/storage-dubai',
+        permanent: true,
+      },
+      {
+        source: '/storage-dubai/long-term-storage',
+        destination: '/storage-dubai',
+        permanent: true,
+      },
+      {
+        source: '/storage-dubai/pricing-cost-guide',
+        destination: '/pricing',
+        permanent: true,
+      },
+      {
+        source: '/storage-dubai/self-vs-full-service',
+        destination: '/storage-dubai',
+        permanent: true,
+      },
+      // Redirect old self-storage-dubai subpages that don't exist
+      {
+        source: '/self-storage-dubai/storage-unit-sizes',
+        destination: '/storage-units-dubai',
+        permanent: true,
+      },
+      {
+        source: '/self-storage-dubai/security-insurance',
+        destination: '/self-storage-dubai',
+        permanent: true,
+      },
+      {
+        source: '/self-storage-dubai/faqs',
+        destination: '/faq',
+        permanent: true,
+      },
+    ]
+  },
+
   // Headers for caching
   async headers() {
     return [
