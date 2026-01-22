@@ -80,49 +80,41 @@ export default function CheapStorageDubai() {
       icon: Clock,
       title: "Book for 6+ Months",
       tip: "Save 10-15% when you commit to longer periods. Annual plans save you AED 200-1,000/year",
-      savings: "Up to AED 1,000/year",
     },
     {
       icon: Package,
       title: "Right-Size Your Unit",
       tip: "Don't pay for empty space! Start smaller and upgrade if needed. Most people overestimate by 30%",
-      savings: "AED 150-300/month",
     },
     {
       icon: Users,
       title: "Share with Family/Friends",
       tip: "Split a larger unit with roommates or family members. Cut your costs by 50% or more",
-      savings: "50% off total cost",
     },
     {
       icon: Box,
       title: "Use Own Packing Materials",
       tip: "Buy boxes from supermarkets (AED 2-5 each) instead of paying storage company prices (AED 15-25)",
-      savings: "AED 200-500 on materials",
     },
     {
       icon: Clock,
       title: "Avoid Peak Seasons",
       tip: "Move-in during off-peak months (May-September). Some facilities offer summer discounts",
-      savings: "10-20% seasonal discount",
     },
     {
       icon: TrendingDown,
       title: "Downsize Before Storing",
       tip: "Sell or donate unused items. Every 10 boxes you don't store saves AED 50-100/month",
-      savings: "AED 50-100/month per 10 boxes",
     },
     {
       icon: Shield,
       title: "Skip Unnecessary Insurance",
       tip: "Check if your home insurance covers stored items. Don't pay twice for coverage",
-      savings: "AED 50-150/month",
     },
     {
       icon: Zap,
       title: "Choose Climate-Control Only If Needed",
       tip: "Regular storage works for most items. Save 20-30% if you don't need temperature control",
-      savings: "20-30% discount",
     },
   ]
 
@@ -491,8 +483,7 @@ export default function CheapStorageDubai() {
               <div key={index} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-all">
                 <tip.icon className="mb-4 h-10 w-10 text-[#D8315B]" />
                 <h3 className="mb-2 text-lg font-bold text-gray-900">{tip.title}</h3>
-                <p className="mb-3 text-sm text-gray-600">{tip.tip}</p>
-                <p className="text-sm font-bold text-green-600">💰 {tip.savings}</p>
+                <p className="text-sm text-gray-600">{tip.tip}</p>
               </div>
             ))}
           </div>
