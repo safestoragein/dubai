@@ -57,7 +57,7 @@ function generateImprovedContent(title, category) {
 <p>For immediate assistance or to schedule a site visit, reach out to us:</p>
 <ul>
   <li>Phone: <strong>+971505773388</strong></li>
-  <li>Email: info@safestorage.ae</li>
+  <li>Email: safestoragedubai@gmail.com</li>
   <li>Website: www.safestorage.ae</li>
 </ul>
 `,
@@ -279,7 +279,7 @@ function generateImprovedContent(title, category) {
 <h2>Start Your Storage Journey Today</h2>
 <p>Experience the convenience and security of professional storage with SafeStorage Dubai. Call <strong>+971505773388</strong> now for your free consultation and discover how we can solve your storage needs.</p>
 
-<p>Visit our website at www.safestorage.ae or email us at info@safestorage.ae for more information.</p>
+<p>Visit our website at www.safestorage.ae or email us at safestoragedubai@gmail.com for more information.</p>
 `
   };
 

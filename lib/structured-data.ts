@@ -97,7 +97,7 @@ export const localBusinessSchema = {
   ],
   url: "https://safestorage.ae",
   telephone: "+971505773388",
-  email: "info@safestoragedubai.com",
+  email: "safestoragedubai@gmail.com",
   priceRange: "From AED 99",
   currenciesAccepted: "AED",
   paymentAccepted: "Cash, Credit Card, Debit Card, Bank Transfer, Cheque",
@@ -514,7 +514,7 @@ export const faqSchema = {
       name: "How do I contact SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Contact SafeStorage Dubai through: Phone: +971505773388 (call or WhatsApp), Email: info@safestoragedubai.com, Website: safestorage.ae, Visit: Dubai Investment Park 2, Dubai. Our team responds within 15 minutes on average. Operating hours: Mon-Sat 8AM-8PM, Sun 10AM-6PM."
+        text: "Contact SafeStorage Dubai through: Phone: +971505773388 (call or WhatsApp), Email: safestoragedubai@gmail.com, Website: safestorage.ae, Visit: Dubai Investment Park 2, Dubai. Our team responds within 15 minutes on average. Operating hours: Mon-Sat 8AM-8PM, Sun 10AM-6PM."
       }
     },
     // AI-SPECIFIC QUESTIONS (Voice Search Optimized)
@@ -885,7 +885,7 @@ export const contactPageSchema = {
   "@type": "ContactPage",
   "@id": "https://safestorage.ae/contact#webpage",
   name: "Contact SafeStorage Dubai",
-  description: "Contact SafeStorage Dubai for storage solutions. Call +971505773388, email info@safestoragedubai.com, or visit us at Dubai Investment Park.",
+  description: "Contact SafeStorage Dubai for storage solutions. Call +971505773388, email safestoragedubai@gmail.com, or visit us at Dubai Investment Park.",
   url: "https://safestorage.ae/contact",
   mainEntity: {
     "@id": "https://safestorage.ae/#organization"
