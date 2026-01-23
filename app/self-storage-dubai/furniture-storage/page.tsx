@@ -44,7 +44,7 @@ export default function FurnitureStoragePage() {
                 <Link href="/get-quote">Get a Free Quote</Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
-                <a href="tel:+971505773388">Call 050-577-3388</a>
+                <a href="tel:+971505773388">Call +971 50 577 3388</a>
               </Button>
             </div>
             <p className="text-white/80 mt-4 text-lg">
@@ -871,7 +871,7 @@ export default function FurnitureStoragePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Yes! We offer free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our climate-controlled facility. Delivery is also available when you're ready to retrieve your items. Call +971505773388 to schedule your free pickup.
+                    Yes! We offer free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our climate-controlled facility. Delivery is also available when you're ready to retrieve your items. Call +971 50 577 3388 or email safestoragedubai@gmail.com to schedule your free pickup.
                   </p>
                 </CardContent>
               </Card>
@@ -985,9 +985,9 @@ export default function FurnitureStoragePage() {
               <p className="text-gray-600 mb-6">
                 Our storage experts are available 24/7 to help you find the perfect solution for your furniture.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
                 <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                  <a href="tel:+971505773388">Call Us: 050-577-3388</a>
+                  <a href="tel:+971505773388">Call Us: +971 50 577 3388</a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="https://wa.me/971505773388">WhatsApp Us</a>
@@ -998,6 +998,9 @@ export default function FurnitureStoragePage() {
                   </Link>
                 </Button>
               </div>
+              <p className="text-gray-600 text-center">
+                Email us at: <a href="mailto:safestoragedubai@gmail.com" className="text-dubai-gold hover:underline font-semibold">safestoragedubai@gmail.com</a>
+              </p>
             </div>
           </div>
         </div>
@@ -1027,7 +1030,7 @@ export default function FurnitureStoragePage() {
               </Button>
               <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
                 <a href="tel:+971505773388">
-                  Call +971505773388
+                  Call +971 50 577 3388
                 </a>
               </Button>
             </div>
