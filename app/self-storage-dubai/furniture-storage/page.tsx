@@ -41,14 +41,14 @@ export default function FurnitureStoragePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                <a href="https://safestorage.in/customer/create-quotation" target="_blank" rel="noopener noreferrer">Get a Free Quote</a>
+                <Link href="/get-quote">Get a Free Quote</Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
-                <a href="tel:8088848484">Call 8088848484</a>
+                <a href="tel:+971505773388">Call 050-577-3388</a>
               </Button>
             </div>
             <p className="text-white/80 mt-4 text-lg">
-              Starting from just Rs 24/month for document storage | Furniture storage from AED 150/month
+              Climate-controlled furniture storage starting from AED 150/month
             </p>
           </div>
         </div>
@@ -212,9 +212,9 @@ export default function FurnitureStoragePage() {
 
             <div className="text-center">
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                <a href="https://safestorage.in/customer/create-quotation" target="_blank" rel="noopener noreferrer">
+                <Link href="/get-quote">
                   Get Your Custom Quote Now
-                </a>
+                </Link>
               </Button>
               <p className="text-gray-600 mt-4">
                 Special discounts available for long-term storage (6+ months)
@@ -464,9 +464,9 @@ export default function FurnitureStoragePage() {
                   </Link>
                 </Button>
                 <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                  <a href="https://safestorage.in/customer/create-quotation" target="_blank" rel="noopener noreferrer">
+                  <Link href="/get-quote">
                     Get Custom Quote
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -751,9 +751,9 @@ export default function FurnitureStoragePage() {
 
             <div className="mt-8 text-center">
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                <a href="https://safestorage.in/customer/create-quotation" target="_blank" rel="noopener noreferrer">
+                <Link href="/get-quote">
                   Get Started with SafeStorage
-                </a>
+                </Link>
               </Button>
             </div>
           </div>
@@ -849,7 +849,7 @@ export default function FurnitureStoragePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Furniture storage in Dubai starts from AED 150/month for small units (3-5 m²), AED 280/month for medium units (8-10 m²), and AED 450/month for large units (15-20 m²). All units include climate control, 24/7 CCTV security, and pest control. We also offer document storage starting from just Rs 24/month for our Indian customers.
+                    Furniture storage in Dubai starts from AED 150/month for small units (3-5 m²), AED 280/month for medium units (8-10 m²), and AED 450/month for large units (15-20 m²). All units include climate control, 24/7 CCTV security, pest control, and flexible month-to-month contracts with no long-term commitment required.
                   </p>
                 </CardContent>
               </Card>
@@ -871,7 +871,7 @@ export default function FurnitureStoragePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Yes! We offer free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our climate-controlled facility. Delivery is also available when you're ready to retrieve your items. Call 8088848484 to schedule your free pickup.
+                    Yes! We offer free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our climate-controlled facility. Delivery is also available when you're ready to retrieve your items. Call +971505773388 to schedule your free pickup.
                   </p>
                 </CardContent>
               </Card>
@@ -987,15 +987,15 @@ export default function FurnitureStoragePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                  <a href="tel:8088848484">Call Us: 8088848484</a>
+                  <a href="tel:+971505773388">Call Us: 050-577-3388</a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="https://wa.me/971505773388">WhatsApp Us</a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="https://safestorage.in/customer/create-quotation" target="_blank" rel="noopener noreferrer">
+                  <Link href="/get-quote">
                     Get Free Quote
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -1016,9 +1016,9 @@ export default function FurnitureStoragePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-dubai-navy hover:bg-gray-100" asChild>
-                <a href="https://safestorage.in/customer/create-quotation" target="_blank" rel="noopener noreferrer">
+                <Link href="/get-quote">
                   Get a Free Quote <ArrowRight className="ml-2" />
-                </a>
+                </Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
                 <a href="https://wa.me/971505773388">
@@ -1026,8 +1026,8 @@ export default function FurnitureStoragePage() {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
-                <a href="tel:8088848484">
-                  Call 8088848484
+                <a href="tel:+971505773388">
+                  Call +971505773388
                 </a>
               </Button>
             </div>
