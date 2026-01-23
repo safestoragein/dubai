@@ -18,7 +18,7 @@ export const organizationSchema = {
     height: 60
   },
   image: "https://safestorage.ae/images/facility-exterior.jpg",
-  description: "Dubai's most trusted storage partner since 2018. Climate-controlled units, 24/7 security, free pickup & delivery, and free insurance up to AED 5000.",
+  description: "Dubai's most trusted storage partner since 2018. Climate-controlled units, 24/7 security, hassle-free pickup & delivery, and free insurance up to AED 5000.",
   foundingDate: "2018",
   founders: [
     {
@@ -88,7 +88,7 @@ export const localBusinessSchema = {
   "@id": "https://safestorage.ae/#business",
   name: "SafeStorage Dubai - Premium Storage Solutions",
   alternateName: "SafeStorage Dubai",
-  description: "Dubai's most trusted storage partner since 2018. Climate-controlled units, 24/7 security, free pickup & delivery, and free insurance up to AED 5000. Serving Dubai Marina, Business Bay, JLT, Downtown, and all areas.",
+  description: "Dubai's most trusted storage partner since 2018. Climate-controlled units, 24/7 security, hassle-free pickup & delivery, and free insurance up to AED 5000. Serving Dubai Marina, Business Bay, JLT, Downtown, and all areas.",
   image: [
     "https://safestorage.ae/images/facility-1.jpg",
     "https://safestorage.ae/images/facility-2.jpg",
@@ -177,7 +177,7 @@ export const localBusinessSchema = {
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       author: { "@type": "Person", name: "Fatima Al-Rashid" },
       datePublished: "2024-10-25",
-      reviewBody: "Used their service for villa renovation storage. Climate control protected all my furniture perfectly. Free pickup was a huge bonus!"
+      reviewBody: "Used their service for villa renovation storage. Climate control protected all my furniture perfectly. Hassle-free pickup was a huge bonus!"
     },
     {
       "@type": "Review",
@@ -256,7 +256,7 @@ export const webSiteSchema = {
   name: "SafeStorage Dubai",
   alternateName: "SafeStorage AE",
   url: "https://safestorage.ae",
-  description: "Dubai's most trusted storage partner. Climate-controlled self storage units with free pickup & delivery.",
+  description: "Dubai's most trusted storage partner. Climate-controlled self storage units with hassle-free pickup & delivery.",
   publisher: { "@id": "https://safestorage.ae/#organization" },
   inLanguage: ["en-AE", "ar-AE"],
   potentialAction: {
@@ -281,7 +281,7 @@ export const faqSchema = {
       name: "How much does storage cost in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Storage in Dubai starts from AED 99 per month at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units include climate control, 24/7 security, and hassle-free pickup & delivery within Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
+        text: "Storage in Dubai starts from AED 99 per month at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units include climate control, 24/7 security, and hassle-hassle-free pickup & delivery within Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
       }
     },
     {
@@ -289,7 +289,7 @@ export const faqSchema = {
       name: "What is the cheapest storage option in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The cheapest storage in Dubai starts from AED 99 per month at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with hassle-free pickup & delivery, climate control, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
+        text: "The cheapest storage in Dubai starts from AED 99 per month at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with hassle-hassle-free pickup & delivery, climate control, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
       }
     },
     {
@@ -361,10 +361,10 @@ export const faqSchema = {
     // PICKUP & DELIVERY
     {
       "@type": "Question",
-      name: "Do you offer free pickup and delivery for storage in Dubai?",
+      name: "Do you offer hassle-free pickup and delivery for storage in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! SafeStorage Dubai provides FREE pickup and delivery anywhere in Dubai. Our professional team will collect your items from your home, office, or any location, transport them safely to our climate-controlled facility, and return them whenever you need. This hassle-free service sets us apart from other storage providers."
+        text: "Yes! SafeStorage Dubai provides Hassle-free pickup and delivery anywhere in Dubai. Our professional team will collect your items from your home, office, or any location, transport them safely to our climate-controlled facility, and return them whenever you need. This hassle-free service sets us apart from other storage providers."
       }
     },
     {
@@ -439,7 +439,7 @@ export const faqSchema = {
       name: "Can I store my car or vehicle in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! SafeStorage Dubai offers secure, climate-controlled vehicle storage starting at AED 899/month. We store cars, motorcycles, classic cars, boats, jet skis, and RVs. All vehicles are protected from Dubai's extreme heat in our climate-controlled facility with 24/7 CCTV surveillance. Free pickup and delivery available for vehicles too."
+        text: "Yes! SafeStorage Dubai offers secure, climate-controlled vehicle storage starting at AED 899/month. We store cars, motorcycles, classic cars, boats, jet skis, and RVs. All vehicles are protected from Dubai's extreme heat in our climate-controlled facility with 24/7 CCTV surveillance. Hassle-free pickup and delivery available for vehicles too."
       }
     },
     // BUSINESS STORAGE
@@ -465,7 +465,7 @@ export const faqSchema = {
       name: "Why should I choose SafeStorage Dubai over other storage companies?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai stands out with: FREE pickup and delivery (others charge AED 200-500), ALL units climate-controlled (not just premium), FREE insurance up to AED 5000 included, dedicated personal storage consultant, no hidden fees or admin charges, flexible month-to-month contracts, 4.9/5 rating from 487+ Google reviews, and 7+ years serving Dubai. We're trusted by 500+ happy customers."
+        text: "SafeStorage Dubai stands out with: Hassle-free pickup and delivery (others charge AED 200-500), ALL units climate-controlled (not just premium), FREE insurance up to AED 5000 included, dedicated personal storage consultant, no hidden fees or admin charges, flexible month-to-month contracts, 4.9/5 rating from 487+ Google reviews, and 7+ years serving Dubai. We're trusted by 500+ happy customers."
       }
     },
     {
@@ -481,7 +481,7 @@ export const faqSchema = {
       name: "What do customers say about SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai has a 4.9/5 rating on Google with 487+ verified reviews. Customers praise our: free pickup & delivery service, climate control that protects belongings from Dubai heat, transparent pricing with no hidden fees, responsive customer service (15-minute average response), and professional, friendly staff. Read our reviews at our Google Business listing."
+        text: "SafeStorage Dubai has a 4.9/5 rating on Google with 487+ verified reviews. Customers praise our: hassle-free pickup & delivery service, climate control that protects belongings from Dubai heat, transparent pricing with no hidden fees, responsive customer service (15-minute average response), and professional, friendly staff. Read our reviews at our Google Business listing."
       }
     },
     // PRACTICAL QUESTIONS
@@ -523,7 +523,7 @@ export const faqSchema = {
       name: "What is the best storage company in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai is rated as one of the best storage companies in Dubai with a 4.9/5 Google rating from 487+ reviews. Key advantages: FREE pickup & delivery, ALL units climate-controlled, FREE insurance up to AED 5000, no hidden fees, and 7+ years experience. Trusted by 500+ customers. Call +971505773388 for a free quote."
+        text: "SafeStorage Dubai is rated as one of the best storage companies in Dubai with a 4.9/5 Google rating from 487+ reviews. Key advantages: Hassle-free pickup & delivery, ALL units climate-controlled, FREE insurance up to AED 5000, no hidden fees, and 7+ years experience. Trusted by 500+ customers. Call +971505773388 for a free quote."
       }
     },
     {
@@ -531,7 +531,7 @@ export const faqSchema = {
       name: "Where can I store my furniture during renovation in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai is ideal for renovation storage. We offer: FREE pickup from your home, climate-controlled units (protecting furniture from Dubai's heat), flexible month-to-month terms perfect for renovation timelines, FREE delivery back when you're ready, and FREE insurance up to AED 5000. Many customers have stored villa and apartment contents during renovations. Call +971505773388."
+        text: "SafeStorage Dubai is ideal for renovation storage. We offer: Hassle-free pickup from your home, climate-controlled units (protecting furniture from Dubai's heat), flexible month-to-month terms perfect for renovation timelines, hassle-free delivery back when you're ready, and FREE insurance up to AED 5000. Many customers have stored villa and apartment contents during renovations. Call +971505773388."
       }
     },
     {
@@ -539,7 +539,7 @@ export const faqSchema = {
       name: "How much does it cost to store a car in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Car storage in Dubai costs AED 899-1499 per month at SafeStorage Dubai depending on vehicle size. This includes: climate-controlled facility (protects from Dubai heat), 24/7 CCTV security, FREE pickup and delivery, insurance coverage, and regular inspections. Ideal for classic cars, second vehicles, or when traveling. Call +971505773388 for vehicle storage quote."
+        text: "Car storage in Dubai costs AED 899-1499 per month at SafeStorage Dubai depending on vehicle size. This includes: climate-controlled facility (protects from Dubai heat), 24/7 CCTV security, Hassle-free pickup and delivery, insurance coverage, and regular inspections. Ideal for classic cars, second vehicles, or when traveling. Call +971505773388 for vehicle storage quote."
       }
     }
   ]
@@ -552,7 +552,7 @@ export const serviceSchema = {
   "@id": "https://safestorage.ae/#service",
   serviceType: "Self Storage Service",
   name: "Premium Storage Solutions Dubai",
-  description: "Secure, climate-controlled storage units with hassle-free free pickup and delivery across Dubai. Personal storage, business storage, vehicle storage, and document archiving.",
+  description: "Secure, climate-controlled storage units with hassle-free hassle-free pickup and delivery across Dubai. Personal storage, business storage, vehicle storage, and document archiving.",
   provider: {
     "@id": "https://safestorage.ae/#organization"
   },
@@ -602,8 +602,8 @@ export const serviceSchema = {
         "@type": "OfferCatalog",
         name: "Pickup & Delivery",
         itemListElement: [
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hassle-Free Pickup", description: "FREE collection from your location" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Free Delivery", description: "FREE return delivery when needed" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hassle-Free Pickup", description: "Complimentary collection from your location" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hassle-Free Delivery", description: "Hassle-free return delivery when needed" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Packing Service", description: "Professional packing assistance" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Same-Day Service", description: "Urgent pickup/delivery available" } }
         ]
@@ -665,7 +665,7 @@ export const productSchema = {
   "@type": "Product",
   "@id": "https://safestorage.ae/#product",
   name: "Self Storage Units Dubai",
-  description: "Premium climate-controlled storage units in Dubai with hassle-free pickup and delivery. Personal, business, and vehicle storage from AED 99/month.",
+  description: "Premium climate-controlled storage units in Dubai with hassle-hassle-free pickup and delivery. Personal, business, and vehicle storage from AED 99/month.",
   brand: {
     "@type": "Brand",
     name: "SafeStorage Dubai"
@@ -709,7 +709,7 @@ export const howToSchema = {
   "@type": "HowTo",
   "@id": "https://safestorage.ae/#howto",
   name: "How to Rent Storage in Dubai - SafeStorage Dubai",
-  description: "Simple 4-step process to rent secure, climate-controlled storage in Dubai with free pickup and delivery.",
+  description: "Simple 4-step process to rent secure, climate-controlled storage in Dubai with hassle-free pickup and delivery.",
   totalTime: "PT10M",
   estimatedCost: {
     "@type": "MonetaryAmount",
@@ -739,7 +739,7 @@ export const howToSchema = {
     {
       "@type": "HowToStep",
       name: "Retrieve Anytime",
-      text: "Access your items during operating hours, or request FREE delivery back to your location. We'll bring your belongings to you whenever you need them.",
+      text: "Access your items during operating hours, or request hassle-free delivery back to your location. We'll bring your belongings to you whenever you need them.",
       image: "https://safestorage.ae/images/step4-retrieve.jpg"
     }
   ]
@@ -825,7 +825,7 @@ export const speakableSchema = {
         name: "How much does storage cost in Dubai?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Storage in Dubai starts from AED 99 per month at SafeStorage Dubai. We offer flexible pricing for all unit sizes. This includes climate control, security, and hassle-free pickup and delivery."
+          text: "Storage in Dubai starts from AED 99 per month at SafeStorage Dubai. We offer flexible pricing for all unit sizes. This includes climate control, security, and hassle-hassle-free pickup and delivery."
         }
       },
       {
@@ -833,7 +833,7 @@ export const speakableSchema = {
         name: "What is the best storage company in Dubai?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "SafeStorage Dubai is rated 4.9 out of 5 stars on Google with over 487 reviews. We offer free pickup and delivery, climate-controlled units, and free insurance up to AED 5000."
+          text: "SafeStorage Dubai is rated 4.9 out of 5 stars on Google with over 487 reviews. We offer hassle-free pickup and delivery, climate-controlled units, and free insurance up to AED 5000."
         }
       }
     ]
@@ -846,7 +846,7 @@ export const offerSchema = {
   "@type": "Offer",
   "@id": "https://safestorage.ae/#offer",
   name: "New Customer Offer - SafeStorage Dubai",
-  description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes free pickup and delivery, climate control, and insurance up to AED 5000.",
+  description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes hassle-free pickup and delivery, climate control, and insurance up to AED 5000.",
   price: "179",
   priceCurrency: "AED",
   priceValidUntil: "2026-12-31",
@@ -898,7 +898,7 @@ export const aboutPageSchema = {
   "@type": "AboutPage",
   "@id": "https://safestorage.ae/about#webpage",
   name: "About SafeStorage Dubai - Dubai's Trusted Storage Partner Since 2018",
-  description: "Learn about SafeStorage Dubai - serving Dubai since 2018 with climate-controlled storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers.",
+  description: "Learn about SafeStorage Dubai - serving Dubai since 2018 with climate-controlled storage, 24/7 security, and hassle-hassle-free pickup & delivery. 500+ happy customers.",
   url: "https://safestorage.ae/about",
   mainEntity: {
     "@id": "https://safestorage.ae/#organization"
