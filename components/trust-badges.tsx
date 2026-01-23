@@ -39,7 +39,7 @@ export default function TrustBadges() {
     },
     {
       icon: Truck,
-      value: "FREE",
+      value: "Hassle-Free",
       label: "Pickup & Delivery",
       subtext: "Within Dubai",
       color: "text-purple-500",
