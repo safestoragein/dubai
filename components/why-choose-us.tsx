@@ -16,7 +16,7 @@ export default function WhyChooseUs() {
     },
     {
       icon: Truck,
-      title: "FREE Pickup & Delivery",
+      title: "Hassle-Free Pickup & Delivery",
       description: "We handle everything - pickup from your location, secure transport, and delivery when you need it back.",
       highlight: "Within Dubai",
     },
