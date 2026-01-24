@@ -897,8 +897,8 @@ export default function QuotePage() {
       console.log(`🔄 Will redirect to thank-you page in ${redirectDelay/1000} seconds`)
       
       setTimeout(() => {
-        console.log('🔄 Redirecting to thank-you page...')
-        router.push('/thank-you')
+        console.log('🔄 Redirecting to step3...')
+        window.location.href = 'https://safestorage.ae/get-quote/step3'
       }, redirectDelay)
 
     } catch (error) {
