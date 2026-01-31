@@ -187,7 +187,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-dubai-navy">Working Hours</h3>
-                    <p className="text-dubai-navy/70">Mon-Sun: 8 AM - 10 PM</p>
+                    <p className="text-dubai-navy/70">Mon-Sun: 8 AM - 7 PM</p>
                   </div>
                 </div>
               </div>
@@ -251,13 +251,13 @@ export default function ContactPage() {
                       <h3 className="font-medium text-lg text-dubai-navy">Live Chat & WhatsApp</h3>
                       <p className="text-dubai-navy/70">Chat with our support team in real-time</p>
                       <div className="flex gap-3 mt-2">
-                        <Button
+                       {/* <Button
                           variant="outline"
                           className="border-dubai-skyblue text-dubai-skyblue hover:bg-dubai-skyblue/10"
                         >
                           <MessageCircle className="mr-2 h-4 w-4" />
                           Start Live Chat
-                        </Button>
+                        </Button>*/}
                         <Button
                           variant="outline"
                           className="border-dubai-gold text-dubai-gold hover:bg-dubai-gold/10"

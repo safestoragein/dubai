@@ -10,12 +10,12 @@ import Testimonials from "@/components/testimonials"
 export const metadata: Metadata = {
   title: "About Us - Dubai's Most Trusted Storage Partner | SafeStorage Dubai",
   description:
-    "Learn about SafeStorage Dubai - serving Dubai since 2018 with climate-controlled storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers trust us.",
+    "Learn about SafeStorage Dubai - serving Dubai since 2015 with climate-controlled storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers trust us.",
   keywords:
     "about safestorage dubai, storage company dubai, trusted storage dubai, climate controlled storage, secure storage facility",
   openGraph: {
     title: "About SafeStorage Dubai - Your Trusted Storage Partner",
-    description: "Serving Dubai since 2018 with premium storage solutions. Climate-controlled units, 24/7 security, free pickup & delivery.",
+    description: "Serving Dubai since 2015 with premium storage solutions. Climate-controlled units, 24/7 security, free pickup & delivery.",
     url: "https://safestorage.ae/about",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   const milestones = [
-    { year: "2018", title: "Founded in Dubai", description: "Started with a mission to provide hassle-free storage solutions" },
-    { year: "2019", title: "100+ Customers", description: "Reached our first milestone of 100 happy customers" },
-    { year: "2021", title: "Expanded Services", description: "Added vehicle storage and business storage solutions" },
-    { year: "2023", title: "500+ Customers", description: "Trusted by over 500 customers across Dubai" },
-    { year: "2024", title: "4.9 Star Rating", description: "Achieved exceptional customer satisfaction with 487+ reviews" },
+    { year: "2015", title: "Founded", description: "Started with a mission to provide hassle-free storage solutions" },
+    { year: "2019", title: "10000+ Customers", description: "Reached our first milestone of 10000 happy customers" },
+    { year: "2023", title: "50000+ Customers", description: "Reached our first milestone of 50000 happy customers" },
+    { year: "2026", title: "1 Lakh + Customers", description: "Trusted by over 1 Lakh + customers globally" },
+   
   ]
 
   const values = [
@@ -68,7 +68,7 @@ export default function AboutPage() {
               About Us
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Dubai&apos;s Most Trusted <span className="text-dubai-gold">Storage Partner</span> Since 2018
+              Dubai&apos;s Most Trusted <span className="text-dubai-gold">Storage Partner</span> Since 2015
             </h1>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
               We&apos;re not just a storage facility - we&apos;re your trusted partner in keeping your belongings safe, secure, and accessible whenever you need them.
@@ -80,11 +80,11 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-dubai-gold" />
-                <span>500+ Happy Customers</span>
+                <span>1 Lakh + Happy Customers</span>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="h-5 w-5 text-dubai-gold" />
-                <span>7+ Years Experience</span>
+                <span>10+ Years Global Experience</span>
               </div>
             </div>
           </div>
@@ -94,30 +94,110 @@ export default function AboutPage() {
       <TrustBadges />
 
       {/* Our Story */}
-      <section className="py-20 bg-white">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-dubai-navy mb-4">Our Story</h2>
-              <p className="text-muted-foreground text-lg">How we became Dubai&apos;s trusted storage partner</p>
+<section className="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+  {/* subtle background blur */}
+  <div className="absolute -top-32 -right-32 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-40"></div>
+  <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-40"></div>
+
+  <div className="container px-4 md:px-6 relative">
+    <div className="max-w-5xl mx-auto">
+
+      {/* Header */}
+      <div className="text-center mb-16">
+        <span className="inline-block px-4 py-1 text-sm font-semibold tracking-wide text-blue-700 bg-blue-100 rounded-full mb-4">
+          Our Journey
+        </span>
+        <h2 className="text-4xl md:text-5xl font-bold text-dubai-navy mb-6 leading-tight">
+          Redefining Storage, <br className="hidden md:block" /> One Customer at a Time
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          A story built on trust, flexibility, and uncompromising security.
+        </p>
+      </div>
+
+      {/* Content Cards */}
+      <div className="grid gap-8">
+
+        <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 md:p-10">
+          <h3 className="text-xl font-semibold text-dubai-navy mb-4">
+            Why We Started
+          </h3>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            SafeStorage was founded with a simple belief — storage should be
+            effortless, secure, and designed around real customer needs.
+            Traditional storage solutions were rigid, inconvenient, and often
+            unreliable. We knew there had to be a better way.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 md:p-10">
+          <h3 className="text-xl font-semibold text-dubai-navy mb-4">
+            The Problem We Solved
+          </h3>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Customers were forced into long lock-ins, poor handling standards,
+            limited support, and unsafe storage environments. Flexibility and
+            peace of mind were missing — and that’s exactly where SafeStorage
+            stepped in.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 md:p-10">
+          <h3 className="text-xl font-semibold text-dubai-navy mb-6">
+            What Makes Us Different Today
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="flex gap-4">
+              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 font-bold">
+                ✓
+              </div>
+              <p className="text-muted-foreground text-lg">
+                ISO 9001:2015 certified, professionally managed facilities
+              </p>
             </div>
-            <div className="prose prose-lg max-w-none text-muted-foreground">
-              <p>
-                SafeStorage Dubai was founded in 2018 with a simple mission: to provide hassle-free, secure, and affordable storage solutions for Dubai&apos;s residents and businesses.
+
+            <div className="flex gap-4">
+              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 font-bold">
+                ✓
+              </div>
+              <p className="text-muted-foreground text-lg">
+                Fully climate-controlled and secure storage units
               </p>
-              <p>
-                We noticed that most storage facilities in Dubai offered a one-size-fits-all approach, with little regard for the unique needs of each customer. Many required long-term commitments, offered no pickup services, and lacked proper climate control - a critical feature in Dubai&apos;s extreme heat.
+            </div>
+
+            <div className="flex gap-4">
+              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 font-bold">
+                ✓
+              </div>
+              <p className="text-muted-foreground text-lg">
+                Doorstep pickup & delivery with careful handling
               </p>
-              <p>
-                We set out to change that. Today, SafeStorage Dubai offers fully climate-controlled units, free pickup and delivery within Dubai, flexible rental terms, and a dedicated storage consultant for every customer. We&apos;ve grown from serving a handful of customers to being trusted by over 500 families and businesses across Dubai.
-              </p>
-              <p>
-                Our commitment to quality, security, and customer satisfaction has earned us a 4.9-star rating on Google with over 487 verified reviews - a testament to the trust our customers place in us.
+            </div>
+
+            <div className="flex gap-4">
+              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 font-bold">
+                ✓
+              </div>
+              <p className="text-muted-foreground text-lg">
+                Flexible plans with dedicated customer support
               </p>
             </div>
           </div>
         </div>
-      </section>
+
+        <div className="bg-dubai-navy rounded-2xl p-10 text-center">
+          <p className="text-white text-xl leading-relaxed max-w-3xl mx-auto">
+            What began as a small idea has grown into a trusted storage brand,
+            serving lakhs of customers globaly with care, transparency, and
+            reliability — and we’re just getting started.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Timeline */}
       <section className="py-20 bg-gray-50">
@@ -187,7 +267,7 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Experience the SafeStorage Difference?</h2>
             <p className="text-white/80 text-lg mb-8">
-              Join 500+ happy customers who trust us with their valuable belongings. Get your free quote in just 2 minutes.
+              Join 1 Lakh+ happy customers who trust us with their valuable belongings. Get your free quote in just 2 minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
