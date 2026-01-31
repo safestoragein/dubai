@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ArrowRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -20,22 +20,22 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-dubai-pattern opacity-5"></div>
         <div className="container px-6 md:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             >
               Our <span className="text-dubai-gold">Services</span>
-            </motion.h1>
-            <motion.p
+            </m.h1>
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="text-lg md:text-xl text-gray-300 mb-8"
             >
               Secure, climate-controlled storage solutions tailored to your needs
-            </motion.p>
-            <motion.div
+            </m.p>
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -50,7 +50,7 @@ export default function ServicesPage() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -60,7 +60,7 @@ export default function ServicesPage() {
         <div className="container px-6 md:px-8">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {serviceCategories.map((category, index) => (
-              <motion.div
+              <m.div
                 key={category.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ export default function ServicesPage() {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

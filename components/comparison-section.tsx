@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Check, X, AlertTriangle } from "lucide-react"
 
 const features = [
@@ -61,15 +61,15 @@ export default function ComparisonSection() {
     <section className="w-full py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           >
             Why Choose SafeStorage Over Others?
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -77,10 +77,10 @@ export default function ComparisonSection() {
             className="text-xl text-muted-foreground max-w-[800px]"
           >
             Compare our services with other storage providers
-          </motion.p>
+          </m.p>
         </div>
 
-        <motion.div
+        <m.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -95,7 +95,7 @@ export default function ComparisonSection() {
 
           <div className="divide-y">
             {features.map((feature, index) => (
-              <motion.div
+              <m.div
                 key={feature.name}
                 variants={item}
                 className="grid grid-cols-3 p-4 items-center hover:bg-muted/50 transition-colors"
@@ -111,10 +111,10 @@ export default function ComparisonSection() {
                     <AlertTriangle className="h-6 w-6 text-yellow-500" />
                   )}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

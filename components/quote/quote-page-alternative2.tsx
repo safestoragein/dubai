@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useNavigationGuard } from "@/components/providers/navigation-guard"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -573,6 +573,15 @@ export default function QuotePage() {
 
     // If moving from Step 2 to Step 3, save all data to database first
     if (currentStep === 2) {
+      // Push event to Google Tag Manager dataLayer
+      if (typeof window !== 'undefined' && (window as any).dataLayer) {
+        (window as any).dataLayer.push({
+          'event': 'quote_step2_continue',
+          'step': 2,
+          'items_selected': formData.selectedItems.length
+        })
+      }
+
       console.log('🚀 Moving from Step 2 to Step 3 - Saving data to database...')
       setIsSubmitting(true)
       
@@ -948,21 +957,21 @@ export default function QuotePage() {
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="text-center">
-            <motion.h1 
+            <m.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-3xl font-bold text-slate-800 mb-2"
             >
               Get Storage Quote
-            </motion.h1>
-            <motion.p 
+            </m.h1>
+            <m.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="text-slate-600"
             >
               Quick estimate in 3 easy steps
-            </motion.p>
+            </m.p>
           </div>
           
           {/* Modern Step Indicator */}
@@ -1009,7 +1018,7 @@ export default function QuotePage() {
           <AnimatePresence mode="wait">
             {/* Step 1: Customer Details */}
             {currentStep === 1 && (
-              <motion.div
+              <m.div
                 key="step1"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -1112,12 +1121,12 @@ export default function QuotePage() {
                   </div>
 
                 </div>
-              </motion.div>
+              </m.div>
             )}
 
             {/* Step 2: Modern Item Selection with Fixed Height Scroll */}
             {currentStep === 2 && (
-              <motion.div
+              <m.div
                 key="step2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -1130,7 +1139,7 @@ export default function QuotePage() {
                     {/* Guide Tooltip Container - positioned relative to highlighted elements */}
                     <div className="relative w-full h-full">
                       {guideStep === 1 && (
-                        <motion.div
+                        <m.div
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           className="absolute top-32 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl p-6 w-80" style={{ zIndex: 10001 }}
@@ -1159,11 +1168,11 @@ export default function QuotePage() {
                               Next
                             </button>
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                       
                       {guideStep === 2 && (
-                        <motion.div
+                        <m.div
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           className="absolute top-48 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl p-6 w-80" style={{ zIndex: 10001 }}
@@ -1189,11 +1198,11 @@ export default function QuotePage() {
                               Next
                             </button>
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                       
                       {guideStep === 3 && (
-                        <motion.div
+                        <m.div
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           className="absolute top-80 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl p-6 w-80" style={{ zIndex: 10001 }}
@@ -1219,11 +1228,11 @@ export default function QuotePage() {
                               Next
                             </button>
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                       
                       {guideStep === 4 && (
-                        <motion.div
+                        <m.div
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           className="absolute top-80 right-10 bg-white rounded-lg shadow-2xl p-6 w-80" style={{ zIndex: 10001 }}
@@ -1249,11 +1258,11 @@ export default function QuotePage() {
                               Next
                             </button>
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                       
                       {guideStep === 5 && (
-                        <motion.div
+                        <m.div
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-2xl p-6 w-80" style={{ zIndex: 10001 }}
@@ -1276,7 +1285,7 @@ export default function QuotePage() {
                               Start Selecting
                             </button>
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                     </div>
                   </div>
@@ -1422,7 +1431,7 @@ export default function QuotePage() {
                               const colors = getCategoryColors(category?.color || "blue", isSelected)
                               
                               return (
-                                <motion.div
+                                <m.div
                                   key={item.storage_item_name}
                                   layout
                                   whileHover={{ scale: 1.02 }}
@@ -1438,13 +1447,13 @@ export default function QuotePage() {
                                   {/* Selection Indicator - Instant feedback */}
                                   <div className="absolute top-2 right-2 transition-transform duration-100">
                                     {isSelected ? (
-                                      <motion.div
+                                      <m.div
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
                                         transition={{ duration: 0.15, type: "spring", stiffness: 400 }}
                                       >
                                         <CheckCircle2 className={`w-6 h-6 ${colors.text} drop-shadow-sm`} />
-                                      </motion.div>
+                                      </m.div>
                                     ) : (
                                       <Circle className="w-6 h-6 text-slate-300 hover:text-slate-400 transition-colors duration-100" />
                                     )}
@@ -1464,7 +1473,7 @@ export default function QuotePage() {
 
                                   {/* Quantity Controls - Fast animation */}
                                   {isSelected && selectedItem && (
-                                    <motion.div 
+                                    <m.div 
                                       initial={{ opacity: 0, height: 0 }}
                                       animate={{ opacity: 1, height: "auto" }}
                                       exit={{ opacity: 0, height: 0 }}
@@ -1495,9 +1504,9 @@ export default function QuotePage() {
                                       >
                                         <Plus className="w-4 h-4" />
                                       </button>
-                                    </motion.div>
+                                    </m.div>
                                   )}
-                                </motion.div>
+                                </m.div>
                               )
                             })}
                           </div>
@@ -1583,12 +1592,12 @@ export default function QuotePage() {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </m.div>
             )}
 
             {/* Step 3: Price Display - Redesigned */}
             {currentStep === 3 && (
-              <motion.div
+              <m.div
                 key="step3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -1598,14 +1607,14 @@ export default function QuotePage() {
                 <div className="p-8">
                   {/* Header Section */}
                   <div className="text-center mb-8">
-                    <motion.div
+                    <m.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: "spring", duration: 0.5 }}
                       className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
                     >
                       <Check className="w-8 h-8 text-white" />
-                    </motion.div>
+                    </m.div>
                     <h2 className="text-3xl font-bold text-slate-800 mb-2">Choose Your Storage Solution</h2>
                     <p className="text-slate-600 max-w-2xl mx-auto">
                       Select between private closed storage or cost-effective shared space
@@ -1616,7 +1625,7 @@ export default function QuotePage() {
                   {/* Storage Options Cards - Narrow & Tall */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 max-w-2xl mx-auto">
                     {/* Closed Storage Card - Narrow & Tall */}
-                    <motion.div
+                    <m.div
                       whileHover={{ scale: 1.02 }}
                       className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-1"
                     >
@@ -1684,10 +1693,10 @@ export default function QuotePage() {
                           */}
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
 
                     {/* Shared Storage Card - Narrow & Tall */}
-                    <motion.div
+                    <m.div
                       whileHover={{ scale: 1.02 }}
                       className="relative bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-1"
                     >
@@ -1760,7 +1769,7 @@ export default function QuotePage() {
                           */}
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   </div>
 
                   {/* Summary Info - Compact */}
@@ -1812,14 +1821,14 @@ export default function QuotePage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
 
           {/* Modern Navigation Buttons */}
           <div className="bg-white border-t border-slate-200 px-8 py-6">
             <div className="flex justify-between items-center">
-              <motion.button
+              <m.button
                   onClick={handlePrevious}
                   disabled={currentStep === 1}
                   whileHover={{ scale: currentStep === 1 ? 1 : 1.02 }}
@@ -1832,10 +1841,10 @@ export default function QuotePage() {
                 >
                   <ArrowLeft className="w-5 h-5" />
                   <span>Previous</span>
-                </motion.button>
+                </m.button>
 
                 {currentStep < 3 ? (
-                  <motion.button
+                  <m.button
                     onClick={handleNext}
                     disabled={isSubmitting}
                     whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
@@ -1855,7 +1864,7 @@ export default function QuotePage() {
                         <ArrowRight className="w-5 h-5" />
                       </>
                     )}
-                  </motion.button>
+                  </m.button>
                 ) : null}
               </div>
             </div>
@@ -1865,14 +1874,14 @@ export default function QuotePage() {
         {/* Pickup Date Modal */}
         <AnimatePresence>
           {showPickupDateModal && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
               onClick={() => setShowPickupDateModal(false)}
             >
-              <motion.div
+              <m.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
@@ -2004,8 +2013,8 @@ export default function QuotePage() {
                     You'll be redirected to our secure payment gateway
                   </p>
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           )}
         </AnimatePresence>
     </div>

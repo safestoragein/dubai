@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Play } from "lucide-react"
 
 export default function VideoSection() {
@@ -8,15 +8,15 @@ export default function VideoSection() {
     <section className="w-full py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           >
             See SafeStorage in Action
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -24,10 +24,10 @@ export default function VideoSection() {
             className="text-xl text-muted-foreground max-w-[800px]"
           >
             Watch how our storage solutions work and hear from our satisfied customers
-          </motion.p>
+          </m.p>
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -40,7 +40,7 @@ export default function VideoSection() {
               <p className="text-dubai-navy/70 mt-2">Our customer testimonial videos will be available shortly</p>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

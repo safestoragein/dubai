@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, MessageCircle, Phone, ChevronDown } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
 import { env } from "@/lib/env"
 
@@ -111,7 +111,7 @@ export default function Header() {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -153,7 +153,7 @@ export default function Header() {
                   </Button>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </div>

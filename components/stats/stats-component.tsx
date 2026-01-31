@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import {
   Star,
   Globe,
@@ -49,7 +49,7 @@ export default function StatsComponent({ showAll = true, className = "" }: Stats
             {/* Badges Section */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center w-full max-w-4xl mb-12">
               {/* ThreeBest Badge */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -72,10 +72,10 @@ export default function StatsComponent({ showAll = true, className = "" }: Stats
                   <p className="font-bold">{companyStats.position.rank} Position</p>
                 </div>
                 <p className="text-muted-foreground">{companyStats.position.years}</p>
-              </motion.div>
+              </m.div>
 
               {/* Google Rating - Updated with blue search icon */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -92,10 +92,10 @@ export default function StatsComponent({ showAll = true, className = "" }: Stats
                 </div>
                 <p className="text-3xl font-bold mb-1">{companyStats.rating}</p>
                 <p className="text-muted-foreground">{companyStats.googleReviews} Google Reviews</p>
-              </motion.div>
+              </m.div>
 
               {/* Corporate Clients */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -119,7 +119,7 @@ export default function StatsComponent({ showAll = true, className = "" }: Stats
                   <p className="font-bold">Trusted By {companyStats.corporateClients}</p>
                 </div>
                 <p className="text-muted-foreground">Corporate Clients</p>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         )}
@@ -129,7 +129,7 @@ export default function StatsComponent({ showAll = true, className = "" }: Stats
           {companyStats.metrics.map((metric, index) => {
             const Icon = iconMap[metric.icon as keyof typeof iconMap]
             return (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -140,7 +140,7 @@ export default function StatsComponent({ showAll = true, className = "" }: Stats
                 <div className="rounded-full bg-primary/10 p-4 mb-4">
                   <Icon className="h-8 w-8 text-primary" />
                 </div>
-                <motion.h3
+                <m.h3
                   initial={{ scale: 0.5 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
@@ -148,9 +148,9 @@ export default function StatsComponent({ showAll = true, className = "" }: Stats
                   className="text-3xl md:text-4xl font-bold mb-2"
                 >
                   {metric.value}
-                </motion.h3>
+                </m.h3>
                 <p className="text-muted-foreground">{metric.label}</p>
-              </motion.div>
+              </m.div>
             )
           })}
         </div>

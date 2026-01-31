@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Shield, Truck, Clock, Lock, ArrowRight, HelpCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -24,7 +24,7 @@ export default function PricingPage() {
       <section className="w-full py-20 bg-gradient-to-b from-blue-50 to-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center text-center space-y-8">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -36,9 +36,9 @@ export default function PricingPage() {
               <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
                 Transparent pricing with no hidden fees. Pay for what you need, when you need it.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -55,9 +55,9 @@ export default function PricingPage() {
                   <span className="font-medium">{item.text}</span>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -68,7 +68,7 @@ export default function PricingPage() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -119,7 +119,7 @@ export default function PricingPage() {
                 icon: HelpCircle,
               },
             ].map((feature, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -130,7 +130,7 @@ export default function PricingPage() {
                 <feature.icon className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

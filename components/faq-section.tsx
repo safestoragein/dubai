@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { faqSchema } from "@/lib/structured-data"
 
@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "How much does storage cost in Dubai?",
     answer:
-      "Storage costs in Dubai depend on the size of the unit, rental duration, and additional services like pickup and insurance. SafeStorage Dubai offers competitive pricing starting from AED X/month.",
+      "Storage costs in Dubai depend on the size of the unit, rental duration, and additional services like pickup and insurance. SafeStorage Dubai offers competitive pricing starting from AED 99 /month.",
   },
   {
     question: "Is my storage unit secure?",
@@ -48,17 +48,17 @@ export default function FAQSection() {
       />
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           >
             Frequently Asked Questions About Storage in Dubai
-          </motion.h2>
+          </m.h2>
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -72,7 +72,7 @@ export default function FAQSection() {
               </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Star, Quote, BadgeCheck } from "lucide-react"
 import { shouldRunAnimations } from "@/lib/animation-loader"
 import Link from "next/link"
@@ -72,7 +72,7 @@ export default function Testimonials() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           {/* Google Reviews Badge */}
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -86,32 +86,32 @@ export default function Testimonials() {
             <div className="h-6 w-px bg-gray-200" />
             <div className="flex items-center gap-2">
               <span className="font-bold text-lg">4.9</span>
-              <span className="text-muted-foreground text-sm">487+ Google Reviews</span>
+              <span className="text-muted-foreground text-sm">6700+ Google Reviews Globally</span>
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.h2
+          <m.h2
             initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           >
             What Our Customers Say
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="text-xl text-muted-foreground max-w-[800px]"
           >
-            Real experiences from 500+ happy customers across Dubai
-          </motion.p>
+            Real experiences from 1 Lakh + happy customers across Globally
+          </m.p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <m.div
               key={index}
               initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -153,12 +153,12 @@ export default function Testimonials() {
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                 </footer>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* CTA */}
-        <motion.div
+        <m.div
           initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -167,11 +167,11 @@ export default function Testimonials() {
         >
           <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
             <Link href="/get-quote" className="group">
-              Join 500+ Happy Customers
+              Join 1 Lakh+ Happy Customers
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

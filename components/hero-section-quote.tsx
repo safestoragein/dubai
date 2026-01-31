@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { Truck, Building, Box, Package, ArrowRight, Phone, Star, Shield, Thermometer, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -46,7 +46,7 @@ export default function HeroSectionQuote() {
 
         {/* Burj Khalifa in the center */}
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10">
-          <motion.div
+          <m.div
             initial={{ y: 200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -80,7 +80,7 @@ export default function HeroSectionQuote() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Animated Buildings - Left Side */}
@@ -93,7 +93,7 @@ export default function HeroSectionQuote() {
               const animationType = i % 3 // 0, 1, or 2 for different animation types
 
               return (
-                <motion.div
+                <m.div
                   key={`left-${i}`}
                   initial={{ y: 100, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -132,7 +132,7 @@ export default function HeroSectionQuote() {
                       ))}
                     </div>
                   ))}
-                </motion.div>
+                </m.div>
               )
             })}
 
@@ -145,7 +145,7 @@ export default function HeroSectionQuote() {
               const animationType = i % 3 // 0, 1, or 2 for different animation types
 
               return (
-                <motion.div
+                <m.div
                   key={`right-${i}`}
                   initial={{ y: 100, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -184,7 +184,7 @@ export default function HeroSectionQuote() {
                       ))}
                     </div>
                   ))}
-                </motion.div>
+                </m.div>
               )
             })}
 
@@ -197,7 +197,7 @@ export default function HeroSectionQuote() {
               const animationType = i % 4 // 0, 1, 2, or 3 for different animation types
 
               return (
-                <motion.div
+                <m.div
                   key={`small-${i}`}
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 0.6 }}
@@ -239,7 +239,7 @@ export default function HeroSectionQuote() {
                       ))}
                     </div>
                   ))}
-                </motion.div>
+                </m.div>
               )
             })}
         </div>
@@ -257,11 +257,11 @@ export default function HeroSectionQuote() {
             <div className="flex flex-wrap justify-center gap-4 mb-6">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                <span className="text-white text-sm font-medium">4.9/5 (487+ Reviews)</span>
+                <span className="text-white text-sm font-medium">4.9/5 (6700+ Reviews Globally in Google)</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Shield className="h-4 w-4 text-dubai-gold" />
-                <span className="text-white text-sm font-medium">7+ Years Serving Dubai</span>
+                <span className="text-white text-sm font-medium">10+ Years Serving Globally</span>
               </div>
             </div>
 
@@ -290,7 +290,7 @@ export default function HeroSectionQuote() {
             {/* Rotating Headlines */}
             <div className="h-8 mb-6">
               <AnimatePresence mode="wait">
-                <motion.p
+                <m.p
                   key={currentHeadline}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -299,7 +299,7 @@ export default function HeroSectionQuote() {
                   className="text-xl text-dubai-gold italic"
                 >
                   &quot;{rotatingHeadlines[currentHeadline]}&quot;
-                </motion.p>
+                </m.p>
               </AnimatePresence>
             </div>
 
@@ -308,7 +308,7 @@ export default function HeroSectionQuote() {
               {[
                 { icon: Shield, text: "24/7 CCTV Monitoring" },
                 { icon: Thermometer, text: "Climate Controlled" },
-                { icon: Package, text: "Free Insurance up to AED 5000" },
+                { icon: Package, text: "Free Insurance" },
                 { icon: Truck, text: "Same-Day Pickup Available" },
               ].map((feature, index) => (
                 <div

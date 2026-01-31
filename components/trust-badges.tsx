@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Star, Shield, Clock, Thermometer, Truck, Award } from "lucide-react"
 
 export default function TrustBadges() {
@@ -9,22 +9,22 @@ export default function TrustBadges() {
       icon: Star,
       value: "4.9/5",
       label: "Google Rating",
-      subtext: "487+ Verified Reviews",
+      subtext: "6700+ Reviews Globally",
       color: "text-yellow-500",
       bgColor: "bg-yellow-500/10",
     },
     {
       icon: Award,
-      value: "7+",
-      label: "Years Serving Dubai",
-      subtext: "Since 2018",
+      value: "10+",
+      label: "Years Serving Globally",
+      subtext: "Since 2015",
       color: "text-dubai-gold",
       bgColor: "bg-dubai-gold/10",
     },
     {
       icon: Shield,
-      value: "500+",
-      label: "Happy Customers",
+      value: "1 Lakh+",
+      label: "Happy Customers Globally",
       subtext: "Trusted by Businesses & Families",
       color: "text-blue-500",
       bgColor: "bg-blue-500/10",
@@ -62,7 +62,7 @@ export default function TrustBadges() {
           {badges.map((badge, index) => {
             const Icon = badge.icon
             return (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export default function TrustBadges() {
                 <span className={`text-2xl font-bold ${badge.color}`}>{badge.value}</span>
                 <span className="text-sm font-medium text-gray-800">{badge.label}</span>
                 <span className="text-xs text-gray-500">{badge.subtext}</span>
-              </motion.div>
+              </m.div>
             )
           })}
         </div>

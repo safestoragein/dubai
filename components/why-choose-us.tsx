@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Users, Truck, DollarSign, Thermometer, Smartphone, Shield, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -30,7 +30,7 @@ export default function WhyChooseUs() {
       icon: Thermometer,
       title: "Climate Control",
       description: "Beat Dubai's extreme heat with our fully climate-controlled units maintaining optimal temperature year-round.",
-      highlight: "20-25°C",
+      highlight: "Climate Control",
     },
     {
       icon: Smartphone,
@@ -40,8 +40,8 @@ export default function WhyChooseUs() {
     },
     {
       icon: Shield,
-      title: "AED 5000 Free Insurance",
-      description: "Your peace of mind is our priority. Every storage unit includes free insurance coverage up to AED 5000.",
+      title: "Free Insurance",
+      description: "Your peace of mind is our priority. Every storage unit includes free insurance coverage.",
       highlight: "Included Free",
     },
   ]
@@ -65,23 +65,23 @@ export default function WhyChooseUs() {
     <section className="w-full py-20 bg-gradient-to-b from-dubai-sand/30 to-white">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="inline-block px-4 py-1 bg-dubai-gold/10 text-dubai-gold text-sm font-medium rounded-full"
           >
             Why Choose Us
-          </motion.div>
-          <motion.h2
+          </m.div>
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight text-dubai-navy"
           >
-            Why 500+ Customers Trust <span className="text-dubai-gold">SafeStorage</span>
-          </motion.h2>
-          <motion.p
+            Why 1 Lakh+ Customers Trust <span className="text-dubai-gold">SafeStorage Globally</span>
+          </m.h2>
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -89,10 +89,10 @@ export default function WhyChooseUs() {
             className="text-xl text-muted-foreground max-w-[800px]"
           >
             We&apos;re not just a storage facility - we&apos;re your trusted partner in keeping your belongings safe
-          </motion.p>
+          </m.p>
         </div>
 
-        <motion.div
+        <m.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -102,7 +102,7 @@ export default function WhyChooseUs() {
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
-              <motion.div
+              <m.div
                 key={index}
                 variants={item}
                 className="relative group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100"
@@ -123,12 +123,12 @@ export default function WhyChooseUs() {
                     <span>Included with every plan</span>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             )
           })}
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -137,11 +137,11 @@ export default function WhyChooseUs() {
         >
           <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
             <Link href="/get-quote" className="group">
-              Join 500+ Happy Customers
+              Join 1 Lakh + Happy Customers
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

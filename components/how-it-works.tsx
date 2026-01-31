@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Box, Smartphone, Truck, Clock } from "lucide-react"
 
 const steps = [
@@ -35,15 +35,15 @@ export default function HowItWorks() {
     <section className="w-full py-24 bg-white">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           >
             How It Works?
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -51,14 +51,14 @@ export default function HowItWorks() {
             className="text-xl text-muted-foreground"
           >
             Simple steps to secure your storage space
-          </motion.p>
+          </m.p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
           {steps.map((step, index) => {
             const Icon = step.icon
             return (
-              <motion.div
+              <m.div
                 key={step.number}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ export default function HowItWorks() {
                   </h3>
                   <p className="text-muted-foreground text-center">{step.description}</p>
                 </div>
-              </motion.div>
+              </m.div>
             )
           })}
         </div>

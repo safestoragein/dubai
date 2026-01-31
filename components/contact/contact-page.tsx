@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import {
   MapPin,
   Phone,
@@ -79,7 +79,7 @@ export default function ContactPage() {
 
         <div className="container px-4 md:px-6 relative z-10">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -106,8 +106,8 @@ export default function ContactPage() {
                   </a>
                 </Button>
               </div>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -124,7 +124,7 @@ export default function ContactPage() {
 
               {/* Dubai-style decorative frame */}
               <div className="absolute -bottom-3 -right-3 w-2/3 h-2/3 border-2 border-dubai-gold/30 rounded-2xl"></div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -151,7 +151,7 @@ export default function ContactPage() {
 
           <div className="grid md:grid-cols-2 gap-8 items-start">
             {/* Map and Address */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -191,10 +191,10 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Contact Options */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -272,7 +272,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -343,7 +343,7 @@ export default function ContactPage() {
             ].map((social, index) => {
               const Icon = social.icon
               return (
-                <motion.a
+                <m.a
                   key={index}
                   href={social.href}
                   target="_blank"
@@ -358,7 +358,7 @@ export default function ContactPage() {
                 >
                   <Icon className="h-6 w-6" />
                   <span className="sr-only">{social.label}</span>
-                </motion.a>
+                </m.a>
               )
             })}
           </div>

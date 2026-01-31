@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -349,21 +349,21 @@ export default function QuotePage() {
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-4xl mx-auto px-4 py-6">
           <div className="text-center">
-            <motion.h1 
+            <m.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-3xl font-bold text-slate-800 mb-2"
             >
               Get Storage Quote
-            </motion.h1>
-            <motion.p 
+            </m.h1>
+            <m.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="text-slate-600"
             >
               Quick estimate in 3 easy steps
-            </motion.p>
+            </m.p>
           </div>
           
           {/* Step Indicator - Compact Version */}
@@ -404,7 +404,7 @@ export default function QuotePage() {
           <AnimatePresence mode="wait">
             {/* Step 1: Customer Details */}
             {currentStep === 1 && (
-              <motion.div
+              <m.div
                 key="step1"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -529,12 +529,12 @@ export default function QuotePage() {
                     </RadioGroup>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             )}
 
             {/* Step 2: Item Selection */}
             {currentStep === 2 && (
-              <motion.div
+              <m.div
                 key="step2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -544,7 +544,7 @@ export default function QuotePage() {
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-2xl font-bold text-slate-800">Select Your Items</h2>
                   {formData.selectedItems.length > 0 && (
-                    <motion.button
+                    <m.button
                       initial={{ scale: 0, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ type: "spring", stiffness: 260, damping: 20 }}
@@ -556,7 +556,7 @@ export default function QuotePage() {
                     >
                       <Package className="w-4 h-4" />
                       View Selected ({formData.selectedItems.length})
-                    </motion.button>
+                    </m.button>
                   )}
                 </div>
                 
@@ -600,7 +600,7 @@ export default function QuotePage() {
                             const isSelected = !!selectedItem
                             
                             return (
-                              <motion.div
+                              <m.div
                                 key={item.storage_item_name}
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.98 }}
@@ -628,13 +628,13 @@ export default function QuotePage() {
                               >
                                 {/* Selected Badge - Inside the card */}
                                 {isSelected && (
-                                  <motion.div
+                                  <m.div
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
                                     className="absolute top-2 right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center"
                                   >
                                     <Check className="w-4 h-4 text-white" />
-                                  </motion.div>
+                                  </m.div>
                                 )}
                                 
                                 {/* Item Content */}
@@ -657,7 +657,7 @@ export default function QuotePage() {
                                     </span>
                                   )}
                                 </div>
-                              </motion.div>
+                              </m.div>
                             )
                           })
                         ) : (
@@ -689,7 +689,7 @@ export default function QuotePage() {
 
                 {/* Selected Items - New Design */}
                 {formData.selectedItems.length > 0 && (
-                  <motion.div 
+                  <m.div 
                     id="selected-items-section" 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -712,7 +712,7 @@ export default function QuotePage() {
                       {formData.selectedItems.map((selectedItem, index) => {
                         const ItemIcon = getItemIcon(selectedItem.name)
                         return (
-                          <motion.div 
+                          <m.div 
                             key={index}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -774,7 +774,7 @@ export default function QuotePage() {
                                 </button>
                               </div>
                             </div>
-                          </motion.div>
+                          </m.div>
                         )
                       })}
                     </div>
@@ -788,14 +788,14 @@ export default function QuotePage() {
                         </p>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
-              </motion.div>
+              </m.div>
             )}
 
             {/* Step 3: Quote Summary */}
             {currentStep === 3 && (
-              <motion.div
+              <m.div
                 key="step3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -868,7 +868,7 @@ export default function QuotePage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
 

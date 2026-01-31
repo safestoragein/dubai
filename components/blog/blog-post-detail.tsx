@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ArrowLeft, Calendar, User, Tag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -222,7 +222,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         </div>
 
         {/* Post Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -253,10 +253,10 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
               <span>{post.readTime}</span>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Featured Image */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -273,10 +273,10 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
               onError={() => setImageError(true)}
             />
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Post Content */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -286,10 +286,10 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             className="blog-content prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: formatBlogContent(post.content) }}
           />
-        </motion.div>
+        </m.div>
 
         {/* Author Info */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -306,7 +306,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
               <p className="text-dubai-navy/60">Storage Expert</p>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Social Interactions */}
         <div className="flex flex-col md:flex-row gap-8 mb-12">

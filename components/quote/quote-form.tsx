@@ -1,6 +1,6 @@
 "use client"
 
-  import { motion } from "framer-motion"
+  import { m } from "framer-motion"
   import { CheckCircle2, Send, Home, Briefcase, ChevronDown } from "lucide-react"
   import Image from "next/image"
   import { Button } from "@/components/ui/button"
@@ -43,7 +43,7 @@
     }
 
     return (
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -51,14 +51,14 @@
       >
         {formStatus?.success ? (
           <div className="text-center py-12">
-            <motion.div
+            <m.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 mb-6"
             >
               <CheckCircle2 className="h-10 w-10 text-green-600" />
-            </motion.div>
+            </m.div>
             <h3 className="text-2xl font-bold mb-4 text-dubai-navy">Quote Request Received!</h3>
             <p className="text-dubai-navy/70 mb-8">{formStatus.message}</p>
             <Button onClick={() => resetForm()} className="bg-dubai-gold hover:bg-dubai-darkgold text-white">
@@ -190,7 +190,7 @@
 
                 {/* Dynamic Storage Box Display */}
                 {selectedHomeSize && (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
@@ -204,7 +204,7 @@
                         {Array.from({ length: selectedHomeSize === "1RK" || selectedHomeSize === "1BHK" ? 1 : 
                                                 selectedHomeSize === "2BHK" ? 2 : 
                                                 selectedHomeSize === "3BHK" ? 3 : 4 }, (_, index) => (
-                          <motion.div
+                          <m.div
                             key={index}
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
@@ -219,7 +219,7 @@
                               className="rounded-lg shadow-sm border border-dubai-gold/20 cursor-pointer hover:shadow-md transition-shadow"
                               onClick={() => setIsImageModalOpen(true)}
                             />
-                          </motion.div>
+                          </m.div>
                         ))}
                       </div>
                       <p className="text-xs text-dubai-navy/70">
@@ -232,7 +232,7 @@
                           : "Typically requires 4+ storage units for larger homes"}
                       </p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
 
                 {formStatus?.message && !formStatus.success && (
@@ -443,6 +443,6 @@
             </p>
           </DialogContent>
         </Dialog>
-      </motion.div>
+      </m.div>
     )
   }

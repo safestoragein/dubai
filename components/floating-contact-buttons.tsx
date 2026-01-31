@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { MessageCircle, Phone, X } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { env } from "@/lib/env"
 
 export default function FloatingContactButtons() {
@@ -20,7 +20,7 @@ export default function FloatingContactButtons() {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
@@ -30,14 +30,14 @@ export default function FloatingContactButtons() {
             {/* Expanded buttons */}
             <AnimatePresence>
               {isExpanded && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
                   className="absolute bottom-16 right-0 flex flex-col gap-3"
                 >
                   {/* WhatsApp Button */}
-                  <motion.a
+                  <m.a
                     href={env.WHATSAPP_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -47,10 +47,10 @@ export default function FloatingContactButtons() {
                   >
                     <MessageCircle className="h-5 w-5" />
                     <span className="font-medium">WhatsApp</span>
-                  </motion.a>
+                  </m.a>
 
                   {/* Phone Button */}
-                  <motion.a
+                  <m.a
                     href={env.PHONE_LINK}
                     className="flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-full shadow-lg transition-colors group"
                     whileHover={{ scale: 1.05 }}
@@ -58,13 +58,13 @@ export default function FloatingContactButtons() {
                   >
                     <Phone className="h-5 w-5" />
                     <span className="font-medium">Call Now</span>
-                  </motion.a>
-                </motion.div>
+                  </m.a>
+                </m.div>
               )}
             </AnimatePresence>
 
             {/* Main toggle button */}
-            <motion.button
+            <m.button
               onClick={() => setIsExpanded(!isExpanded)}
               className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-colors ${
                 isExpanded
@@ -76,9 +76,9 @@ export default function FloatingContactButtons() {
               animate={{ rotate: isExpanded ? 180 : 0 }}
             >
               {isExpanded ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
-            </motion.button>
+            </m.button>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   )

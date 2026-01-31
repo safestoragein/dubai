@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Shield, Thermometer, Clock, Truck, HeadphonesIcon, DollarSign, Package, Users, Percent } from "lucide-react"
 
 export default function USPSection() {
@@ -72,16 +72,16 @@ export default function USPSection() {
     <section className="w-full py-20 bg-gray-900 text-white">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           >
             SafeStorage Dubai – Our Unique Selling Proposition
-          </motion.h2>
+          </m.h2>
         </div>
-        <motion.div
+        <m.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -91,7 +91,7 @@ export default function USPSection() {
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
-              <motion.div key={index} variants={item} className="relative group">
+              <m.div key={index} variants={item} className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-primary/10 rounded-2xl transform transition-transform group-hover:scale-105" />
                 <div className="relative p-6 flex flex-col space-y-4">
                   <div className="rounded-full bg-primary/20 p-3 w-fit">
@@ -100,10 +100,10 @@ export default function USPSection() {
                   <h3 className="text-xl font-bold">{feature.title}</h3>
                   <p className="text-gray-300">{feature.description}</p>
                 </div>
-              </motion.div>
+              </m.div>
             )
           })}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

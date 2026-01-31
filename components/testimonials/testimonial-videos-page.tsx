@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Play, Pause, Star, ChevronLeft, ChevronRight, Filter, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -73,7 +73,7 @@ export default function TestimonialVideosPage() {
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           {Array.from({ length: 20 }).map((_, i) => (
-            <motion.div
+            <m.div
               key={`star-${i}`}
               className="absolute w-1 h-1 bg-dubai-gold rounded-full"
               style={{
@@ -95,7 +95,7 @@ export default function TestimonialVideosPage() {
 
           {/* Video play icons floating in background */}
           {Array.from({ length: 5 }).map((_, i) => (
-            <motion.div
+            <m.div
               key={`play-${i}`}
               className="absolute text-dubai-gold/10"
               style={{
@@ -115,40 +115,40 @@ export default function TestimonialVideosPage() {
               }}
             >
               <Play />
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         <div className="container px-4 md:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="inline-block px-4 py-1 bg-dubai-gold text-white text-sm font-medium rounded-full mb-6"
             >
               Customer Stories
-            </motion.div>
+            </m.div>
 
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl font-bold mb-6 text-white"
             >
               Hear From Our <span className="text-dubai-gold">Satisfied</span> Customers
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl text-white/80 mb-8"
             >
               Watch "How SafeStorage Changed My Life" and other real stories from our satisfied customers
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -165,7 +165,7 @@ export default function TestimonialVideosPage() {
                 Watch Testimonials
                 <Play className="ml-2 h-4 w-4" />
               </Button>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -177,7 +177,7 @@ export default function TestimonialVideosPage() {
             {/* Video Player Column */}
             <div className="md:w-2/3">
               <div id="video-player" className="mb-8">
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="relative rounded-2xl overflow-hidden shadow-xl bg-black aspect-video"
@@ -213,12 +213,12 @@ export default function TestimonialVideosPage() {
                       </Button>
                     </div>
                   )}
-                </motion.div>
+                </m.div>
               </div>
 
               {/* Video Information */}
               {activeVideo && (
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
+                <m.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
                   {testimonialVideos
                     .filter((video) => video.videoId === activeVideo)
                     .map((video) => (
@@ -238,7 +238,7 @@ export default function TestimonialVideosPage() {
                         <p className="text-dubai-navy/70">{video.description}</p>
                       </div>
                     ))}
-                </motion.div>
+                </m.div>
               )}
 
               {/* Mobile Video List (visible on small screens) */}
@@ -283,7 +283,7 @@ export default function TestimonialVideosPage() {
 
                 <div className="grid grid-cols-1 gap-4">
                   {filteredVideos.map((video) => (
-                    <motion.div
+                    <m.div
                       key={video.videoId}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -314,7 +314,7 @@ export default function TestimonialVideosPage() {
                           </div>
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
               </div>
@@ -351,7 +351,7 @@ export default function TestimonialVideosPage() {
                   </div>
                   <div className="divide-y max-h-[600px] overflow-y-auto">
                     {filteredVideos.map((video) => (
-                      <motion.div
+                      <m.div
                         key={video.videoId}
                         initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -380,7 +380,7 @@ export default function TestimonialVideosPage() {
                             </div>
                           </div>
                         </div>
-                      </motion.div>
+                      </m.div>
                     ))}
                   </div>
                 </div>
@@ -488,7 +488,7 @@ function TestimonialCarousel({
   return (
     <div className="relative">
       <div className="overflow-hidden">
-        <motion.div
+        <m.div
           className="flex gap-6"
           initial={false}
           animate={{
@@ -500,7 +500,7 @@ function TestimonialCarousel({
           }}
         >
           {videos.map((video) => (
-            <motion.div
+            <m.div
               key={video.videoId}
               className="w-full lg:w-1/3 md:w-1/2"
               whileHover={{ scale: 1.03 }}
@@ -538,9 +538,9 @@ function TestimonialCarousel({
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
 
       {isMounted && videos.length > (windowWidth >= 1024 ? 3 : windowWidth >= 768 ? 2 : 1) && (

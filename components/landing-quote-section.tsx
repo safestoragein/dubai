@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Truck, Building, Box, Package } from "lucide-react"
 import QuoteForm from "./quote/quote-form"
 
@@ -30,7 +30,7 @@ export default function LandingQuoteSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+          <m.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
             <h3 className="text-2xl font-bold mb-6 text-dubai-navy">Why Choose SafeStorage Dubai?</h3>
             <p className="text-dubai-navy/70 mb-8">
               We offer premium storage solutions with transparent pricing and exceptional service. Our secure,
@@ -44,7 +44,7 @@ export default function LandingQuoteSection() {
                 { icon: Box, text: "Flexible Storage Terms" },
                 { icon: Package, text: "Secure Facilities" },
               ].map((feature, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function LandingQuoteSection() {
                     <feature.icon className="h-4 w-4 text-dubai-gold" />
                   </div>
                   <span className="text-dubai-navy/90">{feature.text}</span>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
@@ -66,7 +66,7 @@ export default function LandingQuoteSection() {
                 rated service ensures peace of mind.
               </p>
             </div>
-          </motion.div>
+          </m.div>
 
           <QuoteForm />
         </div>

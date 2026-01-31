@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -22,25 +22,25 @@ export default function HeroSection() {
 
       <div className="container relative z-10 px-4 md:px-6 pt-20 pb-16 md:pb-24">
         <div className="text-center mb-12">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-6"
           >
             Our Simple Process
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl md:text-7xl font-bold mb-6"
           >
             Storage Made <span className="text-yellow-400">Simple</span>
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -48,9 +48,9 @@ export default function HeroSection() {
           >
             From pickup to safe storage, we handle everything while you relax. Just 4 easy steps to secure your
             belongings.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -59,11 +59,11 @@ export default function HeroSection() {
               Start Now
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Hero Image */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -79,7 +79,7 @@ export default function HeroSection() {
           />
 
           {/* Floating Elements */}
-          <motion.div
+          <m.div
             className="absolute top-0 right-0 -translate-y-1/2"
             animate={{ y: [-10, 10, -10] }}
             transition={{ repeat: Number.POSITIVE_INFINITY, duration: 4, ease: "easeInOut" }}
@@ -97,8 +97,8 @@ export default function HeroSection() {
                 </svg>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   )

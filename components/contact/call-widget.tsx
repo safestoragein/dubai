@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { Phone, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { env } from "@/lib/env"
@@ -18,7 +18,7 @@ export default function CallWidget({ phoneNumber }: CallWidgetProps) {
     <div className="fixed bottom-6 right-6 z-50">
       <AnimatePresence>
         {isExpanded && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -34,25 +34,25 @@ export default function CallWidget({ phoneNumber }: CallWidgetProps) {
                 </a>
               </Button>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
 
-      <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1, type: "spring" }}>
+      <m.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1, type: "spring" }}>
         <Button
           size="lg"
           className={`rounded-full h-16 w-16 shadow-lg ${isExpanded ? "bg-dubai-darkgold hover:bg-dubai-gold" : "bg-dubai-gold hover:bg-dubai-darkgold"}`}
           onClick={() => setIsExpanded(!isExpanded)}
           aria-label={isExpanded ? "Close call widget" : "Open call widget"}
         >
-          <motion.div
+          <m.div
             animate={!isExpanded ? { rotate: [0, 10, -10, 10, 0] } : {}}
             transition={{ repeat: Number.POSITIVE_INFINITY, repeatDelay: 5, duration: 0.5 }}
           >
             {isExpanded ? <X className="h-6 w-6" /> : <Phone className="h-6 w-6" />}
-          </motion.div>
+          </m.div>
         </Button>
-      </motion.div>
+      </m.div>
     </div>
   )
 }

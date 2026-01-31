@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -20,7 +20,7 @@ export default function BlogSidebar({ popularPosts, recommendedPosts }: BlogSide
   return (
     <aside className="space-y-8">
       {/* Search */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
@@ -37,10 +37,10 @@ export default function BlogSidebar({ popularPosts, recommendedPosts }: BlogSide
             <Search className="h-4 w-4" />
           </Button>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Categories */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
@@ -58,10 +58,10 @@ export default function BlogSidebar({ popularPosts, recommendedPosts }: BlogSide
             </Link>
           ))}
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Popular Posts */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
@@ -89,10 +89,10 @@ export default function BlogSidebar({ popularPosts, recommendedPosts }: BlogSide
             </Link>
           ))}
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Recommended Posts */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
@@ -120,10 +120,10 @@ export default function BlogSidebar({ popularPosts, recommendedPosts }: BlogSide
             </Link>
           ))}
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Newsletter Signup */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
@@ -141,7 +141,7 @@ export default function BlogSidebar({ popularPosts, recommendedPosts }: BlogSide
           />
           <Button className="w-full bg-dubai-gold hover:bg-dubai-darkgold text-white">Subscribe</Button>
         </form>
-      </motion.div>
+      </m.div>
     </aside>
   )
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
@@ -26,7 +26,7 @@ export default function HeroSection() {
 
       <div className="container h-full px-4 md:px-6 relative z-10 flex items-center">
         <div className="max-w-2xl">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -52,7 +52,7 @@ export default function HeroSection() {
                 View Pricing
               </Button>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

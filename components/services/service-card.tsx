@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ArrowRight, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { ServiceType } from "./services-data"
@@ -19,7 +19,7 @@ export default function ServiceCard({ service, categoryIcon, categoryName }: Ser
   const phoneNumber = "+971505773388"
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -69,14 +69,14 @@ export default function ServiceCard({ service, categoryIcon, categoryName }: Ser
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               variant="outline"
               size="icon"
               className="text-primary hover:text-primary hover:border-primary bg-transparent"
               asChild
             >
-<a href="tel:+971505773388">                <motion.div
+<a href="tel:+971505773388">                <m.div
                   animate={{ rotate: [0, -10, 10, -10, 10, 0] }}
                   transition={{
                     duration: 0.5,
@@ -85,12 +85,12 @@ export default function ServiceCard({ service, categoryIcon, categoryName }: Ser
                   }}
                 >
                   <Phone className="h-4 w-4" />
-                </motion.div>
+                </m.div>
               </a>
             </Button>
-          </motion.div>
+          </m.div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   )
 }

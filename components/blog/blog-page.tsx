@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Search, ChevronRight, User, ArrowRight, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -247,7 +247,7 @@ export default function BlogPage() {
 // Blog Post Card Component
 function BlogPostCard({ post, index }: { post: BlogPost; index: number }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -291,14 +291,14 @@ function BlogPostCard({ post, index }: { post: BlogPost; index: number }) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
 // Blog Post Row Component
 function BlogPostRow({ post, index }: { post: BlogPost; index: number }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -347,7 +347,7 @@ function BlogPostRow({ post, index }: { post: BlogPost; index: number }) {
           Read more <ArrowRight className="h-4 w-4 ml-1" />
         </Link>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { m, useInView } from "framer-motion"
 import { Calendar, Truck, Warehouse, Package, Phone, ArrowRight, Check, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -92,7 +92,7 @@ export default function HowItWorksPage() {
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-blue-50 to-white">
         {/* Content */}
         <div className="container relative z-10 px-4 md:px-6 text-gray-900">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -128,38 +128,38 @@ export default function HowItWorksPage() {
                 </a>
               </Button>
             </div>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Animated scroll indicator */}
-        <motion.div
+        <m.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
         >
           <div className="w-8 h-12 rounded-full border-2 border-primary flex items-start justify-center p-1">
-            <motion.div
+            <m.div
               className="w-1 h-3 bg-primary rounded-full"
               animate={{ y: [0, 16, 0] }}
               transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5, delay: 0.2 }}
             />
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* Process Overview - New section */}
       <section className="py-20 bg-white">
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
               Our 4-Step Process
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -168,7 +168,7 @@ export default function HowItWorksPage() {
             >
               We've simplified storage down to four easy steps, making the entire process hassle-free and convenient for
               you.
-            </motion.p>
+            </m.p>
           </div>
 
           {/* Process timeline */}
@@ -196,15 +196,15 @@ export default function HowItWorksPage() {
       <section className="py-20 bg-white">
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
               What Our Customers Say
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -212,7 +212,7 @@ export default function HowItWorksPage() {
               className="text-xl text-muted-foreground"
             >
               Don't just take our word for it. Here's what our customers have to say about our simple storage process.
-            </motion.p>
+            </m.p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -236,7 +236,7 @@ export default function HowItWorksPage() {
                 role: "Student",
               },
             ].map((testimonial, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -259,7 +259,7 @@ export default function HowItWorksPage() {
                     <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -269,15 +269,15 @@ export default function HowItWorksPage() {
       <section className="py-20 bg-gray-50">
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
               Frequently Asked Questions
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -285,7 +285,7 @@ export default function HowItWorksPage() {
               className="text-xl text-muted-foreground"
             >
               Get answers to common questions about our storage process
-            </motion.p>
+            </m.p>
           </div>
 
           <div className="max-w-3xl mx-auto">
@@ -298,15 +298,15 @@ export default function HowItWorksPage() {
       <section className="py-24 bg-gradient-to-r from-primary to-blue-700">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center text-white">
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
               Ready to Store Your Items?
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -314,9 +314,9 @@ export default function HowItWorksPage() {
               className="text-xl mb-10 text-white/90"
             >
               Experience our simple 4-step process and enjoy hassle-free storage today!
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -340,25 +340,25 @@ export default function HowItWorksPage() {
                   Call Us Now
                 </a>
               </Button>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
 
       {/* Live Chat Icon (Floating) */}
       <div className="fixed bottom-6 right-6 z-50">
-        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1, type: "spring" }}>
+        <m.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1, type: "spring" }}>
           <Button size="lg" className="rounded-full h-16 w-16 shadow-lg" asChild>
             <a href="#" aria-label="Chat with us">
-              <motion.div
+              <m.div
                 animate={{ rotate: [0, 10, -10, 10, 0] }}
                 transition={{ repeat: Number.POSITIVE_INFINITY, repeatDelay: 5, duration: 0.5 }}
               >
                 <Phone className="h-6 w-6" />
-              </motion.div>
+              </m.div>
             </a>
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </>
   )
@@ -378,7 +378,7 @@ function ProcessStep({ step, isEven, index }) {
 
       <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-8 items-center`}>
         {/* Content */}
-        <motion.div
+        <m.div
           className={`md:w-1/2 ${isEven ? "md:text-right md:pr-16" : "md:text-left md:pl-16"} text-center`}
           initial={{ opacity: 0, x: isEven ? -50 : 50 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? -50 : 50 }}
@@ -410,10 +410,10 @@ function ProcessStep({ step, isEven, index }) {
               ))}
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Image */}
-        <motion.div
+        <m.div
           className="md:w-1/2"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
@@ -437,7 +437,7 @@ function ProcessStep({ step, isEven, index }) {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   )
@@ -478,7 +478,7 @@ function FaqAccordion() {
   return (
     <div className="space-y-4">
       {faqs.map((faq, index) => (
-        <motion.div
+        <m.div
           key={index}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -501,7 +501,7 @@ function FaqAccordion() {
               <p className="text-muted-foreground">{faq.answer}</p>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       ))}
     </div>
   )

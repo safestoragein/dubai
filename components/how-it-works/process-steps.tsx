@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Calendar, Truck, Warehouse, Package } from "lucide-react"
 import Image from "next/image"
 
@@ -51,7 +51,7 @@ export default function ProcessSteps() {
           <div className="absolute left-[50%] top-0 bottom-0 w-px bg-gray-200 hidden lg:block" />
 
           {steps.map((step, index) => (
-            <motion.div
+            <m.div
               key={step.number}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ export default function ProcessSteps() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { MapPin } from "lucide-react"
 import Link from "next/link"
 
@@ -36,15 +36,15 @@ export default function LocationSection() {
     <section className="w-full py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           >
             Storage Services in Dubai – Serving All Major Areas
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -54,12 +54,12 @@ export default function LocationSection() {
             SafeStorage Dubai provides premium self-storage services across Dubai, Al Barsha, Deira, Business Bay, JLT,
             Dubai Marina, and more. No matter where you are in the city, our secure and climate-controlled storage units
             are easily accessible.
-          </motion.p>
+          </m.p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {locations.map((location, index) => (
-            <motion.div
+            <m.div
               key={location.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ export default function LocationSection() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

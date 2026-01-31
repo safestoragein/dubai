@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { MapPin, Phone } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -55,7 +55,7 @@ export default function DubaiMapStatic() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col lg:flex-row items-start gap-12">
           <div className="flex-1">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -70,7 +70,7 @@ export default function DubaiMapStatic() {
 
               <div className="space-y-4">
                 {dubaiLocations.map((location) => (
-                  <motion.div
+                  <m.div
                     key={location.id}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -94,7 +94,7 @@ export default function DubaiMapStatic() {
                       <h3 className="font-semibold">{location.name}</h3>
                       <p className="text-muted-foreground">{location.description}</p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -107,10 +107,10 @@ export default function DubaiMapStatic() {
                   Call us at {env.CONTACT_NUMBER}
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -163,7 +163,7 @@ export default function DubaiMapStatic() {
                 )}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

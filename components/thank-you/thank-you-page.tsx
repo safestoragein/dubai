@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import {
   CheckCircle2,
   Calendar,
@@ -71,7 +71,7 @@ export default function ThankYouPage() {
         <div className="absolute inset-0 overflow-hidden">
           {/* Animated circles - made continuous */}
           {Array.from({ length: 20 }).map((_, i) => (
-            <motion.div
+            <m.div
               key={`circle-${i}`}
               className="absolute rounded-full bg-dubai-gold/10"
               style={{
@@ -95,7 +95,7 @@ export default function ThankYouPage() {
 
           {/* Moving Trucks - Logistics Animation */}
           {Array.from({ length: 5 }).map((_, i) => (
-            <motion.div
+            <m.div
               key={`truck-${i}`}
               className="absolute"
               style={{
@@ -119,7 +119,7 @@ export default function ThankYouPage() {
                   height: `${20 + Math.random() * 15}px`,
                 }}
               />
-            </motion.div>
+            </m.div>
           ))}
 
           {/* Floating Boxes - Logistics Animation */}
@@ -127,7 +127,7 @@ export default function ThankYouPage() {
             const icons = [Box, Package, Archive, Warehouse]
             const RandomIcon = icons[Math.floor(Math.random() * icons.length)]
             return (
-              <motion.div
+              <m.div
                 key={`box-${i}`}
                 className="absolute"
                 style={{
@@ -153,7 +153,7 @@ export default function ThankYouPage() {
                     height: `${25 + Math.random() * 15}px`,
                   }}
                 />
-              </motion.div>
+              </m.div>
             )
           })}
 
@@ -161,7 +161,7 @@ export default function ThankYouPage() {
           <div className="absolute bottom-0 left-0 right-0 h-40 opacity-10">
             <div className="grid grid-cols-8 h-full">
               {Array.from({ length: 16 }).map((_, i) => (
-                <motion.div
+                <m.div
                   key={`unit-${i}`}
                   className="border border-dubai-gold/30 relative"
                   animate={{
@@ -175,7 +175,7 @@ export default function ThankYouPage() {
                   }}
                 >
                   {Math.random() > 0.7 && (
-                    <motion.div
+                    <m.div
                       className="absolute inset-0 flex items-center justify-center"
                       animate={{ opacity: [0.3, 0.7, 0.3] }}
                       transition={{
@@ -185,9 +185,9 @@ export default function ThankYouPage() {
                       }}
                     >
                       <Box className="text-dubai-gold/50 w-6 h-6" />
-                    </motion.div>
+                    </m.div>
                   )}
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -195,7 +195,7 @@ export default function ThankYouPage() {
 
         <div className="container px-4 md:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{
@@ -206,7 +206,7 @@ export default function ThankYouPage() {
               }}
               className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-dubai-gold/20 mb-8"
             >
-              <motion.div
+              <m.div
                 animate={{
                   scale: [1, 1.2, 1],
                   rotate: [0, 10, 0, -10, 0],
@@ -218,19 +218,19 @@ export default function ThankYouPage() {
                 }}
               >
                 <CheckCircle2 className="h-12 w-12 text-dubai-gold" />
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-4xl md:text-6xl font-bold mb-6 text-white"
             >
               Thank You for Your <span className="text-dubai-gold">Quote Request</span>!
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -238,9 +238,9 @@ export default function ThankYouPage() {
             >
               Your request has been successfully submitted. Our team will contact you shortly with a personalized
               storage solution.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
@@ -264,7 +264,7 @@ export default function ThankYouPage() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
@@ -273,7 +273,7 @@ export default function ThankYouPage() {
           <svg className="w-full h-20" viewBox="0 0 1440 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,15 Q360,0 720,15 T1440,15" stroke="rgba(212, 175, 55, 0.3)" strokeWidth="2" fill="none" />
             {/* Animated Truck along the path */}
-            <motion.g
+            <m.g
               animate={{ offsetDistance: ["0%", "100%"] }}
               transition={{
                 duration: 15,
@@ -283,9 +283,9 @@ export default function ThankYouPage() {
               style={{ offsetPath: "path('M0,15 Q360,0 720,15 T1440,15')" }}
             >
               <Truck className="text-dubai-gold w-8 h-8" />
-            </motion.g>
+            </m.g>
             {/* Animated Box along the path */}
-            <motion.g
+            <m.g
               animate={{ offsetDistance: ["0%", "100%"] }}
               transition={{
                 duration: 20,
@@ -296,7 +296,7 @@ export default function ThankYouPage() {
               style={{ offsetPath: "path('M0,15 Q360,0 720,15 T1440,15')" }}
             >
               <Box className="text-dubai-gold w-6 h-6" />
-            </motion.g>
+            </m.g>
           </svg>
         </div>
       </section>
@@ -307,7 +307,7 @@ export default function ThankYouPage() {
         <div className="absolute inset-0 pointer-events-none">
           {/* Subtle box patterns */}
           {Array.from({ length: 10 }).map((_, i) => (
-            <motion.div
+            <m.div
               key={`bg-box-${i}`}
               className="absolute opacity-5"
               style={{
@@ -325,7 +325,7 @@ export default function ThankYouPage() {
               }}
             >
               <Box style={{ width: `${50 + Math.random() * 100}px`, height: `${50 + Math.random() * 100}px` }} />
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
@@ -360,7 +360,7 @@ export default function ThankYouPage() {
             ].map((step, index) => {
               const Icon = step.icon
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -374,7 +374,7 @@ export default function ThankYouPage() {
                   }}
                 >
                   {/* Animated background pattern */}
-                  <motion.div
+                  <m.div
                     className="absolute inset-0 opacity-5"
                     animate={{
                       backgroundPosition: ["0% 0%", "100% 100%"],
@@ -391,7 +391,7 @@ export default function ThankYouPage() {
                   />
 
                   <div className="rounded-full bg-dubai-gold/10 p-4 w-16 h-16 flex items-center justify-center mb-4 mx-auto relative">
-                    <motion.div
+                    <m.div
                       animate={{
                         rotate: [0, 10, 0, -10, 0],
                         scale: [1, 1.1, 1],
@@ -403,14 +403,14 @@ export default function ThankYouPage() {
                       }}
                     >
                       <Icon className="h-8 w-8 text-dubai-gold" />
-                    </motion.div>
+                    </m.div>
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-dubai-navy text-center">{step.title}</h3>
                   <p className="text-dubai-navy/70 text-center">{step.description}</p>
 
                   {/* Step connector - only for first two steps */}
                   {index < 2 && (
-                    <motion.div
+                    <m.div
                       className="hidden md:block absolute top-1/2 -right-4 w-8 h-1 bg-dubai-gold/30"
                       animate={{ opacity: [0.3, 0.8, 0.3] }}
                       transition={{
@@ -420,14 +420,14 @@ export default function ThankYouPage() {
                       }}
                     />
                   )}
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
 
           {/* Animated Logistics Process Visualization */}
           <div className="mt-16 max-w-4xl mx-auto relative h-20">
-            <motion.div
+            <m.div
               className="absolute inset-0"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -443,7 +443,7 @@ export default function ThankYouPage() {
                 />
 
                 {/* Animated Truck */}
-                <motion.g
+                <m.g
                   animate={{ offsetDistance: ["0%", "100%"] }}
                   transition={{
                     duration: 10,
@@ -453,11 +453,11 @@ export default function ThankYouPage() {
                   style={{ offsetPath: "path('M0,25 Q200,10 400,25 T800,25')" }}
                 >
                   <Truck className="text-dubai-gold" />
-                </motion.g>
+                </m.g>
 
                 {/* Animated Packages */}
                 {[0, 1, 2].map((i) => (
-                  <motion.g
+                  <m.g
                     key={`path-box-${i}`}
                     animate={{ offsetDistance: [`${i * 30}%`, `${100 + i * 30}%`] }}
                     transition={{
@@ -469,10 +469,10 @@ export default function ThankYouPage() {
                     style={{ offsetPath: "path('M0,25 Q200,10 400,25 T800,25')" }}
                   >
                     <Package className="text-dubai-gold/70" style={{ width: 15, height: 15 }} />
-                  </motion.g>
+                  </m.g>
                 ))}
               </svg>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -482,7 +482,7 @@ export default function ThankYouPage() {
         {/* Animated background elements */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Subtle animated patterns */}
-          <motion.div
+          <m.div
             className="absolute inset-0 opacity-5"
             animate={{
               backgroundPosition: ["0% 0%", "100% 100%"],
@@ -511,7 +511,7 @@ export default function ThankYouPage() {
             <div className="grid md:grid-cols-2">
               <div className="p-8 bg-dubai-navy text-white relative overflow-hidden">
                 {/* Animated background for contact section */}
-                <motion.div
+                <m.div
                   className="absolute inset-0 opacity-10"
                   animate={{
                     backgroundPosition: ["0% 0%", "100% 100%"],
@@ -530,13 +530,13 @@ export default function ThankYouPage() {
 
                 <h3 className="text-2xl font-bold mb-6 relative">Contact Us</h3>
                 <ul className="space-y-6 relative">
-                  <motion.li
+                  <m.li
                     className="flex items-start gap-4"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                   >
-                    <motion.div
+                    <m.div
                       className="rounded-full bg-dubai-gold/20 p-2 mt-1"
                       animate={{
                         scale: [1, 1.1, 1],
@@ -549,7 +549,7 @@ export default function ThankYouPage() {
                       }}
                     >
                       <Phone className="h-5 w-5 text-dubai-gold" />
-                    </motion.div>
+                    </m.div>
                     <div>
                       <p className="font-medium text-dubai-gold">Phone</p>
                       <a
@@ -559,16 +559,16 @@ export default function ThankYouPage() {
                         {phoneNumber}
                       </a>
                     </div>
-                  </motion.li>
+                  </m.li>
 
-                  <motion.li
+                  <m.li
                     className="flex items-start gap-4"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
                   >
-                    <motion.div
+                    <m.div
                       className="rounded-full bg-dubai-gold/20 p-2 mt-1"
                       animate={{
                         scale: [1, 1.1, 1],
@@ -582,7 +582,7 @@ export default function ThankYouPage() {
                       }}
                     >
                       <Mail className="h-5 w-5 text-dubai-gold" />
-                    </motion.div>
+                    </m.div>
                     <div>
                       <p className="font-medium text-dubai-gold">Email</p>
                       <a
@@ -592,7 +592,7 @@ export default function ThankYouPage() {
                         safestoragedubai@gmail.com
                       </a>
                     </div>
-                  </motion.li>
+                  </m.li>
                 </ul>
               </div>
 
@@ -615,10 +615,10 @@ export default function ThankYouPage() {
 
                 <div className="mt-8 pt-6 border-t border-gray-200">
                   <p className="text-dubai-navy/70 mb-4">Need immediate assistance? Call our customer support team.</p>
-                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+                  <m.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
                     <Button className="w-full bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
                       <a href={`tel:${phoneNumber.replace(/\s/g, "")}`}>
-                        <motion.div
+                        <m.div
                           animate={{
                             x: [0, 3, 0, -3, 0],
                           }}
@@ -629,11 +629,11 @@ export default function ThankYouPage() {
                           }}
                         >
                           <Phone className="mr-2 h-4 w-4" />
-                        </motion.div>
+                        </m.div>
                         Call Us Now
                       </a>
                     </Button>
-                  </motion.div>
+                  </m.div>
                 </div>
               </div>
             </div>
@@ -647,7 +647,7 @@ export default function ThankYouPage() {
         <div className="absolute inset-0 pointer-events-none">
           {/* Moving trucks in background */}
           {Array.from({ length: 3 }).map((_, i) => (
-            <motion.div
+            <m.div
               key={`bg-truck-${i}`}
               className="absolute opacity-5"
               style={{
@@ -665,14 +665,14 @@ export default function ThankYouPage() {
               }}
             >
               <Truck style={{ width: `${80 + i * 20}px`, height: `${40 + i * 10}px` }} />
-            </motion.div>
+            </m.div>
           ))}
 
           {/* Storage unit grid in background */}
           <div className="absolute top-0 right-0 w-1/3 h-full opacity-5">
             <div className="grid grid-cols-3 grid-rows-6 h-full">
               {Array.from({ length: 18 }).map((_, i) => (
-                <motion.div
+                <m.div
                   key={`grid-${i}`}
                   className="border border-dubai-navy"
                   animate={{
@@ -727,7 +727,7 @@ export default function ThankYouPage() {
             ].map((service, index) => {
               const Icon = service.icon
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -748,7 +748,7 @@ export default function ThankYouPage() {
                       </div>
 
                       {/* Animated icon overlay */}
-                      <motion.div
+                      <m.div
                         className="absolute top-4 right-4 bg-dubai-gold/80 rounded-full p-2"
                         animate={{
                           scale: [1, 1.2, 1],
@@ -762,13 +762,13 @@ export default function ThankYouPage() {
                         }}
                       >
                         <Icon className="h-6 w-6 text-white" />
-                      </motion.div>
+                      </m.div>
                     </div>
                   </Link>
                   <p className="text-dubai-navy/70 mb-4">{service.description}</p>
                   <Link href={service.link} className="text-dubai-gold flex items-center hover:underline group">
                     Learn More
-                    <motion.div
+                    <m.div
                       animate={{ x: [0, 5, 0] }}
                       transition={{
                         duration: 1.5,
@@ -777,9 +777,9 @@ export default function ThankYouPage() {
                       }}
                     >
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </motion.div>
+                    </m.div>
                   </Link>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -790,7 +790,7 @@ export default function ThankYouPage() {
               <path d="M0,25 Q300,40 600,25 T1200,25" stroke="rgba(10, 36, 99, 0.1)" strokeWidth="2" fill="none" />
 
               {/* Animated elements along the path */}
-              <motion.g
+              <m.g
                 animate={{ offsetDistance: ["0%", "100%"] }}
                 transition={{
                   duration: 15,
@@ -800,11 +800,11 @@ export default function ThankYouPage() {
                 style={{ offsetPath: "path('M0,25 Q300,40 600,25 T1200,25')" }}
               >
                 <Truck className="text-dubai-navy/20" />
-              </motion.g>
+              </m.g>
 
               {/* Multiple boxes following the path */}
               {[0, 1, 2, 3, 4].map((i) => (
-                <motion.g
+                <m.g
                   key={`path-box-${i}`}
                   animate={{ offsetDistance: [`${i * 20}%`, `${100 + i * 20}%`] }}
                   transition={{
@@ -816,7 +816,7 @@ export default function ThankYouPage() {
                   style={{ offsetPath: "path('M0,25 Q300,40 600,25 T1200,25')" }}
                 >
                   <Box className="text-dubai-navy/20" style={{ width: 12, height: 12 }} />
-                </motion.g>
+                </m.g>
               ))}
             </svg>
           </div>

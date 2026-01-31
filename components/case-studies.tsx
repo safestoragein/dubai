@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Quote, Building, User, MapPin, Star, ArrowRight, Package } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -50,15 +50,15 @@ export default function CaseStudies() {
     <section className="w-full py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           >
             How SafeStorage Helped Dubai Residents & Businesses
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -66,7 +66,7 @@ export default function CaseStudies() {
             className="text-xl text-muted-foreground max-w-3xl"
           >
             Real success stories from our satisfied customers across Dubai
-          </motion.p>
+          </m.p>
         </div>
 
         {/* Desktop View - Carousel */}
@@ -75,7 +75,7 @@ export default function CaseStudies() {
             {/* Navigation Dots */}
             <div className="flex justify-center gap-3 mb-8">
               {caseStudies.map((_, index) => (
-                <motion.button
+                <m.button
                   key={index}
                   className={`w-3 h-3 rounded-full ${activeIndex === index ? "bg-primary" : "bg-gray-300"}`}
                   onClick={() => setActiveIndex(index)}
@@ -90,7 +90,7 @@ export default function CaseStudies() {
               {caseStudies.map((study, index) => {
                 const Icon = study.icon
                 return (
-                  <motion.div
+                  <m.div
                     key={index}
                     className="absolute top-0 left-0 w-full h-full"
                     initial={{ opacity: 0, x: 100 }}
@@ -114,7 +114,7 @@ export default function CaseStudies() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
 
                         {/* Floating Elements */}
-                        <motion.div
+                        <m.div
                           className="absolute top-6 left-6 z-20 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg"
                           initial={{ y: -20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
@@ -124,9 +124,9 @@ export default function CaseStudies() {
                             <Package className="h-5 w-5 text-primary" />
                             <span className="font-medium">Case Study {index + 1}</span>
                           </div>
-                        </motion.div>
+                        </m.div>
 
-                        <motion.div
+                        <m.div
                           className="absolute bottom-6 left-6 z-20 flex items-center gap-2"
                           initial={{ y: 20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
@@ -138,44 +138,44 @@ export default function CaseStudies() {
                           <div className="bg-white/90 backdrop-blur-sm rounded-lg py-1 px-3">
                             <span className="font-medium text-gray-800">{study.location}</span>
                           </div>
-                        </motion.div>
+                        </m.div>
                       </div>
 
                       {/* Content Side */}
                       <div className="flex flex-col justify-center">
                         <div className={`p-8 rounded-2xl bg-gradient-to-br ${study.color} border border-gray-200`}>
                           <div className="mb-6">
-                            <motion.div
+                            <m.div
                               className="inline-flex items-center justify-center p-2 rounded-full bg-white shadow-md mb-4"
                               initial={{ rotate: -10, scale: 0.9 }}
                               animate={{ rotate: 0, scale: 1 }}
                               transition={{ delay: 0.2, duration: 0.5 }}
                             >
                               <Icon className="h-6 w-6 text-primary" />
-                            </motion.div>
-                            <motion.h3
+                            </m.div>
+                            <m.h3
                               className="text-2xl font-bold mb-2"
                               initial={{ y: 20, opacity: 0 }}
                               animate={{ y: 0, opacity: 1 }}
                               transition={{ delay: 0.3, duration: 0.5 }}
                             >
                               {study.title}
-                            </motion.h3>
+                            </m.h3>
                             <div className="flex gap-1 mb-4">
                               {Array.from({ length: study.rating }).map((_, i) => (
-                                <motion.div
+                                <m.div
                                   key={i}
                                   initial={{ scale: 0, opacity: 0 }}
                                   animate={{ scale: 1, opacity: 1 }}
                                   transition={{ delay: 0.4 + i * 0.1, duration: 0.3 }}
                                 >
                                   <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                                </motion.div>
+                                </m.div>
                               ))}
                             </div>
                           </div>
 
-                          <motion.div
+                          <m.div
                             className="relative mb-6"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -183,9 +183,9 @@ export default function CaseStudies() {
                           >
                             <Quote className="absolute -top-4 -left-2 h-8 w-8 text-primary/20" />
                             <p className="text-lg italic text-gray-700 pl-6">{study.quote}</p>
-                          </motion.div>
+                          </m.div>
 
-                          <motion.div
+                          <m.div
                             className="flex items-center gap-3"
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
@@ -198,33 +198,33 @@ export default function CaseStudies() {
                               <p className="font-bold">{study.author}</p>
                               <p className="text-sm text-gray-600">{study.location}</p>
                             </div>
-                          </motion.div>
+                          </m.div>
                         </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )
               })}
             </div>
 
             {/* Navigation Arrows */}
             <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between pointer-events-none">
-              <motion.button
+              <m.button
                 className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-primary pointer-events-auto"
                 onClick={() => setActiveIndex((prev) => (prev === 0 ? caseStudies.length - 1 : prev - 1))}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <ArrowRight className="h-5 w-5 transform rotate-180" />
-              </motion.button>
-              <motion.button
+              </m.button>
+              <m.button
                 className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-primary pointer-events-auto"
                 onClick={() => setActiveIndex((prev) => (prev === caseStudies.length - 1 ? 0 : prev + 1))}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <ArrowRight className="h-5 w-5" />
-              </motion.button>
+              </m.button>
             </div>
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function CaseStudies() {
           {caseStudies.map((study, index) => {
             const Icon = study.icon
             return (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -286,13 +286,13 @@ export default function CaseStudies() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             )
           })}
         </div>
 
         {/* CTA Button */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -305,7 +305,7 @@ export default function CaseStudies() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )
