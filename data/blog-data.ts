@@ -55,10 +55,10 @@ const sampleComments: Comment[] = [
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
-    slug: "how-to-choose-storage-unit-size",
-    title: "How to Choose the Best Storage Unit Size in Dubai",
+    slug: "best-storage-in-dubai-affordable-safe-storage-solutions",
+    title: "Best Storage in Dubai | Affordable Safe Storage Solutions",
     excerpt:
-      "Find the perfect storage unit size for your needs with our comprehensive guide to storage dimensions and capacity planning.",
+      "Safestorage - Most trusted and #1 leading self storage unit in Dubai, Store your items securely with us ",
     content: `
       <p>Choosing the right storage unit size is crucial for both convenience and cost-effectiveness. Too small, and you'll struggle to fit everything. Too large, and you'll pay for space you don't need.</p>
       
@@ -113,10 +113,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 2,
-    slug: "packing-tips-long-term-storage",
-    title: "10 Essential Packing Tips for Long-Term Storage",
+    slug: "safe-storage-services-in-dubai-best-storage-options-for-you",
+    title: "SafeStorage Services in Dubai: Best Storage Options For You",
     excerpt:
-      "Learn professional packing techniques to keep your belongings safe and organized during long-term storage.",
+      "SafeStorage has become the leading and trusted storage provider in Dubai, offering fully monitored, insured, and climate-controlled dedicated household and commercial units",
     content: `
       <p>Proper packing is essential for preserving your belongings during long-term storage. Follow these professional tips to ensure your items remain in perfect condition.</p>
       
@@ -202,10 +202,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 3,
-    slug: "climate-controlled-storage-benefits",
-    title: "Is Climate-Controlled Storage Worth It?",
+    slug: "storage-near-me-dubai-for-household-luggage-business-item",
+    title: "Storage Near Me Dubai for Household, Luggage & Business Item",
     excerpt:
-      "Discover the benefits of climate-controlled storage in Dubai's extreme weather conditions and why it might be essential for your valuables.",
+      "The best storage near me in Dubai for household items is a climate-controlled facility under full CCTV overlooking and designed to guard furniture, appliances, décor, clothes, and any other fragile items in Dubai's heat.",
     content: `
       <p>In Dubai's extreme climate, where temperatures regularly exceed 40°C and humidity levels can be high, climate-controlled storage isn't just a luxury—it's often a necessity for preserving your valuable belongings.</p>
       

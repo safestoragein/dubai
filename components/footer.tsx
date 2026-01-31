@@ -41,7 +41,7 @@ export default function Footer() {
               </div>
               <span className="text-dubai-sand/80 text-sm">4.9/5 on Google</span>
             </div>
-            <p className="text-dubai-sand/60 text-sm">487+ Verified Reviews</p>
+            <p className="text-dubai-sand/60 text-sm">6700+ Verified Reviews Globally</p>
           </div>
 
           {/* Quick Links */}
@@ -65,6 +65,9 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/faq" className="hover:text-dubai-gold transition-colors">FAQs</Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-dubai-gold transition-colors">Blog</Link>
               </li>
             </ul>
           </div>
