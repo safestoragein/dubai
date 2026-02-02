@@ -25,7 +25,7 @@ export default function Header() {
 
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/services", label: "Personal Storage" },
+    { href: "/personal-storage", label: "Personal Storage" },
     { href: "/business-storage", label: "Business Storage" },
     { href: "/how-it-works", label: "How It Works" },
     { href: "/about", label: "About Us" },

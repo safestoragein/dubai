@@ -77,7 +77,7 @@ export default function Footer() {
             <h3 className="text-lg font-medium text-dubai-gold">Storage Types</h3>
             <ul className="space-y-2 text-dubai-sand/80 text-sm">
               <li>
-                <Link href="/services" className="hover:text-dubai-gold transition-colors">Personal Storage</Link>
+                <Link href="/personal-storage" className="hover:text-dubai-gold transition-colors">Personal Storage</Link>
               </li>
               <li>
                 <Link href="/business-storage" className="hover:text-dubai-gold transition-colors">Business Storage</Link>
