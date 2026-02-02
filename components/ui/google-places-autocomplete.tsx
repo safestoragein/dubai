@@ -73,7 +73,8 @@ export default function GooglePlacesAutocomplete({
         const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
         if (!apiKey) {
           console.error('Google Maps API key not configured')
-          setIsLoading(false)
+          setApiStatus('error')
+          isScriptLoading = false
           return
         }
         script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&loading=async`
