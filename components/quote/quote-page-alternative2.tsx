@@ -433,6 +433,13 @@ export default function QuotePage() {
   const [showPickupDateModal, setShowPickupDateModal] = useState(false)
   const [selectedPickupDate, setSelectedPickupDate] = useState("")
   const [selectedStorageOption, setSelectedStorageOption] = useState<"closed" | "shared" | null>(null)
+
+  // Auto-select shared storage when reaching step 3
+  useEffect(() => {
+    if (currentStep === 3 && !selectedStorageOption) {
+      setSelectedStorageOption('shared')
+    }
+  }, [currentStep, selectedStorageOption])
   
   const { setNavigationGuard, setFormData: setGuardFormData, setCurrentStep: setGuardCurrentStep } = useNavigationGuard()
 
@@ -1615,85 +1622,17 @@ export default function QuotePage() {
                     >
                       <Check className="w-8 h-8 text-white" />
                     </m.div>
-                    <h2 className="text-3xl font-bold text-slate-800 mb-2">Choose Your Storage Solution</h2>
+                    <h2 className="text-3xl font-bold text-slate-800 mb-2">Your Storage Quote</h2>
                     <p className="text-slate-600 max-w-2xl mx-auto">
-                      Select between private closed storage or cost-effective shared space
+                      Cost-effective shared storage solution for your items
                     </p>
                   </div>
 
 
-                  {/* Storage Options Cards - Narrow & Tall */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 max-w-2xl mx-auto">
-                    {/* Closed Storage Card - Narrow & Tall */}
-                    <m.div
-                      whileHover={{ scale: 1.02 }}
-                      className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-1"
-                    >
-                      <div className="bg-white rounded-2xl p-5 h-full min-h-[500px] flex flex-col">
-                        {/* Recommended Badge */}
-                        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                          <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                            MOST SECURE
-                          </span>
-                        </div>
-                        
-                        <div className="pt-4 flex flex-col flex-grow">
-                          {/* Storage Type Header */}
-                          <div className="text-center mb-6">
-                            <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                              <Shield className="w-8 h-8 text-blue-600" />
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-800 mb-2">Closed Storage</h3>
-                            <p className="text-slate-600 text-sm">Your exclusive private unit</p>
-                          </div>
-
-                          {/* Price Display */}
-                          {(() => {
-                            const closedPricing = calculateClosedSpacePricing(formData.selectedItems)
-                            return (
-                              <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-5 text-center mb-6">
-                                <div className="text-blue-100 text-xs uppercase tracking-wide mb-2">Monthly Rate</div>
-                                <div className="text-3xl font-bold text-white mb-2">
-                                  AED {closedPricing.totalCost.toLocaleString()}
-                                </div>
-                                <div className="text-blue-200 text-sm">
-                                  {closedPricing.containersNeeded} container{closedPricing.containersNeeded > 1 ? 's' : ''} × AED {closedPricing.pricePerContainer}
-                                </div>
-                              </div>
-                            )
-                          })()}
-
-
-                          {/* Features */}
-                          <div className="space-y-3 mb-6 flex-grow">
-                            {[
-                              "100% Private Unit",
-                              "24/7 Access",
-                              "Climate Controlled",
-                              "Personal Lock & Key",
-                              "Full Insurance"
-                            ].map((feature, index) => (
-                              <div key={index} className="flex items-center gap-3">
-                                <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                  <Check className="w-3 h-3 text-blue-600" />
-                                </div>
-                                <span className="text-slate-700 text-sm">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Select Button - HIDDEN */}
-                          {/* 
-                          <button
-                            onClick={() => handleStorageSelection('closed')}
-                            className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg"
-                          >
-                            Select Closed Storage
-                          </button>
-                          */}
-                        </div>
-                      </div>
-                    </m.div>
+                  {/* Storage Options Cards - Only Shared Storage */}
+                  <div className="grid grid-cols-1 gap-6 mb-6 max-w-xl mx-auto">
+                    {/* Closed Storage Card - HIDDEN */}
+                    {/* Closed storage option has been removed as per requirements */}
 
                     {/* Shared Storage Card - Narrow & Tall */}
                     <m.div
@@ -1801,7 +1740,7 @@ export default function QuotePage() {
 
                   {/* What's Included - Compact */}
                   <div className="mt-6">
-                    <h3 className="font-semibold text-slate-800 mb-3 text-center text-sm">Included With Both Options</h3>
+                    <h3 className="font-semibold text-slate-800 mb-3 text-center text-sm">What's Included</h3>
                     <div className="flex flex-wrap justify-center gap-2">
                       {[
                         { icon: Truck, label: "Hassle-Free Pickup" },
@@ -1865,7 +1804,18 @@ export default function QuotePage() {
                       </>
                     )}
                   </m.button>
-                ) : null}
+                ) : (
+                  <m.button
+                    onClick={() => handleStorageSelection('shared')}
+                    disabled={isSubmitting}
+                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-xl font-semibold shadow-lg shadow-emerald-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <Check className="w-5 h-5" />
+                    <span>Confirm Shared Storage</span>
+                  </m.button>
+                )}
               </div>
             </div>
           </div>
