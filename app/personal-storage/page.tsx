@@ -8,12 +8,12 @@ import Testimonials from "@/components/testimonials"
 export const metadata: Metadata = {
   title: "Personal Storage Dubai | Household & Home Storage Solutions | SafeStorage",
   description:
-    "Affordable personal storage solutions in Dubai. Store your furniture, boxes, seasonal items & more with free pickup & delivery. Starting from AED 24/month. Call +971505773388.",
+    "Affordable personal storage solutions in Dubai. Store your furniture, boxes, seasonal items & more with hassle-free pickup & delivery. Starting from AED 24/month. Call +971505773388.",
   keywords:
     "personal storage dubai, household storage, home storage dubai, furniture storage, moving storage, declutter storage, self storage dubai",
   openGraph: {
     title: "Personal Storage Dubai | SafeStorage",
-    description: "Affordable personal storage solutions with free pickup & delivery. Store furniture, boxes, and household items from AED 24/month.",
+    description: "Affordable personal storage solutions with hassle-free pickup & delivery. Store furniture, boxes, and household items from AED 24/month.",
     url: "https://safestorage.ae/personal-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -107,7 +107,7 @@ export default function PersonalStoragePage() {
               Starting from just <span className="text-dubai-gold font-bold">AED 24/month</span>.
             </p>
             <p className="text-base md:text-lg text-gray-400 mb-8">
-              Free pickup & delivery | No hidden fees | Cancel anytime
+              Hassle-free pickup & delivery | No hidden fees | Cancel anytime
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -219,7 +219,7 @@ export default function PersonalStoragePage() {
                 <div className="w-16 h-16 bg-dubai-gold rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                   2
                 </div>
-                <h3 className="text-xl font-semibold text-dubai-navy mb-2">Free Pickup</h3>
+                <h3 className="text-xl font-semibold text-dubai-navy mb-2">Hassle-Free Pickup</h3>
                 <p className="text-gray-600">
                   We'll collect your items from your doorstep at a time that suits you
                 </p>
@@ -248,7 +248,7 @@ export default function PersonalStoragePage() {
               Starting from Just AED 24/Month
             </h2>
             <p className="text-white/90 mb-8 text-lg">
-              No setup fees • Free pickup & delivery • Cancel anytime
+              No setup fees • Hassle-free pickup & delivery • Cancel anytime
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
               <div className="grid sm:grid-cols-3 gap-6 text-center">
@@ -257,7 +257,7 @@ export default function PersonalStoragePage() {
                   <div className="text-white/80 text-sm">Security Monitoring</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold mb-2">Free</div>
+                  <div className="text-3xl font-bold mb-2">Hassle-Free</div>
                   <div className="text-white/80 text-sm">Pickup & Delivery</div>
                 </div>
                 <div>

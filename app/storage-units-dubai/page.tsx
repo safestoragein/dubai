@@ -255,8 +255,8 @@ const testimonials = [
     location: "Downtown Dubai",
     useCase: "Apartment Downsizing",
     rating: 5,
-    text: "Moved from 3BR to 1BR apartment. Instead of selling furniture, I stored it. The free pickup saved me so much hassle - they literally did everything!",
-    highlight: "Free pickup",
+    text: "Moved from 3BR to 1BR apartment. Instead of selling furniture, I stored it. The hassle-free pickup saved me so much time - they literally did everything!",
+    highlight: "Hassle-free pickup",
   },
   {
     name: "James Wilson",
@@ -287,7 +287,7 @@ const faqs = [
     answer: "Yes, ALL our storage units are fully climate controlled. We maintain temperature at 20-25°C and humidity at 45-55% year-round. This is essential in Dubai where summer temperatures exceed 45°C. Climate control protects furniture from warping, electronics from damage, documents from deterioration, and prevents mold growth.",
   },
   {
-    question: "Do you offer free pickup and delivery?",
+    question: "Do you offer hassle-free pickup and delivery?",
     answer: "Yes! SafeStorage Dubai provides completely hassle-free pickup and delivery anywhere in Dubai. Our professional team will come to your home, office, or any location to collect your items. When you need them back, we deliver at your convenience. This saves you the hassle and cost of hiring movers separately.",
   },
   {
