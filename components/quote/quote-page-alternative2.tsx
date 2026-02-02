@@ -1630,43 +1630,43 @@ export default function QuotePage() {
 
 
                   {/* Storage Options Cards - Only Shared Storage */}
-                  <div className="grid grid-cols-1 gap-6 mb-6 max-w-xl mx-auto">
+                  <div className="grid grid-cols-1 gap-6 mb-6 max-w-md mx-auto">
                     {/* Closed Storage Card - HIDDEN */}
                     {/* Closed storage option has been removed as per requirements */}
 
-                    {/* Shared Storage Card - Narrow & Tall */}
+                    {/* Shared Storage Card - Compact */}
                     <m.div
                       whileHover={{ scale: 1.02 }}
-                      className="relative bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-1"
+                      className="relative bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-1"
                     >
-                      <div className="bg-white rounded-2xl p-5 h-full min-h-[500px] flex flex-col">
+                      <div className="bg-white rounded-xl p-4 h-full flex flex-col">
                         {/* Budget Badge */}
                         <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
                           <span className="bg-gradient-to-r from-emerald-500 to-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
                             BEST VALUE
                           </span>
                         </div>
-                        
-                        <div className="pt-4 flex flex-col flex-grow">
+
+                        <div className="pt-3 flex flex-col flex-grow">
                           {/* Storage Type Header */}
-                          <div className="text-center mb-6">
-                            <div className="w-16 h-16 bg-gradient-to-r from-emerald-100 to-green-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                              <Users className="w-8 h-8 text-emerald-600" />
+                          <div className="text-center mb-4">
+                            <div className="w-12 h-12 bg-gradient-to-r from-emerald-100 to-green-200 rounded-xl flex items-center justify-center mx-auto mb-3">
+                              <Users className="w-6 h-6 text-emerald-600" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-800 mb-2">Shared Storage</h3>
-                            <p className="text-slate-600 text-sm">Cost-effective shared space</p>
+                            <h3 className="text-lg font-bold text-slate-800 mb-1">Shared Storage</h3>
+                            <p className="text-slate-600 text-xs">Cost-effective shared space</p>
                           </div>
 
                           {/* Price Display */}
                           {(() => {
                             const sharedPricing = calculateSharedSpacePricing(formData.selectedItems)
                             return (
-                              <div className="bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl p-5 text-center mb-6">
-                                <div className="text-emerald-50 text-xs uppercase tracking-wide mb-2">Monthly Rate</div>
-                                <div className="text-3xl font-bold text-white mb-2">
+                              <div className="bg-gradient-to-r from-emerald-500 to-green-600 rounded-lg p-4 text-center mb-4">
+                                <div className="text-emerald-50 text-xs uppercase tracking-wide mb-1">Monthly Rate</div>
+                                <div className="text-2xl font-bold text-white mb-1">
                                   AED {sharedPricing.totalCost.toLocaleString()}
                                 </div>
-                                <div className="text-emerald-100 text-sm">
+                                <div className="text-emerald-100 text-xs">
                                   {sharedPricing.chargeableSqft} sqft × AED {sharedPricing.pricePerSqft}
                                 </div>
                                 {sharedPricing.isMinimumApplied && (
@@ -1680,7 +1680,7 @@ export default function QuotePage() {
 
 
                           {/* Features */}
-                          <div className="space-y-3 mb-6 flex-grow">
+                          <div className="space-y-2 mb-4 flex-grow">
                             {[
                               "Shared Warehouse",
                               "Scheduled Access",
@@ -1688,11 +1688,11 @@ export default function QuotePage() {
                               "Professional Care",
                               "Basic Insurance"
                             ].map((feature, index) => (
-                              <div key={index} className="flex items-center gap-3">
-                                <div className="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                  <Check className="w-3 h-3 text-emerald-600" />
+                              <div key={index} className="flex items-center gap-2">
+                                <div className="w-4 h-4 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                  <Check className="w-2.5 h-2.5 text-emerald-600" />
                                 </div>
-                                <span className="text-slate-700 text-sm">{feature}</span>
+                                <span className="text-slate-700 text-xs">{feature}</span>
                               </div>
                             ))}
                           </div>
