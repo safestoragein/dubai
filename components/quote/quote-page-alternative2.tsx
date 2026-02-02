@@ -1666,7 +1666,6 @@ export default function QuotePage() {
                     </div>
                   </div>
                 )}
-                </div>
               </m.div>
             )}
 
