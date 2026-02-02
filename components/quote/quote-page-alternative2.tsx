@@ -1312,36 +1312,36 @@ export default function QuotePage() {
                 >
                   <span className="text-sm font-bold">?</span>
                 </button>
-                <div className="mb-6">
-                  <h2 className="text-2xl font-bold text-slate-800 mb-2">Select Your Items</h2>
-                  <p className="text-slate-600">Choose the items you want to store. You can adjust quantities after selection.</p>
+                <div className="mb-4 sm:mb-6">
+                  <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-2">Select Your Items</h2>
+                  <p className="text-sm sm:text-base text-slate-600">Choose the items you want to store. You can adjust quantities after selection.</p>
                 </div>
 
                 {/* Search and Filter Bar */}
-                <div className="flex flex-col lg:flex-row gap-4 mb-6">
+                <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
                   <div className={`flex-1 relative ${showGuide && guideStep === 1 ? 'ring-4 ring-blue-500 ring-offset-2 rounded-lg' : ''}`}>
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 sm:w-5 sm:h-5" />
                     <Input
                       type="text"
                       placeholder="Search for items..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="pl-10 pr-10 h-11 border-2 border-slate-200 focus:border-blue-500 rounded-lg"
+                      className="pl-9 sm:pl-10 pr-10 h-10 sm:h-11 text-sm sm:text-base border-2 border-slate-200 focus:border-blue-500 rounded-lg"
                     />
                     {searchTerm && (
                       <button
                         onClick={() => setSearchTerm("")}
                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600"
                       >
-                        <X className="w-5 h-5" />
+                        <X className="w-4 h-4 sm:w-5 sm:h-5" />
                       </button>
                     )}
                   </div>
 
-                  <div className="text-right">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg">
-                      <Package className="w-5 h-5" />
-                      <span className="font-semibold">{formData.selectedItems.length} items selected</span>
+                  <div className="flex justify-between items-center">
+                    <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-50 text-blue-700 rounded-lg text-sm sm:text-base">
+                      <Package className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="font-semibold">{formData.selectedItems.length} selected</span>
                     </div>
                   </div>
                 </div>
@@ -1374,14 +1374,14 @@ export default function QuotePage() {
                       </div>
                     </div>
                   )}
-                  <div className={`flex gap-2 overflow-x-auto pb-4 mb-6 ${searchTerm ? 'opacity-30 pointer-events-none' : ''}`}>
+                  <div className={`flex gap-2 overflow-x-auto pb-3 mb-4 sm:mb-6 scrollbar-hide ${searchTerm ? 'opacity-30 pointer-events-none' : ''}`}>
                   {categories.map((category) => {
                     const Icon = category.icon
                     const colors = getCategoryColors(category.color)
-                    const itemCount = category.id === 'all' 
-                      ? apiItems.length 
+                    const itemCount = category.id === 'all'
+                      ? apiItems.length
                       : apiItems.filter(item => getCategoryForItem(item.storage_item_name) === category.id).length
-                    
+
                     return (
                       <button
                         key={category.id}
@@ -1391,15 +1391,15 @@ export default function QuotePage() {
                           }
                         }}
                         disabled={!!searchTerm}
-                        className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 transition-all whitespace-nowrap ${
+                        className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg border-2 transition-all whitespace-nowrap text-sm sm:text-base ${
                           selectedCategory === category.id
                             ? `${colors.selected} ${colors.text} ${colors.border} font-semibold shadow-sm`
                             : `bg-white ${colors.border} ${colors.text} ${colors.hover}`
                         } ${searchTerm ? 'cursor-not-allowed' : 'cursor-pointer'}`}
                       >
-                        <Icon className="w-4 h-4" />
-                        <span>{category.name}</span>
-                        <span className={`px-2 py-0.5 text-xs rounded-full font-medium ${
+                        <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm">{category.name}</span>
+                        <span className={`px-1.5 sm:px-2 py-0.5 text-xs rounded-full font-medium ${
                           selectedCategory === category.id
                             ? `${colors.bg} ${colors.text}`
                             : "bg-slate-100 text-slate-600"
@@ -1413,15 +1413,15 @@ export default function QuotePage() {
                 </div>
 
                 {/* Items Grid with Fixed Height Scroll */}
-                <div className="flex gap-6">
+                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
                   {/* Main Items Area */}
                   <div className="flex-1">
-                    <div className={`bg-slate-50 rounded-xl p-4 ${showGuide && guideStep === 3 ? 'ring-4 ring-blue-500 ring-offset-2' : ''}`}>
+                    <div className={`bg-slate-50 rounded-lg sm:rounded-xl p-3 sm:p-4 ${showGuide && guideStep === 3 ? 'ring-4 ring-blue-500 ring-offset-2' : ''}`}>
                       {isLoadingItems ? (
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                           {[...Array(8)].map((_, i) => (
                             <div key={i} className="animate-pulse">
-                              <div className="bg-white rounded-lg p-4 border border-slate-200">
+                              <div className="bg-white rounded-lg p-3 sm:p-4 border border-slate-200">
                                 <div className="w-full h-12 bg-slate-200 rounded mb-3"></div>
                                 <div className="h-4 bg-slate-200 rounded mb-2"></div>
                                 <div className="h-6 bg-slate-200 rounded"></div>
@@ -1430,8 +1430,8 @@ export default function QuotePage() {
                           ))}
                         </div>
                       ) : (
-                        <ScrollArea className="h-[500px] pr-4">
-                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                        <ScrollArea className="h-[400px] sm:h-[500px] pr-2 sm:pr-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3">
                             {filteredItems.map((item) => {
                               const ItemIcon = getItemIcon(item.storage_item_name)
                               const selectedItem = formData.selectedItems.find(si => si.name === item.storage_item_name)
@@ -1448,7 +1448,7 @@ export default function QuotePage() {
                                   whileTap={{ scale: 0.95 }}
                                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                                   onClick={() => toggleItemSelection(item)}
-                                  className={`relative rounded-lg p-4 cursor-pointer border-2 transition-all duration-150 ${
+                                  className={`relative rounded-lg p-3 sm:p-4 cursor-pointer border-2 transition-all duration-150 ${
                                     isSelected
                                       ? `${colors.selectedBg} ${colors.selectedBorder} shadow-lg ring-2 ring-offset-2 ring-opacity-50`
                                       : `bg-white border-slate-200 ${colors.hover} hover:shadow-md`
@@ -1462,57 +1462,57 @@ export default function QuotePage() {
                                         animate={{ scale: 1 }}
                                         transition={{ duration: 0.15, type: "spring", stiffness: 400 }}
                                       >
-                                        <CheckCircle2 className={`w-6 h-6 ${colors.text} drop-shadow-sm`} />
+                                        <CheckCircle2 className={`w-5 h-5 sm:w-6 sm:h-6 ${colors.text} drop-shadow-sm`} />
                                       </m.div>
                                     ) : (
-                                      <Circle className="w-6 h-6 text-slate-300 hover:text-slate-400 transition-colors duration-100" />
+                                      <Circle className="w-5 h-5 sm:w-6 sm:h-6 text-slate-300 hover:text-slate-400 transition-colors duration-100" />
                                     )}
                                   </div>
 
                                   {/* Item Icon */}
-                                  <div className={`flex justify-center mb-3 ${colors.text}`}>
-                                    <div className={`p-3 rounded-lg ${colors.bg}`}>
-                                      <ItemIcon className="w-7 h-7" />
+                                  <div className={`flex justify-center mb-2 sm:mb-3 ${colors.text}`}>
+                                    <div className={`p-2 sm:p-3 rounded-lg ${colors.bg}`}>
+                                      <ItemIcon className="w-6 h-6 sm:w-7 sm:h-7" />
                                     </div>
                                   </div>
 
                                   {/* Item Name */}
-                                  <div className="text-sm font-medium text-slate-700 text-center line-clamp-2 min-h-[40px]">
+                                  <div className="text-xs sm:text-sm font-medium text-slate-700 text-center line-clamp-2 min-h-[32px] sm:min-h-[40px]">
                                     {item.storage_item_name}
                                   </div>
 
                                   {/* Quantity Controls - Fast animation */}
                                   {isSelected && selectedItem && (
-                                    <m.div 
+                                    <m.div
                                       initial={{ opacity: 0, height: 0 }}
                                       animate={{ opacity: 1, height: "auto" }}
                                       exit={{ opacity: 0, height: 0 }}
                                       transition={{ duration: 0.2, ease: "easeOut" }}
-                                      className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-slate-200"
+                                      className="flex items-center justify-center gap-2 mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-slate-200"
                                     >
                                       <button
                                         onClick={(e) => {
                                           e.stopPropagation()
                                           updateItemQuantity(item.storage_item_name, -1)
                                         }}
-                                        className="w-7 h-7 rounded-full bg-slate-200 hover:bg-slate-300 active:bg-slate-400 flex items-center justify-center transition-all duration-100"
+                                        className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-200 hover:bg-slate-300 active:bg-slate-400 flex items-center justify-center transition-all duration-100"
                                         disabled={selectedItem.quantity <= 1}
                                       >
-                                        <Minus className="w-4 h-4 text-slate-600" />
+                                        <Minus className="w-3 h-3 sm:w-4 sm:h-4 text-slate-600" />
                                       </button>
-                                      
-                                      <span className="w-12 text-center font-semibold text-slate-800 transition-all duration-100">
+
+                                      <span className="w-10 sm:w-12 text-center text-sm sm:text-base font-semibold text-slate-800 transition-all duration-100">
                                         {selectedItem.quantity}
                                       </span>
-                                      
+
                                       <button
                                         onClick={(e) => {
                                           e.stopPropagation()
                                           updateItemQuantity(item.storage_item_name, 1)
                                         }}
-                                        className={`w-7 h-7 rounded-full ${colors.bg} ${colors.text} hover:opacity-80 flex items-center justify-center transition-opacity`}
+                                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full ${colors.bg} ${colors.text} hover:opacity-80 flex items-center justify-center transition-opacity`}
                                       >
-                                        <Plus className="w-4 h-4" />
+                                        <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
                                       </button>
                                     </m.div>
                                   )}
@@ -1525,26 +1525,26 @@ export default function QuotePage() {
                     </div>
 
                     {/* Item Count Info */}
-                    <div className="mt-4 text-center text-sm text-slate-500">
+                    <div className="mt-3 sm:mt-4 text-center text-xs sm:text-sm text-slate-500">
                       Showing {filteredItems.length} items
                       {searchTerm && ` for "${searchTerm}" (searching all categories)`}
                       {!searchTerm && selectedCategory !== 'all' && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
                     </div>
                   </div>
 
-                  {/* Selected Items Sidebar */}
+                  {/* Selected Items Sidebar - Desktop */}
                   {formData.selectedItems.length > 0 && (
                     <div className="w-80 hidden lg:block">
                       <div className={`bg-white rounded-xl border-2 border-slate-200 p-4 sticky top-4 ${showGuide && guideStep === 4 ? 'ring-4 ring-blue-500 ring-offset-2' : ''}`}>
                         <h3 className="font-semibold text-slate-800 mb-4">Selected Items</h3>
-                        
+
                         <ScrollArea className="h-[400px] pr-2">
                           <div className="space-y-2">
                             {formData.selectedItems.map((item, index) => {
                               const categoryId = getCategoryForItem(item.name)
                               const category = categories.find(c => c.id === categoryId)
                               const colors = getCategoryColors(category?.color || "blue")
-                              
+
                               return (
                                 <div key={index} className="flex items-center gap-2 p-2 bg-slate-50 rounded-lg">
                                   <div className="flex-1 min-w-0">
@@ -1590,7 +1590,7 @@ export default function QuotePage() {
                               {formData.selectedItems.reduce((acc, item) => acc + item.quantity, 0)}
                             </span>
                           </div>
-                          <Button 
+                          <Button
                             onClick={() => setFormData({ ...formData, selectedItems: [] })}
                             variant="outline"
                             className="w-full"
@@ -1601,6 +1601,71 @@ export default function QuotePage() {
                       </div>
                     </div>
                   )}
+                </div>
+
+                {/* Selected Items - Mobile (Below items grid) */}
+                {formData.selectedItems.length > 0 && (
+                  <div className="lg:hidden mt-4 sm:mt-6">
+                    <div className={`bg-white rounded-lg sm:rounded-xl border-2 border-slate-200 p-3 sm:p-4 ${showGuide && guideStep === 4 ? 'ring-4 ring-blue-500 ring-offset-2' : ''}`}>
+                      <h3 className="font-semibold text-slate-800 mb-3 text-sm sm:text-base">Selected Items ({formData.selectedItems.reduce((acc, item) => acc + item.quantity, 0)})</h3>
+
+                      <div className="max-h-[250px] overflow-y-auto">
+                        <div className="space-y-2">
+                          {formData.selectedItems.map((item, index) => {
+                            const categoryId = getCategoryForItem(item.name)
+                            const category = categories.find(c => c.id === categoryId)
+                            const colors = getCategoryColors(category?.color || "blue")
+
+                            return (
+                              <div key={index} className="flex items-center gap-2 p-2 bg-slate-50 rounded-lg">
+                                <div className="flex-1 min-w-0">
+                                  <div className="text-xs sm:text-sm font-medium text-slate-700 truncate">{item.name}</div>
+                                  <div className={`text-xs ${colors.text}`}>{category?.name}</div>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <button
+                                    onClick={() => updateItemQuantity(item.name, -1)}
+                                    className="w-7 h-7 sm:w-8 sm:h-8 rounded bg-slate-200 hover:bg-slate-300 flex items-center justify-center"
+                                  >
+                                    <Minus className="w-3 h-3 text-slate-600" />
+                                  </button>
+                                  <span className="w-7 sm:w-8 text-center text-xs sm:text-sm font-semibold">{item.quantity}</span>
+                                  <button
+                                    onClick={() => updateItemQuantity(item.name, 1)}
+                                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded ${colors.bg} ${colors.text} hover:opacity-80 flex items-center justify-center`}
+                                  >
+                                    <Plus className="w-3 h-3" />
+                                  </button>
+                                </div>
+                                <button
+                                  onClick={() => {
+                                    setFormData({
+                                      ...formData,
+                                      selectedItems: formData.selectedItems.filter((_, i) => i !== index)
+                                    })
+                                  }}
+                                  className="text-red-500 hover:text-red-600"
+                                >
+                                  <X className="w-4 h-4" />
+                                </button>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </div>
+
+                      <div className="mt-3 pt-3 border-t">
+                        <Button
+                          onClick={() => setFormData({ ...formData, selectedItems: [] })}
+                          variant="outline"
+                          className="w-full text-sm h-9"
+                        >
+                          Clear All
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                )}
                 </div>
               </m.div>
             )}
