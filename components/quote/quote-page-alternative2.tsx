@@ -962,54 +962,57 @@ export default function QuotePage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
-        <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
           <div className="text-center">
-            <m.h1 
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-3xl font-bold text-slate-800 mb-2"
+              className="text-2xl sm:text-3xl font-bold text-slate-800 mb-2"
             >
               Get Storage Quote
             </m.h1>
-            <m.p 
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-slate-600"
+              className="text-sm sm:text-base text-slate-600"
             >
               Quick estimate in 3 easy steps
             </m.p>
           </div>
           
-          {/* Modern Step Indicator */}
-          <div className="flex items-center justify-center mt-6 mb-4">
-            <div className="flex items-center space-x-4">
+          {/* Modern Step Indicator - Mobile Optimized */}
+          <div className="flex items-center justify-center mt-6 mb-4 px-4">
+            <div className="flex items-center justify-between w-full max-w-2xl">
               {steps.map((step, index) => {
                 const isCompleted = step.number < currentStep || (step.number === 3 && currentStep === 3)
                 const isCurrent = step.number === currentStep && step.number !== 3
-                
+
                 return (
-                  <div key={step.number} className="flex items-center">
-                    <div className={`relative w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
-                      isCompleted ? "bg-emerald-500 text-white" :
-                      isCurrent ? "bg-blue-600 text-white" :
-                      "bg-slate-200 text-slate-500"
-                    }`}>
-                      {isCompleted ? "✓" : step.number}
-                      {isCurrent && (
-                        <div className="absolute -inset-1 bg-blue-600 rounded-full opacity-30 animate-pulse"></div>
-                      )}
-                    </div>
-                    <div className="ml-3">
-                      <div className={`text-sm font-medium ${
-                        isCompleted ? "text-emerald-600" : 
-                        isCurrent ? "text-blue-600" : "text-slate-500"
+                  <div key={step.number} className="flex items-center flex-1">
+                    <div className="flex flex-col items-center flex-1">
+                      <div className={`relative w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all ${
+                        isCompleted ? "bg-emerald-500 text-white" :
+                        isCurrent ? "bg-blue-600 text-white" :
+                        "bg-slate-200 text-slate-500"
                       }`}>
-                        {step.title}
+                        {isCompleted ? "✓" : step.number}
+                        {isCurrent && (
+                          <div className="absolute -inset-1 bg-blue-600 rounded-full opacity-30 animate-pulse"></div>
+                        )}
+                      </div>
+                      <div className="mt-2 text-center">
+                        <div className={`text-xs sm:text-sm font-medium ${
+                          isCompleted ? "text-emerald-600" :
+                          isCurrent ? "text-blue-600" : "text-slate-500"
+                        }`}>
+                          <span className="hidden sm:inline">{step.title}</span>
+                          <span className="sm:hidden">Step {step.number}</span>
+                        </div>
                       </div>
                     </div>
                     {index < steps.length - 1 && (
-                      <div className={`w-12 h-px mx-4 ${isCompleted || (step.number === 2 && currentStep === 3) ? "bg-emerald-500" : "bg-slate-300"}`}></div>
+                      <div className={`h-px flex-1 mx-2 sm:mx-4 ${isCompleted || (step.number === 2 && currentStep === 3) ? "bg-emerald-500" : "bg-slate-300"}`}></div>
                     )}
                   </div>
                 )
@@ -1020,8 +1023,8 @@ export default function QuotePage() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
           <AnimatePresence mode="wait">
             {/* Step 1: Customer Details */}
             {currentStep === 1 && (
@@ -1030,11 +1033,11 @@ export default function QuotePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="p-8"
+                className="p-4 sm:p-6 md:p-8"
               >
-                <div className="mb-6">
-                  <h2 className="text-2xl font-bold text-slate-800 mb-2">Contact Information</h2>
-                  <p className="text-slate-600">We'll need these details to process your storage request</p>
+                <div className="mb-4 sm:mb-6">
+                  <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-2">Contact Information</h2>
+                  <p className="text-sm sm:text-base text-slate-600">We'll need these details to process your storage request</p>
                 </div>
 
                 <div className="space-y-6">
@@ -1138,7 +1141,7 @@ export default function QuotePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="p-8 relative"
+                className="p-4 sm:p-6 md:p-8 relative"
               >
                 {/* Onboarding Guide Overlay */}
                 {showGuide && (
@@ -1609,9 +1612,9 @@ export default function QuotePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="min-h-[600px]"
+                className="min-h-[400px] sm:min-h-[600px]"
               >
-                <div className="p-8">
+                <div className="p-4 sm:p-6 md:p-8">
                   {/* Header Section */}
                   <div className="text-center mb-8">
                     <m.div
@@ -1765,21 +1768,22 @@ export default function QuotePage() {
           </AnimatePresence>
 
           {/* Modern Navigation Buttons */}
-          <div className="bg-white border-t border-slate-200 px-8 py-6">
-            <div className="flex justify-between items-center">
+          <div className="bg-white border-t border-slate-200 px-4 sm:px-6 md:px-8 py-4 sm:py-6">
+            <div className="flex justify-between items-center gap-2">
               <m.button
                   onClick={handlePrevious}
                   disabled={currentStep === 1}
                   whileHover={{ scale: currentStep === 1 ? 1 : 1.02 }}
                   whileTap={{ scale: currentStep === 1 ? 1 : 0.98 }}
-                  className={`flex items-center gap-3 px-6 py-3 rounded-xl font-semibold transition-all ${
-                    currentStep === 1 
-                      ? "invisible" 
+                  className={`flex items-center gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold transition-all ${
+                    currentStep === 1
+                      ? "invisible"
                       : "bg-slate-100 text-slate-700 hover:bg-slate-200 shadow-sm"
                   }`}
                 >
-                  <ArrowLeft className="w-5 h-5" />
-                  <span>Previous</span>
+                  <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="hidden sm:inline">Previous</span>
+                  <span className="sm:hidden">Back</span>
                 </m.button>
 
                 {currentStep < 3 ? (
@@ -1790,17 +1794,17 @@ export default function QuotePage() {
                     whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                     id={currentStep === 2 ? 'quote-step2-continue' : undefined}
                     data-gtm-event={currentStep === 2 ? 'quote_step2_continue' : undefined}
-                    className={`flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold shadow-lg shadow-blue-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed ${currentStep === 2 ? 'gtm-quote-step2-continue' : ''}`}
+                    className={`flex items-center gap-2 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold shadow-lg shadow-blue-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed ${currentStep === 2 ? 'gtm-quote-step2-continue' : ''}`}
                   >
                     {isSubmitting && currentStep === 2 ? (
                       <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                         <span>Saving...</span>
                       </>
                     ) : (
                       <>
                         <span>Continue</span>
-                        <ArrowRight className="w-5 h-5" />
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                       </>
                     )}
                   </m.button>
@@ -1810,10 +1814,11 @@ export default function QuotePage() {
                     disabled={isSubmitting}
                     whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                     whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-xl font-semibold shadow-lg shadow-emerald-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center gap-2 px-3 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold shadow-lg shadow-emerald-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Check className="w-5 h-5" />
-                    <span>Confirm Shared Storage</span>
+                    <Check className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="hidden sm:inline">Confirm Shared Storage</span>
+                    <span className="sm:hidden">Confirm</span>
                   </m.button>
                 )}
               </div>
