@@ -17,7 +17,7 @@ export const contactFaqs = [
   {
     question: "Can I visit your office in person?",
     answer:
-      "Yes, you're welcome to visit our office in Business Bay, Dubai during our business hours. We recommend scheduling an appointment to ensure our team can assist you properly.",
+      "Yes, you're welcome to visit our office at 402- B Wing, Emarat Atrium Bldg - Dubai - United Arab Emirates during our business hours. We recommend scheduling an appointment to ensure our team can assist you properly.",
   },
  
 ]

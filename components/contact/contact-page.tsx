@@ -177,7 +177,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-dubai-navy">Office Address</h3>
-                    <p className="text-dubai-navy/70">SafeStorage HQ: Business Bay, Dubai, UAE</p>
+                    <p className="text-dubai-navy/70">402- B Wing, Emarat Atrium Bldg - Dubai - United Arab Emirates</p>
                   </div>
                 </div>
 

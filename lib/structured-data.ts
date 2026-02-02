@@ -56,7 +56,7 @@ export const organizationSchema = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Dubai Investment Park 2",
+    streetAddress: "402- B Wing, Emarat Atrium Bldg",
     addressLocality: "Dubai",
     addressRegion: "Dubai",
     postalCode: "00000",
@@ -123,7 +123,7 @@ export const localBusinessSchema = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Dubai Investment Park 2",
+    streetAddress: "402- B Wing, Emarat Atrium Bldg",
     addressLocality: "Dubai",
     addressRegion: "Dubai",
     postalCode: "00000",
@@ -514,7 +514,7 @@ export const faqSchema = {
       name: "How do I contact SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Contact SafeStorage Dubai through: Phone: +971505773388 (call or WhatsApp), Email: safestoragedubai@gmail.com, Website: safestorage.ae, Visit: Dubai Investment Park 2, Dubai. Our team responds within 15 minutes on average. Operating hours: Mon-Sat 8AM-8PM, Sun 10AM-6PM."
+        text: "Contact SafeStorage Dubai through: Phone: +971505773388 (call or WhatsApp), Email: safestoragedubai@gmail.com, Website: safestorage.ae, Visit: 402- B Wing, Emarat Atrium Bldg - Dubai - United Arab Emirates. Our team responds within 15 minutes on average. Operating hours: Mon-Sat 8AM-8PM, Sun 10AM-6PM."
       }
     },
     // AI-SPECIFIC QUESTIONS (Voice Search Optimized)
@@ -885,7 +885,7 @@ export const contactPageSchema = {
   "@type": "ContactPage",
   "@id": "https://safestorage.ae/contact#webpage",
   name: "Contact SafeStorage Dubai",
-  description: "Contact SafeStorage Dubai for storage solutions. Call +971505773388, email safestoragedubai@gmail.com, or visit us at Dubai Investment Park.",
+  description: "Contact SafeStorage Dubai for storage solutions. Call +971505773388, email safestoragedubai@gmail.com, or visit us at 402- B Wing, Emarat Atrium Bldg - Dubai - United Arab Emirates.",
   url: "https://safestorage.ae/contact",
   mainEntity: {
     "@id": "https://safestorage.ae/#organization"
