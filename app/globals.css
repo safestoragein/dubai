@@ -8,6 +8,60 @@
   }
 }
 
+/* Google Places Autocomplete Dropdown Styles */
+.pac-container {
+  z-index: 9999 !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  margin-top: 4px;
+  font-family: inherit;
+}
+
+.pac-container:after {
+  display: none;
+}
+
+.pac-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-top: 1px solid #e5e7eb;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.pac-item:first-child {
+  border-top: none;
+}
+
+.pac-item:hover {
+  background-color: #f3f4f6;
+}
+
+.pac-item-selected {
+  background-color: #eff6ff;
+}
+
+.pac-icon {
+  margin-right: 8px;
+  margin-top: 2px;
+}
+
+.pac-item-query {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.pac-matched {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.pac-logo {
+  padding: 8px;
+  background-color: #f9fafb;
+}
+
 /* Blog Content Styles for Better Readability */
 .blog-content {
   @apply text-gray-700 leading-relaxed;

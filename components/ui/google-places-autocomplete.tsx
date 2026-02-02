@@ -119,9 +119,9 @@ export default function GooglePlacesAutocomplete({
 
         // Create autocomplete instance
         const autocomplete = new window.google.maps.places.Autocomplete(inputRef.current!, {
-          types: ['geocode', 'establishment'],
+          types: ['address'],
           componentRestrictions: { country: 'AE' },
-          fields: ['formatted_address', 'geometry', 'place_id', 'name']
+          fields: ['formatted_address', 'address_components', 'geometry', 'place_id', 'name']
         })
 
         autocompleteRef.current = autocomplete
@@ -168,11 +168,11 @@ export default function GooglePlacesAutocomplete({
   }
 
   const getStatusMessage = () => {
-    if (apiStatus === 'loading') return "Loading Google Maps..."
-    if (apiStatus === 'error') return "Failed to load maps. You can still type manually."
-    if (autocompleteStatus === 'pending') return "Setting up address suggestions..."
-    if (autocompleteStatus === 'error') return "Address suggestions unavailable. Type manually."
-    return "Type to see address suggestions"
+    if (apiStatus === 'loading') return "Loading address suggestions..."
+    if (apiStatus === 'error') return "Type your complete Dubai address manually"
+    if (autocompleteStatus === 'pending') return "Preparing address lookup..."
+    if (autocompleteStatus === 'error') return "Type your complete Dubai address manually"
+    return "Start typing to see address suggestions"
   }
 
   return (
