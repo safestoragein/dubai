@@ -433,6 +433,7 @@ export default function QuotePage() {
   const [showPickupDateModal, setShowPickupDateModal] = useState(false)
   const [selectedPickupDate, setSelectedPickupDate] = useState("")
   const [selectedStorageOption, setSelectedStorageOption] = useState<"closed" | "shared" | null>(null)
+  const [showMobileItemsModal, setShowMobileItemsModal] = useState(false)
 
   // Auto-select shared storage when reaching step 3
   useEffect(() => {
@@ -1603,68 +1604,17 @@ export default function QuotePage() {
                   )}
                 </div>
 
-                {/* Selected Items - Mobile (Below items grid) */}
+                {/* Mobile Floating Button - Shows selected items count */}
                 {formData.selectedItems.length > 0 && (
-                  <div className="lg:hidden mt-4 sm:mt-6">
-                    <div className={`bg-white rounded-lg sm:rounded-xl border-2 border-slate-200 p-3 sm:p-4 ${showGuide && guideStep === 4 ? 'ring-4 ring-blue-500 ring-offset-2' : ''}`}>
-                      <h3 className="font-semibold text-slate-800 mb-3 text-sm sm:text-base">Selected Items ({formData.selectedItems.reduce((acc, item) => acc + item.quantity, 0)})</h3>
-
-                      <div className="max-h-[250px] overflow-y-auto">
-                        <div className="space-y-2">
-                          {formData.selectedItems.map((item, index) => {
-                            const categoryId = getCategoryForItem(item.name)
-                            const category = categories.find(c => c.id === categoryId)
-                            const colors = getCategoryColors(category?.color || "blue")
-
-                            return (
-                              <div key={index} className="flex items-center gap-2 p-2 bg-slate-50 rounded-lg">
-                                <div className="flex-1 min-w-0">
-                                  <div className="text-xs sm:text-sm font-medium text-slate-700 truncate">{item.name}</div>
-                                  <div className={`text-xs ${colors.text}`}>{category?.name}</div>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                  <button
-                                    onClick={() => updateItemQuantity(item.name, -1)}
-                                    className="w-7 h-7 sm:w-8 sm:h-8 rounded bg-slate-200 hover:bg-slate-300 flex items-center justify-center"
-                                  >
-                                    <Minus className="w-3 h-3 text-slate-600" />
-                                  </button>
-                                  <span className="w-7 sm:w-8 text-center text-xs sm:text-sm font-semibold">{item.quantity}</span>
-                                  <button
-                                    onClick={() => updateItemQuantity(item.name, 1)}
-                                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded ${colors.bg} ${colors.text} hover:opacity-80 flex items-center justify-center`}
-                                  >
-                                    <Plus className="w-3 h-3" />
-                                  </button>
-                                </div>
-                                <button
-                                  onClick={() => {
-                                    setFormData({
-                                      ...formData,
-                                      selectedItems: formData.selectedItems.filter((_, i) => i !== index)
-                                    })
-                                  }}
-                                  className="text-red-500 hover:text-red-600"
-                                >
-                                  <X className="w-4 h-4" />
-                                </button>
-                              </div>
-                            )
-                          })}
-                        </div>
-                      </div>
-
-                      <div className="mt-3 pt-3 border-t">
-                        <Button
-                          onClick={() => setFormData({ ...formData, selectedItems: [] })}
-                          variant="outline"
-                          className="w-full text-sm h-9"
-                        >
-                          Clear All
-                        </Button>
-                      </div>
+                  <button
+                    onClick={() => setShowMobileItemsModal(true)}
+                    className="lg:hidden fixed bottom-20 right-4 z-40 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full shadow-lg px-4 py-3 flex items-center gap-2 hover:shadow-xl transition-all"
+                  >
+                    <div className="w-6 h-6 bg-white text-blue-600 rounded-full flex items-center justify-center text-xs font-bold">
+                      {formData.selectedItems.reduce((acc, item) => acc + item.quantity, 0)}
                     </div>
-                  </div>
+                    <span className="text-sm font-semibold">View Items</span>
+                  </button>
                 )}
               </m.div>
             )}
@@ -2031,6 +1981,126 @@ export default function QuotePage() {
                   <p className="text-xs text-slate-500">
                     You'll be redirected to our secure payment gateway
                   </p>
+                </div>
+              </m.div>
+            </m.div>
+          )}
+        </AnimatePresence>
+
+        {/* Mobile Selected Items Modal */}
+        <AnimatePresence>
+          {showMobileItemsModal && (
+            <m.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-end z-50"
+              onClick={() => setShowMobileItemsModal(false)}
+            >
+              <m.div
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "100%" }}
+                transition={{ type: "spring", damping: 30, stiffness: 300 }}
+                className="bg-white rounded-t-3xl w-full max-h-[85vh] flex flex-col"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between p-4 border-b border-slate-200">
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-800">Selected Items</h3>
+                    <p className="text-sm text-slate-600">
+                      {formData.selectedItems.reduce((acc, item) => acc + item.quantity, 0)} items
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setShowMobileItemsModal(false)}
+                    className="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
+                  >
+                    <X className="w-5 h-5 text-slate-600" />
+                  </button>
+                </div>
+
+                {/* Items List */}
+                <div className="flex-1 overflow-y-auto p-4">
+                  <div className="space-y-3">
+                    {formData.selectedItems.map((item, index) => {
+                      const categoryId = getCategoryForItem(item.name)
+                      const category = categories.find(c => c.id === categoryId)
+                      const colors = getCategoryColors(category?.color || "blue")
+
+                      return (
+                        <div key={index} className="bg-slate-50 rounded-lg p-3 flex items-center gap-3">
+                          <div className="flex-1 min-w-0">
+                            <div className="text-sm font-medium text-slate-700 truncate">{item.name}</div>
+                            <div className={`text-xs ${colors.text}`}>{category?.name}</div>
+                            <div className="text-xs text-slate-500 mt-1">
+                              {item.storagePoints} points × {item.quantity} = {item.storagePoints * item.quantity} points
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => updateItemQuantity(item.name, -1)}
+                              className="w-8 h-8 rounded-lg bg-white border-2 border-slate-200 hover:border-slate-300 flex items-center justify-center"
+                            >
+                              <Minus className="w-4 h-4 text-slate-600" />
+                            </button>
+                            <span className="w-8 text-center text-sm font-bold text-slate-800">{item.quantity}</span>
+                            <button
+                              onClick={() => updateItemQuantity(item.name, 1)}
+                              className={`w-8 h-8 rounded-lg ${colors.bg} ${colors.text} hover:opacity-80 flex items-center justify-center`}
+                            >
+                              <Plus className="w-4 h-4" />
+                            </button>
+                            <button
+                              onClick={() => {
+                                setFormData({
+                                  ...formData,
+                                  selectedItems: formData.selectedItems.filter((_, i) => i !== index)
+                                })
+                              }}
+                              className="w-8 h-8 rounded-lg bg-red-50 text-red-500 hover:bg-red-100 flex items-center justify-center ml-1"
+                            >
+                              <X className="w-4 h-4" />
+                            </button>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* Footer */}
+                <div className="p-4 border-t border-slate-200 space-y-3">
+                  <div className="bg-blue-50 rounded-lg p-3">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-sm text-slate-600">Total Points:</span>
+                      <span className="text-sm font-bold text-slate-800">
+                        {calculateTotalPoints(formData.selectedItems)}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-slate-600">Storage Space:</span>
+                      <span className="text-sm font-bold text-blue-600">
+                        {calculateSharedSpacePricing(formData.selectedItems).chargeableSqft} sqft
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button
+                      onClick={() => setFormData({ ...formData, selectedItems: [] })}
+                      variant="outline"
+                      className="flex-1"
+                    >
+                      Clear All
+                    </Button>
+                    <Button
+                      onClick={() => setShowMobileItemsModal(false)}
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700"
+                    >
+                      Done
+                    </Button>
+                  </div>
                 </div>
               </m.div>
             </m.div>
