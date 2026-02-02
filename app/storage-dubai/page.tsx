@@ -18,11 +18,11 @@ import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "Storage Dubai | #1 Rated Storage Facility | From AED 99 | SafeStorage",
-  description: "Best storage in Dubai from AED 99/month. Climate-controlled, 24/7 access, Hassle-Free pickup & delivery. 4.9★ rated by 500+ customers. Get instant quote!",
+  description: "Best storage in Dubai from AED 99/month. Climate-controlled, 24/7 access, Hassle-Hassle-hassle-free pickup & delivery. 4.9★ rated by 500+ customers. Get instant quote!",
   keywords: "storage dubai, self storage dubai, storage facility dubai, cheap storage dubai, secure storage dubai, climate controlled storage, furniture storage dubai, business storage dubai, document storage dubai, vehicle storage dubai",
   openGraph: {
     title: "Storage Dubai | #1 Rated Storage Facility | From AED 99",
-    description: "Best storage in Dubai from AED 99/month. Climate-controlled, 24/7 access, Hassle-Free pickup & delivery. 4.9★ rated by 500+ customers.",
+    description: "Best storage in Dubai from AED 99/month. Climate-controlled, 24/7 access, Hassle-Hassle-hassle-free pickup & delivery. 4.9★ rated by 500+ customers.",
     url: "https://safestorage.ae/storage-dubai",
     siteName: "SafeStorage Dubai",
     images: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Storage Dubai | #1 Rated | From AED 99",
-    description: "Best storage in Dubai. Climate-controlled, Hassle-Free pickup. 500+ happy customers.",
+    description: "Best storage in Dubai. Climate-controlled, Hassle-Hassle-hassle-free pickup. 500+ happy customers.",
   },
   alternates: {
     canonical: "https://safestorage.ae/storage-dubai",
@@ -281,7 +281,7 @@ const testimonials = [
 const faqs = [
   {
     question: "How much does storage cost in Dubai?",
-    answer: "Storage in Dubai at SafeStorage starts from just AED 99 per month. We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include climate control, security, and hassle-free pickup & delivery. Contact us at 050-577-3388 for a personalized quote.",
+    answer: "Storage in Dubai at SafeStorage starts from just AED 99 per month. We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include climate control, security, and hassle-hassle-free pickup & delivery. Contact us at 050-577-3388 for a personalized quote.",
   },
   {
     question: "Is climate control necessary for storage in Dubai?",
@@ -289,7 +289,7 @@ const faqs = [
   },
   {
     question: "Do you pick up items from my location?",
-    answer: "Yes! SafeStorage provides hassle-free pickup from anywhere in Dubai - your home, office, or any location. Our professional team arrives with packing materials, carefully loads your items, and transports them to our facility. When you need them back, we deliver to your door. This service is included in our packages.",
+    answer: "Yes! SafeStorage provides hassle-hassle-free pickup from anywhere in Dubai - your home, office, or any location. Our professional team arrives with packing materials, carefully loads your items, and transports them to our facility. When you need them back, we deliver to your door. This service is included in our packages.",
   },
   {
     question: "What size storage unit do I need?",
@@ -329,7 +329,7 @@ const faqs = [
   },
   {
     question: "Where is your storage facility located?",
-    answer: "Our main facility is in Dubai Investment Park 2, strategically located with easy access from all Dubai areas. But location doesn't matter much - we provide hassle-free pickup from YOUR location (Dubai Marina, Business Bay, JLT, Downtown, wherever you are) and delivery back when needed!",
+    answer: "Our main facility is in Dubai Investment Park 2, strategically located with easy access from all Dubai areas. But location doesn't matter much - we provide hassle-hassle-free pickup from YOUR location (Dubai Marina, Business Bay, JLT, Downtown, wherever you are) and delivery back when needed!",
   },
   {
     question: "How quickly can I get started?",
@@ -398,7 +398,7 @@ export default function StorageDubaiPage() {
 
               {/* Subheadline */}
               <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-                Hassle-Free pickup & delivery • From AED 99/month • 24/7 access • Climate controlled
+                Hassle-Hassle-hassle-free pickup & delivery • From AED 99/month • 24/7 access • Climate controlled
               </p>
 
               {/* CTAs */}
@@ -563,7 +563,7 @@ export default function StorageDubaiPage() {
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Hassle-free pickup & delivery</span>
+                        <span className="text-sm">Hassle-hassle-free pickup & delivery</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
@@ -667,7 +667,7 @@ export default function StorageDubaiPage() {
                 Storage Pickup in All Dubai Areas
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Hassle-Free pickup & delivery from these locations (and anywhere else in Dubai!)
+                Hassle-Hassle-hassle-free pickup & delivery from these locations (and anywhere else in Dubai!)
               </p>
             </div>
 

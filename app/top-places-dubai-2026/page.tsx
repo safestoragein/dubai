@@ -46,7 +46,7 @@ const places = [
       "VR Park and Dubai Ice Rink"
     ],
     bestTime: "Sunset (6-7 PM) for stunning views",
-    storageConnection: "Moving to Downtown Dubai? Store your extra furniture and belongings with us while you settle into your new high-rise apartment. We offer hassle-free pickup from all Downtown areas.",
+    storageConnection: "Moving to Downtown Dubai? Store your extra furniture and belongings with us while you settle into your new high-rise apartment. We offer hassle-hassle-free pickup from all Downtown areas.",
     image: "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=1200&h=800&fit=crop"
   },
   {

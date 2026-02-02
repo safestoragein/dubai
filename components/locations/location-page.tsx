@@ -23,7 +23,7 @@ export default function LocationPage({ location, areas, distance, benefits }: Lo
         name: `Do you provide storage services in ${location}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Yes, we provide comprehensive storage services for ${location} residents and businesses with hassle-free pickup and delivery from your location.`
+          text: `Yes, we provide comprehensive storage services for ${location} residents and businesses with hassle-hassle-free pickup and delivery from your location.`
         }
       },
       {
@@ -53,7 +53,7 @@ export default function LocationPage({ location, areas, distance, benefits }: Lo
               Storage Solutions in {location}
             </h1>
             <p className="text-xl mb-8">
-              Premium, secure storage units with hassle-free pickup & delivery service for all {location} residents
+              Premium, secure storage units with hassle-hassle-free pickup & delivery service for all {location} residents
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>

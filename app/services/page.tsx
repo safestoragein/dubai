@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "storage services dubai, personal storage, business storage, document storage, vehicle storage, self storage dubai, climate controlled storage, secure storage dubai, furniture storage, moving storage",
   openGraph: {
     title: "SafeStorage Services - Personal, Business & Vehicle Storage",
-    description: "Complete storage solutions in Dubai. Climate-controlled units, 24/7 security, hassle-free pickup. Call +971505773388.",
+    description: "Complete storage solutions in Dubai. Climate-controlled units, 24/7 security, hassle-hassle-free pickup. Call +971505773388.",
     url: "https://safestorage.ae/services",
     siteName: "SafeStorage Dubai",
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SafeStorage Services Dubai | +971505773388",
-    description: "Personal, business & vehicle storage solutions with hassle-free pickup & delivery.",
+    description: "Personal, business & vehicle storage solutions with hassle-hassle-free pickup & delivery.",
     images: ["/twitter-services.jpg"],
   },
   alternates: {

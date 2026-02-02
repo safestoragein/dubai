@@ -467,7 +467,7 @@ export default function SelfStorageDubaiPage() {
                 Areas We Serve Across Dubai
               </h2>
               <p className="text-center text-gray-600 mb-8">
-                We cover popular neighborhoods across Dubai with hassle-free pickup and delivery services.
+                We cover popular neighborhoods across Dubai with hassle-hassle-free pickup and delivery services.
               </p>
               
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

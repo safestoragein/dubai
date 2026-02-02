@@ -87,7 +87,7 @@ const sections = [
       "Register Ejari (rental contract)",
       "Consider proximity to work/schools"
     ],
-    storageConnection: "Moving between hotel and apartment? Store your belongings safely with us during the transition. Free pickup from anywhere in Dubai - focus on finding the right home, not managing boxes!",
+    storageConnection: "Moving between hotel and apartment? Store your belongings safely with us during the transition. Hassle-hassle-free pickup from anywhere in Dubai - focus on finding the right home, not managing boxes!",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&h=800&fit=crop",
     color: "from-green-500 to-green-600"
   },
@@ -394,7 +394,7 @@ export default function MovingToDubai2026() {
               Ready to Make Your Dubai Move Smooth?
             </h2>
             <p className="text-xl mb-8 text-gray-200">
-              Join thousands who trusted SafeStorage during their relocation. Free pickup, flexible terms, and 24/7 security.
+              Join thousands who trusted SafeStorage during their relocation. Hassle-hassle-free pickup, flexible terms, and 24/7 security.
             </p>
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">

@@ -70,7 +70,7 @@ const faqCategories = [
     faqs: [
       {
         question: "Do you offer pickup and delivery services?",
-        answer: "Yes! We provide hassle-free pickup and delivery services across Dubai. Our professional team will collect your items from your location (home, office, or anywhere in Dubai), transport them safely to our climate-controlled facility, and return them whenever you need them back. This hassle-free service is what sets us apart!"
+        answer: "Yes! We provide hassle-hassle-free pickup and delivery services across Dubai. Our professional team will collect your items from your location (home, office, or anywhere in Dubai), transport them safely to our climate-controlled facility, and return them whenever you need them back. This hassle-free service is what sets us apart!"
       },
       {
         question: "How quickly can you pick up my items?",

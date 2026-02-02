@@ -201,7 +201,7 @@ export default function CheapStorageDubai() {
       cost: "Moving/Pickup Service",
       typical: "AED 300-800",
       ourPrice: "Hassle-Free Pickup",
-      avoid: "Look for hassle-free pickup and delivery services",
+      avoid: "Look for hassle-hassle-free pickup and delivery services",
     },
     {
       icon: AlertCircle,

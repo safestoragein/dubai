@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "business storage dubai, document storage, inventory storage, office storage, commercial storage dubai, secure business storage",
   openGraph: {
     title: "Business Storage Dubai | SafeStorage",
-    description: "Professional business storage solutions with secure facilities and hassle-free pickup & delivery.",
+    description: "Professional business storage solutions with secure facilities and hassle-hassle-free pickup & delivery.",
     url: "https://safestorage.ae/business-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

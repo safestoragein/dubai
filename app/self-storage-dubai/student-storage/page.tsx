@@ -213,7 +213,7 @@ export default function StudentStoragePage() {
                   <ul className="space-y-3 text-gray-600">
                     <li className="flex items-start">
                       <Truck className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Hassle-free pickup from campus</span>
+                      <span>Hassle-hassle-free pickup from campus</span>
                     </li>
                     <li className="flex items-start">
                       <Truck className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
@@ -459,7 +459,7 @@ export default function StudentStoragePage() {
             </h2>
             <p className="text-xl mb-8 text-white/90">
               Book your storage today and get exclusive student rates. 
-              Hassle-free pickup from your university accommodation.
+              Hassle-hassle-free pickup from your university accommodation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-dubai-navy hover:bg-gray-100" asChild>

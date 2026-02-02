@@ -61,7 +61,7 @@ const benefits = [
   "No upfront warehouse investment required",
   "Pay only for the space you use",
   "Climate-controlled storage protects inventory",
-  "Hassle-free pickup for order fulfilment",
+  "Hassle-hassle-free pickup for order fulfilment",
   "Perfect for Amazon, Noon, and other marketplace sellers",
   "Flexible terms - scale up or down anytime",
 ]

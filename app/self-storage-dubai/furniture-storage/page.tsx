@@ -6,11 +6,11 @@ import { Sofa, Shield, Thermometer, Package, ArrowRight, CheckCircle2, AlertCirc
 
 export const metadata: Metadata = {
   title: "Furniture Storage Dubai – Affordable Climate-Controlled Units Starting from AED 150/Month | SafeStorage",
-  description: "Dubai's most affordable furniture storage starting from AED 150/month. Climate-controlled units protect sofas, beds & dining sets from heat damage. Hassle-free pickup available. 24/7 access, CCTV security.",
+  description: "Dubai's most affordable furniture storage starting from AED 150/month. Climate-controlled units protect sofas, beds & dining sets from heat damage. Hassle-hassle-free pickup available. 24/7 access, CCTV security.",
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, climate controlled furniture storage, cheap furniture storage dubai, furniture storage al quoz, furniture storage units dubai, affordable furniture storage",
   openGraph: {
     title: "Furniture Storage Dubai – Climate-Controlled Units from AED 150/Month",
-    description: "Store furniture safely in Dubai with 24/7 access, climate control, and professional handling. Hassle-free pickup & delivery available.",
+    description: "Store furniture safely in Dubai with 24/7 access, climate control, and professional handling. Hassle-hassle-free pickup & delivery available.",
     url: "https://safestorage.ae/self-storage-dubai/furniture-storage",
   },
   alternates: {
@@ -154,7 +154,7 @@ export default function FurnitureStoragePage() {
                     <li>✓ 2-bedroom apartment</li>
                     <li>✓ Full living room set</li>
                     <li>✓ Multiple bedroom sets</li>
-                    <li>✓ Hassle-free pickup service</li>
+                    <li>✓ Hassle-hassle-free pickup service</li>
                     <li>✓ 24/7 access available</li>
                   </ul>
                 </CardContent>
@@ -791,7 +791,7 @@ export default function FurnitureStoragePage() {
                     ))}
                   </div>
                   <p className="text-gray-600 mb-4 italic">
-                    "Best prices in Dubai! Saved over 40% compared to other storage companies. Hassle-free pickup was a huge bonus. Highly recommend for furniture storage."
+                    "Best prices in Dubai! Saved over 40% compared to other storage companies. Hassle-hassle-free pickup was a huge bonus. Highly recommend for furniture storage."
                   </p>
                   <p className="font-semibold text-dubai-navy">- Sarah M., Jumeirah</p>
                 </CardContent>
@@ -867,11 +867,11 @@ export default function FurnitureStoragePage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Do you provide hassle-free pickup and delivery for furniture?</CardTitle>
+                  <CardTitle className="text-lg">Do you provide hassle-hassle-free pickup and delivery for furniture?</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Yes! We offer hassle-free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our climate-controlled facility. Delivery is also available when you're ready to retrieve your items. Call +971 50 577 3388 or email safestoragedubai@gmail.com to schedule your pickup.
+                    Yes! We offer hassle-hassle-free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our climate-controlled facility. Delivery is also available when you're ready to retrieve your items. Call +971 50 577 3388 or email safestoragedubai@gmail.com to schedule your pickup.
                   </p>
                 </CardContent>
               </Card>
@@ -938,7 +938,7 @@ export default function FurnitureStoragePage() {
                 <CardContent>
                   <p className="text-gray-600">
                     <strong>DIY Storage:</strong> You transport furniture yourself, we provide trolleys and drive-up access. Best for those with a van/truck.<br/><br/>
-                    <strong>Full Service (Most Popular):</strong> We handle everything - professional packing, hassle-free pickup, transport, storage, and scheduled return delivery. Perfect for busy professionals or those without transport.<br/><br/>
+                    <strong>Full Service (Most Popular):</strong> We handle everything - professional packing, hassle-hassle-free pickup, transport, storage, and scheduled return delivery. Perfect for busy professionals or those without transport.<br/><br/>
                     <strong>Premium Care:</strong> White-glove service for antique/valuable pieces with art-quality wrapping, individual climate zones, and monthly inspections.
                   </p>
                 </CardContent>
