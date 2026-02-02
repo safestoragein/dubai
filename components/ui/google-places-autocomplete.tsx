@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { loadGoogleMapsScript } from "@/lib/google-maps-loader"
 
 interface GooglePlacesAutocompleteProps {
   value: string
@@ -11,9 +12,6 @@ interface GooglePlacesAutocompleteProps {
   className?: string
   label?: string
 }
-
-let isScriptLoading = false
-let isScriptLoaded = false
 
 export default function GooglePlacesAutocomplete({
   value,
@@ -27,92 +25,34 @@ export default function GooglePlacesAutocomplete({
   const [apiStatus, setApiStatus] = useState<'loading' | 'loaded' | 'error'>('loading')
   const [autocompleteStatus, setAutocompleteStatus] = useState<'pending' | 'ready' | 'error'>('pending')
 
+  // Load Google Maps script
   useEffect(() => {
-    const loadGoogleMaps = async () => {
-      try {
-        // Check if Google Maps is already loaded
-        if (typeof window !== 'undefined' && window.google && window.google.maps && window.google.maps.places) {
-          setApiStatus('loaded')
-          isScriptLoaded = true
-          return
-        }
+    console.log('🚀 GooglePlacesAutocomplete component mounted')
 
-        // Check if script is already loading
-        if (isScriptLoading) {
-          // Wait for it to finish loading
-          const waitForLoad = () => {
-            if (isScriptLoaded) {
-              setApiStatus('loaded')
-            } else {
-              setTimeout(waitForLoad, 100)
-            }
-          }
-          waitForLoad()
-          return
-        }
-
-        // Check if script already exists in DOM
-        if (document.querySelector('script[src*="maps.googleapis.com"]')) {
-          isScriptLoading = true
-          const waitForLoad = () => {
-            if (window.google && window.google.maps && window.google.maps.places) {
-              setApiStatus('loaded')
-              isScriptLoaded = true
-              isScriptLoading = false
-            } else {
-              setTimeout(waitForLoad, 100)
-            }
-          }
-          waitForLoad()
-          return
-        }
-
-        // Load the script
-        isScriptLoading = true
-        const script = document.createElement('script')
-        const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
-        if (!apiKey) {
-          console.error('Google Maps API key not configured')
-          setApiStatus('error')
-          isScriptLoading = false
-          return
-        }
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&loading=async`
-        
-        script.onload = () => {
-          console.log('Google Maps script loaded successfully')
-          setApiStatus('loaded')
-          isScriptLoaded = true
-          isScriptLoading = false
-        }
-        
-        script.onerror = () => {
-          console.error('Failed to load Google Maps script')
-          setApiStatus('error')
-          isScriptLoading = false
-        }
-        
-        document.head.appendChild(script)
-      } catch (error) {
-        console.error('Error in loadGoogleMaps:', error)
+    loadGoogleMapsScript()
+      .then(() => {
+        console.log('✅ Google Maps loaded in component')
+        setApiStatus('loaded')
+      })
+      .catch((error) => {
+        console.error('❌ Failed to load Google Maps in component:', error)
         setApiStatus('error')
-      }
-    }
-
-    loadGoogleMaps()
+      })
   }, [])
 
+  // Initialize autocomplete when API is loaded
   useEffect(() => {
     if (apiStatus !== 'loaded' || !inputRef.current || autocompleteRef.current) {
+      console.log('⏸️ Skipping autocomplete init:', { apiStatus, hasInput: !!inputRef.current, hasAutocomplete: !!autocompleteRef.current })
       return
     }
 
     const initializeAutocomplete = () => {
       try {
-        console.log('Initializing Places Autocomplete...')
-        
-        if (!window.google || !window.google.maps || !window.google.maps.places) {
-          console.error('Google Maps Places API not available')
+        console.log('🔧 Initializing Places Autocomplete...')
+
+        if (!window.google?.maps?.places) {
+          console.error('❌ Google Maps Places API not available')
           setAutocompleteStatus('error')
           return
         }
@@ -124,13 +64,14 @@ export default function GooglePlacesAutocomplete({
           fields: ['formatted_address', 'address_components', 'geometry', 'place_id', 'name']
         })
 
+        console.log('✅ Autocomplete instance created')
         autocompleteRef.current = autocomplete
-        
+
         // Add listener for place selection
         autocomplete.addListener('place_changed', () => {
           const place = autocomplete.getPlace()
-          console.log('Place selected:', place)
-          
+          console.log('📍 Place selected:', place)
+
           if (place.formatted_address) {
             onChange(place.formatted_address)
           } else if (place.name) {
@@ -139,17 +80,17 @@ export default function GooglePlacesAutocomplete({
         })
 
         setAutocompleteStatus('ready')
-        console.log('Places Autocomplete initialized successfully')
+        console.log('✅ Places Autocomplete ready!')
 
       } catch (error) {
-        console.error('Error initializing autocomplete:', error)
+        console.error('❌ Error initializing autocomplete:', error)
         setAutocompleteStatus('error')
       }
     }
 
     // Small delay to ensure DOM is ready
-    const timer = setTimeout(initializeAutocomplete, 100)
-    
+    const timer = setTimeout(initializeAutocomplete, 150)
+
     return () => {
       clearTimeout(timer)
       if (autocompleteRef.current) {
@@ -168,11 +109,11 @@ export default function GooglePlacesAutocomplete({
   }
 
   const getStatusMessage = () => {
-    if (apiStatus === 'loading') return "Loading address suggestions..."
-    if (apiStatus === 'error') return "Type your complete Dubai address manually"
-    if (autocompleteStatus === 'pending') return "Preparing address lookup..."
-    if (autocompleteStatus === 'error') return "Type your complete Dubai address manually"
-    return "Start typing to see address suggestions"
+    if (apiStatus === 'loading') return "⏳ Loading address suggestions..."
+    if (apiStatus === 'error') return "✍️ Type your complete Dubai address manually"
+    if (autocompleteStatus === 'pending') return "⏳ Preparing address lookup..."
+    if (autocompleteStatus === 'error') return "✍️ Type your complete Dubai address manually"
+    return "✨ Start typing to see address suggestions"
   }
 
   return (
@@ -186,6 +127,7 @@ export default function GooglePlacesAutocomplete({
         onChange={handleInputChange}
         placeholder={placeholder}
         className={`h-12 border-2 border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-lg ${className}`}
+        autoComplete="off"
       />
       <div className="text-xs text-slate-500">
         {getStatusMessage()}
