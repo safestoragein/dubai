@@ -142,9 +142,9 @@ const calculateSharedSpacePricing = (selectedItems: SelectedItem[]) => {
   
   // Minimum 30 sqft for shared space
   const chargeableSqft = Math.max(calculatedSqft, 30)
-  
-  // 20 AED per sqft
-  const pricePerSqft = 20
+
+  // 13 AED per sqft
+  const pricePerSqft = 13
   const totalCost = chargeableSqft * pricePerSqft
   
   return {
