@@ -32,7 +32,7 @@ const features = [
   },
   {
     icon: Truck,
-    title: "Free Pickup & Delivery",
+    title: "Hassle-Free Pickup & Delivery",
     description: "We collect and deliver your items at no extra charge - completely hassle-free",
   },
   {
