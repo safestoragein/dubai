@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "about safestorage dubai, storage company dubai, trusted storage dubai, climate controlled storage, secure storage facility",
   openGraph: {
     title: "About SafeStorage Dubai - Your Trusted Storage Partner",
-    description: "Serving Dubai since 2015 with premium storage solutions. Climate-controlled units, 24/7 security, free pickup & delivery.",
+    description: "Serving Dubai since 2015 with premium storage solutions. Climate-controlled units, 24/7 security, hassle-free pickup & delivery.",
     url: "https://safestorage.ae/about",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
