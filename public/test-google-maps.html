@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Maps Autocomplete Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        #autocomplete {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        #log {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-entry {
+            padding: 4px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <h1>Google Places Autocomplete Test</h1>
+
+    <div id="status" class="status info">
+        Loading Google Maps API...
+    </div>
+
+    <div style="margin-top: 20px;">
+        <label for="autocomplete"><strong>Enter Dubai Address:</strong></label>
+        <input id="autocomplete" type="text" placeholder="Start typing an address in Dubai...">
+    </div>
+
+    <div id="selected-place" style="margin-top: 20px; display: none;">
+        <h3>Selected Place:</h3>
+        <pre id="place-details"></pre>
+    </div>
+
+    <div id="log">
+        <div style="font-weight: bold; margin-bottom: 10px;">Debug Log:</div>
+    </div>
+
+    <script>
+        const logDiv = document.getElementById('log');
+        const statusDiv = document.getElementById('status');
+
+        function addLog(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            const timestamp = new Date().toLocaleTimeString();
+            entry.innerHTML = `<span style="color: #6c757d;">[${timestamp}]</span> ${message}`;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function updateStatus(message, type) {
+            statusDiv.className = `status ${type}`;
+            statusDiv.textContent = message;
+        }
+
+        addLog('🚀 Page loaded');
+        addLog('📥 Loading Google Maps API with key...');
+
+        // Load Google Maps API
+        const script = document.createElement('script');
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCse5f97FoDXrT5kKoeB1XGCxeCs12-mOE&libraries=places&callback=initAutocomplete';
+        script.async = true;
+        script.defer = true;
+
+        script.onerror = function() {
+            addLog('❌ Failed to load Google Maps script');
+            updateStatus('❌ Failed to load Google Maps API. Check API key restrictions.', 'error');
+        };
+
+        document.head.appendChild(script);
+        addLog('✅ Script tag added to page');
+
+        // Initialize autocomplete
+        function initAutocomplete() {
+            addLog('✅ Google Maps API loaded successfully!');
+            updateStatus('✅ Google Maps API loaded! Start typing in the field below.', 'success');
+
+            const input = document.getElementById('autocomplete');
+
+            if (!google || !google.maps || !google.maps.places) {
+                addLog('❌ Google Maps Places library not available');
+                updateStatus('❌ Places library not available', 'error');
+                return;
+            }
+
+            addLog('🔧 Creating autocomplete instance...');
+
+            const autocomplete = new google.maps.places.Autocomplete(input, {
+                types: ['address'],
+                componentRestrictions: { country: 'AE' },
+                fields: ['formatted_address', 'address_components', 'geometry', 'place_id', 'name']
+            });
+
+            addLog('✅ Autocomplete instance created!');
+            addLog('✨ Ready! Type in the address field to see suggestions.');
+
+            autocomplete.addListener('place_changed', function() {
+                const place = autocomplete.getPlace();
+                addLog('📍 Place selected: ' + (place.formatted_address || place.name));
+
+                document.getElementById('selected-place').style.display = 'block';
+                document.getElementById('place-details').textContent = JSON.stringify(place, null, 2);
+            });
+        }
+
+        // Make it global
+        window.initAutocomplete = initAutocomplete;
+
+        // Fallback check
+        setTimeout(function() {
+            if (!window.google) {
+                addLog('⏱️ Timeout: Google Maps API did not load after 10 seconds');
+                updateStatus('⏱️ Timeout: API failed to load. Check console for errors.', 'error');
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
