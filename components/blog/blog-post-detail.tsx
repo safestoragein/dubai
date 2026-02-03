@@ -8,9 +8,26 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { formatDate } from "@/lib/utils"
-import { getRandomBlogImage } from "@/lib/blog-images"
 import LikeButton from "./like-button"
 import ShareButtons from "./share-buttons"
+
+// Helper function to construct image URL from endpoint data
+function constructImageUrl(postImages: string | null | undefined): string {
+  if (!postImages) return "/blog-placeholder.jpg"
+
+  // If it's already a full URL, return as is
+  if (postImages.startsWith('http://') || postImages.startsWith('https://')) {
+    return postImages
+  }
+
+  // If it starts with "post_images/", construct full URL
+  if (postImages.startsWith('post_images/')) {
+    return `https://safestorage.in/${postImages}`
+  }
+
+  // Otherwise assume it's just the filename
+  return `https://safestorage.in/post_images/${postImages}`
+}
 
 // Generate consistent likes/views based on post ID (deterministic)
 function getConsistentLikes(postId: number): number {
@@ -120,7 +137,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             author: { name: 'SafeStorage Team' },
             categories: [blog.post_category || 'Storage Tips'],
             date: blog.created_at || new Date().toISOString(),
-            image: blog.post_images || getRandomBlogImage(blog.post_category, postId),
+            image: constructImageUrl(blog.post_images),
             readTime: "5 min read",
             likes: getConsistentLikes(postId),
             views: getConsistentViews(postId),
@@ -161,7 +178,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
                 author: { name: 'SafeStorage Team' },
                 categories: [blog.post_category || 'Storage Tips'],
                 date: blog.created_at || new Date().toISOString(),
-                image: blog.post_images || getRandomBlogImage(blog.post_category, blogPostId),
+                image: constructImageUrl(blog.post_images),
                 readTime: "5 min read",
                 likes: getConsistentLikes(blogPostId),
                 views: getConsistentViews(blogPostId),
@@ -264,7 +281,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         >
           <div className="aspect-video relative">
             <Image
-              src={imageError ? "/blog-placeholder.svg" : (post.image || "/blog-placeholder.svg")}
+              src={imageError ? "/blog-placeholder.jpg" : (post.image || "/blog-placeholder.jpg")}
               alt={post.title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
@@ -328,7 +345,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
                   <div className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer h-[380px] flex flex-col">
                     <div className="relative h-48 bg-gray-200 flex-shrink-0">
                       <Image
-                        src={relatedImageErrors[relatedPost.id] ? "/blog-placeholder.svg" : (relatedPost.image || "/blog-placeholder.svg")}
+                        src={relatedImageErrors[relatedPost.id] ? "/blog-placeholder.jpg" : (relatedPost.image || "/blog-placeholder.jpg")}
                         alt={relatedPost.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 400px"

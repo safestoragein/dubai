@@ -11,7 +11,25 @@ import Image from "next/image"
 import LikeButtonMini from "./like-button-mini"
 // If there are any Clock imports from icons.tsx, update them
 import { Clock } from "@/components/icons"
-import { getRandomBlogImage, getCategoryColor } from "@/lib/blog-images"
+import { getCategoryColor } from "@/lib/blog-images"
+
+// Helper function to construct image URL from endpoint data
+function constructImageUrl(postImages: string | null | undefined): string {
+  if (!postImages) return "/blog-placeholder.jpg"
+
+  // If it's already a full URL, return as is
+  if (postImages.startsWith('http://') || postImages.startsWith('https://')) {
+    return postImages
+  }
+
+  // If it starts with "post_images/", construct full URL
+  if (postImages.startsWith('post_images/')) {
+    return `https://safestorage.in/${postImages}`
+  }
+
+  // Otherwise assume it's just the filename
+  return `https://safestorage.in/post_images/${postImages}`
+}
 
 // Generate consistent likes/views based on post ID (deterministic)
 function getConsistentLikes(postId: number): number {
@@ -89,7 +107,7 @@ export default function BlogPage() {
             author: { name: 'SafeStorage Team' },
             categories: [blog.post_category || 'Storage Tips'],
             date: blog.created_at || new Date().toISOString(),
-            image: blog.post_images || `/blog-placeholder.jpg`,
+            image: constructImageUrl(blog.post_images),
             readTime: "5 min read",
             likes: getConsistentLikes(postId),
             views: getConsistentViews(postId),
@@ -256,7 +274,7 @@ function BlogPostCard({ post, index }: { post: BlogPost; index: number }) {
       <Link href={`/blog/${post.slug}`} target="_blank" rel="noopener noreferrer">
         <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
           <Image
-            src={getRandomBlogImage(post.categories[0], post.id)}
+            src={post.image || "/blog-placeholder.jpg"}
             alt={post.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
@@ -307,7 +325,7 @@ function BlogPostRow({ post, index }: { post: BlogPost; index: number }) {
       <Link href={`/blog/${post.slug}`} className="md:col-span-1" target="_blank" rel="noopener noreferrer">
         <div className="relative h-40 overflow-hidden rounded-lg">
           <Image
-            src={getRandomBlogImage(post.categories[0], post.id)}
+            src={post.image || "/blog-placeholder.jpg"}
             alt={post.title}
             fill
             sizes="(max-width: 768px) 100vw, 300px"
@@ -357,7 +375,7 @@ function SidebarPostCard({ post, index }: { post: BlogPost; index: number }) {
     <div className="group flex gap-3 items-start">
       <Link href={`/blog/${post.slug}`} className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded" target="_blank" rel="noopener noreferrer">
         <Image
-          src={getRandomBlogImage(post.categories[0], post.id)}
+          src={post.image || "/blog-placeholder.jpg"}
           alt={post.title}
           fill
           sizes="64px"
