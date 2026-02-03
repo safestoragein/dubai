@@ -38,6 +38,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'safestorage.in',
+      },
+      {
+        protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
       },
       {
