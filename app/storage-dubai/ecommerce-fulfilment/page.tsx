@@ -78,7 +78,7 @@ export default function EcommerceFulfilmentPage() {
             <div className="flex flex-wrap justify-center gap-4 mb-6">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                <span className="text-white text-sm font-medium">4.9/5 (487+ Reviews)</span>
+                <span className="text-white text-sm font-medium">4.9/5 (6700+ Reviews Globally)</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Users className="h-4 w-4 text-dubai-gold" />
