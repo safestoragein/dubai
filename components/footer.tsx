@@ -69,6 +69,12 @@ export default function Footer() {
               <li>
                 <Link href="/blog" className="hover:text-dubai-gold transition-colors">Blog</Link>
               </li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-dubai-gold transition-colors">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link href="/terms-and-conditions" className="hover:text-dubai-gold transition-colors">Terms & Conditions</Link>
+              </li>
             </ul>
           </div>
 
