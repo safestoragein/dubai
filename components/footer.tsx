@@ -197,7 +197,7 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} SafeStorage Dubai. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy-policy" className="hover:text-dubai-gold transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-dubai-gold transition-colors">Terms of Service</Link>
+            <Link href="/terms-and-conditions" className="hover:text-dubai-gold transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>
