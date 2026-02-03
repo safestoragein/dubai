@@ -58,9 +58,30 @@ export default function TermsAndConditionsPage() {
           2. Restrictions on Stored Material
         </h2>
         <ol style={{ paddingLeft: '20px' }}>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer shall not store with the Company any narcotics, arms, ammunition, food, perishable goods, liquids, gases, living or dead plants or animals, waste, materials which are flammable, explosive, toxic, polluted, contaminated, radioactive; organic material or that which might attract vermin or insects, or any other materials which are otherwise illegal, dangerous and unsafe to store or handle in an enclosed area.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>In case the Customer stores any of the above prohibited material as mentioned in point (1) without SafeStorage knowledge, the Company is not responsible for any damage or consequences due to the same.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer shall not store negotiable instruments, cash, jewelry, precious metals, antiques or items that have intrinsic market value beyond the insured amount.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>
+            <strong>Prohibited Items - Customer shall NOT store:</strong>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Narcotics, arms, ammunition</li>
+              <li>Food and perishable goods</li>
+              <li>Liquids and gases</li>
+              <li>Living or dead plants or animals</li>
+              <li>Waste materials</li>
+              <li>Flammable, explosive, or toxic materials</li>
+              <li>Polluted, contaminated, or radioactive materials</li>
+              <li>Organic material that might attract vermin or insects</li>
+              <li>Any materials that are illegal, dangerous or unsafe</li>
+            </ul>
+          </li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>In case the Customer stores any prohibited material without SafeStorage knowledge, the Company is not responsible for any damage or consequences.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>
+            <strong>High-Value Items Restrictions:</strong>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Negotiable instruments</li>
+              <li>Cash</li>
+              <li>Jewelry and precious metals</li>
+              <li>Antiques or items with high intrinsic market value (beyond insured amount)</li>
+            </ul>
+          </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Company has the right to open and inspect any materials tendered by the Customer for storage and to refuse acceptance of any material.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>These Terms of Service only provide the Customer with the right to store Material approved and accepted by the Company and does not give rights to access or tenancy in any particular portion of the Company's offices and storage facilities at any location.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer shall store only empty gas cylinders. The company has right to empty the cylinder in case if there is any gas in the cylinder.</li>
@@ -74,8 +95,26 @@ export default function TermsAndConditionsPage() {
         <ol style={{ paddingLeft: '20px' }}>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Company shall exercise such care in regards to the Material as a reasonably careful person would exercise in like circumstances. The Company shall not be liable for any loss or damage to stored Material, however caused, unless such loss or damage resulted from a failure of Company to exercise such degree of care. Company's liability, if any, for loss, damage, or destruction, however caused, to part or all of the Material stored hereunder shall be limited to one month rental charges or the declared value (whichever is lower).</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>If the Company is unable to provide any service herein contemplated because of acts of God or public enemy, seizure or legal process, strikes, lockouts, riots and civil commotions, or other reason beyond the Company's control, or because of loss or destruction of goods for which the Company is not liable, or because of any other reason provided by law, the Company shall not be liable for failure to carry out such instructions or services.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Company shall not be responsible for damage caused by gradual deterioration, wear and tear, pre-existing damage, scratches due to transportation, corrosion/rust due to wetness/water in items, atmospheric or climatic conditions, items damaged due to electrical and mechanical breakdown due to storage.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>As the Company will not be checking the working condition of electronic goods like TV, Music System, Computers, Laptops etc. and electrical items like Refrigerator, Washing Machine, Dishwasher, Oven, Mixer etc., the company cannot assure the same after delivery. SafeStorage is only liable for physical damage as per the terms stated above.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>
+            <strong>Company is NOT Responsible for:</strong>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Gradual deterioration and wear and tear</li>
+              <li>Pre-existing damage</li>
+              <li>Scratches due to transportation</li>
+              <li>Corrosion/rust due to wetness/water in items</li>
+              <li>Damage from atmospheric or climatic conditions</li>
+              <li>Electrical and mechanical breakdown due to storage</li>
+            </ul>
+          </li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>
+            <strong>Electronic and Electrical Items:</strong>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Working condition is NOT checked before storage</li>
+              <li>Items include: TV, Music System, Computers, Laptops, Refrigerator, Washing Machine, Dishwasher, Oven, Mixer, etc.</li>
+              <li>Company cannot assure working condition after delivery</li>
+              <li>SafeStorage is only liable for physical damage as per terms stated above</li>
+            </ul>
+          </li>
         </ol>
       </section>
 
@@ -84,9 +123,22 @@ export default function TermsAndConditionsPage() {
           4. Insurance Terms
         </h2>
         <ol style={{ paddingLeft: '20px' }}>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>General insurance coverage is included with all storage units, covering natural calamities, fire and theft only.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>
+            <strong>General Insurance Coverage Included:</strong>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Natural calamities</li>
+              <li>Fire damage</li>
+              <li>Theft</li>
+            </ul>
+          </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The company shall not be responsible if customer does not provide accurate value of goods while preparing the inventory during pickup.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>The General Insurance does not cover loss or damage during transportation and handling in warehouse.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>
+            <strong>General Insurance Does NOT Cover:</strong>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Loss or damage during transportation</li>
+              <li>Damage during handling in warehouse</li>
+            </ul>
+          </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>Additional comprehensive insurance is available for high-value items at additional cost.</li>
         </ol>
       </section>
@@ -109,8 +161,23 @@ export default function TermsAndConditionsPage() {
             </ul>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer also agrees to pay all applicable VAT and government charges, which are subject to change as per UAE regulations.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>Payment can be made through bank transfer, online payment via website, credit/debit card, or cheque in favor of SafeStorage Dubai.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer gives the Company complete authority to raise monthly invoices and send intimation through email/SMS/WhatsApp or any other acceptable mode of communication.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>
+            <strong>Payment Methods Accepted:</strong>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Bank transfer</li>
+              <li>Online payment via website</li>
+              <li>Credit/Debit card</li>
+              <li>Cheque in favor of SafeStorage Dubai</li>
+            </ul>
+          </li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>
+            <strong>Invoicing and Communication:</strong>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Company will raise monthly invoices</li>
+              <li>Invoices and notifications sent via: Email, SMS, WhatsApp</li>
+              <li>Other acceptable modes of communication may be used</li>
+            </ul>
+          </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>In case of any refund to customer, it will take 10-15 business days for SafeStorage to process the refund based on the payment method chosen.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>For VAT registered businesses, it is the Customer's responsibility to provide the TRN (Tax Registration Number) to SafeStorage before invoice generation.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The storage charges will remain in effect until the last date on which goods remain in storage or 12 months from pickup date, whichever is earlier.</li>
@@ -124,7 +191,14 @@ export default function TermsAndConditionsPage() {
               <li>Sell/auction/dispose of the stored material as per UAE laws</li>
             </ul>
           </li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>Cancellation charges of AED 500 + VAT are applicable if confirmed pickup/delivery is cancelled within 48 hours of scheduled date. No cancellation charges apply if rescheduled more than 48 hours before scheduled date.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>
+            <strong>Cancellation Policy:</strong>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Cancellation charges: AED 500 + VAT if cancelled within 48 hours of scheduled date</li>
+              <li>No cancellation charges if rescheduled more than 48 hours before scheduled date</li>
+              <li>No cancellation charges for postponing or preponing pickup date (with 48+ hours notice)</li>
+            </ul>
+          </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer agrees to clear all outstanding payments including past due charges before termination of booking.</li>
         </ol>
       </section>
@@ -134,8 +208,18 @@ export default function TermsAndConditionsPage() {
           6. Force Majeure
         </h2>
         <p style={{ fontSize: '16px', marginBottom: '15px' }}>
-          SafeStorage shall not be liable for its failure to perform under this agreement as a result of any Force Majeure events including but not limited to: acts of God, fire, flood, earthquake, war, terrorism, sabotage, civil unrest, labor unrest, pandemics, action of government authorities, change in laws/rules/regulations, or any other events beyond the reasonable control of SafeStorage.
+          SafeStorage shall not be liable for its failure to perform under this agreement as a result of any Force Majeure events including but not limited to:
         </p>
+        <ul style={{ paddingLeft: '20px', fontSize: '16px' }}>
+          <li style={{ marginBottom: '10px' }}>Acts of God</li>
+          <li style={{ marginBottom: '10px' }}>Fire, flood, earthquake</li>
+          <li style={{ marginBottom: '10px' }}>War, terrorism, sabotage</li>
+          <li style={{ marginBottom: '10px' }}>Civil unrest or labor unrest</li>
+          <li style={{ marginBottom: '10px' }}>Pandemics or epidemics</li>
+          <li style={{ marginBottom: '10px' }}>Action of government authorities</li>
+          <li style={{ marginBottom: '10px' }}>Change in laws, rules or regulations</li>
+          <li style={{ marginBottom: '10px' }}>Any other events beyond the reasonable control of SafeStorage</li>
+        </ul>
       </section>
 
       <section style={{ marginBottom: '40px' }}>
@@ -163,7 +247,15 @@ export default function TermsAndConditionsPage() {
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>No material which is considered illegal/immoral as per UAE laws, and/or otherwise for which storage license is required, will be stored.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>All goods will be inspected by SafeStorage before acceptance into storage.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>In the event that the Company is made party to any litigation by reason of having possession of stored material, I will indemnify, hold harmless and defend the Company from and against any costs, losses, damages or liabilities, including legal fees resulting therefrom.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>I agree to switch off all electrical appliances (Refrigerator, Washing Machine, Water Purifier, etc.) 24 hours before pickup date and ensure they are moisture-free and dry. SafeStorage does not take responsibility for fungus or damage if appliances are not properly prepared.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>
+            <strong>Electrical Appliances Preparation:</strong>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Switch off all electrical appliances 24 hours before pickup</li>
+              <li>Appliances include: Refrigerator, Washing Machine, Water Purifier, etc.</li>
+              <li>Ensure all appliances are moisture-free and completely dry</li>
+              <li>SafeStorage does not take responsibility for fungus or damage if appliances are not properly prepared</li>
+            </ul>
+          </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>I authorize SafeStorage Dubai to send me information/alerts/SMS/WhatsApp messages/calls regarding my storage, promotional offers, and service updates.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>I understand I can opt-out of communications by emailing <a href="mailto:safestoragedubai@gmail.com" style={{ color: '#2563eb', textDecoration: 'underline' }}>safestoragedubai@gmail.com</a> or calling <a href="tel:+971505773388" style={{ color: '#2563eb', textDecoration: 'underline' }}>+971 50 577 3388</a>.</li>
         </ol>
@@ -174,7 +266,17 @@ export default function TermsAndConditionsPage() {
           9. Liability Disclaimer
         </h2>
         <p style={{ fontSize: '16px', marginBottom: '15px' }}>
-          SafeStorage and its affiliates have no liability and will make no refund in the event of any delay, cancellation, strike, force majeure or other causes beyond their direct control, and they have no responsibility for any additional expense, omissions, delays or acts of any government or authority.
+          SafeStorage and its affiliates have no liability and will make no refund in the event of:
+        </p>
+        <ul style={{ paddingLeft: '20px', fontSize: '16px', marginBottom: '15px' }}>
+          <li style={{ marginBottom: '10px' }}>Any delay or cancellation</li>
+          <li style={{ marginBottom: '10px' }}>Strike or labor disputes</li>
+          <li style={{ marginBottom: '10px' }}>Force majeure events</li>
+          <li style={{ marginBottom: '10px' }}>Other causes beyond direct control</li>
+          <li style={{ marginBottom: '10px' }}>Acts of any government or authority</li>
+        </ul>
+        <p style={{ fontSize: '16px' }}>
+          SafeStorage has no responsibility for any additional expense, omissions, or delays arising from the above events.
         </p>
       </section>
 
@@ -183,8 +285,13 @@ export default function TermsAndConditionsPage() {
           10. Changes to Terms
         </h2>
         <p style={{ fontSize: '16px', marginBottom: '15px' }}>
-          SafeStorage reserves the right to modify these Terms and Conditions at any time. Changes will be effective immediately upon posting on our website. Continued use of our services after changes constitutes acceptance of modified terms.
+          SafeStorage reserves the right to modify these Terms and Conditions at any time:
         </p>
+        <ul style={{ paddingLeft: '20px', fontSize: '16px' }}>
+          <li style={{ marginBottom: '10px' }}>Changes will be effective immediately upon posting on our website</li>
+          <li style={{ marginBottom: '10px' }}>Continued use of our services after changes constitutes acceptance of modified terms</li>
+          <li style={{ marginBottom: '10px' }}>Customers are encouraged to review these terms periodically</li>
+        </ul>
       </section>
 
       <div style={{ backgroundColor: '#1e40af', color: 'white', padding: '40px', borderRadius: '12px', textAlign: 'center', marginTop: '50px' }}>
