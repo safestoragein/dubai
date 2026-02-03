@@ -1036,27 +1036,6 @@ export const speakableSchema = {
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: [".hero-headline", ".trust-badges", ".pricing-section", ".faq-section"]
-  },
-  mainEntity: {
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How much does storage cost in Dubai?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Storage in Dubai starts from AED 99 per month at SafeStorage Dubai. We offer flexible pricing for all unit sizes. This includes climate control, security, and hassle-hassle-free pickup and delivery."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "What is the best storage company in Dubai?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "SafeStorage Dubai is rated 4.9 out of 5 stars on Google with over 487 reviews. We offer hassle-free pickup and delivery, climate-controlled units, and free insurance up to AED 5000."
-        }
-      }
-    ]
   }
 }
 
