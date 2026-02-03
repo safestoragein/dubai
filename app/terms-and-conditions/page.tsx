@@ -60,7 +60,7 @@ export default function TermsAndConditionsPage() {
         <ol style={{ paddingLeft: '20px' }}>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Prohibited Items - Customer shall NOT store:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Narcotics, arms, ammunition</li>
               <li>Food and perishable goods</li>
               <li>Liquids and gases</li>
@@ -70,17 +70,17 @@ export default function TermsAndConditionsPage() {
               <li>Polluted, contaminated, or radioactive materials</li>
               <li>Organic material that might attract vermin or insects</li>
               <li>Any materials that are illegal, dangerous or unsafe</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>In case the Customer stores any prohibited material without SafeStorage knowledge, the Company is not responsible for any damage or consequences.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>High-Value Items Restrictions:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Negotiable instruments</li>
               <li>Cash</li>
               <li>Jewelry and precious metals</li>
               <li>Antiques or items with high intrinsic market value (beyond insured amount)</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Company has the right to open and inspect any materials tendered by the Customer for storage and to refuse acceptance of any material.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>These Terms of Service only provide the Customer with the right to store Material approved and accepted by the Company and does not give rights to access or tenancy in any particular portion of the Company's offices and storage facilities at any location.</li>
@@ -97,23 +97,23 @@ export default function TermsAndConditionsPage() {
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>If the Company is unable to provide any service herein contemplated because of acts of God or public enemy, seizure or legal process, strikes, lockouts, riots and civil commotions, or other reason beyond the Company's control, or because of loss or destruction of goods for which the Company is not liable, or because of any other reason provided by law, the Company shall not be liable for failure to carry out such instructions or services.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Company is NOT Responsible for:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Gradual deterioration and wear and tear</li>
               <li>Pre-existing damage</li>
               <li>Scratches due to transportation</li>
               <li>Corrosion/rust due to wetness/water in items</li>
               <li>Damage from atmospheric or climatic conditions</li>
               <li>Electrical and mechanical breakdown due to storage</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Electronic and Electrical Items:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Working condition is NOT checked before storage</li>
               <li>Items include: TV, Music System, Computers, Laptops, Refrigerator, Washing Machine, Dishwasher, Oven, Mixer, etc.</li>
               <li>Company cannot assure working condition after delivery</li>
               <li>SafeStorage is only liable for physical damage as per terms stated above</li>
-            </ul>
+            </ol>
           </li>
         </ol>
       </section>
@@ -125,19 +125,19 @@ export default function TermsAndConditionsPage() {
         <ol style={{ paddingLeft: '20px' }}>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>General Insurance Coverage Included:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Natural calamities</li>
               <li>Fire damage</li>
               <li>Theft</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The company shall not be responsible if customer does not provide accurate value of goods while preparing the inventory during pickup.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>General Insurance Does NOT Cover:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Loss or damage during transportation</li>
               <li>Damage during handling in warehouse</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>Additional comprehensive insurance is available for high-value items at additional cost.</li>
         </ol>
@@ -153,30 +153,30 @@ export default function TermsAndConditionsPage() {
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer also agrees to pay additional storage and packing charges for items that are not mentioned in the quotation. Charges for additional items would be minimum AED 50 or more according to the dimension of the items.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Additional Item Charges:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Small Item/Box: Packing and transport charges AED 50 + VAT. Storage charges AED 25 + VAT per month.</li>
               <li>Medium Item/Box: Packing and transport charges AED 100 + VAT. Storage charges AED 50 + VAT per month.</li>
               <li>Large Item/Box: Packing and transport charges AED 150 + VAT. Storage charges AED 75 + VAT per month.</li>
               <li>Extra-large items to be discussed with SafeStorage team for custom pricing.</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer also agrees to pay all applicable VAT and government charges, which are subject to change as per UAE regulations.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Payment Methods Accepted:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Bank transfer</li>
               <li>Online payment via website</li>
               <li>Credit/Debit card</li>
               <li>Cheque in favor of SafeStorage Dubai</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Invoicing and Communication:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Company will raise monthly invoices</li>
               <li>Invoices and notifications sent via: Email, SMS, WhatsApp</li>
               <li>Other acceptable modes of communication may be used</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>In case of any refund to customer, it will take 10-15 business days for SafeStorage to process the refund based on the payment method chosen.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>For VAT registered businesses, it is the Customer's responsibility to provide the TRN (Tax Registration Number) to SafeStorage before invoice generation.</li>
@@ -185,19 +185,19 @@ export default function TermsAndConditionsPage() {
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>If the Customer fails to make any payment within FIFTEEN (15) days of billing, late charges will apply at the rate of 2% per month on the unpaid amount.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             If storage charges remain unpaid for ninety (90) days, Company shall have the full right to:
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Withhold services</li>
               <li>Terminate this Agreement</li>
               <li>Sell/auction/dispose of the stored material as per UAE laws</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Cancellation Policy:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Cancellation charges: AED 500 + VAT if cancelled within 48 hours of scheduled date</li>
               <li>No cancellation charges if rescheduled more than 48 hours before scheduled date</li>
               <li>No cancellation charges for postponing or preponing pickup date (with 48+ hours notice)</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer agrees to clear all outstanding payments including past due charges before termination of booking.</li>
         </ol>
@@ -210,7 +210,7 @@ export default function TermsAndConditionsPage() {
         <p style={{ fontSize: '16px', marginBottom: '15px' }}>
           SafeStorage shall not be liable for its failure to perform under this agreement as a result of any Force Majeure events including but not limited to:
         </p>
-        <ul style={{ paddingLeft: '20px', fontSize: '16px' }}>
+        <ol style={{ paddingLeft: '20px', fontSize: '16px', listStyleType: 'decimal' }}>
           <li style={{ marginBottom: '10px' }}>Acts of God</li>
           <li style={{ marginBottom: '10px' }}>Fire, flood, earthquake</li>
           <li style={{ marginBottom: '10px' }}>War, terrorism, sabotage</li>
@@ -219,7 +219,7 @@ export default function TermsAndConditionsPage() {
           <li style={{ marginBottom: '10px' }}>Action of government authorities</li>
           <li style={{ marginBottom: '10px' }}>Change in laws, rules or regulations</li>
           <li style={{ marginBottom: '10px' }}>Any other events beyond the reasonable control of SafeStorage</li>
-        </ul>
+        </ol>
       </section>
 
       <section style={{ marginBottom: '40px' }}>
@@ -249,12 +249,12 @@ export default function TermsAndConditionsPage() {
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>In the event that the Company is made party to any litigation by reason of having possession of stored material, I will indemnify, hold harmless and defend the Company from and against any costs, losses, damages or liabilities, including legal fees resulting therefrom.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Electrical Appliances Preparation:</strong>
-            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+            <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Switch off all electrical appliances 24 hours before pickup</li>
               <li>Appliances include: Refrigerator, Washing Machine, Water Purifier, etc.</li>
               <li>Ensure all appliances are moisture-free and completely dry</li>
               <li>SafeStorage does not take responsibility for fungus or damage if appliances are not properly prepared</li>
-            </ul>
+            </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>I authorize SafeStorage Dubai to send me information/alerts/SMS/WhatsApp messages/calls regarding my storage, promotional offers, and service updates.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>I understand I can opt-out of communications by emailing <a href="mailto:safestoragedubai@gmail.com" style={{ color: '#2563eb', textDecoration: 'underline' }}>safestoragedubai@gmail.com</a> or calling <a href="tel:+971505773388" style={{ color: '#2563eb', textDecoration: 'underline' }}>+971 50 577 3388</a>.</li>
@@ -268,13 +268,13 @@ export default function TermsAndConditionsPage() {
         <p style={{ fontSize: '16px', marginBottom: '15px' }}>
           SafeStorage and its affiliates have no liability and will make no refund in the event of:
         </p>
-        <ul style={{ paddingLeft: '20px', fontSize: '16px', marginBottom: '15px' }}>
+        <ol style={{ paddingLeft: '20px', fontSize: '16px', marginBottom: '15px', listStyleType: 'decimal' }}>
           <li style={{ marginBottom: '10px' }}>Any delay or cancellation</li>
           <li style={{ marginBottom: '10px' }}>Strike or labor disputes</li>
           <li style={{ marginBottom: '10px' }}>Force majeure events</li>
           <li style={{ marginBottom: '10px' }}>Other causes beyond direct control</li>
           <li style={{ marginBottom: '10px' }}>Acts of any government or authority</li>
-        </ul>
+        </ol>
         <p style={{ fontSize: '16px' }}>
           SafeStorage has no responsibility for any additional expense, omissions, or delays arising from the above events.
         </p>
@@ -287,11 +287,11 @@ export default function TermsAndConditionsPage() {
         <p style={{ fontSize: '16px', marginBottom: '15px' }}>
           SafeStorage reserves the right to modify these Terms and Conditions at any time:
         </p>
-        <ul style={{ paddingLeft: '20px', fontSize: '16px' }}>
+        <ol style={{ paddingLeft: '20px', fontSize: '16px', listStyleType: 'decimal' }}>
           <li style={{ marginBottom: '10px' }}>Changes will be effective immediately upon posting on our website</li>
           <li style={{ marginBottom: '10px' }}>Continued use of our services after changes constitutes acceptance of modified terms</li>
           <li style={{ marginBottom: '10px' }}>Customers are encouraged to review these terms periodically</li>
-        </ul>
+        </ol>
       </section>
 
       <div style={{ backgroundColor: '#1e40af', color: 'white', padding: '40px', borderRadius: '12px', textAlign: 'center', marginTop: '50px' }}>
