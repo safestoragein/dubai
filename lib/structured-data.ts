@@ -768,7 +768,43 @@ export const itemListSchema = {
           price: "199",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
-          url: "https://safestorage.ae/storage-units-dubai"
+          url: "https://safestorage.ae/storage-units-dubai",
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingRate: {
+              "@type": "MonetaryAmount",
+              value: "0",
+              currency: "AED"
+            },
+            shippingDestination: {
+              "@type": "DefinedRegion",
+              addressCountry: "AE",
+              addressRegion: "Dubai"
+            },
+            deliveryTime: {
+              "@type": "ShippingDeliveryTime",
+              handlingTime: {
+                "@type": "QuantitativeValue",
+                minValue: 1,
+                maxValue: 2,
+                unitCode: "DAY"
+              },
+              transitTime: {
+                "@type": "QuantitativeValue",
+                minValue: 0,
+                maxValue: 1,
+                unitCode: "DAY"
+              }
+            }
+          },
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: "AE",
+            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+            merchantReturnDays: 30,
+            returnMethod: "https://schema.org/ReturnByMail",
+            returnFees: "https://schema.org/FreeReturn"
+          }
         }
       }
     },
@@ -786,7 +822,43 @@ export const itemListSchema = {
           price: "599",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
-          url: "https://safestorage.ae/storage-units-dubai"
+          url: "https://safestorage.ae/storage-units-dubai",
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingRate: {
+              "@type": "MonetaryAmount",
+              value: "0",
+              currency: "AED"
+            },
+            shippingDestination: {
+              "@type": "DefinedRegion",
+              addressCountry: "AE",
+              addressRegion: "Dubai"
+            },
+            deliveryTime: {
+              "@type": "ShippingDeliveryTime",
+              handlingTime: {
+                "@type": "QuantitativeValue",
+                minValue: 1,
+                maxValue: 2,
+                unitCode: "DAY"
+              },
+              transitTime: {
+                "@type": "QuantitativeValue",
+                minValue: 0,
+                maxValue: 1,
+                unitCode: "DAY"
+              }
+            }
+          },
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: "AE",
+            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+            merchantReturnDays: 30,
+            returnMethod: "https://schema.org/ReturnByMail",
+            returnFees: "https://schema.org/FreeReturn"
+          }
         }
       }
     },
@@ -804,7 +876,43 @@ export const itemListSchema = {
           price: "1299",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
-          url: "https://safestorage.ae/storage-units-dubai"
+          url: "https://safestorage.ae/storage-units-dubai",
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingRate: {
+              "@type": "MonetaryAmount",
+              value: "0",
+              currency: "AED"
+            },
+            shippingDestination: {
+              "@type": "DefinedRegion",
+              addressCountry: "AE",
+              addressRegion: "Dubai"
+            },
+            deliveryTime: {
+              "@type": "ShippingDeliveryTime",
+              handlingTime: {
+                "@type": "QuantitativeValue",
+                minValue: 1,
+                maxValue: 2,
+                unitCode: "DAY"
+              },
+              transitTime: {
+                "@type": "QuantitativeValue",
+                minValue: 0,
+                maxValue: 1,
+                unitCode: "DAY"
+              }
+            }
+          },
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: "AE",
+            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+            merchantReturnDays: 30,
+            returnMethod: "https://schema.org/ReturnByMail",
+            returnFees: "https://schema.org/FreeReturn"
+          }
         }
       }
     },
@@ -822,7 +930,43 @@ export const itemListSchema = {
           price: "2499",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
-          url: "https://safestorage.ae/storage-units-dubai"
+          url: "https://safestorage.ae/storage-units-dubai",
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingRate: {
+              "@type": "MonetaryAmount",
+              value: "0",
+              currency: "AED"
+            },
+            shippingDestination: {
+              "@type": "DefinedRegion",
+              addressCountry: "AE",
+              addressRegion: "Dubai"
+            },
+            deliveryTime: {
+              "@type": "ShippingDeliveryTime",
+              handlingTime: {
+                "@type": "QuantitativeValue",
+                minValue: 1,
+                maxValue: 2,
+                unitCode: "DAY"
+              },
+              transitTime: {
+                "@type": "QuantitativeValue",
+                minValue: 0,
+                maxValue: 1,
+                unitCode: "DAY"
+              }
+            }
+          },
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: "AE",
+            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+            merchantReturnDays: 30,
+            returnMethod: "https://schema.org/ReturnByMail",
+            returnFees: "https://schema.org/FreeReturn"
+          }
         }
       }
     },
@@ -840,7 +984,43 @@ export const itemListSchema = {
           price: "899",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
-          url: "https://safestorage.ae/storage-dubai/vehicle-storage"
+          url: "https://safestorage.ae/storage-dubai/vehicle-storage",
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingRate: {
+              "@type": "MonetaryAmount",
+              value: "0",
+              currency: "AED"
+            },
+            shippingDestination: {
+              "@type": "DefinedRegion",
+              addressCountry: "AE",
+              addressRegion: "Dubai"
+            },
+            deliveryTime: {
+              "@type": "ShippingDeliveryTime",
+              handlingTime: {
+                "@type": "QuantitativeValue",
+                minValue: 1,
+                maxValue: 2,
+                unitCode: "DAY"
+              },
+              transitTime: {
+                "@type": "QuantitativeValue",
+                minValue: 0,
+                maxValue: 1,
+                unitCode: "DAY"
+              }
+            }
+          },
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: "AE",
+            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+            merchantReturnDays: 30,
+            returnMethod: "https://schema.org/ReturnByMail",
+            returnFees: "https://schema.org/FreeReturn"
+          }
         }
       }
     }
