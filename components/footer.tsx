@@ -172,27 +172,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Google Maps Section for Local SEO */}
-        <div className="py-8 border-t border-white/10">
-          <div className="text-center mb-6">
-            <h4 className="text-2xl font-semibold text-white mb-2">Visit Our Location</h4>
-            <p className="text-dubai-sand/70">Find us in Dubai - We&apos;re here to serve you</p>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1832.9250724748565!2d55.0695969!3d24.9071472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f0de238e548b5%3A0x4f164b7513d985c3!2sUAE%20storages!5e1!3m2!1sen!2sin!4v1770112334471!5m2!1sen!2sin"
-                className="absolute top-0 left-0 w-full h-full rounded-lg"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="SafeStorage Dubai Location Map"
-              />
-            </div>
-          </div>
-        </div>
-
         {/* CTA Section */}
         <div className="py-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
