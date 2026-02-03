@@ -22,7 +22,7 @@ export default function TermsAndConditionsPage() {
           About SafeStorage Dubai
         </h2>
         <p style={{ marginBottom: '15px', fontSize: '16px' }}>
-          <strong>SafeStorage.ae</strong> is a unit of SafeStorage Dubai, a registered storage facility operating under the laws of the United Arab Emirates, serving Dubai and surrounding areas since 2018.
+          <strong>SafeStorage.ae</strong> is a unit of SafeStorage, a globally trusted storage facility founded in 2015. SafeStorage Dubai operates under the laws of the United Arab Emirates, serving Dubai and surrounding areas.
         </p>
         <p style={{ marginBottom: '15px', fontSize: '16px' }}>
           The SafeStorage brand, logo and mascot are the properties of SafeStorage Dubai and are subject to trademark protection.
@@ -84,10 +84,10 @@ export default function TermsAndConditionsPage() {
           4. Insurance Terms
         </h2>
         <ol style={{ paddingLeft: '20px' }}>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>General insurance coverage up to AED 5,000 is included free with all storage units, covering natural calamities, fire and theft only.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>General insurance coverage is included with all storage units, covering natural calamities, fire and theft only.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The company shall not be responsible if customer does not provide accurate value of goods while preparing the inventory during pickup.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The General Insurance does not cover loss or damage during transportation and handling in warehouse.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>Additional comprehensive insurance is available for high-value items (up to AED 100,000) at additional cost.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>Additional comprehensive insurance is available for high-value items at additional cost.</li>
         </ol>
       </section>
 
