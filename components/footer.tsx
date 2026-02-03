@@ -30,7 +30,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-dubai-sand/80 max-w-xs">
-              Dubai&apos;s most trusted storage partner since 2018. Climate-controlled units, 24/7 security, and hassle-hassle-free pickup & delivery.
+              Dubai&apos;s most trusted storage partner since 2015 Globally. Climate-controlled units, 24/7 security, and hassle-free pickup & delivery.
             </p>
             {/* Google Rating */}
             <div className="flex items-center gap-2 pt-2">
