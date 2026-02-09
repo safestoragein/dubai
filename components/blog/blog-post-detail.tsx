@@ -256,6 +256,18 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             ))}
           </div>
 
+          {/* Tags Section */}
+          {post.tags && post.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-6">
+              <Tag className="h-4 w-4 text-dubai-gold" />
+              {post.tags.map((tag, index) => (
+                <Badge key={index} variant="outline" className="border-dubai-gold/30 text-dubai-gold bg-dubai-gold/5">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          )}
+
           <div className="flex flex-wrap items-center gap-4 text-dubai-navy/60 mb-6">
             <div className="flex items-center">
               <Calendar className="h-4 w-4 mr-2" />
