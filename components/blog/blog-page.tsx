@@ -58,7 +58,6 @@ interface BlogPost {
   views: number
   comments?: any[]
   date: string
-  tags?: string[]
 }
 
 export default function BlogPage() {
@@ -112,8 +111,7 @@ export default function BlogPage() {
             readTime: "5 min read",
             likes: getConsistentLikes(postId),
             views: getConsistentViews(postId),
-            comments: [],
-            tags: blog.tags ? (Array.isArray(blog.tags) ? blog.tags : blog.tags.split(',').map((t: string) => t.trim())) : []
+            comments: []
           }
         })
 
@@ -292,20 +290,6 @@ function BlogPostCard({ post, index }: { post: BlogPost; index: number }) {
         <h3 className="text-xl font-bold mb-2 group-hover:text-dubai-gold transition-colors">{post.title}</h3>
       </Link>
       <p className="text-dubai-navy/70 mb-3 line-clamp-2">{post.excerpt}</p>
-      {post.tags && post.tags.length > 0 && (
-        <div className="flex flex-wrap gap-1 mb-3">
-          {post.tags.slice(0, 3).map((tag, index) => (
-            <Badge key={index} variant="outline" className="border-dubai-gold/30 text-dubai-gold bg-dubai-gold/5 text-xs">
-              {tag}
-            </Badge>
-          ))}
-          {post.tags.length > 3 && (
-            <Badge variant="outline" className="border-dubai-gold/30 text-dubai-gold bg-dubai-gold/5 text-xs">
-              +{post.tags.length - 3}
-            </Badge>
-          )}
-        </div>
-      )}
       <div className="flex items-center text-sm text-dubai-navy/60 mb-3">
         <Clock className="h-4 w-4 mr-1" />
         <span>{post.readTime}</span>
@@ -359,11 +343,6 @@ function BlogPostRow({ post, index }: { post: BlogPost; index: number }) {
           {post.categories.slice(0, 1).map((category) => (
             <Badge key={category} variant="secondary" className="bg-gray-100 text-gray-600 border-0 text-xs">
               {category}
-            </Badge>
-          ))}
-          {post.tags && post.tags.length > 0 && post.tags.slice(0, 3).map((tag, index) => (
-            <Badge key={`tag-${index}`} variant="outline" className="border-dubai-gold/30 text-dubai-gold bg-dubai-gold/5 text-xs">
-              {tag}
             </Badge>
           ))}
         </div>

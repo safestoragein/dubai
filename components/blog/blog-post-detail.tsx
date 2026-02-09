@@ -256,18 +256,6 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             ))}
           </div>
 
-          {/* Tags Section */}
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-6">
-              <Tag className="h-4 w-4 text-dubai-gold" />
-              {post.tags.map((tag, index) => (
-                <Badge key={index} variant="outline" className="border-dubai-gold/30 text-dubai-gold bg-dubai-gold/5">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          )}
-
           <div className="flex flex-wrap items-center gap-4 text-dubai-navy/60 mb-6">
             <div className="flex items-center">
               <Calendar className="h-4 w-4 mr-2" />
@@ -346,6 +334,28 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             <ShareButtons url={`/blog/${slug}`} title={post.title} />
           </div>
         </div>
+
+        {/* Tags Section */}
+        {post.tags && post.tags.length > 0 && (
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="bg-gray-50 p-6 rounded-xl mb-12"
+          >
+            <h3 className="text-lg font-bold text-dubai-navy mb-4 flex items-center">
+              <Tag className="h-5 w-5 mr-2 text-dubai-gold" />
+              Tags
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {post.tags.map((tag, index) => (
+                <Badge key={index} variant="outline" className="border-dubai-gold/30 text-dubai-gold bg-dubai-gold/5 hover:bg-dubai-gold/10 transition-colors">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          </m.div>
+        )}
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
