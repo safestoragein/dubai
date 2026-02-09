@@ -112,6 +112,19 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
       const blogContent = document.querySelector('.blog-content')
       if (!blogContent) return
 
+      // Make all hr elements non-interactive for selection
+      const hrElements = blogContent.querySelectorAll('hr')
+      hrElements.forEach(hr => {
+        (hr as HTMLElement).style.userSelect = 'text'
+        ;(hr as HTMLElement).style.pointerEvents = 'none'
+      })
+
+      // Make all table elements selectable
+      const tableElements = blogContent.querySelectorAll('table, th, td, tr')
+      tableElements.forEach(el => {
+        (el as HTMLElement).style.userSelect = 'text'
+      })
+
       // Prevent any script from clearing selection
       const originalRemoveAllRanges = window.getSelection()?.removeAllRanges
       if (window.getSelection() && originalRemoveAllRanges) {
@@ -130,6 +143,11 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
           }
         }
       }
+
+      // Prevent selection from breaking on hr and table elements
+      blogContent.addEventListener('selectstart', (e) => {
+        e.stopPropagation()
+      }, true)
     }
 
     protectSelection()
