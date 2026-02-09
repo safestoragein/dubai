@@ -107,6 +107,32 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
   const [relatedImageErrors, setRelatedImageErrors] = useState<Record<number, boolean>>({})
 
   useEffect(() => {
+    // Protect text selection from being cleared by third-party scripts
+    const protectSelection = () => {
+      const blogContent = document.querySelector('.blog-content')
+      if (!blogContent) return
+
+      // Prevent any script from clearing selection
+      const originalRemoveAllRanges = window.getSelection()?.removeAllRanges
+      if (window.getSelection() && originalRemoveAllRanges) {
+        window.getSelection()!.removeAllRanges = function() {
+          const selection = window.getSelection()
+          if (selection && selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0)
+            const container = range.commonAncestorContainer
+            const isInBlogContent = blogContent.contains(container.nodeType === 3 ? container.parentNode : container)
+
+            if (!isInBlogContent && originalRemoveAllRanges) {
+              originalRemoveAllRanges.call(this)
+            }
+          } else if (originalRemoveAllRanges) {
+            originalRemoveAllRanges.call(this)
+          }
+        }
+      }
+    }
+
+    protectSelection()
     setMounted(true)
 
     const fetchBlogPost = async () => {
