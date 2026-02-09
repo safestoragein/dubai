@@ -293,18 +293,12 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         </m.div>
 
         {/* Post Content */}
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-12"
-          style={{ userSelect: 'text', WebkitUserSelect: 'text' }}
-        >
+        <div className="mb-12">
           <div
             className="blog-content prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: formatBlogContent(post.content) }}
           />
-        </m.div>
+        </div>
 
         {/* Author Info */}
         <m.div
