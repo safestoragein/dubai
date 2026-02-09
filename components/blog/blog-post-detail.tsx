@@ -293,10 +293,17 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         </m.div>
 
         {/* Post Content */}
-        <div className="mb-12">
+        <div className="mb-12" onMouseDown={(e) => e.stopPropagation()} onMouseUp={(e) => e.stopPropagation()}>
           <div
             className="blog-content prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: formatBlogContent(post.content) }}
+            onSelectStart={(e) => e.stopPropagation()}
+            style={{
+              userSelect: 'text',
+              WebkitUserSelect: 'text',
+              MozUserSelect: 'text',
+              msUserSelect: 'text'
+            }}
           />
         </div>
 
