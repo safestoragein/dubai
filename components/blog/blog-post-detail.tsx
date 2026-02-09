@@ -298,8 +298,9 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-12"
+          style={{ userSelect: 'text', WebkitUserSelect: 'text' }}
         >
-          <div 
+          <div
             className="blog-content prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: formatBlogContent(post.content) }}
           />
