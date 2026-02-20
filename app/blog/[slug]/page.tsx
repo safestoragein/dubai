@@ -24,6 +24,7 @@ interface BlogPostPageProps {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   try {
     const { slug } = await params
+    const canonicalUrl = `https://safestorage.ae/blog/${slug}`
 
     // Fetch directly from backend to avoid issues with calling own API
     const response = await fetch('https://safestorage.in/get_blog_content', {
@@ -42,6 +43,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       return {
         title: "Blog Post Not Found | SafeStorage Dubai",
         description: "The requested blog post could not be found.",
+        robots: { index: false, follow: false },
       }
     }
 
@@ -52,9 +54,23 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: `${title} | SafeStorage Dubai`,
       description: description,
       keywords: post.tags || "",
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+        },
+      },
       openGraph: {
         title: title,
         description: description,
+        url: canonicalUrl,
+        siteName: "SafeStorage Dubai",
+        type: "article",
         images: post.post_images ? [
           {
             url: post.post_images,
@@ -67,9 +83,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
   } catch (error) {
     console.error('Error generating metadata:', error)
+    // Still set canonical even on error to prevent inheriting homepage canonical
+    const { slug } = await params
     return {
       title: "Blog | SafeStorage Dubai",
       description: "Expert storage tips and guides from SafeStorage Dubai",
+      alternates: { canonical: `https://safestorage.ae/blog/${slug}` },
     }
   }
 }
