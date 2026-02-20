@@ -281,7 +281,7 @@ export const faqSchema = {
       name: "How much does storage cost in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Storage in Dubai starts from AED 99 per month at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units include climate control, 24/7 security, and hassle-hassle-free pickup & delivery within Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
+        text: "Storage in Dubai starts from AED 99 per month at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units include climate control, 24/7 security, and hassle-free pickup & delivery within Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
       }
     },
     {
@@ -289,7 +289,7 @@ export const faqSchema = {
       name: "What is the cheapest storage option in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The cheapest storage in Dubai starts from AED 99 per month at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with hassle-hassle-free pickup & delivery, climate control, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
+        text: "The cheapest storage in Dubai starts from AED 99 per month at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with hassle-free pickup & delivery, climate control, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
       }
     },
     {
@@ -665,7 +665,7 @@ export const productSchema = {
   "@type": "Product",
   "@id": "https://safestorage.ae/#product",
   name: "Self Storage Units Dubai",
-  description: "Premium climate-controlled storage units in Dubai with hassle-hassle-free pickup and delivery. Personal, business, and vehicle storage from AED 99/month.",
+  description: "Premium climate-controlled storage units in Dubai with hassle-free pickup and delivery. Personal, business, and vehicle storage from AED 99/month.",
   brand: {
     "@type": "Brand",
     name: "SafeStorage Dubai"
@@ -1097,7 +1097,7 @@ export const aboutPageSchema = {
   "@type": "AboutPage",
   "@id": "https://safestorage.ae/about#webpage",
   name: "About SafeStorage Dubai - Dubai's Trusted Storage Partner Since 2018",
-  description: "Learn about SafeStorage Dubai - serving Dubai since 2018 with climate-controlled storage, 24/7 security, and hassle-hassle-free pickup & delivery. 500+ happy customers.",
+  description: "Learn about SafeStorage Dubai - serving Dubai since 2018 with climate-controlled storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers.",
   url: "https://safestorage.ae/about",
   mainEntity: {
     "@id": "https://safestorage.ae/#organization"

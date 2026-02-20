@@ -4,12 +4,12 @@ import LocationPage from "@/components/locations/location-page"
 export const metadata: Metadata = {
   title: "Storage Units Dubai Marina | SafeStorage | +971505773388",
   description:
-    "Premium storage solutions in Dubai Marina. Climate-controlled units, 24/7 security, hassle-hassle-free pickup from Marina, JBR, and nearby areas. Call +971505773388.",
+    "Premium storage solutions in Dubai Marina. Climate-controlled units, 24/7 security, hassle-free pickup from Marina, JBR, and nearby areas. Call +971505773388.",
   keywords:
     "storage dubai marina, storage units marina, self storage dubai marina, storage jbr, storage near me dubai marina",
   openGraph: {
     title: "Storage Dubai Marina - SafeStorage Premium Units",
-    description: "Secure storage in Dubai Marina with hassle-hassle-free pickup & delivery. Call +971505773388.",
+    description: "Secure storage in Dubai Marina with hassle-free pickup & delivery. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-marina",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -255,7 +255,7 @@ const testimonials = [
     location: "Downtown Dubai",
     useCase: "Apartment Downsizing",
     rating: 5,
-    text: "Moved from 3BR to 1BR apartment. Instead of selling furniture, I stored it. The hassle-hassle-free pickup saved me so much time - they literally did everything!",
+    text: "Moved from 3BR to 1BR apartment. Instead of selling furniture, I stored it. The hassle-free pickup saved me so much time - they literally did everything!",
     highlight: "Hassle-hassle-free pickup",
   },
   {
@@ -280,15 +280,15 @@ const testimonials = [
 const faqs = [
   {
     question: "How much do storage units cost in Dubai?",
-    answer: "Storage units at SafeStorage Dubai start from just AED 99 per month. We offer flexible pricing based on your specific storage needs. All prices include climate control, security, and hassle-hassle-free pickup & delivery. No hidden fees! Contact us at 050-577-3388 for a personalized quote.",
+    answer: "Storage units at SafeStorage Dubai start from just AED 99 per month. We offer flexible pricing based on your specific storage needs. All prices include climate control, security, and hassle-free pickup & delivery. No hidden fees! Contact us at 050-577-3388 for a personalized quote.",
   },
   {
     question: "Are your storage units climate controlled?",
     answer: "Yes, ALL our storage units are fully climate controlled. We maintain temperature at 20-25°C and humidity at 45-55% year-round. This is essential in Dubai where summer temperatures exceed 45°C. Climate control protects furniture from warping, electronics from damage, documents from deterioration, and prevents mold growth.",
   },
   {
-    question: "Do you offer hassle-hassle-free pickup and delivery?",
-    answer: "Yes! SafeStorage Dubai provides completely hassle-hassle-free pickup and delivery anywhere in Dubai. Our professional team will come to your home, office, or any location to collect your items. When you need them back, we deliver at your convenience. This saves you the hassle and cost of hiring movers separately.",
+    question: "Do you offer hassle-free pickup and delivery?",
+    answer: "Yes! SafeStorage Dubai provides completely hassle-free pickup and delivery anywhere in Dubai. Our professional team will come to your home, office, or any location to collect your items. When you need them back, we deliver at your convenience. This saves you the hassle and cost of hiring movers separately.",
   },
   {
     question: "What size storage unit do I need?",
@@ -332,7 +332,7 @@ const faqs = [
   },
   {
     question: "Where is your storage facility located?",
-    answer: "Our main facility is in Dubai Investment Park 2, strategically located with easy access from all Dubai areas. But location doesn't matter much - we provide hassle-hassle-free pickup from YOUR location (Dubai Marina, Business Bay, JLT, Downtown, wherever you are) and delivery back!",
+    answer: "Our main facility is in Dubai Investment Park 2, strategically located with easy access from all Dubai areas. But location doesn't matter much - we provide hassle-free pickup from YOUR location (Dubai Marina, Business Bay, JLT, Downtown, wherever you are) and delivery back!",
   },
   {
     question: "How quickly can I start using storage?",
@@ -479,7 +479,7 @@ export default function StorageUnitsDubaiPage() {
               <div className="bg-dubai-sand/30 border-l-4 border-dubai-gold p-6 rounded-r-lg my-8">
                 <p className="text-lg font-medium text-dubai-navy mb-2">What makes us different?</p>
                 <p className="text-muted-foreground">
-                  Unlike other storage companies, we offer <strong>hassle-hassle-free pickup and delivery</strong> anywhere in Dubai. You don&apos;t need to hire movers or rent a van - we handle everything. Plus, every unit includes <strong>free insurance up to AED 5,000</strong> and transparent pricing with <strong>no hidden fees</strong>.
+                  Unlike other storage companies, we offer <strong>hassle-free pickup and delivery</strong> anywhere in Dubai. You don&apos;t need to hire movers or rent a van - we handle everything. Plus, every unit includes <strong>free insurance up to AED 5,000</strong> and transparent pricing with <strong>no hidden fees</strong>.
                 </p>
               </div>
             </div>
@@ -495,7 +495,7 @@ export default function StorageUnitsDubaiPage() {
               Storage Unit Prices in Dubai
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Prices start from AED 99/month. All units are climate-controlled and include hassle-hassle-free pickup & delivery.
+              Prices start from AED 99/month. All units are climate-controlled and include hassle-free pickup & delivery.
             </p>
           </div>
 

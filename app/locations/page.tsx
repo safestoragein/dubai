@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "storage locations dubai, storage near me, self storage dubai locations, storage facilities dubai, dubai storage centers",
   openGraph: {
     title: "Storage Locations Dubai - SafeStorage",
-    description: "Premium storage locations across Dubai with hassle-hassle-free pickup & delivery service. Find a location near you.",
+    description: "Premium storage locations across Dubai with hassle-free pickup & delivery service. Find a location near you.",
     url: "https://safestorage.ae/locations",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -61,7 +61,7 @@ export default function LocationsPage() {
               Storage Locations Across Dubai
             </h1>
             <p className="text-xl mb-8">
-              We serve multiple areas in Dubai with hassle-hassle-free pickup & delivery service from your doorstep
+              We serve multiple areas in Dubai with hassle-free pickup & delivery service from your doorstep
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>
@@ -133,7 +133,7 @@ export default function LocationsPage() {
               We Cover All of Dubai
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Even if your area isn't listed above, we still serve you! Our hassle-hassle-free pickup & delivery service
+              Even if your area isn't listed above, we still serve you! Our hassle-free pickup & delivery service
               covers all areas across Dubai. We'll come to your location to pick up your items and deliver them
               back whenever you need.
             </p>

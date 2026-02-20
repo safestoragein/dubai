@@ -10,12 +10,12 @@ import Testimonials from "@/components/testimonials"
 export const metadata: Metadata = {
   title: "About Us - Dubai's Most Trusted Storage Partner | SafeStorage Dubai",
   description:
-    "Learn about SafeStorage Dubai - serving Dubai since 2015 with climate-controlled storage, 24/7 security, and hassle-hassle-free pickup & delivery. 500+ happy customers trust us.",
+    "Learn about SafeStorage Dubai - serving Dubai since 2015 with climate-controlled storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers trust us.",
   keywords:
     "about safestorage dubai, storage company dubai, trusted storage dubai, climate controlled storage, secure storage facility",
   openGraph: {
     title: "About SafeStorage Dubai - Your Trusted Storage Partner",
-    description: "Serving Dubai since 2015 with premium storage solutions. Climate-controlled units, 24/7 security, hassle-hassle-free pickup & delivery.",
+    description: "Serving Dubai since 2015 with premium storage solutions. Climate-controlled units, 24/7 security, hassle-free pickup & delivery.",
     url: "https://safestorage.ae/about",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

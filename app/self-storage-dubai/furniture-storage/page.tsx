@@ -867,11 +867,11 @@ export default function FurnitureStoragePage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Do you provide hassle-hassle-free pickup and delivery for furniture?</CardTitle>
+                  <CardTitle className="text-lg">Do you provide hassle-free pickup and delivery for furniture?</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Yes! We offer hassle-hassle-free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our climate-controlled facility. Delivery is also available when you're ready to retrieve your items. Call +971 50 577 3388 or email safestoragedubai@gmail.com to schedule your pickup.
+                    Yes! We offer hassle-free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our climate-controlled facility. Delivery is also available when you're ready to retrieve your items. Call +971 50 577 3388 or email safestoragedubai@gmail.com to schedule your pickup.
                   </p>
                 </CardContent>
               </Card>
@@ -938,7 +938,7 @@ export default function FurnitureStoragePage() {
                 <CardContent>
                   <p className="text-gray-600">
                     <strong>DIY Storage:</strong> You transport furniture yourself, we provide trolleys and drive-up access. Best for those with a van/truck.<br/><br/>
-                    <strong>Full Service (Most Popular):</strong> We handle everything - professional packing, hassle-hassle-free pickup, transport, storage, and scheduled return delivery. Perfect for busy professionals or those without transport.<br/><br/>
+                    <strong>Full Service (Most Popular):</strong> We handle everything - professional packing, hassle-free pickup, transport, storage, and scheduled return delivery. Perfect for busy professionals or those without transport.<br/><br/>
                     <strong>Premium Care:</strong> White-glove service for antique/valuable pieces with art-quality wrapping, individual climate zones, and monthly inspections.
                   </p>
                 </CardContent>

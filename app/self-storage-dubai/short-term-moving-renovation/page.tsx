@@ -6,7 +6,7 @@ import { Home, Truck, Clock, Package, ArrowRight, CheckCircle2, Calendar, Shield
 
 export const metadata: Metadata = {
   title: "Short-Term Storage Dubai – Moving & Renovation Storage Solutions | SafeStorage",
-  description: "Need storage during moves or renovations? Flexible short-term units from 1 week to 6 months. Quick access, secure facilities, hassle-hassle-free pickup available.",
+  description: "Need storage during moves or renovations? Flexible short-term units from 1 week to 6 months. Quick access, secure facilities, hassle-free pickup available.",
   keywords: "short term storage dubai, moving storage dubai, renovation storage dubai, temporary storage dubai",
   openGraph: {
     title: "Short-Term Storage Dubai – Perfect for Moves & Renovations",

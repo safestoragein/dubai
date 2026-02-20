@@ -281,7 +281,7 @@ const testimonials = [
 const faqs = [
   {
     question: "How much does storage cost in Dubai?",
-    answer: "Storage in Dubai at SafeStorage starts from just AED 99 per month. We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include climate control, security, and hassle-hassle-free pickup & delivery. Contact us at 050-577-3388 for a personalized quote.",
+    answer: "Storage in Dubai at SafeStorage starts from just AED 99 per month. We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include climate control, security, and hassle-free pickup & delivery. Contact us at 050-577-3388 for a personalized quote.",
   },
   {
     question: "Is climate control necessary for storage in Dubai?",
@@ -289,7 +289,7 @@ const faqs = [
   },
   {
     question: "Do you pick up items from my location?",
-    answer: "Yes! SafeStorage provides hassle-hassle-free pickup from anywhere in Dubai - your home, office, or any location. Our professional team arrives with packing materials, carefully loads your items, and transports them to our facility. When you need them back, we deliver to your door. This service is included in our packages.",
+    answer: "Yes! SafeStorage provides hassle-free pickup from anywhere in Dubai - your home, office, or any location. Our professional team arrives with packing materials, carefully loads your items, and transports them to our facility. When you need them back, we deliver to your door. This service is included in our packages.",
   },
   {
     question: "What size storage unit do I need?",
@@ -329,7 +329,7 @@ const faqs = [
   },
   {
     question: "Where is your storage facility located?",
-    answer: "Our main facility is in Dubai Investment Park 2, strategically located with easy access from all Dubai areas. But location doesn't matter much - we provide hassle-hassle-free pickup from YOUR location (Dubai Marina, Business Bay, JLT, Downtown, wherever you are) and delivery back when needed!",
+    answer: "Our main facility is in Dubai Investment Park 2, strategically located with easy access from all Dubai areas. But location doesn't matter much - we provide hassle-free pickup from YOUR location (Dubai Marina, Business Bay, JLT, Downtown, wherever you are) and delivery back when needed!",
   },
   {
     question: "How quickly can I get started?",

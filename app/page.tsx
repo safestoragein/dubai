@@ -21,12 +21,12 @@ import { blogPosts } from "@/data/blog-posts"
 export const metadata: Metadata = {
   title: "Secure Storage Solutions in Dubai | SafeStorage Dubai | +971505773388",
   description:
-    "SafeStorage Dubai offers secure, climate-controlled storage solutions with hassle-hassle-free pickup & delivery. Personal, business & vehicle storage. Call +971505773388 for instant quote.",
+    "SafeStorage Dubai offers secure, climate-controlled storage solutions with hassle-free pickup & delivery. Personal, business & vehicle storage. Call +971505773388 for instant quote.",
   keywords:
     "storage dubai, self storage, secure storage, climate controlled storage, business storage, personal storage, dubai storage solutions, storage units dubai, safestorage, storage facility dubai, furniture storage, document storage",
   openGraph: {
     title: "SafeStorage Dubai - Secure Storage Solutions | Hassle-Free Pickup",
-    description: "Premium climate-controlled storage units in Dubai. 24/7 security, hassle-hassle-free pickup & delivery. Call +971505773388.",
+    description: "Premium climate-controlled storage units in Dubai. 24/7 security, hassle-free pickup & delivery. Call +971505773388.",
     url: "https://safestorage.ae",
     siteName: "SafeStorage Dubai",
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SafeStorage Dubai - Secure Storage Solutions",
-    description: "Premium storage units in Dubai with hassle-hassle-free pickup & delivery. Call +971505773388.",
+    description: "Premium storage units in Dubai with hassle-free pickup & delivery. Call +971505773388.",
     images: ["/twitter-home.jpg"],
   },
   alternates: {

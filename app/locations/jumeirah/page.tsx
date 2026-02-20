@@ -4,12 +4,12 @@ import LocationPage from "@/components/locations/location-page"
 export const metadata: Metadata = {
   title: "Storage Units Jumeirah Dubai | SafeStorage | +971505773388",
   description:
-    "Premium storage solutions for Jumeirah residents. Secure, climate-controlled units with hassle-hassle-free pickup from all Jumeirah areas. Call +971505773388 for instant quote.",
+    "Premium storage solutions for Jumeirah residents. Secure, climate-controlled units with hassle-free pickup from all Jumeirah areas. Call +971505773388 for instant quote.",
   keywords:
     "storage jumeirah, jumeirah storage units, self storage jumeirah dubai, storage umm suqeim, storage near jumeirah beach",
   openGraph: {
     title: "Storage Jumeirah - SafeStorage Premium Solutions",
-    description: "Secure storage in Jumeirah with hassle-hassle-free pickup & delivery service. Call +971505773388.",
+    description: "Secure storage in Jumeirah with hassle-free pickup & delivery service. Call +971505773388.",
     url: "https://safestorage.ae/locations/jumeirah",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

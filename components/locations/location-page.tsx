@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, Clock, Truck, Shield, Phone, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
-import { faqSchema } from "@/lib/structured-data"
 
 interface LocationPageProps {
   location: string
@@ -14,37 +13,8 @@ interface LocationPageProps {
 }
 
 export default function LocationPage({ location, areas, distance, benefits }: LocationPageProps) {
-  const locationFAQ = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: `Do you provide storage services in ${location}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Yes, we provide comprehensive storage services for ${location} residents and businesses with hassle-hassle-free pickup and delivery from your location.`
-        }
-      },
-      {
-        "@type": "Question",
-        name: `How long does pickup take from ${location}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Our facility is approximately ${distance} from ${location}. We offer same-day or next-day pickup service depending on availability.`
-        }
-      }
-    ]
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      {/* Add FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationFAQ) }}
-      />
-      
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#0A2463] to-[#3E92CC] text-white py-20">
         <div className="container mx-auto px-4">
@@ -53,7 +23,7 @@ export default function LocationPage({ location, areas, distance, benefits }: Lo
               Storage Solutions in {location}
             </h1>
             <p className="text-xl mb-8">
-              Premium, secure storage units with hassle-hassle-free pickup & delivery service for all {location} residents
+              Premium, secure storage units with hassle-free pickup & delivery service for all {location} residents
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "storage pricing dubai, cheap storage dubai, storage costs, affordable storage, storage rates dubai, self storage prices, monthly storage cost, storage unit prices",
   openGraph: {
     title: "SafeStorage Pricing - Affordable Storage from AED 99",
-    description: "Competitive storage rates in Dubai. All sizes available with hassle-hassle-free pickup & delivery. Call +971505773388.",
+    description: "Competitive storage rates in Dubai. All sizes available with hassle-free pickup & delivery. Call +971505773388.",
     url: "https://safestorage.ae/pricing",
     siteName: "SafeStorage Dubai",
     images: [
