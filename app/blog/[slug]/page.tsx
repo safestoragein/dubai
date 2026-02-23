@@ -47,11 +47,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       }
     }
 
-    const title = post.title || post.seo_title || "Blog Post"
+    const metaTitle = post.seo_title || post.title || "Blog Post"
     const description = post.seo_desc || "Read this blog post on SafeStorage Dubai"
 
     return {
-      title: `${title} | SafeStorage Dubai`,
+      title: `${metaTitle} | SafeStorage Dubai`,
       description: description,
       keywords: post.tags || "",
       alternates: {
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         },
       },
       openGraph: {
-        title: title,
+        title: metaTitle,
         description: description,
         url: canonicalUrl,
         siteName: "SafeStorage Dubai",
