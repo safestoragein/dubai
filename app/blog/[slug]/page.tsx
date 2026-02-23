@@ -21,19 +21,30 @@ interface BlogPostPageProps {
   }>
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+async function fetchAllBlogs() {
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 10000)
   try {
-    const { slug } = await params
-    const canonicalUrl = `https://safestorage.ae/blog/${slug}`
-
-    // Fetch directly from backend to avoid issues with calling own API
     const response = await fetch('https://safestorage.in/get_blog_content', {
-      cache: 'no-store'
+      cache: 'no-store',
+      signal: controller.signal,
     })
+    clearTimeout(timeout)
     const data = await response.json()
+    return Array.isArray(data) ? data : []
+  } catch {
+    clearTimeout(timeout)
+    return []
+  }
+}
 
-    // Find the blog post by matching slug
-    const blogs = Array.isArray(data) ? data : []
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params
+  const canonicalUrl = `https://safestorage.ae/blog/${slug}`
+
+  try {
+    const blogs = await fetchAllBlogs()
+
     const post = blogs.find((b: any) => {
       const title = b.title || b.seo_title || ''
       return generateSlug(title) === slug
@@ -41,29 +52,33 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
     if (!post) {
       return {
-        title: "Blog Post Not Found | SafeStorage Dubai",
+        title: "Blog Post Not Found",
         description: "The requested blog post could not be found.",
         robots: { index: false, follow: false },
+        alternates: { canonical: canonicalUrl },
       }
     }
 
-    const metaTitle = post.seo_title || post.title || "Blog Post"
+    // Use seo_title for browser tab / Google title, seo_desc for meta description
+    // Root layout template already appends "| SafeStorage Dubai" — do NOT add it here
+    const metaTitle = post.seo_title || post.title || "Blog"
     const description = post.seo_desc || "Read this blog post on SafeStorage Dubai"
 
+    const imageUrl = post.post_images
+      ? post.post_images.startsWith('http')
+        ? post.post_images
+        : `https://safestorage.in/post_images/${post.post_images}`
+      : null
+
     return {
-      title: `${metaTitle} | SafeStorage Dubai`,
+      title: metaTitle,
       description: description,
       keywords: post.tags || "",
-      alternates: {
-        canonical: canonicalUrl,
-      },
+      alternates: { canonical: canonicalUrl },
       robots: {
         index: true,
         follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-        },
+        googleBot: { index: true, follow: true },
       },
       openGraph: {
         title: metaTitle,
@@ -71,24 +86,15 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         url: canonicalUrl,
         siteName: "SafeStorage Dubai",
         type: "article",
-        images: post.post_images ? [
-          {
-            url: post.post_images,
-            width: 1200,
-            height: 630,
-            alt: title,
-          },
-        ] : [],
+        images: imageUrl ? [{ url: imageUrl, width: 1200, height: 630, alt: metaTitle }] : [],
       },
     }
   } catch (error) {
     console.error('Error generating metadata:', error)
-    // Still set canonical even on error to prevent inheriting homepage canonical
-    const { slug } = await params
     return {
-      title: "Blog | SafeStorage Dubai",
+      title: "Storage Tips & Guides",
       description: "Expert storage tips and guides from SafeStorage Dubai",
-      alternates: { canonical: `https://safestorage.ae/blog/${slug}` },
+      alternates: { canonical: canonicalUrl },
     }
   }
 }
@@ -98,24 +104,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   // Check if blog post exists before rendering
   try {
-    const response = await fetch('https://safestorage.in/get_blog_content', {
-      cache: 'no-store'
-    })
-    const data = await response.json()
-
-    const blogs = Array.isArray(data) ? data : []
+    const blogs = await fetchAllBlogs()
     const post = blogs.find((b: any) => {
       const title = b.title || b.seo_title || ''
       return generateSlug(title) === slug
     })
 
-    // Return 404 if post not found
     if (!post) {
       notFound()
     }
   } catch (error) {
     console.error('Error checking blog post:', error)
-    // If API fails, let the component handle it (will show "Post Not Found")
+    // If API fails, let the component handle it
   }
 
   return <BlogPostDetail slug={slug} />
