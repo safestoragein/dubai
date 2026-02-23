@@ -405,7 +405,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
               {post.tags.map((tag, index) => (
                 <Link
                   key={index}
-                  href="https://safestorage.ae/get-a-quote"
+                  href="https://safestorage.ae/get-quote"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
