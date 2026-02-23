@@ -98,9 +98,39 @@ function generateSlug(title: string): string {
     .replace(/^-+|-+$/g, '')
 }
 
+// Match a tag to a blog URL or fall back to get-quote
+function getTagUrl(tag: string, allBlogs: BlogPost[]): string {
+  // Normalize tag: remove common location/filler words, lowercase, slugify
+  const stopWords = new Set(['dubai', 'uae', 'in', 'for', 'the', 'a', 'and', 'or', 'of', 'at', 'near', 'me'])
+  const tagWords = tag.toLowerCase().split(/\s+/).filter(w => !stopWords.has(w))
+
+  if (tagWords.length === 0) return '/get-quote'
+
+  // Find blog whose slug contains the most tag words
+  let bestMatch: BlogPost | null = null
+  let bestScore = 0
+
+  for (const blog of allBlogs) {
+    const slugWords = blog.slug.split('-')
+    const score = tagWords.filter(w => slugWords.includes(w)).length
+    if (score > bestScore) {
+      bestScore = score
+      bestMatch = blog
+    }
+  }
+
+  // Require at least 1 meaningful word match
+  if (bestMatch && bestScore >= 1) {
+    return `/blog/${bestMatch.slug}`
+  }
+
+  return '/get-quote'
+}
+
 export default function BlogPostDetail({ slug }: { slug: string }) {
   const [mounted, setMounted] = useState(false)
   const [post, setPost] = useState<BlogPost | null>(null)
+  const [allBlogs, setAllBlogs] = useState<BlogPost[]>([])
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
   const [imageError, setImageError] = useState(false)
@@ -238,6 +268,9 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
               : []
               }
             })
+
+          // Store all blogs for tag URL matching
+          setAllBlogs(allPosts)
 
           // Prioritize posts from the same category
           const sameCategory = allPosts.filter((p: BlogPost) => p.categories[0] === category)
@@ -402,18 +435,22 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
               Tags
             </h3>
             <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag, index) => (
-                <Link
-                  key={index}
-                  href="https://safestorage.ae/get-quote"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="inline-block px-3 py-1.5 text-sm font-medium rounded-full border border-dubai-gold/40 text-dubai-gold bg-dubai-gold/5 hover:bg-dubai-gold hover:text-white transition-all duration-200 cursor-pointer">
-                    #{tag}
-                  </span>
-                </Link>
-              ))}
+              {post.tags.map((tag, index) => {
+                const tagUrl = getTagUrl(tag, allBlogs)
+                const isInternal = tagUrl.startsWith('/')
+                return (
+                  <Link
+                    key={index}
+                    href={isInternal ? tagUrl : `https://safestorage.ae${tagUrl}`}
+                    target={isInternal ? "_self" : "_blank"}
+                    rel={isInternal ? undefined : "noopener noreferrer"}
+                  >
+                    <span className="inline-block px-3 py-1.5 text-sm font-medium rounded-full border border-dubai-gold/40 text-dubai-gold bg-dubai-gold/5 hover:bg-dubai-gold hover:text-white transition-all duration-200 cursor-pointer">
+                      #{tag}
+                    </span>
+                  </Link>
+                )
+              })}
             </div>
           </m.div>
         )}
