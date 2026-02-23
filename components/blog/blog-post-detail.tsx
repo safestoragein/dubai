@@ -186,7 +186,11 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             likes: getConsistentLikes(postId),
             views: getConsistentViews(postId),
             comments: [],
-            tags: blog.tags ? (Array.isArray(blog.tags) ? blog.tags : blog.tags.split(',').map((t: string) => t.trim())) : []
+            tags: blog.tags
+              ? (Array.isArray(blog.tags)
+                  ? blog.tags
+                  : blog.tags.split('|').map((t: string) => t.trim()).filter(Boolean))
+              : []
           }
           setPost(currentPost)
 
@@ -227,7 +231,11 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
                 likes: getConsistentLikes(blogPostId),
                 views: getConsistentViews(blogPostId),
                 comments: [],
-                tags: blog.tags ? (Array.isArray(blog.tags) ? blog.tags : blog.tags.split(',').map((t: string) => t.trim())) : []
+                tags: blog.tags
+              ? (Array.isArray(blog.tags)
+                  ? blog.tags
+                  : blog.tags.split('|').map((t: string) => t.trim()).filter(Boolean))
+              : []
               }
             })
 
@@ -395,9 +403,16 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             </h3>
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag, index) => (
-                <Badge key={index} variant="outline" className="border-dubai-gold/30 text-dubai-gold bg-dubai-gold/5 hover:bg-dubai-gold/10 transition-colors">
-                  {tag}
-                </Badge>
+                <Link
+                  key={index}
+                  href="https://safestorage.ae/get-a-quote"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="inline-block px-3 py-1.5 text-sm font-medium rounded-full border border-dubai-gold/40 text-dubai-gold bg-dubai-gold/5 hover:bg-dubai-gold hover:text-white transition-all duration-200 cursor-pointer">
+                    #{tag}
+                  </span>
+                </Link>
               ))}
             </div>
           </m.div>
