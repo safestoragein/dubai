@@ -66,7 +66,7 @@ export default function BlogPage() {
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState("all")
   
-  const allCategories = ["Storage Tips", "Moving Guide", "Business Storage", "Organization", "News"]
+  const allCategories = ["Storage Tips", "Moving Guide", "Business Storage", "Organization", "News", "Personal Storage"]
   
   useEffect(() => {
     fetchBlogs()
@@ -142,7 +142,7 @@ export default function BlogPage() {
     
   const popularPosts = [...blogs].sort((a, b) => b.views - a.views).slice(0, 5)
   const recommendedPosts = [...blogs].sort((a, b) => b.likes - a.likes).slice(0, 5)
-  const featuredPosts = blogs
+  const featuredPosts = filteredBlogs
 
   return (
     <div className="container px-4 md:px-6 py-12 md:py-16">
@@ -173,7 +173,7 @@ export default function BlogPage() {
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-dubai-navy">Featured Articles</h2>
               <span className="text-dubai-gold flex items-center">
-                {blogs.length} Articles
+                {filteredBlogs.length} {filteredBlogs.length !== blogs.length ? `of ${blogs.length} ` : ""}Articles
               </span>
             </div>
 
@@ -188,7 +188,19 @@ export default function BlogPage() {
                 ))
               ) : (
                 <div className="col-span-2 text-center py-8">
-                  <p className="text-gray-600">Loading articles...</p>
+                  <p className="text-gray-600">
+                    {searchQuery || selectedCategory !== "all"
+                      ? "No articles match your search. Try a different keyword or category."
+                      : "Loading articles..."}
+                  </p>
+                  {(searchQuery || selectedCategory !== "all") && (
+                    <button
+                      onClick={() => { setSearchQuery(""); setSelectedCategory("all"); }}
+                      className="mt-3 text-dubai-gold hover:underline text-sm"
+                    >
+                      Clear filters
+                    </button>
+                  )}
                 </div>
               )}
             </div>
@@ -230,11 +242,18 @@ export default function BlogPage() {
           <div className="bg-gray-50 rounded-xl p-6 mb-8">
             <h3 className="text-xl font-bold mb-4 text-dubai-navy">Categories</h3>
             <div className="flex flex-wrap gap-2">
+              <Badge
+                variant="outline"
+                className={`cursor-pointer transition-colors ${selectedCategory === "all" ? "bg-dubai-gold text-white border-dubai-gold" : "hover:bg-dubai-gold/10 hover:text-dubai-gold"}`}
+                onClick={() => setSelectedCategory("all")}
+              >
+                All
+              </Badge>
               {allCategories.map((category) => (
-                <Badge 
-                  key={category} 
-                  variant="outline" 
-                  className="hover:bg-dubai-gold/10 hover:text-dubai-gold cursor-pointer"
+                <Badge
+                  key={category}
+                  variant="outline"
+                  className={`cursor-pointer transition-colors ${selectedCategory === category ? "bg-dubai-gold text-white border-dubai-gold" : "hover:bg-dubai-gold/10 hover:text-dubai-gold"}`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
