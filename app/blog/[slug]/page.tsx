@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
     if (!post) {
       return {
-        title: "Blog Post Not Found",
+        title: { absolute: "Blog Post Not Found" },
         description: "The requested blog post could not be found.",
         robots: { index: false, follow: false },
         alternates: { canonical: canonicalUrl },
@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       : null
 
     return {
-      title: metaTitle,
+      title: { absolute: metaTitle },
       description: description,
       keywords: post.tags || "",
       alternates: { canonical: canonicalUrl },
@@ -92,7 +92,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   } catch (error) {
     console.error('Error generating metadata:', error)
     return {
-      title: "Storage Tips & Guides",
+      title: { absolute: "Storage Tips & Guides" },
       description: "Expert storage tips and guides from SafeStorage Dubai",
       alternates: { canonical: canonicalUrl },
     }
