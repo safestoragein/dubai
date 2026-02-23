@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { m } from "framer-motion"
-import { Search, ChevronRight, User, ArrowRight, MessageSquare } from "lucide-react"
+import { Search, ChevronRight, User, ArrowRight, MessageSquare, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -161,11 +161,20 @@ export default function BlogPage() {
             <Input
               type="text"
               placeholder="Search articles..."
-              className="pl-10 py-6 text-base"
+              className="pl-10 pr-10 py-6 text-base"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-dubai-navy/50" />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-dubai-navy/50 hover:text-dubai-navy transition-colors"
+                aria-label="Clear search"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            )}
           </div>
 
           {/* Featured Posts */}
