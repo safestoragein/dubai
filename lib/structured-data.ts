@@ -1148,18 +1148,16 @@ export const articleSchema = (article: {
 })
 
 // COMBINED SCHEMA FOR GLOBAL INJECTION
+// Only include truly site-wide schemas here.
+// Page-specific schemas (FAQPage, ContactPage, AboutPage, HowTo) are added per-page
+// to avoid conflicting / duplicate schema warnings from Google.
 export const allSchemas = [
   organizationSchema,
   localBusinessSchema,
   webSiteSchema,
-  faqSchema,
   serviceSchema,
   productSchema,
-  howToSchema,
   itemListSchema,
   speakableSchema,
   offerSchema,
-  videoSchema,
-  contactPageSchema,
-  aboutPageSchema
 ]

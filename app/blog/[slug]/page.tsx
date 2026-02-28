@@ -62,7 +62,17 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     // Use seo_title for browser tab / Google title, seo_desc for meta description
     // Root layout template already appends "| SafeStorage Dubai" — do NOT add it here
     const metaTitle = post.seo_title || post.title || "Blog"
-    const description = post.seo_desc || "Read this blog post on SafeStorage Dubai"
+
+    // Generate unique description: use seo_desc, fallback to first 160 chars of plain-text content
+    const rawDesc = post.seo_desc || ""
+    const description = rawDesc.trim()
+      ? rawDesc.trim().slice(0, 160)
+      : (post.description || "")
+          .replace(/<[^>]+>/g, " ")   // strip HTML tags
+          .replace(/\s+/g, " ")
+          .trim()
+          .slice(0, 160) ||
+        `Learn about ${post.title || "storage tips"} from SafeStorage Dubai experts.`
 
     const imageUrl = post.post_images
       ? post.post_images.startsWith('http')

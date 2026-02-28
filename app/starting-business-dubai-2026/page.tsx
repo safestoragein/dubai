@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     description: "Everything you need to know about starting a business in Dubai - licenses, costs, free zones, visas, and practical tips.",
     images: ["https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&h=800&fit=crop&q=80"],
   },
+  alternates: {
+    canonical: "https://safestorage.ae/starting-business-dubai-2026",
+  },
 }
 
 export default function StartingBusinessDubai2026() {

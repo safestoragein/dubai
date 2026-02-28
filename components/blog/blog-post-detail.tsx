@@ -71,9 +71,11 @@ function formatBlogContent(content: string): string {
     formattedContent = `<p>${formattedContent}</p>`
   }
   
-  // Add styling classes for better readability
+  // Add styling classes for better readability.
+  // Demote <h1> in CMS content → <h2> so the page has exactly one H1 (the post title).
   formattedContent = formattedContent
-    .replace(/<h1/g, '<h1 class="text-3xl font-bold mb-6 mt-8 text-dubai-navy"')
+    .replace(/<h1([^>]*)>/gi, '<h2 class="text-3xl font-bold mb-6 mt-8 text-dubai-navy">')
+    .replace(/<\/h1>/gi, '</h2>')
     .replace(/<h2/g, '<h2 class="text-2xl font-bold mb-4 mt-6 text-dubai-navy"')
     .replace(/<h3/g, '<h3 class="text-xl font-semibold mb-3 mt-5 text-dubai-navy"')
     .replace(/<h4/g, '<h4 class="text-lg font-semibold mb-2 mt-4 text-dubai-navy"')

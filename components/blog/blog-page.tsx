@@ -60,73 +60,64 @@ interface BlogPost {
   date: string
 }
 
-export default function BlogPage() {
+export default function BlogPage({ initialBlogs = [] }: { initialBlogs?: BlogPost[] }) {
   const [searchQuery, setSearchQuery] = useState("")
-  const [blogs, setBlogs] = useState<BlogPost[]>([])
-  const [loading, setLoading] = useState(true)
+  // Initialise from SSR data so crawlers see articles immediately
+  const [blogs, setBlogs] = useState<BlogPost[]>(initialBlogs)
+  const [loading, setLoading] = useState(initialBlogs.length === 0)
   const [selectedCategory, setSelectedCategory] = useState("all")
-  
+
   const allCategories = ["Storage Tips", "Moving Guide", "Business Storage", "Organization", "News", "Personal Storage"]
-  
+
   useEffect(() => {
-    fetchBlogs()
+    // Only re-fetch if we have no server-provided data
+    if (initialBlogs.length === 0) {
+      fetchBlogs()
+    }
   }, [])
-  
+
   const fetchBlogs = async () => {
     try {
-      const response = await fetch('/api/blogs/fetch', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        }
+      const response = await fetch("/api/blogs/fetch", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
       })
       const data = await response.json()
-      
-      console.log('API Response:', data) // Debug log
-      
-      if (data.status === 'success' && data.data && data.data.length > 0) {
-        const generateSlug = (title: string) => {
-          return title
+
+      if (data.status === "success" && data.data && data.data.length > 0) {
+        const generateSlug = (title: string) =>
+          title
             .toLowerCase()
-            .replace(/[^a-z0-9 -]/g, '')
-            .replace(/\s+/g, '-')
-            .replace(/-+/g, '-')
-            .replace(/^-+|-+$/g, '')
-        }
+            .replace(/[^a-z0-9 -]/g, "")
+            .replace(/\s+/g, "-")
+            .replace(/-+/g, "-")
+            .replace(/^-+|-+$/g, "")
 
-        const processedBlogs = data.data.map((blog: any) => {
-          const title = blog.title || blog.seo_title || 'Untitled'
-
-          const postId = parseInt(blog.post_id) || 1
-          return {
-            id: postId,
-            slug: generateSlug(title),
-            title: title,
-            excerpt: blog.seo_desc || '',
-            content: blog.description || '',
-            author: { name: 'SafeStorage Team' },
-            categories: [blog.post_category || 'Storage Tips'],
-            date: blog.created_at || new Date().toISOString(),
-            image: constructImageUrl(blog.post_images),
-            readTime: "5 min read",
-            likes: getConsistentLikes(postId),
-            views: getConsistentViews(postId),
-            comments: []
-          }
-        })
-
-        // Sort by post_id (newest first - assuming higher ID = newer)
-        processedBlogs.sort((a: any, b: any) => b.id - a.id)
-        
-        console.log('Processed blogs:', processedBlogs.length) // Debug log
+        const processedBlogs = data.data
+          .map((blog: any) => {
+            const title = blog.title || blog.seo_title || "Untitled"
+            const postId = parseInt(blog.post_id) || 1
+            return {
+              id: postId,
+              slug: generateSlug(title),
+              title,
+              excerpt: blog.seo_desc || "",
+              content: blog.description || "",
+              author: { name: "SafeStorage Team" },
+              categories: [blog.post_category || "Storage Tips"],
+              date: blog.created_at || new Date().toISOString(),
+              image: constructImageUrl(blog.post_images),
+              readTime: "5 min read",
+              likes: getConsistentLikes(postId),
+              views: getConsistentViews(postId),
+              comments: [],
+            }
+          })
+          .sort((a: any, b: any) => b.id - a.id)
         setBlogs(processedBlogs)
-      } else {
-        console.log('No blogs found in response')
-        setBlogs([])
       }
     } catch (error) {
-      console.error('Error fetching blogs:', error)
-      setBlogs([])
+      console.error("Error fetching blogs:", error)
     } finally {
       setLoading(false)
     }

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     "Learn how SafeStorage Dubai's simple 3-step process works: Book online, we collect your items, and access them anytime. Hassle-hassle-free pickup and delivery in Dubai.",
   keywords:
     "how storage works dubai, storage process, pickup delivery dubai, storage booking, self storage process dubai",
+  alternates: {
+    canonical: "https://safestorage.ae/how-it-works",
+  },
 }
 
 export default function HowItWorks() {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     description: 'SafeStorage Dubai storage service terms and conditions',
     url: 'https://safestorage.ae/terms-and-conditions',
   },
+  alternates: {
+    canonical: 'https://safestorage.ae/terms-and-conditions',
+  },
 };
 
 export default function TermsAndConditionsPage() {

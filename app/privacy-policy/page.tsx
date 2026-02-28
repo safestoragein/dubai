@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     description: 'SafeStorage Dubai privacy policy and data protection',
     url: 'https://safestorage.ae/privacy-policy',
   },
+  alternates: {
+    canonical: 'https://safestorage.ae/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicyPage() {
