@@ -1,19 +1,38 @@
 "use client"
 
 import { m } from "framer-motion"
-import { Truck, Car, Package, Lightbulb } from "lucide-react"
+import { Truck, Car, Package } from "lucide-react"
+
+// Pre-computed city light positions — no Math.random() in render
+const CITY_LIGHTS = [
+  { top: 12, left: 5,  dur: 2.1, delay: 0 },
+  { top: 25, left: 10, dur: 3.5, delay: 0.5 },
+  { top: 8,  left: 18, dur: 2.8, delay: 1 },
+  { top: 40, left: 26, dur: 4.2, delay: 0.3 },
+  { top: 15, left: 33, dur: 2.3, delay: 1.5 },
+  { top: 30, left: 41, dur: 3.0, delay: 0.7 },
+  { top: 20, left: 50, dur: 2.6, delay: 0.2 },
+  { top: 45, left: 58, dur: 3.8, delay: 1.2 },
+  { top: 10, left: 65, dur: 2.4, delay: 0.8 },
+  { top: 35, left: 73, dur: 4.0, delay: 0 },
+  { top: 18, left: 80, dur: 2.9, delay: 1.8 },
+  { top: 50, left: 86, dur: 3.3, delay: 0.4 },
+  { top: 22, left: 92, dur: 2.7, delay: 1.1 },
+  { top: 38, left: 96, dur: 3.6, delay: 0.6 },
+  { top: 5,  left: 44, dur: 2.2, delay: 1.4 },
+]
 
 export default function MovingVehicles() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Road at the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gray-800 z-10"></div>
+      {/* Road */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gray-800 z-10" />
 
       {/* Road markings */}
       <div className="absolute bottom-8 left-0 right-0 h-1 z-10">
         <div className="flex">
           {Array.from({ length: 20 }).map((_, i) => (
-            <div key={i} className="w-12 h-1 bg-yellow-400 mx-4"></div>
+            <div key={i} className="w-12 h-1 bg-yellow-400 mx-4" />
           ))}
         </div>
       </div>
@@ -21,16 +40,15 @@ export default function MovingVehicles() {
       {/* Street lights */}
       <div className="absolute bottom-16 left-0 right-0 z-10">
         <div className="flex justify-between">
-          {Array.from({ length: 10 }).map((_, i) => (
+          {Array.from({ length: 8 }).map((_, i) => (
             <div key={i} className="relative">
-              <div className="w-1 h-12 bg-gray-600"></div>
+              <div className="w-1 h-12 bg-gray-600" />
               <m.div
                 className="absolute -top-1 left-1/2 transform -translate-x-1/2"
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
               >
-                <div className="w-4 h-4 bg-yellow-300 rounded-full opacity-70 shadow-lg shadow-yellow-300/50"></div>
-                <div className="absolute top-0 left-0 w-8 h-8 bg-yellow-300/20 rounded-full"></div>
+                <div className="w-4 h-4 bg-yellow-300 rounded-full opacity-70 shadow-lg shadow-yellow-300/50" />
               </m.div>
             </div>
           ))}
@@ -42,24 +60,9 @@ export default function MovingVehicles() {
         className="absolute bottom-4 z-20"
         initial={{ x: -100 }}
         animate={{ x: "calc(100vw + 100px)" }}
-        transition={{
-          duration: 15,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-        }}
+        transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
       >
-        <div className="relative">
-          <Truck className="h-12 w-12 text-dubai-gold" />
-          {/* Headlights */}
-          <m.div
-            className="absolute top-1/2 right-0 transform -translate-y-1/2"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-          >
-            <div className="w-2 h-2 bg-yellow-300 rounded-full opacity-70 shadow-lg shadow-yellow-300/50"></div>
-            <div className="absolute top-0 left-0 w-6 h-3 bg-yellow-300/20 rounded-full transform -translate-x-2"></div>
-          </m.div>
-        </div>
+        <Truck className="h-12 w-12 text-dubai-gold" />
       </m.div>
 
       {/* Moving Car 1 */}
@@ -67,25 +70,9 @@ export default function MovingVehicles() {
         className="absolute bottom-4 z-20"
         initial={{ x: "calc(100vw + 100px)" }}
         animate={{ x: -100 }}
-        transition={{
-          duration: 10,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-          delay: 2,
-        }}
+        transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear", delay: 2 }}
       >
-        <div className="relative">
-          <Car className="h-8 w-8 text-white" />
-          {/* Taillights */}
-          <m.div
-            className="absolute top-1/2 left-0 transform -translate-y-1/2"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
-          >
-            <div className="w-2 h-2 bg-red-500 rounded-full opacity-70 shadow-lg shadow-red-500/50"></div>
-            <div className="absolute top-0 left-0 w-4 h-2 bg-red-500/20 rounded-full transform translate-x-1"></div>
-          </m.div>
-        </div>
+        <Car className="h-8 w-8 text-white" />
       </m.div>
 
       {/* Moving Truck 2 */}
@@ -93,25 +80,9 @@ export default function MovingVehicles() {
         className="absolute bottom-4 z-20"
         initial={{ x: -100 }}
         animate={{ x: "calc(100vw + 100px)" }}
-        transition={{
-          duration: 20,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-          delay: 5,
-        }}
+        transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear", delay: 5 }}
       >
-        <div className="relative">
-          <Truck className="h-10 w-10 text-white" />
-          {/* Headlights */}
-          <m.div
-            className="absolute top-1/2 right-0 transform -translate-y-1/2"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-          >
-            <div className="w-2 h-2 bg-yellow-300 rounded-full opacity-70 shadow-lg shadow-yellow-300/50"></div>
-            <div className="absolute top-0 left-0 w-5 h-3 bg-yellow-300/20 rounded-full transform -translate-x-2"></div>
-          </m.div>
-        </div>
+        <Truck className="h-10 w-10 text-white" />
       </m.div>
 
       {/* Moving Car 2 */}
@@ -119,132 +90,38 @@ export default function MovingVehicles() {
         className="absolute bottom-4 z-20"
         initial={{ x: "calc(100vw + 100px)" }}
         animate={{ x: -100 }}
-        transition={{
-          duration: 12,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-          delay: 7,
-        }}
+        transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "linear", delay: 7 }}
       >
-        <div className="relative">
-          <Car className="h-6 w-6 text-dubai-gold" />
-          {/* Taillights */}
-          <m.div
-            className="absolute top-1/2 left-0 transform -translate-y-1/2"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
-          >
-            <div className="w-1.5 h-1.5 bg-red-500 rounded-full opacity-70 shadow-lg shadow-red-500/50"></div>
-            <div className="absolute top-0 left-0 w-3 h-2 bg-red-500/20 rounded-full transform translate-x-1"></div>
-          </m.div>
-        </div>
-      </m.div>
-
-      {/* Additional Cars */}
-      <m.div
-        className="absolute bottom-4 z-20"
-        initial={{ x: -100 }}
-        animate={{ x: "calc(100vw + 100px)" }}
-        transition={{
-          duration: 18,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-          delay: 9,
-        }}
-      >
-        <div className="relative">
-          <Car className="h-7 w-7 text-blue-400" />
-          {/* Headlights */}
-          <m.div
-            className="absolute top-1/2 right-0 transform -translate-y-1/2"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-          >
-            <div className="w-1.5 h-1.5 bg-yellow-300 rounded-full opacity-70 shadow-lg shadow-yellow-300/50"></div>
-            <div className="absolute top-0 left-0 w-4 h-2 bg-yellow-300/20 rounded-full transform -translate-x-2"></div>
-          </m.div>
-        </div>
+        <Car className="h-6 w-6 text-dubai-gold" />
       </m.div>
 
       {/* Moving Package */}
       <m.div
         className="absolute bottom-20 z-20"
-        initial={{ x: -50, y: 0 }}
-        animate={{
-          x: "calc(100vw + 50px)",
-          y: [0, -20, 0, -15, 0],
-        }}
-        transition={{
-          x: {
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          },
-          y: {
-            duration: 2,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          },
-        }}
+        initial={{ x: -50 }}
+        animate={{ x: "calc(100vw + 50px)" }}
+        transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
       >
-        <div className="relative">
-          <Package className="h-8 w-8 text-dubai-gold" />
-          <m.div
-            animate={{ rotate: [-5, 5, -5] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            className="absolute inset-0"
-          >
-            <Package className="h-8 w-8 text-dubai-gold opacity-0" />
-          </m.div>
-        </div>
+        <Package className="h-8 w-8 text-dubai-gold" />
       </m.div>
 
-      {/* City lights effect */}
+      {/* City lights — pre-computed positions (was 70, now 15) */}
       <div className="absolute inset-0">
-        {Array.from({ length: 70 }).map((_, i) => (
+        {CITY_LIGHTS.map((light, i) => (
           <m.div
             key={i}
             className="absolute w-1 h-1 bg-yellow-300 rounded-full"
-            style={{
-              top: `${Math.random() * 60}%`,
-              left: `${Math.random() * 100}%`,
-            }}
+            style={{ top: `${light.top}%`, left: `${light.left}%` }}
             animate={{ opacity: [0.2, 1, 0.2] }}
             transition={{
-              duration: 2 + Math.random() * 3,
+              duration: light.dur,
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
-              delay: Math.random() * 2,
+              delay: light.delay,
             }}
           />
         ))}
       </div>
-
-      {/* Floating Lights */}
-      {Array.from({ length: 5 }).map((_, i) => (
-        <m.div
-          key={`floating-light-${i}`}
-          className="absolute z-20"
-          style={{
-            bottom: `${30 + Math.random() * 40}%`,
-            left: `${10 + (i * 20) + Math.random() * 5}%`,
-          }}
-          animate={{ y: [-10, 10, -10] }}
-          transition={{
-            duration: 4 + Math.random() * 3,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        >
-          <m.div
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-          >
-            <Lightbulb className="h-4 w-4 text-yellow-300" />
-            <div className="absolute top-0 left-0 w-8 h-8 bg-yellow-300/10 rounded-full -translate-x-2 -translate-y-2"></div>
-          </m.div>
-        </m.div>
-      ))}
     </div>
   )
 }

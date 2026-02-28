@@ -294,3 +294,17 @@
   0%, 100% { transform: scaleY(1); }
   50% { transform: scaleY(1.02); }
 }
+
+/* Hero building animation utility classes (replaces inline Math.random() animations) */
+.hero-building-float-v {
+  animation: floatBuildingVertical linear infinite;
+}
+.hero-building-float-h {
+  animation: floatBuildingHorizontal linear infinite;
+}
+.hero-building-float-d {
+  animation: floatBuildingDiagonal linear infinite;
+}
+.hero-building-float-s {
+  animation: floatBuildingScale linear infinite;
+}

@@ -2,21 +2,22 @@ import HeroSectionQuote from "@/components/hero-section-quote"
 import TrustBadges from "@/components/trust-badges"
 import USPSection from "@/components/usp-section"
 import WhyChooseUs from "@/components/why-choose-us"
-import ComparisonSection from "@/components/comparison-section"
-import HowItWorks from "@/components/how-it-works"
-import Testimonials from "@/components/testimonials"
-import FAQSection from "@/components/faq-section"
-import LocationSection from "@/components/location-section"
-import CaseStudies from "@/components/case-studies"
-// import VideoSection from "@/components/video-section"
-// import DubaiMapSection from "@/components/dubai-map-section"
+import StorageSizes from "@/components/storage-sizes"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from 'lucide-react'
-import StorageSizes from "@/components/storage-sizes"
+import { ArrowRight } from "lucide-react"
 import type { Metadata } from "next"
-import BlogSection from "@/components/blog-section"
+import dynamic from "next/dynamic"
 import { blogPosts } from "@/data/blog-posts"
+
+// Lazy-load below-fold sections — code-split to reduce initial JS bundle
+const ComparisonSection = dynamic(() => import("@/components/comparison-section"))
+const HowItWorks       = dynamic(() => import("@/components/how-it-works"))
+const LocationSection  = dynamic(() => import("@/components/location-section"))
+const CaseStudies      = dynamic(() => import("@/components/case-studies"))
+const Testimonials     = dynamic(() => import("@/components/testimonials"))
+const FAQSection       = dynamic(() => import("@/components/faq-section"))
+const BlogSection      = dynamic(() => import("@/components/blog-section"))
 
 export const metadata: Metadata = {
   title: "Secure Storage Solutions in Dubai | SafeStorage Dubai | +971505773388",
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
         url: "/og-home.jpg",
         width: 1200,
         height: 630,
-        alt: "SafeStorage Dubai Facility"
-      }
+        alt: "SafeStorage Dubai Facility",
+      },
     ],
     locale: "en_AE",
     type: "website",
@@ -52,13 +53,17 @@ export const metadata: Metadata = {
 }
 
 export default function LandingPage() {
+  const featuredPosts = blogPosts.filter((post) => post.featured).slice(0, 3)
   return (
     <div className="flex min-h-screen flex-col">
+      {/* Above-fold — loaded immediately */}
       <HeroSectionQuote />
       <TrustBadges />
       <StorageSizes />
       <WhyChooseUs />
       <USPSection />
+
+      {/* Below-fold — dynamically imported */}
       <ComparisonSection />
       <HowItWorks />
       <div className="w-full bg-white py-8 flex justify-center">
@@ -73,17 +78,7 @@ export default function LandingPage() {
       <CaseStudies />
       <Testimonials />
       <FAQSection />
-      {/* <VideoSection /> */}
-      {/* <div className="flex justify-center mt-8">
-        <Button variant="outline" size="lg" asChild>
-          <Link href="/testimonials" className="group">
-            View More Testimonials
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </Button>
-      </div> */}
-      {/* <DubaiMapSection /> */}
-      <BlogSection posts={blogPosts.filter((post) => post.featured).slice(0, 3)} />
+      <BlogSection posts={featuredPosts} />
     </div>
   )
 }
