@@ -20,11 +20,11 @@ const FAQSection       = dynamic(() => import("@/components/faq-section"))
 const BlogSection      = dynamic(() => import("@/components/blog-section"))
 
 export const metadata: Metadata = {
-  title: "Secure Storage Solutions in Dubai | SafeStorage Dubai | +971505773388",
+  title: "SafeStorage Dubai — Climate-Controlled Storage with Free Pickup | +971505773388",
   description:
-    "SafeStorage Dubai offers secure, climate-controlled storage solutions with hassle-free pickup & delivery. Personal, business & vehicle storage. Call +971505773388 for instant quote.",
+    "SafeStorage Dubai: secure, climate-controlled units with hassle-free free pickup from your door. Personal, business & vehicle storage from AED 99/month. 500+ happy customers. Get a free quote in 2 minutes.",
   keywords:
-    "storage dubai, self storage, secure storage, climate controlled storage, business storage, personal storage, dubai storage solutions, storage units dubai, safestorage, storage facility dubai, furniture storage, document storage",
+    "safestorage dubai, climate controlled storage dubai, free pickup storage dubai, secure storage with pickup dubai, affordable storage dubai AED 99, storage facility dubai, 24/7 storage access dubai, dubai storage solutions near me",
   openGraph: {
     title: "SafeStorage Dubai - Secure Storage Solutions | Hassle-Free Pickup",
     description: "Premium climate-controlled storage units in Dubai. 24/7 security, hassle-free pickup & delivery. Call +971505773388.",

@@ -7,9 +7,9 @@ import { Shield, Truck, Clock, Lock, ArrowRight, CheckCircle2, Package, Thermome
 import Script from "next/script"
 
 export const metadata: Metadata = {
-  title: "Self Storage Dubai – Secure, Affordable Units Near You | SafeStorage",
-  description: "Need storage in Dubai? SafeStorage offers secure, climate-controlled units with easy pickup, flexible plans, and 24/7 CCTV. Book your unit in minutes.",
-  keywords: "self storage dubai, storage units dubai, mini storage dubai, climate controlled storage dubai, storage near me dubai",
+  title: "Self Storage Dubai — Flexible Plans, No Lorry Needed | SafeStorage",
+  description: "Self storage in Dubai with hassle-free free pickup — no need to rent a truck. Flexible monthly plans, climate-controlled units, 24/7 CCTV. Book online in minutes from AED 99/month.",
+  keywords: "self storage dubai flexible plans, storage with free pickup dubai, no lorry storage dubai, month to month storage dubai, book storage online dubai, storage unit near me pickup dubai",
   openGraph: {
     title: "Self Storage Dubai – Secure, Affordable Units Near You",
     description: "SafeStorage offers secure, climate-controlled units with easy pickup and flexible plans.",

@@ -16,8 +16,8 @@ import {
 import { env } from "@/lib/env"
 
 export const metadata: Metadata = {
-  title: "Storage Units in Dubai - From AED 99/Month | Hassle-Free Pickup | SafeStorage",
-  description: "Rent secure, climate-controlled storage units in Dubai from AED 99/mo. Hassle-hassle-free pickup & delivery, 24/7 access, AED 5000 free insurance. Trusted by 500+ customers. Call 050-577-3388.",
+  title: "Storage Units Dubai Prices 2026 | Sizes & Rates Comparison | SafeStorage",
+  description: "Compare storage unit sizes and prices in Dubai for 2026. From small locker-size to full-villa storage — transparent AED 99/month pricing, free insurance up to AED 5,000, and hassle-free pickup. No hidden fees.",
   keywords: "storage units dubai, self storage dubai, storage dubai price, storage units near me, cheap storage dubai, climate controlled storage, furniture storage dubai, storage facility dubai, storage space dubai, storage rental dubai",
   openGraph: {
     title: "Storage Units in Dubai - From AED 99/Month | Hassle-Free Pickup",

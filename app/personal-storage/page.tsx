@@ -6,14 +6,14 @@ import TrustBadges from "@/components/trust-badges"
 import Testimonials from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Personal Storage Dubai | Household & Home Storage Solutions | SafeStorage",
+  title: "Personal Household Storage Dubai | Furniture & Boxes from AED 99/mo | SafeStorage",
   description:
-    "Affordable personal storage solutions in Dubai. Store your furniture, boxes, seasonal items & more with hassle-free pickup & delivery. Starting from AED 24/month. Call +971505773388.",
+    "Store household furniture, seasonal items, and moving boxes in Dubai with free pickup from your door. Personal storage from AED 99/month — no lorry, no hassle. Trusted by 500+ Dubai residents. Call +971505773388.",
   keywords:
-    "personal storage dubai, household storage, home storage dubai, furniture storage, moving storage, declutter storage, self storage dubai",
+    "personal household storage dubai, furniture storage home move dubai, moving boxes storage dubai, declutter home storage dubai, seasonal items storage dubai, apartment storage dubai, storage pickup from home dubai",
   openGraph: {
-    title: "Personal Storage Dubai | SafeStorage",
-    description: "Affordable personal storage solutions with hassle-free pickup & delivery. Store furniture, boxes, and household items from AED 24/month.",
+    title: "Personal Household Storage Dubai | Furniture & Boxes | SafeStorage",
+    description: "Store household furniture and moving boxes with free pickup from your Dubai home. From AED 99/month. Call +971505773388.",
     url: "https://safestorage.ae/personal-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

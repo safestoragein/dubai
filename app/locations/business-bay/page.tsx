@@ -2,14 +2,14 @@ import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 
 export const metadata: Metadata = {
-  title: "Storage Units Business Bay Dubai | SafeStorage | +971505773388",
+  title: "Storage Units Near Business Bay Dubai | Pickup in 24hrs | SafeStorage",
   description:
-    "Secure storage solutions for Business Bay residents and businesses. Climate-controlled units with hassle-free pickup from Downtown & Business Bay. Call +971505773388.",
+    "Looking for storage units near Business Bay Dubai? SafeStorage offers climate-controlled units with free pickup from Business Bay, DIFC & Downtown. Book online — space ready tomorrow. Call +971505773388.",
   keywords:
-    "storage business bay, business bay storage units, self storage business bay dubai, downtown dubai storage, storage near burj khalifa",
+    "storage units near business bay dubai, business bay self storage, storage near DIFC, downtown dubai storage units, business bay office storage, storage pickup business bay",
   openGraph: {
-    title: "Storage Business Bay - SafeStorage Dubai",
-    description: "Premium storage in Business Bay with hassle-free pickup & 24/7 security. Call +971505773388.",
+    title: "Storage Units Near Business Bay Dubai - Pickup in 24hrs | SafeStorage",
+    description: "Climate-controlled storage near Business Bay & DIFC. Free pickup from your address. Call +971505773388.",
     url: "https://safestorage.ae/locations/business-bay",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

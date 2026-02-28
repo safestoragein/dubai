@@ -2,14 +2,14 @@ import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 
 export const metadata: Metadata = {
-  title: "Storage Units Jumeirah Dubai | SafeStorage | +971505773388",
+  title: "Expat Storage Dubai Moving Back Home | Jumeirah Storage | SafeStorage",
   description:
-    "Premium storage solutions for Jumeirah residents. Secure, climate-controlled units with hassle-free pickup from all Jumeirah areas. Call +971505773388 for instant quote.",
+    "Moving back home from Jumeirah or leaving Dubai? SafeStorage offers expat-friendly storage — keep belongings safely stored while you decide what to ship. Free pickup, flexible terms, trusted by 500+ expats. Call +971505773388.",
   keywords:
-    "storage jumeirah, jumeirah storage units, self storage jumeirah dubai, storage umm suqeim, storage near jumeirah beach",
+    "expat storage dubai moving back home, jumeirah expat storage, leaving dubai storage, storage for expats dubai, moving out storage jumeirah, temporary storage expat dubai, repatriation storage dubai",
   openGraph: {
-    title: "Storage Jumeirah - SafeStorage Premium Solutions",
-    description: "Secure storage in Jumeirah with hassle-free pickup & delivery service. Call +971505773388.",
+    title: "Expat Storage Dubai Moving Back Home | Jumeirah | SafeStorage",
+    description: "Trusted by 500+ expats leaving Dubai. Store belongings safely in Jumeirah — flexible terms, free pickup. Call +971505773388.",
     url: "https://safestorage.ae/locations/jumeirah",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

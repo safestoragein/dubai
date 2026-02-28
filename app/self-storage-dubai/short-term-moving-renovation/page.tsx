@@ -5,12 +5,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Home, Truck, Clock, Package, ArrowRight, CheckCircle2, Calendar, Shield } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Short-Term Storage Dubai – Moving & Renovation Storage Solutions | SafeStorage",
-  description: "Need storage during moves or renovations? Flexible short-term units from 1 week to 6 months. Quick access, secure facilities, hassle-free pickup available.",
-  keywords: "short term storage dubai, moving storage dubai, renovation storage dubai, temporary storage dubai",
+  title: "Short-Term Storage Between Leases Dubai | Moving & Renovation | SafeStorage",
+  description:
+    "Need storage between apartment leases, during a renovation, or while moving in Dubai? Book from 1 week — free pickup, flexible month-to-month plans. Perfect for lease gap storage & renovation projects. Call +971505773388.",
+  keywords:
+    "short term storage between leases dubai, lease gap storage dubai, storage during apartment renovation dubai, temporary storage moving house dubai, storage between moves dubai, 1 month storage dubai, weekly storage rental dubai",
   openGraph: {
-    title: "Short-Term Storage Dubai – Perfect for Moves & Renovations",
-    description: "Flexible short-term storage solutions for moving, renovating, or temporary needs in Dubai.",
+    title: "Short-Term Storage Between Leases Dubai | Moving & Renovation | SafeStorage",
+    description: "Storage between leases, during renovation or while moving in Dubai. From 1 week, free pickup. Call +971505773388.",
     url: "https://safestorage.ae/self-storage-dubai/short-term-moving-renovation",
   },
   alternates: {

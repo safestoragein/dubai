@@ -2,14 +2,14 @@ import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 
 export const metadata: Metadata = {
-  title: "Storage Units Dubai Investment Park | SafeStorage | +971505773388",
+  title: "Document Archival Service Dubai Investment Park | SafeStorage",
   description:
-    "Secure storage solutions for Dubai Investment Park residents and businesses. Climate-controlled units with hassle-free pickup from DIP, Motor City & nearby areas. Call +971505773388.",
+    "Professional document archival and records storage in Dubai Investment Park. Fireproof, climate-controlled document storage for businesses in DIP, Motor City & JAFZA. Pickup & retrieval on demand. Call +971505773388.",
   keywords:
-    "storage dubai investment park, dip storage units, self storage dubai investment park, motor city storage, production city storage",
+    "document archival service dubai investment park, records storage DIP dubai, document storage motor city dubai, business records archival JAFZA, secure document storage dubai investment park, file storage DIP",
   openGraph: {
-    title: "Storage Dubai Investment Park - SafeStorage Dubai",
-    description: "Premium storage in Dubai Investment Park with hassle-free pickup & 24/7 security. Call +971505773388.",
+    title: "Document Archival Service Dubai Investment Park | SafeStorage",
+    description: "Business document archival & records storage near DIP, Motor City & JAFZA. On-demand retrieval. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-investment-park",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

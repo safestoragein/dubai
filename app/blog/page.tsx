@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 async function fetchBlogPosts() {
   try {
     const response = await fetch("https://safestorage.in/get_blog_content", {
-      next: { revalidate: 3600 }, // Cache for 1 hour
+      cache: "no-store", // Response is 3.8MB — too large for Next.js Data Cache (2MB limit)
     })
     if (!response.ok) return []
     const data = await response.json()

@@ -6,14 +6,14 @@ import TrustBadges from "@/components/trust-badges"
 import Testimonials from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Business Storage Dubai | Secure Document & Inventory Storage | SafeStorage",
+  title: "Business Storage Dubai | Inventory & Office Storage for Companies | SafeStorage",
   description:
-    "Professional business storage solutions in Dubai. Secure document archiving, inventory storage, and office equipment storage with pickup & delivery. Call +971505773388.",
+    "Business storage solutions for Dubai companies — store excess inventory, office equipment, trade show materials, and retail stock. Flexible monthly contracts, pickup & delivery on demand. Call +971505773388.",
   keywords:
-    "business storage dubai, document storage, inventory storage, office storage, commercial storage dubai, secure business storage",
+    "business storage dubai companies, inventory storage dubai warehouse alternative, office equipment storage dubai, commercial storage dubai SME, stock storage dubai retail, trade show storage dubai, b2b storage dubai",
   openGraph: {
-    title: "Business Storage Dubai | SafeStorage",
-    description: "Professional business storage solutions with secure facilities and hassle-free pickup & delivery.",
+    title: "Business Storage Dubai | Inventory & Office Storage for Companies | SafeStorage",
+    description: "Flexible storage for Dubai businesses — inventory, office equipment & stock. Monthly contracts, on-demand delivery. Call +971505773388.",
     url: "https://safestorage.ae/business-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

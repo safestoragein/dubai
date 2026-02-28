@@ -6,14 +6,14 @@ import TrustBadges from "@/components/trust-badges"
 import Testimonials from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Document Storage & Records Archival Dubai | SafeStorage | +971505773388",
+  title: "Document Archival & Records Storage Dubai | Legal, Medical & Business Files | SafeStorage",
   description:
-    "Secure document storage and records archival in Dubai. Climate-controlled, fireproof storage for business documents, legal files, and medical records. Call +971505773388.",
+    "Professional document archival for law firms, medical clinics, and businesses in Dubai. Fireproof, climate-controlled records storage with indexed retrieval in 24 hrs. Compliant with UAE data laws. Call +971505773388.",
   keywords:
-    "document storage dubai, records archival dubai, document archiving, secure document storage, business records storage, legal document storage",
+    "document archival service dubai, business records storage dubai, legal document archival UAE, medical records storage dubai, fireproof document storage, indexed records retrieval dubai, compliance document storage UAE",
   openGraph: {
-    title: "Document Storage & Records Archival Dubai | SafeStorage",
-    description: "Professional document storage with climate control and 24/7 security. Perfect for businesses, legal firms, and medical practices.",
+    title: "Document Archival & Records Storage Dubai | Legal, Medical & Business Files | SafeStorage",
+    description: "Fireproof, climate-controlled document archival in Dubai. Indexed retrieval within 24 hrs. Compliant with UAE laws. Call +971505773388.",
     url: "https://safestorage.ae/storage-dubai/records-archival",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

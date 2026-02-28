@@ -17,9 +17,9 @@ import { env } from "@/lib/env"
 import Script from "next/script"
 
 export const metadata: Metadata = {
-  title: "Storage Dubai | #1 Rated Storage Facility | From AED 99 | SafeStorage",
-  description: "Best storage in Dubai from AED 99/month. Climate-controlled, 24/7 access, Hassle-Hassle-hassle-free pickup & delivery. 4.9★ rated by 500+ customers. Get instant quote!",
-  keywords: "storage dubai, self storage dubai, storage facility dubai, cheap storage dubai, secure storage dubai, climate controlled storage, furniture storage dubai, business storage dubai, document storage dubai, vehicle storage dubai",
+  title: "Storage Dubai — All-In-One: Personal, Business & Vehicle Storage | SafeStorage",
+  description: "One storage provider for all your Dubai needs: personal furniture, business inventory, vehicle storage & document archival. 4.9★ rated by 500+ customers. Free pickup, transparent pricing. Call +971505773388.",
+  keywords: "all in one storage dubai, personal and business storage dubai, vehicle furniture storage dubai, storage provider dubai, full service storage dubai, pickup and delivery storage dubai, 4.9 rated storage dubai",
   openGraph: {
     title: "Storage Dubai | #1 Rated Storage Facility | From AED 99",
     description: "Best storage in Dubai from AED 99/month. Climate-controlled, 24/7 access, Hassle-Hassle-hassle-free pickup & delivery. 4.9★ rated by 500+ customers.",
