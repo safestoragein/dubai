@@ -1133,18 +1133,21 @@ export default function QuotePage() {
                       </div>
 
                       <div className="space-y-2">
-                        <Label className="text-sm font-semibold text-slate-700">Number of Bedrooms *</Label>
+                        <Label className="text-sm font-semibold text-slate-700">Home Type *</Label>
                         <Select
                           value={formData.bedrooms}
                           onValueChange={(value) => setFormData({ ...formData, bedrooms: value })}
                         >
                           <SelectTrigger className="h-12 border-2 border-slate-200 focus:border-blue-500 rounded-lg">
-                            <SelectValue placeholder="Select bedrooms" />
+                            <SelectValue placeholder="Select home type" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="1">1 Bedroom</SelectItem>
-                            <SelectItem value="2">2 Bedrooms</SelectItem>
-                            <SelectItem value="3+">3 or More Bedrooms</SelectItem>
+                            <SelectItem value="Studio">Studio</SelectItem>
+                            <SelectItem value="1 BHK">1 BHK</SelectItem>
+                            <SelectItem value="2 BHK">2 BHK</SelectItem>
+                            <SelectItem value="3 BHK">3 BHK</SelectItem>
+                            <SelectItem value="4 BHK">4 BHK</SelectItem>
+                            <SelectItem value="5 BHK+">5 BHK+</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
