@@ -805,7 +805,7 @@ export default function QuotePage() {
   }
 
   const validateStep1 = () => {
-    if (!formData.fullName || !formData.email || !formData.phone || !formData.address || !formData.floor || !formData.liftAvailable) {
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.address || !formData.floor || !formData.liftAvailable || !formData.bedrooms) {
       toast.error("Please fill in all required fields")
       return false
     }
@@ -878,6 +878,7 @@ export default function QuotePage() {
           selected_storage_type: selectedStorageOption,
           lift: formData.liftAvailable,
           floor: formData.floor,
+          bedrooms: formData.bedrooms,
           total_sqft: formData.totalSqft!.toString(),
           total_points: formData.totalPoints!.toString(),
           total_pallets: formData.totalPallets!.toString(),
