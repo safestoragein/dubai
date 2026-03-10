@@ -125,8 +125,8 @@ const calculateTotalPoints = (selectedItems: SelectedItem[]): number => {
 }
 
 const calculatePallets = (totalPoints: number): number => {
-  // 13 points = 1 pallet
-  return Math.ceil(totalPoints / 13)
+  // 16 points = 1 pallet
+  return Math.ceil(totalPoints / 16)
 }
 
 const calculateSquareFeet = (pallets: number): number => {
