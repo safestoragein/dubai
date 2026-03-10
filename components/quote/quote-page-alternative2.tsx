@@ -104,6 +104,7 @@ interface FormData {
   address: string
   floor: string
   liftAvailable: string
+  bedrooms: string
   storageType: "short-term" | "long-term" | "business"
   selectedItems: SelectedItem[]
   storageOption?: "closed" | "shared"
@@ -192,6 +193,7 @@ const initialFormData: FormData = {
   address: "",
   floor: "",
   liftAvailable: "",
+  bedrooms: "",
   storageType: "long-term",
   selectedItems: [],
 }
@@ -644,6 +646,7 @@ export default function QuotePage() {
             selected_storage_type: '', // Will be set later when user selects
             lift: formData.liftAvailable,
             floor: formData.floor,
+            bedrooms: formData.bedrooms,
             total_sqft: totalSqft.toString(),
             total_points: totalPoints.toString(),
             total_pallets: totalPallets.toString(),
@@ -1114,8 +1117,8 @@ export default function QuotePage() {
                         
                         <div className="space-y-2">
                           <Label className="text-sm font-semibold text-slate-700">Elevator Available? *</Label>
-                          <Select 
-                            value={formData.liftAvailable} 
+                          <Select
+                            value={formData.liftAvailable}
                             onValueChange={(value) => setFormData({ ...formData, liftAvailable: value })}
                           >
                             <SelectTrigger className="h-12 border-2 border-slate-200 focus:border-blue-500 rounded-lg">
@@ -1127,6 +1130,23 @@ export default function QuotePage() {
                             </SelectContent>
                           </Select>
                         </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label className="text-sm font-semibold text-slate-700">Number of Bedrooms *</Label>
+                        <Select
+                          value={formData.bedrooms}
+                          onValueChange={(value) => setFormData({ ...formData, bedrooms: value })}
+                        >
+                          <SelectTrigger className="h-12 border-2 border-slate-200 focus:border-blue-500 rounded-lg">
+                            <SelectValue placeholder="Select bedrooms" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="1">1 Bedroom</SelectItem>
+                            <SelectItem value="2">2 Bedrooms</SelectItem>
+                            <SelectItem value="3+">3 or More Bedrooms</SelectItem>
+                          </SelectContent>
+                        </Select>
                       </div>
                     </div>
                   </div>
