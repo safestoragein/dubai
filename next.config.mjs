@@ -55,6 +55,12 @@ const nextConfig = {
   // Redirects for old/removed pages
   async redirects() {
     return [
+      // Fix broken internal links: /terms → /terms-and-conditions
+      {
+        source: '/terms',
+        destination: '/terms-and-conditions',
+        permanent: true,
+      },
       // Redirect old /near/* location pages to main self-storage page
       {
         source: '/self-storage-dubai/near/:location',
