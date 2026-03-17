@@ -17,7 +17,7 @@ export const organizationSchema = {
     width: 180,
     height: 60
   },
-  image: "https://safestorage.ae/images/facility-exterior.jpg",
+  image: "https://safestorage.ae/images/storage-facility-background.png",
   description: "Dubai's most trusted storage partner since 2018. Climate-controlled units, 24/7 security, hassle-free pickup & delivery, and free insurance up to AED 5000.",
   foundingDate: "2018",
   founders: [
@@ -90,10 +90,10 @@ export const localBusinessSchema = {
   alternateName: "SafeStorage Dubai",
   description: "Dubai's most trusted storage partner since 2018. Climate-controlled units, 24/7 security, hassle-free pickup & delivery, and free insurance up to AED 5000. Serving Dubai Marina, Business Bay, JLT, Downtown, and all areas.",
   image: [
-    "https://safestorage.ae/images/facility-1.jpg",
-    "https://safestorage.ae/images/facility-2.jpg",
-    "https://safestorage.ae/images/facility-3.jpg",
-    "https://safestorage.ae/images/storage-units.jpg"
+    "https://safestorage.ae/images/storage-facility-background.png",
+    "https://safestorage.ae/expansive-storage.png",
+    "https://safestorage.ae/organized-warehouse-space.png",
+    "https://safestorage.ae/varied-storage-row.png"
   ],
   url: "https://safestorage.ae",
   telephone: "+971505773388",
@@ -670,7 +670,7 @@ export const productSchema = {
     "@type": "Brand",
     name: "SafeStorage Dubai"
   },
-  image: "https://safestorage.ae/images/storage-units.jpg",
+  image: "https://safestorage.ae/organized-warehouse-space.png",
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "AED",
@@ -722,25 +722,25 @@ export const howToSchema = {
       name: "Get a Free Quote",
       text: "Visit safestorage.ae/get-quote or call +971505773388. Tell us what you need to store and we'll recommend the perfect unit size. Quotes are free with no obligation.",
       url: "https://safestorage.ae/get-quote",
-      image: "https://safestorage.ae/images/step1-quote.jpg"
+      image: "https://safestorage.ae/organized-storage-boxes.png"
     },
     {
       "@type": "HowToStep",
       name: "Schedule Hassle-Free Pickup",
       text: "Choose your preferred pickup date and time. Our professional team will come to your home, office, or any Dubai location to collect your items. Pickup is FREE.",
-      image: "https://safestorage.ae/images/step2-pickup.jpg"
+      image: "https://safestorage.ae/expansive-storage.png"
     },
     {
       "@type": "HowToStep",
       name: "We Store Securely",
       text: "Your items are transported to our climate-controlled facility (20-25°C) with 24/7 CCTV security. Everything is carefully stored and inventoried in your personal unit.",
-      image: "https://safestorage.ae/images/step3-storage.jpg"
+      image: "https://safestorage.ae/varied-storage-row.png"
     },
     {
       "@type": "HowToStep",
       name: "Retrieve Anytime",
       text: "Access your items during operating hours, or request hassle-free delivery back to your location. We'll bring your belongings to you whenever you need them.",
-      image: "https://safestorage.ae/images/step4-retrieve.jpg"
+      image: "https://safestorage.ae/organized-warehouse-space.png"
     }
   ]
 }
@@ -761,7 +761,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Small Storage Unit (25-50 sq ft)",
         description: "Perfect for 10-20 boxes, seasonal items, small furniture",
-        image: "https://safestorage.ae/images/storage-units.jpg",
+        image: "https://safestorage.ae/organized-warehouse-space.png",
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
@@ -815,7 +815,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Medium Storage Unit (50-100 sq ft)",
         description: "Ideal for 1-2 bedroom apartment contents",
-        image: "https://safestorage.ae/images/storage-units.jpg",
+        image: "https://safestorage.ae/organized-warehouse-space.png",
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
@@ -869,7 +869,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Large Storage Unit (100-200 sq ft)",
         description: "Suitable for 3 bedroom home or business inventory",
-        image: "https://safestorage.ae/images/storage-units.jpg",
+        image: "https://safestorage.ae/organized-warehouse-space.png",
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
@@ -923,7 +923,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Extra Large Storage Unit (200+ sq ft)",
         description: "For villas, large businesses, or bulk storage",
-        image: "https://safestorage.ae/images/storage-units.jpg",
+        image: "https://safestorage.ae/organized-warehouse-space.png",
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
@@ -977,7 +977,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Vehicle Storage",
         description: "Climate-controlled parking for cars, motorcycles, boats",
-        image: "https://safestorage.ae/images/facility-exterior.jpg",
+        image: "https://safestorage.ae/images/storage-facility-background.png",
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
@@ -1068,7 +1068,7 @@ export const videoSchema = {
   "@id": "https://safestorage.ae/#video",
   name: "SafeStorage Dubai Facility Tour - See Our Climate-Controlled Storage",
   description: "Take a virtual tour of SafeStorage Dubai's state-of-the-art storage facility. See our climate-controlled units, 24/7 security systems, and learn how we keep your belongings safe in Dubai.",
-  thumbnailUrl: "https://safestorage.ae/images/video-thumbnail.jpg",
+  thumbnailUrl: "https://safestorage.ae/images/storage-facility-background.png",
   uploadDate: "2024-01-15",
   duration: "PT3M45S",
   contentUrl: "https://www.youtube.com/watch?v=SAFESTORAGE_VIDEO_ID",
