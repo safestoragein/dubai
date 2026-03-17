@@ -73,7 +73,6 @@ export const metadata: Metadata = {
     canonical: "https://safestorage.ae",
     languages: {
       'en-AE': 'https://safestorage.ae',
-      'ar-AE': 'https://safestorage.ae/ar'
     }
   }
 }
