@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         title: { absolute: "Blog Post Not Found" },
         description: "The requested blog post could not be found.",
         robots: { index: false, follow: false },
-        alternates: { canonical: canonicalUrl },
+        alternates: { canonical: canonicalUrl, languages: { 'en': canonicalUrl } },
       }
     }
 
@@ -84,7 +84,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: { absolute: metaTitle },
       description: description,
       keywords: post.tags || "",
-      alternates: { canonical: canonicalUrl },
+      alternates: { canonical: canonicalUrl, languages: { 'en': canonicalUrl } },
       robots: {
         index: true,
         follow: true,
@@ -104,7 +104,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     return {
       title: { absolute: "Storage Tips & Guides" },
       description: "Expert storage tips and guides from SafeStorage Dubai",
-      alternates: { canonical: canonicalUrl },
+      alternates: { canonical: canonicalUrl, languages: { 'en': canonicalUrl } },
     }
   }
 }

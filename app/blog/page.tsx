@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   keywords: "storage tips dubai, storage guides, packing tips, organizing storage, storage blog dubai, storage advice",
   alternates: {
     canonical: "https://safestorage.ae/blog",
+    languages: { 'en': 'https://safestorage.ae/blog' },
   },
   openGraph: {
     title: "Storage Tips & Guides | SafeStorage Dubai Blog",

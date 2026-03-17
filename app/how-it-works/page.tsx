@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     "how storage works dubai, storage process, pickup delivery dubai, storage booking, self storage process dubai",
   alternates: {
     canonical: "https://safestorage.ae/how-it-works",
+    languages: { 'en': 'https://safestorage.ae/how-it-works' },
   },
 }
 
