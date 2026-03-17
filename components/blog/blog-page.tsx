@@ -70,10 +70,8 @@ export default function BlogPage({ initialBlogs = [] }: { initialBlogs?: BlogPos
   const allCategories = ["Storage Tips", "Moving Guide", "Business Storage", "Organization", "News", "Personal Storage"]
 
   useEffect(() => {
-    // Only re-fetch if we have no server-provided data
-    if (initialBlogs.length === 0) {
-      fetchBlogs()
-    }
+    // Always re-fetch client-side to load all posts (SSR only includes first 20)
+    fetchBlogs()
   }, [])
 
   const fetchBlogs = async () => {
