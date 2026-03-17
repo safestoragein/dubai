@@ -558,7 +558,7 @@ export default function ShortTermStoragePage() {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
-                <a href="https://wa.me/971505773388">
+                <a href="https://wa.me/971505773388" target="_blank" rel="nofollow noopener noreferrer">
                   WhatsApp Us
                 </a>
               </Button>

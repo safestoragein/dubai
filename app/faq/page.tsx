@@ -202,7 +202,7 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" asChild>
-                <a href={env.WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                <a href={env.WHATSAPP_LINK} target="_blank" rel="nofollow noopener noreferrer">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp Us
                 </a>

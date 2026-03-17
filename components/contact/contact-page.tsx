@@ -263,7 +263,7 @@ export default function ContactPage() {
                           className="border-dubai-gold text-dubai-gold hover:bg-dubai-gold/10"
                           asChild
                         >
-                          <a href={env.WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                          <a href={env.WHATSAPP_LINK} target="_blank" rel="nofollow noopener noreferrer">
                             WhatsApp
                           </a>
                         </Button>
@@ -347,7 +347,7 @@ export default function ContactPage() {
                   key={index}
                   href={social.href}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

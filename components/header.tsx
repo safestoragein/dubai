@@ -93,7 +93,7 @@ export default function Header() {
           <a
             href={env.WHATSAPP_LINK}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition-colors"
           >
             <MessageCircle className="h-5 w-5" />
@@ -142,7 +142,7 @@ export default function Header() {
                   <a
                     href={env.WHATSAPP_LINK}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded transition-colors"
                   >
                     <MessageCircle className="h-5 w-5" />

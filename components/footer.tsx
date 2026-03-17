@@ -140,7 +140,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4 text-dubai-gold shrink-0" />
-                <a href={env.WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-dubai-gold transition-colors">
+                <a href={env.WHATSAPP_LINK} target="_blank" rel="nofollow noopener noreferrer" className="hover:text-dubai-gold transition-colors">
                   WhatsApp Us
                 </a>
               </li>
