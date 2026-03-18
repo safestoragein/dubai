@@ -678,11 +678,141 @@ export const productSchema = {
     highPrice: "4999",
     offerCount: "5",
     offers: [
-      { "@type": "Offer", name: "Small Unit", price: "199", priceCurrency: "AED" },
-      { "@type": "Offer", name: "Medium Unit", price: "599", priceCurrency: "AED" },
-      { "@type": "Offer", name: "Large Unit", price: "1299", priceCurrency: "AED" },
-      { "@type": "Offer", name: "Extra Large Unit", price: "2499", priceCurrency: "AED" },
-      { "@type": "Offer", name: "Vehicle Storage", price: "899", priceCurrency: "AED" }
+      {
+        "@type": "Offer",
+        name: "Small Unit",
+        price: "199",
+        priceCurrency: "AED",
+        availability: "https://schema.org/InStock",
+        url: "https://safestorage.ae/storage-units-dubai",
+        image: "https://safestorage.ae/organized-warehouse-space.png",
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
+          shippingDestination: { "@type": "DefinedRegion", addressCountry: "AE", addressRegion: "Dubai" },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
+            transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" }
+          }
+        },
+        hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: "AE",
+          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+          merchantReturnDays: 30,
+          returnMethod: "https://schema.org/ReturnByMail",
+          returnFees: "https://schema.org/FreeReturn"
+        }
+      },
+      {
+        "@type": "Offer",
+        name: "Medium Unit",
+        price: "599",
+        priceCurrency: "AED",
+        availability: "https://schema.org/InStock",
+        url: "https://safestorage.ae/storage-units-dubai",
+        image: "https://safestorage.ae/organized-warehouse-space.png",
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
+          shippingDestination: { "@type": "DefinedRegion", addressCountry: "AE", addressRegion: "Dubai" },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
+            transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" }
+          }
+        },
+        hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: "AE",
+          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+          merchantReturnDays: 30,
+          returnMethod: "https://schema.org/ReturnByMail",
+          returnFees: "https://schema.org/FreeReturn"
+        }
+      },
+      {
+        "@type": "Offer",
+        name: "Large Unit",
+        price: "1299",
+        priceCurrency: "AED",
+        availability: "https://schema.org/InStock",
+        url: "https://safestorage.ae/storage-units-dubai",
+        image: "https://safestorage.ae/organized-warehouse-space.png",
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
+          shippingDestination: { "@type": "DefinedRegion", addressCountry: "AE", addressRegion: "Dubai" },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
+            transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" }
+          }
+        },
+        hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: "AE",
+          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+          merchantReturnDays: 30,
+          returnMethod: "https://schema.org/ReturnByMail",
+          returnFees: "https://schema.org/FreeReturn"
+        }
+      },
+      {
+        "@type": "Offer",
+        name: "Extra Large Unit",
+        price: "2499",
+        priceCurrency: "AED",
+        availability: "https://schema.org/InStock",
+        url: "https://safestorage.ae/storage-units-dubai",
+        image: "https://safestorage.ae/organized-warehouse-space.png",
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
+          shippingDestination: { "@type": "DefinedRegion", addressCountry: "AE", addressRegion: "Dubai" },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
+            transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" }
+          }
+        },
+        hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: "AE",
+          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+          merchantReturnDays: 30,
+          returnMethod: "https://schema.org/ReturnByMail",
+          returnFees: "https://schema.org/FreeReturn"
+        }
+      },
+      {
+        "@type": "Offer",
+        name: "Vehicle Storage",
+        price: "899",
+        priceCurrency: "AED",
+        availability: "https://schema.org/InStock",
+        url: "https://safestorage.ae/storage-units-dubai",
+        image: "https://safestorage.ae/organized-warehouse-space.png",
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
+          shippingDestination: { "@type": "DefinedRegion", addressCountry: "AE", addressRegion: "Dubai" },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
+            transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" }
+          }
+        },
+        hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: "AE",
+          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+          merchantReturnDays: 30,
+          returnMethod: "https://schema.org/ReturnByMail",
+          returnFees: "https://schema.org/FreeReturn"
+        }
+      }
     ]
   },
   aggregateRating: {
