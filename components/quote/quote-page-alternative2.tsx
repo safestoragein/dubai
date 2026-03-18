@@ -144,8 +144,8 @@ const calculateSharedSpacePricing = (selectedItems: SelectedItem[]) => {
   // Minimum 30 sqft for shared space
   const chargeableSqft = Math.max(calculatedSqft, 30)
 
-  // 13 AED per sqft
-  const pricePerSqft = 13
+  // 10 AED per sqft
+  const pricePerSqft = 10
   const totalCost = chargeableSqft * pricePerSqft
   
   return {
@@ -1706,9 +1706,6 @@ export default function QuotePage() {
                                 <div className="text-emerald-50 text-xs uppercase tracking-wide mb-1">Monthly Rate</div>
                                 <div className="text-2xl font-bold text-white mb-1">
                                   AED {sharedPricing.totalCost.toLocaleString()}
-                                </div>
-                                <div className="text-emerald-100 text-xs">
-                                  {sharedPricing.chargeableSqft} sqft × AED {sharedPricing.pricePerSqft}
                                 </div>
                                 {sharedPricing.isMinimumApplied && (
                                   <div className="text-emerald-200 text-xs mt-1">
