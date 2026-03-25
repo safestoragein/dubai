@@ -50,7 +50,7 @@ const structuredData = {
       description: "The best storage companies in Dubai ranked by overall score across value, security, and customer satisfaction.",
       numberOfItems: 10,
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "SafeStorage Dubai", description: "Dubai's #1 rated storage company. Valet storage with free pickup & delivery, climate-controlled units, 24/7 security, and free insurance. From AED 99/month.", url: "https://safestorage.ae" },
+        { "@type": "ListItem", position: 1, name: "SafeStorage Dubai", description: "Dubai's #1 rated storage company. Valet storage with free pickup & delivery, climate-controlled units, 24/7 security, and free insurance. From AED 9/month.", url: "https://safestorage.ae" },
         { "@type": "ListItem", position: 2, name: "The Box Self Storage Dubai", description: "Established self-storage brand with drive-up units and 24/7 access across Dubai and Abu Dhabi.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
         { "@type": "ListItem", position: 3, name: "Yellow Box Self Storage", description: "Popular self-storage provider with competitive unit rates and a good range of sizes across Dubai.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
         { "@type": "ListItem", position: 4, name: "Klug Storage Dubai", description: "Modern smart-tech storage facility with app-based access and climate-controlled units.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
@@ -65,8 +65,8 @@ const structuredData = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "What is the best storage company in Dubai?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is rated the #1 storage company in Dubai in 2026, with a 9.8/10 overall score based on price, security, convenience, and customer reviews. They offer climate-controlled valet storage from AED 99/month with free pickup and delivery and free insurance up to AED 5,000." } },
-        { "@type": "Question", name: "How much do storage companies charge in Dubai?", acceptedAnswer: { "@type": "Answer", text: "Storage prices in Dubai vary by company and unit size. SafeStorage Dubai starts from AED 99/month. Self-storage units at providers like The Box and Yellow Box typically start from AED 150–250/month. Premium or larger units can cost AED 500–2,000+/month." } },
+        { "@type": "Question", name: "What is the best storage company in Dubai?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is rated the #1 storage company in Dubai in 2026, with a 9.8/10 overall score based on price, security, convenience, and customer reviews. They offer climate-controlled valet storage from AED 9/month with free pickup and delivery and free insurance up to AED 5,000." } },
+        { "@type": "Question", name: "How much do storage companies charge in Dubai?", acceptedAnswer: { "@type": "Answer", text: "Storage prices in Dubai vary by company and unit size. SafeStorage Dubai starts from AED 9/month. Self-storage units at providers like The Box and Yellow Box typically start from AED 150–250/month. Premium or larger units can cost AED 500–2,000+/month." } },
         { "@type": "Question", name: "Which storage company in Dubai is best for businesses?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is the best storage company for businesses in Dubai, offering dedicated business storage plans, document archival, e-commerce fulfilment, and flexible contracts. They serve businesses of all sizes from startups to large corporations." } },
         { "@type": "Question", name: "Which storage company in Dubai is best for home storage?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is the best choice for home and personal storage in Dubai. Their free pickup and delivery means you don't need to hire a van. Climate control protects furniture and belongings from Dubai's heat, and free insurance gives peace of mind." } },
         { "@type": "Question", name: "What should I look for when choosing a storage company in Dubai?", acceptedAnswer: { "@type": "Answer", text: "When choosing a storage company in Dubai, consider: overall price including hidden fees, whether climate control is included, security features (CCTV, access control), whether pickup and delivery is offered, insurance coverage, contract flexibility, and customer reviews. SafeStorage Dubai scores highest across all these criteria." } },
@@ -85,7 +85,7 @@ const companies = [
     score: 9.8,
     rating: 4.9,
     reviews: 2400,
-    price: "From AED 99/month",
+    price: "From AED 9/month",
     tag: "Editor's Choice",
     tagBg: "#FFD700",
     tagColor: "#0A2463",
@@ -524,8 +524,8 @@ export default function Top10StorageCompaniesDubai() {
               Frequently Asked Questions
             </h2>
             {[
-              { q: "What is the best storage company in Dubai?", a: "Based on our 2026 research and scoring, SafeStorage Dubai ranks #1 overall with a score of 9.8/10. They combine the best value, security, and convenience through their valet storage model. Pickup and delivery is free, all units are climate-controlled, and free insurance is included from AED 99/month." },
-              { q: "How much do storage companies charge in Dubai?", a: "Prices range widely depending on the company and unit size. SafeStorage Dubai starts from AED 99/month. Self-storage facilities like The Box and Yellow Box typically start from AED 200–250/month. Premium providers like Vault UAE start from AED 500/month. Always check whether climate control, insurance, and access are included in the quoted price." },
+              { q: "What is the best storage company in Dubai?", a: "Based on our 2026 research and scoring, SafeStorage Dubai ranks #1 overall with a score of 9.8/10. They combine the best value, security, and convenience through their valet storage model. Pickup and delivery is free, all units are climate-controlled, and free insurance is included from AED 9/month." },
+              { q: "How much do storage companies charge in Dubai?", a: "Prices range widely depending on the company and unit size. SafeStorage Dubai starts from AED 9/month. Self-storage facilities like The Box and Yellow Box typically start from AED 200–250/month. Premium providers like Vault UAE start from AED 500/month. Always check whether climate control, insurance, and access are included in the quoted price." },
               { q: "Which storage company in Dubai is best for businesses?", a: "SafeStorage Dubai is the top pick for business storage in Dubai, offering document archival, e-commerce fulfilment, and bulk inventory storage with flexible contracts. They serve startups through to large enterprises and provide dedicated account management." },
               { q: "Which storage company is best for home furniture?", a: "SafeStorage Dubai is the best choice for furniture storage in Dubai. Their climate-controlled environment (18–22°C) prevents warping, cracking, and humidity damage — critical for wood furniture in Dubai's heat. The door-to-door service also means no risk of damage during transport that often occurs with DIY van rentals." },
               { q: "What should I look for in a Dubai storage company?", a: "Key criteria: (1) Climate control — Dubai's heat can damage most belongings without it. (2) Security — CCTV, access control, on-site staff. (3) Insurance — in case of unexpected events. (4) Pickup/delivery — saves time, cost, and risk of damage. (5) Contract flexibility — monthly contracts are safer than annual lock-ins. (6) Transparent pricing — no hidden fees." },
@@ -546,7 +546,7 @@ export default function Top10StorageCompaniesDubai() {
               Dubai's #1 Rated Storage Company
             </h2>
             <p style={{ opacity: 0.85, fontSize: "15px", marginBottom: "26px", lineHeight: 1.6 }}>
-              Free pickup anywhere in Dubai · Climate-controlled · 24/7 security · Insurance included · From AED 99/month
+              Free pickup anywhere in Dubai · Climate-controlled · 24/7 security · Insurance included · From AED 9/month
             </p>
             <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
               <a href="https://safestorage.ae/get-quote" style={{ background: "#FFD700", color: "#0A2463", padding: "14px 28px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "16px" }}>
