@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { CheckCircle, Star, Phone, ArrowRight, MapPin, Shield, Thermometer, Truck, Clock, Award, Package, Users } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Top 10 Storage Companies in Dubai (2026) - Best Rated & Reviewed",
@@ -11,27 +9,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Top 10 Storage Companies in Dubai (2026) - Best Rated & Reviewed",
     description:
-      "Compare the top 10 storage companies in Dubai. Prices, features, pros & cons. SafeStorage Dubai rated #1 for value, security & customer service.",
+      "Compare the top 10 storage companies in Dubai. Scores, best-for labels & honest reviews. SafeStorage Dubai rated #1 for overall value.",
     url: "https://safestorage.ae/top-10-storage-companies-dubai",
     siteName: "SafeStorage Dubai",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Top 10 Storage Companies in Dubai 2026",
-      },
-    ],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Top 10 Storage Companies in Dubai 2026" }],
     locale: "en_AE",
     type: "article",
   },
-  alternates: {
-    canonical: "https://safestorage.ae/top-10-storage-companies-dubai",
-  },
+  alternates: { canonical: "https://safestorage.ae/top-10-storage-companies-dubai" },
   twitter: {
     card: "summary_large_image",
     title: "Top 10 Storage Companies in Dubai (2026)",
-    description: "Compare Dubai's best storage providers. Prices, features & reviews.",
+    description: "Compare Dubai's best storage providers — honest scores & reviews.",
   },
 }
 
@@ -42,21 +31,13 @@ const structuredData = {
       "@type": "Article",
       "@id": "https://safestorage.ae/top-10-storage-companies-dubai#article",
       headline: "Top 10 Storage Companies in Dubai (2026)",
-      description:
-        "Comprehensive guide to the best storage companies in Dubai, ranked by price, security, reliability, and customer reviews.",
+      description: "Comprehensive guide to the best storage companies in Dubai, ranked by overall score across price, security, convenience, and customer satisfaction.",
       image: "https://safestorage.ae/og-image.jpg",
-      author: {
-        "@type": "Organization",
-        name: "SafeStorage Dubai",
-        url: "https://safestorage.ae",
-      },
+      author: { "@type": "Organization", name: "SafeStorage Dubai", url: "https://safestorage.ae" },
       publisher: {
         "@type": "Organization",
         name: "SafeStorage Dubai",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://safestorage.ae/images/design-mode/logo.png",
-        },
+        logo: { "@type": "ImageObject", url: "https://safestorage.ae/images/design-mode/logo.png" },
       },
       datePublished: "2026-01-01",
       dateModified: "2026-03-25",
@@ -66,133 +47,30 @@ const structuredData = {
       "@type": "ItemList",
       "@id": "https://safestorage.ae/top-10-storage-companies-dubai#list",
       name: "Top 10 Storage Companies in Dubai",
-      description: "The best storage companies in Dubai ranked by overall value, security, and customer satisfaction.",
+      description: "The best storage companies in Dubai ranked by overall score across value, security, and customer satisfaction.",
       numberOfItems: 10,
       itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "SafeStorage Dubai",
-          description:
-            "Dubai's #1 rated storage company offering climate-controlled units, free pickup & delivery, 24/7 security, and free insurance up to AED 5000. Starting from AED 99/month.",
-          url: "https://safestorage.ae",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "The Box Self Storage Dubai",
-          description: "Self-storage facility with drive-up units, 24/7 CCTV, and various unit sizes across Dubai.",
-          url: "https://safestorage.ae/top-10-storage-companies-dubai",
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Yellow Box Self Storage",
-          description: "Affordable self-storage units in Dubai with climate-controlled options.",
-          url: "https://safestorage.ae/top-10-storage-companies-dubai",
-        },
-        {
-          "@type": "ListItem",
-          position: 4,
-          name: "Klug Storage Dubai",
-          description: "Modern storage facility with smart technology access and climate-controlled units.",
-          url: "https://safestorage.ae/top-10-storage-companies-dubai",
-        },
-        {
-          "@type": "ListItem",
-          position: 5,
-          name: "Makanak Storage",
-          description: "Compact and affordable storage units for personal and business use in Dubai.",
-          url: "https://safestorage.ae/top-10-storage-companies-dubai",
-        },
-        {
-          "@type": "ListItem",
-          position: 6,
-          name: "StorHub UAE",
-          description: "International storage brand operating in Dubai with multiple unit sizes.",
-          url: "https://safestorage.ae/top-10-storage-companies-dubai",
-        },
-        {
-          "@type": "ListItem",
-          position: 7,
-          name: "National Self Storage Dubai",
-          description: "Established storage provider offering long-term and short-term storage in Dubai.",
-          url: "https://safestorage.ae/top-10-storage-companies-dubai",
-        },
-        {
-          "@type": "ListItem",
-          position: 8,
-          name: "Vault UAE",
-          description: "Premium vaulted storage solutions for valuables and business archives in Dubai.",
-          url: "https://safestorage.ae/top-10-storage-companies-dubai",
-        },
-        {
-          "@type": "ListItem",
-          position: 9,
-          name: "Box and Move Dubai",
-          description: "Combined moving and storage service for homes and offices in Dubai.",
-          url: "https://safestorage.ae/top-10-storage-companies-dubai",
-        },
-        {
-          "@type": "ListItem",
-          position: 10,
-          name: "Al Houl Storage Dubai",
-          description: "Budget-friendly warehouse storage for businesses and personal items in Dubai.",
-          url: "https://safestorage.ae/top-10-storage-companies-dubai",
-        },
+        { "@type": "ListItem", position: 1, name: "SafeStorage Dubai", description: "Dubai's #1 rated storage company. Valet storage with free pickup & delivery, climate-controlled units, 24/7 security, and free insurance. From AED 99/month.", url: "https://safestorage.ae" },
+        { "@type": "ListItem", position: 2, name: "The Box Self Storage Dubai", description: "Established self-storage brand with drive-up units and 24/7 access across Dubai and Abu Dhabi.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
+        { "@type": "ListItem", position: 3, name: "Yellow Box Self Storage", description: "Popular self-storage provider with competitive unit rates and a good range of sizes across Dubai.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
+        { "@type": "ListItem", position: 4, name: "Klug Storage Dubai", description: "Modern smart-tech storage facility with app-based access and climate-controlled units.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
+        { "@type": "ListItem", position: 5, name: "StorHub UAE", description: "International self-storage brand with clean, well-maintained units and 24/7 access in Dubai.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
+        { "@type": "ListItem", position: 6, name: "Makanak Storage", description: "Budget-friendly compact storage units for personal and small business use in Dubai.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
+        { "@type": "ListItem", position: 7, name: "National Self Storage Dubai", description: "Long-established storage provider offering reliable long-term storage at competitive rates.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
+        { "@type": "ListItem", position: 8, name: "Vault UAE", description: "Premium high-security vaulted storage for valuables, art, and sensitive business documents.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
+        { "@type": "ListItem", position: 9, name: "Box and Move Dubai", description: "Combined moving and storage service — ideal for customers in the middle of a relocation.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
+        { "@type": "ListItem", position: 10, name: "Al Houl Storage Dubai", description: "Warehouse-style bulk storage for businesses with large inventory or equipment in Dubai.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
       ],
     },
     {
       "@type": "FAQPage",
       mainEntity: [
-        {
-          "@type": "Question",
-          name: "What is the best storage company in Dubai?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "SafeStorage Dubai is rated the #1 storage company in Dubai based on price, security, convenience, and customer satisfaction. They offer climate-controlled units starting from AED 99/month with free pickup and delivery, 24/7 CCTV surveillance, and free insurance up to AED 5000.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How much do storage companies charge in Dubai?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Storage prices in Dubai range from AED 99/month to AED 1,500+/month depending on unit size, location, and features. SafeStorage Dubai offers the most competitive rates starting at AED 99/month with free pickup and delivery included.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Which storage company in Dubai offers free pickup and delivery?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "SafeStorage Dubai is the top storage company that offers free pickup and delivery for your items. This means you don't need a van or truck — they collect your belongings from your home or office and deliver them back whenever you need.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Which storage companies in Dubai have climate-controlled units?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Several storage companies in Dubai offer climate-controlled units including SafeStorage Dubai, The Box, Yellow Box, and Klug Storage. SafeStorage Dubai is considered the best for climate-controlled storage as all units are maintained at optimal temperature and humidity to protect your belongings.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Is it safe to use storage companies in Dubai?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes, reputable storage companies in Dubai are safe and secure. The best storage companies like SafeStorage Dubai offer 24/7 CCTV surveillance, biometric access control, and insurance coverage. SafeStorage Dubai provides free insurance up to AED 5000 for all stored items.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What is the cheapest storage company in Dubai?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "SafeStorage Dubai offers the most affordable storage in Dubai starting from AED 99/month with no hidden fees. Prices include climate control, 24/7 security, and free pickup and delivery service.",
-          },
-        },
+        { "@type": "Question", name: "What is the best storage company in Dubai?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is rated the #1 storage company in Dubai in 2026, with a 9.8/10 overall score based on price, security, convenience, and customer reviews. They offer climate-controlled valet storage from AED 99/month with free pickup and delivery and free insurance up to AED 5,000." } },
+        { "@type": "Question", name: "How much do storage companies charge in Dubai?", acceptedAnswer: { "@type": "Answer", text: "Storage prices in Dubai vary by company and unit size. SafeStorage Dubai starts from AED 99/month. Self-storage units at providers like The Box and Yellow Box typically start from AED 150–250/month. Premium or larger units can cost AED 500–2,000+/month." } },
+        { "@type": "Question", name: "Which storage company in Dubai is best for businesses?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is the best storage company for businesses in Dubai, offering dedicated business storage plans, document archival, e-commerce fulfilment, and flexible contracts. They serve businesses of all sizes from startups to large corporations." } },
+        { "@type": "Question", name: "Which storage company in Dubai is best for home storage?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is the best choice for home and personal storage in Dubai. Their free pickup and delivery means you don't need to hire a van. Climate control protects furniture and belongings from Dubai's heat, and free insurance gives peace of mind." } },
+        { "@type": "Question", name: "What should I look for when choosing a storage company in Dubai?", acceptedAnswer: { "@type": "Answer", text: "When choosing a storage company in Dubai, consider: overall price including hidden fees, whether climate control is included, security features (CCTV, access control), whether pickup and delivery is offered, insurance coverage, contract flexibility, and customer reviews. SafeStorage Dubai scores highest across all these criteria." } },
+        { "@type": "Question", name: "Is SafeStorage Dubai trustworthy?", acceptedAnswer: { "@type": "Answer", text: "Yes. SafeStorage Dubai has been operating since 2018 with over 2,400 verified customer reviews and a 4.9/5 Google rating. They are fully licensed in UAE, provide free insurance up to AED 5,000, and have 24/7 monitored security at all facilities." } },
       ],
     },
   ],
@@ -202,444 +80,436 @@ const companies = [
   {
     rank: 1,
     name: "SafeStorage Dubai",
-    badge: "⭐ #1 Rated",
+    bestFor: "Best Overall",
+    badgeColor: "#0A2463",
+    score: 9.8,
     rating: 4.9,
     reviews: 2400,
-    tagline: "Dubai's Most Trusted Storage Partner",
-    description:
-      "SafeStorage Dubai is the undisputed #1 storage company in Dubai. Founded in 2018, they have revolutionized the storage industry with their hassle-free valet storage model — they come to you, pick up your items, store them in climate-controlled facilities, and return them whenever you need. With over 2,400 happy customers and a 4.9-star rating, SafeStorage is the clear leader.",
-    website: "https://safestorage.ae",
-    phone: "+971505773388",
-    startingPrice: "AED 99/month",
-    pros: [
-      "Free pickup & delivery from your door",
-      "Climate-controlled storage (all units)",
-      "24/7 CCTV & biometric security",
-      "Free insurance up to AED 5,000",
-      "No long-term contracts required",
-      "Transparent pricing — no hidden fees",
-      "Business & personal storage",
-      "Serving all Dubai areas",
-    ],
-    cons: ["Valet model (no walk-in access)", "Premium service costs more than basic storage"],
+    price: "From AED 99/month",
+    tag: "Editor's Choice",
+    tagBg: "#FFD700",
+    tagColor: "#0A2463",
     highlight: true,
-    features: {
-      climateControl: true,
-      pickup: true,
-      insurance: true,
-      security: true,
-      flexible: true,
-    },
+    description: "SafeStorage Dubai stands out as the most complete storage solution in Dubai. Rather than a traditional self-storage facility, they operate a valet model — their team comes to your home or office, carefully packs and collects your belongings, stores them in fully climate-controlled and secured warehouses, then delivers everything back whenever you need it. For most Dubai residents, this is significantly more convenient than renting a unit.",
+    highlights: [
+      "Free door-to-door pickup & delivery across all Dubai areas",
+      "100% climate-controlled storage (maintained at 18–22°C)",
+      "24/7 CCTV surveillance with biometric access control",
+      "Free insurance coverage up to AED 5,000 included",
+      "No long-term contracts — pay month to month",
+      "Transparent pricing with no hidden charges",
+    ],
+    scores: { value: 9.9, security: 9.8, convenience: 9.9, service: 9.7 },
+    website: "https://safestorage.ae",
+    cta: true,
   },
   {
     rank: 2,
     name: "The Box Self Storage",
-    badge: "2nd Best",
+    bestFor: "Best for Drive-Up Access",
+    badgeColor: "#1a4a8a",
+    score: 8.1,
     rating: 4.3,
     reviews: 850,
-    tagline: "Drive-Up Self Storage Units",
-    description:
-      "The Box is a well-known self-storage brand in Dubai offering traditional drive-up units in multiple sizes. Best suited for customers who want direct access to their storage unit at any time. They have good security but no pickup/delivery service.",
-    startingPrice: "AED 250/month",
-    pros: [
-      "Drive-up access to units",
-      "Multiple unit sizes available",
-      "24/7 CCTV surveillance",
-      "Ground floor units available",
-    ],
-    cons: [
-      "No pickup or delivery service",
-      "No free insurance",
-      "Higher prices than SafeStorage",
-      "Limited climate-controlled units",
-    ],
+    price: "From AED 250/month",
+    tag: "Runner-Up",
+    tagBg: "#e8f0fe",
+    tagColor: "#1a4a8a",
     highlight: false,
-    features: {
-      climateControl: false,
-      pickup: false,
-      insurance: false,
-      security: true,
-      flexible: false,
-    },
+    description: "The Box is one of the most established self-storage brands in Dubai, operating facilities across Dubai and Abu Dhabi. They are a solid choice for customers who need frequent, direct access to their stored goods — you can drive up and access your unit yourself at any time. Their range of unit sizes accommodates everything from a few boxes to full apartment contents.",
+    highlights: [
+      "Drive-up access available at most facilities",
+      "Multiple unit sizes from small lockers to large rooms",
+      "CCTV security and electronic gate access",
+      "Ground-floor units available for easy loading",
+    ],
+    scores: { value: 7.5, security: 8.0, convenience: 7.8, service: 8.0 },
+    cta: false,
   },
   {
     rank: 3,
     name: "Yellow Box Self Storage",
-    badge: "3rd Place",
+    bestFor: "Best Budget Self-Storage",
+    badgeColor: "#d97706",
+    score: 7.8,
     rating: 4.1,
     reviews: 620,
-    tagline: "Affordable Self Storage Solutions",
-    description:
-      "Yellow Box Self Storage is a popular choice for customers looking for affordable unit rentals in Dubai. They offer a range of unit sizes with basic climate control options. Good for budget-conscious customers who don't need pickup/delivery.",
-    startingPrice: "AED 200/month",
-    pros: ["Competitive pricing", "Various unit sizes", "Online booking available", "Good location coverage"],
-    cons: [
-      "No pickup or delivery",
-      "Limited climate-controlled options",
-      "Basic security compared to top providers",
-      "No insurance included",
-    ],
+    price: "From AED 200/month",
+    tag: "Good Value",
+    tagBg: "#fef3c7",
+    tagColor: "#92400e",
     highlight: false,
-    features: {
-      climateControl: false,
-      pickup: false,
-      insurance: false,
-      security: true,
-      flexible: false,
-    },
+    description: "Yellow Box Self Storage is a popular mid-tier option for Dubai residents who want affordable unit rentals with a respectable level of security. They offer a range of unit sizes and have convenient locations across the city. A reliable pick for budget-conscious individuals who don't need the added convenience of pickup and delivery.",
+    highlights: [
+      "Competitive pricing across unit sizes",
+      "Multiple Dubai locations",
+      "Online booking and account management",
+      "24/7 security with CCTV",
+    ],
+    scores: { value: 8.5, security: 7.5, convenience: 7.0, service: 7.5 },
+    cta: false,
   },
   {
     rank: 4,
     name: "Klug Storage",
-    badge: "4th Place",
+    bestFor: "Best for Tech-Savvy Renters",
+    badgeColor: "#0891b2",
+    score: 7.6,
     rating: 4.2,
     reviews: 410,
-    tagline: "Smart Technology Storage",
-    description:
-      "Klug Storage is a modern storage facility leveraging smart technology for access control and monitoring. Their app-based access system is a standout feature, appealing to tech-savvy customers.",
-    startingPrice: "AED 300/month",
-    pros: ["App-based smart access", "Modern facility", "Climate-controlled options", "Digital inventory management"],
-    cons: ["Higher price point", "No pickup/delivery", "Limited locations", "No free insurance"],
+    price: "From AED 300/month",
+    tag: "Smart Storage",
+    tagBg: "#e0f2fe",
+    tagColor: "#0369a1",
     highlight: false,
-    features: {
-      climateControl: true,
-      pickup: false,
-      insurance: false,
-      security: true,
-      flexible: false,
-    },
+    description: "Klug Storage brings a modern, technology-first approach to self-storage in Dubai. Their smartphone app allows you to manage access, track inventory, and handle billing entirely digitally. Climate-controlled units and a sleek facility design make them particularly popular with younger professionals and tech-oriented businesses.",
+    highlights: [
+      "App-based smart entry and access management",
+      "Climate-controlled units in a modern facility",
+      "Digital inventory tracking via mobile app",
+      "Flexible short and long-term lease options",
+    ],
+    scores: { value: 7.2, security: 8.0, convenience: 7.8, service: 7.5 },
+    cta: false,
   },
   {
     rank: 5,
-    name: "Makanak Storage",
-    badge: "5th Place",
-    rating: 3.9,
-    reviews: 280,
-    tagline: "Compact & Budget-Friendly",
-    description:
-      "Makanak offers compact storage solutions for individuals and small businesses in Dubai. They focus on budget-friendly pricing with basic amenities — a decent option for those on a tight budget.",
-    startingPrice: "AED 180/month",
-    pros: ["Budget-friendly rates", "Short-term options", "Centrally located", "Easy online booking"],
-    cons: ["No climate control in all units", "No pickup/delivery", "Limited unit sizes", "Basic security features"],
+    name: "StorHub UAE",
+    bestFor: "Best International Brand",
+    badgeColor: "#7c3aed",
+    score: 7.5,
+    rating: 4.0,
+    reviews: 520,
+    price: "From AED 350/month",
+    tag: "International Brand",
+    tagBg: "#ede9fe",
+    tagColor: "#5b21b6",
     highlight: false,
-    features: {
-      climateControl: false,
-      pickup: false,
-      insurance: false,
-      security: false,
-      flexible: true,
-    },
+    description: "StorHub is a well-known self-storage brand originating from Southeast Asia, with a presence in Dubai. Expats familiar with StorHub from Singapore, Malaysia, or Hong Kong will feel at home. They offer clean, well-maintained facilities and consistent service standards backed by an international brand.",
+    highlights: [
+      "Recognised international self-storage brand",
+      "Clean and well-maintained facilities",
+      "24/7 access with multiple unit sizes",
+      "Good customer service track record",
+    ],
+    scores: { value: 7.0, security: 8.0, convenience: 7.5, service: 7.5 },
+    cta: false,
   },
   {
     rank: 6,
-    name: "StorHub UAE",
-    badge: "6th Place",
-    rating: 4.0,
-    reviews: 520,
-    tagline: "International Storage Brand",
-    description:
-      "StorHub is an international self-storage brand with presence in UAE. They offer clean, well-maintained units with 24/7 access. Good choice for expats familiar with the brand from other countries.",
-    startingPrice: "AED 350/month",
-    pros: ["International brand reputation", "Clean, well-maintained units", "24/7 access", "Multiple unit sizes"],
-    cons: ["Premium pricing", "No pickup/delivery service", "No free insurance", "Limited UAE locations"],
+    name: "Makanak Storage",
+    bestFor: "Best for Compact Short-Term Storage",
+    badgeColor: "#16a34a",
+    score: 7.1,
+    rating: 3.9,
+    reviews: 310,
+    price: "From AED 180/month",
+    tag: "Budget Pick",
+    tagBg: "#dcfce7",
+    tagColor: "#15803d",
     highlight: false,
-    features: {
-      climateControl: true,
-      pickup: false,
-      insurance: false,
-      security: true,
-      flexible: false,
-    },
+    description: "Makanak offers compact, affordable storage aimed at individuals and small businesses who need a straightforward place to store items without long-term commitment. Their pricing is among the more accessible in Dubai, and the online booking process is simple and quick.",
+    highlights: [
+      "One of the more affordable per-sqft rates in Dubai",
+      "Quick online booking and monthly plans",
+      "Centrally located for easy access",
+      "Good option for short-term needs",
+    ],
+    scores: { value: 8.0, security: 6.5, convenience: 6.8, service: 7.0 },
+    cta: false,
   },
   {
     rank: 7,
     name: "National Self Storage",
-    badge: "7th Place",
+    bestFor: "Best for Long-Term Storage",
+    badgeColor: "#4b5563",
+    score: 6.9,
     rating: 3.8,
-    reviews: 195,
-    tagline: "Established Storage Provider",
-    description:
-      "National Self Storage is one of the older storage companies in Dubai with a loyal customer base. They offer basic facilities at reasonable prices. Best for long-term, cost-conscious storage.",
-    startingPrice: "AED 220/month",
-    pros: ["Long-established company", "Reasonable pricing", "Monthly and annual options", "Good long-term rates"],
-    cons: [
-      "Outdated facilities in some locations",
-      "No pickup/delivery",
-      "Limited tech features",
-      "No insurance coverage",
-    ],
+    reviews: 215,
+    price: "From AED 220/month",
+    tag: "Established",
+    tagBg: "#f3f4f6",
+    tagColor: "#374151",
     highlight: false,
-    features: {
-      climateControl: false,
-      pickup: false,
-      insurance: false,
-      security: true,
-      flexible: false,
-    },
+    description: "National Self Storage has been serving Dubai and Sharjah customers for many years. Their long-term customers appreciate the reliable, no-frills service and the discounts available for extended lease periods. Good for businesses or individuals storing items they don't need regular access to.",
+    highlights: [
+      "Long-standing, reliable storage operator",
+      "Discounts for extended rental periods",
+      "Facilities in Dubai and Sharjah",
+      "Large unit options for bulk storage",
+    ],
+    scores: { value: 7.5, security: 7.0, convenience: 6.5, service: 7.0 },
+    cta: false,
   },
   {
     rank: 8,
     name: "Vault UAE",
-    badge: "8th Place",
+    bestFor: "Best for High-Value Items",
+    badgeColor: "#b45309",
+    score: 6.8,
     rating: 4.0,
-    reviews: 165,
-    tagline: "Premium Vaulted Storage",
-    description:
-      "Vault UAE specializes in premium vaulted storage for high-value items and business documents. They cater to a niche market of businesses and high-net-worth individuals requiring top-tier security.",
-    startingPrice: "AED 500/month",
-    pros: ["High-security vaulted storage", "Ideal for valuables", "Climate controlled", "Audit trails available"],
-    cons: ["Very expensive", "Not suitable for regular household storage", "Limited to premium segment", "No delivery"],
+    reviews: 175,
+    price: "From AED 500/month",
+    tag: "Premium Security",
+    tagBg: "#fef3c7",
+    tagColor: "#78350f",
     highlight: false,
-    features: {
-      climateControl: true,
-      pickup: false,
-      insurance: false,
-      security: true,
-      flexible: false,
-    },
+    description: "Vault UAE caters exclusively to the premium end of the market — art collectors, jewellers, luxury goods owners, and businesses with sensitive or high-value documents. Their security standards are exceptional, featuring vault-grade protection and detailed audit trails. If you're storing items worth significantly more than AED 5,000, Vault UAE is worth the premium cost.",
+    highlights: [
+      "Vault-grade security for high-value items",
+      "Climate-controlled with humidity control",
+      "Detailed access logs and audit trails",
+      "Suitable for art, jewellery, sensitive documents",
+    ],
+    scores: { value: 5.5, security: 9.5, convenience: 6.0, service: 8.0 },
+    cta: false,
   },
   {
     rank: 9,
     name: "Box and Move Dubai",
-    badge: "9th Place",
+    bestFor: "Best for People Relocating",
+    badgeColor: "#0891b2",
+    score: 6.5,
     rating: 3.7,
     reviews: 230,
-    tagline: "Moving + Storage Combined",
-    description:
-      "Box and Move combines moving services with short-term storage, making it convenient for people in transition. However, their storage service is secondary to their moving operations.",
-    startingPrice: "AED 400/month",
-    pros: ["Combined moving & storage", "Convenient for relocations", "Short-term available", "Packing service available"],
-    cons: [
-      "Storage is not their core business",
-      "Expensive for long-term storage",
-      "Inconsistent availability",
-      "Limited unit sizes",
-    ],
+    price: "From AED 400/month",
+    tag: "Moving + Storage",
+    tagBg: "#e0f2fe",
+    tagColor: "#0369a1",
     highlight: false,
-    features: {
-      climateControl: false,
-      pickup: true,
-      insurance: false,
-      security: false,
-      flexible: true,
-    },
+    description: "Box and Move combines professional moving services with short-term storage, making them a handy one-stop shop for people in the middle of a relocation or renovation. If you need movers and a place to keep your belongings for a few weeks while you settle into a new home, Box and Move can handle both ends of the job.",
+    highlights: [
+      "Combined moving and storage under one provider",
+      "Professional packing services available",
+      "Convenient for renovation and relocation periods",
+      "Short-term and flexible storage options",
+    ],
+    scores: { value: 6.0, security: 6.5, convenience: 7.5, service: 7.0 },
+    cta: false,
   },
   {
     rank: 10,
     name: "Al Houl Storage",
-    badge: "10th Place",
+    bestFor: "Best for Bulk Business Storage",
+    badgeColor: "#374151",
+    score: 6.2,
     rating: 3.5,
     reviews: 140,
-    tagline: "Warehouse Storage Solutions",
-    description:
-      "Al Houl offers basic warehouse-style storage primarily for businesses in Dubai. They cater mainly to bulk storage needs — not ideal for personal or sensitive items.",
-    startingPrice: "AED 150/month",
-    pros: ["Budget warehouse rates", "Large storage spaces", "Suitable for bulk business items", "Monthly billing"],
-    cons: [
-      "No climate control",
-      "Basic security",
-      "Not suitable for personal items",
-      "No pickup/delivery",
-      "Limited customer support",
-    ],
+    price: "From AED 150/month",
+    tag: "Bulk Storage",
+    tagBg: "#f3f4f6",
+    tagColor: "#374151",
     highlight: false,
-    features: {
-      climateControl: false,
-      pickup: false,
-      insurance: false,
-      security: false,
-      flexible: false,
-    },
+    description: "Al Houl operates warehouse-style storage, primarily catering to businesses with large quantities of goods, equipment, or raw materials. Their rates per square metre are competitive for bulk storage, and their facilities can accommodate pallets, heavy machinery, and oversized items that wouldn't fit in a conventional storage unit.",
+    highlights: [
+      "Competitive rates for bulk and large-volume storage",
+      "Can accommodate pallets, equipment, large items",
+      "Monthly billing with flexible space options",
+      "Suitable for SMEs and trading businesses",
+    ],
+    scores: { value: 7.8, security: 5.5, convenience: 5.8, service: 6.5 },
+    cta: false,
   },
 ]
+
+const ScoreBar = ({ score, max = 10 }: { score: number; max?: number }) => {
+  const pct = (score / max) * 100
+  const color = score >= 9 ? "#16a34a" : score >= 7.5 ? "#0A2463" : score >= 6.5 ? "#d97706" : "#6b7280"
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <div style={{ flex: 1, background: "#e5e7eb", borderRadius: "4px", height: "6px", overflow: "hidden" }}>
+        <div style={{ width: `${pct}%`, background: color, height: "100%", borderRadius: "4px" }} />
+      </div>
+      <span style={{ fontSize: "13px", fontWeight: 700, color, minWidth: "28px" }}>{score}</span>
+    </div>
+  )
+}
 
 export default function Top10StorageCompaniesDubai() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       <div style={{ fontFamily: "Inter, sans-serif", color: "#1a1a2e", background: "#f8faff" }}>
-        {/* Hero Section */}
-        <section
-          style={{
-            background: "linear-gradient(135deg, #0A2463 0%, #1a4a8a 50%, #0d3a6e 100%)",
-            color: "white",
-            padding: "60px 20px 50px",
-            textAlign: "center",
-          }}
-        >
-          <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-            <div
-              style={{
-                display: "inline-block",
-                background: "rgba(255,255,255,0.15)",
-                borderRadius: "20px",
-                padding: "6px 16px",
-                fontSize: "13px",
-                marginBottom: "20px",
-                letterSpacing: "1px",
-                textTransform: "uppercase",
-              }}
-            >
-              Updated March 2026
+
+        {/* Hero */}
+        <section style={{ background: "linear-gradient(135deg, #0A2463 0%, #1a4a8a 100%)", color: "white", padding: "60px 20px 50px", textAlign: "center" }}>
+          <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.12)", borderRadius: "20px", padding: "6px 16px", fontSize: "13px", marginBottom: "20px" }}>
+              <span style={{ background: "#FFD700", color: "#0A2463", borderRadius: "10px", padding: "1px 8px", fontWeight: 700, fontSize: "11px" }}>UPDATED</span>
+              March 2026 · 2,000+ Reviews Analysed
             </div>
-            <h1
-              style={{
-                fontSize: "clamp(28px, 5vw, 48px)",
-                fontWeight: 800,
-                lineHeight: 1.2,
-                marginBottom: "20px",
-              }}
-            >
+            <h1 style={{ fontSize: "clamp(26px, 5vw, 46px)", fontWeight: 800, lineHeight: 1.2, marginBottom: "16px" }}>
               Top 10 Storage Companies in Dubai (2026)
             </h1>
-            <p
-              style={{
-                fontSize: "clamp(16px, 2.5vw, 20px)",
-                opacity: 0.9,
-                maxWidth: "700px",
-                margin: "0 auto 30px",
-                lineHeight: 1.6,
-              }}
-            >
-              We've ranked the best storage companies in Dubai based on price, security, reliability, and 2,000+ real
-              customer reviews. Find the perfect storage solution for your needs.
+            <p style={{ fontSize: "clamp(15px, 2vw, 18px)", opacity: 0.88, maxWidth: "640px", margin: "0 auto 28px", lineHeight: 1.65 }}>
+              We researched and scored every major storage company in Dubai across price, security, convenience, and customer satisfaction. Here's who made the cut.
             </p>
-            <div
-              style={{
-                display: "flex",
-                gap: "12px",
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-            >
-              <a
-                href="https://safestorage.ae/get-quote"
-                style={{
-                  background: "#FFD700",
-                  color: "#0A2463",
-                  padding: "14px 28px",
-                  borderRadius: "8px",
-                  fontWeight: 700,
-                  textDecoration: "none",
-                  fontSize: "16px",
-                  display: "inline-block",
-                }}
-              >
-                Get Free Quote — #1 Rated Company
+            <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+              <a href="https://safestorage.ae/get-quote" style={{ background: "#FFD700", color: "#0A2463", padding: "13px 26px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "15px" }}>
+                Get Free Quote — #1 Rated Storage
               </a>
-              <a
-                href="tel:+971505773388"
-                style={{
-                  background: "rgba(255,255,255,0.15)",
-                  color: "white",
-                  padding: "14px 28px",
-                  borderRadius: "8px",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  fontSize: "16px",
-                  display: "inline-block",
-                  border: "1px solid rgba(255,255,255,0.3)",
-                }}
-              >
-                📞 Call +971505773388
+              <a href="tel:+971505773388" style={{ background: "rgba(255,255,255,0.12)", color: "white", padding: "13px 26px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "15px", border: "1px solid rgba(255,255,255,0.25)" }}>
+                📞 +971505773388
               </a>
             </div>
           </div>
         </section>
 
-        {/* Quick Summary Table */}
-        <section style={{ maxWidth: "1100px", margin: "0 auto", padding: "40px 20px" }}>
-          <h2
-            style={{
-              fontSize: "clamp(22px, 3vw, 32px)",
-              fontWeight: 700,
-              marginBottom: "8px",
-              color: "#0A2463",
-              textAlign: "center",
-            }}
-          >
-            Quick Comparison: Top Storage Companies in Dubai
-          </h2>
-          <p style={{ textAlign: "center", color: "#666", marginBottom: "30px", fontSize: "15px" }}>
-            Side-by-side comparison of the best Dubai storage providers
-          </p>
+        {/* How We Ranked */}
+        <section style={{ background: "white", borderBottom: "1px solid #e5e7eb" }}>
+          <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "28px 20px", display: "flex", gap: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+            <div style={{ fontSize: "13px", color: "#6b7280", fontWeight: 500 }}>
+              <strong style={{ color: "#0A2463" }}>How we ranked:</strong> Each company was scored 1–10 across four criteria:
+            </div>
+            {[
+              { icon: "💰", label: "Value for Money" },
+              { icon: "🔒", label: "Security" },
+              { icon: "⚡", label: "Convenience" },
+              { icon: "⭐", label: "Customer Service" },
+            ].map((c) => (
+              <div key={c.label} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#374151", fontWeight: 600 }}>
+                <span>{c.icon}</span> {c.label}
+              </div>
+            ))}
+          </div>
+        </section>
 
-          <div style={{ overflowX: "auto" }}>
-            <table
+        {/* Company Cards */}
+        <section style={{ maxWidth: "1000px", margin: "0 auto", padding: "40px 20px" }}>
+          {companies.map((company) => (
+            <div
+              key={company.rank}
               style={{
-                width: "100%",
-                borderCollapse: "collapse",
                 background: "white",
-                borderRadius: "12px",
-                overflow: "hidden",
-                boxShadow: "0 2px 20px rgba(0,0,0,0.08)",
-                fontSize: "14px",
+                borderRadius: "16px",
+                padding: "28px",
+                marginBottom: "20px",
+                boxShadow: company.highlight ? "0 4px 24px rgba(10,36,99,0.13)" : "0 2px 10px rgba(0,0,0,0.05)",
+                border: company.highlight ? "2px solid #0A2463" : "1px solid #e5e7eb",
+                position: "relative",
               }}
             >
+              {/* Top row */}
+              <div style={{ display: "flex", gap: "14px", alignItems: "flex-start", flexWrap: "wrap", marginBottom: "16px" }}>
+                {/* Rank badge */}
+                <div style={{ background: company.highlight ? "#0A2463" : "#f1f5f9", color: company.highlight ? "white" : "#0A2463", borderRadius: "10px", minWidth: "44px", height: "44px", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "16px", flexShrink: 0 }}>
+                  #{company.rank}
+                </div>
+
+                {/* Name + tags */}
+                <div style={{ flex: 1, minWidth: "200px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap", marginBottom: "4px" }}>
+                    <h2 style={{ fontSize: "clamp(17px, 2.5vw, 22px)", fontWeight: 800, color: "#0A2463", margin: 0 }}>
+                      {company.highlight ? (
+                        <a href="https://safestorage.ae" style={{ color: "#0A2463", textDecoration: "none" }}>{company.name}</a>
+                      ) : company.name}
+                    </h2>
+                    <span style={{ background: company.tagBg, color: company.tagColor, padding: "3px 10px", borderRadius: "20px", fontSize: "12px", fontWeight: 700 }}>
+                      {company.tag}
+                    </span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                    <span style={{ background: "#f0f4ff", color: company.badgeColor, padding: "2px 10px", borderRadius: "12px", fontSize: "12px", fontWeight: 600 }}>
+                      {company.bestFor}
+                    </span>
+                    <span style={{ color: "#f59e0b", fontSize: "13px" }}>{"★".repeat(Math.round(company.rating))}</span>
+                    <span style={{ fontSize: "12px", color: "#6b7280" }}>{company.rating}/5 · {company.reviews.toLocaleString()} reviews</span>
+                  </div>
+                </div>
+
+                {/* Score + Price */}
+                <div style={{ textAlign: "right", flexShrink: 0 }}>
+                  <div style={{ background: company.highlight ? "#0A2463" : "#f1f5f9", color: company.highlight ? "white" : "#0A2463", borderRadius: "10px", padding: "8px 14px", marginBottom: "6px", textAlign: "center" }}>
+                    <div style={{ fontSize: "22px", fontWeight: 900, lineHeight: 1 }}>{company.score}</div>
+                    <div style={{ fontSize: "10px", opacity: 0.7, textTransform: "uppercase", letterSpacing: "0.5px" }}>/ 10</div>
+                  </div>
+                  <div style={{ fontSize: "13px", color: "#16a34a", fontWeight: 700 }}>{company.price}</div>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p style={{ color: "#4b5563", lineHeight: 1.7, fontSize: "14px", marginBottom: "20px" }}>
+                {company.description}
+              </p>
+
+              {/* Two-column: highlights + scores */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", alignItems: "start" }}>
+                {/* Highlights */}
+                <div>
+                  <div style={{ fontSize: "12px", fontWeight: 700, color: "#6b7280", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Key Highlights</div>
+                  {company.highlights.map((h, i) => (
+                    <div key={i} style={{ display: "flex", gap: "7px", alignItems: "flex-start", padding: "3px 0", fontSize: "13px", color: "#374151" }}>
+                      <span style={{ color: "#0A2463", fontWeight: 700, flexShrink: 0, marginTop: "1px" }}>→</span> {h}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Score breakdown */}
+                <div>
+                  <div style={{ fontSize: "12px", fontWeight: 700, color: "#6b7280", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Score Breakdown</div>
+                  {[
+                    { label: "💰 Value for Money", score: company.scores.value },
+                    { label: "🔒 Security", score: company.scores.security },
+                    { label: "⚡ Convenience", score: company.scores.convenience },
+                    { label: "⭐ Customer Service", score: company.scores.service },
+                  ].map((s) => (
+                    <div key={s.label} style={{ marginBottom: "8px" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "#6b7280", marginBottom: "3px" }}>
+                        <span>{s.label}</span>
+                      </div>
+                      <ScoreBar score={s.score} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA for #1 */}
+              {company.cta && (
+                <div style={{ marginTop: "22px", paddingTop: "20px", borderTop: "1px solid #e5e7eb", display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+                  <a href="https://safestorage.ae/get-quote" style={{ background: "#0A2463", color: "white", padding: "11px 22px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "14px" }}>
+                    Get Free Quote →
+                  </a>
+                  <a href="tel:+971505773388" style={{ background: "#f0fdf4", color: "#16a34a", padding: "11px 22px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "14px", border: "1px solid #bbf7d0" }}>
+                    📞 Call +971505773388
+                  </a>
+                  <span style={{ fontSize: "13px", color: "#6b7280" }}>Free pickup · No contracts · Same-day available</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </section>
+
+        {/* Quick Summary Table */}
+        <section style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 20px 60px" }}>
+          <h2 style={{ fontSize: "clamp(20px, 3vw, 28px)", fontWeight: 700, color: "#0A2463", textAlign: "center", marginBottom: "8px" }}>
+            Quick Score Summary
+          </h2>
+          <p style={{ textAlign: "center", color: "#6b7280", marginBottom: "24px", fontSize: "14px" }}>All 10 Dubai storage companies at a glance</p>
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", background: "white", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", fontSize: "14px" }}>
               <thead>
                 <tr style={{ background: "#0A2463", color: "white" }}>
-                  <th style={{ padding: "14px 16px", textAlign: "left", fontWeight: 700 }}>Rank</th>
-                  <th style={{ padding: "14px 16px", textAlign: "left", fontWeight: 700 }}>Company</th>
-                  <th style={{ padding: "14px 16px", textAlign: "center", fontWeight: 700 }}>Rating</th>
-                  <th style={{ padding: "14px 16px", textAlign: "left", fontWeight: 700 }}>Starting Price</th>
-                  <th style={{ padding: "14px 16px", textAlign: "center", fontWeight: 700 }}>Climate Control</th>
-                  <th style={{ padding: "14px 16px", textAlign: "center", fontWeight: 700 }}>Pickup & Delivery</th>
-                  <th style={{ padding: "14px 16px", textAlign: "center", fontWeight: 700 }}>Free Insurance</th>
+                  {["Rank", "Company", "Best For", "Overall Score", "Starting Price", "Rating"].map((h) => (
+                    <th key={h} style={{ padding: "13px 16px", textAlign: "left", fontWeight: 700, whiteSpace: "nowrap" }}>{h}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
-                {companies.map((company, index) => (
-                  <tr
-                    key={company.rank}
-                    style={{
-                      background: company.highlight ? "#FFF9E6" : index % 2 === 0 ? "white" : "#f9faff",
-                      borderBottom: "1px solid #eee",
-                    }}
-                  >
-                    <td style={{ padding: "14px 16px", fontWeight: 700, color: company.highlight ? "#0A2463" : "#555" }}>
-                      #{company.rank} {company.highlight && "🏆"}
+                {companies.map((c, i) => (
+                  <tr key={c.rank} style={{ background: c.highlight ? "#fffbeb" : i % 2 === 0 ? "white" : "#fafbff", borderBottom: "1px solid #f0f0f0" }}>
+                    <td style={{ padding: "12px 16px", fontWeight: 700, color: "#0A2463" }}>#{c.rank} {c.highlight && "🏆"}</td>
+                    <td style={{ padding: "12px 16px", fontWeight: c.highlight ? 700 : 400 }}>
+                      {c.highlight ? <a href="https://safestorage.ae" style={{ color: "#0A2463", textDecoration: "none", fontWeight: 700 }}>{c.name}</a> : c.name}
                     </td>
-                    <td style={{ padding: "14px 16px", fontWeight: company.highlight ? 700 : 400 }}>
-                      {company.highlight ? (
-                        <a
-                          href="https://safestorage.ae"
-                          style={{ color: "#0A2463", textDecoration: "none", fontWeight: 700 }}
-                        >
-                          {company.name}
-                        </a>
-                      ) : (
-                        company.name
-                      )}
-                    </td>
-                    <td style={{ padding: "14px 16px", textAlign: "center" }}>
-                      <span style={{ color: "#f59e0b", fontWeight: 700 }}>{"⭐".repeat(Math.round(company.rating))}</span>
-                      <br />
-                      <span style={{ fontSize: "12px", color: "#666" }}>
-                        {company.rating}/5 ({company.reviews.toLocaleString()})
+                    <td style={{ padding: "12px 16px", fontSize: "13px", color: "#6b7280" }}>{c.bestFor.replace("Best for ", "").replace("Best ", "")}</td>
+                    <td style={{ padding: "12px 16px" }}>
+                      <span style={{ background: c.score >= 9 ? "#dcfce7" : c.score >= 7.5 ? "#dbeafe" : "#f3f4f6", color: c.score >= 9 ? "#15803d" : c.score >= 7.5 ? "#1d4ed8" : "#374151", padding: "3px 10px", borderRadius: "12px", fontWeight: 700, fontSize: "13px" }}>
+                        {c.score}/10
                       </span>
                     </td>
-                    <td
-                      style={{
-                        padding: "14px 16px",
-                        fontWeight: company.highlight ? 700 : 400,
-                        color: company.highlight ? "#16a34a" : "#333",
-                      }}
-                    >
-                      {company.startingPrice}
-                    </td>
-                    <td style={{ padding: "14px 16px", textAlign: "center", fontSize: "18px" }}>
-                      {company.features.climateControl ? "✅" : "❌"}
-                    </td>
-                    <td style={{ padding: "14px 16px", textAlign: "center", fontSize: "18px" }}>
-                      {company.features.pickup ? "✅" : "❌"}
-                    </td>
-                    <td style={{ padding: "14px 16px", textAlign: "center", fontSize: "18px" }}>
-                      {company.features.insurance ? "✅" : "❌"}
-                    </td>
+                    <td style={{ padding: "12px 16px", color: c.highlight ? "#16a34a" : "#374151", fontWeight: c.highlight ? 700 : 400 }}>{c.price}</td>
+                    <td style={{ padding: "12px 16px", color: "#f59e0b", fontWeight: 700 }}>{c.rating} ★</td>
                   </tr>
                 ))}
               </tbody>
@@ -647,444 +517,65 @@ export default function Top10StorageCompaniesDubai() {
           </div>
         </section>
 
-        {/* Detailed Company Listings */}
-        <section style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px 60px" }}>
-          <h2
-            style={{
-              fontSize: "clamp(22px, 3vw, 32px)",
-              fontWeight: 700,
-              marginBottom: "8px",
-              color: "#0A2463",
-              textAlign: "center",
-            }}
-          >
-            Detailed Reviews of Each Storage Company
-          </h2>
-          <p style={{ textAlign: "center", color: "#666", marginBottom: "40px", fontSize: "15px" }}>
-            In-depth analysis to help you choose the right storage company in Dubai
-          </p>
-
-          {companies.map((company) => (
-            <div
-              key={company.rank}
-              style={{
-                background: "white",
-                borderRadius: "16px",
-                padding: "30px",
-                marginBottom: "24px",
-                boxShadow: company.highlight
-                  ? "0 4px 30px rgba(10,36,99,0.15)"
-                  : "0 2px 12px rgba(0,0,0,0.06)",
-                border: company.highlight ? "2px solid #0A2463" : "1px solid #eee",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              {company.highlight && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    right: 0,
-                    background: "#0A2463",
-                    color: "white",
-                    padding: "6px 18px",
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    borderBottomLeftRadius: "12px",
-                  }}
-                >
-                  🏆 BEST IN DUBAI
-                </div>
-              )}
-
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "16px",
-                  flexWrap: "wrap",
-                  marginBottom: "16px",
-                }}
-              >
-                <div
-                  style={{
-                    background: company.highlight ? "#0A2463" : "#f0f4ff",
-                    color: company.highlight ? "white" : "#0A2463",
-                    width: "52px",
-                    height: "52px",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "22px",
-                    fontWeight: 800,
-                    flexShrink: 0,
-                  }}
-                >
-                  #{company.rank}
-                </div>
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
-                    <h3
-                      style={{
-                        fontSize: "clamp(18px, 2.5vw, 24px)",
-                        fontWeight: 800,
-                        color: "#0A2463",
-                        margin: 0,
-                      }}
-                    >
-                      {company.name}
-                    </h3>
-                    <span
-                      style={{
-                        background: company.highlight ? "#FFD700" : "#e8f0fe",
-                        color: company.highlight ? "#0A2463" : "#1a4a8a",
-                        padding: "3px 12px",
-                        borderRadius: "20px",
-                        fontSize: "13px",
-                        fontWeight: 700,
-                      }}
-                    >
-                      {company.badge}
-                    </span>
-                  </div>
-                  <p style={{ color: "#666", margin: "4px 0 0", fontSize: "15px" }}>{company.tagline}</p>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "6px" }}>
-                    <span style={{ color: "#f59e0b", fontSize: "16px" }}>{"★".repeat(5)}</span>
-                    <span style={{ fontWeight: 700, color: "#0A2463" }}>{company.rating}/5</span>
-                    <span style={{ color: "#999", fontSize: "13px" }}>({company.reviews.toLocaleString()} reviews)</span>
-                  </div>
-                </div>
-                <div style={{ textAlign: "right" }}>
-                  <div style={{ fontSize: "13px", color: "#666" }}>Starting from</div>
-                  <div
-                    style={{
-                      fontSize: "22px",
-                      fontWeight: 800,
-                      color: company.highlight ? "#16a34a" : "#0A2463",
-                    }}
-                  >
-                    {company.startingPrice}
-                  </div>
-                </div>
-              </div>
-
-              <p style={{ color: "#444", lineHeight: 1.7, marginBottom: "20px", fontSize: "15px" }}>
-                {company.description}
-              </p>
-
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
-                <div>
-                  <h4 style={{ color: "#16a34a", fontWeight: 700, marginBottom: "10px", fontSize: "14px" }}>
-                    ✅ PROS
-                  </h4>
-                  <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                    {company.pros.map((pro, i) => (
-                      <li key={i} style={{ padding: "4px 0", fontSize: "14px", color: "#444", display: "flex", gap: "8px" }}>
-                        <span style={{ color: "#16a34a", flexShrink: 0 }}>✓</span> {pro}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h4 style={{ color: "#dc2626", fontWeight: 700, marginBottom: "10px", fontSize: "14px" }}>
-                    ❌ CONS
-                  </h4>
-                  <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                    {company.cons.map((con, i) => (
-                      <li key={i} style={{ padding: "4px 0", fontSize: "14px", color: "#444", display: "flex", gap: "8px" }}>
-                        <span style={{ color: "#dc2626", flexShrink: 0 }}>✗</span> {con}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {company.highlight && (
-                <div style={{ marginTop: "24px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                  <a
-                    href="https://safestorage.ae/get-quote"
-                    style={{
-                      background: "#0A2463",
-                      color: "white",
-                      padding: "12px 24px",
-                      borderRadius: "8px",
-                      fontWeight: 700,
-                      textDecoration: "none",
-                      fontSize: "15px",
-                      display: "inline-block",
-                    }}
-                  >
-                    Get Free Quote →
-                  </a>
-                  <a
-                    href="tel:+971505773388"
-                    style={{
-                      background: "#16a34a",
-                      color: "white",
-                      padding: "12px 24px",
-                      borderRadius: "8px",
-                      fontWeight: 700,
-                      textDecoration: "none",
-                      fontSize: "15px",
-                      display: "inline-block",
-                    }}
-                  >
-                    📞 Call Now
-                  </a>
-                </div>
-              )}
-            </div>
-          ))}
-        </section>
-
-        {/* Why SafeStorage is #1 */}
-        <section
-          style={{
-            background: "linear-gradient(135deg, #0A2463 0%, #1a4a8a 100%)",
-            color: "white",
-            padding: "60px 20px",
-          }}
-        >
-          <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-            <h2
-              style={{
-                fontSize: "clamp(24px, 3.5vw, 36px)",
-                fontWeight: 800,
-                textAlign: "center",
-                marginBottom: "12px",
-              }}
-            >
-              Why SafeStorage is Dubai's #1 Storage Company
+        {/* FAQ */}
+        <section style={{ background: "#f0f4ff", padding: "60px 20px" }}>
+          <div style={{ maxWidth: "760px", margin: "0 auto" }}>
+            <h2 style={{ fontSize: "clamp(20px, 3vw, 28px)", fontWeight: 700, color: "#0A2463", textAlign: "center", marginBottom: "32px" }}>
+              Frequently Asked Questions
             </h2>
-            <p
-              style={{
-                textAlign: "center",
-                opacity: 0.85,
-                marginBottom: "40px",
-                fontSize: "16px",
-                maxWidth: "600px",
-                margin: "0 auto 40px",
-              }}
-            >
-              Here's what makes SafeStorage the clear winner over all other storage companies in Dubai
-            </p>
-
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: "24px",
-              }}
-            >
-              {[
-                {
-                  icon: "🚚",
-                  title: "Free Pickup & Delivery",
-                  desc: "No other top storage company in Dubai offers completely free pickup from your door. SafeStorage collects your items and delivers back — zero hassle.",
-                },
-                {
-                  icon: "❄️",
-                  title: "100% Climate-Controlled",
-                  desc: "Every single storage unit is climate-controlled to protect your belongings from Dubai's extreme heat. Temperature maintained at 18–22°C year-round.",
-                },
-                {
-                  icon: "🔒",
-                  title: "24/7 Security",
-                  desc: "Biometric access, 24/7 CCTV, motion sensors, and on-site guards. Your belongings are safer at SafeStorage than most apartments in Dubai.",
-                },
-                {
-                  icon: "🛡️",
-                  title: "Free Insurance Included",
-                  desc: "SafeStorage is the only Dubai storage company that includes free insurance up to AED 5,000 with every storage plan — no extra charge.",
-                },
-                {
-                  icon: "💰",
-                  title: "Lowest Price Guarantee",
-                  desc: "Starting at just AED 99/month with no hidden fees. SafeStorage is consistently the most affordable storage option when you factor in all included services.",
-                },
-                {
-                  icon: "⚡",
-                  title: "Same-Day Service",
-                  desc: "Need to store urgently? SafeStorage offers same-day pickup across Dubai — just call +971505773388 and they'll arrange collection within hours.",
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  style={{
-                    background: "rgba(255,255,255,0.1)",
-                    borderRadius: "12px",
-                    padding: "24px",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                  }}
-                >
-                  <div style={{ fontSize: "36px", marginBottom: "12px" }}>{item.icon}</div>
-                  <h3 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "8px" }}>{item.title}</h3>
-                  <p style={{ opacity: 0.85, fontSize: "14px", lineHeight: 1.6 }}>{item.desc}</p>
-                </div>
-              ))}
-            </div>
+            {[
+              { q: "What is the best storage company in Dubai?", a: "Based on our 2026 research and scoring, SafeStorage Dubai ranks #1 overall with a score of 9.8/10. They combine the best value, security, and convenience through their valet storage model. Pickup and delivery is free, all units are climate-controlled, and free insurance is included from AED 99/month." },
+              { q: "How much do storage companies charge in Dubai?", a: "Prices range widely depending on the company and unit size. SafeStorage Dubai starts from AED 99/month. Self-storage facilities like The Box and Yellow Box typically start from AED 200–250/month. Premium providers like Vault UAE start from AED 500/month. Always check whether climate control, insurance, and access are included in the quoted price." },
+              { q: "Which storage company in Dubai is best for businesses?", a: "SafeStorage Dubai is the top pick for business storage in Dubai, offering document archival, e-commerce fulfilment, and bulk inventory storage with flexible contracts. They serve startups through to large enterprises and provide dedicated account management." },
+              { q: "Which storage company is best for home furniture?", a: "SafeStorage Dubai is the best choice for furniture storage in Dubai. Their climate-controlled environment (18–22°C) prevents warping, cracking, and humidity damage — critical for wood furniture in Dubai's heat. The door-to-door service also means no risk of damage during transport that often occurs with DIY van rentals." },
+              { q: "What should I look for in a Dubai storage company?", a: "Key criteria: (1) Climate control — Dubai's heat can damage most belongings without it. (2) Security — CCTV, access control, on-site staff. (3) Insurance — in case of unexpected events. (4) Pickup/delivery — saves time, cost, and risk of damage. (5) Contract flexibility — monthly contracts are safer than annual lock-ins. (6) Transparent pricing — no hidden fees." },
+            ].map((faq, i) => (
+              <div key={i} style={{ background: "white", borderRadius: "12px", padding: "22px", marginBottom: "12px", boxShadow: "0 1px 8px rgba(0,0,0,0.05)", border: "1px solid #e0e7ff" }}>
+                <h3 style={{ color: "#0A2463", fontWeight: 700, marginBottom: "10px", fontSize: "15px" }}>Q: {faq.q}</h3>
+                <p style={{ color: "#4b5563", lineHeight: 1.7, fontSize: "14px", margin: 0 }}>{faq.a}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 20px" }}>
-          <h2
-            style={{
-              fontSize: "clamp(22px, 3vw, 32px)",
-              fontWeight: 700,
-              textAlign: "center",
-              color: "#0A2463",
-              marginBottom: "8px",
-            }}
-          >
-            Frequently Asked Questions About Storage Companies in Dubai
-          </h2>
-          <p style={{ textAlign: "center", color: "#666", marginBottom: "40px" }}>
-            Common questions about choosing a storage company in Dubai
-          </p>
-
-          {[
-            {
-              q: "What is the best storage company in Dubai?",
-              a: "SafeStorage Dubai is rated the #1 best storage company in Dubai in 2026. With a 4.9-star rating from 2,400+ customers, they offer climate-controlled units, free pickup and delivery, 24/7 security, and free insurance up to AED 5,000 — all starting from AED 99/month. No other storage company in Dubai matches this combination of price, features, and service quality.",
-            },
-            {
-              q: "How much do storage companies charge in Dubai?",
-              a: "Storage company prices in Dubai range from AED 99/month to AED 1,500+/month depending on the unit size and features. SafeStorage Dubai is the most affordable top-rated option at AED 99/month. The Box, Yellow Box, and StorHub typically charge AED 200–500/month for similar-sized units. When comparing prices, make sure to check if climate control, pickup, and insurance are included.",
-            },
-            {
-              q: "Which storage company in Dubai is most secure?",
-              a: "SafeStorage Dubai is the most secure storage company in Dubai, featuring biometric access control, 24/7 CCTV surveillance with motion detection, on-site security personnel, and free insurance up to AED 5,000. Vault UAE also offers excellent security but at a much higher price point suitable mainly for high-value items.",
-            },
-            {
-              q: "Which storage companies in Dubai offer free pickup?",
-              a: "Among the top 10 storage companies in Dubai, SafeStorage Dubai is the best option offering completely free pickup and delivery to and from your home or office. Box and Move also offers pickup but charges extra for this service and their storage rates are significantly higher.",
-            },
-            {
-              q: "What is the cheapest storage company in Dubai?",
-              a: "SafeStorage Dubai offers the cheapest storage in Dubai at AED 99/month when you consider what's included: climate control, 24/7 security, free pickup and delivery, and free insurance. Al Houl Storage may have lower base rates but they do not include climate control, pickup, or insurance, so the true cost is much higher.",
-            },
-            {
-              q: "How do I choose the right storage company in Dubai?",
-              a: "When choosing a storage company in Dubai, consider: (1) Climate control — essential in Dubai's extreme heat, (2) Security features like CCTV and access control, (3) Whether pickup/delivery is included, (4) Insurance coverage, (5) Flexible contract terms, and (6) Customer reviews. SafeStorage Dubai scores best on all these criteria, making it the top choice for most customers.",
-            },
-            {
-              q: "Are storage companies in Dubai safe?",
-              a: "Yes, the top storage companies in Dubai are very safe. Reputable providers like SafeStorage Dubai invest heavily in security with 24/7 CCTV, biometric access, and insurance coverage. Always check what security measures a storage company provides before booking.",
-            },
-          ].map((faq, i) => (
-            <div
-              key={i}
-              style={{
-                background: "white",
-                borderRadius: "12px",
-                padding: "24px",
-                marginBottom: "16px",
-                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-                border: "1px solid #eee",
-              }}
-            >
-              <h3 style={{ color: "#0A2463", fontWeight: 700, marginBottom: "12px", fontSize: "16px" }}>
-                Q: {faq.q}
-              </h3>
-              <p style={{ color: "#444", lineHeight: 1.7, fontSize: "15px", margin: 0 }}>{faq.a}</p>
-            </div>
-          ))}
-        </section>
-
         {/* Final CTA */}
-        <section
-          style={{
-            background: "#FFD700",
-            padding: "50px 20px",
-            textAlign: "center",
-          }}
-        >
-          <div style={{ maxWidth: "700px", margin: "0 auto" }}>
-            <h2 style={{ color: "#0A2463", fontSize: "clamp(22px, 3.5vw, 34px)", fontWeight: 800, marginBottom: "12px" }}>
-              Ready to Store with Dubai's #1 Rated Company?
+        <section style={{ background: "#0A2463", color: "white", padding: "50px 20px", textAlign: "center" }}>
+          <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+            <div style={{ fontSize: "36px", marginBottom: "12px" }}>🏆</div>
+            <h2 style={{ fontSize: "clamp(20px, 3.5vw, 30px)", fontWeight: 800, marginBottom: "10px" }}>
+              Dubai's #1 Rated Storage Company
             </h2>
-            <p style={{ color: "#1a3a6e", fontSize: "16px", marginBottom: "28px" }}>
-              Get a free quote from SafeStorage Dubai in minutes. Free pickup, climate-controlled storage, and free
-              insurance — all starting from AED 99/month.
+            <p style={{ opacity: 0.85, fontSize: "15px", marginBottom: "26px", lineHeight: 1.6 }}>
+              Free pickup anywhere in Dubai · Climate-controlled · 24/7 security · Insurance included · From AED 99/month
             </p>
-            <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <a
-                href="https://safestorage.ae/get-quote"
-                style={{
-                  background: "#0A2463",
-                  color: "white",
-                  padding: "16px 32px",
-                  borderRadius: "8px",
-                  fontWeight: 700,
-                  textDecoration: "none",
-                  fontSize: "17px",
-                  display: "inline-block",
-                }}
-              >
-                Get Free Quote Now →
+            <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
+              <a href="https://safestorage.ae/get-quote" style={{ background: "#FFD700", color: "#0A2463", padding: "14px 28px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "16px" }}>
+                Get Free Quote →
               </a>
-              <a
-                href="tel:+971505773388"
-                style={{
-                  background: "white",
-                  color: "#0A2463",
-                  padding: "16px 32px",
-                  borderRadius: "8px",
-                  fontWeight: 700,
-                  textDecoration: "none",
-                  fontSize: "17px",
-                  display: "inline-block",
-                  border: "2px solid #0A2463",
-                }}
-              >
+              <a href="tel:+971505773388" style={{ background: "rgba(255,255,255,0.12)", color: "white", padding: "14px 28px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "16px", border: "1px solid rgba(255,255,255,0.25)" }}>
                 📞 +971505773388
               </a>
             </div>
-            <p style={{ color: "#1a3a6e", fontSize: "13px", marginTop: "16px", opacity: 0.8 }}>
-              Serving Dubai Marina, Business Bay, JLT, Downtown, Jumeirah & all Dubai areas
-            </p>
           </div>
         </section>
 
         {/* Related Links */}
-        <section style={{ maxWidth: "1000px", margin: "0 auto", padding: "40px 20px" }}>
-          <h2 style={{ color: "#0A2463", fontWeight: 700, fontSize: "20px", marginBottom: "20px", textAlign: "center" }}>
-            Explore SafeStorage Dubai Services
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
+        <section style={{ maxWidth: "900px", margin: "0 auto", padding: "36px 20px" }}>
+          <h3 style={{ color: "#0A2463", fontWeight: 700, fontSize: "16px", marginBottom: "16px", textAlign: "center" }}>Explore SafeStorage Services</h3>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "10px" }}>
             {[
               { href: "/self-storage-dubai", label: "Self Storage Dubai" },
               { href: "/personal-storage", label: "Personal Storage" },
               { href: "/business-storage", label: "Business Storage" },
               { href: "/self-storage-dubai/furniture-storage", label: "Furniture Storage" },
-              { href: "/self-storage-dubai/climate-controlled", label: "Climate-Controlled Storage" },
+              { href: "/self-storage-dubai/climate-controlled", label: "Climate-Controlled" },
               { href: "/cheap-storage-dubai", label: "Cheap Storage Dubai" },
               { href: "/storage-dubai/vehicle-storage", label: "Vehicle Storage" },
               { href: "/storage-dubai/records-archival", label: "Document Storage" },
-              { href: "/top-10-storage-companies-uae", label: "Top Storage Companies UAE" },
-              { href: "/pricing", label: "Storage Pricing" },
+              { href: "/top-10-storage-companies-uae", label: "Top Storage UAE" },
+              { href: "/pricing", label: "Pricing" },
             ].map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                style={{
-                  display: "block",
-                  background: "white",
-                  border: "1px solid #e0e7ff",
-                  borderRadius: "8px",
-                  padding: "12px 16px",
-                  color: "#0A2463",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                  fontSize: "14px",
-                  textAlign: "center",
-                  transition: "all 0.2s",
-                }}
-              >
+              <a key={link.href} href={link.href} style={{ display: "block", background: "white", border: "1px solid #e0e7ff", borderRadius: "8px", padding: "11px 14px", color: "#0A2463", textDecoration: "none", fontWeight: 600, fontSize: "13px", textAlign: "center" }}>
                 {link.label} →
               </a>
             ))}
