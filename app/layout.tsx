@@ -7,6 +7,7 @@ import { NavigationGuardProvider } from "@/components/providers/navigation-guard
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import FloatingContactButtons from "@/components/floating-contact-buttons"
+import SocialProofToast from "@/components/social-proof-toast"
 import MotionProvider from "@/components/motion-provider"
 import Script from "next/script"
 import { allSchemas } from "@/lib/structured-data"
@@ -161,6 +162,7 @@ export default function RootLayout({
               <main className="flex-1">{children}</main>
               <Footer />
               <FloatingContactButtons />
+              <SocialProofToast />
             </MotionProvider>
           </NavigationGuardProvider>
         </ThemeProvider>
