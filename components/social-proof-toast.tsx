@@ -18,47 +18,50 @@ const notifications = [
   { name: "Ravi N.", area: "Mirdif", action: "just requested pickup" },
 ]
 
-const todayCount = Math.floor(Math.random() * 21) + 10 // 10–30
+const TWO_HOURS = 2 * 60 * 60 * 1000
 
 export default function SocialProofToast() {
   const [visible, setVisible] = useState(false)
   const [current, setCurrent] = useState(0)
-  const [dismissed, setDismissed] = useState(false)
+  const [todayCount, setTodayCount] = useState(10)
 
   useEffect(() => {
-    // Show only once per session
-    if (typeof window !== "undefined" && sessionStorage.getItem("sp_shown")) return
+    // Check localStorage — only show once every 2 hours
+    try {
+      const last = localStorage.getItem("sp_last_shown")
+      if (last && Date.now() - Number(last) < TWO_HOURS) return
+    } catch (_) {
+      // ignore if localStorage blocked
+    }
 
-    // Pick a random starting notification
+    // Randomise values client-side only (avoids SSR mismatch)
     setCurrent(Math.floor(Math.random() * notifications.length))
+    setTodayCount(Math.floor(Math.random() * 21) + 10) // 10–30
 
-    // Delay initial appearance
     const showTimer = setTimeout(() => {
       setVisible(true)
-      if (typeof window !== "undefined") sessionStorage.setItem("sp_shown", "1")
-    }, 4000)
+      try { localStorage.setItem("sp_last_shown", String(Date.now())) } catch (_) {}
+    }, 3000)
 
     return () => clearTimeout(showTimer)
   }, [])
 
   useEffect(() => {
-    if (!visible || dismissed) return
+    if (!visible) return
 
-    // Cycle to next notification every 5 seconds
     const cycleTimer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % notifications.length)
     }, 5000)
 
-    // Auto-hide after 30 seconds
-    const hideTimer = setTimeout(() => setVisible(false), 30000)
+    const hideTimer = setTimeout(() => setVisible(false), 35000)
 
     return () => {
       clearInterval(cycleTimer)
       clearTimeout(hideTimer)
     }
-  }, [visible, dismissed])
+  }, [visible])
 
-  if (!visible || dismissed) return null
+  if (!visible) return null
 
   const n = notifications[current]
 
@@ -70,34 +73,33 @@ export default function SocialProofToast() {
         left: "20px",
         zIndex: 9999,
         maxWidth: "300px",
-        animation: "slideInLeft 0.4s ease",
+        animation: "spSlideIn 0.45s cubic-bezier(0.16,1,0.3,1)",
       }}
     >
       <style>{`
-        @keyframes slideInLeft {
-          from { transform: translateX(-110%); opacity: 0; }
-          to   { transform: translateX(0);    opacity: 1; }
+        @keyframes spSlideIn {
+          from { transform: translateX(-120%); opacity: 0; }
+          to   { transform: translateX(0);     opacity: 1; }
         }
       `}</style>
 
       <div
         style={{
           background: "white",
-          borderRadius: "12px",
-          boxShadow: "0 4px 24px rgba(0,0,0,0.13)",
+          borderRadius: "14px",
+          boxShadow: "0 8px 30px rgba(0,0,0,0.14)",
           border: "1px solid #e5e7eb",
           padding: "12px 14px",
           display: "flex",
           alignItems: "flex-start",
           gap: "10px",
-          position: "relative",
         }}
       >
-        {/* Avatar circle */}
+        {/* Avatar */}
         <div
           style={{
-            width: "38px",
-            height: "38px",
+            width: "40px",
+            height: "40px",
             borderRadius: "50%",
             background: "linear-gradient(135deg, #0A2463, #1a4a8a)",
             color: "white",
@@ -105,29 +107,29 @@ export default function SocialProofToast() {
             alignItems: "center",
             justifyContent: "center",
             fontWeight: 700,
-            fontSize: "14px",
+            fontSize: "15px",
             flexShrink: 0,
           }}
         >
           {n.name.charAt(0)}
         </div>
 
-        {/* Text */}
+        {/* Content */}
         <div style={{ flex: 1, minWidth: 0 }}>
-          <p style={{ margin: 0, fontSize: "13px", color: "#111827", fontWeight: 600, lineHeight: 1.3 }}>
-            {n.name} from {n.area}
+          <p style={{ margin: 0, fontSize: "13px", color: "#111827", fontWeight: 700, lineHeight: 1.4 }}>
+            {n.name} <span style={{ fontWeight: 400, color: "#374151" }}>from {n.area}</span>
           </p>
           <p style={{ margin: "2px 0 0", fontSize: "12px", color: "#6b7280", lineHeight: 1.3 }}>
             {n.action} · just now
           </p>
-          <p style={{ margin: "5px 0 0", fontSize: "11px", color: "#0A2463", fontWeight: 600 }}>
+          <p style={{ margin: "6px 0 0", fontSize: "11px", color: "#0A2463", fontWeight: 700, background: "#f0f4ff", borderRadius: "6px", padding: "3px 7px", display: "inline-block" }}>
             🔥 {todayCount} people booked storage today
           </p>
         </div>
 
         {/* Close */}
         <button
-          onClick={() => { setVisible(false); setDismissed(true) }}
+          onClick={() => setVisible(false)}
           style={{
             background: "none",
             border: "none",
@@ -136,6 +138,7 @@ export default function SocialProofToast() {
             color: "#9ca3af",
             flexShrink: 0,
             lineHeight: 1,
+            marginTop: "1px",
           }}
           aria-label="Close"
         >
