@@ -18,7 +18,7 @@ const notifications = [
   { name: "Ravi N.", area: "Mirdif", action: "just requested pickup" },
 ]
 
-const todayCount = Math.floor(Math.random() * 6) + 8 // 8–13
+const todayCount = Math.floor(Math.random() * 21) + 10 // 10–30
 
 export default function SocialProofToast() {
   const [visible, setVisible] = useState(false)
