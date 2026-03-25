@@ -152,6 +152,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
 
+    // Top 10 Storage Company Ranking Pages (high-priority SEO)
+    {
+      url: `${baseUrl}/top-10-storage-companies-dubai`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/top-10-storage-companies-uae`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.98,
+    },
+
     // SEO Content Pages (2026 guides)
     {
       url: `${baseUrl}/dubai-cost-of-living-2026`,
