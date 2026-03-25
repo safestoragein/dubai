@@ -53,7 +53,7 @@ export default function SocialProofToast() {
       setCurrent((prev) => (prev + 1) % notifications.length)
     }, 5000)
 
-    const hideTimer = setTimeout(() => setVisible(false), 35000)
+    const hideTimer = setTimeout(() => setVisible(false), 7500)
 
     return () => {
       clearInterval(cycleTimer)
