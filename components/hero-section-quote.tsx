@@ -244,6 +244,13 @@ export default function HeroSectionQuote() {
               </AnimatePresence>
             </div>
 
+            {/* Descriptive paragraph — keyword-rich, fully SSR'd for Google */}
+            <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto mb-5 leading-relaxed">
+              SafeStorage provides secure, climate-controlled self-storage units across Dubai with free doorstep pickup and delivery.
+              Whether you&apos;re renovating your villa, relocating between apartments, or need business inventory storage —
+              we handle everything from your door to our facility. No truck rental needed. Flexible monthly plans from AED 9.
+            </p>
+
             {/* Trust features grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-7 max-w-4xl mx-auto">
               {[

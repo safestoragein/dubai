@@ -6,26 +6,30 @@ import { Box, Smartphone, Truck, Clock } from "lucide-react"
 const steps = [
   {
     number: "1",
-    title: "Choose Your Storage Size",
-    description: "Select the space that fits your needs.",
+    title: "Tell Us What You Need",
+    description:
+      "Call us, WhatsApp, or fill out our online form. Our storage consultant will help you choose the right unit size based on your items. Not sure how much space you need? Just send us photos of your belongings and we'll recommend the perfect fit — no guesswork required.",
     icon: Box,
   },
   {
     number: "2",
-    title: "Book Online or Call",
-    description: "Quick & easy reservation process.",
+    title: "Book Online or Call Us",
+    description:
+      "Confirm your booking online in under 2 minutes or call +971505773388. We'll schedule your pickup at a time that suits you — same-day pickup available for bookings confirmed before 12 PM. No paperwork, no deposits, no hidden fees.",
     icon: Smartphone,
   },
   {
     number: "3",
-    title: "Pickup & Move-in",
-    description: "We can assist with transportation if needed.",
+    title: "We Pick Up From Your Door — Free",
+    description:
+      "No need to rent a truck or drive across Dubai. Our professional team arrives at your location with packing materials, carefully loads your items, and transports everything to our climate-controlled facility. We handle your belongings with the same care we'd give our own.",
     icon: Truck,
   },
   {
     number: "4",
-    title: "Access Anytime",
-    description: "Retrieve your items whenever you need.",
+    title: "Access Anytime, Return When Ready",
+    description:
+      "Your items are stored securely with 24/7 CCTV and climate control. Need something back? Request a full or partial delivery to your door. You can also visit our facility anytime with your secure access pass. Month-to-month billing — cancel anytime with zero penalties.",
     icon: Clock,
   },
 ]

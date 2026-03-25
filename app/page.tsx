@@ -3,6 +3,8 @@ import TrustBadges from "@/components/trust-badges"
 import USPSection from "@/components/usp-section"
 import WhyChooseUs from "@/components/why-choose-us"
 import StorageSizes from "@/components/storage-sizes"
+import ServicesOverview from "@/components/services-overview"
+import UseCasesSection from "@/components/use-cases-section"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
@@ -20,11 +22,11 @@ const FAQSection       = dynamic(() => import("@/components/faq-section"))
 const BlogSection      = dynamic(() => import("@/components/blog-section"))
 
 export const metadata: Metadata = {
-  title: "SafeStorage Dubai — Climate-Controlled Storage with Free Pickup | +971505773388",
+  title: "SafeStorage Dubai — #1 Climate-Controlled Storage with Free Pickup | +971505773388",
   description:
-    "SafeStorage Dubai: secure, climate-controlled units with hassle-free free pickup from your door. Personal, business & vehicle storage from AED 99/month. 500+ happy customers. Get a free quote in 2 minutes.",
+    "SafeStorage Dubai: secure, climate-controlled self-storage units with free door-to-door pickup and delivery. Personal, business, vehicle & document storage from AED 9/month. 500+ Dubai customers. Get a free quote in 2 minutes.",
   keywords:
-    "safestorage dubai, climate controlled storage dubai, free pickup storage dubai, secure storage with pickup dubai, affordable storage dubai AED 99, storage facility dubai, 24/7 storage access dubai, dubai storage solutions near me",
+    "safestorage dubai, climate controlled storage dubai, free pickup storage dubai, secure storage dubai, affordable storage dubai, storage facility dubai, self storage dubai, personal storage dubai, business storage dubai, furniture storage dubai, vehicle storage dubai, document storage dubai, storage units dubai, dubai storage solutions, storage with pickup and delivery dubai",
   openGraph: {
     title: "SafeStorage Dubai - Secure Storage Solutions | Hassle-Free Pickup",
     description: "Premium climate-controlled storage units in Dubai. 24/7 security, hassle-free pickup & delivery. Call +971505773388.",
@@ -59,13 +61,20 @@ export default function LandingPage() {
       {/* Above-fold — loaded immediately */}
       <HeroSectionQuote />
       <TrustBadges />
-      <StorageSizes />
-      <WhyChooseUs />
-      <USPSection />
+
+      {/* Services Overview — server component, fully SSR'd for SEO */}
+      <ServicesOverview />
 
       {/* Below-fold — dynamically imported */}
-      <ComparisonSection />
       <HowItWorks />
+      <WhyChooseUs />
+      <StorageSizes />
+
+      {/* Use Cases — server component, fully SSR'd for SEO */}
+      <UseCasesSection />
+
+      <USPSection />
+      <ComparisonSection />
       <div className="w-full bg-white py-8 flex justify-center">
         <Button variant="outline" size="lg" asChild>
           <Link href="/how-it-works" className="group">

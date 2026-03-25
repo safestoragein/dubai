@@ -9,40 +9,88 @@ import { ArrowRight } from "lucide-react"
 export default function WhyChooseUs() {
   const features = [
     {
-      icon: Users,
-      title: "Dedicated Storage Consultant",
-      description: "Your personal point of contact who understands your unique storage needs and provides tailored solutions.",
-      highlight: "Personal Expert",
+      icon: Thermometer,
+      title: "Climate-Controlled Facilities",
+      description:
+        "Every unit maintained at 20–24°C with 45–55% humidity. Your furniture, electronics, artwork, and documents stay fully protected from Dubai's extreme summer heat and humidity year-round — whether you store for 2 weeks or 2 years.",
+      highlight: "All Units",
     },
     {
       icon: Truck,
-      title: "Hassle-Free Pickup & Delivery",
-      description: "We handle everything - pickup from your location, secure transport, and delivery when you need it back.",
-      highlight: "Within Dubai",
-    },
-    {
-      icon: DollarSign,
-      title: "Price Match Guarantee",
-      description: "Found a better price? We'll match it! Get the best value without compromising on quality and security.",
-      highlight: "Best Price",
-    },
-    {
-      icon: Thermometer,
-      title: "Climate Control",
-      description: "Beat Dubai's extreme heat with our fully climate-controlled units maintaining optimal temperature year-round.",
-      highlight: "Climate Control",
-    },
-    {
-      icon: Smartphone,
-      title: "24/7 Access & Support",
-      description: "Access your belongings anytime. Our dedicated support team is available around the clock.",
-      highlight: "Always Available",
+      title: "Free Pickup & Delivery",
+      description:
+        "We come to you — anywhere in Dubai. Our team brings packing materials, carefully loads your items, and transports them safely to our facility. No truck rental costs, no fuel charges, no toll fees. When you need items back, we deliver to your door.",
+      highlight: "Anywhere Dubai",
     },
     {
       icon: Shield,
-      title: "Free Insurance",
-      description: "Your peace of mind is our priority. Every storage unit includes free insurance coverage.",
+      title: "AED 5,000 Free Insurance",
+      description:
+        "Every storage unit includes complimentary insurance coverage up to AED 5,000 — included in your monthly plan at no extra cost. Additional coverage is available for high-value items such as electronics, fine art, jewellery, and collectibles.",
       highlight: "Included Free",
+    },
+    {
+      icon: Users,
+      title: "Dedicated Storage Consultant",
+      description:
+        "Every customer gets a personal storage consultant who handles your account from booking to retrieval. One direct point of contact — no call centres, no ticket systems, no being passed around. Your consultant knows your inventory and your needs.",
+      highlight: "Personal Expert",
+    },
+    {
+      icon: DollarSign,
+      title: "Transparent Pricing",
+      description:
+        "What we quote is what you pay. No admin fees, no deposit surprises, no hidden charges on your invoice. VAT-inclusive pricing from AED 9/month. We also offer a price-match guarantee — show us a lower quoted price and we'll beat it.",
+      highlight: "No Hidden Fees",
+    },
+    {
+      icon: Smartphone,
+      title: "Same-Day Pickup Available",
+      description:
+        "Need storage urgently? We offer same-day pickup for bookings confirmed before 12 PM across Dubai. Emergency storage available for sudden relocations, evictions, or renovation overruns — just call +971505773388 and we'll arrange collection within hours.",
+      highlight: "Book by 12 PM",
+    },
+    {
+      icon: CheckCircle2,
+      title: "Flexible Monthly Plans",
+      description:
+        "No long-term contracts and no lock-in periods. Store for one month or two years — you decide. Upgrade or downsize your unit anytime with 48 hours' notice. Pause your plan when you travel. Resume when you return. Complete flexibility.",
+      highlight: "No Lock-In",
+    },
+    {
+      icon: Shield,
+      title: "24/7 CCTV Monitoring",
+      description:
+        "Multi-angle CCTV cameras cover every corridor, entry point, loading area, and storage zone. Footage is retained for 90 days. Motion alerts are triggered on all access points after hours. Your belongings are monitored continuously.",
+      highlight: "Round the Clock",
+    },
+    {
+      icon: Users,
+      title: "Multiple Dubai Locations",
+      description:
+        "Facilities conveniently located near Dubai Marina, Business Bay, Jumeirah, and Dubai Investment Park. Choose the location closest to you for quicker access and faster pickup and delivery turnaround. New locations opening regularly.",
+      highlight: "All Areas",
+    },
+    {
+      icon: Thermometer,
+      title: "Pest-Free, Clean Environment",
+      description:
+        "Regular professional pest control treatments and thorough cleaning of all storage halls. Every unit is sealed to prevent dust, moisture, and insect contamination. We maintain the same standard for every unit regardless of plan size.",
+      highlight: "Certified Clean",
+    },
+    {
+      icon: Smartphone,
+      title: "Inventory Management",
+      description:
+        "We photograph and catalogue your items during pickup. Access your full inventory list anytime via WhatsApp or phone — know exactly what's stored, where it is, and when it was collected. Retrieve specific items without retrieving everything.",
+      highlight: "Full Visibility",
+    },
+    {
+      icon: DollarSign,
+      title: "Biometric Secure Access",
+      description:
+        "Each unit has its own dedicated lock — only you hold the key. Facility entry uses biometric or PIN-based access control to prevent any unauthorised access to the building. Every access event is logged with time and identity.",
+      highlight: "Your Lock Only",
     },
   ]
 
