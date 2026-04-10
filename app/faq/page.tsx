@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/accordion"
 import { env } from "@/lib/env"
 import TrustBadges from "@/components/trust-badges"
+import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
   title: "FAQs - Frequently Asked Questions | SafeStorage Dubai",
@@ -139,8 +140,45 @@ const faqCategories = [
   },
 ]
 
+const faqPageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': 'https://safestorage.ae/faq#faqpage',
+    name: 'Frequently Asked Questions — SafeStorage Dubai',
+    url: 'https://safestorage.ae/faq',
+    mainEntity: faqCategories.flatMap(cat =>
+      cat.faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      }))
+    ),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://safestorage.ae/faq#webpage',
+    name: 'FAQs — Frequently Asked Questions | SafeStorage Dubai',
+    description: 'Find answers to common questions about SafeStorage Dubai. Learn about our storage units, pricing, pickup services, security, and more.',
+    url: 'https://safestorage.ae/faq',
+    isPartOf: { '@id': 'https://safestorage.ae/#website' },
+    inLanguage: 'en-AE',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://safestorage.ae/faq' },
+    ],
+  },
+]
+
 export default function FAQPage() {
   return (
+    <>
+    <SchemaScript schema={faqPageSchemas} />
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
       <section className="relative py-16 bg-gradient-to-b from-dubai-navy to-dubai-navy/90 text-white">
@@ -236,5 +274,6 @@ export default function FAQPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

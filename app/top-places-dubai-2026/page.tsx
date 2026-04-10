@@ -3,6 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import SchemaScript from "@/components/schema-script"
 import { MapPin, Calendar, Star, TrendingUp, Phone, ArrowRight, Share2, Bookmark, Package } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -131,8 +132,37 @@ const places = [
   }
 ]
 
+const topPlacesSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': 'https://safestorage.ae/top-places-dubai-2026#article',
+    headline: 'Top Places to Visit in Dubai 2026',
+    description: 'Best places to visit in Dubai in 2026 — attractions, restaurants, beaches, and hidden gems.',
+    url: 'https://safestorage.ae/top-places-dubai-2026',
+    image: 'https://safestorage.ae/og-image.jpg',
+    datePublished: '2026-01-01',
+    dateModified: '2026-03-01',
+    author: { '@type': 'Organization', name: 'SafeStorage Dubai', url: 'https://safestorage.ae' },
+    publisher: { '@id': 'https://safestorage.ae/#organization' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://safestorage.ae/top-places-dubai-2026' },
+    inLanguage: 'en-AE',
+    about: { '@type': 'City', name: 'Dubai' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Top Places in Dubai 2026', item: 'https://safestorage.ae/top-places-dubai-2026' },
+    ],
+  },
+]
+
 export default function TopPlacesDubai2026() {
   return (
+    <>
+    <SchemaScript schema={topPlacesSchemas} />
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-[#0A2463] via-[#3E92CC] to-[#0A2463] text-white py-20 overflow-hidden">
@@ -392,5 +422,6 @@ export default function TopPlacesDubai2026() {
         </div>
       </section>
     </div>
+    </>
   )
 }

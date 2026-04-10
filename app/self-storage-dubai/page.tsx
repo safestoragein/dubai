@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Shield, Truck, Clock, Lock, ArrowRight, CheckCircle2, Package, Thermometer, MapPin } from "lucide-react"
 import Script from "next/script"
+import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
   title: "Self Storage Dubai — Flexible Plans, No Lorry Needed | SafeStorage",
@@ -63,9 +64,48 @@ const faqSchema = {
   }))
 }
 
+const pageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://safestorage.ae/self-storage-dubai#webpage',
+    name: 'Self Storage Dubai — Flexible Plans, No Lorry Needed',
+    description: 'Self storage in Dubai with hassle-free pickup — no need to rent a truck. Flexible monthly plans, climate-controlled units, 24/7 CCTV. Book online in minutes from AED 99/month.',
+    url: 'https://safestorage.ae/self-storage-dubai',
+    isPartOf: { '@id': 'https://safestorage.ae/#website' },
+    about: { '@id': 'https://safestorage.ae/#business' },
+    inLanguage: 'en-AE',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Self Storage Dubai',
+    description: 'Flexible self storage in Dubai with hassle-free pickup and delivery. Climate-controlled units from AED 99/month with 24/7 security.',
+    provider: { '@id': 'https://safestorage.ae/#organization' },
+    areaServed: { '@type': 'City', name: 'Dubai' },
+    url: 'https://safestorage.ae/self-storage-dubai',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'AED',
+      lowPrice: '99',
+      highPrice: '4999',
+    },
+    serviceType: 'Self Storage',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Self Storage Dubai', item: 'https://safestorage.ae/self-storage-dubai' },
+    ],
+  },
+]
+
 export default function SelfStorageDubaiPage() {
   return (
     <>
+      <SchemaScript schema={pageSchemas} />
       <Script
         id="faq-schema"
         type="application/ld+json"

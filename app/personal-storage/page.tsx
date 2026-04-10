@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Home, ShieldCheck, Truck, Clock, Package, Headphones, Star, Users, Sofa, ArrowRight, Boxes, Calendar, Lock } from "lucide-react"
 import TrustBadges from "@/components/trust-badges"
 import Testimonials from "@/components/testimonials"
+import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
   title: "Personal Household Storage Dubai | Furniture & Boxes from AED 99/mo | SafeStorage",
@@ -80,8 +81,42 @@ const useCases = [
   },
 ]
 
+const personalStorageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Personal Household Storage Dubai',
+    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with free pickup from your door. Personal storage from AED 99/month.',
+    provider: { '@id': 'https://safestorage.ae/#organization' },
+    url: 'https://safestorage.ae/personal-storage',
+    areaServed: { '@type': 'City', name: 'Dubai' },
+    serviceType: 'Personal Storage',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'AED', lowPrice: '99', highPrice: '2499' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://safestorage.ae/personal-storage#webpage',
+    name: 'Personal Household Storage Dubai | Furniture & Boxes from AED 99/mo',
+    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with free pickup. Personal storage from AED 99/month.',
+    url: 'https://safestorage.ae/personal-storage',
+    isPartOf: { '@id': 'https://safestorage.ae/#website' },
+    inLanguage: 'en-AE',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Personal Storage', item: 'https://safestorage.ae/personal-storage' },
+    ],
+  },
+]
+
 export default function PersonalStoragePage() {
   return (
+    <>
+    <SchemaScript schema={personalStorageSchemas} />
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-dubai-navy to-dubai-midnight py-24 md:py-32">
@@ -314,5 +349,6 @@ export default function PersonalStoragePage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

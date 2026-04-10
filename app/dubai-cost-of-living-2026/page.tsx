@@ -8,6 +8,7 @@ import {
   Shirt, Wifi, Phone, ArrowRight, TrendingDown, Wallet, Calculator,
   Package, DollarSign, PiggyBank, CheckCircle2, AlertCircle, Star
 } from "lucide-react"
+import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
   title: "Dubai Cost of Living 2026: Complete Budget Guide | Real Prices & Monthly Expenses",
@@ -262,8 +263,37 @@ const expenses = [
   }
 ]
 
+const costOfLivingSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': 'https://safestorage.ae/dubai-cost-of-living-2026#article',
+    headline: 'Dubai Cost of Living 2026: Complete Budget Guide',
+    description: 'How much does it cost to live in Dubai in 2026? Complete breakdown of rent, food, transport, utilities & more. Real prices in AED.',
+    url: 'https://safestorage.ae/dubai-cost-of-living-2026',
+    image: 'https://safestorage.ae/og-image.jpg',
+    datePublished: '2026-01-01',
+    dateModified: '2026-03-01',
+    author: { '@type': 'Organization', name: 'SafeStorage Dubai', url: 'https://safestorage.ae' },
+    publisher: { '@id': 'https://safestorage.ae/#organization' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://safestorage.ae/dubai-cost-of-living-2026' },
+    inLanguage: 'en-AE',
+    about: { '@type': 'City', name: 'Dubai' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Dubai Cost of Living 2026', item: 'https://safestorage.ae/dubai-cost-of-living-2026' },
+    ],
+  },
+]
+
 export default function DubaiCostOfLiving2026() {
   return (
+    <>
+    <SchemaScript schema={costOfLivingSchemas} />
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-[#0A2463] via-[#3E92CC] to-[#0A2463] text-white py-20 overflow-hidden">
@@ -557,5 +587,6 @@ export default function DubaiCostOfLiving2026() {
         </div>
       </section>
     </div>
+    </>
   )
 }

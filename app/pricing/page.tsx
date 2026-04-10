@@ -1,4 +1,5 @@
 import PricingPage from "@/components/pricing/pricing-page"
+import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -34,6 +35,48 @@ export const metadata: Metadata = {
   },
 }
 
+const pricingSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://safestorage.ae/pricing#webpage',
+    name: 'Storage Pricing Dubai | From AED 99/month',
+    description: 'Transparent storage pricing in Dubai starting from AED 99/month. Various unit sizes with flexible plans. Hassle-free pickup & delivery included.',
+    url: 'https://safestorage.ae/pricing',
+    isPartOf: { '@id': 'https://safestorage.ae/#website' },
+    inLanguage: 'en-AE',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Storage Units Dubai — Transparent Pricing',
+    description: 'Transparent storage pricing in Dubai. Hassle-free pickup & delivery included. Call +971505773388 for best rates.',
+    provider: { '@id': 'https://safestorage.ae/#organization' },
+    url: 'https://safestorage.ae/pricing',
+    areaServed: { '@type': 'City', name: 'Dubai' },
+    offers: [
+      { '@type': 'Offer', name: 'Small Storage Unit (25-50 sq ft)', price: '199', priceCurrency: 'AED', availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Medium Storage Unit (50-100 sq ft)', price: '599', priceCurrency: 'AED', availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Large Storage Unit (100-200 sq ft)', price: '1299', priceCurrency: 'AED', availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Extra Large Storage Unit (200+ sq ft)', price: '2499', priceCurrency: 'AED', availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Vehicle Storage', price: '899', priceCurrency: 'AED', availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://safestorage.ae/pricing' },
+    ],
+  },
+]
+
 export default function Pricing() {
-  return <PricingPage />
+  return (
+    <>
+      <SchemaScript schema={pricingSchemas} />
+      <PricingPage />
+    </>
+  )
 }

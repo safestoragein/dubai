@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Building2, ShieldCheck, Truck, Clock, FileBox, Headphones, Star, Users, Award, ArrowRight } from "lucide-react"
 import TrustBadges from "@/components/trust-badges"
 import Testimonials from "@/components/testimonials"
+import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
   title: "Business Storage Dubai | Inventory & Office Storage for Companies | SafeStorage",
@@ -57,8 +58,42 @@ const features = [
   },
 ]
 
+const businessStorageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Business Storage Dubai',
+    description: 'Business storage solutions for Dubai companies — store excess inventory, office equipment, trade show materials, and retail stock. Flexible monthly contracts, pickup & delivery on demand.',
+    provider: { '@id': 'https://safestorage.ae/#organization' },
+    url: 'https://safestorage.ae/business-storage',
+    areaServed: { '@type': 'City', name: 'Dubai' },
+    serviceType: 'Business Storage',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'AED', lowPrice: '599', highPrice: '4999' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://safestorage.ae/business-storage#webpage',
+    name: 'Business Storage Dubai | Inventory & Office Storage for Companies',
+    description: 'Flexible storage for Dubai businesses — inventory, office equipment & stock. Monthly contracts, on-demand delivery.',
+    url: 'https://safestorage.ae/business-storage',
+    isPartOf: { '@id': 'https://safestorage.ae/#website' },
+    inLanguage: 'en-AE',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Business Storage', item: 'https://safestorage.ae/business-storage' },
+    ],
+  },
+]
+
 export default function BusinessStoragePage() {
   return (
+    <>
+    <SchemaScript schema={businessStorageSchemas} />
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-dubai-navy to-dubai-midnight py-24 md:py-32">
@@ -173,5 +208,6 @@ export default function BusinessStoragePage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

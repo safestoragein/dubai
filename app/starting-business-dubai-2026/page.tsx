@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Building2, FileText, DollarSign, Briefcase, MapPin, CreditCard, TrendingUp, CheckCircle2, XCircle, Phone, ArrowRight, Package, Shield, Clock, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
   title: "Starting a Business in Dubai 2026: Complete Entrepreneur Guide | SafeStorage UAE",
@@ -251,7 +252,36 @@ export default function StartingBusinessDubai2026() {
     "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop&q=80",
   ]
 
+  const startingBusinessSchemas = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      '@id': 'https://safestorage.ae/starting-business-dubai-2026#article',
+      headline: 'Starting a Business in Dubai 2026 — Complete Guide',
+      description: 'How to start a business in Dubai in 2026. Mainland vs Freezone, costs, visas, and step-by-step setup guide.',
+      url: 'https://safestorage.ae/starting-business-dubai-2026',
+      image: 'https://safestorage.ae/og-image.jpg',
+      datePublished: '2026-01-01',
+      dateModified: '2026-03-01',
+      author: { '@type': 'Organization', name: 'SafeStorage Dubai', url: 'https://safestorage.ae' },
+      publisher: { '@id': 'https://safestorage.ae/#organization' },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://safestorage.ae/starting-business-dubai-2026' },
+      inLanguage: 'en-AE',
+      about: { '@type': 'City', name: 'Dubai' },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+        { '@type': 'ListItem', position: 2, name: 'Starting a Business in Dubai 2026', item: 'https://safestorage.ae/starting-business-dubai-2026' },
+      ],
+    },
+  ]
+
   return (
+    <>
+    <SchemaScript schema={startingBusinessSchemas} />
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-[#0A2463] via-[#3E92CC] to-[#0A2463] py-20">
@@ -733,5 +763,6 @@ export default function StartingBusinessDubai2026() {
         </div>
       </section>
     </div>
+    </>
   )
 }

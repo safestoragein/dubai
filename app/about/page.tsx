@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react"
 import TrustBadges from "@/components/trust-badges"
 import WhyChooseUs from "@/components/why-choose-us"
 import Testimonials from "@/components/testimonials"
+import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
   title: "About Us - Dubai's Most Trusted Storage Partner | SafeStorage Dubai",
@@ -25,6 +26,28 @@ export const metadata: Metadata = {
     canonical: "https://safestorage.ae/about",
   },
 }
+
+const aboutSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': 'https://safestorage.ae/about#webpage',
+    name: 'About SafeStorage Dubai — Dubai\'s Most Trusted Storage Partner',
+    description: 'Learn about SafeStorage Dubai — serving Dubai since 2015 with climate-controlled storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers trust us.',
+    url: 'https://safestorage.ae/about',
+    isPartOf: { '@id': 'https://safestorage.ae/#website' },
+    mainEntity: { '@id': 'https://safestorage.ae/#organization' },
+    inLanguage: 'en-AE',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'About', item: 'https://safestorage.ae/about' },
+    ],
+  },
+]
 
 export default function AboutPage() {
   const milestones = [
@@ -59,6 +82,8 @@ export default function AboutPage() {
   ]
 
   return (
+    <>
+    <SchemaScript schema={aboutSchemas} />
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-b from-dubai-navy to-dubai-navy/90 text-white">
@@ -284,5 +309,6 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

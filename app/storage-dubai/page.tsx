@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/accordion"
 import { env } from "@/lib/env"
 import Script from "next/script"
+import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
   title: "Storage Dubai — All-In-One: Personal, Business & Vehicle Storage | SafeStorage",
@@ -355,9 +356,43 @@ const faqSchema = {
   }))
 }
 
+const storageDubaiSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Storage Dubai — All-In-One Personal, Business & Vehicle Storage',
+    description: 'One storage provider for all your Dubai needs: personal furniture, business inventory, vehicle storage & document archival. Free pickup, transparent pricing.',
+    provider: { '@id': 'https://safestorage.ae/#organization' },
+    url: 'https://safestorage.ae/storage-dubai',
+    areaServed: { '@type': 'City', name: 'Dubai' },
+    serviceType: 'Self Storage',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'AED', lowPrice: '99', highPrice: '4999' },
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '312' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://safestorage.ae/storage-dubai#webpage',
+    name: 'Storage Dubai — All-In-One: Personal, Business & Vehicle Storage',
+    description: 'One storage provider for all your Dubai needs: personal furniture, business inventory, vehicle storage & document archival.',
+    url: 'https://safestorage.ae/storage-dubai',
+    isPartOf: { '@id': 'https://safestorage.ae/#website' },
+    inLanguage: 'en-AE',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Storage Dubai', item: 'https://safestorage.ae/storage-dubai' },
+    ],
+  },
+]
+
 export default function StorageDubaiPage() {
   return (
     <>
+      <SchemaScript schema={storageDubaiSchemas} />
       <Script
         id="faq-schema"
         type="application/ld+json"

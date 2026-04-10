@@ -3,6 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import SchemaScript from "@/components/schema-script"
 import {
   ShoppingBag, Store, Sparkles, MapPin, Clock, DollarSign, Star,
   Tag, Gift, TrendingUp, Phone, ArrowRight, CheckCircle2, Package,
@@ -352,8 +353,37 @@ const shoppingTips = [
   }
 ]
 
+const shoppingGuideSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': 'https://safestorage.ae/dubai-shopping-guide-2026#article',
+    headline: 'Dubai Shopping Guide 2026',
+    description: 'Complete guide to shopping in Dubai 2026 — malls, souks, luxury brands, and must-buy items.',
+    url: 'https://safestorage.ae/dubai-shopping-guide-2026',
+    image: 'https://safestorage.ae/og-image.jpg',
+    datePublished: '2026-01-01',
+    dateModified: '2026-03-01',
+    author: { '@type': 'Organization', name: 'SafeStorage Dubai', url: 'https://safestorage.ae' },
+    publisher: { '@id': 'https://safestorage.ae/#organization' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://safestorage.ae/dubai-shopping-guide-2026' },
+    inLanguage: 'en-AE',
+    about: { '@type': 'City', name: 'Dubai' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Dubai Shopping Guide 2026', item: 'https://safestorage.ae/dubai-shopping-guide-2026' },
+    ],
+  },
+]
+
 export default function DubaiShoppingGuide2026() {
   return (
+    <>
+    <SchemaScript schema={shoppingGuideSchemas} />
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-[#0A2463] via-[#3E92CC] to-[#0A2463] text-white py-20 overflow-hidden">
@@ -700,5 +730,6 @@ export default function DubaiShoppingGuide2026() {
         </div>
       </section>
     </div>
+    </>
   )
 }

@@ -1,4 +1,5 @@
 import BlogPostDetail from "@/components/blog/blog-post-detail"
+import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -111,11 +112,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
+  const canonicalUrl = `https://safestorage.ae/blog/${slug}`
 
-  // Check if blog post exists before rendering
+  let post: any = null
   try {
     const blogs = await fetchAllBlogs()
-    const post = blogs.find((b: any) => {
+    post = blogs.find((b: any) => {
       const title = b.title || b.seo_title || ''
       return generateSlug(title) === slug
     })
@@ -129,5 +131,71 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  return <BlogPostDetail slug={slug} />
+  const imageUrl = post?.post_images
+    ? post.post_images.startsWith('http')
+      ? post.post_images
+      : `https://safestorage.in/post_images/${post.post_images}`
+    : 'https://safestorage.ae/images/storage-facility-background.png'
+
+  const plainText = (post?.description || '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 200)
+
+  const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${canonicalUrl}#article`,
+    headline: post?.seo_title || post?.title || '',
+    name: post?.title || '',
+    description: post?.seo_desc?.trim() || plainText,
+    image: {
+      '@type': 'ImageObject',
+      url: imageUrl,
+      width: 1200,
+      height: 630,
+    },
+    url: canonicalUrl,
+    datePublished: post?.created_at || new Date().toISOString(),
+    dateModified: post?.updated_at || post?.created_at || new Date().toISOString(),
+    author: {
+      '@type': 'Organization',
+      name: 'SafeStorage Dubai',
+      url: 'https://safestorage.ae',
+    },
+    publisher: {
+      '@id': 'https://safestorage.ae/#organization',
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+    keywords: post?.tags || '',
+    articleSection: post?.post_category || 'Storage Tips',
+    inLanguage: 'en-AE',
+    isPartOf: {
+      '@type': 'Blog',
+      '@id': 'https://safestorage.ae/blog#blog',
+      name: 'SafeStorage Dubai Blog',
+      publisher: { '@id': 'https://safestorage.ae/#organization' },
+    },
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://safestorage.ae/blog' },
+      { '@type': 'ListItem', position: 3, name: post?.title || slug, item: canonicalUrl },
+    ],
+  }
+
+  return (
+    <>
+      <SchemaScript schema={[blogPostingSchema, breadcrumbSchema]} />
+      <BlogPostDetail slug={slug} />
+    </>
+  )
 }

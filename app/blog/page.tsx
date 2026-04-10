@@ -1,4 +1,5 @@
 import BlogPage from "@/components/blog/blog-page"
+import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -86,5 +87,39 @@ export default async function Blog() {
     })
     .sort((a: any, b: any) => b.id - a.id)
 
-  return <BlogPage initialBlogs={initialBlogs} />
+  const blogSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': 'https://safestorage.ae/blog#blog',
+    name: 'SafeStorage Dubai Blog',
+    description: 'Expert storage tips, guides, and insights from SafeStorage Dubai.',
+    url: 'https://safestorage.ae/blog',
+    publisher: { '@id': 'https://safestorage.ae/#organization' },
+    inLanguage: 'en-AE',
+    blogPost: initialBlogs.map((post: any) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.excerpt,
+      url: `https://safestorage.ae/blog/${post.slug}`,
+      datePublished: post.date,
+      image: post.image,
+      author: { '@type': 'Organization', name: 'SafeStorage Dubai' },
+    })),
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://safestorage.ae/blog' },
+    ],
+  }
+
+  return (
+    <>
+      <SchemaScript schema={[blogSchema, breadcrumbSchema]} />
+      <BlogPage initialBlogs={initialBlogs} />
+    </>
+  )
 }

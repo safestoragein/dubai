@@ -1,4 +1,5 @@
 import ContactPage from "@/components/contact/contact-page"
+import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -12,6 +13,33 @@ export const metadata: Metadata = {
   },
 }
 
+const contactSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': 'https://safestorage.ae/contact#webpage',
+    name: 'Contact SafeStorage Dubai',
+    description: 'Contact SafeStorage Dubai for storage solutions. Call +971505773388, email safestoragedubai@gmail.com, or get a free quote online.',
+    url: 'https://safestorage.ae/contact',
+    isPartOf: { '@id': 'https://safestorage.ae/#website' },
+    mainEntity: { '@id': 'https://safestorage.ae/#organization' },
+    inLanguage: 'en-AE',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://safestorage.ae/contact' },
+    ],
+  },
+]
+
 export default function Contact() {
-  return <ContactPage />
+  return (
+    <>
+      <SchemaScript schema={contactSchemas} />
+      <ContactPage />
+    </>
+  )
 }
