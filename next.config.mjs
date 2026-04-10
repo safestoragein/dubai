@@ -61,6 +61,87 @@ const nextConfig = {
         destination: '/terms-and-conditions',
         permanent: true,
       },
+      // Permanently deleted blog posts → redirect to /blog (fixes Google Soft 404)
+      {
+        source: '/blog/musical-instrument-storage-dubai',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/business-storage-units-dubai-save-costs',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/antique-storage-dubai-preserve-valuables',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/climate-controlled-storage-dubai',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/electronics-storage-dubai-gadget-device',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/seasonal-storage-dubai-summer-winter',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/vehicle-storage-dubai-cars-bikes-boats',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/textile-storage-dubai-fabric-material',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/storage-small-businesses-dubai-startups',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/document-storage-solutions-dubai-businesses',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/event-storage-dubai-equipment-decorations',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/photography-equipment-storage-dubai',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/library-storage-dubai-book-archive',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/climate-controlled-storage-benefits',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/baby-items-storage-dubai-nursery',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/emergency-storage-dubai-last-minute',
+        destination: '/blog',
+        permanent: true,
+      },
       // Redirect old /near/* location pages to main self-storage page
       {
         source: '/self-storage-dubai/near/:location',

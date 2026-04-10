@@ -125,7 +125,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }
   } catch (error) {
     console.error('Error checking blog post:', error)
-    // If API fails, let the component handle it
+    // API failed — treat as not found to avoid soft 404
+    notFound()
   }
 
   return <BlogPostDetail slug={slug} />
