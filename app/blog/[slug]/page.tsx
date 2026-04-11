@@ -195,12 +195,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <SchemaScript schema={[blogPostingSchema, breadcrumbSchema]} />
-      {/* Server-rendered H1 — visible to Google on initial HTML, before client JS loads */}
-      <div style={{ maxWidth: "896px", margin: "0 auto", padding: "40px 24px 0" }}>
-        <h1 style={{ fontSize: "clamp(1.6rem, 3vw, 2.5rem)", fontWeight: "800", color: "#0A2463", lineHeight: "1.25", marginBottom: "8px" }}>
-          {post.title}
-        </h1>
-      </div>
+      {/* Server-rendered H1 — for Google/crawlers only, visually hidden to avoid duplicate with client title */}
+      <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: "0" }}>
+        {post.title}
+      </h1>
       <BlogPostDetail slug={slug} />
 
       {/* Static section — server-rendered, boosts word count and internal linking */}
