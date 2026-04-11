@@ -196,6 +196,76 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <>
       <SchemaScript schema={[blogPostingSchema, breadcrumbSchema]} />
       <BlogPostDetail slug={slug} />
+
+      {/* Static section — server-rendered, boosts word count and internal linking */}
+      <section style={{ padding: "48px 24px", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: "700", color: "#111827", marginBottom: "16px" }}>
+            Why Dubai Residents Trust SafeStorage
+          </h2>
+          <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "16px" }}>
+            SafeStorage Dubai is the city&apos;s most trusted self-storage provider, offering climate-controlled units that maintain a steady 20–25°C year-round. Dubai&apos;s extreme summer heat — regularly exceeding 45°C outdoors — can warp wooden furniture, crack leather, destroy electronics, and damage documents stored in ordinary spaces. Our facility eliminates that risk entirely, giving every customer peace of mind whether they are storing for a week or a year.
+          </p>
+          <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "16px" }}>
+            With over 500 satisfied customers across Dubai and a 4.9-star average rating, we have helped households, businesses, expats, students, and e-commerce sellers manage their belongings efficiently. Every unit is monitored by 24/7 CCTV, secured with individual PIN access, and covered by complimentary insurance up to AED 5,000 — something very few storage providers in the UAE offer as standard.
+          </p>
+
+          <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#111827", marginBottom: "12px", marginTop: "24px" }}>
+            What We Store
+          </h3>
+          <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "16px" }}>
+            We accept a wide range of items: sofas, beds, dining sets, wardrobes, white goods, boxes, seasonal clothing, sports equipment, business inventory, office furniture, trade show displays, documents and files, vehicles (cars, motorcycles, classic cars), artwork, antiques, and e-commerce stock. Our unit sizes range from small lockers to full-villa-sized rooms — so you only pay for exactly the space you need.
+          </p>
+
+          <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#111827", marginBottom: "12px", marginTop: "24px" }}>
+            Free Door-to-Door Pickup Across Dubai
+          </h3>
+          <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "16px" }}>
+            One of our most popular features is our free pickup service. You do not need to rent a lorry, hire movers separately, or make multiple trips. Our team comes to your door, carefully loads your belongings, transports them to our secure facility, and delivers them back when you need them — all included in your monthly plan. We serve every neighbourhood in Dubai including Business Bay, Dubai Marina, Jumeirah, JBR, DIFC, Downtown, Deira, Bur Dubai, Al Barsha, Dubai Investment Park, Motor City, and beyond.
+          </p>
+
+          <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#111827", marginBottom: "12px", marginTop: "24px" }}>
+            Flexible Plans Starting from AED 99/Month
+          </h3>
+          <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "24px" }}>
+            There are no long-term lock-ins. Plans start at AED 99/month for small units and scale up based on size. You can start with as little as one week of storage, extend month by month, or book long-term for the best rates. Getting started takes less than two minutes: visit our website, select your unit size, book your pickup slot, and we handle everything else. Most customers have their items picked up within 24 hours of booking.
+          </p>
+
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+            <a
+              href="https://safestorage.ae/get-quote"
+              style={{
+                display: "inline-block",
+                background: "#f97316",
+                color: "#fff",
+                padding: "12px 24px",
+                borderRadius: "8px",
+                fontWeight: "600",
+                textDecoration: "none",
+                fontSize: "0.95rem"
+              }}
+            >
+              Get a Free Quote
+            </a>
+            <a
+              href="https://safestorage.ae/self-storage-dubai/how-it-works"
+              style={{
+                display: "inline-block",
+                background: "#fff",
+                color: "#111827",
+                padding: "12px 24px",
+                borderRadius: "8px",
+                fontWeight: "600",
+                textDecoration: "none",
+                fontSize: "0.95rem",
+                border: "1px solid #d1d5db"
+              }}
+            >
+              How It Works
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
