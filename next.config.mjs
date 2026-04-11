@@ -61,18 +61,12 @@ const nextConfig = {
         destination: '/terms-and-conditions',
         permanent: true,
       },
-      // www → non-www for policy pages (www.safestorage.ae 404s)
+      // www → non-www for ALL pages (fixes hreflang conflicts and www 404s)
       {
-        source: '/privacy-policy',
-        destination: '/privacy-policy',
-        permanent: false,
+        source: '/:path*',
         has: [{ type: 'host', value: 'www.safestorage.ae' }],
-      },
-      {
-        source: '/terms',
-        destination: '/terms-and-conditions',
+        destination: 'https://safestorage.ae/:path*',
         permanent: true,
-        has: [{ type: 'host', value: 'www.safestorage.ae' }],
       },
       // Arabic language redirect → homepage (no Arabic version exists)
       {
