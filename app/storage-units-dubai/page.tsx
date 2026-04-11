@@ -406,7 +406,7 @@ export default function StorageUnitsDubaiPage() {
                 </Link>
               </Button>
               <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6" asChild>
-                <a href={env.WHATSAPP_LINK} target="_blank" rel="nofollow noopener noreferrer">
+                <a href={env.WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp Us
                 </a>
@@ -826,7 +826,7 @@ export default function StorageUnitsDubaiPage() {
             <p className="text-muted-foreground mb-4">Still have questions?</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="outline" asChild>
-                <a href={env.WHATSAPP_LINK} target="_blank" rel="nofollow noopener noreferrer">
+                <a href={env.WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp Us
                 </a>
@@ -861,7 +861,7 @@ export default function StorageUnitsDubaiPage() {
                 </Link>
               </Button>
               <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6" asChild>
-                <a href={env.WHATSAPP_LINK} target="_blank" rel="nofollow noopener noreferrer">
+                <a href={env.WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp: 050-577-3388
                 </a>

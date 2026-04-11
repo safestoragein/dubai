@@ -40,7 +40,7 @@ export default function FloatingContactButtons() {
                   <m.a
                     href={env.WHATSAPP_LINK}
                     target="_blank"
-                    rel="nofollow noopener noreferrer"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-full shadow-lg transition-colors group"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

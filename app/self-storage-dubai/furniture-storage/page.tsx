@@ -990,7 +990,7 @@ export default function FurnitureStoragePage() {
                   <a href="tel:+971505773388">Call Us: +971 50 577 3388</a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="https://wa.me/971505773388" target="_blank" rel="nofollow noopener noreferrer">WhatsApp Us</a>
+                  <a href="https://wa.me/971505773388" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/get-quote">
@@ -1024,7 +1024,7 @@ export default function FurnitureStoragePage() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
-                <a href="https://wa.me/971505773388" target="_blank" rel="nofollow noopener noreferrer">
+                <a href="https://wa.me/971505773388" target="_blank" rel="noopener noreferrer">
                   WhatsApp Photos for Quote
                 </a>
               </Button>
