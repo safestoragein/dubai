@@ -61,6 +61,122 @@ const nextConfig = {
         destination: '/terms-and-conditions',
         permanent: true,
       },
+      // www → non-www for policy pages (www.safestorage.ae 404s)
+      {
+        source: '/privacy-policy',
+        destination: '/privacy-policy',
+        permanent: false,
+        has: [{ type: 'host', value: 'www.safestorage.ae' }],
+      },
+      {
+        source: '/terms',
+        destination: '/terms-and-conditions',
+        permanent: true,
+        has: [{ type: 'host', value: 'www.safestorage.ae' }],
+      },
+      // Arabic language redirect → homepage (no Arabic version exists)
+      {
+        source: '/ar',
+        destination: '/',
+        permanent: true,
+      },
+      // Missing location area pages → main locations page
+      {
+        source: '/locations/al-barsha',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/al-quoz',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/arabian-ranches',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/deira',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/downtown',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/downtown-dubai',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/dubai-hills',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/jlt',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/jvc',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/mirdif',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/motor-city',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/palm-jumeirah',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/silicon-oasis',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/sports-city',
+        destination: '/locations',
+        permanent: true,
+      },
+      // Missing /services/* pages → correct existing service pages
+      {
+        source: '/services/climate-controlled',
+        destination: '/self-storage-dubai/climate-controlled',
+        permanent: true,
+      },
+      {
+        source: '/services/document-storage',
+        destination: '/document-storage',
+        permanent: true,
+      },
+      {
+        source: '/services/ecommerce-storage',
+        destination: '/ecommerce-storage',
+        permanent: true,
+      },
+      {
+        source: '/services/furniture-storage',
+        destination: '/furniture-storage',
+        permanent: true,
+      },
+      {
+        source: '/services/vehicle-storage',
+        destination: '/car-storage',
+        permanent: true,
+      },
       // Permanently deleted blog posts → redirect to /blog (fixes Google Soft 404)
       {
         source: '/blog/musical-instrument-storage-dubai',
