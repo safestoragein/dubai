@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server'
 
+// Cache this route at the Vercel edge for 5 minutes
+export const revalidate = 300
+
 export async function GET() {
   try {
     const response = await fetch('https://safestorage.in/get_blog_content', {
@@ -7,18 +10,21 @@ export async function GET() {
       headers: {
         'Content-Type': 'application/json',
       },
-      cache: 'no-store'
+      next: { revalidate: 300 },
     })
-    
+
     const data = await response.json()
-    
-    // The API returns an array directly, so wrap it in our expected format
+
     const formattedResponse = {
       status: 'success',
       data: Array.isArray(data) ? data : []
     }
-    
-    return NextResponse.json(formattedResponse)
+
+    return NextResponse.json(formattedResponse, {
+      headers: {
+        'Cache-Control': 's-maxage=300, stale-while-revalidate=600',
+      },
+    })
   } catch (error) {
     console.error('Error fetching blogs from backend:', error)
     return NextResponse.json(

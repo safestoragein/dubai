@@ -21,11 +21,14 @@ export const metadata: Metadata = {
   },
 }
 
+// ISR: regenerate at most once every 10 minutes
+export const revalidate = 600
+
 // Fetch blog posts on the server so crawlers see full article list in HTML
 async function fetchBlogPosts() {
   try {
     const response = await fetch("https://safestorage.in/get_blog_content", {
-      cache: "no-store", // Response is 3.8MB — too large for Next.js Data Cache (2MB limit)
+      next: { revalidate: 600 },
     })
     if (!response.ok) return []
     const data = await response.json()

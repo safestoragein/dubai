@@ -3,8 +3,8 @@ import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
-// Force dynamic generation for blog posts
-export const dynamic = 'force-dynamic'
+// ISR: regenerate at most once per hour
+export const revalidate = 3600
 
 // Helper function to generate slug from title
 function generateSlug(title: string): string {
@@ -27,7 +27,7 @@ async function fetchAllBlogs() {
   const timeout = setTimeout(() => controller.abort(), 10000)
   try {
     const response = await fetch('https://safestorage.in/get_blog_content', {
-      cache: 'no-store',
+      next: { revalidate: 3600 },
       signal: controller.signal,
     })
     clearTimeout(timeout)

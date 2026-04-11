@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// Cache this route at the Vercel edge for 5 minutes
+export const revalidate = 300
+
 const BACKEND_URL = 'https://safestorage.in'
 
 // Helper function to generate slug from title
@@ -27,7 +30,7 @@ export async function GET(
       headers: {
         'Content-Type': 'application/json',
       },
-      cache: 'no-store'
+      next: { revalidate: 300 },
     })
 
     const data = await response.json()
