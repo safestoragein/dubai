@@ -175,6 +175,59 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Dubai Guides & More Services — internal links to prevent orphan pages */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-10">
+            <div>
+              <h2 className="text-xl font-bold text-[#0A2463] mb-4">Specialized Storage Services</h2>
+              <ul className="space-y-2">
+                {[
+                  { href: "/car-storage", label: "Car & Vehicle Storage Dubai" },
+                  { href: "/art-storage", label: "Art & Valuables Storage Dubai" },
+                  { href: "/electronics-storage", label: "Electronics Storage Dubai" },
+                  { href: "/furniture-storage", label: "Furniture Storage Dubai" },
+                  { href: "/ecommerce-storage", label: "E-commerce & Fulfilment Storage" },
+                  { href: "/document-storage", label: "Document & Records Storage" },
+                  { href: "/student-storage", label: "Student Storage Dubai" },
+                  { href: "/storage-size-guide", label: "Storage Unit Size Guide" },
+                  { href: "/expat-leaving-uae", label: "Expat Leaving UAE — Storage Guide" },
+                  { href: "/international-relocation", label: "International Relocation Storage" },
+                ].map(({ href, label }) => (
+                  <li key={href}>
+                    <Link href={href} className="text-[#0A2463] text-sm hover:text-[#D8315B] hover:underline transition-colors">
+                      → {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-[#0A2463] mb-4">Dubai Living Guides 2026</h2>
+              <ul className="space-y-2">
+                {[
+                  { href: "/moving-to-dubai-2026", label: "Moving to Dubai 2026 — Complete Guide" },
+                  { href: "/dubai-cost-of-living-2026", label: "Dubai Cost of Living 2026" },
+                  { href: "/dubai-shopping-guide-2026", label: "Dubai Shopping Guide 2026" },
+                  { href: "/starting-business-dubai-2026", label: "Starting a Business in Dubai 2026" },
+                  { href: "/top-places-dubai-2026", label: "Top Places to Visit in Dubai 2026" },
+                  { href: "/top-10-storage-companies-dubai", label: "Top 10 Storage Companies in Dubai" },
+                  { href: "/top-10-storage-companies-uae", label: "Top 10 Storage Companies in UAE" },
+                  { href: "/storage-size-guide", label: "How Big a Storage Unit Do I Need?" },
+                  { href: "/blog", label: "Storage Tips & Guides Blog" },
+                ].map(({ href, label }) => (
+                  <li key={href}>
+                    <Link href={href} className="text-[#0A2463] text-sm hover:text-[#D8315B] hover:underline transition-colors">
+                      → {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

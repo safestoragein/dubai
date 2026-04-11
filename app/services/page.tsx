@@ -159,6 +159,33 @@ export default function Services() {
             </ul>
           </div>
 
+          {/* Specialized service pages — internal links to prevent orphan pages */}
+          <div className="bg-gray-50 rounded-xl p-8 border border-gray-200 mb-8">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Specialized Storage Services</h3>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+              {[
+                { href: "/car-storage", label: "Car & Vehicle Storage" },
+                { href: "/art-storage", label: "Art & Valuables Storage" },
+                { href: "/electronics-storage", label: "Electronics Storage" },
+                { href: "/furniture-storage", label: "Furniture Storage" },
+                { href: "/ecommerce-storage", label: "E-commerce Storage" },
+                { href: "/document-storage", label: "Document Storage" },
+                { href: "/student-storage", label: "Student Storage" },
+                { href: "/storage-size-guide", label: "Storage Size Guide" },
+                { href: "/expat-leaving-uae", label: "Expat Leaving UAE" },
+                { href: "/international-relocation", label: "International Relocation" },
+              ].map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="block bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-[#0A2463] text-sm font-medium hover:border-[#D8315B] hover:text-[#D8315B] transition-colors"
+                >
+                  {label} →
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <div className="text-center">
             <p className="text-lg text-gray-700 mb-4">
               Ready to find the perfect storage solution in Dubai? Get your free, no-obligation quote today.
