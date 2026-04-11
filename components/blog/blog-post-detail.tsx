@@ -333,7 +333,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
           className="mb-8"
         >
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-dubai-navy">{post.title}</h1>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-dubai-navy">{post.title}</h2>
 
           <div className="flex flex-wrap gap-2 mb-6">
             {post.categories?.map((category, index) => (
