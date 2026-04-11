@@ -329,38 +329,46 @@ export default function ContactPage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-6">
+            {/* Decorative social icons — no placeholder # links to avoid internal nofollow SEO issue */}
             {[
-              { icon: Facebook, label: "Facebook", color: "bg-dubai-navy", href: "#" },
-              { icon: Instagram, label: "Instagram", color: "bg-dubai-gold", href: "#" },
-              { icon: Twitter, label: "Twitter", color: "bg-dubai-skyblue", href: "#" },
-              { icon: Youtube, label: "YouTube", color: "bg-dubai-darkgold", href: "#" },
-              {
-                icon: MessageCircle,
-                label: "WhatsApp",
-                color: "bg-dubai-navy",
-                href: env.WHATSAPP_LINK,
-              },
+              { icon: Facebook, label: "Facebook", color: "bg-dubai-navy" },
+              { icon: Instagram, label: "Instagram", color: "bg-dubai-gold" },
+              { icon: Twitter, label: "Twitter", color: "bg-dubai-skyblue" },
+              { icon: Youtube, label: "YouTube", color: "bg-dubai-darkgold" },
             ].map((social, index) => {
               const Icon = social.icon
               return (
-                <m.a
+                <m.span
                   key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`${social.color} text-white p-4 rounded-full shadow-md`}
+                  className={`${social.color} text-white p-4 rounded-full shadow-md cursor-default`}
+                  aria-label={social.label}
                 >
                   <Icon className="h-6 w-6" />
-                  <span className="sr-only">{social.label}</span>
-                </m.a>
+                </m.span>
               )
             })}
+            {/* WhatsApp — real external link */}
+            <m.a
+              href={env.WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-dubai-navy text-white p-4 rounded-full shadow-md"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle className="h-6 w-6" />
+            </m.a>
           </div>
 
           <div className="text-center mt-12">
