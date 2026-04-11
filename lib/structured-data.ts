@@ -38,7 +38,7 @@ export const organizationSchema = {
       telephone: "+971505773388",
       contactType: "customer service",
       areaServed: "AE",
-      availableLanguage: ["en", "ar"],
+      availableLanguage: ["en"],
       hoursAvailable: {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -51,7 +51,7 @@ export const organizationSchema = {
       telephone: "+971505773388",
       contactType: "sales",
       areaServed: "AE",
-      availableLanguage: ["en", "ar"]
+      availableLanguage: ["en"]
     }
   ],
   address: {
@@ -258,7 +258,7 @@ export const webSiteSchema = {
   url: "https://safestorage.ae",
   description: "Dubai's most trusted storage partner. Climate-controlled self storage units with hassle-free pickup & delivery.",
   publisher: { "@id": "https://safestorage.ae/#organization" },
-  inLanguage: ["en-AE", "ar-AE"],
+  inLanguage: "en-AE",
   potentialAction: {
     "@type": "SearchAction",
     target: {
