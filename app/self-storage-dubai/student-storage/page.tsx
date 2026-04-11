@@ -487,6 +487,57 @@ export default function StudentStoragePage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Student Storage Dubai — Affordable Semester Break Storage</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Dubai is home to several international universities and higher education institutions, including
+            Heriot-Watt University Dubai, Middlesex University Dubai, American University in Dubai, and
+            the University of Dubai. Each semester break or academic year end, thousands of students need
+            to vacate their student accommodation and find somewhere to store their belongings safely.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Storage for Summer Breaks &amp; Study Abroad</h3>
+              <p className="text-gray-700 mb-3">
+                Returning home for the summer or heading overseas for a semester abroad means you need
+                somewhere safe to store your belongings in Dubai without paying rent for an empty apartment.
+                SafeStorage student storage plans offer the most affordable monthly rates in Dubai —
+                starting from AED 199/month for a small unit that holds a student room&apos;s worth of belongings.
+              </p>
+              <p className="text-gray-700">
+                Our free pickup service means you do not need to rent a car or hire movers. We come to
+                your student accommodation, collect your boxes, clothes, electronics, and furniture, and
+                return everything when the new term starts.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">What Students Typically Store</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Textbooks, notes, and study materials</li>
+                <li>• Laptop, tablet, and electronics</li>
+                <li>• Seasonal clothing and personal items</li>
+                <li>• Bedding, pillows, and room accessories</li>
+                <li>• Sports equipment and hobbies gear</li>
+                <li>• Kitchen appliances and small furniture</li>
+                <li>• Suitcases and travel bags</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-3">Student Storage Pricing &amp; Discounts</h3>
+            <p className="text-gray-700">
+              Student storage plans start from AED 199/month with free pickup and delivery. We offer special
+              student discounts — ask about our semester rates when booking. Storage for a typical student
+              room (20–30 boxes plus small furniture) fits in our small unit (25–50 sq ft). All items are
+              stored in climate-controlled security — your laptop, electronics, and clothing are safe from
+              Dubai&apos;s heat. Bring your student ID for eligibility. No minimum contract required.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

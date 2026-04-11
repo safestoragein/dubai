@@ -915,6 +915,81 @@ export default function StorageUnitsDubaiPage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-dubai-navy mb-6">Storage Units in Dubai — Complete Buyer&apos;s Guide 2026</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Choosing the right storage unit in Dubai requires understanding your storage needs, the types of
+            units available, how pricing works, and what features to prioritise. This guide covers everything
+            you need to know about storage units in Dubai for 2026 — including unit sizes, pricing ranges,
+            climate control, security standards, and how to choose the right provider.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-semibold text-dubai-navy mb-3">Storage Unit Sizes in Dubai</h3>
+              <p className="text-gray-700 mb-3">
+                Storage units in Dubai are typically offered in the following sizes:
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li><strong>Locker (5–15 sq ft):</strong> Documents, files, valuables — not suitable for furniture</li>
+                <li><strong>Small (25–50 sq ft):</strong> Studio apartment contents, 15–20 boxes, small furniture</li>
+                <li><strong>Medium (50–100 sq ft):</strong> 1–2 bedroom apartment, office clearance</li>
+                <li><strong>Large (100–200 sq ft):</strong> 3–4 bedroom villa, full household contents</li>
+                <li><strong>Extra Large (200+ sq ft):</strong> Large villa, commercial inventory, warehouse overflow</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-dubai-navy mb-3">Storage Unit Prices in Dubai 2026</h3>
+              <p className="text-gray-700 mb-3">
+                Storage unit prices in Dubai vary significantly based on unit size, location, climate control,
+                and the service model. Here are typical monthly rates:
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li><strong>Small units (25–50 sq ft):</strong> AED 150–350/month</li>
+                <li><strong>Medium units (50–100 sq ft):</strong> AED 350–800/month</li>
+                <li><strong>Large units (100–200 sq ft):</strong> AED 800–1,800/month</li>
+                <li><strong>Extra large (200+ sq ft):</strong> AED 1,500–3,500/month</li>
+                <li><strong>Vehicle storage:</strong> AED 600–1,500/month depending on vehicle size</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
+            <h3 className="text-xl font-bold text-dubai-navy mb-4">What to Look for in a Dubai Storage Unit</h3>
+            <div className="grid md:grid-cols-2 gap-4 text-gray-700">
+              <div>
+                <p className="font-semibold mb-2">Essential Features</p>
+                <ul className="space-y-1 text-sm">
+                  <li>• <strong>Climate control:</strong> Non-negotiable in Dubai — temperatures can destroy furniture without it</li>
+                  <li>• <strong>Security:</strong> CCTV, access control, individual unit locks or alarms</li>
+                  <li>• <strong>Insurance:</strong> Make sure coverage is included or available as add-on</li>
+                  <li>• <strong>Access:</strong> Convenient operating hours or 24/7 access options</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">Value-Added Features</p>
+                <ul className="space-y-1 text-sm">
+                  <li>• <strong>Free pickup &amp; delivery:</strong> Saves time and cost vs renting a lorry</li>
+                  <li>• <strong>Flexible contracts:</strong> Month-to-month vs long-term lock-ins</li>
+                  <li>• <strong>Transparent pricing:</strong> No hidden fees, clear invoicing</li>
+                  <li>• <strong>Customer support:</strong> Dedicated consultant vs call centre-only service</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-xl font-bold text-dubai-navy mb-3">Why SafeStorage is Dubai&apos;s Top-Rated Storage Unit Provider</h3>
+            <p className="text-gray-700">
+              SafeStorage Dubai offers storage units from AED 199/month with climate control and free pickup
+              and delivery included as standard. All units maintain 20–25°C year-round, are secured with
+              biometric access and 24/7 CCTV, and come with free insurance up to AED 5,000. Monthly contracts
+              with no minimum term, no cancellation fees, and no hidden charges make SafeStorage the most
+              flexible and transparent storage unit provider in Dubai.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

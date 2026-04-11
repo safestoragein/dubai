@@ -690,6 +690,63 @@ export default function HowItWorksPage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">How Self Storage Works at SafeStorage Dubai — Full Guide</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Self storage in Dubai has never been simpler. SafeStorage has designed its entire process around
+            removing every friction point — from the moment you get a quote to the day your items are returned.
+            Here is a comprehensive guide to how self storage works, what to expect at every stage, and how to
+            get the most from your storage experience.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Choosing the Right Self Storage Option in Dubai</h3>
+              <p className="text-gray-700 mb-3">
+                There are two main approaches to self storage in Dubai: traditional self-service storage, where
+                you transport your own items to a facility and load them into a unit yourself, and full-service
+                storage, where the provider handles all the logistics including pickup, packing, storage, and
+                delivery. SafeStorage offers both models, with most customers choosing the full-service option
+                due to its convenience and cost-effectiveness.
+              </p>
+              <p className="text-gray-700">
+                For full-service storage, you pay for the space your items actually occupy rather than a fixed
+                unit size, and the free pickup and delivery is included in the monthly rate. For self-service,
+                you choose a unit size, visit the facility during access hours, and load your items yourself using
+                the trolleys and equipment provided on-site.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Understanding Storage Contracts in Dubai</h3>
+              <p className="text-gray-700 mb-3">
+                SafeStorage operates on flexible monthly contracts with no minimum storage period and no
+                cancellation penalties. This is different from many traditional UAE storage providers who
+                require 3- or 6-month minimums. You pay monthly in advance, and can give as little as 7 days&apos;
+                notice to end your storage arrangement.
+              </p>
+              <p className="text-gray-700">
+                All contracts are signed digitally — no need to visit the office in person. Your agreement
+                clearly outlines the monthly rate, what is included (climate control, insurance, pickup and
+                delivery), and the terms for adding, removing, or changing the volume of items stored.
+                There are no hidden charges or surprise fees.
+              </p>
+            </div>
+          </div>
+          <div className="bg-gray-50 rounded-xl p-8">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Tips for Getting the Best from Your Storage</h3>
+            <ul className="space-y-3 text-gray-700">
+              <li>• <strong>Label everything clearly:</strong> When items go into storage, label every box with its contents and a brief description. This makes retrieval much faster when you only need specific items.</li>
+              <li>• <strong>Create a packing list:</strong> Keep a digital record of everything you have stored, including photos. This makes insurance claims easier if ever needed and helps you remember what is stored.</li>
+              <li>• <strong>Consider access frequency:</strong> Items you might need regularly should go near the front of the unit. Items for long-term storage can go to the back or bottom.</li>
+              <li>• <strong>Use original packaging for electronics:</strong> If you still have the original box for a TV, laptop, or appliance, use it — it provides the best protection during transport and storage.</li>
+              <li>• <strong>Clean items before storing:</strong> Food residue, grease, or moisture on items can cause damage over time. Clean and dry all items, especially appliances, before storage.</li>
+              <li>• <strong>Disassemble large furniture:</strong> Beds, wardrobes, and dining tables take up significantly less space when disassembled. Our team can assist with this if needed.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

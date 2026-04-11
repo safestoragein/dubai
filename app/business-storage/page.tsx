@@ -207,6 +207,87 @@ export default function BusinessStoragePage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Business Storage Solutions for Dubai Companies</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            SafeStorage provides flexible, secure business storage for companies across Dubai — from startups
+            and SMEs to large corporations. Our commercial storage solutions help businesses reduce overhead
+            costs by eliminating the need for expensive warehouse space while keeping inventory, equipment,
+            and documents accessible on demand.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Office Clearance &amp; Furniture Storage</h3>
+              <p className="text-gray-700 mb-3">
+                When businesses in Dubai downsize, relocate, or renovate their offices, they need a fast and
+                reliable solution for surplus furniture, equipment, and fixtures. SafeStorage provides
+                same-day office clearance pickups, with our team handling all the dismantling, packing, and
+                transportation. Items are stored in climate-controlled units and can be retrieved when
+                the new office is ready.
+              </p>
+              <p className="text-gray-700">
+                Our service is particularly popular with businesses in Business Bay, DIFC, Downtown Dubai,
+                and Dubai Internet City where office space is expensive and storing excess assets on-site
+                is not practical.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Retail Inventory &amp; Seasonal Stock Storage</h3>
+              <p className="text-gray-700 mb-3">
+                Retailers in Dubai face significant demand fluctuations — peak periods during Ramadan, Dubai
+                Shopping Festival, and the holiday season require substantial stock increases, while slower
+                periods leave businesses with excess inventory taking up expensive retail floor space.
+              </p>
+              <p className="text-gray-700">
+                SafeStorage&apos;s scalable storage model lets retailers store overflow stock in our facility
+                during quiet periods and scale back when demand picks up. Our same-day delivery service
+                ensures your retail location can be restocked within hours whenever needed.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Business Storage Plans &amp; Pricing</h3>
+            <p className="text-gray-700 mb-4">
+              Business storage plans at SafeStorage start from AED 599/month for medium units (50–100 sq ft),
+              suitable for a small office clearance or modest inventory. Larger units (100–300+ sq ft) are
+              available for full office contents, warehouse overflow, or bulk retail stock.
+            </p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• <strong>No minimum contract:</strong> Month-to-month flexibility allows businesses to scale storage up or down</li>
+              <li>• <strong>Business account manager:</strong> Dedicated point of contact for scheduling pickups, deliveries, and additional requirements</li>
+              <li>• <strong>Bulk discounts:</strong> Multi-unit bookings and annual prepayments receive preferential rates</li>
+              <li>• <strong>Document archiving:</strong> Add-on service for businesses needing compliant records storage alongside physical inventory</li>
+              <li>• <strong>Free pickup &amp; delivery:</strong> All business plans include complimentary pickup and delivery across Dubai</li>
+            </ul>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 border border-gray-200">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Industries We Serve in Dubai</h3>
+            <div className="grid md:grid-cols-3 gap-3 text-gray-700 text-sm">
+              <ul className="space-y-1">
+                <li>• Retail and fashion brands</li>
+                <li>• E-commerce and online sellers</li>
+                <li>• Food and beverage distributors</li>
+              </ul>
+              <ul className="space-y-1">
+                <li>• Technology and electronics companies</li>
+                <li>• Healthcare and pharmaceutical</li>
+                <li>• Construction and engineering</li>
+              </ul>
+              <ul className="space-y-1">
+                <li>• Event management companies</li>
+                <li>• Real estate and property management</li>
+                <li>• Media and production agencies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     </>
   )

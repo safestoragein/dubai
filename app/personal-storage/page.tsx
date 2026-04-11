@@ -348,6 +348,94 @@ export default function PersonalStoragePage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Personal &amp; Household Storage in Dubai</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            SafeStorage offers personal and household storage solutions for Dubai residents who need extra space
+            at home without the cost and inconvenience of moving to a larger apartment. Whether you are
+            decluttering, renovating, moving between apartments, or simply need to store seasonal items,
+            our flexible personal storage units give you the space you need with the convenience of free
+            doorstep pickup and delivery.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Household Storage During Apartment Moves</h3>
+              <p className="text-gray-700 mb-3">
+                Moving apartments in Dubai often involves a gap between lease end and new lease start, leaving
+                residents with nowhere to store their furniture and belongings. SafeStorage bridges this gap
+                seamlessly. Our team collects your household items from your old apartment, stores everything
+                in a clean, climate-controlled unit, and delivers it all back to your new home when you are
+                ready to move in.
+              </p>
+              <p className="text-gray-700">
+                This service removes the stress of coordinating move-in and move-out dates, eliminates the
+                need to store items with friends or family, and prevents the costly mistake of having to
+                buy new furniture because you could not store the old pieces safely.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Seasonal &amp; Long-Term Personal Storage</h3>
+              <p className="text-gray-700 mb-3">
+                Dubai apartments and villas often lack sufficient storage for items that are only needed
+                part of the year — holiday decorations, winter clothing, summer sports equipment, children&apos;s
+                toys from previous growth stages, and sentimental items that are not used day-to-day but
+                are too valuable to discard.
+              </p>
+              <p className="text-gray-700">
+                SafeStorage&apos;s personal storage plans let you store as little as a few boxes for a monthly
+                fee that is far cheaper than upgrading to a larger apartment. Items are accessible whenever
+                you need them — call us and we will deliver within 24–48 hours.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">What Dubai Residents Typically Store</h3>
+            <div className="grid md:grid-cols-3 gap-4 text-gray-700 text-sm">
+              <ul className="space-y-1">
+                <li>• Sofas and armchairs</li>
+                <li>• Beds and mattresses</li>
+                <li>• Dining tables and chairs</li>
+                <li>• Wardrobes and cabinets</li>
+                <li>• Appliances (fridges, washing machines)</li>
+              </ul>
+              <ul className="space-y-1">
+                <li>• Clothing and seasonal wear</li>
+                <li>• Suitcases and travel bags</li>
+                <li>• Books and personal items</li>
+                <li>• Holiday decorations</li>
+                <li>• Children&apos;s toys and baby gear</li>
+              </ul>
+              <ul className="space-y-1">
+                <li>• Sports equipment and bicycles</li>
+                <li>• Electronics and gadgets</li>
+                <li>• Artwork and sentimental items</li>
+                <li>• Rugs and soft furnishings</li>
+                <li>• Garden and outdoor furniture</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 border border-gray-200">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Personal Storage Pricing</h3>
+            <p className="text-gray-700 mb-4">
+              Personal storage at SafeStorage starts from AED 199/month for small units (25–50 sq ft),
+              suitable for 10–20 boxes or a small collection of household items. Medium units (50–100 sq ft)
+              accommodate a 1–2 bedroom apartment&apos;s contents from AED 599/month, and large units
+              (100–200 sq ft) can hold a full 3-bedroom apartment from AED 1,299/month.
+            </p>
+            <p className="text-gray-700">
+              All personal storage plans include climate control, 24/7 security, free insurance up to AED 5,000,
+              free pickup from your Dubai address, and delivery back to you on demand. No long-term contracts —
+              pay monthly and cancel whenever you are ready.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
     </>
   )

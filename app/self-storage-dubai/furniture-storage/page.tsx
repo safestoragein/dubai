@@ -1046,6 +1046,58 @@ export default function FurnitureStoragePage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Furniture Storage Dubai — Complete Guide</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Furniture storage in Dubai is one of the most common storage needs for both residents and expats.
+            Whether you are renovating your home, moving between apartments, downsizing to a smaller space,
+            or leaving Dubai temporarily, SafeStorage provides safe, climate-controlled furniture storage
+            that protects every piece from Dubai&apos;s extreme heat and humidity.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">How Dubai&apos;s Heat Damages Furniture</h3>
+              <p className="text-gray-700 mb-3">
+                Dubai&apos;s summer heat — regularly exceeding 45°C — causes irreversible damage to wood furniture
+                through warping, cracking, and joint failure. Leather and fabric sofas dry out, crack, and
+                fade. Metal components corrode from the high humidity. Electronics fail. Mattresses develop
+                mould in non-climate-controlled spaces.
+              </p>
+              <p className="text-gray-700">
+                SafeStorage maintains 20–25°C in all units year-round, completely eliminating these risks.
+                Your furniture arrives back in exactly the condition it was collected.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Professional Packing for Furniture</h3>
+              <p className="text-gray-700 mb-3">
+                Our trained team wraps all furniture in protective materials before transport and storage.
+                Sofas are covered in fitted furniture blankets. Wooden pieces are wrapped in bubble wrap
+                and corner protectors. Glass items are individually wrapped. Mattresses are stored in
+                sealed mattress bags to prevent dust and moisture.
+              </p>
+              <p className="text-gray-700">
+                For delicate or high-value antique furniture, we offer enhanced specialist packing with
+                museum-grade materials. Tell us about your furniture when booking and we will bring the
+                appropriate packing supplies.
+              </p>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-3">Furniture Storage Pricing in Dubai</h3>
+            <p className="text-gray-700">
+              Furniture storage starts from AED 199/month for small collections. A full 1-bedroom apartment&apos;s
+              furniture typically needs a medium unit (50–100 sq ft) from AED 599/month. A full villa clearance
+              requires a large unit (100–200 sq ft) from AED 1,299/month. All plans include free pickup,
+              climate control, 24/7 security, and free insurance up to AED 5,000. No minimum contract — store
+              for a week or several years.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

@@ -308,6 +308,73 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container px-4 md:px-6 max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-dubai-navy mb-6">About SafeStorage Dubai — Our Story &amp; Mission</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            SafeStorage was founded with one mission: to make storage in Dubai completely hassle-free. We looked
+            at the traditional storage industry — where customers had to rent lorries, load heavy furniture
+            themselves, and visit a facility to access their items — and decided there had to be a better way.
+            The result is SafeStorage: a full-service, climate-controlled storage solution where our team does
+            everything from collection to delivery.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-semibold text-dubai-navy mb-3">Our Commitment to Dubai Customers</h3>
+              <p className="text-gray-700 mb-3">
+                Dubai is a unique city — fast-paced, diverse, and filled with residents from over 200 nationalities
+                who have very different storage needs. Expats need flexible storage without long-term commitments.
+                Families need space during home renovations. Businesses need scalable commercial storage without
+                warehouse overhead. Students need affordable semester-break storage.
+              </p>
+              <p className="text-gray-700">
+                SafeStorage serves all of these customers with the same commitment to quality, transparency,
+                and convenience. Every customer — whether storing a few boxes for three weeks or a full villa
+                for three years — receives the same climate-controlled security, free pickup, and dedicated
+                customer service.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-dubai-navy mb-3">What Sets SafeStorage Apart</h3>
+              <p className="text-gray-700 mb-3">
+                Most Dubai storage providers operate traditional self-service facilities where you do all
+                the work. SafeStorage is different. Our full-service model means customers never lift a
+                heavy box, never rent a van, and never need to visit the facility if they prefer not to.
+                We come to you, collect your items with care, and return them on demand.
+              </p>
+              <p className="text-gray-700">
+                All our units are climate-controlled at 20–25°C year-round — not as an optional add-on but
+                as a standard feature. Dubai&apos;s extreme heat can damage furniture, electronics, clothing, and
+                documents in non-climate-controlled storage. We believe every stored item deserves proper
+                protection, so we make climate control standard.
+              </p>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl p-8 border border-gray-200">
+            <h3 className="text-xl font-bold text-dubai-navy mb-4">SafeStorage by the Numbers</h3>
+            <div className="grid md:grid-cols-4 gap-6 text-center text-gray-700">
+              <div>
+                <p className="text-3xl font-bold text-[#0A2463] mb-1">1 Lakh+</p>
+                <p className="text-sm">Happy Customers Globally</p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-[#0A2463] mb-1">10+</p>
+                <p className="text-sm">Years of Experience</p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-[#0A2463] mb-1">4.9★</p>
+                <p className="text-sm">Average Customer Rating</p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-[#0A2463] mb-1">24/7</p>
+                <p className="text-sm">Security Monitoring</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     </>
   )

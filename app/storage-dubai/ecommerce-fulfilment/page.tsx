@@ -206,6 +206,90 @@ export default function EcommerceFulfilmentPage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">E-commerce Storage &amp; Fulfilment Solutions in Dubai</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Running an e-commerce business in Dubai requires fast, flexible, and reliable storage and fulfilment
+            infrastructure. SafeStorage provides purpose-built e-commerce storage solutions that allow online
+            sellers — from solo entrepreneurs to established brands — to store inventory, manage stock, and
+            fulfil orders without the overhead of a traditional warehouse lease.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Why E-commerce Sellers Choose SafeStorage</h3>
+              <p className="text-gray-700 mb-3">
+                Traditional warehouses in Dubai require long-term lease commitments, significant upfront capital,
+                and fixed space regardless of seasonal demand fluctuations. SafeStorage eliminates all of these
+                constraints. Our e-commerce storage model lets you pay for exactly the space you use each month,
+                scale up during Ramadan, back-to-school, or Black Friday sales periods, and reduce again in quieter months.
+              </p>
+              <p className="text-gray-700">
+                Our facility is climate-controlled year-round at 20–25°C, protecting electronics, cosmetics,
+                food supplements, clothing, and other temperature-sensitive products from Dubai&apos;s extreme heat.
+                All inventory is stored in secure, individual units with 24/7 CCTV monitoring and biometric access.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Order Fulfilment Services</h3>
+              <p className="text-gray-700 mb-3">
+                Beyond simple storage, SafeStorage supports e-commerce sellers with order fulfilment services.
+                We can receive stock shipments directly at our facility, process pick-and-pack orders, and
+                coordinate same-day or next-day delivery across Dubai and the UAE. This allows sellers on
+                Amazon UAE, Noon, Carrefour Marketplace, and Shopify to offer faster delivery times without
+                managing their own logistics team.
+              </p>
+              <p className="text-gray-700">
+                Our dedicated e-commerce account managers understand the pressure of marketplace SLAs and
+                will work with your team to ensure inventory is always available, orders are processed on time,
+                and returns are handled efficiently.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Product Categories We Store for E-commerce Sellers</h3>
+            <div className="grid md:grid-cols-3 gap-4 text-gray-700 text-sm">
+              <ul className="space-y-1">
+                <li>• Electronics and gadgets</li>
+                <li>• Mobile phones and accessories</li>
+                <li>• Computers and peripherals</li>
+                <li>• Smart home devices</li>
+              </ul>
+              <ul className="space-y-1">
+                <li>• Fashion and apparel</li>
+                <li>• Shoes and bags</li>
+                <li>• Beauty and cosmetics</li>
+                <li>• Health supplements</li>
+              </ul>
+              <ul className="space-y-1">
+                <li>• Home décor and furniture</li>
+                <li>• Sports equipment</li>
+                <li>• Baby products</li>
+                <li>• Books and stationery</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 border border-gray-200">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Getting Started with E-commerce Storage in Dubai</h3>
+            <p className="text-gray-700 mb-4">
+              Starting your e-commerce storage arrangement with SafeStorage is straightforward. Contact our
+              team with details about your inventory volume, product types, and fulfilment requirements. We
+              will provide a tailored quote with transparent monthly pricing — no setup fees, no hidden charges.
+            </p>
+            <p className="text-gray-700">
+              Most e-commerce sellers are operational within 24–48 hours of signing up. Our team handles
+              the initial stock intake, organises your inventory in our system, and provides you with access
+              to our simple online inventory management portal so you always know exactly what stock you have
+              and where it is located.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

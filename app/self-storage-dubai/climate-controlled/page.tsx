@@ -572,6 +572,50 @@ export default function ClimateControlledPage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Climate-Controlled Storage Dubai — Why It Matters</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Dubai&apos;s climate presents unique challenges for storage. Summer temperatures regularly exceed 45°C
+            outdoors, and non-climate-controlled spaces (garages, shipping containers, non-HVAC storage units)
+            can reach 60°C+ internally. This extreme heat causes irreversible damage to almost every category
+            of stored item within weeks. Climate-controlled storage is not a luxury in Dubai — it is essential.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Items That Require Climate Control</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li>• <strong>Wooden furniture:</strong> Extreme heat causes warping, cracking, and joint failure</li>
+                <li>• <strong>Electronics:</strong> Heat degrades batteries, circuit boards, and screen panels</li>
+                <li>• <strong>Leather and fabric:</strong> Drying, cracking, and colour fading in high temperatures</li>
+                <li>• <strong>Artwork and photographs:</strong> Heat causes fading, warping, and adhesive failure</li>
+                <li>• <strong>Musical instruments:</strong> Wood expansion/contraction damages tuning and structure</li>
+                <li>• <strong>Wine and spirits:</strong> Heat permanently alters flavour and quality</li>
+                <li>• <strong>Documents and books:</strong> Paper becomes brittle and yellows in heat and humidity</li>
+                <li>• <strong>Clothing:</strong> Synthetic fabrics melt or degrade; natural fibres attract moisture</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">SafeStorage Climate Control Standards</h3>
+              <p className="text-gray-700 mb-3">
+                All SafeStorage units maintain a consistent 20–25°C temperature and 45–55% relative humidity
+                using industrial HVAC systems with multiple redundancy levels. Temperature and humidity sensors
+                monitor every unit continuously, and automated alerts notify our facility management team
+                of any deviation from the target range.
+              </p>
+              <p className="text-gray-700">
+                Our climate control system runs 24/7, 365 days a year — including during Dubai&apos;s most
+                extreme summer months. Power backup systems ensure climate control is maintained even
+                during grid outages. This level of reliability is why SafeStorage is trusted by businesses
+                storing sensitive equipment, collectors storing art and wine, and expats storing irreplaceable
+                personal belongings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

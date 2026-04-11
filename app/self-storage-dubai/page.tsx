@@ -658,6 +658,68 @@ export default function SelfStorageDubaiPage() {
             </div>
           </div>
         </section>
+
+        {/* Static rich-text content for SEO */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Self Storage Dubai — Flexible Plans, No Lorry Needed</h2>
+            <p className="text-lg text-gray-700 mb-6">
+              Self storage in Dubai has evolved significantly in recent years. Rather than renting a lorry,
+              loading everything yourself, and driving to a storage facility, modern self storage in Dubai
+              now means a team comes to your home, collects your items, and delivers them back whenever
+              you need them. SafeStorage pioneered this hassle-free model in Dubai and it remains our most
+              popular service.
+            </p>
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h3 className="text-xl font-semibold text-[#0A2463] mb-3">What Makes Self Storage in Dubai Different</h3>
+                <p className="text-gray-700 mb-3">
+                  Dubai&apos;s climate, geography, and demographics create unique self storage requirements.
+                  The extreme summer heat means climate-controlled storage is essential for protecting
+                  furniture, electronics, and clothing. The city&apos;s size and traffic means customers value
+                  providers with free pickup and delivery. And Dubai&apos;s large expat population means flexible
+                  month-to-month contracts — without long-term lock-ins — are highly valued.
+                </p>
+                <p className="text-gray-700">
+                  SafeStorage addresses all of these factors. Every unit is climate-controlled as standard.
+                  Free pickup and delivery is included in every plan. Contracts are month-to-month with no
+                  cancellation penalties. And pricing is transparent — what you see is what you pay.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Self Storage Plans Available in Dubai</h3>
+                <p className="text-gray-700 mb-3">
+                  SafeStorage offers self storage plans tailored to different needs and budgets:
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• <strong>Personal storage:</strong> From AED 199/month for households, students, and individuals</li>
+                  <li>• <strong>Furniture storage:</strong> Specialist plans for renovation and relocation periods</li>
+                  <li>• <strong>Business storage:</strong> Commercial plans for inventory, documents, and equipment</li>
+                  <li>• <strong>Vehicle storage:</strong> Indoor covered bays from AED 899/month</li>
+                  <li>• <strong>Student storage:</strong> Affordable short-term plans for semester breaks</li>
+                  <li>• <strong>Expat storage:</strong> Flexible plans for residents leaving or returning to Dubai</li>
+                </ul>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-8 border border-gray-200">
+              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Frequently Asked Questions About Self Storage in Dubai</h3>
+              <div className="space-y-4 text-gray-700">
+                <div>
+                  <p className="font-semibold mb-1">Is self storage in Dubai expensive?</p>
+                  <p>Self storage in Dubai starts from AED 199/month at SafeStorage, which is competitive with traditional facility-based storage in the city. Our price includes climate control, security, insurance, and free pickup and delivery — items that are often charged separately by other providers.</p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">Can I get same-day storage in Dubai?</p>
+                  <p>Yes. SafeStorage offers same-day pickup for bookings made before 12 PM. Our team can collect your items and have them stored in our climate-controlled facility on the same day you contact us.</p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">What is the minimum storage period?</p>
+                  <p>There is no minimum storage period at SafeStorage. We offer month-to-month plans and short-term arrangements starting from one week for renovation and moving scenarios. You can cancel at any time with 7 days&apos; notice.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   )

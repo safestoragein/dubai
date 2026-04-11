@@ -572,6 +572,60 @@ export default function ShortTermStoragePage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Short-Term Storage for Moving &amp; Renovation in Dubai</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Short-term storage is one of the most practical solutions for Dubai residents navigating apartment
+            moves, villa renovations, and the gap between lease end and new tenancy start. SafeStorage offers
+            flexible short-term storage plans from as little as one week, with free pickup and delivery,
+            no minimum contract, and transparent daily or monthly pricing.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Storage Between Leases in Dubai</h3>
+              <p className="text-gray-700 mb-3">
+                The Dubai rental market often creates awkward gaps between when you must vacate your current
+                apartment and when your new property is ready. Most landlords and agents do not allow you
+                to store furniture on-site during this period, and hotel living for weeks is expensive.
+              </p>
+              <p className="text-gray-700">
+                SafeStorage solves this with bridge storage — we collect your belongings on your move-out
+                day and return them on your move-in day, no matter how many days or weeks are in between.
+                Our same-day pickup (before 12 PM) and 24–48 hour delivery means transitions are smooth
+                and stress-free.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Storage During Home Renovation</h3>
+              <p className="text-gray-700 mb-3">
+                Dubai villa and apartment renovations frequently require residents to clear entire rooms or
+                the whole property for contractors to work. Living amongst furniture in cramped spaces
+                or risking damage to valuable pieces from dust, paint, and construction debris is not
+                acceptable for most homeowners.
+              </p>
+              <p className="text-gray-700">
+                SafeStorage&apos;s renovation storage service provides a complete solution — we clear your
+                property before work begins, store everything safely in climate-controlled units,
+                and return it all when the renovation is complete. We can phase deliveries room by room
+                as each area is finished, making the move-back process manageable.
+              </p>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-3">Short-Term Storage Rates</h3>
+            <p className="text-gray-700">
+              Short-term storage is priced on monthly plans with no minimum contract. A typical 1–2 bedroom
+              apartment contents fits in a medium unit from AED 599/month. Free pickup and delivery are
+              included. For renovations lasting 1–3 months, we offer a renovation storage package with
+              preferential rates. Same-day pickup is available for bookings before 12 PM. Call
+              +971 50 577 3388 to book or get an instant quote.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

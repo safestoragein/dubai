@@ -206,6 +206,100 @@ export default function RecordsArchivalPage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Document Archival &amp; Records Storage Dubai</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            SafeStorage provides professional document archival and records storage services for businesses
+            across Dubai and the UAE. Our fireproof, climate-controlled document storage facility meets UAE
+            regulatory requirements for record retention and offers indexed retrieval within 24 hours for
+            any stored document or file box.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">UAE Compliance &amp; Record Retention Requirements</h3>
+              <p className="text-gray-700 mb-3">
+                UAE Commercial Companies Law and various regulatory bodies require businesses to retain specific
+                categories of records for defined periods — typically 5–10 years for financial records,
+                contracts, and employment files. Many businesses in Dubai lack adequate on-site space to
+                store these volumes of archived documents while maintaining easy access when required.
+              </p>
+              <p className="text-gray-700">
+                SafeStorage&apos;s document archival service solves this problem. All boxes are individually
+                barcoded and indexed in our digital management system. When you need a specific file or
+                box, simply request it via phone, WhatsApp, or our online portal and we will deliver it
+                to your office within 24 hours.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Security &amp; Confidentiality</h3>
+              <p className="text-gray-700 mb-3">
+                Business documents often contain highly sensitive information — financial data, client records,
+                legal contracts, HR files, and medical records. SafeStorage maintains the highest standards
+                of physical security and access control to protect your confidential documents.
+              </p>
+              <p className="text-gray-700">
+                Our document storage area is secured with biometric access, monitored by dedicated CCTV
+                cameras, and only accessible to authorised personnel. We sign confidentiality agreements
+                (NDAs) with all business clients, and our staff are background-checked and trained in
+                document handling protocols.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Industries We Serve</h3>
+            <div className="grid md:grid-cols-3 gap-4 text-gray-700">
+              <div>
+                <p className="font-semibold mb-2">Legal &amp; Professional Services</p>
+                <ul className="space-y-1 text-sm">
+                  <li>• Law firms and legal consultancies</li>
+                  <li>• Notary offices</li>
+                  <li>• HR and recruitment agencies</li>
+                  <li>• Consulting firms</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">Medical &amp; Healthcare</p>
+                <ul className="space-y-1 text-sm">
+                  <li>• Hospitals and clinics</li>
+                  <li>• Dental practices</li>
+                  <li>• Pharmacy records</li>
+                  <li>• Health insurance providers</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">Finance &amp; Business</p>
+                <ul className="space-y-1 text-sm">
+                  <li>• Banks and financial institutions</li>
+                  <li>• Accounting firms</li>
+                  <li>• Real estate agencies</li>
+                  <li>• Government contractors</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 border border-gray-200">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Document Shredding &amp; Destruction Services</h3>
+            <p className="text-gray-700 mb-4">
+              When documents reach the end of their required retention period, they must be destroyed
+              securely to comply with UAE data protection regulations and prevent sensitive information
+              from being misused. SafeStorage offers a certified document shredding service — we collect
+              expired records from our facility or your office, shred them using industrial cross-cut
+              shredders, and provide a certificate of destruction for your compliance records.
+            </p>
+            <p className="text-gray-700">
+              Contact our team to discuss your document archival requirements, retrieval frequency, and
+              retention schedules. We will design a custom document management solution that fits your
+              business needs and budget.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

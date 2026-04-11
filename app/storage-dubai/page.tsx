@@ -895,6 +895,64 @@ export default function StorageDubaiPage() {
             </div>
           </div>
         </section>
+
+        {/* Static rich-text content for SEO */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-3xl font-bold text-[#0A2463] mb-6">All-In-One Storage in Dubai — Personal, Business &amp; Vehicle</h2>
+            <p className="text-lg text-gray-700 mb-6">
+              SafeStorage Dubai provides comprehensive storage solutions covering every personal, household,
+              commercial, and vehicular storage need in one place. Rather than dealing with multiple providers
+              for different categories of items, SafeStorage customers can consolidate all their storage
+              requirements under a single account, with one monthly invoice and one dedicated consultant.
+            </p>
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Why Dubai Residents Choose SafeStorage</h3>
+                <p className="text-gray-700 mb-3">
+                  Dubai&apos;s combination of extreme heat, high rental costs, and a transient expat population
+                  creates unique storage demands that traditional self-service facilities are poorly equipped
+                  to meet. SafeStorage was built specifically for Dubai — addressing the city&apos;s specific
+                  challenges with climate-controlled units, free city-wide pickup and delivery, flexible
+                  month-to-month contracts, and a hassle-free service model.
+                </p>
+                <p className="text-gray-700">
+                  Our most popular services are household storage during apartment moves and renovations,
+                  business storage for office clearances and inventory management, and expat storage for
+                  residents who need to keep belongings safely in Dubai while they travel or relocate.
+                  All services include the same climate control, security, and insurance standards.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Storage Costs in Dubai</h3>
+                <p className="text-gray-700 mb-3">
+                  Storage in Dubai ranges from AED 199/month for a small personal unit (25–50 sq ft) up to
+                  AED 2,499+/month for extra-large units (200+ sq ft) suitable for full villa contents or
+                  commercial inventory. Vehicle storage starts from AED 899/month for standard cars and
+                  motorcycles.
+                </p>
+                <p className="text-gray-700">
+                  All SafeStorage plans include climate control, 24/7 security, free insurance up to AED 5,000,
+                  and free pickup and delivery. There are no setup fees, no admin charges, and no hidden costs.
+                  Long-term customers (3+ months) receive discounts of 10–20%. Contact us for a personalised
+                  quote based on exactly what you need to store.
+                </p>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-8 border border-gray-200">
+              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Storage Areas Covered by SafeStorage Dubai</h3>
+              <p className="text-gray-700 mb-4">
+                Our free pickup and delivery service covers every area of Dubai. Key service zones include:
+              </p>
+              <div className="grid md:grid-cols-4 gap-2 text-gray-700 text-sm">
+                <ul className="space-y-1"><li>• Dubai Marina</li><li>• JBR</li><li>• Palm Jumeirah</li><li>• JLT</li><li>• Media City</li></ul>
+                <ul className="space-y-1"><li>• Business Bay</li><li>• Downtown Dubai</li><li>• DIFC</li><li>• Trade Centre</li><li>• Sheikh Zayed Rd</li></ul>
+                <ul className="space-y-1"><li>• Jumeirah 1, 2, 3</li><li>• Umm Suqeim</li><li>• Al Safa</li><li>• Al Quoz</li><li>• Bur Dubai</li></ul>
+                <ul className="space-y-1"><li>• Dubai Investment Park</li><li>• Motor City</li><li>• Sports City</li><li>• JVC</li><li>• Mirdif</li></ul>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   )

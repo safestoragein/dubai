@@ -428,6 +428,45 @@ export default function HouseholdStoragePage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text content for SEO */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Household Storage Dubai — Free Up Space at Home</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Dubai apartments and villas often feel cramped not because they are small, but because they are
+            filled with items that are rarely used but too valuable or sentimental to discard. SafeStorage
+            household storage gives you a secure, climate-controlled extension of your home — available
+            whenever you need it, without the expense of renting a larger property.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Common Household Storage Scenarios</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li>• <strong>Apartment renovation:</strong> Clear furniture and belongings while contractors work on your home</li>
+                <li>• <strong>Moving &amp; lease gap:</strong> Bridge the gap between old and new apartment with short-term storage</li>
+                <li>• <strong>Decluttering:</strong> Store items you want to keep but do not need access to daily</li>
+                <li>• <strong>Baby and children&apos;s items:</strong> Store gear from previous growth stages without discarding</li>
+                <li>• <strong>Seasonal items:</strong> Decorations, winter clothes, sports equipment stored out of season</li>
+                <li>• <strong>Downsizing:</strong> Moving to a smaller home? Keep the overflow safely stored</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Why SafeStorage for Household Storage</h3>
+              <p className="text-gray-700 mb-3">
+                Unlike self-service storage where you carry boxes yourself and rent a fixed unit, SafeStorage&apos;s
+                hassle-free model means our team does everything. We pack, collect, store, and return your
+                items whenever needed. You never lift a heavy box or rent a van.
+              </p>
+              <p className="text-gray-700">
+                All household items are stored in individual climate-controlled units at 20–25°C, protecting
+                furniture, electronics, clothing, documents, and sensitive items from Dubai&apos;s heat and
+                humidity. Monthly plans from AED 199 — no long-term contract, cancel anytime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
