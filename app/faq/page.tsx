@@ -273,6 +273,114 @@ export default function FAQPage() {
           </div>
         </div>
       </section>
+
+      {/* Static rich-text guide section for SEO — server-rendered */}
+      <section className="py-16 bg-white">
+        <div className="container px-4 md:px-6 max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-dubai-navy mb-6">Complete Guide to Self Storage in Dubai</h2>
+          <p className="text-lg text-gray-700 mb-8">
+            Choosing a self storage solution in Dubai can be confusing — units vary in size, facilities differ
+            in quality, and pricing models are not always transparent. Here is everything you need to know about
+            storing with SafeStorage Dubai, from choosing the right unit size to understanding what is included
+            in your monthly plan.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            <div>
+              <h3 className="text-xl font-semibold text-dubai-navy mb-3">Choosing the Right Storage Unit Size</h3>
+              <p className="text-gray-700 mb-3">
+                The most common mistake people make is either overestimating or underestimating the storage space
+                they need. SafeStorage offers a free volume assessment — tell us what you have and we will
+                recommend the right unit size. As a guide:
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li><strong>25–50 sq ft:</strong> 10–20 boxes, studio apartment contents, seasonal items</li>
+                <li><strong>50–100 sq ft:</strong> 1–2 bedroom apartment, small office clearance</li>
+                <li><strong>100–200 sq ft:</strong> 3–4 bedroom villa, large office move</li>
+                <li><strong>200+ sq ft:</strong> Full villa, commercial inventory, warehouse overflow</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-dubai-navy mb-3">Why Climate Control Is Essential in Dubai</h3>
+              <p className="text-gray-700 mb-3">
+                Dubai summer temperatures regularly exceed 45°C outdoors and 55°C inside non-climate-controlled
+                storage containers. This extreme heat causes irreversible damage to wood, leather, electronics,
+                photographs, artwork, and many fabrics within weeks.
+              </p>
+              <p className="text-gray-700">
+                All SafeStorage units maintain a consistent 20–25°C temperature and 45–55% relative humidity
+                year-round using industrial HVAC systems. This is not an optional upgrade — it is included
+                in every storage plan at no additional cost.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 rounded-xl p-8 mb-8">
+            <h3 className="text-xl font-bold text-dubai-navy mb-4">How Pickup &amp; Delivery Works</h3>
+            <p className="text-gray-700 mb-4">
+              SafeStorage&apos;s hassle-free model is what sets us apart from traditional self storage in Dubai.
+              Instead of renting a lorry and loading everything yourself, our professional team does everything:
+            </p>
+            <ol className="space-y-3 text-gray-700">
+              <li><strong>1. Book online or call:</strong> Schedule a pickup time through our website, WhatsApp, or by calling +971 50 577 3388.</li>
+              <li><strong>2. We arrive at your door:</strong> Our uniformed team arrives at your chosen time window with all necessary equipment.</li>
+              <li><strong>3. We pack and load:</strong> Our team wraps furniture, boxes loose items, and loads everything carefully into our transport vehicle.</li>
+              <li><strong>4. Secure storage:</strong> Your items are transported to our climate-controlled facility and stored in your dedicated unit.</li>
+              <li><strong>5. Retrieve on demand:</strong> Call or WhatsApp whenever you need items back. We deliver to your address within 24–48 hours.</li>
+            </ol>
+          </div>
+
+          <div className="bg-gray-50 rounded-xl p-8 mb-8">
+            <h3 className="text-xl font-bold text-dubai-navy mb-4">What Is and Is Not Allowed in Storage</h3>
+            <div className="grid md:grid-cols-2 gap-6 text-gray-700">
+              <div>
+                <p className="font-semibold text-green-700 mb-2">Allowed Items</p>
+                <ul className="space-y-1 text-sm">
+                  <li>• Household furniture and appliances</li>
+                  <li>• Personal clothing and belongings</li>
+                  <li>• Electronics and gadgets</li>
+                  <li>• Books, documents, and files</li>
+                  <li>• Artwork, antiques, and collectibles</li>
+                  <li>• Sports and outdoor equipment</li>
+                  <li>• Business inventory and office furniture</li>
+                  <li>• Vehicles (in designated vehicle bays)</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-red-700 mb-2">Not Allowed Items</p>
+                <ul className="space-y-1 text-sm">
+                  <li>• Hazardous materials and chemicals</li>
+                  <li>• Flammable liquids and gases</li>
+                  <li>• Perishable food and beverages</li>
+                  <li>• Live plants and animals</li>
+                  <li>• Illegal or stolen goods</li>
+                  <li>• Weapons and ammunition</li>
+                  <li>• Unregistered cash or currency</li>
+                  <li>• Items with strong or unpleasant odours</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 rounded-xl p-8">
+            <h3 className="text-xl font-bold text-dubai-navy mb-4">SafeStorage Dubai — Key Facts</h3>
+            <div className="grid md:grid-cols-2 gap-4 text-gray-700">
+              <p>• Storage units from AED 199/month — no setup fees</p>
+              <p>• Free pickup and delivery anywhere in Dubai</p>
+              <p>• Climate-controlled: 20–25°C maintained year-round</p>
+              <p>• 24/7 HD CCTV security and biometric access</p>
+              <p>• Free insurance up to AED 5,000 included</p>
+              <p>• Month-to-month contracts — no long-term lock-in</p>
+              <p>• Same-day pickup available before 12 PM</p>
+              <p>• Dedicated storage consultant for every customer</p>
+              <p>• Professional packing service available</p>
+              <p>• Multiple payment methods accepted</p>
+              <p>• 10+ years experience serving Dubai customers</p>
+              <p>• 1 Lakh+ satisfied customers globally</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     </>
   )
