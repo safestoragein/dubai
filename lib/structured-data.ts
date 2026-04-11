@@ -670,7 +670,32 @@ export const productSchema = {
     "@type": "Brand",
     name: "SafeStorage Dubai"
   },
-  image: "https://safestorage.ae/organized-warehouse-space.png",
+  image: [
+    {
+      "@type": "ImageObject",
+      "@id": "https://safestorage.ae/#product-image-main",
+      url: "https://safestorage.ae/images/storage-facility-background.png",
+      width: 2000,
+      height: 1145,
+      caption: "SafeStorage Dubai - Premium Climate-Controlled Storage Facility"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://safestorage.ae/#product-image-warehouse",
+      url: "https://safestorage.ae/organized-warehouse-space.png",
+      width: 1024,
+      height: 632,
+      caption: "Organized Storage Units at SafeStorage Dubai"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://safestorage.ae/#product-image-expansive",
+      url: "https://safestorage.ae/expansive-storage.png",
+      width: 1024,
+      height: 728,
+      caption: "Expansive Storage Space at SafeStorage Dubai"
+    }
+  ],
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "AED",
@@ -685,7 +710,7 @@ export const productSchema = {
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
-        image: "https://safestorage.ae/organized-warehouse-space.png",
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         shippingDetails: {
           "@type": "OfferShippingDetails",
           shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
@@ -712,7 +737,7 @@ export const productSchema = {
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
-        image: "https://safestorage.ae/organized-warehouse-space.png",
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         shippingDetails: {
           "@type": "OfferShippingDetails",
           shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
@@ -739,7 +764,7 @@ export const productSchema = {
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
-        image: "https://safestorage.ae/organized-warehouse-space.png",
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         shippingDetails: {
           "@type": "OfferShippingDetails",
           shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
@@ -766,7 +791,7 @@ export const productSchema = {
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
-        image: "https://safestorage.ae/organized-warehouse-space.png",
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         shippingDetails: {
           "@type": "OfferShippingDetails",
           shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
@@ -793,7 +818,7 @@ export const productSchema = {
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
-        image: "https://safestorage.ae/organized-warehouse-space.png",
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         shippingDetails: {
           "@type": "OfferShippingDetails",
           shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
@@ -891,7 +916,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Small Storage Unit (25-50 sq ft)",
         description: "Perfect for 10-20 boxes, seasonal items, small furniture",
-        image: "https://safestorage.ae/organized-warehouse-space.png",
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
@@ -945,7 +970,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Medium Storage Unit (50-100 sq ft)",
         description: "Ideal for 1-2 bedroom apartment contents",
-        image: "https://safestorage.ae/organized-warehouse-space.png",
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
@@ -999,7 +1024,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Large Storage Unit (100-200 sq ft)",
         description: "Suitable for 3 bedroom home or business inventory",
-        image: "https://safestorage.ae/organized-warehouse-space.png",
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
@@ -1053,7 +1078,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Extra Large Storage Unit (200+ sq ft)",
         description: "For villas, large businesses, or bulk storage",
-        image: "https://safestorage.ae/organized-warehouse-space.png",
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
@@ -1107,7 +1132,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Vehicle Storage",
         description: "Climate-controlled parking for cars, motorcycles, boats",
-        image: "https://safestorage.ae/images/storage-facility-background.png",
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
