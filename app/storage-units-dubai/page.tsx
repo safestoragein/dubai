@@ -209,19 +209,21 @@ const steps = [
 const areas = [
   { name: "Dubai Marina", link: "/locations/dubai-marina" },
   { name: "Business Bay", link: "/locations/business-bay" },
-  { name: "JLT", link: "/locations/jlt" },
-  { name: "Downtown Dubai", link: "/locations/downtown" },
-  { name: "Palm Jumeirah", link: "/locations/palm-jumeirah" },
-  { name: "Al Barsha", link: "/locations/al-barsha" },
-  { name: "JVC", link: "/locations/jvc" },
-  { name: "Arabian Ranches", link: "/locations/arabian-ranches" },
-  { name: "Dubai Hills", link: "/locations/dubai-hills" },
-  { name: "Deira", link: "/locations/deira" },
-  { name: "Mirdif", link: "/locations/mirdif" },
-  { name: "Silicon Oasis", link: "/locations/silicon-oasis" },
-  { name: "Al Quoz", link: "/locations/al-quoz" },
-  { name: "Sports City", link: "/locations/sports-city" },
-  { name: "Motor City", link: "/locations/motor-city" },
+  { name: "Jumeirah", link: "/locations/jumeirah" },
+  { name: "Dubai Investment Park", link: "/locations/dubai-investment-park" },
+  { name: "JLT", link: "/locations" },
+  { name: "Downtown Dubai", link: "/locations" },
+  { name: "Palm Jumeirah", link: "/locations" },
+  { name: "Al Barsha", link: "/locations" },
+  { name: "JVC", link: "/locations" },
+  { name: "Arabian Ranches", link: "/locations" },
+  { name: "Dubai Hills", link: "/locations" },
+  { name: "Deira", link: "/locations" },
+  { name: "Mirdif", link: "/locations" },
+  { name: "Silicon Oasis", link: "/locations" },
+  { name: "Al Quoz", link: "/locations" },
+  { name: "Sports City", link: "/locations" },
+  { name: "Motor City", link: "/locations" },
 ]
 
 // Testimonials
@@ -342,12 +344,12 @@ const faqs = [
 
 // Related Services
 const relatedServices = [
-  { name: "Furniture Storage", link: "/services/furniture-storage", icon: Home },
-  { name: "Document Storage", link: "/services/document-storage", icon: FileText },
-  { name: "Vehicle Storage", link: "/services/vehicle-storage", icon: Car },
+  { name: "Furniture Storage", link: "/furniture-storage", icon: Home },
+  { name: "Document Storage", link: "/document-storage", icon: FileText },
+  { name: "Vehicle Storage", link: "/car-storage", icon: Car },
   { name: "Business Storage", link: "/business-storage", icon: Building2 },
-  { name: "E-commerce Storage", link: "/services/ecommerce-storage", icon: ShoppingBag },
-  { name: "Climate Controlled", link: "/services/climate-controlled", icon: Thermometer },
+  { name: "E-commerce Storage", link: "/ecommerce-storage", icon: ShoppingBag },
+  { name: "Climate Controlled", link: "/self-storage-dubai/climate-controlled", icon: Thermometer },
 ]
 
 export default function StorageUnitsDubaiPage() {

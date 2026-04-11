@@ -524,7 +524,7 @@ export default function ClimateControlledPage() {
                   <Link href="/get-quote">Get Climate Storage Quote</Link>
                 </Button>
                 <Button variant="outline" asChild>
-                  <Link href="/storage-dubai/pricing-cost-guide">View Pricing Guide</Link>
+                  <Link href="/pricing">View Pricing Guide</Link>
                 </Button>
               </div>
             </div>

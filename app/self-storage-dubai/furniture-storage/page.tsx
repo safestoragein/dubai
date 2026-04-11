@@ -638,7 +638,7 @@ export default function FurnitureStoragePage() {
                   <p className="text-gray-600 mb-4">
                     Keep cherished pieces you can't fit in your new, smaller space.
                   </p>
-                  <Link href="/storage-dubai/long-term-storage" className="text-dubai-gold hover:underline">
+                  <Link href="/storage-units-dubai" className="text-dubai-gold hover:underline">
                     Explore long-term options →
                   </Link>
                 </CardContent>

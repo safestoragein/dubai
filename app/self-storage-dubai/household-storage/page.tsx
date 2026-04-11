@@ -375,7 +375,7 @@ export default function HouseholdStoragePage() {
                     <li>• Collection storage</li>
                   </ul>
                   <div className="mt-4">
-                    <Link href="/storage-dubai/long-term-storage" className="text-dubai-gold hover:underline">
+                    <Link href="/storage-units-dubai" className="text-dubai-gold hover:underline">
                       View long-term benefits →
                     </Link>
                   </div>

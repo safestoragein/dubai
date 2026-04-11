@@ -583,7 +583,7 @@ export default function SelfStorageDubaiPage() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                      <Link href="/storage-dubai/pricing-cost-guide">View Pricing Guide</Link>
+                      <Link href="/pricing">View Pricing Guide</Link>
                     </Button>
                     <Button variant="outline" asChild>
                       <Link href="/get-quote">Get Your Quote</Link>

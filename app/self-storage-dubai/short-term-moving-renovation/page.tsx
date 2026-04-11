@@ -526,7 +526,7 @@ export default function ShortTermStoragePage() {
                 Get a personalized quote based on your exact timeline and needs
               </p>
               <Button variant="outline" asChild>
-                <Link href="/storage-dubai/pricing-cost-guide">
+                <Link href="/pricing">
                   View Pricing Guide <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

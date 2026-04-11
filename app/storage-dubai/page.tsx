@@ -226,11 +226,26 @@ const userGroups = [
 ]
 
 // Dubai Areas
-const areas = [
-  "Dubai Marina", "Business Bay", "JLT", "Downtown Dubai", "Palm Jumeirah",
-  "Al Barsha", "JVC", "Arabian Ranches", "Dubai Hills", "Mirdif",
-  "Deira", "Al Quoz", "Silicon Oasis", "Sports City", "Motor City",
-]
+const areaLinks: Record<string, string> = {
+  "Dubai Marina": "/locations/dubai-marina",
+  "Business Bay": "/locations/business-bay",
+  "Jumeirah": "/locations/jumeirah",
+  "Dubai Investment Park": "/locations/dubai-investment-park",
+  "JLT": "/locations",
+  "Downtown Dubai": "/locations",
+  "Palm Jumeirah": "/locations",
+  "Al Barsha": "/locations",
+  "JVC": "/locations",
+  "Arabian Ranches": "/locations",
+  "Dubai Hills": "/locations",
+  "Mirdif": "/locations",
+  "Deira": "/locations",
+  "Al Quoz": "/locations",
+  "Silicon Oasis": "/locations",
+  "Sports City": "/locations",
+  "Motor City": "/locations",
+}
+const areas = Object.keys(areaLinks)
 
 // Testimonials Data
 const testimonials = [
@@ -710,7 +725,7 @@ export default function StorageDubaiPage() {
               {areas.map((area, index) => (
                 <Link
                   key={index}
-                  href={`/locations/${area.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={areaLinks[area] || "/locations"}
                   className="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-full hover:border-dubai-gold hover:bg-dubai-sand/10 transition-all"
                 >
                   <MapPin className="h-4 w-4 text-dubai-gold" />
