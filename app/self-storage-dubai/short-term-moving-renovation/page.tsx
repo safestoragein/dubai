@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Home, Truck, Clock, Package, ArrowRight, CheckCircle2, Calendar, Shield } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Short-Term Storage Between Leases Dubai | Moving & Renovation | SafeStorage",
+  title: "Short-Term Storage Dubai — Moving & Renovation",
   description:
     "Need storage between apartment leases, during a renovation, or while moving in Dubai? Book from 1 week — free pickup, flexible month-to-month plans. Perfect for lease gap storage & renovation projects. Call +971505773388.",
   keywords:

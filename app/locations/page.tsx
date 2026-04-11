@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, Phone, ArrowRight, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Storage Locations in Dubai | SafeStorage | +971505773388",
+  title: "Storage Locations in Dubai",
   description:
     "Find SafeStorage locations across Dubai. We serve Business Bay, Dubai Marina, Jumeirah, Dubai Investment Park & more. Hassle-hassle-free pickup & delivery. Call +971505773388.",
   keywords:

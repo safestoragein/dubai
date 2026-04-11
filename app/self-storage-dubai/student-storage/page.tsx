@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { GraduationCap, Calendar, Package, Shield, ArrowRight, CheckCircle2, Clock, Truck } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Student Storage Dubai – Semester Breaks, Study Abroad, Summer Storage | SafeStorage",
+  title: "Student Storage Dubai — Semester & Summer Storage",
   description: "Students: Store belongings during semester breaks, summer holidays, or study abroad. Flexible monthly plans, easy pickup from dorms. Book online now.",
   keywords: "student storage dubai, university storage dubai, dorm storage dubai, summer storage dubai",
   openGraph: {

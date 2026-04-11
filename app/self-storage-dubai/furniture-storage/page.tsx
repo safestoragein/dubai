@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Sofa, Shield, Thermometer, Package, ArrowRight, CheckCircle2, AlertCircle, Truck } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Furniture Storage Dubai – Affordable Climate-Controlled Units Starting from AED 150/Month | SafeStorage",
+  title: "Furniture Storage Dubai — From AED 150/Month",
   description: "Dubai's most affordable furniture storage starting from AED 150/month. Climate-controlled units protect sofas, beds & dining sets from heat damage. Hassle-hassle-free pickup available. 24/7 access, CCTV security.",
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, climate controlled furniture storage, cheap furniture storage dubai, furniture storage al quoz, furniture storage units dubai, affordable furniture storage",
   openGraph: {

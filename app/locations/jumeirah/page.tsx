@@ -3,7 +3,7 @@ import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Expat Storage Dubai Moving Back Home | Jumeirah Storage | SafeStorage",
+  title: "Expat Storage Dubai — Moving Back Home | Jumeirah",
   description:
     "Moving back home from Jumeirah or leaving Dubai? SafeStorage offers expat-friendly storage — keep belongings safely stored while you decide what to ship. Free pickup, flexible terms, trusted by 500+ expats. Call +971505773388.",
   keywords:

@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Phone, Calendar, Truck, Lock, Package, CheckCircle2, ArrowRight, Clock, Shield } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "How Self Storage Works in Dubai – Simple Process & Quick Setup | SafeStorage",
+  title: "How Self Storage Works in Dubai — Quick Setup Guide",
   description: "Learn how self storage works at SafeStorage Dubai. From booking to storing to retrieval - understand our simple process. Get started in minutes.",
   keywords: "how self storage works dubai, storage process dubai, storage booking dubai, storage setup dubai",
   openGraph: {

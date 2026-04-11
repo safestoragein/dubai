@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Top 10 Storage Companies in Dubai (2026) - Best Rated & Reviewed",
+  title: "Top 10 Storage Companies in Dubai (2026)",
   description:
     "Looking for the best storage companies in Dubai? Here are the top 10 storage providers in Dubai ranked by price, security, reliability & customer reviews. SafeStorage Dubai is rated #1.",
   keywords:

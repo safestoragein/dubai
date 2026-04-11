@@ -18,7 +18,7 @@ import Script from "next/script"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Storage Dubai — All-In-One: Personal, Business & Vehicle Storage | SafeStorage",
+  title: "Storage Dubai — Personal, Business & Vehicle Storage",
   description: "One storage provider for all your Dubai needs: personal furniture, business inventory, vehicle storage & document archival. 4.9★ rated by 500+ customers. Free pickup, transparent pricing. Call +971505773388.",
   keywords: "all in one storage dubai, personal and business storage dubai, vehicle furniture storage dubai, storage provider dubai, full service storage dubai, pickup and delivery storage dubai, 4.9 rated storage dubai",
   openGraph: {

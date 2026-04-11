@@ -10,7 +10,7 @@ import {
 import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
-  title: "Cheap Storage Dubai 2026: Best Affordable Storage - Starts from AED 99/Month",
+  title: "Cheap Storage Dubai 2026 — From AED 99/Month",
   description: "Find the cheapest storage in Dubai! Transparent pricing starts from AED 99/month. Compare costs, save money, and get flexible storage solutions. No hidden fees. Hassle-Free Pickup included.",
   keywords: "cheap storage dubai, affordable storage dubai, storage prices dubai, budget storage uae, cheapest storage dubai, low cost storage, storage deals dubai, student storage dubai, small business storage",
   openGraph: {

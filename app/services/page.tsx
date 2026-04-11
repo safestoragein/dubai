@@ -4,7 +4,7 @@ import Link from "next/link"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Storage Services Dubai | Personal, Business & Vehicle | +971505773388",
+  title: "Storage Services Dubai — Personal, Business & Vehicle",
   description:
     "Secure & hassle-free storage solutions for household, personal, business, document, and vehicle storage in Dubai. Climate-controlled with 24/7 security. Call +971505773388.",
   keywords:

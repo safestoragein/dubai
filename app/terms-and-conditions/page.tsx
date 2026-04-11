@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms and Conditions | SafeStorage Dubai - Storage Terms',
+  title: 'Terms and Conditions',
   description: 'Read SafeStorage Dubai terms and conditions for storage services in UAE. Understand our policies, liability, payment terms and customer responsibilities.',
   openGraph: {
     title: 'Terms and Conditions | SafeStorage Dubai',

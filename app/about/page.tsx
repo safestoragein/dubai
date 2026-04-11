@@ -9,7 +9,7 @@ import Testimonials from "@/components/testimonials"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "About Us - Dubai's Most Trusted Storage Partner | SafeStorage Dubai",
+  title: "About Us — Dubai's Most Trusted Storage Partner",
   description:
     "Learn about SafeStorage Dubai - serving Dubai since 2015 with climate-controlled storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers trust us.",
   keywords:

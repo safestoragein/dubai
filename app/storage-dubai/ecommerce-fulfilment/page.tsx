@@ -6,7 +6,7 @@ import TrustBadges from "@/components/trust-badges"
 import Testimonials from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "E-commerce Storage & Fulfilment Dubai | SafeStorage | +971505773388",
+  title: "E-commerce Storage & Fulfilment Dubai",
   description:
     "E-commerce storage and fulfilment solutions in Dubai. Inventory storage, order fulfilment, and same-day pickup & delivery for online sellers. Call +971505773388.",
   keywords:

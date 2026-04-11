@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Thermometer, Droplets, Shield, Fan, ArrowRight, CheckCircle2, AlertCircle, Package } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Climate Controlled Storage Dubai – Protect from Heat & Humidity | SafeStorage",
+  title: "Climate Controlled Storage Dubai — Beat the Heat",
   description: "Climate controlled storage units in Dubai maintain optimal temperature & humidity. Perfect for furniture, electronics, documents, artwork. 24/7 monitoring.",
   keywords: "climate controlled storage dubai, temperature controlled storage dubai, humidity control storage dubai",
   openGraph: {

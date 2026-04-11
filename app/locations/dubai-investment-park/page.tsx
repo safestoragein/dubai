@@ -3,7 +3,7 @@ import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Document Archival Service Dubai Investment Park | SafeStorage",
+  title: "Document Archival — Dubai Investment Park",
   description:
     "Professional document archival and records storage in Dubai Investment Park. Fireproof, climate-controlled document storage for businesses in DIP, Motor City & JAFZA. Pickup & retrieval on demand. Call +971505773388.",
   keywords:

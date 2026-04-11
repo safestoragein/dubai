@@ -3,7 +3,7 @@ import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Storage Units Near Business Bay Dubai | Pickup in 24hrs | SafeStorage",
+  title: "Storage Units Near Business Bay Dubai | 24hr Pickup",
   description:
     "Looking for storage units near Business Bay Dubai? SafeStorage offers climate-controlled units with free pickup from Business Bay, DIFC & Downtown. Book online — space ready tomorrow. Call +971505773388.",
   keywords:

@@ -6,7 +6,7 @@ import TrustBadges from "@/components/trust-badges"
 import Testimonials from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Document Archival & Records Storage Dubai | Legal, Medical & Business Files | SafeStorage",
+  title: "Document Archival & Records Storage Dubai",
   description:
     "Professional document archival for law firms, medical clinics, and businesses in Dubai. Fireproof, climate-controlled records storage with indexed retrieval in 24 hrs. Compliant with UAE data laws. Call +971505773388.",
   keywords:

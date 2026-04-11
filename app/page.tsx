@@ -22,7 +22,7 @@ const FAQSection       = dynamic(() => import("@/components/faq-section"))
 const BlogSection      = dynamic(() => import("@/components/blog-section"))
 
 export const metadata: Metadata = {
-  title: "SafeStorage Dubai — #1 Climate-Controlled Storage with Free Pickup | +971505773388",
+  title: { absolute: "SafeStorage Dubai — #1 Rated Storage with Free Pickup" },
   description:
     "SafeStorage Dubai: secure, climate-controlled self-storage units with free door-to-door pickup and delivery. Personal, business, vehicle & document storage from AED 9/month. 500+ Dubai customers. Get a free quote in 2 minutes.",
   keywords:

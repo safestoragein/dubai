@@ -7,7 +7,7 @@ import Testimonials from "@/components/testimonials"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Personal Household Storage Dubai | Furniture & Boxes from AED 99/mo | SafeStorage",
+  title: "Personal Storage Dubai — Furniture & Boxes from AED 99",
   description:
     "Store household furniture, seasonal items, and moving boxes in Dubai with free pickup from your door. Personal storage from AED 99/month — no lorry, no hassle. Trusted by 500+ Dubai residents. Call +971505773388.",
   keywords:

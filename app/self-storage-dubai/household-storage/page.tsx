@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Home, Package, Shield, Truck, ArrowRight, CheckCircle2, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Household Storage Dubai – Flexible, Secure Rooms for Home Items | SafeStorage",
+  title: "Household Storage Dubai — Flexible & Secure",
   description: "Free up space at home. Store furniture, boxes, white goods, and more in secure units with optional pickup and packing. Get a clear quote.",
   keywords: "household storage dubai, furniture storage dubai, storage units dubai, home storage dubai",
   openGraph: {

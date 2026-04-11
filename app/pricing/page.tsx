@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Storage Pricing Dubai | From AED 99/month | +971505773388",
+  title: "Storage Pricing Dubai — From AED 99/Month",
   description:
     "Transparent storage pricing in Dubai starting from AED 99/month. Various unit sizes with flexible plans. Hassle-hassle-free pickup & delivery included. Call +971505773388 for best rates.",
   keywords:

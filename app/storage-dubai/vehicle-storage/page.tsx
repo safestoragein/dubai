@@ -6,7 +6,7 @@ import TrustBadges from "@/components/trust-badges"
 import Testimonials from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Vehicle Storage Dubai | Secure Car & Motorcycle Storage | SafeStorage",
+  title: "Vehicle Storage Dubai — Secure Car & Motorcycle Storage",
   description:
     "Secure vehicle storage in Dubai for cars, motorcycles, and classic vehicles. Climate-controlled, 24/7 security with CCTV monitoring. Call +971505773388 for quote.",
   keywords:

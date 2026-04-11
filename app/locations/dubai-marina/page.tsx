@@ -3,7 +3,7 @@ import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Furniture Storage During Renovation Dubai Marina & JBR | SafeStorage",
+  title: "Furniture Storage — Dubai Marina & JBR Renovation",
   description:
     "Renovating your Dubai Marina or JBR apartment? Store furniture safely during renovation — from 1 week. Short-term storage between leases also available. Free pickup from Marina & JBR. Call +971505773388.",
   keywords:
