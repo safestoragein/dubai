@@ -65,10 +65,7 @@ function getConsistentViews(postId: number) {
 export default async function Blog() {
   const rawBlogs = await fetchBlogPosts()
 
-  // Limit to 20 posts for SSR to keep HTML size under control.
-  // Client component will re-fetch all posts after mount.
   const initialBlogs = rawBlogs
-    .slice(0, 20)
     .map((blog: any) => {
       const title = blog.title || blog.seo_title || "Untitled"
       const postId = parseInt(blog.post_id) || 1
