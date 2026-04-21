@@ -4,15 +4,30 @@ import { Suspense } from "react"
 import Link from "next/link"
 import SchemaScript from "@/components/schema-script"
 
-export const metadata: Metadata = {
-  title: "Get Free Storage Quote | SafeStorage Dubai",
-  description:
-    "Get a free, instant quote for storage solutions in Dubai. No obligations, transparent pricing. Book your storage space with SafeStorage Dubai today.",
-  keywords:
-    "free storage quote dubai, storage estimate, storage booking dubai, get storage quote, storage calculator dubai",
-  alternates: {
-    canonical: "https://safestorage.ae/get-quote",
-  },
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}): Promise<Metadata> {
+  const params = await searchParams
+  const hasParams = Object.keys(params).length > 0
+
+  return {
+    title: "Get Free Storage Quote | SafeStorage Dubai",
+    description:
+      "Get a free, instant quote for storage solutions in Dubai. No obligations, transparent pricing. Book your storage space with SafeStorage Dubai today.",
+    keywords:
+      "free storage quote dubai, storage estimate, storage booking dubai, get storage quote, storage calculator dubai",
+    alternates: {
+      canonical: "https://safestorage.ae/get-quote",
+    },
+    ...(hasParams && {
+      robots: {
+        index: false,
+        follow: false,
+      },
+    }),
+  }
 }
 
 const quoteSchemas = [
