@@ -349,6 +349,75 @@ export default function PersonalStoragePage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container px-4 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-dubai-navy text-center mb-10">Personal Storage — Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">What personal items can I store at SafeStorage Dubai?</h3>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai accepts a wide range of personal items for storage. You can store household furniture (sofas, beds, wardrobes, dining sets), home appliances (fridges, washing machines, dishwashers), seasonal clothing and winter wear, suitcases and travel bags, books and personal documents, electronics (TVs, computers, gaming equipment), sports equipment (bicycles, kayaks, paddleboards, gym equipment), artwork, rugs and soft furnishings, children&apos;s toys and baby gear, hobby materials, and sentimental items. Essentially, anything that could ordinarily be kept in a home can be stored with us. The only items we cannot accept are hazardous materials, flammable liquids, live animals, illegal items, and perishable food.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">What is the minimum unit size available for personal storage?</h3>
+              <p className="text-gray-700 leading-relaxed">The smallest personal storage option at SafeStorage is a locker or mini unit, which is approximately 25 sq ft — about the size of a large wardrobe. This is suitable for 10–15 boxes, a suitcase collection, bedding and soft items, or a small collection of personal belongings. It is ideal for students, individuals between homes for a short period, or anyone who simply needs to declutter a single room. If you are unsure which size is right for your belongings, call us on +971505773388 and we will advise based on your inventory list. Getting the size right from the start prevents unnecessary upgrades or wasted space.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does personal storage cost in Dubai?</h3>
+              <p className="text-gray-700 leading-relaxed">Personal storage at SafeStorage starts from AED 99 per month for a small locker unit. A small unit suitable for a student room or a collection of boxes runs AED 199–299 per month. A medium unit that accommodates a 1–2 bedroom apartment&apos;s complete contents costs AED 499–699 per month. Large units for 3-bedroom apartments or villas start from AED 899 per month. All prices include climate control, 24/7 security monitoring, and basic insurance coverage up to AED 5,000. Free pickup is included for addresses across Dubai. There are no setup fees, no hidden admin charges, and no long-term contracts required. You simply pay monthly and cancel with 30 days&apos; notice.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store seasonal clothing and winter wear in Dubai?</h3>
+              <p className="text-gray-700 leading-relaxed">Storing seasonal clothing is one of the most common uses of personal storage in Dubai. Dubai apartments are often space-limited, and keeping out-of-season clothes, winter coats, ski wear, holiday decorations, and occasional-use items takes up valuable wardrobe and cupboard space. SafeStorage&apos;s climate-controlled units maintain 18–24°C and 45–55% humidity, which is ideal for long-term clothing storage — preventing moisture damage, mildew, and the fading or fabric deterioration that Dubai&apos;s heat causes in non-climate-controlled spaces. We recommend packing clothing in breathable garment bags or clean boxes rather than airtight plastic containers, to allow the fabric to maintain its natural condition.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">How are valuables protected in personal storage?</h3>
+              <p className="text-gray-700 leading-relaxed">SafeStorage&apos;s facilities feature 24/7 CCTV surveillance covering all storage areas, access-controlled entry requiring ID verification, individually locked storage units that only you can access, and on-site security personnel during operating hours. All stored items receive basic insurance coverage up to AED 5,000 included in the monthly fee, and additional insurance can be arranged for higher-value items. We recommend declaring the value of significant items at intake, particularly electronics, jewellery, artwork, and collectibles. For items of very high monetary value, we recommend consulting with a specialist insurance broker for dedicated transit and storage coverage beyond our standard inclusion.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store hobby equipment like bicycles and kayaks?</h3>
+              <p className="text-gray-700 leading-relaxed">Yes. Sports and hobby equipment is a popular category of personal storage at SafeStorage. We store bicycles, kayaks, paddleboards, surfboards, ski equipment, camping gear, diving equipment, golf clubs, fishing equipment, and other sporting goods. Large items like kayaks and paddleboards require sufficient unit space and are stored on appropriate supports to prevent deformation. For bicycles, we recommend deflating tyres slightly if storing for extended periods to prevent tube stretching. Climate-controlled storage protects neoprene, rubbers, and composite materials in diving and water sports equipment from Dubai&apos;s heat, which can cause rapid degradation in non-climate-controlled spaces.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">How do I access my stored personal items when I need them?</h3>
+              <p className="text-gray-700 leading-relaxed">You can access your storage unit in person during business hours (8 AM to 8 PM, 7 days a week) by visiting the facility with your ID and booking reference. For delivery of stored items to your home, contact us by phone or WhatsApp and request delivery — we typically deliver within 24–48 hours for standard requests. For urgent same-day delivery, requests must be made before 12 PM. You can retrieve all of your items at once, or request specific items for partial delivery — for example, if you stored a bicycle for the season and need it back without retrieving everything else. Delivery fees apply for home delivery and vary based on item size and location.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I book short-term personal storage for a few weeks?</h3>
+              <p className="text-gray-700 leading-relaxed">Yes. SafeStorage&apos;s minimum storage period is one month, and we offer month-to-month contracts with no long-term commitment. For very short-term needs (a few weeks during a move or renovation), monthly billing is the most flexible option — you pay for the first month, and if you are done within the month, you can retrieve your items and close the account at any time. Many customers find that their short-term storage need extends naturally to 2–3 months, and the month-to-month structure accommodates this without any penalty or administrative complexity. For storage needs shorter than one week, call us to discuss daily storage options for very specific situations.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">How secure are personal storage units at SafeStorage?</h3>
+              <p className="text-gray-700 leading-relaxed">Security at SafeStorage Dubai operates on multiple levels. Facilities are monitored by 24/7 CCTV camera systems covering all access points, corridors, and storage areas. Entry to the facility requires identity verification, and each individual storage unit has its own padlock to which only you hold the key. Access records are maintained and available to customers on request. Our facilities are fully enclosed structures with controlled perimeter access — not open warehouses. On-site staff are present during business hours. We do not publicise the exact facility addresses publicly, adding an additional layer of security. For peace of mind, all stored items are covered by basic insurance included in the monthly fee.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">What about vintage or collectible items — are they safe?</h3>
+              <p className="text-gray-700 leading-relaxed">Vintage items, collectibles, and valuable personal effects require the same climate-controlled, humidity-stable environment that SafeStorage provides as standard. Vintage clothing, vinyl records, comic books, stamps, coins, trading cards, vintage electronics, and similar collectibles are all sensitive to temperature and humidity fluctuations that can cause fading, warping, oxidisation, or deterioration. Our units maintain stable conditions year-round, protecting collectibles from Dubai&apos;s climate extremes. For particularly high-value collections, we recommend declaring the items and their value at intake, and considering additional specialist insurance coverage. We also offer white-glove handling for fragile or irreplaceable items on request.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">Do you store sports equipment such as bikes and gym gear?</h3>
+              <p className="text-gray-700 leading-relaxed">Sports equipment storage is one of our most requested personal storage categories. Dubai residents often accumulate significant sports gear — bicycles, treadmills, weights, yoga mats, tennis rackets, golf clubs, diving gear, and more — that does not have a permanent home in smaller apartments. SafeStorage provides a practical solution by offering flexible monthly storage for sports items of any size. Gym equipment can be heavy and bulky, so we manage the heavy lifting on pickup and delivery. Bicycles are stored securely, ideally after a basic clean, with tyres slightly deflated for long-term storage. All sports equipment benefits from our climate-controlled environment, which prevents rubber and synthetic materials from degrading in Dubai&apos;s heat.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">How is jewellery or small valuables handled in personal storage?</h3>
+              <p className="text-gray-700 leading-relaxed">While SafeStorage provides a secure storage environment, jewellery and small high-value items such as watches, cash, and important documents are generally better kept in a bank safe deposit box for maximum security and insurance coverage. If you do store jewellery in personal storage, we recommend using a dedicated lockbox within your unit, keeping an itemised photographic record, and ensuring your contents are covered by an appropriate insurance policy that extends to stored goods. For items of significant monetary value, speak with your insurance provider about storage extension on your existing contents policy or a dedicated fine arts and jewellery storage rider before placing them in self-storage.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I bring new items to storage after the initial pickup?</h3>
+              <p className="text-gray-700 leading-relaxed">Yes. Adding items after your initial storage is straightforward. For small items you can transport yourself, simply visit the facility during business hours with your ID and add them to your unit directly. For larger items requiring vehicle collection, contact us to arrange a secondary pickup. If you are adding a significant volume that might exceed your current unit capacity, let us know and we can advise on whether a unit upgrade is needed. There is no charge for adding items within your existing unit size, and no administrative fee for accessing your unit to add new belongings. We recommend updating your personal inventory list each time you add items so you always have an accurate record of what is in storage.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">What personal items are prohibited from storage?</h3>
+              <p className="text-gray-700 leading-relaxed">The items prohibited from SafeStorage units include hazardous and flammable materials (petrol, paint, gas canisters, solvents), weapons and ammunition, illegal substances or counterfeit goods, live animals or plants, perishable food, and items that emit strong odours that may affect adjacent units. Human remains, biological materials, and radioactive items are also prohibited. Items that are prohibited by UAE law cannot be stored regardless of intent. If you are uncertain whether a specific item is permitted, call us before your pickup appointment and our team will advise. The vast majority of household personal items are acceptable for storage with no issues.</p>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-dubai-navy mb-2">How do I get started with personal storage at SafeStorage Dubai?</h3>
+              <p className="text-gray-700 leading-relaxed">Getting started is simple and takes just a few minutes. Call or WhatsApp +971505773388 with a basic list of what you want to store — even an approximate list is fine. Our team will recommend an appropriate unit size, provide a clear monthly price, and schedule a pickup date that suits your schedule. We typically collect within 3–5 days of booking, or sooner for urgent situations. On collection day, our team arrives at your address with the necessary vehicle, protective materials, and paperwork. We photograph items, sign a condition report with you, and transport everything to our facility. You receive your unit access details and invoice that day. From start to storage, the process typically takes less than a week from first contact.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Static rich-text content for SEO */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-5xl">

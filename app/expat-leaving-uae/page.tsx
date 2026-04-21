@@ -234,9 +234,87 @@ export default function ExpatLeavingUAEPage() {
           </div>
         </section>
 
+        <section className="py-16 bg-gray-50">
+          <div className="container px-4 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-10">Expat Storage — Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does long-term expat storage cost in Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">Long-term expat storage at SafeStorage Dubai starts from AED 99 per month for a locker-sized unit and ranges up to AED 1,299 per month for a large unit suitable for a 3-bedroom villa. The most popular option for expats leaving Dubai is a medium unit at AED 499–699 per month, which comfortably holds the contents of a 1–2 bedroom apartment including furniture and boxes. If you prepay 6 or 12 months upfront, you receive a 15–20% discount, making long-term storage even more economical compared to international shipping costs.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I retrieve my items after leaving the UAE?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes, absolutely. You can return to Dubai at any time and access your stored belongings during business hours. Alternatively, if you cannot travel back, you can authorise a trusted person in Dubai — a friend, family member, or colleague — to access your unit on your behalf. We verify their identity before granting access. Many of our expat customers retrieve their items when they return for visits, or they arrange for specific pieces to be shipped to them internationally. The storage contract remains active as long as payments continue, regardless of where you are in the world.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">How do I arrange delivery of items to my new country?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage can coordinate international delivery by acting as the local partner in Dubai. You contact us remotely, specify which items you need, and we retrieve them from your unit, professionally pack them for transit, and coordinate with your chosen international courier or freight company. You arrange the shipping contract with your preferred carrier; we handle the physical preparation and handover from Dubai. This process works well for sending specific items — like a favourite piece of furniture, artwork, or personal effects — rather than a full container shipment.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">What happens if I extend my stay abroad longer than planned?</h3>
+                <p className="text-gray-700 leading-relaxed">This is one of the most common situations our expat customers face. If your stay abroad extends — whether due to a new job opportunity, family circumstances, or simply enjoying life in a new country — your storage simply continues on a month-to-month basis. There is no penalty for extending, and no upper time limit on how long you can store. Thousands of SafeStorage customers have stored for 2, 3, or even 4 years while abroad. As long as your monthly payments continue (easily automated from abroad), your belongings remain safe and accessible at any time.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">Can my family access my storage unit while I am abroad?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes. You can add any number of authorised persons to your storage account. Authorised access requires presenting the written authorisation letter you provide at sign-up, along with their valid Emirates ID or passport. This means a spouse, sibling, parent, or trusted friend in Dubai can visit your unit, retrieve specific items, add new items, or simply check on the condition of your belongings on your behalf. We keep a record of all access visits, and you can request an access log at any time for complete peace of mind.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">Is there a discount for 6 or 12-month expat storage plans?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage offers structured prepaid discounts for expats who know they will be abroad for an extended period. Prepaying 3 months in advance earns 10% off, a 6-month prepayment earns 15% off, and a full 12-month prepayment earns 20% off the monthly rate. Based on a medium unit at AED 599 per month, a 12-month prepayment saves you AED 1,440 compared to paying month-to-month. For expats planning to be abroad for a year or more, prepaying annually is the most cost-effective option and eliminates the need for monthly transaction management.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">How do I compare storage costs versus international shipping?</h3>
+                <p className="text-gray-700 leading-relaxed">The comparison almost always favours storage for expats who are uncertain about their plans. International sea freight from Dubai to the UK or Europe for a 2–3 bedroom apartment typically costs AED 12,000–25,000 for a full container, with transit times of 4–8 weeks and no recourse if circumstances change. Air freight is even more expensive. By contrast, storing the same volume at SafeStorage costs AED 499–899 per month. Even after two full years of storage, you have spent less than most one-way shipping costs — and you retain the option to return to Dubai, sell items locally, or decide what to ship once you have settled abroad and know exactly what you need.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">What documents do I need to cancel my storage contract?</h3>
+                <p className="text-gray-700 leading-relaxed">Cancelling your SafeStorage contract is straightforward and can be done remotely from anywhere in the world. You simply provide 30 days&apos; written notice via email or WhatsApp, along with your account details and a confirmation of what should happen to your belongings — either collected by an authorised person, donated to charity, or handled via another agreed arrangement. There are no cancellation penalties provided the 30-day notice is given. If you have prepaid beyond your notice period, we refund the unused portion of your prepayment. No in-person visit to Dubai is required to close your account.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store my car while I am living abroad?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage can accommodate vehicle storage for cars, motorcycles, and other personal vehicles. Vehicle storage requires a separate arrangement and booking, as unit sizes and access requirements differ from household storage. Before storing a vehicle, we recommend ensuring the battery is maintained or disconnected, the fuel level is reduced, and the tyres are inflated correctly to prevent flat spots from long-term stationary storage. Please contact us directly to discuss vehicle storage requirements, as pricing and availability depend on the vehicle type and storage duration. Climate-controlled vehicle storage is strongly recommended given Dubai&apos;s extreme summer temperatures.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">How are my items protected over 12+ months of storage?</h3>
+                <p className="text-gray-700 leading-relaxed">All SafeStorage facilities are climate-controlled, maintaining temperatures of 18–24°C and humidity of 45–55% year-round. This is essential for protecting furniture, electronics, clothing, leather, wood, and other common household items from Dubai&apos;s extreme summer heat and humidity. Your items are stored on pallets or shelving where appropriate, wrapped in protective materials at intake, and stored in a clean, dry, pest-controlled environment. For long-term storage beyond 12 months, we recommend requesting a periodic condition check, which our team can conduct and photograph for your records upon request.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">Can SafeStorage forward specific items internationally on my behalf?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes. SafeStorage acts as your Dubai logistics base for international forwarding. You contact us with the specific items you need, we locate them in your unit, prepare them with appropriate packing for transit, and hand them to your chosen international courier or freight company. We can work with major international carriers including FedEx, DHL, Aramex, and others, or with sea freight consolidators for larger shipments. The shipping cost is your responsibility; our role is preparing the goods and ensuring they are ready for collection from our facility. Many expats use this service to gradually ship items as they settle abroad and discover what they truly need.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">What if I decide never to return to Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">If you decide not to return to Dubai, you have several practical options for dealing with stored belongings without having to travel back. You can authorise someone in Dubai to collect and distribute items to buyers, charity organisations, or family members. Alternatively, SafeStorage can coordinate with reputable Dubai auction houses to handle the sale of valuable furniture or items on your behalf, with proceeds transferred to you internationally. For donated items, we can arrange collection by UAE charities. You simply give 30 days&apos; notice remotely, arrange the final disposition, and close your account. We make the process as straightforward as possible for customers managing everything from abroad.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">How do I manage my storage account from abroad?</h3>
+                <p className="text-gray-700 leading-relaxed">Managing your SafeStorage account from abroad is designed to be seamless. Monthly payments can be automated via credit or debit card from any country. You can communicate with our team via WhatsApp, email, or phone at any time. Account changes — adding authorised access, requesting inventory photos, arranging partial retrievals or deliveries — are all handled remotely. Our team responds to WhatsApp messages within a few hours during business hours. We have customers managing their storage accounts from the UK, India, Australia, USA, and across Europe without any difficulty. The entire relationship can exist remotely once your items are in storage.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">Is renewing or extending my storage plan easy to do remotely?</h3>
+                <p className="text-gray-700 leading-relaxed">Renewing or extending your plan is completely remote and requires no action if you are on month-to-month billing — it simply continues automatically as long as your payment method remains active. If you want to switch from monthly billing to a prepaid plan to access the discount rates, a simple WhatsApp or email request is sufficient, and we process the change and send a new invoice. There is no contract to sign again and no paperwork requiring your physical presence. Many expats set up their storage with auto-payment on departure and do not need to actively manage anything for months at a time — storage simply continues in the background while they get settled abroad.</p>
+              </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">What should I store versus sell versus ship when leaving Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">The general principle is: store items that are expensive to replace, have sentimental value, or represent good quality furniture that costs more to ship than to store. Sell items that are low quality, have high replacement availability in your destination country, or would be cheaper to buy new abroad (such as region-specific electronics with incompatible voltage). Ship only truly irreplaceable items, originals with no digital backup, and children&apos;s essentials needed immediately on arrival. A common mistake expats make is shipping too much too quickly — once you arrive in your new country and see the housing size, local prices, and what is readily available, you will know much better what to bring. Storing in Dubai for 6–12 months while you settle gives you that informed perspective before making expensive shipping commitments.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-white">
+          <div className="container px-4 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-dubai-navy mb-6">About Expat Storage at SafeStorage Dubai</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">Dubai is home to one of the world&apos;s most internationally mobile populations, with over 88% of residents being expatriates from more than 200 countries. For the majority of the city&apos;s residents, the question of what to do with accumulated belongings when the time comes to leave is a significant practical challenge. Shipping costs for a full apartment to Europe, India, the USA, or Australia run into tens of thousands of dirhams, while selling furniture at short notice rarely returns fair value. SafeStorage Dubai was built specifically to serve this need — providing a safe, climate-controlled bridge for expats who are leaving Dubai but not ready to commit to the irreversible expense of international shipping.</p>
+            <p className="text-gray-700 leading-relaxed mb-6">The concept of &apos;store first, decide later&apos; has proven to be the most financially sensible approach for hundreds of SafeStorage customers over the years. Expats who choose storage rather than rushed shipping almost universally report making better decisions about their belongings once they have settled in their new country. With no pressure to make permanent decisions in the chaos of departure, you can ship what you genuinely need, sell items you no longer want, and return for belongings if your Dubai life resumes. The storage cost for two years is typically less than a one-way sea freight container — making storage not just a flexible choice, but a financially superior one in most scenarios.</p>
+            <p className="text-gray-700 leading-relaxed mb-6">SafeStorage offers expat-specific features designed for customers managing everything remotely. Authorised access for a trusted person in Dubai, automated monthly billing from any international bank card, remote account management via WhatsApp and email, periodic inventory photography on request, and international shipping coordination from your storage unit — all of these services were developed in direct response to the needs of expat customers who found themselves managing Dubai obligations from thousands of miles away. Our team has helped expats in London, Bangalore, Sydney, Toronto, and dozens of other cities maintain a seamless Dubai storage relationship without any need to return.</p>
+            <p className="text-gray-700 leading-relaxed">If you are preparing to leave Dubai and are unsure whether storage makes sense for your situation, we encourage you to call or WhatsApp +971505773388 for an honest assessment. Our team will review your inventory list, provide a clear monthly cost, and compare it to your shipping quotes so you can make a fully informed decision. Most expats are surprised to find that 12 months of storage costs less than the cheapest shipping option for the same volume — giving you a full year to settle abroad and make permanent decisions with confidence rather than under departure pressure.</p>
+          </div>
+        </section>
+
         <section className="py-16 bg-dubai-gold text-white text-center">
           <div className="container px-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Don't Stress About Your Belongings</h2>
+            <h2 className="text-3xl font-bold mb-4">Don&apos;t Stress About Your Belongings</h2>
             <p className="text-xl text-white/90 mb-8">Get a free quote today. Most expats are surprised by how affordable long-term storage is compared to shipping costs.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="https://safestorage.ae/get-quote">
