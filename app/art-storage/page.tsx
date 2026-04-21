@@ -230,6 +230,95 @@ export default function ArtStoragePage() {
             </div>
           </div>
         </section>
+
+        <section className="py-16 bg-gray-50">
+          <div className="container px-4 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our Art Storage Service in Dubai</h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
+              <p>SafeStorage Dubai operates specialist art and valuables storage facilities designed to meet the exacting standards that paintings, sculptures, antiques, and high-value collectibles demand. Unlike general self-storage units where temperature and humidity fluctuate with Dubai&apos;s extreme seasonal climate, our dedicated art vaults maintain a stable 18&ndash;22&deg;C temperature and 45&ndash;55% relative humidity at all times &mdash; the internationally accepted conservation standards recommended by the American Institute for Conservation and the International Council of Museums. Every artwork entering our care is photographed in detail, weighed, measured, and assessed for pre-existing condition before a dual-signed condition report is issued to the client. This documentation forms the basis of any insurance claim and provides an unambiguous baseline for when you retrieve your collection.</p>
+              <p>Our white-glove handling team is trained in the specific requirements of each artwork category &mdash; canvases are stored vertically in padded slots, sculptures on bespoke foam cradles, rugs rolled on archival tubes, and framed works protected with corner guards and Coroplast sheeting. We use only acid-free, archival-grade packing materials throughout. For clients with particularly significant collections &mdash; galleries, high-net-worth individuals, estate executors, and corporate art owners &mdash; we offer bespoke consultation to design a storage and access protocol that fits their specific requirements. Comprehensive insurance coverage beyond the standard AED 5,000 inclusion is available through our specialist fine art insurance partners, with coverage arranged based on professionally declared replacement values.</p>
+              <p>Our facility serves clients across all major Dubai districts including DIFC, Downtown Dubai, Palm Jumeirah, Emirates Hills, Dubai Hills, and Jumeirah. We work with private collectors, commercial galleries, interior designers, auction houses, corporate clients, and individuals managing estate contents. Whether you need short-term storage during a villa renovation or long-term archive-quality storage for a collection not currently on display, SafeStorage Dubai provides the environment, security, and professional handling that fine art requires. Call us at +971505773388 for a free, confidential consultation.</p>
+            </div>
+
+            <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Art Storage FAQs</h2>
+            <div className="space-y-6">
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What can I store in art storage at SafeStorage Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai&apos;s art storage service accommodates a wide range of artworks and valuables including original oil paintings, acrylic and watercolour works, limited edition prints and photographs, sculptures in bronze, marble, ceramic, resin and wood, antique furniture and decorative objects, Persian and Oriental rugs, wine collections, designer furniture pieces, musical instruments including pianos and string instruments, numismatic and philatelic collections, sports memorabilia, and high-value collectibles of all kinds. We handle each category with specific packing and positioning standards tailored to the material and fragility of the items. If you are unsure whether a specific item qualifies, call us at +971505773388 and we will advise on suitability and handling requirements before your visit.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How is art protected from Dubai&apos;s extreme heat?</h3>
+                <p className="text-gray-700 leading-relaxed">Dubai&apos;s summer temperatures regularly exceed 48&deg;C outdoors, and standard storage units can reach 55&ndash;65&deg;C internally. At these temperatures, oil paintings crack and delaminate, canvas stretchers warp, wood panels split, and photographic materials suffer irreversible fading. SafeStorage Dubai&apos;s art storage vaults are housed within a building with industrial-grade insulation and HVAC systems engineered specifically for climate-sensitive storage. The cooling systems run continuously and are backed by redundant units to ensure that even during primary system maintenance, temperature never rises above safe thresholds. Our 24/7 automated monitoring system triggers immediate alerts if temperature or humidity deviate even slightly from the target range, allowing our team to respond before any damage can occur.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What temperature and humidity levels are maintained in the art vault?</h3>
+                <p className="text-gray-700 leading-relaxed">Our art storage areas are maintained at 18&ndash;22&deg;C with 45&ndash;55% relative humidity year-round. These parameters align with the standards recommended by the American Institute for Conservation, the International Council of Museums, and major institutions including the Louvre, British Museum, and Smithsonian. Temperature and humidity are monitored automatically at 15-minute intervals around the clock. For clients requiring climate logs &mdash; such as galleries, insurance providers, or estate managers &mdash; we can provide periodic climate reports documenting the conditions throughout the entire storage period. These logs are particularly valuable when artworks are on loan from institutions that require proof of storage conditions.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What insurance is provided for stored artworks?</h3>
+                <p className="text-gray-700 leading-relaxed">Every stored item is covered by our standard insurance policy up to AED 5,000 at no extra charge. For artworks, sculptures, and valuables with a higher declared value, we work with specialist fine art insurance partners in the UAE who can arrange comprehensive coverage based on professionally declared replacement values. Before your artwork enters storage, you will sign a condition report that accurately records the item&apos;s current state &mdash; this document forms the baseline for any future insurance assessment. We strongly advise clients to declare accurate and current valuations, ideally supported by a recent appraisal certificate, to ensure full coverage in any claim scenario. Please call us to discuss insurance options for your specific collection before intake.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How are sculptures stored to prevent damage?</h3>
+                <p className="text-gray-700 leading-relaxed">Sculptures require customised storage solutions depending on their material, weight, dimensions, and fragility. Bronze and stone sculptures are placed on heavy-duty padded platforms or custom foam cradles that distribute weight evenly and prevent contact with any hard surface. Ceramic and glazed pieces are individually wrapped in acid-free tissue and bubble wrap before being positioned in padded compartments that prevent movement during vibration. Resin and lightweight sculptures may be suspended or cradled depending on their centre of gravity. Our team assesses each sculpture at intake and designs the appropriate support structure. For extremely fragile or high-value pieces, we can commission bespoke wooden crates lined with Ethafoam &mdash; the same material used by leading international art shippers.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I store antiques in your art vault?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes, antique furniture, decorative objects, silverware, ceramics, clocks, and historical artefacts are all well-suited to our climate-controlled storage environment. Antiques are particularly vulnerable to Dubai&apos;s climate because they were manufactured before modern adhesives and surface treatments, meaning original glues, varnishes, and gilding respond dramatically to humidity and temperature fluctuations. Our vault&apos;s stable climate is ideal for preserving antiques long-term. We handle all antiques with cotton gloves and assess the appropriate packing material &mdash; acid-free tissue, archival foam, and custom crating &mdash; based on each item&apos;s specific needs. We photograph each piece comprehensively before storage so you have an accurate visual condition record.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How is packing done for artworks entering storage?</h3>
+                <p className="text-gray-700 leading-relaxed">All artworks are packed using archival-grade, acid-free materials that will not off-gas chemicals or cause discolouration over time. Paintings are wrapped in glassine paper (never bubble wrap directly against the painted surface), then in polyethylene foam sheeting, and stored vertically in padded slots or custom racks. Framed works receive corner protectors before wrapping. Works on paper &mdash; prints, drawings, photographs &mdash; are interleaved with acid-free tissue and stored flat in archival boxes or folio drawers. Textiles and rugs are rolled on acid-free tubes. If you bring items already professionally crated or boxed, we accept them as-is after a photographic record of the outer packaging condition is made for our records.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What is white-glove handling and why does it matter for art storage?</h3>
+                <p className="text-gray-700 leading-relaxed">White-glove handling is a professional standard for the movement and care of high-value, fragile, or irreplaceable items. The term comes from the cotton gloves worn during handling to prevent skin oils, moisture, and particulates from transferring to artworks &mdash; oil from fingerprints alone can cause permanent damage to unvarnished canvases, photographs, and paper-based works over time. At SafeStorage Dubai, white-glove handling means our team uses appropriate gloves for each material, moves larger pieces with at least two trained personnel, uses padded dollies and lifting equipment rather than manual carry wherever possible, and never stacks artworks without adequate protective separation. This standard of care is what distinguishes specialist art storage from general storage facilities.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I add items to my art storage after the initial intake?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes, you can add items to your stored collection at any time. Each new item added goes through the same intake process &mdash; photography, condition assessment, dimension and weight recording, and condition report sign-off &mdash; ensuring your inventory record remains accurate and that insurance coverage extends to new additions. Simply contact us at +971505773388 to arrange a convenient drop-off time or to schedule a pick-up of additional pieces from your home or gallery. There is no minimum number of items required for additional intakes, and your monthly storage fee is adjusted to reflect any additional space required for the new items.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How do I retrieve a specific piece from my stored collection?</h3>
+                <p className="text-gray-700 leading-relaxed">To retrieve a specific artwork, contact us by phone or email with the piece&apos;s reference from your intake condition report or inventory list. Our team locates the item, prepares it for your visit, and has it ready for collection within an agreed timeframe &mdash; typically the same or next business day for standard requests. For pieces that require decanting from crates or complex unpacking, we may need slightly more advance notice. You can arrange to collect the item yourself, or we can coordinate specialist art courier delivery to your address in Dubai or internationally. All retrievals are documented, and the relevant entry is updated in your storage inventory record accordingly.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What humidity control measures are in place?</h3>
+                <p className="text-gray-700 leading-relaxed">Humidity control is as critical as temperature control for art storage in Dubai, where outdoor humidity swings between 5% in dry desert winters and 95% in coastal summer conditions. Our HVAC system uses dedicated dehumidification and humidification units to maintain relative humidity at a stable 45&ndash;55% year-round. This range prevents the expansion and contraction of wooden supports and frames that causes paint cracking, the mould growth that occurs above 65% RH, and the brittleness that develops below 35% RH in paper, canvas, and textile works. The humidity system is monitored continuously and calibrated quarterly to ensure accuracy. Climate data logs covering any period of your storage are available on request.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I insure my artwork for its full replacement value?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes. While our standard coverage is up to AED 5,000 per storage arrangement, we can arrange specialist fine art insurance for artworks of any value through our insurance partners. To insure for full replacement value, you will need to provide either a recent auction record, a gallery purchase receipt, or a certified appraisal from a recognised art valuer. Fine art insurance premiums are generally a small fraction of the work&apos;s declared value. We strongly recommend full replacement value coverage for any artwork that would be financially or emotionally irreplaceable &mdash; do not underinsure important pieces to save on modest premiums when the cost of full coverage is proportionately small relative to the work&apos;s worth.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Are climate logs available for insurance or exhibition loan purposes?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes. SafeStorage Dubai maintains continuous climate monitoring data for all storage areas, logged at 15-minute intervals. If you require climate logs &mdash; to satisfy an insurer&apos;s condition-of-storage requirement, to demonstrate preservation standards to an exhibition venue, or as part of an art loan agreement &mdash; we can provide these in digital format upon request. Climate reports can cover any date range within your storage period and show temperature and humidity readings throughout. This level of documentation is valued by galleries, insurance providers, and art institutions as evidence that works were stored under appropriate conservation-grade conditions throughout their time with us.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What happens if damage occurs to my artwork while in storage?</h3>
+                <p className="text-gray-700 leading-relaxed">In the unlikely event that damage occurs to a stored artwork, our process is as follows: we notify you immediately upon discovery, document the damage with photographs, and provide a written incident report. The claim process is initiated through our insurance coverage (up to AED 5,000 standard, or your extended policy if arranged). The signed intake condition report is the critical baseline document that establishes what pre-existing condition was present versus what damage occurred during storage. This is precisely why the dual-signed condition report at intake is so important &mdash; it protects both parties in the event of any dispute. We handle all damage reports with full transparency and professional accountability.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How long can I store artwork at SafeStorage Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">There is no maximum storage duration &mdash; you can store artworks for as long as required. Our storage contracts are flexible, running month-to-month with no long-term lock-in period. Many clients store collections for years, particularly expats who move between countries and prefer not to ship valuable works internationally, estate collections awaiting probate resolution, or galleries archiving works not currently on display. Long-term storage customers benefit from stable climate conditions that protect artworks indefinitely. For storage periods of three months or more, we offer discounted rates. Call us at +971505773388 to discuss your timeline and we will recommend the most cost-effective arrangement for your specific situation.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   )

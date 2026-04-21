@@ -238,6 +238,95 @@ export default function EcommerceStoragePage() {
             </div>
           </div>
         </section>
+
+        <section className="py-16 bg-gray-50">
+          <div className="container px-4 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our E-Commerce Storage Service in Dubai</h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
+              <p>SafeStorage Dubai&apos;s e-commerce storage service is designed specifically for online sellers, D2C brands, and growing businesses that need flexible inventory space without the financial and legal commitments of a traditional warehouse lease. Unlike warehouse rentals that require 2&ndash;3 year minimum commitments, deposits equivalent to 3&ndash;6 months&apos; rent, and significant fit-out costs, our storage units are available on a month-to-month basis with no setup fees and no penalty for scaling up or down. This model is particularly valuable in Dubai&apos;s e-commerce market, where rapid growth, seasonal demand peaks, and category pivots are common, and where locking into a large warehouse before your business is ready creates financial risk that can threaten the entire venture.</p>
+              <p>Our climate-controlled units maintain 20&ndash;24&deg;C year-round, which is essential for inventory categories including electronics, cosmetics, health &amp; beauty products, food supplements, candles, and anything with a heat-sensitive formulation or packaging. Dubai&apos;s summer heat regularly causes product degradation, label damage, and packaging deformation in non-climate-controlled storage &mdash; resulting in unsaleable stock, customer complaints, and increased return rates. Our units are secured with biometric access control and 24/7 CCTV, so your inventory is protected at all times. You can access your unit during business hours to pick orders, receive incoming stock, conduct inventory counts, and manage your fulfilment operations exactly as you would in a private warehouse unit.</p>
+              <p>We serve a wide range of Dubai e-commerce businesses including Amazon UAE and noon.com sellers, Instagram and TikTok shop operators, direct-to-consumer brands, importers and distributors, subscription box companies, and businesses selling across multiple platforms simultaneously. Our units range from small (suitable for high-value, low-volume categories like jewellery or luxury goods) to large (suitable for high-volume fashion, electronics, or home goods sellers). Scaling from one unit size to the next can happen within 24&ndash;48 hours, giving you a responsive infrastructure that matches your business growth. Call us at +971505773388 to discuss your specific inventory needs and get a same-day business quote.</p>
+            </div>
+
+            <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive E-Commerce Storage FAQs</h2>
+            <div className="space-y-6">
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What types of products can be stored for e-commerce fulfilment?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai accommodates virtually all standard e-commerce product categories including fashion and apparel, footwear and accessories, consumer electronics and accessories, home d&eacute;cor and furnishings, kitchenware, health and beauty products, cosmetics and skincare, nutritional supplements, books and media, sporting goods, outdoor equipment, toys, stationery, pet products, and small appliances. Products should be properly packaged and labelled before storage. We cannot store flammable goods (aerosols above regulated thresholds, petrol products), explosives, corrosive materials, live animals, or perishable food items requiring cold chain storage. If you are unsure whether your products qualify, call us at +971505773388 before booking and we will confirm suitability.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How does pick-and-pack work at SafeStorage?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai is primarily a storage facility rather than a full 3PL (third-party logistics) operator. Pick-and-pack means you access your storage unit yourself, select the products for individual orders, pack them in your shipping materials, label them with your shipping labels, and then arrange collection by your courier partner (DHL, Aramex, FedEx, Emirates Post, or any other). Many of our e-commerce customers bring their packing materials to the unit, conduct packing runs daily or several times per week, and coordinate courier collection from our facility&apos;s loading area. This gives you full control over your order quality while avoiding the cost of a full 3PL service fee on every order. Our access hours of 8 AM&ndash;8 PM, Monday to Saturday, support most fulfilment workflows.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can my team access the unit for order fulfilment?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes. Business accounts can register multiple authorised users from your team, each with individual access credentials logged through our biometric system. This means your warehouse manager, fulfilment staff, and operations team members can all access the unit independently during business hours without needing to coordinate through a single keyholder. You control who is authorised on your account, and you can add or remove team members as your staffing changes. For very high-frequency access (multiple times per day for high-volume operations), we can arrange a dedicated access arrangement that accommodates your workflow. Contact us at +971505773388 to set up a multi-user business account tailored to your operations team.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What are the access hours for e-commerce customers?</h3>
+                <p className="text-gray-700 leading-relaxed">Standard access hours at SafeStorage Dubai are Monday to Saturday 8 AM to 8 PM, and Sunday 10 AM to 6 PM. These hours are designed to accommodate most business fulfilment schedules, including morning order reviews, afternoon packing runs, and evening courier cut-off times. For sellers with particularly high order volumes or unusual dispatch windows &mdash; for example, those fulfilling marketplace same-day delivery orders with early morning courier collections &mdash; we can discuss extended or pre-arranged early access options. The goal is to ensure that your access schedule never becomes a constraint on your fulfilment capability. Please discuss any access requirements outside standard hours with us when booking your unit.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How is inventory tracked in a SafeStorage unit?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai provides the physical storage space &mdash; inventory management and tracking is managed by you using your own systems. Most of our e-commerce customers use a spreadsheet, an inventory management app (such as Shopify&apos;s built-in inventory, Linnworks, Cin7, or similar), or their marketplace seller account&apos;s inventory system to track stock levels. You are responsible for your own stock counts, SKU management, and inventory reconciliation. When you bring new stock in or remove items for orders, you update your own records. This approach gives you full flexibility to use whichever inventory system fits your business without being locked into our platform. We can advise on practical inventory organisation within your unit during onboarding.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I receive supplier deliveries at the storage facility?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes, by prior arrangement. We can accept deliveries to the facility on your behalf during business hours &mdash; stock from suppliers, goods imported through Dubai customs, or transfers from other storage locations. Deliveries must be pre-arranged with our team (not simply addressed to the facility without notice) and correctly addressed with your name and unit reference. A staff member will receive the delivery, photograph it, and place it in your unit or hold it at reception until you arrive to take it in. We charge a small receiving fee for deliveries accepted on your behalf. If you receive deliveries frequently, we can set up a regular receiving arrangement as part of your storage plan. Contact us to confirm logistics before your first incoming delivery.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the minimum storage duration for e-commerce businesses?</h3>
+                <p className="text-gray-700 leading-relaxed">The minimum storage duration is one month. This is ideal for businesses that need short-term overflow space during peak seasons, businesses testing a new product category before committing to larger volumes, or sellers who are in the early growth phase and want to maintain maximum flexibility. There is no penalty for ending storage after the minimum period &mdash; just 30 days&apos; written notice. For businesses with predictable seasonal patterns, we recommend booking ahead to guarantee unit availability during high-demand periods such as White Friday, Ramadan, and the end-of-year holiday season when demand for storage increases significantly across Dubai. Early booking secures your preferred unit size and location within the facility.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How does this compare to warehouse rental in Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">Traditional warehouse rental in Dubai typically requires a 2&ndash;3 year minimum lease, a deposit equivalent to 3&ndash;6 months of rent, legal costs for the lease agreement, fit-out costs for racking and infrastructure, and a minimum space commitment far larger than most growing businesses actually need. Monthly costs for a modest 1,000 sq ft warehouse in Al Quoz, DIP, or Jebel Ali typically range from AED 5,000 to AED 15,000+. SafeStorage provides an equivalent effective storage area for AED 1,500&ndash;2,500/month on a month-to-month basis, with no setup costs, no deposit beyond the first month, and the ability to scale up or down in 24 hours. For businesses with annual revenue below AED 5 million, warehouse rental is almost never the right solution.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Is climate control available for temperature-sensitive products?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes. All SafeStorage Dubai units are climate-controlled at 20&ndash;24&deg;C year-round, which protects temperature-sensitive products including cosmetics (which can separate or melt above 30&deg;C), health and beauty items, nutritional supplements (which degrade in heat), candles, chocolate and confectionery, certain pharmaceutical products, electronics (which suffer heat damage above 35&deg;C), and any products with heat-sensitive adhesives or packaging. We do not offer cold-chain refrigerated storage for perishable food items requiring below-ambient temperatures. However, our climate-controlled units are suitable for the vast majority of e-commerce product categories that benefit from protection from Dubai&apos;s extreme ambient heat.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I use SafeStorage for Amazon UAE or noon.com fulfilment?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes, many of our e-commerce customers use SafeStorage as their primary inventory location for Amazon UAE (Fulfillment by Merchant, or FBM orders) and noon.com seller operations. You store your inventory with us, visit the unit to pick and pack orders as they come in, and arrange courier collection for dispatch to buyers or for periodic replenishment of Amazon FBA warehouses. Our climate-controlled units are particularly important for Amazon electronics sellers, where maintaining product condition to meet Amazon&apos;s standards is critical. We can discuss storage and access arrangements that specifically support Amazon or noon seller workflows &mdash; including regular replenishment runs and return stock management.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What happens during peak seasons like White Friday or Ramadan?</h3>
+                <p className="text-gray-700 leading-relaxed">Dubai&apos;s e-commerce calendar has well-defined peak periods &mdash; White Friday (UAE&apos;s equivalent of Black Friday), Ramadan, and the December holiday season typically see order volumes 3&ndash;5x above normal levels for many sellers. To prepare for peak seasons, we recommend booking additional storage space 4&ndash;6 weeks before the peak period begins, as demand for units increases significantly. We can accommodate temporary unit upgrades or additional units for the peak period only. On the fulfilment side, we can discuss extended access arrangements during peak periods to support morning-to-night packing operations if needed. Planning ahead with your account manager at SafeStorage ensures you have the space and access schedule you need when your business is at its most critical point.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How are returns handled by e-commerce businesses using storage?</h3>
+                <p className="text-gray-700 leading-relaxed">Return management is entirely managed by you as the seller. Returned items are typically sent back to your home address or directly to your SafeStorage unit (by arrangement for direct courier delivery). Once returns arrive, you inspect them, process refunds or exchanges through your marketplace, and either restock the item in your unit or dispose of it. Many sellers designate a specific area of their unit for returns processing, keeping returned items separate from new stock until they have been inspected and graded. For high return-rate categories like fashion, having a dedicated returns processing area within your unit makes the workflow significantly more efficient. We do not inspect, process, or make decisions about returned items on your behalf.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Is there a weight limit per storage unit?</h3>
+                <p className="text-gray-700 leading-relaxed">Our storage units have standard floor load ratings of 750 kg per square metre, which is sufficient for the vast majority of e-commerce inventory categories. For particularly heavy items &mdash; such as machinery, large appliances, gym equipment, or dense palletised loads &mdash; please advise us at booking so we can confirm the appropriate unit and ensure floor load limits are not exceeded. We can advise on shelving and racking configurations that distribute weight safely across the unit floor. Most standard consumer goods in boxes and on shelving are well within our weight ratings. If you have a specific heavy inventory category, share the details and we will confirm suitability before you book.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What about hazardous goods &mdash; can any be stored?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai cannot store goods classified as hazardous under IATA or UAE transport regulations, including flammable liquids and aerosols above regulated thresholds, compressed gases, explosives, oxidising materials, toxic chemicals, corrosives, and radioactive materials. Most standard consumer goods &mdash; cosmetics, electronics, clothing, food supplements, household goods, books, and sporting goods &mdash; are not classified as hazardous and are perfectly acceptable. Some products that appear innocent (certain aerosol sprays, lithium battery devices in bulk quantities, or specific cleaning products) may require classification checks. If you are unsure whether your specific product qualifies, share the Safety Data Sheet (SDS) or product specification with us and we will advise before booking.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How do I scale up my storage as my business grows?</h3>
+                <p className="text-gray-700 leading-relaxed">Scaling up at SafeStorage Dubai is designed to be fast and frictionless. When your current unit is approaching capacity, call us at +971505773388 and we will check availability in the next unit size up or adjacent units that could be used together. Unit upgrades typically take 24&ndash;48 hours to arrange, with a smooth transfer of your inventory &mdash; either you move your stock yourself or we can assist with internal transfer. Your monthly fee is adjusted to the new unit size from the effective upgrade date with no penalty or administrative fee for changing unit size. For businesses growing rapidly, we recommend discussing a growth plan with us at onboarding so we can proactively manage unit availability as your inventory expands.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   )

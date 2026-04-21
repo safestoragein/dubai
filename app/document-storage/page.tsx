@@ -237,6 +237,95 @@ export default function DocumentStoragePage() {
             </div>
           </div>
         </section>
+
+        <section className="py-16 bg-gray-50">
+          <div className="container px-4 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our Document Storage Service in Dubai</h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
+              <p>SafeStorage Dubai provides secure, climate-controlled document and records storage for businesses and individuals across the emirate. Every box stored with us is held in a dedicated, access-controlled area maintained at 18&ndash;24&deg;C with 45&ndash;55% relative humidity &mdash; conditions that prevent paper degradation, yellowing, brittleness, and mould growth that occur in ambient UAE temperatures. Documents stored in prime office space or in uncontrolled environments deteriorate significantly faster, and in Dubai&apos;s humid summer months, paper files stored without climate control can develop mould within weeks. Our facility offers the physical security and environmental conditions that confidential, legally required, and irreplaceable documents demand.</p>
+              <p>UAE businesses are legally required to retain a wide range of documents for minimum statutory periods &mdash; from 2 years for employee records under UAE Labour Law to 10 years for real estate transactions under Dubai Land Department regulations. Failing to retain documents for the required period, or failing to produce them during an audit or legal proceeding, can result in regulatory penalties and significant legal exposure. SafeStorage Dubai provides an affordable, reliable solution that allows businesses to maintain full compliance with retention requirements without using expensive prime office floor space for archive boxes. Our pricing starts from AED 99/month for individual storage arrangements, representing a fraction of the cost of equivalent office storage space in Dubai&apos;s commercial districts.</p>
+              <p>Every business customer receives an outer inventory record for their stored boxes, and specific boxes can be retrieved within 2 business hours on request. We also offer a certified document destruction service for records that have reached the end of their required retention period, with a destruction certificate issued for your compliance records. Access to your stored documents is logged biometrically, creating a complete audit trail of every access event. We serve law firms, accounting practices, medical clinics, real estate agencies, HR departments, government contractors, and private individuals with sensitive personal documents to protect. Call us at +971505773388 to discuss your document storage requirements.</p>
+            </div>
+
+            <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Document Storage FAQs</h2>
+            <div className="space-y-6">
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What types of documents can be stored at SafeStorage Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai stores all categories of physical documents including financial records, audit files, tax returns and VAT documentation, legal contracts and correspondence, employee files and HR records, property and real estate documents, medical and clinical records, insurance policies, board meeting minutes, bank statements, supplier and customer contracts, visa and immigration paperwork, and personal documents such as passports, birth certificates, and wills. We accept documents in standard archive boxes (provided or supplied by us), lever arch files, binders, and sealed cartons. We do not open or read document contents &mdash; confidentiality of your documents is maintained throughout the storage relationship.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How long do UAE businesses need to retain documents?</h3>
+                <p className="text-gray-700 leading-relaxed">UAE retention requirements vary by regulation and document type. Under the UAE Commercial Companies Law, financial records must be retained for a minimum of 5 years. UAE VAT Law (Federal Decree-Law No. 8 of 2017) requires tax records and supporting documents to be kept for 5 years minimum. DIFC company regulations require records to be kept for 6 years post-dissolution. UAE Labour Law requires employee records to be maintained for at least 2 years after employment ends. Dubai Land Department regulations specify 10 years for real estate transaction records. CBUAE banking regulations require financial institutions to retain records for 5&ndash;10 years depending on type. Non-compliance with these retention requirements can result in regulatory penalties during audits or legal proceedings.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How are storage boxes catalogued and inventoried?</h3>
+                <p className="text-gray-700 leading-relaxed">Each box you store with us is labelled with your reference system or a reference number we assign, and entered into our outer inventory record. This record tracks which boxes belong to your account and their location within the facility. We do not open boxes or read document contents &mdash; the inventory is based on outer box labels that you provide. For businesses with large volumes (50+ boxes), we strongly recommend maintaining your own internal catalogue (a simple spreadsheet with box number, contents description, and date range covered) so you can identify specific boxes quickly when retrieval is needed. We can provide templates and guidance for implementing an effective document cataloguing system before your first intake.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How quickly can I retrieve specific files or boxes?</h3>
+                <p className="text-gray-700 leading-relaxed">For standard retrieval requests, we locate and prepare your specified box(es) for collection within 2 business hours during business days. If you call us before 12 noon, your box is typically ready for collection the same afternoon. For urgent retrieval requests &mdash; for example, if a document is needed for a same-day audit, legal proceeding, or emergency &mdash; call us directly at +971505773388 and we will prioritise the retrieval. A retrieval fee applies for individual box access outside of pre-arranged visits. If you visit regularly (weekly or bi-weekly), we can arrange scheduled access that reduces per-retrieval costs. We aim to make retrieval as seamless and responsive as possible.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can you securely destroy documents at the end of their retention period?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes. SafeStorage Dubai offers a certified document destruction service for records that have reached the end of their required legal retention period. This service includes cross-cut shredding of document contents, and a formal certificate of destruction that details the date, volume, and reference of documents destroyed. This certificate is important for regulatory compliance records, particularly for businesses in regulated industries such as finance, healthcare, and law where evidence of proper document disposal is as important as evidence of retention. We can schedule destruction at a future date when you first place documents in storage, creating an automated end-of-life process for your archive records.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What fire protection is in place for stored documents?</h3>
+                <p className="text-gray-700 leading-relaxed">Our document storage facility is built and operated to commercial fire safety standards required by Dubai Civil Defence. The facility is equipped with automatic fire detection systems (smoke and heat detectors throughout), fire sprinklers in storage areas, and gas suppression systems in document archive zones where water damage from sprinklers is a secondary concern. Fire extinguishers are placed at regular intervals and are maintained on a quarterly service schedule. The building construction includes fire-rated walls and doors that compartmentalise the facility. However, no storage facility can guarantee absolute protection from catastrophic fire events, and we strongly advise clients with irreplaceable original documents to also maintain certified digital backups stored separately.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Are access logs maintained for document retrieval?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes. All access to document storage areas is logged through our biometric access control system, which records the identity of the person entering, the date, and the time of each access event. These access logs are maintained for a minimum of 12 months and are available to account holders on request. For businesses in regulated industries &mdash; legal, financial, healthcare &mdash; access logs form part of an important audit trail demonstrating that confidential records were accessed only by authorised personnel. This level of documentation supports compliance with data protection obligations and can be valuable evidence in any internal or external audit or legal proceeding relating to document handling practices.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can multiple staff members from my company retrieve documents?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes. Business accounts can register multiple authorised users who are permitted to access and retrieve documents on behalf of the company. Each authorised user is registered in our biometric system and logged individually, providing a clear record of who accessed documents and when. You control who is authorised on your account &mdash; you can add or remove authorised users at any time by submitting a request to our team. For businesses with strict document access policies, we can also implement additional controls such as requiring dual authorisation for retrieval of specific box categories or requiring advance notice for certain sensitive files.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What physical document formats are accepted for storage?</h3>
+                <p className="text-gray-700 leading-relaxed">We accept standard archive boxes (A4 and legal size), lever arch files and binders stored in boxes, sealed cartons of any standard size, and large-format document tubes for drawings, blueprints, and engineering plans. We provide standardised archive boxes at cost if you need them. We do not store loose, unboxed documents for practical handling and security reasons. All documents should be securely boxed and labelled before arrival. For very large volumes &mdash; such as a full office move involving hundreds of boxes &mdash; we can arrange a scheduled collection and intake day where our team attends your premises to box, label, and transport your document archive in a single efficient operation.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How is confidentiality maintained for sensitive business documents?</h3>
+                <p className="text-gray-700 leading-relaxed">Confidentiality is central to our document storage service. All staff handling documents are required to sign comprehensive confidentiality agreements as a condition of employment. Your documents are stored in a sealed, individually assigned area that is not accessible to other customers or general facility staff. Only personnel specifically authorised to handle your account have physical access to your storage area. We do not open boxes, read documents, or share any information about stored contents with any third party without your explicit written instruction or a valid legal order. For businesses handling client confidential data (law firms, medical practices, financial advisers), we can provide written confidentiality undertakings as part of our service agreement.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What about humidity-sensitive documents such as maps, photos, and original artwork?</h3>
+                <p className="text-gray-700 leading-relaxed">Documents that are particularly sensitive to humidity &mdash; including historical maps, original photographs, engineering drawings, architectural plans, legal originals on parchment or fine paper, and watercolour artworks &mdash; benefit significantly from our climate-controlled environment. Our 45&ndash;55% relative humidity range is the internationally recommended standard for paper-based archive preservation. High humidity causes paper to absorb moisture, leading to warping, adhesion failure, and mould growth; low humidity causes brittleness and cracking. If you have particularly important humidity-sensitive documents, notify us at intake and we will ensure they are stored in our most stable climate zone and, if necessary, in archival-grade storage materials such as acid-free boxes and interleaving tissue.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Is the document storage service GDPR or data protection compliant?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai operates under UAE data protection law (Federal Decree-Law No. 45 of 2021 on Personal Data Protection) and, for businesses operating in or connected to DIFC or ADGM, under the respective data protection frameworks of those free zones. For companies subject to GDPR (EU businesses with UAE operations, or companies handling EU personal data), our service supports GDPR-compliant physical data storage through our access controls, confidentiality agreements, and audit logging. We can provide data processing agreements and information about our data handling practices as required by your compliance obligations. For specific compliance queries, we recommend consulting with your legal team alongside discussing our service specifications with us.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I store original legal documents such as title deeds, wills, and contracts?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes, original legal documents &mdash; title deeds, property certificates, wills and probate documents, original signed contracts, court orders, and notarised documents &mdash; are among the most important category of documents we store. These are the documents where loss or damage is most consequential, making proper secure storage essential. For original legal documents, we recommend storing them in sealed, labelled envelopes or folders inside archive boxes, with a clear reference on the outer label. For clients who want the highest level of security for a small number of critical originals, ask us about our secure document vault options. We store original documents for law firms, notary offices, banks, property developers, and private individuals alike.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What industries use document storage in Dubai most commonly?</h3>
+                <p className="text-gray-700 leading-relaxed">The industries that most commonly use professional document storage in Dubai include legal and law firms (client files, case records, court correspondence), accounting and audit firms (financial statements, audit working papers, VAT records), medical and healthcare providers (patient records, prescription archives, lab results), real estate agencies and developers (sales agreements, title deed copies, tenancy contracts, DLD records), human resources and recruitment firms (employee files, visa records, payroll documentation), banking and financial services (loan files, compliance records, transaction documentation), and government contractors (project records, tender documentation, compliance files). Individuals also frequently use the service for personal legal and financial documents, particularly during estate management or property transactions.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How do I get started with document storage at SafeStorage Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">Getting started is simple. Call us at +971505773388 or request a quote at safestorage.ae/get-quote, telling us approximately how many boxes you need to store. We provide a same-day quote based on volume and storage duration. If you need boxes supplied, we can provide standardised archive boxes at a small additional cost. We offer a free initial collection service &mdash; our team comes to your office or home and transports your documents to our facility. On arrival, each box is logged into our system with your reference labels. You sign the storage agreement, receive a copy of the inventory record, and we handle the rest. Most businesses have their entire document archive moved within a single working day.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   )

@@ -296,6 +296,95 @@ export default function CarStoragePage() {
           </div>
         </section>
 
+
+        <section className="py-16 bg-gray-50">
+          <div className="container px-4 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our Car &amp; Vehicle Storage Service in Dubai</h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
+              <p>SafeStorage Dubai provides specialist climate-controlled vehicle storage for cars, motorcycles, classic and luxury vehicles, boats, caravans, and light commercial vehicles across Dubai. Our facility maintains a precise 20&ndash;25&deg;C year-round with humidity control at 45&ndash;55% relative humidity &mdash; conditions that are scientifically optimal for preserving paintwork, rubber seals, leather interiors, electronics, and mechanical components. Dubai&apos;s summers are uniquely destructive to vehicles stored in standard parking: temperatures exceed 48&deg;C outdoors and routinely reach 65&ndash;70&deg;C inside non-climate-controlled storage units. A single summer in inadequate storage can reduce a vehicle&apos;s resale value by AED 5,000&ndash;20,000 and result in thousands of dirhams in preventable mechanical repairs.</p>
+              <p>Every vehicle stored with us goes through a documented intake process: our team photographs the vehicle from all angles, notes any pre-existing marks, scratches, or mechanical issues, checks tyre pressure, and records the fuel and battery status. You receive a digital copy of this pre-storage condition report. During storage, our team conducts monthly visual inspections of all vehicles and monitors the storage environment continuously. For classic vehicles and long-term storage (6+ months), our premium care package includes battery trickle-charging, periodic engine starts to keep mechanical components lubricated, and detailed monthly condition reports with photographs. Our facility is protected by 24/7 CCTV monitoring and biometric access control, ensuring that only authorised personnel ever have contact with your vehicle.</p>
+              <p>Vehicle storage at SafeStorage Dubai is used by expats taking extended summer trips, multiple-car owners managing seasonal vehicles, classic car collectors protecting investment-grade vehicles, motorcycle owners who avoid riding in Dubai&apos;s extreme summer heat, and businesses storing fleet vehicles between contracts. Cars start from AED 899/month, motorcycles from AED 399/month, and all vehicles receive complimentary insurance coverage up to AED 5,000. Extended coverage for luxury, classic, and high-value vehicles is available. Call us at +971505773388 for a free, no-obligation quote.</p>
+            </div>
+
+            <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Vehicle Storage FAQs</h2>
+            <div className="space-y-6">
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What vehicles can be stored at SafeStorage Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai stores a comprehensive range of vehicles including standard cars and SUVs, sports cars, luxury vehicles (Ferrari, Lamborghini, Porsche, Rolls-Royce, Bentley), classic and vintage cars, motorcycles and scooters of all makes and models, jet skis, speedboats and small leisure vessels, caravans, motorhomes, and light commercial vehicles including pickups and vans. Classic and luxury vehicles receive our white-glove care protocol with additional handling precautions, dedicated bays, and premium climate standards. Oversized vehicles including caravans and larger boats are accommodated on a case-by-case basis &mdash; contact us with your vehicle&apos;s dimensions so we can confirm availability and appropriate bay allocation.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the minimum storage period for a vehicle?</h3>
+                <p className="text-gray-700 leading-relaxed">The minimum storage period at SafeStorage Dubai is one month. This flexibility is important for our customers who may be taking a short international trip, managing a temporary vehicle surplus, or waiting for export paperwork to be finalised. There is no maximum storage period &mdash; many customers store vehicles for 6 months, 12 months, or longer. For storage commitments of 3 months or more, we offer progressive discounts that make long-term storage significantly more cost-effective. If you need to end your storage early, 30 days&apos; notice is required with no penalty fees. We aim to make vehicle storage as flexible as your schedule requires.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How is climate control maintained for stored vehicles?</h3>
+                <p className="text-gray-700 leading-relaxed">Our vehicle storage facility uses industrial-grade HVAC systems designed specifically for enclosed vehicle storage environments. Temperature is maintained at 20&ndash;25&deg;C year-round, and humidity at 45&ndash;55% relative humidity, regardless of Dubai&apos;s outdoor conditions. The systems run continuously with redundant backup units in case of primary system maintenance, ensuring there is no gap in climate protection. Temperature and humidity are monitored automatically and logged at regular intervals. This climate management prevents paint oxidation and fading caused by UV and heat, rubber seal degradation that leads to water leaks, leather cracking and dashboard warping in extreme heat, battery capacity loss, and corrosion of metal components from high Gulf humidity.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Does my car insurance remain valid while the vehicle is in storage?</h3>
+                <p className="text-gray-700 leading-relaxed">This depends entirely on your existing car insurance policy in the UAE. Most UAE comprehensive car insurance policies remain valid while the vehicle is not in use, but you should confirm this directly with your insurance provider before placing your vehicle in storage. Some insurers require notification that a vehicle is being stored, while others may offer a reduced-premium &ldquo;storage endorsement&rdquo; for non-driven periods. SafeStorage Dubai provides our own complimentary storage insurance up to AED 5,000 covering damage occurring while in our care, but this is not a substitute for your own policy. We recommend confirming your policy status with your insurer and keeping it active throughout storage.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What happens to the car battery during long-term storage?</h3>
+                <p className="text-gray-700 leading-relaxed">Car batteries are one of the most common points of failure during extended vehicle storage in Dubai, where heat accelerates battery self-discharge and degradation. In a standard non-climate-controlled environment, a car battery can drain completely within 4&ndash;6 weeks of non-use during summer. At SafeStorage Dubai, our climate-controlled environment significantly reduces self-discharge rates. For short-term storage (1&ndash;3 months), no additional intervention is typically needed. For longer periods, our premium care package includes battery trickle-charging using an approved maintenance charger that keeps the battery at an optimal charge level without overcharging. We can also disconnect the battery on request for very long-term storage.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Is fuel drained from vehicles before storage?</h3>
+                <p className="text-gray-700 leading-relaxed">No, we do not drain fuel from stored vehicles as a standard procedure. In fact, storing a vehicle with a full or near-full tank is generally recommended for periods up to 12 months, as a full tank prevents moisture from forming inside the fuel system. For very long-term storage (over 12 months), some vehicle manufacturers recommend a fuel stabiliser additive to prevent the fuel from degrading and leaving deposits in the fuel system &mdash; we can advise on this during your intake consultation. Our climate-controlled environment eliminates the condensation risk that makes fuel system moisture a greater problem in non-climate-controlled storage. Contact us to discuss your specific vehicle&apos;s requirements.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I access my vehicle at any time while it is in storage?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes, you can access your stored vehicle during our business hours: Monday to Saturday 8 AM to 8 PM, Sunday 10 AM to 6 PM. We request approximately 2 hours&apos; advance notice so our team can prepare your vehicle and have it ready at the access point when you arrive. For business customers with regular or frequent access needs, we can arrange a dedicated access schedule to accommodate your workflow. If you need to retrieve your vehicle outside standard hours due to an emergency or urgent travel, please call us directly at +971505773388 and we will do our best to accommodate. Your vehicle is always your property and accessible to you at reasonable notice.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the price for luxury cars versus motorcycles?</h3>
+                <p className="text-gray-700 leading-relaxed">Motorcycles and scooters start from AED 399/month, making our storage very accessible for riders who want to protect their bikes during Dubai&apos;s April-to-October heat season. Standard cars and SUVs start from AED 899/month. Light commercial vehicles start from AED 1,299/month. Luxury and classic cars &mdash; Ferrari, Lamborghini, Porsche, Rolls-Royce, vintage vehicles &mdash; are quoted individually as they may require dedicated bays, premium care packages, and enhanced insurance arrangements. All prices include climate control, 24/7 CCTV monitoring, monthly inspections, and complimentary insurance up to AED 5,000. Discounts of 10&ndash;20% apply for 3-month, 6-month, and 12-month commitments. Call +971505773388 for a personalised quote.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How is security maintained at the vehicle storage facility?</h3>
+                <p className="text-gray-700 leading-relaxed">Our vehicle storage facility operates a multi-layer security system. The perimeter and all storage bays are covered by high-definition CCTV cameras monitored 24 hours a day, 7 days a week, with footage retained for 30 days. All entry points are controlled by biometric access systems, meaning only authorised staff and pre-registered clients can enter. No general public or unregistered visitors can access the storage area. Each vehicle is logged in with a reference number at intake and tracked in our system. Physical keys are stored securely in a dedicated key management system with access logging. Our facility also maintains comprehensive liability insurance for vehicles in our care.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I store a boat or jet ski at SafeStorage Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">Yes, SafeStorage Dubai accommodates boats, jet skis, and personal watercraft on a case-by-case basis. Dubai&apos;s salt-laden Gulf humidity is particularly corrosive to marine vessels during the off-season, making proper enclosed, climate-controlled storage significantly better than outdoor storage at a marina. We store vessels on appropriate trailers or cradles and ensure they are correctly supported and protected during storage. Please contact us with your vessel&apos;s dimensions, weight, and trailer configuration before booking so we can confirm bay availability and any special handling requirements. Pricing for boats and jet skis is quoted individually based on size and storage configuration.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Do you handle RTA paperwork or vehicle registration while the car is in storage?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai is a vehicle storage facility and does not directly handle RTA (Roads and Transport Authority) registration paperwork, emissions testing (Tasjeel/Wasel), or vehicle licensing on your behalf. However, we can accommodate retrieval of your vehicle for you to attend to RTA requirements and return it to storage afterwards. If your vehicle registration expires during storage, this is your responsibility to manage directly with the RTA. We recommend checking your registration renewal dates before entering long-term storage and planning accordingly. Our team can advise on practical logistics for managing your vehicle&apos;s paperwork during storage periods.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What if my car needs maintenance while it is in storage?</h3>
+                <p className="text-gray-700 leading-relaxed">If a mechanical issue is identified during one of our monthly inspections, we notify you immediately with photographs and details. You can then arrange for a mechanic or the vehicle&apos;s dealer service centre to attend to the vehicle at our facility, or we can arrange temporary retrieval for you to take it for servicing. We do not perform mechanical work on stored vehicles ourselves. For long-term storage customers, we recommend completing all outstanding servicing before placing the vehicle in storage, so that it is in optimal mechanical condition when you retrieve it. Pre-storage servicing also helps avoid issues such as oil breakdown or brake binding that can develop during extended non-use.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How do I book vehicle storage at SafeStorage Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">Booking vehicle storage is straightforward. You can get a free quote by calling us at +971505773388 or by completing the online quote form at safestorage.ae/get-quote. Tell us your vehicle type, approximate size, intended storage duration, and any special requirements. We will provide a same-day quote and confirm bay availability. Once confirmed, you can drive your vehicle directly to our facility during business hours, or we can arrange transport assistance for vehicles that cannot be driven. We complete the intake process on arrival &mdash; condition photographs, documentation, key handover &mdash; and your vehicle is placed in its climate-controlled bay. The whole intake process typically takes 20&ndash;30 minutes.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Are cars driven or moved while in storage?</h3>
+                <p className="text-gray-700 leading-relaxed">No, stored vehicles are not driven by our staff unless you specifically request it as part of a premium care package that includes periodic engine starts to keep mechanical components lubricated. Standard storage means the vehicle remains stationary in its assigned bay for the duration. Monthly inspections are conducted as a visual walk-around and tyre pressure check, not requiring the vehicle to be moved. All movement of vehicles within the facility is done only by authorised staff, with proper documentation, and never for any purpose other than maintenance or retrieval. Our policy is clear: your vehicle is stored where you left it and returned to you in the same condition, with no unauthorised use under any circumstances.</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">What preparation is needed before storing my vehicle?</h3>
+                <p className="text-gray-700 leading-relaxed">To get your vehicle ready for storage, we recommend the following steps: (1) Wash and wax the exterior to create a protective layer on the paintwork. (2) Clean the interior thoroughly, including removing any food items that could attract pests. (3) Complete any outstanding servicing &mdash; oil change, brake check, and fluid top-ups. (4) Inflate tyres to the manufacturer&apos;s recommended pressure (slightly higher than normal for long-term storage to prevent flat spots). (5) Fill the fuel tank to near-full to prevent fuel system condensation. (6) Remove any toll tags (Salik), dashcams, or personal valuables from the vehicle. Our team will advise on any additional preparation specific to your vehicle type during the booking process.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   )
