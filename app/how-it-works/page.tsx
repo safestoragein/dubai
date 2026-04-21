@@ -163,6 +163,56 @@ export default function HowItWorks() {
             </div>
           </div>
 
+          <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-6">More Frequently Asked Questions</h3>
+            <div className="space-y-6 text-gray-700">
+              <div>
+                <p className="font-semibold mb-2">What areas of Dubai do you collect from?</p>
+                <p>We collect from every neighbourhood in Dubai including Business Bay, Dubai Marina, JBR, Jumeirah, Downtown Dubai, Palm Jumeirah, JLT, JVC, Al Barsha, Motor City, Sports City, Dubai Hills, Arabian Ranches, Mirdif, Deira, Bur Dubai, Al Quoz, Dubai Investment Park, Silicon Oasis, and all other residential and commercial areas. If you are unsure whether we cover your location, call +971505773388 and we will confirm within minutes.</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">Do you offer same-day pickup?</p>
+                <p>Yes. Same-day pickup is available for bookings placed before 12 PM. Our team will arrive within the same day&apos;s available time slots. This is ideal for urgent situations such as a lease ending unexpectedly, a renovation starting sooner than planned, or a sudden relocation requirement. For next-day pickups, we have slots available from 8 AM to 8 PM Monday through Saturday.</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">Is packing service included or is it extra?</p>
+                <p>Basic pickup and loading is included in all plans. Professional packing — where our team wraps and boxes your items using quality materials — is an optional add-on service. It is priced per hour and includes all materials such as bubble wrap, packing paper, boxes, furniture covers, and stretch film. Many customers opt for the full packing service for fragile or high-value items and handle standard boxes themselves. Your consultant will give you a clear quote for packing before your pickup appointment.</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">How are my items transported?</p>
+                <p>All items are transported in our dedicated covered vehicles — never in open flatbeds or shared lorries. Furniture is wrapped in moving blankets before loading, fragile items are packed securely, and everything is strapped in place to prevent movement during transit. For very large moves, we use our larger vehicles with professional loading equipment. The entire journey from your door to our facility is handled by our trained team, not subcontracted third parties.</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">Do I receive an inventory of my stored items?</p>
+                <p>Yes. Upon collection, our team creates a detailed inventory list of everything loaded. For customers who prefer a photo inventory — particularly useful for insurance purposes or businesses storing multiple SKUs — we offer a photo documentation service at no extra charge. The inventory is shared with you via WhatsApp or email on the same day as pickup so you have a complete record of what is in storage.</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">What temperature is maintained inside the storage units?</p>
+                <p>SafeStorage Dubai maintains all units at 18–22°C year-round, regardless of outdoor temperatures. Humidity is controlled at 45–55%. This range is optimal for protecting wood (prevents warping and cracking), electronics (prevents heat damage and battery swelling), fabrics and clothing (prevents yellowing and mildew), leather (prevents drying and cracking), documents and photographs (prevents brittleness and discolouration), and artwork (prevents paint degradation). Our facility uses industrial-grade HVAC systems that run continuously throughout the year.</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">How long can I keep items in storage?</p>
+                <p>There is no maximum storage period. Some of our customers have been storing with us for several years, including expats who left Dubai temporarily and businesses with long-term archival needs. As long as you continue your monthly plan, your items remain in secure storage indefinitely. We notify you in advance of any plan renewals and you can adjust, downsize, or cancel at any time with appropriate notice.</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">Can I retrieve just some of my items rather than everything?</p>
+                <p>Yes, partial retrieval is one of our most commonly used features. If you need a specific box, a piece of furniture, or a set of documents, simply let your consultant know. Our team retrieves the specified items from your unit and delivers them to your address within 24–48 hours. The remaining items stay in storage unchanged. There is no extra fee for partial retrievals, and you can request as many partial retrievals as you need throughout your storage period.</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">Do I need to sign a contract?</p>
+                <p>Yes, a simple storage agreement is signed before or at the time of pickup. The agreement covers your unit size, monthly rate, access terms, insurance details, and cancellation policy. There are no hidden clauses or automatic long-term commitments — the contract is month-to-month by default. We strongly encourage customers to read the agreement and ask questions before signing. Our team is happy to walk you through every section.</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">Can I change my unit size after storing?</p>
+                <p>Yes. If you find your unit is too large or too small after storing, you can request a unit size change. Upgrades to a larger unit are typically processed within 2–3 business days subject to availability. Downgrades involve moving your items to a smaller unit, which our team can facilitate on your behalf. There is no penalty for changing unit size, and pricing adjusts from the next billing cycle. Many business customers start with a medium unit and grow into a larger one as their inventory expands.</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">What payment methods does SafeStorage Dubai accept?</p>
+                <p>SafeStorage Dubai accepts credit and debit cards (Visa, Mastercard, and American Express), bank transfers, cash payments at our facility, post-dated cheques for advance payments, Apple Pay, and Google Pay. Monthly, quarterly, and annual payment options are available. Annual plans offer the best per-month rate and save you approximately 15–20% compared to month-by-month billing. All invoices are provided digitally and can be used for business expense reporting.</p>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center">
             <p className="text-lg text-gray-700 mb-4">Ready to experience hassle-free storage in Dubai?</p>
             <Link
