@@ -89,6 +89,95 @@ export default function LandingPage() {
       <FAQSection />
       <BlogSection posts={featuredPosts} />
 
+      {/* Comprehensive FAQ section — 20 Q&As for SEO text-to-HTML ratio */}
+      <section className="py-16 bg-gray-50">
+        <div className="container px-4 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-dubai-navy mb-10 text-center">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">What is self-storage?</h3>
+              <p className="text-gray-700 leading-relaxed">Self-storage is a service where individuals and businesses rent a secure unit or dedicated space to store their belongings outside their home or office. At SafeStorage Dubai, we operate a valet model — our team picks up your items from your door, stores them in our climate-controlled, secured facilities, and delivers everything back whenever you need it. You never have to visit a warehouse or hire a truck. The process is entirely managed by our team from start to finish.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">How much does storage cost in Dubai?</h3>
+              <p className="text-gray-700 leading-relaxed">Storage at SafeStorage Dubai starts from AED 9 per month for individual items, with full household or furniture storage plans from AED 199 per month. All plans include free pickup and delivery, climate-controlled storage maintained at 20&ndash;25&deg;C, 24/7 security monitoring, and free insurance coverage up to AED 5,000. There are no setup fees, no registration costs, and no penalties for cancelling early. Long-term discounts of up to 20% are available for 6&ndash;12 month prepaid plans.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">Is pickup really free?</h3>
+              <p className="text-gray-700 leading-relaxed">Yes, pickup and delivery are completely free at SafeStorage Dubai. Our trained team will come to your home or office anywhere in Dubai, carefully wrap and collect your items, and transport them to our secure warehouse facility at no additional charge. Delivery back to your address when you need your items is also free. This is included as standard in all our monthly storage plans &mdash; there are no hidden transport fees, fuel surcharges, or handling charges.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">What is climate control and why does it matter?</h3>
+              <p className="text-gray-700 leading-relaxed">Climate-controlled storage means the temperature and humidity inside the storage facility are actively regulated. At SafeStorage Dubai, all units are maintained at 20&ndash;25&deg;C year-round. This is critically important in Dubai, where outdoor temperatures regularly exceed 45&deg;C in summer. Without climate control, wood furniture warps, leather cracks, electronics overheat, fabric fades, and metal corrodes. Climate control ensures your belongings are returned in exactly the same condition they were collected.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">How secure is SafeStorage Dubai?</h3>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai uses multiple layers of physical and digital security. All facilities are monitored 24/7 by high-definition CCTV cameras. Entry is controlled by biometric access systems, meaning only authorised personnel and customers can enter the facility. Every unit has an individual alarm. The site has on-site security staff during operating hours and remote monitoring outside hours. Additionally, all stored items are covered by free insurance up to AED 5,000, with optional enhanced coverage available for high-value items.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">What is the minimum rental period?</h3>
+              <p className="text-gray-700 leading-relaxed">The minimum rental period at SafeStorage Dubai is one month. There are no long-term contracts or lock-in periods. You pay monthly in advance and can cancel with as little as 7 days&apos; notice. If you retrieve your items within the first month, you will be charged for one full month. After the first month, charges are calculated on a pro-rata daily basis up to your retrieval date. This flexibility makes SafeStorage ideal for both short-term needs (renovations, travel) and long-term storage requirements.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">Can I store a car at SafeStorage Dubai?</h3>
+              <p className="text-gray-700 leading-relaxed">Yes, SafeStorage Dubai offers dedicated vehicle storage for cars, motorcycles, classic cars, boats, jet skis, and caravans. Our vehicle storage bays are covered, secure, and monitored 24/7. This service is particularly popular among expatriates travelling home for extended periods, classic car collectors who need a safe environment for their vehicles, and owners of seasonal recreational vehicles. Battery maintenance and periodic check-in services are available as add-ons. Contact us for current vehicle storage rates and availability.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">How does inventory tracking work?</h3>
+              <p className="text-gray-700 leading-relaxed">When our team collects your items, every item is photographed, catalogued, and entered into your digital inventory account. You receive a complete itemised list via email with photos of each item, the condition it was collected in, and its location in our warehouse. This digital inventory is accessible through your online customer account at any time. When you request a retrieval, you can specify individual items from your inventory rather than retrieving everything at once. This is particularly useful for customers who store large collections of items long-term.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">Can businesses use SafeStorage Dubai?</h3>
+              <p className="text-gray-700 leading-relaxed">Absolutely. SafeStorage Dubai serves hundreds of businesses across Dubai, from solo freelancers and startups to large corporations and retail chains. Business storage services include office furniture storage, retail inventory storage, document and records archival, e-commerce fulfilment storage, and bulk equipment warehousing. Businesses benefit from dedicated account management, flexible scaling of storage space month to month, and regular scheduled delivery and retrieval of inventory. VAT invoices are provided for all business accounts.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">What areas of Dubai are covered?</h3>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai covers every area of Dubai for free pickup and delivery. Our primary service zones include Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, Al Quoz, Dubai Investment Park, Motor City, Sports City, Deira, Bur Dubai, Mirdif, Arabian Ranches, The Springs, The Meadows, and all other Dubai communities. We also serve Sharjah and other UAE emirates through our extended coverage network. If you are unsure whether your location is covered, simply call us and we will confirm.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">Do you offer same-day pickup?</h3>
+              <p className="text-gray-700 leading-relaxed">Yes, same-day pickup is available at SafeStorage Dubai for requests submitted before 12 noon, subject to slot availability. For planned storage needs, we recommend booking at least 24&ndash;48 hours in advance to ensure your preferred time slot is available. Our team will confirm your pickup appointment and send you a reminder. Emergency storage needs can often be accommodated on very short notice &mdash; call us directly at +971505773388 and we will do our best to arrange same-day service for urgent situations.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">What insurance is provided?</h3>
+              <p className="text-gray-700 leading-relaxed">Every SafeStorage Dubai plan includes free insurance coverage up to AED 5,000 for all stored items. This covers fire damage, theft, and natural calamities. For customers with higher-value items, comprehensive extended insurance is available at an additional cost. We strongly recommend declaring accurate values for all items when completing your inventory during pickup, as the insurance payout is based on declared value. Enhanced coverage plans are available for antiques, art, jewellery, and high-value electronics &mdash; ask our team for details when booking.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">How do I cancel my storage?</h3>
+              <p className="text-gray-700 leading-relaxed">Cancelling storage at SafeStorage Dubai is simple and penalty-free. Give us at least 7 days&apos; notice before your next billing date by email or phone. We will schedule the return delivery of all your items, and your billing will stop once all items have been delivered back to you. There are no cancellation fees, no administrative charges, and no lock-in penalties. Any unused portion of a prepaid period beyond the notice period will be refunded. This flexibility is one of the key reasons customers choose SafeStorage over traditional self-storage facilities.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">Can I retrieve specific items without getting everything back?</h3>
+              <p className="text-gray-700 leading-relaxed">Yes. One of the most valued features of SafeStorage Dubai is the ability to retrieve individual items from your stored inventory without requiring a full move-out. Using your digital inventory account, you can select specific items, boxes, or furniture pieces for delivery. Our team will locate and deliver only the requested items to your address, leaving the rest of your belongings safely stored. This is extremely useful for customers who store seasonal items, business inventory, or collections they access occasionally throughout the year.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">What unit sizes are available?</h3>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai offers storage units ranging from 25 square feet (small locker, suitable for a few boxes or a single piece of furniture) up to 300+ square feet (large units capable of holding the full contents of a 4-bedroom villa). Common sizes include studio unit (25&ndash;50 sq ft), 1-bedroom apartment unit (50&ndash;75 sq ft), 2-bedroom apartment unit (75&ndash;125 sq ft), 3-bedroom apartment unit (125&ndash;175 sq ft), and villa-sized units (200&ndash;300+ sq ft). We can recommend the right size based on your inventory list or photos.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">How long does the pickup take?</h3>
+              <p className="text-gray-700 leading-relaxed">A typical residential pickup at SafeStorage Dubai takes 2&ndash;4 hours depending on the volume of items being collected. Our team arrives with all necessary packing materials including furniture blankets, bubble wrap, stretch film, and corner protectors. They will carefully wrap, photograph, and inventory each item before loading. For large villa clearances or business pickups, additional time may be needed &mdash; we recommend scheduling these in the morning to allow sufficient time. Our team will give you an accurate time estimate when you book your pickup.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">What is included in the monthly storage price?</h3>
+              <p className="text-gray-700 leading-relaxed">The monthly storage rate at SafeStorage Dubai includes: free door-to-door pickup from anywhere in Dubai, secure climate-controlled storage in our monitored warehouse, digital inventory management with item-level tracking, free insurance coverage up to AED 5,000, 24/7 CCTV and biometric security, and free delivery back to your address when you need your items. There are no hidden fees. The only additional charges would be for optional packing materials if requested, enhanced insurance for high-value items, or same-day express service during peak periods.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">Is VAT included in the price?</h3>
+              <p className="text-gray-700 leading-relaxed">All prices quoted by SafeStorage Dubai are exclusive of UAE VAT (5%). VAT will be applied to your invoice in accordance with UAE Federal Tax Authority regulations. For VAT-registered businesses, please provide your Tax Registration Number (TRN) before your first invoice is generated so that your invoices are correctly issued for VAT reclaim purposes. Individuals and non-VAT-registered customers will simply pay the quoted rate plus 5% VAT. All invoices are sent digitally via email and are compliant with UAE VAT requirements.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">How do I pay for storage?</h3>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai accepts multiple payment methods for your convenience. You can pay by credit or debit card (Visa, Mastercard), bank transfer, online payment through the website, or cheque made in favour of SafeStorage Dubai. Payments are made monthly in advance. For long-term plans, you can prepay for 3, 6, or 12 months upfront to benefit from discounts of up to 20%. Auto-pay can be set up so you never miss a payment. Monthly invoices and payment reminders are sent by email, SMS, and WhatsApp.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-dubai-navy mb-2">What makes SafeStorage different from other storage companies in Dubai?</h3>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai combines every advantage of premium storage into one transparent, affordable package. Unlike traditional self-storage companies, we come to you &mdash; free pickup and delivery means you never need to hire a van or visit a warehouse. Every unit is climate-controlled at no extra charge, protecting belongings from Dubai&apos;s extreme heat. Free insurance up to AED 5,000 is included as standard. Our digital inventory system lets you track every item and request individual retrievals. With over 2,400 verified reviews and a 4.9/5 rating, SafeStorage is Dubai&apos;s highest-rated storage provider.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Static rich-text section for SEO — server-rendered, below-fold */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-5xl">
