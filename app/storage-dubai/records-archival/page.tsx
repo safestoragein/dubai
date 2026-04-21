@@ -300,6 +300,147 @@ export default function RecordsArchivalPage() {
           </div>
         </div>
       </section>
+
+      {/* Comprehensive Guide Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-4">Document &amp; Records Archival Storage in Dubai — Complete Business Guide</h2>
+          <p className="text-lg text-gray-700 mb-8">
+            Every business operating in Dubai generates documents that must be retained for legal, regulatory, and operational reasons. Contracts, financial records, employee files, client data, tax returns, and correspondence all have defined retention periods under UAE law. Managing these documents on-site — in filing cabinets, storage rooms, or rented office space — is expensive, inefficient, and often insufficient to meet compliance requirements. Professional off-site archival storage is the solution adopted by leading Dubai businesses across every industry.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">UAE Document Retention Laws Explained</h3>
+              <p className="text-gray-700 mb-4">
+                The UAE Commercial Companies Law (Federal Law No. 2 of 2015) requires companies to retain financial records, shareholder registers, and board minutes for a minimum of 5 years. The UAE Federal Tax Authority requires VAT records to be retained for 5 years (and 15 years for real estate transactions). Employment contracts and related HR documents must be retained for at least 2 years after an employee leaves, under the UAE Labour Law.
+              </p>
+              <p className="text-gray-700">
+                Free zone authorities (DIFC, ADGM, JAFZA, Dubai South, DMCC, etc.) each have their own additional record-keeping requirements. Healthcare providers must retain patient records for 10 years under DHA regulations. Legal firms must retain client files for varying periods depending on the matter type. SafeStorage&apos;s document management team can advise on the applicable retention periods for your industry and document categories.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">How Businesses Use Archival Storage</h3>
+              <p className="text-gray-700 mb-4">
+                The typical document archival workflow for a Dubai business begins with identifying documents that are no longer actively needed but must be retained for compliance. These documents are boxed, labelled, and inventoried, then collected by our team or delivered to our facility. Each box is assigned a unique barcode, photographed, and logged in our digital document management system.
+              </p>
+              <p className="text-gray-700">
+                When a document is needed — for an audit, legal dispute, regulatory inspection, or internal query — the business requests retrieval via our portal, phone, or WhatsApp. We locate the specific box or file, scan or physically retrieve it, and deliver it to the requesting office within 24 hours. When the retrieval is no longer needed, the document is returned to archival storage. This process typically costs far less than maintaining equivalent filing space in a central Dubai office location.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 rounded-xl p-8 mb-10">
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Document Retrieval Process — Step by Step</h3>
+            <div className="grid md:grid-cols-4 gap-4 text-gray-700">
+              <div className="text-center p-4">
+                <div className="w-10 h-10 bg-[#0A2463] rounded-full flex items-center justify-center text-white font-bold mx-auto mb-3">1</div>
+                <p className="font-semibold mb-2">Request</p>
+                <p className="text-sm">Submit retrieval request via portal, phone, or WhatsApp with document reference number or description</p>
+              </div>
+              <div className="text-center p-4">
+                <div className="w-10 h-10 bg-[#0A2463] rounded-full flex items-center justify-center text-white font-bold mx-auto mb-3">2</div>
+                <p className="font-semibold mb-2">Locate</p>
+                <p className="text-sm">Our team locates the specific box or file using our barcode tracking system — typically within 30 minutes</p>
+              </div>
+              <div className="text-center p-4">
+                <div className="w-10 h-10 bg-[#0A2463] rounded-full flex items-center justify-center text-white font-bold mx-auto mb-3">3</div>
+                <p className="font-semibold mb-2">Deliver or Scan</p>
+                <p className="text-sm">Physical delivery to your office within 24 hours, or digital scan delivery same day for urgent requests</p>
+              </div>
+              <div className="text-center p-4">
+                <div className="w-10 h-10 bg-[#0A2463] rounded-full flex items-center justify-center text-white font-bold mx-auto mb-3">4</div>
+                <p className="font-semibold mb-2">Return</p>
+                <p className="text-sm">Document returned to archival storage after use, or flagged for destruction if retention period has expired</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-8">Frequently Asked Questions — Document &amp; Records Archival Storage Dubai</h2>
+
+          <div className="space-y-6">
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">1. What types of documents can be stored in archival storage?</h3>
+              <p className="text-gray-700">SafeStorage accepts all categories of business documents including financial records, contracts and agreements, HR and employment files, legal case files, corporate governance documents (minutes, resolutions, shareholder registers), tax records, audit files, medical records, insurance documents, and general correspondence. Documents must be properly boxed and labelled — our team can assist with the packing and inventory process if needed.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">2. How long must businesses in the UAE retain financial records?</h3>
+              <p className="text-gray-700">Under UAE Commercial Companies Law, financial records including accounts, annual financial statements, and supporting documentation must be retained for a minimum of 5 years. VAT records must be retained for 5 years under Federal Tax Authority requirements (15 years for real estate-related records). Businesses subject to additional regulatory oversight — such as those licensed by the DFSA in DIFC or the FSRA in ADGM — may face longer retention requirements. Always consult your legal or compliance team for guidance specific to your business structure and activities.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">3. How secure is off-site document storage at SafeStorage?</h3>
+              <p className="text-gray-700">Our document storage area operates at the highest physical security standards. Access is controlled by biometric fingerprint authentication and is restricted to authorised personnel only. The entire facility is covered by 24/7 HD CCTV with recordings retained for 90 days. Our document storage section is a dedicated zone within the facility, further separated from general storage areas. All staff handling documents are background-checked, trained in confidentiality protocols, and sign NDAs. We also sign confidentiality agreements with all business clients.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. Can documents be retrieved urgently if needed for a regulatory inspection?</h3>
+              <p className="text-gray-700">Yes. We understand that regulatory inspections and legal proceedings may require same-day document retrieval. For urgent retrieval requests, our team prioritises location and either dispatches the physical documents via courier or provides digital scans within a few hours. We recommend maintaining a complete and accurate inventory of all archived boxes to ensure specific documents can be located quickly. Businesses facing routine regulatory inspections often brief us in advance to have relevant files pre-identified.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. What is the process for destroying documents when their retention period expires?</h3>
+              <p className="text-gray-700">When a document reaches the end of its legally required retention period, it should be destroyed in a manner that prevents the information from being recovered or misused. SafeStorage offers certified document destruction using industrial cross-cut shredders that reduce documents to 2mm x 15mm particles. Following destruction, we issue a certificate of destruction for your compliance records. Destruction is scheduled based on the retention schedule you provide and can be carried out at our facility or your office premises.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. How are archived boxes catalogued and indexed?</h3>
+              <p className="text-gray-700">Every box deposited at SafeStorage is assigned a unique barcode and logged in our digital document management system. The entry record includes the date of deposit, contents description (as provided by the client), box dimensions, assigned retention period, and physical location within our facility. When you need to locate a specific document, you can search our online portal by box reference, date range, document category, or client-defined tags. Our team can also add more granular file-level indexing for clients with high retrieval frequency requirements.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. Do you provide document storage for medical clinics and hospitals in Dubai?</h3>
+              <p className="text-gray-700">Yes. Medical records storage is one of our specialist services. Patient records, lab reports, imaging records, clinical notes, and consent forms must be retained for 10 years under Dubai Health Authority regulations (longer for paediatric records). We provide fireproof, climate-controlled storage that protects paper records from degradation. Our access control and confidentiality protocols meet healthcare sector requirements. We sign healthcare-specific confidentiality agreements and can work with your compliance team to design a retention and retrieval workflow.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. How much does document archival storage cost in Dubai?</h3>
+              <p className="text-gray-700">Document archival storage at SafeStorage is priced per box per month, with volume discounts for larger collections. Pricing starts from AED 8–15 per box per month depending on volume. Most small businesses storing 50–200 boxes pay AED 600–2,000/month in total. Retrieval fees apply for physical delivery of boxes to your office, while digital scanning services are charged per page for urgent scan requests. There are no setup fees or minimum contract periods. Contact us at +971505773388 for a quote based on your document volume.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. Can law firms store confidential client files with SafeStorage?</h3>
+              <p className="text-gray-700">Yes. We work with several law firms and legal consultancies in Dubai who use our facility for matter file archiving. Legal professional privilege and client confidentiality are paramount in law firm document storage. We sign comprehensive confidentiality agreements with all legal sector clients, restrict access to authorised firm personnel only, and maintain chain-of-custody records for all retrievals and returns. Our facility meets the physical security standards required for legal document storage under UAE Bar Association guidelines.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. What happens to my archived documents if SafeStorage ceases operations?</h3>
+              <p className="text-gray-700">This is a question we encourage all clients to ask of any archival storage provider. SafeStorage maintains a written continuity plan addressing this scenario. In the event of any operational disruption, all clients would be notified with a minimum 60-day notice period to arrange collection of their documents. Your documents are your property at all times — they are held in custody on your behalf, not transferred to SafeStorage. Your storage agreement includes specific provisions about document ownership and return procedures.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. Does SafeStorage offer document scanning and digitisation services?</h3>
+              <p className="text-gray-700">Yes. For businesses looking to reduce or eliminate their physical document archive entirely, we offer document scanning and digitisation services. Your paper files are scanned at high resolution, converted to searchable PDF format, named and indexed according to your taxonomy, and delivered to you via secure file transfer or stored in a cloud system of your choice. Physical originals can then be retained in reduced archival storage or destroyed securely. Digitisation is particularly valuable for older records that are rarely accessed but still legally required to be retained.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">12. How is document storage priced differently from box storage versus shelf filing?</h3>
+              <p className="text-gray-700">Standard archival storage uses uniform archive boxes (typically A4 size, approximately 60 litres) stored on racking systems. This is the most cost-effective format for large volumes of paper records. For oversized documents, drawings, blueprints, or records that cannot be boxed (like bound ledgers or large format files), shelf or flat-file storage is used at a different pricing structure. We can accommodate both formats and will recommend the most cost-effective approach based on your document types during your initial consultation.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">13. Can we store digital backups (hard drives, tapes) alongside paper records?</h3>
+              <p className="text-gray-700">Yes. SafeStorage stores physical digital media including LTO backup tapes, hard disk drives, USB drives, and legacy media formats (DAT, DLT). Digital media is particularly sensitive to temperature and magnetic fields, and our climate-controlled, shielded storage environment is appropriate for long-term media preservation. For disaster recovery purposes, many businesses store physical media backups off-site at SafeStorage as part of their business continuity planning. We maintain a separate inventory and chain-of-custody record for all media items.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">14. How do I transfer my existing document archive to SafeStorage?</h3>
+              <p className="text-gray-700">Transferring your existing document archive to SafeStorage is straightforward. For small volumes (fewer than 50 boxes), you can deliver them to our facility. For larger volumes, our team will visit your office on a scheduled date with the appropriate packaging materials, help box and label documents according to your inventory system, load them onto our vehicle, and transport them to our facility. The entire intake process — including barcoding, photography, and system entry — is completed within 24–48 hours of delivery.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">15. Are there items that cannot be stored in document archival storage?</h3>
+              <p className="text-gray-700">Document archival storage is specifically designed for paper records, files, folders, and physical media. Items that cannot be stored in the document archival section include physical exhibits or evidence items, items containing hazardous materials, perishable goods, and items requiring special environmental conditions beyond standard climate control. If you have non-document items to store alongside your records (such as original artwork, product samples, or specialty items), we can accommodate these in appropriate standard storage units and manage them under the same account.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
