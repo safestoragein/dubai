@@ -11,7 +11,7 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Dubai Shopping Guide 2026: Best Malls & Souks",
+  title: "Dubai Shopping Guide 2026: Malls & Souks",
   description:
     "Ultimate Dubai shopping guide 2026! Discover the best malls (Dubai Mall, Mall of Emirates), traditional souks (Gold, Spice), outlet malls, markets & shopping festivals. Real prices, best times to shop & insider tips!",
   keywords:

@@ -11,7 +11,7 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Moving to Dubai 2026: Complete Relocation Guide",
+  title: "Moving to Dubai 2026: Relocation Guide",
   description:
     "Planning to move to Dubai in 2026? Complete step-by-step guide covering visas, housing, jobs, schools, cost of living, and storage solutions. Make your Dubai move smooth and stress-free!",
   keywords:

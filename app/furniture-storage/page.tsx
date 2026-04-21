@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 import { Sofa, CheckCircle2, Star, Phone, ArrowRight, Shield, Thermometer, Package } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Furniture Storage Dubai — Climate-Controlled",
+  title: "Furniture Storage Dubai — Free Pickup",
   description: "Furniture storage in Dubai with free pickup and climate control. Safe storage for sofas, beds, wardrobes, dining sets and full apartment contents. From AED 299/month. Call +971505773388.",
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, wardrobe storage dubai, dining table storage dubai, moving furniture storage dubai, apartment furniture storage dubai, villa furniture storage",
   openGraph: {

@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 import { GraduationCap, CheckCircle2, Star, Phone, ArrowRight, Package, Shield, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Student Storage Dubai — Affordable Short-Term",
+  title: "Student Storage Dubai — Budget Plans",
   description: "Cheap, safe student storage in Dubai. Store your belongings between semesters, summer holidays or graduation. From AED 99/month. Free pickup near major universities. Call +971505773388.",
   keywords: "student storage dubai, university storage dubai, semester storage dubai, summer student storage dubai, student accommodation storage, UAEU student storage, AUD student storage",
   openGraph: {

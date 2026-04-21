@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 import { Cpu, CheckCircle2, Star, Phone, ArrowRight, Shield, Thermometer, Lock, AlertTriangle } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Electronics Storage Dubai — Protect Your Tech",
+  title: "Electronics Storage Dubai — Safe Tech",
   description: "Safe, climate-controlled electronics storage in Dubai. Protect laptops, TVs, gaming gear, servers and tech equipment from Dubai's extreme heat and humidity. From AED 199/month. Free pickup.",
   keywords: "electronics storage dubai, laptop storage dubai, TV storage dubai, tech storage dubai, gadget storage dubai, server storage dubai, climate controlled electronics storage, gaming equipment storage dubai",
   openGraph: {

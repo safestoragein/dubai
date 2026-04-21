@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 import { Package, CheckCircle2, ArrowRight, Star, Phone, Home, Building2, Truck } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Storage Size Guide Dubai — What Size Do I Need?",
+  title: "Storage Size Guide Dubai — Which Size?",
   description: "Find the perfect storage unit size in Dubai. Detailed guide covering locker to extra-large units, what fits in each size, and pricing. From AED 99/month. Call +971505773388.",
   keywords: "storage unit size guide dubai, what size storage do I need, storage unit sizes dubai, self storage sizes, storage unit calculator dubai, how big storage unit do i need",
   openGraph: {

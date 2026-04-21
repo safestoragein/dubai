@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 import { Shield, Star, Phone, CheckCircle2, Thermometer, Camera, Lock, ArrowRight, Award } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Art Storage Dubai — Climate-Controlled Vaults",
+  title: "Art Storage Dubai — Secure Art Vaults",
   description: "Specialist art storage in Dubai for paintings, sculptures, antiques & collectibles. Precise climate control, photography on intake, white-glove handling. Call +971505773388.",
   keywords: "art storage dubai, artwork storage dubai, painting storage dubai, sculpture storage dubai, antique storage dubai, climate controlled art storage, valuables storage dubai, gallery storage dubai",
   openGraph: {

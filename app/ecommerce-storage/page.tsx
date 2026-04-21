@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 import { ShoppingBag, CheckCircle2, Star, Phone, ArrowRight, Package, Truck, BarChart3 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "E-Commerce Storage Dubai — Inventory & Fulfilment",
+  title: "E-Commerce Storage Dubai — Inventory",
   description: "Flexible e-commerce and inventory storage in Dubai. Cheaper than warehouse rental, no 3-year leases, scale up or down as needed. From AED 499/month. Free pickup. Call +971505773388.",
   keywords: "ecommerce storage dubai, inventory storage dubai, online seller storage dubai, fulfilment storage dubai, amazon fba storage dubai, product storage dubai, business inventory storage dubai",
   openGraph: {

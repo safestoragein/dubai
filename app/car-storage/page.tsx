@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 import { Car, ShieldCheck, Thermometer, Clock, Star, CheckCircle2, Phone, Bike, Ship, Trophy, Camera, Truck, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Car Storage Dubai — Secure Vehicle Storage",
+  title: "Car Storage Dubai — Vehicle Storage",
   description: "Store your car, motorcycle, boat or classic vehicle safely in Dubai. Climate-controlled 20-25°C, 24/7 CCTV, free insurance up to AED 5,000. Cars from AED 899/month. Free pickup. Call +971505773388.",
   keywords: "car storage dubai, vehicle storage dubai, motorcycle storage dubai, classic car storage dubai, boat storage dubai, climate controlled car storage, indoor vehicle storage dubai, summer car storage dubai, car storage near me dubai",
   openGraph: {
