@@ -173,6 +173,110 @@ export default function DubaiMarinaPage() {
         </div>
       </div>
     </section>
+
+    {/* Extended Detail Section */}
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Dubai Marina Storage — Everything You Need to Know</h2>
+        <p className="text-lg text-gray-700 mb-6">
+          Dubai Marina is one of the most sought-after residential addresses in the UAE — a vibrant waterfront community packed with luxury towers, marina-front dining, and easy beach access. With premium real estate comes premium square-metre prices, which means apartment storage is minimal and residents frequently need external storage for the overflow. SafeStorage is the preferred storage provider for Dubai Marina, JBR, JLT, and the surrounding western Dubai communities precisely because we eliminate every inconvenience of the storage process.
+        </p>
+        <p className="text-lg text-gray-700 mb-8">
+          Our Dubai Marina service zone is staffed with teams who know the area&apos;s tower access protocols intimately — from marina-front towers on the promenade to JBR&apos;s Murjan and Bahar clusters to the residential blocks of JLT. We manage building concierge requirements, loading bay access, lift logistics, and parking in high-density zones like Marina and JBR without any inconvenience to you. Simply pack your items if desired or leave everything to us, and we handle the rest from collection to climate-controlled storage to on-demand delivery.
+        </p>
+        <div className="grid md:grid-cols-2 gap-8 mb-10">
+          <div>
+            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">JLT (Jumeirah Lake Towers) Storage</h3>
+            <p className="text-gray-700 mb-3">Jumeirah Lake Towers is a major mixed-use community adjacent to Dubai Marina, home to both residential towers and significant office space. JLT residents benefit from SafeStorage&apos;s same standards of free pickup, climate-controlled storage, and flexible monthly plans. JLT is also a hub for small and medium businesses, many of which use SafeStorage for document archiving and commercial storage.</p>
+            <p className="text-gray-700">The proximity of JLT to the DMCC Free Zone makes it a key area for businesses with document archiving needs. SafeStorage collects directly from JLT offices and provides on-demand retrieval, helping DMCC-registered companies manage their compliance records efficiently without using expensive office space for dead files.</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">The Greens, The Views &amp; JVC Coverage</h3>
+            <p className="text-gray-700 mb-3">The Greens and The Views are established, mature communities popular with long-term Dubai residents and families. These villa-apartment communities have a strong demand for household storage, particularly for residents who are renovating, downsizing, or in the middle of lease transitions. SafeStorage covers both The Greens and The Views within our Dubai Marina service zone.</p>
+            <p className="text-gray-700">Jumeirah Village Circle (JVC), bordering both the Marina zone and the DIP zone, is also fully covered. JVC&apos;s large residential population and mix of apartments and townhouses creates significant demand for flexible storage — both short-term for renovations and lease gaps, and long-term for personal storage needs.</p>
+          </div>
+        </div>
+        <div className="bg-gray-50 rounded-xl p-8 mb-8">
+          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Storage Pricing for Dubai Marina &amp; JBR Residents</h3>
+          <p className="text-gray-700 mb-4">SafeStorage pricing is transparent, volume-based, and identical across all Dubai areas including premium zones like Marina and JBR. There are no location premiums or surcharges for high-rise access. Here is what typical Marina and JBR customers pay:</p>
+          <div className="grid md:grid-cols-3 gap-4 text-gray-700">
+            <div className="bg-white rounded-lg p-4 border border-gray-200">
+              <p className="font-bold text-[#0A2463] text-lg mb-2">Small (Few Boxes)</p>
+              <p className="text-2xl font-bold text-[#D8315B] mb-2">From AED 9/mo</p>
+              <p className="text-sm">5–10 boxes of personal items, seasonal clothes, sports equipment</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-gray-200">
+              <p className="font-bold text-[#0A2463] text-lg mb-2">Medium (1-Bedroom)</p>
+              <p className="text-2xl font-bold text-[#D8315B] mb-2">From AED 150/mo</p>
+              <p className="text-sm">Full 1-bedroom apartment furniture plus personal items</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-gray-200">
+              <p className="font-bold text-[#0A2463] text-lg mb-2">Large (2-3 Bedroom)</p>
+              <p className="text-2xl font-bold text-[#D8315B] mb-2">From AED 300/mo</p>
+              <p className="text-sm">Full 2–3 bedroom apartment contents including all furniture</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <h2 className="text-3xl font-bold text-[#0A2463] mb-4 text-center">Frequently Asked Questions — Dubai Marina &amp; JBR Storage</h2>
+        <p className="text-gray-600 text-center mb-10">Everything residents of Dubai Marina, JBR, JLT, The Greens, and Palm Jumeirah need to know about SafeStorage.</p>
+        <div className="space-y-6">
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I store furniture during my Dubai Marina apartment renovation?</h3>
+            <p className="text-gray-700">The process is very simple with SafeStorage. Contact us by phone or WhatsApp (+971505773388), share a list or photos of the furniture you need to store, and receive a transparent quote. Once confirmed, we arrive at your Marina apartment on the scheduled date, professionally wrap and protect all furniture pieces, load them into our covered vehicle, and transport them to our climate-controlled facility. We store everything until your renovation is complete, then return all items to your apartment floor. Renovation storage plans start from one week with no minimum commitment required.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can SafeStorage help when my JBR lease ends before my new apartment is ready?</h3>
+            <p className="text-gray-700">Absolutely — this is one of our most common service requests in JBR and across Dubai Marina. When your JBR lease ends and your new apartment is not yet available, SafeStorage bridges the gap by storing all your belongings safely while you are in temporary accommodation. We can pick up from your current apartment on or before your lease end date and deliver everything to your new address once it is ready. The storage plan runs month-to-month with no penalties for short stays. Call us early to secure a pickup slot on your preferred move-out date.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is Palm Jumeirah included in the Dubai Marina service zone?</h3>
+            <p className="text-gray-700">Yes, Palm Jumeirah is fully covered within our Dubai Marina service zone. We serve all parts of the Palm — the Trunk, all numbered Fronds, and the Crescent including Atlantis, One Palm, and the Waldorf Astoria residences. Given the Palm&apos;s unique layout and the value of property there, we treat all Palm Jumeirah pickups with the same care and professionalism as any luxury residential service. Our team is experienced with the Palm&apos;s access roads and building procedures for both the Signature Villas and the Shoreline Apartments.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you store water sports equipment like kayaks, paddleboards, and jet skis?</h3>
+            <p className="text-gray-700">Yes, SafeStorage stores a wide range of water sports and beach equipment including kayaks, paddleboards, surfboards, bodyboards, wetsuits, diving equipment, fishing gear, and inflatable watercraft. We provide appropriate wrapping and support to prevent damage during storage. Jet skis and personal watercraft can also be stored in our vehicle storage bays with proper preparation. Dubai Marina and JBR residents are some of our biggest customers for water sports storage given the proximity to the beach and marina. Contact us to discuss the specific equipment you need to store.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the fastest way to get same-day pickup in Dubai Marina?</h3>
+            <p className="text-gray-700">The fastest way to secure same-day pickup in Dubai Marina is to WhatsApp us on +971505773388 before 10 AM on a working day (Monday through Saturday). This gives our scheduling team the maximum time to fit you into the day&apos;s pickup schedule. In your WhatsApp message, include your building name and unit number, a brief description of what you need to store (or photos), and your preferred time window for the same day. We will confirm availability and pricing within minutes. Same-day service is subject to availability but is possible in most Dubai Marina, JBR, and JLT locations on most working days.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Does SafeStorage serve Dubai Media City and Dubai Internet City residents?</h3>
+            <p className="text-gray-700">Yes, Dubai Media City and Dubai Internet City residential communities are fully covered within our Dubai Marina service zone. Both free zones have growing residential populations in addition to their office communities. Residents in Media City and Internet City apartment complexes use SafeStorage for the same range of services as Marina residents — renovation storage, between-lease storage, and personal household storage. Businesses based in these free zones also use our document archiving and commercial storage services.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">How are my furniture items protected during collection and storage?</h3>
+            <p className="text-gray-700">SafeStorage takes careful handling seriously, especially for the high-quality furniture common in Marina and JBR apartments. All furniture is protected using thick furniture blankets, corner protectors, stretch film wrapping, and bubble wrap for delicate surfaces and glass components. Mattresses are protected in sealed mattress covers. Items are loaded into our enclosed, clean moving vehicles and secured during transport. In storage, all furniture is placed on raised platforms to prevent moisture contact and stored away from walls to ensure proper airflow. Climate control at 18–22°C prevents warping, cracking, or fading of all materials.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can I access my stored items in person if needed?</h3>
+            <p className="text-gray-700">Yes, customers can arrange to visit the SafeStorage facility by appointment to access their stored items in person. Simply contact your storage consultant to schedule a visit during facility operating hours. However, most customers find the on-demand delivery service more convenient — simply request the specific items you need and they will be delivered to your Dubai Marina address within 24 hours. For large quantities, we can deliver in batches. There is no requirement to visit the facility, and many customers manage their entire storage experience remotely.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">What happens to my insurance if something is damaged during pickup or delivery?</h3>
+            <p className="text-gray-700">All items stored with SafeStorage are covered by complimentary insurance against theft, fire, flood, and accidental damage while in our facility. Our insurance also covers damage during the pickup and delivery process caused by our team. In the unlikely event of damage, customers should report it to their storage consultant within 48 hours of delivery. We will initiate a claims process to assess the damage and arrange appropriate compensation or replacement. Extended insurance is available for high-value items at an additional premium — ask your consultant if you have items worth more than the standard coverage threshold.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I get a quote for storing my entire Marina apartment during a long trip abroad?</h3>
+            <p className="text-gray-700">For whole-apartment storage during an extended trip, the quickest way to get a quote is to share a short video walkthrough of your apartment via WhatsApp (+971505773388). This allows our team to assess the volume of items and give you an accurate quote within a few hours. Alternatively, you can call us and answer a few questions about your apartment size and the items you want to store. Whole-apartment storage for a 1-bedroom Dubai Marina apartment typically starts from AED 150–250 per month depending on volume, and includes free collection, climate control, security, insurance, and one free delivery when you return.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there parking available when SafeStorage collects from my JBR apartment?</h3>
+            <p className="text-gray-700">Our experienced Dubai Marina team knows JBR&apos;s parking and access procedures well. For JBR pickups, we typically use designated loading bays available in each cluster, and our team coordinates with building management as required. In busy areas like JBR where parking is limited, we plan pickup times to minimise disruption and use the most appropriate vehicle size for efficient access. You do not need to arrange parking for our team — just let us know your cluster and building number when booking and we will handle the logistics.</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can an expat leaving Dubai from the Marina area store their belongings long-term?</h3>
+            <p className="text-gray-700">Yes, SafeStorage is an excellent solution for expats leaving Dubai who are not ready to ship all their belongings home immediately. Our flexible month-to-month plans have no lock-in and no minimum contract length. Many expats from Dubai Marina and JBR store their furniture, clothing, and personal items with us while they settle in their home country and decide what to ship, sell, or donate. We can arrange international shipping for your stored items when you are ready, or return items to a Dubai address if you decide to come back. This approach is often far more cost-effective than paying for international shipping before you know what you actually want.</p>
+          </div>
+        </div>
+      </div>
+    </section>
     </>
   )
 }

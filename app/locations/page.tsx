@@ -172,6 +172,142 @@ export default function LocationsPage() {
         </div>
       </section>
 
+      {/* Comprehensive SEO Text Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Storage Locations Across Dubai — Complete Coverage Guide</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            SafeStorage Dubai operates the most comprehensive door-to-door storage pickup network in the UAE. Unlike traditional self-storage facilities where you must rent a van, load your own furniture, and drive across the city, SafeStorage comes directly to your home or office anywhere in Dubai. Our professional team handles collection, secure transportation, and on-demand delivery — making storage genuinely hassle-free from start to finish. With service zones spanning Business Bay, Dubai Marina, Jumeirah, Dubai Investment Park, and all surrounding communities, there is no area of Dubai we cannot serve.
+          </p>
+          <p className="text-lg text-gray-700 mb-8">
+            All stored items are kept in climate-controlled units maintained at 18–22°C year-round, protected by 24/7 CCTV surveillance and biometric access control. Every customer&apos;s stored items are covered by complimentary insurance, and plans start from just AED 9 per month with no long-term lock-in. Whether you need storage for one week or five years, SafeStorage provides the same premium standard of care, security, and service.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="bg-blue-50 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">Central Dubai Coverage</h3>
+              <p className="text-gray-700 text-sm mb-3">Our Business Bay service zone covers the heart of Dubai — Downtown, DIFC, Sheikh Zayed Road, Burj Khalifa District, Za&apos;abeel, and Trade Centre. This zone primarily serves corporate clients, DIFC companies needing document archiving, and Downtown apartment residents who need extra storage space in a city where apartments are compact and storage is at a premium.</p>
+              <p className="text-gray-700 text-sm">Average pickup time from Central Dubai: 10–15 minutes from confirmation.</p>
+            </div>
+            <div className="bg-blue-50 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">West Dubai Coverage</h3>
+              <p className="text-gray-700 text-sm mb-3">Our Dubai Marina service zone covers the western coastal strip — Marina, JBR, JLT, Bluewaters Island, Palm Jumeirah, Dubai Media City, Dubai Internet City, The Greens, and The Views. This zone is particularly popular with professionals and expats who live in the Marina area and need flexible, short-term storage between lease transitions or during apartment renovations.</p>
+              <p className="text-gray-700 text-sm">Average pickup time from West Dubai: 15–20 minutes from confirmation.</p>
+            </div>
+            <div className="bg-blue-50 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">South Dubai Coverage</h3>
+              <p className="text-gray-700 text-sm mb-3">Our Dubai Investment Park service zone covers southern Dubai — DIP 1 &amp; 2, Motor City, Dubai Production City, Dubai Studio City, Sports City, Discovery Gardens, Jumeirah Village Circle, and JAFZA. This zone primarily serves businesses needing document archiving, industrial companies, and residents of the south Dubai villa and apartment communities.</p>
+              <p className="text-gray-700 text-sm">Average pickup time from South Dubai: 10–15 minutes from confirmation.</p>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 rounded-xl p-8 mb-10">
+            <h3 className="text-2xl font-bold text-[#0A2463] mb-4">How the SafeStorage Door-to-Door System Works</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <p className="text-gray-700 mb-4">The SafeStorage process is designed to eliminate every inconvenience associated with traditional self-storage. Here is exactly what happens when you book with us:</p>
+                <ol className="space-y-3 text-gray-700">
+                  <li><strong>Step 1 — Get a Quote:</strong> Contact us by phone, WhatsApp (+971505773388), or online form. Describe what you need to store and we provide an instant, transparent quote with no hidden fees.</li>
+                  <li><strong>Step 2 — Schedule Pickup:</strong> Choose your preferred pickup date and time window (morning, afternoon, or evening, Monday through Saturday). Same-day pickup is available for requests made before 12 PM.</li>
+                  <li><strong>Step 3 — We Collect:</strong> Our uniformed team arrives at your location in a clean, covered moving vehicle. We carefully pack, wrap, and load your items — you do not need to lift a single box.</li>
+                  <li><strong>Step 4 — Secure Storage:</strong> Your items are transported to our climate-controlled facility and stored in a dedicated, individually alarmed unit. You receive a digital inventory of everything stored.</li>
+                  <li><strong>Step 5 — On-Demand Retrieval:</strong> When you need items back, simply contact us. We deliver your specified items to your address within 24–48 hours, or same-day for urgent requests.</li>
+                </ol>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-[#0A2463] mb-3">What Is Included in Every Plan</h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Free door-to-door pickup anywhere in Dubai</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Climate-controlled storage at 18–22°C year-round</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>24/7 CCTV surveillance and biometric access control</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Complimentary insurance on all stored items</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Digital photo inventory of every item stored</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Dedicated storage consultant via phone and WhatsApp</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Flexible monthly plans — cancel anytime without penalty</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>On-demand delivery back to any Dubai address</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Professional packing materials and wrapping available</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>No surprise charges — all costs disclosed upfront</span></li>
+                </ul>
+                <div className="mt-6 p-4 bg-[#0A2463] text-white rounded-lg">
+                  <p className="font-bold mb-1">Starting from AED 9/month</p>
+                  <p className="text-sm">Plans scale based on volume of items stored. No minimum contract. No long-term commitment required.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-4 text-center">Frequently Asked Questions — Storage Locations in Dubai</h2>
+          <p className="text-gray-600 text-center mb-10">Everything you need to know about SafeStorage coverage, pickup areas, and how our location service works across Dubai.</p>
+          <div className="space-y-6">
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">Which areas of Dubai does SafeStorage serve?</h3>
+              <p className="text-gray-700">SafeStorage serves every area of Dubai with our door-to-door pickup and delivery service. Our four primary service zones cover Business Bay (central Dubai), Dubai Marina (western Dubai), Jumeirah (villa communities), and Dubai Investment Park (southern Dubai). Beyond these core zones, we also serve Deira, Bur Dubai, Karama, Mirdif, Arabian Ranches, Dubai Silicon Oasis, Academic City, International City, Al Barsha, Tecom, and all other Dubai communities. If you are unsure whether your area is covered, simply call or WhatsApp us on +971505773388 and we will confirm immediately.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">How quickly can SafeStorage pick up from my location in Dubai?</h3>
+              <p className="text-gray-700">For requests made before 12 PM on working days, same-day pickup is available across most Dubai areas. Standard pickups are scheduled within 24–48 hours, with your choice of morning (8 AM–12 PM), afternoon (12 PM–4 PM), or evening (4 PM–8 PM) time windows. Our team arrives within a 1-hour window of the scheduled time. For urgent situations — such as last-minute lease endings or unexpected renovation starts — call us directly on +971505773388 and we will do our best to accommodate you on the same day.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do I need to visit your storage facility or can everything be done remotely?</h3>
+              <p className="text-gray-700">Everything can be done without visiting our facility. You can get a quote, book a pickup, manage your account, and request delivery entirely by phone, WhatsApp, or our online portal. Our team collects your items from your door, stores them securely, and returns them to your address on demand. Many SafeStorage customers never visit the facility at all — they simply manage their storage remotely. If you would like to visit or inspect the facility, you are welcome to do so by scheduling an appointment.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the closest SafeStorage location to Downtown Dubai and the Burj Khalifa area?</h3>
+              <p className="text-gray-700">Downtown Dubai and the Burj Khalifa District fall within our Business Bay service zone, which is our closest and fastest service zone for central Dubai. Pickup times from Downtown Dubai are typically 10–15 minutes. We serve all towers in Downtown including The Address, Burj Khalifa residences, Vida Downtown, and the Old Town. Whether you are a resident in a Downtown apartment or a business at the Dubai Mall Offices, our team can collect your items quickly and efficiently.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">Does SafeStorage cover Palm Jumeirah?</h3>
+              <p className="text-gray-700">Yes, SafeStorage provides full pickup and delivery service to Palm Jumeirah — including the Trunk, Fronds, and Crescent. Palm Jumeirah falls within our Dubai Marina service zone. Given the unique geography of the Palm, we schedule dedicated pickup slots to ensure your items are collected and transported safely. We regularly serve residents of Signature Villas, Garden Homes, and the Shoreline Apartments on the Palm. Contact us on +971505773388 to schedule your Palm Jumeirah pickup.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can I get storage if I live in Al Barsha, Tecom, or Barsha Heights (Impz)?</h3>
+              <p className="text-gray-700">Absolutely. Al Barsha, Tecom, and Barsha Heights (also known as IMPZ) are fully covered by SafeStorage. These areas fall between our Dubai Marina and Dubai Investment Park service zones and are served with the same speed and quality as our core areas. Al Barsha 1, 2, 3, and 4 are all within our coverage, as are Tecom and Dubai Production City. Typical pickup times from these areas are 15–20 minutes.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there a minimum storage period for any location in Dubai?</h3>
+              <p className="text-gray-700">SafeStorage has no minimum storage period across any Dubai location. You can store items for as short as one week and as long as several years on the same flexible monthly plan. There are no lock-in contracts, no penalties for cancelling, and no requirement to commit to a long-term storage period. Billing is monthly and you can end your storage plan at any time with 14 days&apos; notice. This makes SafeStorage ideal for short-term needs like apartment renovations, lease gaps, and business inventory clearances.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">How does SafeStorage pricing work — is it the same across all Dubai locations?</h3>
+              <p className="text-gray-700">Yes, SafeStorage pricing is uniform across all Dubai locations. We do not charge more for pickup from certain areas or premium residential communities. Pricing is based solely on the volume of items you store, starting from AED 9 per month for a small amount of boxes up to AED 500+ per month for full villa storage. All quotes include free pickup, climate-controlled storage, insurance, and on-demand delivery. There are no hidden charges, fuel surcharges, or location premiums. Get an instant quote by calling +971505773388 or using our online quote tool.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can businesses in Dubai&apos;s free zones use SafeStorage?</h3>
+              <p className="text-gray-700">Yes, SafeStorage works with businesses in all Dubai free zones including DIFC, JAFZA, DMCC (JLT), Dubai Media City, Dubai Internet City, Dubai Silicon Oasis, and Dubai Airport Free Zone. We provide commercial storage solutions for free zone companies including document archiving, office furniture storage, inventory management, and equipment storage. Free zone companies benefit particularly from our document archiving service, which meets UAE regulatory retention requirements and provides barcode-indexed retrieval for specific files and boxes.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">What areas of Dubai have same-day pickup available?</h3>
+              <p className="text-gray-700">Same-day pickup is available across all major Dubai areas for requests confirmed before 12 PM on working days (Monday through Saturday). This includes Business Bay, Downtown Dubai, Dubai Marina, JBR, JLT, Jumeirah 1–3, Umm Suqeim, Al Barsha, Dubai Investment Park, Motor City, and Sports City. For more distant areas such as Mirdif, Rashidiya, or Dubai Silicon Oasis, same-day availability may depend on scheduling — we recommend calling us early in the day for these locations.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you serve areas outside Dubai such as Abu Dhabi, Sharjah, or Ajman?</h3>
+              <p className="text-gray-700">SafeStorage Dubai&apos;s primary service area is within Dubai emirate, where we offer our full free pickup and delivery service. For customers in Sharjah, Ajman, and other Northern Emirates, we can often arrange pickup at a small additional transport fee — please call us to discuss your specific location. For Abu Dhabi customers, SafeStorage operates a separate service at safestorage.ae covering the Abu Dhabi emirate with the same standards of quality and service.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I find out exactly which zone covers my Dubai address?</h3>
+              <p className="text-gray-700">The easiest way is to WhatsApp or call us on +971505773388 with your building name or community, and we will instantly confirm your service zone, estimated pickup time, and available time slots. Alternatively, you can enter your address in our online quote tool and it will automatically detect your zone and provide pricing. All four of our Dubai service zones offer the same quality, pricing, and service standards — the zone designation simply helps us dispatch the nearest team for the fastest possible pickup.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">Are all SafeStorage facilities in Dubai climate-controlled?</h3>
+              <p className="text-gray-700">Yes, every SafeStorage facility serving Dubai is fully climate-controlled at 18–22°C with humidity maintained between 45–55% year-round. This is a standard feature of every storage unit, not an optional upgrade. Climate control is essential in Dubai, where summer outdoor temperatures regularly exceed 45°C and can cause severe damage to wooden furniture, electronics, artwork, leather goods, clothing, and documents stored in non-climate-controlled environments. We believe every item deserves proper protection, which is why we make climate control standard for all customers at no additional cost.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can I store items from multiple Dubai locations in one account?</h3>
+              <p className="text-gray-700">Yes. Many business customers and families with multiple properties use a single SafeStorage account to manage storage from multiple Dubai addresses. For example, a business might use us to store office furniture from their Business Bay office and inventory from their Al Quoz warehouse — both under one account with a single invoice. Similarly, expat families might store items from both a villa and a beach apartment. We can arrange pickups from multiple locations and consolidate everything into one or more storage units as needed.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the coverage map for SafeStorage Dubai — do you have a visual map?</h3>
+              <p className="text-gray-700">SafeStorage covers the entire Dubai emirate with our door-to-door service. Our four primary zones — Business Bay (central), Dubai Marina (western coast), Jumeirah (villa belt), and Dubai Investment Park (southern) — together cover every community in Dubai. Rather than a physical map, the simplest way to confirm coverage is to call or WhatsApp us with your location. Our team will confirm coverage and pickup availability within minutes. We serve over 200 distinct communities and developments across Dubai and have never declined a pickup within the emirate boundaries.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Rich text SEO content */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-5xl">
