@@ -197,7 +197,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <SchemaScript schema={[blogPostingSchema, breadcrumbSchema]} />
       {/* Server-rendered H1 — for Google/crawlers only, visually hidden to avoid duplicate with client title */}
       <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: "0" }}>
-        {post.title}
+        {post.title} — SafeStorage Dubai Guide
       </h1>
       <BlogPostDetail slug={slug} />
 
