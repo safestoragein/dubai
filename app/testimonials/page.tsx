@@ -136,6 +136,173 @@ export default function TestimonialsPage() {
           </div>
         </div>
       </section>
+
+      {/* Why 10,000+ Customers Trust SafeStorage — detailed text for SEO */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-4 text-center">Why 10,000+ Customers Trust SafeStorage Dubai</h2>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Discover the story behind Dubai&apos;s most trusted storage company — our history, service philosophy, and the standards that have earned us thousands of five-star reviews.
+          </p>
+
+          <div className="space-y-8 mb-14">
+
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Our Story: A Decade of Serving Dubai</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                SafeStorage Dubai was founded over a decade ago with a single mission: to make storage in the UAE genuinely convenient, affordable, and trustworthy. In a market dominated by basic self-storage facilities that required customers to hire vans, do their own heavy lifting, and navigate industrial estates, we saw an opportunity to create something completely different — a full-service, door-to-door storage experience that treated customers&apos; belongings with the care and respect they deserved.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Starting with a small team and a single climate-controlled facility, SafeStorage quickly gained a reputation for reliability and exceptional service. Word spread rapidly across Dubai&apos;s expat and local communities, and today we serve thousands of customers across the UAE — from individual residents storing a few boxes to major corporations managing tonnes of inventory. Our growth has been driven entirely by customer recommendations, which is the most meaningful measure of a service business&apos;s quality.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Unmatched Service Quality That Dubai Trusts</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                What sets SafeStorage apart from every other storage company in Dubai is our obsessive focus on service quality. From the moment you contact us, you are assigned a dedicated storage consultant who manages your account personally from start to finish. This means you always have one point of contact who knows your situation, your items, and your preferences — no repeating yourself every time you call, no being passed between departments.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Our pickup teams are professional, uniformed, and trained to handle belongings with extreme care. Every item is wrapped, photographed, and catalogued before being loaded into our vehicles. Our drivers are experienced in navigating Dubai&apos;s diverse residential communities — from high-rise apartments in Marina to villa communities in Arabian Ranches. We arrive on time, communicate proactively, and treat every pickup as if we were storing our own family&apos;s possessions.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-[#0A2463] mb-4">World-Class Climate Control for Dubai&apos;s Extreme Heat</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Dubai&apos;s climate presents unique challenges for storage. Outdoor temperatures regularly reach 48°C in summer, and the interior of a non-climate-controlled shipping container or basic storage unit can exceed 60°C — hot enough to melt adhesives, warp wood, destroy electronics, and permanently damage leather and fabrics. We invested heavily in industrial HVAC systems that maintain every storage bay at a consistent 18–22°C year-round, regardless of the season outside.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Our climate control also manages humidity, maintaining a relative humidity of 45–55% to prevent mould, mildew, and moisture damage. This is the same standard used by art museums and archival libraries to preserve irreplaceable collections. For SafeStorage customers, this means antique furniture stays pristine, electronics remain functional, documents stay crisp, and clothing emerges from storage as fresh as it went in — even after months or years. Climate control is included in every plan at no extra charge; we believe it is not an optional luxury but a basic necessity for responsible storage in this climate.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Security That Never Sleeps</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                SafeStorage Dubai operates one of the most comprehensively secured storage facilities in the UAE. Our security infrastructure was designed from the ground up to ensure that every item stored in our care is protected around the clock. The facility features 24/7 HD CCTV surveillance covering every corridor, every loading bay, every entrance, and every exit — with footage retained and reviewed by our security team. The perimeter is secured with reinforced fencing and controlled access gates monitored at all times.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Inside the facility, individual storage units and bays are protected by biometric access control — your unit can only be opened by your registered fingerprint or access code. Each unit also has its own individual alarm, triggered automatically by any unauthorised access attempt. Our on-site security personnel conduct regular patrols during all operating hours, and our fire detection and suppression systems are tested and certified to UAE civil defence standards. For additional peace of mind, every storage plan automatically includes free insurance coverage up to AED 5,000 — and customers with higher-value items can upgrade to comprehensive insurance at a small additional cost.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Transparent Pricing That Customers Praise</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                One of the most consistent themes in our customer reviews is the relief customers feel when they discover our pricing is genuinely transparent. In an industry often criticised for hidden fees, lock-in contracts, and confusing pricing structures, SafeStorage has built its reputation on the opposite: the price quoted is the price charged, every time. Storage plans start from AED 9 per month for item-based storage, with dedicated units starting from AED 199 per month — all VAT-inclusive, all with free pickup and delivery included.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                We offer flexible monthly contracts with no long-term commitments, making SafeStorage suitable for customers at every stage — from those storing during a two-week renovation to businesses needing multi-year storage solutions. Long-term customers benefit from prepaid discounts of up to 20% for 12-month plans. We are proud that our Net Promoter Score consistently exceeds industry benchmarks because our customers know exactly what they are paying for and feel they are receiving excellent value. Call +971505773388 today for a personalised quote with no obligation.
+              </p>
+            </div>
+
+          </div>
+
+          {/* FAQ section for testimonials page */}
+          <h2 className="text-2xl font-bold text-[#0A2463] mb-6">Frequently Asked Questions — What Our Customers Ask</h2>
+
+          <div className="space-y-5 mb-12">
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">1. Why do so many Dubai residents recommend SafeStorage to friends?</h3>
+              <p className="text-gray-700">The most common reason customers recommend SafeStorage is the ease of the entire experience. Unlike traditional self-storage where you do all the work yourself, SafeStorage handles everything — pickup, packing, transport, storage, and delivery. Customers are consistently surprised by how smooth and stress-free the process is. Combined with transparent pricing, responsive support, and the reassurance of climate control and security, it is a service people feel genuinely good about recommending.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">2. How do customers rate SafeStorage Dubai?</h3>
+              <p className="text-gray-700">SafeStorage Dubai maintains a consistently high customer satisfaction rating across all review platforms. Our customers regularly highlight the professionalism of our pickup team, the reliability of our service, the quality of our climate-controlled facilities, and the helpfulness of our customer support team. We actively monitor all reviews and respond to any concerns promptly — we take every piece of feedback seriously and use it to continuously improve our service.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">3. Do expats living in Dubai find SafeStorage particularly useful?</h3>
+              <p className="text-gray-700">Yes. Expats are one of our largest customer groups, and SafeStorage is particularly well-suited to the expat lifestyle in Dubai. When relocating between apartments, returning home temporarily, or moving to a new country, expats need a storage solution that is flexible, reliable, and easy to manage remotely. SafeStorage allows customers to manage their storage accounts entirely by phone or email, and we can coordinate pickup and delivery even when the customer is not physically in Dubai. Many expats leave their belongings with us between assignments and simply notify us when they need delivery to their new address.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">4. What do customers say about the condition of their items when returned?</h3>
+              <p className="text-gray-700">Overwhelmingly positive. The most frequent comment in customer reviews is that items are returned in exactly the same condition as when they were collected — sometimes in better condition because our team wraps furniture properly before storage, protecting it from dust and minor impacts. The climate-controlled environment means there is no humidity damage, no warping, and no pest issues. Customers storing antique furniture, sensitive electronics, and high-quality clothing consistently report that their items emerge from storage in perfect condition.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. Has SafeStorage ever had a security incident at its facility?</h3>
+              <p className="text-gray-700">SafeStorage maintains an exceptional security record. Our multi-layered security system — 24/7 CCTV, biometric access, individual unit alarms, on-site security personnel, and fire suppression systems — has prevented any significant security incidents. We are committed to full transparency and would always inform affected customers immediately if any issue occurred. Every customer&apos;s belongings are also covered by free insurance up to AED 5,000 as a further safeguard, providing financial protection in the extremely unlikely event of any loss or damage.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">6. Do customers find the pricing competitive compared to other Dubai storage companies?</h3>
+              <p className="text-gray-700">Customers consistently tell us that SafeStorage offers excellent value when they consider everything that is included. While the headline price may appear similar to some competitors, what distinguishes SafeStorage is that our price includes climate control, free door-to-door pickup, free delivery, free insurance, and dedicated customer support — all at no extra charge. Many customers who previously used basic storage facilities in Dubai report that they were paying separately for each of these services, making SafeStorage significantly better value overall.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">7. How does SafeStorage handle customers who need to store for a very short period?</h3>
+              <p className="text-gray-700">SafeStorage&apos;s minimum storage period is one month, making it suitable for customers who only need temporary storage for a few weeks during a move or renovation. There are no penalties for short-term storage, and we treat every customer — regardless of their storage volume or duration — with the same level of care and professionalism. Many customers who start with a one-month plan end up staying for much longer because they discover how convenient and cost-effective the service is.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. Do business customers have different experiences to residential customers?</h3>
+              <p className="text-gray-700">Business customers typically benefit from additional services such as dedicated account management, itemised invoicing, multi-user account access, and higher-frequency pickup and delivery scheduling. Businesses consistently highlight the reliability and professionalism of our team as key to their ongoing relationship with SafeStorage. Whether it is a law firm archiving client documents, an e-commerce retailer storing inventory, or a hotel managing seasonal equipment, our business storage programmes are tailored to commercial requirements and professional standards.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">9. What languages does the SafeStorage customer support team speak?</h3>
+              <p className="text-gray-700">Our customer support team provides assistance in both English and Arabic, reflecting the diverse nature of Dubai&apos;s population. All contracts, invoices, and correspondence are available in both languages. We also have team members who can communicate in Hindi, Urdu, and Tagalog to serve our South Asian and Filipino customer base. For any language requirement not covered, we use professional interpretation services to ensure every customer can communicate clearly and confidently about their storage needs.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">10. How do customers typically find out about SafeStorage Dubai?</h3>
+              <p className="text-gray-700">The majority of our new customers come through word-of-mouth recommendations from existing customers — the clearest possible indicator of genuine satisfaction. We also receive significant enquiries through Google search, where we rank prominently for storage-related searches in Dubai. Our social media presence, particularly on Instagram and Facebook, reaches Dubai&apos;s large expat community. And many customers find us through property management companies, real estate agents, and relocation specialists who recommend us to clients moving within or out of Dubai.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">11. What is the best way to leave a review for SafeStorage Dubai?</h3>
+              <p className="text-gray-700">We genuinely value customer feedback and encourage all customers to share their experience. The best ways to leave a review are on Google, where your feedback helps other Dubai residents find a trustworthy storage solution. You can search &quot;SafeStorage Dubai&quot; on Google and select the option to write a review. We read every review personally and respond to all feedback — positive and constructive alike. Your review helps us maintain our high standards and helps future customers make informed decisions.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">12. What happens if I have a complaint or issue with my storage?</h3>
+              <p className="text-gray-700">We have a clear, responsive complaints process. Contact your dedicated storage consultant directly, or email safestoragedubai@gmail.com or call +971505773388. All complaints are acknowledged within 2 hours during business hours and resolved within 48 hours wherever possible. If an item has been damaged or lost, our insurance coverage applies immediately and our team will process your claim without delay. Customer satisfaction is our highest priority, and we will go above and beyond to resolve any issue to your full satisfaction.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">13. Has SafeStorage won any industry recognition or awards?</h3>
+              <p className="text-gray-700">SafeStorage Dubai is part of the broader SafeStorage group which serves over 1 Lakh customers globally. Our Dubai operation has earned strong recognition through consistently high customer satisfaction scores, numerous five-star reviews across all major platforms, and partnerships with leading Dubai property management companies, real estate agencies, and corporate relocation services. While we let our customer reviews speak louder than awards, we are proud to be the storage partner of choice for thousands of Dubai residents and businesses.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">14. Do customers ever store with SafeStorage for years at a time?</h3>
+              <p className="text-gray-700">Yes. We have many long-term customers who have been storing with SafeStorage for three, five, or even eight or more years. Long-term customers include families who acquired furniture and belongings faster than their apartments could accommodate them, expats who permanently retained Dubai storage as a base while working internationally, and businesses with ongoing archive and inventory storage requirements. Long-term customers benefit from preferential pricing, priority scheduling, and the assurance of a storage partner who knows their account history in detail.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. Is there anything customers wish they had known before starting storage with SafeStorage?</h3>
+              <p className="text-gray-700">The most common piece of feedback from new customers is that they wish they had contacted SafeStorage sooner. Many customers initially planned to manage their move or renovation themselves, only to realise part-way through how much easier and more affordable professional storage would have been. Another common point is that customers are often pleasantly surprised by how affordable storage is — particularly the item-based plans starting from AED 9 per month — and wish they had not spent months moving items between locations when SafeStorage could have handled everything seamlessly from the start.</p>
+            </div>
+
+          </div>
+
+          <div className="text-center bg-gradient-to-r from-[#0A2463] to-[#3E92CC] rounded-2xl p-10 text-white">
+            <h3 className="text-2xl font-bold mb-3">Join Thousands of Happy SafeStorage Customers</h3>
+            <p className="text-white/85 mb-6 text-lg">Experience Dubai&apos;s most trusted storage service. Free pickup, climate control, 24/7 security — from AED 9/month.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/get-quote"
+                className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#c02a50] transition-colors"
+              >
+                Get a Free Quote
+              </Link>
+              <a
+                href="tel:+971505773388"
+                className="inline-block bg-white text-[#0A2463] px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+              >
+                Call +971505773388
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
     </>
   )
 }
