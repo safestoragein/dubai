@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Starting a Business in Dubai 2026: Complete Entrepreneur Guide | SafeStorage UAE",
+  title: "Starting a Business in Dubai 2026: Full Guide",
   description: "Complete guide to starting a business in Dubai in 2026. Learn about licenses, free zones, costs, visas, banking, and setup process. Includes storage solutions for your business needs.",
   keywords: "starting business dubai, dubai business setup, free zone dubai, mainland company dubai, business license dubai, entrepreneur dubai, company formation uae, dubai startup guide",
   openGraph: {

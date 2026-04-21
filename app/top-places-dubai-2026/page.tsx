@@ -7,7 +7,7 @@ import SchemaScript from "@/components/schema-script"
 import { MapPin, Calendar, Star, TrendingUp, Phone, ArrowRight, Share2, Bookmark, Package } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Top 6 Places to Visit in Dubai 2026 | Ultimate Dubai Travel Guide",
+  title: "Top 6 Places to Visit in Dubai 2026",
   description:
     "Discover the best places to visit in Dubai in 2026! From Burj Khalifa to Museum of the Future, explore Dubai's top attractions. Planning to move or relocate? We've got storage solutions too!",
   keywords:

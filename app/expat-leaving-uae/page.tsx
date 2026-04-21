@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 import { Plane, CheckCircle2, Star, Phone, ArrowRight, Package, ShieldCheck, Clock, Globe } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Expat Leaving UAE? Storage Checklist & Solutions Dubai | SafeStorage",
+  title: "Expat Leaving UAE? Storage Solutions Dubai",
   description: "Moving back home from Dubai? SafeStorage offers expat-friendly long-term storage — keep belongings safely stored while you decide what to ship. Free pickup, flexible terms. Call +971505773388.",
   keywords: "expat leaving uae storage, leaving dubai storage, storage for expats dubai, moving out dubai storage, expat storage dubai long term, leaving dubai checklist, repatriation storage dubai",
   openGraph: {

@@ -5,11 +5,11 @@ import SchemaScript from "@/components/schema-script"
 import { Shield, Star, Phone, CheckCircle2, Thermometer, Camera, Lock, ArrowRight, Award } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Art Storage Dubai — Climate-Controlled Vaults for Artwork & Valuables | SafeStorage",
+  title: "Art Storage Dubai — Climate-Controlled Vaults",
   description: "Specialist art storage in Dubai for paintings, sculptures, antiques & collectibles. Precise climate control, photography on intake, white-glove handling. Call +971505773388.",
   keywords: "art storage dubai, artwork storage dubai, painting storage dubai, sculpture storage dubai, antique storage dubai, climate controlled art storage, valuables storage dubai, gallery storage dubai",
   openGraph: {
-    title: "Art Storage Dubai — Specialist Climate-Controlled Vaults | SafeStorage",
+    title: "Art Storage Dubai — Climate-Controlled Vaults for Artwork & Valuables",
     description: "Museum-grade art storage in Dubai. Precise temperature and humidity control, photography on intake, white-glove handling for paintings, sculptures & collectibles.",
     url: "https://safestorage.ae/art-storage",
     siteName: "SafeStorage Dubai",

@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 import { FileText, CheckCircle2, Star, Phone, ArrowRight, Shield, Lock, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Document Storage Dubai — Secure Business & Personal Records Storage | SafeStorage",
+  title: "Document Storage Dubai — Secure Records",
   description: "Secure document and records storage in Dubai. Store business files, legal documents, contracts and personal records safely. Fire-resistant, climate-controlled. From AED 99/month. Call +971505773388.",
   keywords: "document storage dubai, records storage dubai, file storage dubai, business document storage dubai, legal document storage dubai, archive storage dubai, confidential document storage dubai",
   openGraph: {

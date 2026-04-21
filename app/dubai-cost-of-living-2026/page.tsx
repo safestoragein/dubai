@@ -11,7 +11,7 @@ import {
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Dubai Cost of Living 2026: Complete Budget Guide | Real Prices & Monthly Expenses",
+  title: "Dubai Cost of Living 2026: Complete Budget Guide",
   description:
     "How much does it cost to live in Dubai in 2026? Complete breakdown of rent, food, transport, utilities & more. Real prices in AED. Budget calculator for singles, couples & families living in Dubai.",
   keywords:
