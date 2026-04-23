@@ -71,7 +71,7 @@ export default async function Blog() {
       const postId = parseInt(blog.post_id) || 1
       return {
         id: postId,
-        slug: `${postId}-${generateSlug(title)}`,
+        slug: generateSlug(title),
         title,
         excerpt: blog.seo_desc || "",
         content: blog.description || "",
