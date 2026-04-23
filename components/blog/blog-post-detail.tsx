@@ -139,50 +139,6 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
   const [relatedImageErrors, setRelatedImageErrors] = useState<Record<number, boolean>>({})
 
   useEffect(() => {
-    // Protect text selection from being cleared by third-party scripts
-    const protectSelection = () => {
-      const blogContent = document.querySelector('.blog-content')
-      if (!blogContent) return
-
-      // Make all hr elements non-interactive for selection
-      const hrElements = blogContent.querySelectorAll('hr')
-      hrElements.forEach(hr => {
-        (hr as HTMLElement).style.userSelect = 'text'
-        ;(hr as HTMLElement).style.pointerEvents = 'none'
-      })
-
-      // Make all table elements selectable
-      const tableElements = blogContent.querySelectorAll('table, th, td, tr')
-      tableElements.forEach(el => {
-        (el as HTMLElement).style.userSelect = 'text'
-      })
-
-      // Prevent any script from clearing selection
-      const originalRemoveAllRanges = window.getSelection()?.removeAllRanges
-      if (window.getSelection() && originalRemoveAllRanges) {
-        window.getSelection()!.removeAllRanges = function() {
-          const selection = window.getSelection()
-          if (selection && selection.rangeCount > 0) {
-            const range = selection.getRangeAt(0)
-            const container = range.commonAncestorContainer
-            const isInBlogContent = blogContent.contains(container.nodeType === 3 ? container.parentNode : container)
-
-            if (!isInBlogContent && originalRemoveAllRanges) {
-              originalRemoveAllRanges.call(this)
-            }
-          } else if (originalRemoveAllRanges) {
-            originalRemoveAllRanges.call(this)
-          }
-        }
-      }
-
-      // Prevent selection from breaking on hr and table elements
-      blogContent.addEventListener('selectstart', (e) => {
-        e.stopPropagation()
-      }, true)
-    }
-
-    protectSelection()
     setMounted(true)
 
     const fetchBlogPost = async () => {
@@ -380,17 +336,10 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         </m.div>
 
         {/* Post Content */}
-        <div className="mb-12" onMouseDown={(e) => e.stopPropagation()} onMouseUp={(e) => e.stopPropagation()}>
+        <div className="mb-12">
           <div
             className="blog-content prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: formatBlogContent(post.content) }}
-            onSelectStart={(e) => e.stopPropagation()}
-            style={{
-              userSelect: 'text',
-              WebkitUserSelect: 'text',
-              MozUserSelect: 'text',
-              msUserSelect: 'text'
-            }}
           />
         </div>
 
