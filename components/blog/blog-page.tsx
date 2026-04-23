@@ -99,7 +99,7 @@ export default function BlogPage({ initialBlogs = [] }: { initialBlogs?: BlogPos
             const postId = parseInt(blog.post_id) || 1
             return {
               id: postId,
-              slug: generateSlug(title),
+              slug: `${postId}-${generateSlug(title)}`,
               title,
               excerpt: blog.seo_desc || "",
               content: blog.description || "",

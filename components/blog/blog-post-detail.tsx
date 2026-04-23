@@ -206,7 +206,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
           const postId = parseInt(blog.post_id) || 0
           const currentPost = {
             id: postId,
-            slug: generateSlug(title),
+            slug: `${postId}-${generateSlug(title)}`,
             title: title,
             excerpt: blog.seo_desc || '',
             content: blog.description || '',
@@ -251,7 +251,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
               const blogPostId = parseInt(blog.post_id) || 0
               return {
                 id: blogPostId,
-                slug: generateSlug(blogTitle),
+                slug: `${blogPostId}-${generateSlug(blogTitle)}`,
                 title: blogTitle,
                 excerpt: blog.seo_desc || '',
                 content: blog.description || '',

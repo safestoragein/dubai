@@ -51,12 +51,10 @@ export async function GET(
     // Find blog by slug (generate slug from title since new API doesn't have slug field)
     const blog = blogs.find((b: any) => {
       const blogTitle = b.title || b.seo_title || ''
-      const blogSlug = generateSlug(blogTitle)
-      const isMatch = blogSlug === targetSlug
-      if (blogTitle.toLowerCase().includes('villa')) {
-        console.log('Villa blog:', blogTitle, '-> slug:', blogSlug, 'match:', isMatch)
-      }
-      return isMatch
+      const blogPostId = parseInt(b.post_id) || 0
+      const idMatch = targetSlug.match(/^(\d+)-/)
+      if (idMatch) return parseInt(idMatch[1]) === blogPostId
+      return generateSlug(blogTitle) === targetSlug
     })
     
     if (blog) {

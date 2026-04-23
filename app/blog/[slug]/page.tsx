@@ -48,6 +48,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
     const post = blogs.find((b: any) => {
       const title = b.title || b.seo_title || ''
+      const postId = parseInt(b.post_id) || 0
+      const idMatch = slug.match(/^(\d+)-/)
+      if (idMatch) return parseInt(idMatch[1]) === postId
       return generateSlug(title) === slug
     })
 
@@ -119,6 +122,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const blogs = await fetchAllBlogs()
     post = blogs.find((b: any) => {
       const title = b.title || b.seo_title || ''
+      const postId = parseInt(b.post_id) || 0
+      const idMatch = slug.match(/^(\d+)-/)
+      if (idMatch) return parseInt(idMatch[1]) === postId
       return generateSlug(title) === slug
     })
 
