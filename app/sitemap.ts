@@ -488,15 +488,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Generate blog routes from actual blog posts
     blogRoutes = blogs.map((post: any) => {
       const title = post.title || post.seo_title || ''
-      const slug = generateSlug(title)
+      const postId = parseInt(post.post_id) || 0
+      if (!postId) return null
+      const slug = `${postId}-${generateSlug(title)}`
 
       return {
         url: `${baseUrl}/blog/${slug}`,
-        lastModified: new Date(),
+        lastModified: new Date(post.updated_at || post.created_at || Date.now()),
         changeFrequency: "monthly" as const,
         priority: 0.7,
       }
-    }).filter((route: any) => route.url.includes('/blog/') && route.url.split('/blog/')[1].length > 0)
+    }).filter((route: any) => route !== null && route.url.split('/blog/')[1]?.length > 0)
   } catch (error) {
     console.error('Error fetching blog posts for sitemap:', error)
     // Return empty blog routes if fetch fails
