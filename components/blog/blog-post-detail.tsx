@@ -59,18 +59,36 @@ interface BlogPost {
 
 // Function to format blog content with proper spacing and structure
 function formatBlogContent(content: string): string {
-  // Remove excessive whitespace and clean up the content
+  // Strip <style> and <script> tags that the CMS may embed — these can carry
+  // copy-protection CSS (user-select:none) that overrides our stylesheet rules.
   let formattedContent = content
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+
+  // Strip user-select:none from inline style attributes to allow text copying
+  formattedContent = formattedContent.replace(
+    /style="([^"]*)"/gi,
+    (_match, styles: string) => {
+      const cleaned = styles
+        .replace(/(-webkit-|-moz-|-ms-)?user-select\s*:\s*none\s*!?\s*important?\s*;?/gi, '')
+        .trim()
+        .replace(/;+$/, '')
+      return cleaned ? `style="${cleaned}"` : ''
+    }
+  )
+
+  // Remove excessive whitespace and clean up the content
+  formattedContent = formattedContent
     .replace(/\n\s*\n\s*\n/g, '\n\n') // Remove triple line breaks
     .replace(/([.!?])\s*\n/g, '$1</p><p>') // Convert sentences to paragraphs
     .replace(/\n\n+/g, '</p><p>') // Convert double line breaks to paragraphs
     .trim()
-  
+
   // Wrap content in paragraph tags if not already wrapped
   if (!formattedContent.startsWith('<p>')) {
     formattedContent = `<p>${formattedContent}</p>`
   }
-  
+
   // Add styling classes for better readability.
   // Demote <h1> in CMS content → <h2> so the page has exactly one H1 (the post title).
   formattedContent = formattedContent
@@ -86,7 +104,7 @@ function formatBlogContent(content: string): string {
     .replace(/<blockquote/g, '<blockquote class="border-l-4 border-dubai-gold pl-4 py-2 mb-4 italic text-gray-600"')
     .replace(/<strong/g, '<strong class="font-semibold text-dubai-navy"')
     .replace(/<em/g, '<em class="italic text-gray-600"')
-  
+
   return formattedContent
 }
 
@@ -339,6 +357,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         <div className="mb-12">
           <div
             className="blog-content prose prose-lg max-w-none"
+            style={{ userSelect: 'text', WebkitUserSelect: 'text' }}
             dangerouslySetInnerHTML={{ __html: formatBlogContent(post.content) }}
           />
         </div>
