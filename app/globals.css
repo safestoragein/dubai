@@ -62,6 +62,19 @@
   background-color: #f9fafb;
 }
 
+/* ===== BLOG PAGES: FORCE TEXT SELECTION ON EVERYTHING ===== */
+/* Covers every element inside the blog-page wrapper (all /blog/* routes) */
+.blog-page,
+.blog-page *,
+.blog-page *::before,
+.blog-page *::after {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  -webkit-touch-callout: default !important;
+}
+
 /* Blog Content Styles for Better Readability */
 .blog-content {
   @apply text-gray-700 leading-relaxed;
