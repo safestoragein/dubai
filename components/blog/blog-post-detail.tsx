@@ -57,15 +57,18 @@ interface BlogPost {
   tags?: string[]
 }
 
-// Function to format blog content with proper spacing and structure
+// Function to format blog content — strips unsafe tags and demotes h1→h2.
+// Does NOT restructure HTML: the CMS already sends valid HTML so we must not
+// inject </p><p> or other block-level tags into the middle of existing markup.
 function formatBlogContent(content: string): string {
-  // Strip <style> and <script> tags that the CMS may embed — these can carry
-  // copy-protection CSS (user-select:none) that overrides our stylesheet rules.
+  if (!content) return ''
+
+  // Strip <style> and <script> tags the CMS may embed (can carry user-select:none)
   let formattedContent = content
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
 
-  // Strip user-select:none from inline style attributes to allow text copying
+  // Strip user-select:none from inline style attributes
   formattedContent = formattedContent.replace(
     /style="([^"]*)"/gi,
     (_match, styles: string) => {
@@ -77,33 +80,10 @@ function formatBlogContent(content: string): string {
     }
   )
 
-  // Remove excessive whitespace and clean up the content
+  // Demote <h1> → <h2> so the page has exactly one H1 (the visible post title).
   formattedContent = formattedContent
-    .replace(/\n\s*\n\s*\n/g, '\n\n') // Remove triple line breaks
-    .replace(/([.!?])\s*\n/g, '$1</p><p>') // Convert sentences to paragraphs
-    .replace(/\n\n+/g, '</p><p>') // Convert double line breaks to paragraphs
-    .trim()
-
-  // Wrap content in paragraph tags if not already wrapped
-  if (!formattedContent.startsWith('<p>')) {
-    formattedContent = `<p>${formattedContent}</p>`
-  }
-
-  // Add styling classes for better readability.
-  // Demote <h1> in CMS content → <h2> so the page has exactly one H1 (the post title).
-  formattedContent = formattedContent
-    .replace(/<h1([^>]*)>/gi, '<h2 class="text-3xl font-bold mb-6 mt-8 text-dubai-navy">')
+    .replace(/<h1([^>]*)>/gi, '<h2$1>')
     .replace(/<\/h1>/gi, '</h2>')
-    .replace(/<h2/g, '<h2 class="text-2xl font-bold mb-4 mt-6 text-dubai-navy"')
-    .replace(/<h3/g, '<h3 class="text-xl font-semibold mb-3 mt-5 text-dubai-navy"')
-    .replace(/<h4/g, '<h4 class="text-lg font-semibold mb-2 mt-4 text-dubai-navy"')
-    .replace(/<p>/g, '<p class="mb-4 text-gray-700 leading-relaxed text-base">')
-    .replace(/<ul/g, '<ul class="list-disc pl-6 mb-4 space-y-2"')
-    .replace(/<ol/g, '<ol class="list-decimal pl-6 mb-4 space-y-2"')
-    .replace(/<li/g, '<li class="text-gray-700 leading-relaxed"')
-    .replace(/<blockquote/g, '<blockquote class="border-l-4 border-dubai-gold pl-4 py-2 mb-4 italic text-gray-600"')
-    .replace(/<strong/g, '<strong class="font-semibold text-dubai-navy"')
-    .replace(/<em/g, '<em class="italic text-gray-600"')
 
   return formattedContent
 }
@@ -199,10 +179,20 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
   const [relatedImageErrors, setRelatedImageErrors] = useState<Record<number, boolean>>({})
 
   // Force-enable text selection on blog content after render.
-  // CSS !important alone can't beat inline styles from CMS or inherited select-none.
-  // style.setProperty with 'important' sets true inline !important, highest specificity.
+  // style.setProperty with 'important' sets true inline !important — highest specificity,
+  // beats any CMS or third-party inline style.
   useEffect(() => {
     if (!post) return
+
+    // Clear document-level on* handlers that third-party scripts (GTM, Clarity, etc.)
+    // sometimes install to block selection site-wide.
+    document.documentElement.onselectstart = null
+    document.documentElement.oncopy = null
+    document.documentElement.oncontextmenu = null
+    document.body.onselectstart = null
+    document.body.oncopy = null
+    document.body.oncontextmenu = null
+
     const timer = setTimeout(() => {
       const container = document.querySelector('.blog-content')
       if (!container) return
