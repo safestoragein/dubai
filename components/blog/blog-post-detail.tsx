@@ -128,43 +128,56 @@ function getTagUrl(tag: string, allBlogs: BlogPost[]): string {
 }
 
 function CopyButton({ contentId }: { contentId: string }) {
-  const [copied, setCopied] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'copied' | 'error'>('idle')
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
     const el = document.getElementById(contentId)
     if (!el) return
-    const text = el.innerText || el.textContent || ''
-    navigator.clipboard.writeText(text).then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    }).catch(() => {
-      // Fallback: select all and execCommand
-      const range = document.createRange()
-      range.selectNodeContents(el)
-      const sel = window.getSelection()
-      if (sel) {
-        sel.removeAllRanges()
-        sel.addRange(range)
-        document.execCommand('copy')
-        sel.removeAllRanges()
-        setCopied(true)
-        setTimeout(() => setCopied(false), 2000)
+
+    const text = (el.innerText || el.textContent || '').trim()
+    if (!text) return
+
+    try {
+      await navigator.clipboard.writeText(text)
+      setStatus('copied')
+    } catch {
+      // Fallback for browsers that block clipboard API
+      try {
+        const range = document.createRange()
+        range.selectNodeContents(el)
+        const sel = window.getSelection()
+        if (sel) {
+          sel.removeAllRanges()
+          sel.addRange(range)
+          document.execCommand('copy')
+          sel.removeAllRanges()
+          setStatus('copied')
+        }
+      } catch {
+        setStatus('error')
       }
-    })
+    }
+    setTimeout(() => setStatus('idle'), 3000)
   }
+
+  const label = status === 'copied' ? '✓ Content Copied!' : status === 'error' ? '✗ Try again' : '📋 Copy Article Content'
+  const bg = status === 'copied' ? '#166534' : status === 'error' ? '#991b1b' : '#0a2463'
+  const border = status === 'copied' ? '#14532d' : status === 'error' ? '#7f1d1d' : '#0a2463'
 
   return (
     <button
       onClick={handleCopy}
       style={{
-        display: 'inline-flex', alignItems: 'center', gap: '6px',
-        padding: '6px 14px', borderRadius: '6px', fontSize: '13px',
-        fontWeight: 600, cursor: 'pointer', border: '1px solid #d1d5db',
-        background: copied ? '#f0fdf4' : '#f9fafb', color: copied ? '#15803d' : '#374151',
-        transition: 'all 0.2s'
+        display: 'inline-flex', alignItems: 'center', gap: '8px',
+        padding: '10px 20px', borderRadius: '8px', fontSize: '14px',
+        fontWeight: 700, cursor: 'pointer',
+        border: `2px solid ${border}`,
+        background: bg, color: '#ffffff',
+        transition: 'all 0.2s', letterSpacing: '0.01em',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.12)'
       }}
     >
-      {copied ? '✓ Copied!' : '⎘ Copy Article'}
+      {label}
     </button>
   )
 }
@@ -459,8 +472,15 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
 
         {/* Post Content */}
         <div className="mb-12">
-          {/* Copy button — bypasses any selection restriction */}
-          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '8px' }}>
+          {/* Copy article content button */}
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '10px',
+            padding: '12px 16px', marginBottom: '24px', gap: '12px'
+          }}>
+            <span style={{ fontSize: '13px', color: '#64748b', fontWeight: 500 }}>
+              Click to copy the full article text to clipboard
+            </span>
             <CopyButton contentId="blog-article-content" />
           </div>
           <div
