@@ -156,6 +156,27 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
   const [imageError, setImageError] = useState(false)
   const [relatedImageErrors, setRelatedImageErrors] = useState<Record<number, boolean>>({})
 
+  // Force-enable text selection on blog content after render.
+  // CSS !important alone can't beat inline styles from CMS or inherited select-none.
+  // style.setProperty with 'important' sets true inline !important, highest specificity.
+  useEffect(() => {
+    if (!post) return
+    const timer = setTimeout(() => {
+      const container = document.querySelector('.blog-content')
+      if (!container) return
+      const els = [container, ...Array.from(container.querySelectorAll('*'))]
+      els.forEach(el => {
+        const htmlEl = el as HTMLElement
+        htmlEl.style.setProperty('user-select', 'text', 'important')
+        htmlEl.style.setProperty('-webkit-user-select', 'text', 'important')
+        htmlEl.onselectstart = null
+        htmlEl.oncopy = null
+        htmlEl.oncontextmenu = null
+      })
+    }, 300)
+    return () => clearTimeout(timer)
+  }, [post])
+
   useEffect(() => {
     setMounted(true)
 
