@@ -178,14 +178,16 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
   const [imageError, setImageError] = useState(false)
   const [relatedImageErrors, setRelatedImageErrors] = useState<Record<number, boolean>>({})
 
-  // Force-enable text selection on blog content after render.
-  // style.setProperty with 'important' sets true inline !important — highest specificity,
-  // beats any CMS or third-party inline style.
+  // Force-enable text selection and prevent third-party scripts (Clarity, GTM) from
+  // clearing selection on mouseup. Strategy:
+  //   1. Clear any on* copy-blocking handlers at document level.
+  //   2. Force user-select:text !important on all content elements.
+  //   3. Watch mousedown/selectionchange/mouseup: if a handler clears the
+  //      selection after drag-release, restore it via setTimeout(0).
   useEffect(() => {
     if (!post) return
 
-    // Clear document-level on* handlers that third-party scripts (GTM, Clarity, etc.)
-    // sometimes install to block selection site-wide.
+    // Clear document-level on* handlers set by third-party scripts
     document.documentElement.onselectstart = null
     document.documentElement.oncopy = null
     document.documentElement.oncontextmenu = null
@@ -193,7 +195,8 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
     document.body.oncopy = null
     document.body.oncontextmenu = null
 
-    const timer = setTimeout(() => {
+    // Force-apply user-select after render
+    const styleTimer = setTimeout(() => {
       const container = document.querySelector('.blog-content')
       if (!container) return
       const els = [container, ...Array.from(container.querySelectorAll('*'))]
@@ -206,7 +209,51 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         htmlEl.oncontextmenu = null
       })
     }, 300)
-    return () => clearTimeout(timer)
+
+    // Selection-restoration guard: if a third-party script clears the selection
+    // on mouseup (Clarity / GTM is the typical culprit), restore it.
+    let inContent = false
+    let savedRange: Range | null = null
+
+    const onMouseDown = (e: MouseEvent) => {
+      const el = document.getElementById('blog-article-content')
+      inContent = !!(el && el.contains(e.target as Node))
+      savedRange = null  // reset on each new click/drag
+    }
+
+    const onSelectionChange = () => {
+      if (!inContent) return
+      const sel = window.getSelection()
+      if (sel && sel.rangeCount > 0 && !sel.getRangeAt(0).collapsed) {
+        savedRange = sel.getRangeAt(0).cloneRange()
+      }
+    }
+
+    const onMouseUp = () => {
+      if (!inContent || !savedRange) return
+      const rangeToRestore = savedRange
+      // Run after all synchronous mouseup handlers that might clear selection
+      setTimeout(() => {
+        const sel = window.getSelection()
+        if (sel && (sel.rangeCount === 0 || sel.getRangeAt(0).collapsed)) {
+          sel.removeAllRanges()
+          sel.addRange(rangeToRestore)
+        }
+        inContent = false
+        savedRange = null
+      }, 0)
+    }
+
+    document.addEventListener('mousedown', onMouseDown, true)
+    document.addEventListener('selectionchange', onSelectionChange)
+    document.addEventListener('mouseup', onMouseUp, true)
+
+    return () => {
+      clearTimeout(styleTimer)
+      document.removeEventListener('mousedown', onMouseDown, true)
+      document.removeEventListener('selectionchange', onSelectionChange)
+      document.removeEventListener('mouseup', onMouseUp, true)
+    }
   }, [post])
 
   useEffect(() => {
