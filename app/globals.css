@@ -165,8 +165,6 @@ article a {
 .blog-content a {
   @apply text-dubai-gold underline hover:text-dubai-darkgold transition-colors;
   -webkit-user-drag: none !important;
-  user-select: text !important;
-  -webkit-user-select: text !important;
 }
 
 .blog-content pre {

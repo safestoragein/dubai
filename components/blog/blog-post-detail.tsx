@@ -208,12 +208,10 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         htmlEl.oncopy = null
         htmlEl.oncontextmenu = null
       })
-      // Disable link/image drag — browsers start a drag-and-drop operation when
-      // the user mousedowns on an <a> or <img>, which cancels any text selection
-      // attempt over those elements.
-      container.querySelectorAll('a, img').forEach(el => {
-        el.setAttribute('draggable', 'false')
-      })
+      // Prevent ALL drag operations from starting inside blog content.
+      // This forces the browser to treat any drag gesture as text selection,
+      // regardless of whether it starts on a link, image, or any other element.
+      container.addEventListener('dragstart', (e) => e.preventDefault(), true)
     }, 300)
 
     // Selection-restoration guard: if a third-party script clears the selection
@@ -469,6 +467,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             id="blog-article-content"
             className="blog-content prose prose-lg max-w-none"
             style={{ userSelect: 'text', WebkitUserSelect: 'text' }}
+            onDragStart={(e) => e.preventDefault()}
             dangerouslySetInnerHTML={{ __html: formatBlogContent(post.content) }}
           />
         </div>
