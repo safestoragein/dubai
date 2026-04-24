@@ -208,6 +208,12 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         htmlEl.oncopy = null
         htmlEl.oncontextmenu = null
       })
+      // Disable link/image drag — browsers start a drag-and-drop operation when
+      // the user mousedowns on an <a> or <img>, which cancels any text selection
+      // attempt over those elements.
+      container.querySelectorAll('a, img').forEach(el => {
+        el.setAttribute('draggable', 'false')
+      })
     }, 300)
 
     // Selection-restoration guard: if a third-party script clears the selection
