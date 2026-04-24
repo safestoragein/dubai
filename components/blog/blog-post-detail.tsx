@@ -147,6 +147,48 @@ function getTagUrl(tag: string, allBlogs: BlogPost[]): string {
   return '/get-quote'
 }
 
+function CopyButton({ contentId }: { contentId: string }) {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = () => {
+    const el = document.getElementById(contentId)
+    if (!el) return
+    const text = el.innerText || el.textContent || ''
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }).catch(() => {
+      // Fallback: select all and execCommand
+      const range = document.createRange()
+      range.selectNodeContents(el)
+      const sel = window.getSelection()
+      if (sel) {
+        sel.removeAllRanges()
+        sel.addRange(range)
+        document.execCommand('copy')
+        sel.removeAllRanges()
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      }
+    })
+  }
+
+  return (
+    <button
+      onClick={handleCopy}
+      style={{
+        display: 'inline-flex', alignItems: 'center', gap: '6px',
+        padding: '6px 14px', borderRadius: '6px', fontSize: '13px',
+        fontWeight: 600, cursor: 'pointer', border: '1px solid #d1d5db',
+        background: copied ? '#f0fdf4' : '#f9fafb', color: copied ? '#15803d' : '#374151',
+        transition: 'all 0.2s'
+      }}
+    >
+      {copied ? '✓ Copied!' : '⎘ Copy Article'}
+    </button>
+  )
+}
+
 export default function BlogPostDetail({ slug }: { slug: string }) {
   const [mounted, setMounted] = useState(false)
   const [post, setPost] = useState<BlogPost | null>(null)
@@ -376,7 +418,12 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
 
         {/* Post Content */}
         <div className="mb-12">
+          {/* Copy button — bypasses any selection restriction */}
+          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '8px' }}>
+            <CopyButton contentId="blog-article-content" />
+          </div>
           <div
+            id="blog-article-content"
             className="blog-content prose prose-lg max-w-none"
             style={{ userSelect: 'text', WebkitUserSelect: 'text' }}
             dangerouslySetInnerHTML={{ __html: formatBlogContent(post.content) }}
