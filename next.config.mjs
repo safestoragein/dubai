@@ -74,12 +74,7 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
-      // Missing location area pages → main locations page
-      {
-        source: '/locations/al-barsha',
-        destination: '/locations',
-        permanent: true,
-      },
+      // Old location area aliases that never had pages → main locations page
       {
         source: '/locations/al-quoz',
         destination: '/locations',
@@ -91,22 +86,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/locations/deira',
-        destination: '/locations',
-        permanent: true,
-      },
-      {
         source: '/locations/downtown',
-        destination: '/locations',
-        permanent: true,
-      },
-      {
-        source: '/locations/downtown-dubai',
-        destination: '/locations',
-        permanent: true,
-      },
-      {
-        source: '/locations/dubai-hills',
         destination: '/locations',
         permanent: true,
       },
@@ -121,17 +101,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/locations/mirdif',
-        destination: '/locations',
-        permanent: true,
-      },
-      {
         source: '/locations/motor-city',
-        destination: '/locations',
-        permanent: true,
-      },
-      {
-        source: '/locations/palm-jumeirah',
         destination: '/locations',
         permanent: true,
       },
