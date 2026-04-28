@@ -1,6 +1,7 @@
 import BlogPostDetail from "@/components/blog/blog-post-detail"
 import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
+import { cache } from "react"
 import { notFound } from "next/navigation"
 
 // ISR: regenerate at most once per hour
@@ -22,7 +23,8 @@ interface BlogPostPageProps {
   }>
 }
 
-async function fetchAllBlogs() {
+// cache() deduplicates this across generateMetadata + page component in a single request
+const fetchAllBlogs = cache(async () => {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), 10000)
   try {
@@ -35,6 +37,23 @@ async function fetchAllBlogs() {
     return Array.isArray(data) ? data : []
   } catch {
     clearTimeout(timeout)
+    return []
+  }
+})
+
+// Pre-generate all CMS blog post pages at build time so they're served
+// as static HTML from CDN instead of being server-rendered on demand.
+export async function generateStaticParams() {
+  try {
+    const blogs = await fetchAllBlogs()
+    return blogs
+      .map((post: any) => {
+        const title = post.title || post.seo_title || ''
+        const slug = generateSlug(title)
+        return slug ? { slug } : null
+      })
+      .filter(Boolean)
+  } catch {
     return []
   }
 }
