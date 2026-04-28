@@ -310,7 +310,7 @@ export default function GetQuote() {
                 href="https://wa.me/971505773388"
                 className="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
               >
                 WhatsApp Us
               </a>
