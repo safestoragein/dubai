@@ -147,7 +147,7 @@ export default function Services() {
           </div>
 
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
-            <h3 className="text-2xl font-bold text-[#0A2463] mb-4">Why Choose SafeStorage Dubai?</h3>
+            <h2 className="text-2xl font-bold text-[#0A2463] mb-4">Why Choose SafeStorage Dubai?</h2>
             <ul className="space-y-3 text-gray-700">
               <li><strong>Free Pickup &amp; Delivery:</strong> We collect from anywhere in Dubai and return your items on demand — no truck rental needed.</li>
               <li><strong>24/7 Security:</strong> HD CCTV, biometric access control, individual unit alarms, and on-site security personnel protect your belongings around the clock.</li>
@@ -161,7 +161,7 @@ export default function Services() {
 
           {/* Specialized service pages — internal links to prevent orphan pages */}
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-200 mb-8">
-            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Specialized Storage Services</h3>
+            <h2 className="text-xl font-bold text-[#0A2463] mb-4">Specialized Storage Services</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
               {[
                 { href: "/car-storage", label: "Car & Vehicle Storage" },

@@ -244,7 +244,7 @@ export default function TestimonialVideosPage() {
               {/* Mobile Video List (visible on small screens) */}
               <div className="md:hidden">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-dubai-navy">More Testimonials</h3>
+                  <h2 className="text-xl font-bold text-dubai-navy">More Testimonials</h2>
                   <Button
                     variant="outline"
                     size="sm"

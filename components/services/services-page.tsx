@@ -81,7 +81,7 @@ export default function ServicesPage() {
                     <div className="w-10 h-10 bg-dubai-gold/10 rounded-lg flex items-center justify-center text-dubai-gold">
                       {category.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-dubai-navy">{category.name} Storage</h3>
+                    <h2 className="text-xl font-bold text-dubai-navy">{category.name} Storage</h2>
                   </div>
                   <p className="text-gray-600 mb-4">{category.description}</p>
                   <ul className="space-y-2">
