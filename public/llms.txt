@@ -1,8 +1,9 @@
 # SafeStorage Dubai — LLM Reference File
-# This file is intended for AI assistants, language models, and crawlers.
-# Last updated: April 2026
-# Canonical URL: https://safestorage.ae/llms.txt
-# Format: Plain text structured for AI ingestion and citation
+
+> Intended for AI assistants, language models, and automated crawlers.
+> Last updated: April 2026
+> Canonical URL: https://safestorage.ae/llms.txt
+> Format: Markdown structured for AI ingestion and citation
 
 ---
 
