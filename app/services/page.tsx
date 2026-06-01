@@ -205,7 +205,7 @@ export default function Services() {
         <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold text-[#0A2463] mb-6">All SafeStorage Dubai Services Explained in Detail</h2>
           <p className="text-lg text-gray-700 mb-8">
-            SafeStorage Dubai provides eight core storage services, each designed to address a specific set of customer needs in Dubai. Every service is built on the same foundation: free door-to-door pickup, climate-controlled storage at 18–22°C, 24/7 CCTV and biometric security, complimentary insurance, and flexible monthly billing with no lock-in contracts. Below is a detailed explanation of each service and who it is designed for.
+            SafeStorage Dubai provides eight core storage services, each designed to address a specific set of customer needs in Dubai. Every service is built on the same foundation: hassle-free door-to-door pickup, climate-controlled storage at 18–22°C, 24/7 CCTV and biometric security, complimentary insurance, and flexible monthly billing with no lock-in contracts. Below is a detailed explanation of each service and who it is designed for.
           </p>
 
           <div className="space-y-8 mb-10">

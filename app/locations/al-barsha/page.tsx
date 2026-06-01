@@ -3,14 +3,14 @@ import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Al Barsha Storage Dubai — Free Home Pickup",
+  title: "Al Barsha Storage Dubai — Hassle-Free Home Pickup",
   description:
     "Storage in Al Barsha 1, 2, 3 & 4 Dubai. Hassle-free pickup from your home or office. Climate-controlled units from AED 9/month. Barsha Heights & Tecom also covered. Call +971505773388.",
   keywords:
     "al barsha storage dubai, storage al barsha 1, storage al barsha 2, storage near mall of the emirates, barsha heights storage, tecom storage dubai, al barsha self storage",
   openGraph: {
     title: "Al Barsha Storage Dubai — Hassle-Free Pickup | SafeStorage",
-    description: "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights & Tecom. Free home pickup. From AED 9/month. Call +971505773388.",
+    description: "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights & Tecom. Hassle-free home pickup. From AED 9/month. Call +971505773388.",
     url: "https://safestorage.ae/locations/al-barsha",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -51,7 +51,7 @@ const alBarshaSchemas = [
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/al-barsha#webpage",
     name: "Al Barsha Storage Dubai — Hassle-Free Pickup | SafeStorage",
-    description: "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Free home pickup.",
+    description: "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Hassle-free home pickup.",
     url: "https://safestorage.ae/locations/al-barsha",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -95,7 +95,7 @@ export default function AlBarshaPage() {
             Al Barsha 1, 2, 3, Al Barsha South, Barsha Heights (IMPZ), and Tecom. The area attracts a wide mix of
             Dubai residents — young professionals in Barsha Heights apartments, families in Al Barsha 1 and 2 villas
             and townhouses, and businesses across the Tecom and IMPZ commercial zones. SafeStorage serves every
-            part of Al Barsha with the same free door-to-door pickup service and flexible plans.
+            part of Al Barsha with the same hassle-free door-to-door pickup service and flexible plans.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-10">

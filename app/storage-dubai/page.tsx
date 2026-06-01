@@ -913,7 +913,7 @@ export default function StorageDubaiPage() {
                   Dubai&apos;s combination of extreme heat, high rental costs, and a transient expat population
                   creates unique storage demands that traditional self-service facilities are poorly equipped
                   to meet. SafeStorage was built specifically for Dubai — addressing the city&apos;s specific
-                  challenges with climate-controlled units, free city-wide pickup and delivery, flexible
+                  challenges with climate-controlled units, hassle-free city-wide pickup and delivery, flexible
                   month-to-month contracts, and a hassle-free service model.
                 </p>
                 <p className="text-gray-700">

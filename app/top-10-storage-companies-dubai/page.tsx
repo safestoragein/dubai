@@ -92,7 +92,7 @@ const companies = [
     highlight: true,
     description: "SafeStorage Dubai stands out as the most complete storage solution in Dubai. Rather than a traditional self-storage facility, they operate a valet model — their team comes to your home or office, carefully packs and collects your belongings, stores them in fully climate-controlled and secured warehouses, then delivers everything back whenever you need it. For most Dubai residents, this is significantly more convenient than renting a unit.",
     highlights: [
-      "Free door-to-door pickup & delivery across all Dubai areas",
+      "Hassle-free door-to-door pickup & delivery across all Dubai areas",
       "100% climate-controlled storage (maintained at 18–22°C)",
       "24/7 CCTV surveillance with biometric access control",
       "Free insurance coverage up to AED 5,000 included",

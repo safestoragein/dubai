@@ -172,7 +172,7 @@ export default function VillaMovingGuideDubaiPage() {
             </div>
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
-              <h2 className="text-2xl font-bold mb-3">Free Villa Storage Pickup Across Dubai</h2>
+              <h2 className="text-2xl font-bold mb-3">Hassle-Free Villa Storage Pickup Across Dubai</h2>
               <p className="text-white/80 mb-6">Storing during your villa move? SafeStorage provides hassle-free pickup for villa contents. Large and extra-large units available for full villa storage.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">

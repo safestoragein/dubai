@@ -182,7 +182,7 @@ export default function GetQuote() {
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <div className="space-y-3">
                 <p><strong>Climate control (18–22°C):</strong> All storage is temperature and humidity controlled, protecting your belongings from Dubai&apos;s extreme heat year-round. This is not an upgrade — it is standard on every plan.</p>
-                <p><strong>Free door-to-door pickup:</strong> Our team collects your items from any Dubai address at your chosen time. No van rental, no heavy lifting for you. Pickup is 100% free for all Dubai locations.</p>
+                <p><strong>Hassle-free door-to-door pickup:</strong> Our team collects your items from any Dubai address at your chosen time. No van rental, no heavy lifting for you. Pickup is 100% free for all Dubai locations.</p>
                 <p><strong>24/7 HD CCTV security:</strong> Every unit and corridor is monitored continuously by high-definition cameras. Footage is retained and available if any issue arises.</p>
               </div>
               <div className="space-y-3">

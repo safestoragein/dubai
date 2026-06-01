@@ -24,7 +24,7 @@ const BlogSection      = dynamic(() => import("@/components/blog-section"))
 export const metadata: Metadata = {
   title: { absolute: "SafeStorage Dubai — #1 Rated Storage with Hassle-Free Pickup" },
   description:
-    "SafeStorage Dubai: secure, climate-controlled self-storage units with free door-to-door pickup and delivery. Personal, business, vehicle & document storage from AED 9/month. 500+ Dubai customers. Get a free quote in 2 minutes.",
+    "SafeStorage Dubai: secure, climate-controlled self-storage units with hassle-free door-to-door pickup and delivery. Personal, business, vehicle & document storage from AED 9/month. 500+ Dubai customers. Get a free quote in 2 minutes.",
   keywords:
     "safestorage dubai, climate controlled storage dubai, hassle-free pickup storage dubai, secure storage dubai, affordable storage dubai, storage facility dubai, self storage dubai, personal storage dubai, business storage dubai, furniture storage dubai, vehicle storage dubai, document storage dubai, storage units dubai, dubai storage solutions, storage with pickup and delivery dubai",
   openGraph: {
@@ -160,7 +160,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What is included in the monthly storage price?</h3>
-              <p className="text-gray-700 leading-relaxed">The monthly storage rate at SafeStorage Dubai includes: free door-to-door pickup from anywhere in Dubai, secure climate-controlled storage in our monitored warehouse, digital inventory management with item-level tracking, free insurance coverage up to AED 5,000, 24/7 CCTV and biometric security, and free delivery back to your address when you need your items. There are no hidden fees. The only additional charges would be for optional packing materials if requested, enhanced insurance for high-value items, or same-day express service during peak periods.</p>
+              <p className="text-gray-700 leading-relaxed">The monthly storage rate at SafeStorage Dubai includes: hassle-free door-to-door pickup from anywhere in Dubai, secure climate-controlled storage in our monitored warehouse, digital inventory management with item-level tracking, free insurance coverage up to AED 5,000, 24/7 CCTV and biometric security, and free delivery back to your address when you need your items. There are no hidden fees. The only additional charges would be for optional packing materials if requested, enhanced insurance for high-value items, or same-day express service during peak periods.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">Is VAT included in the price?</h3>
@@ -184,7 +184,7 @@ export default function LandingPage() {
           <h2 className="text-3xl font-bold text-[#0A2463] mb-6">SafeStorage Dubai — Secure, Climate-Controlled Self Storage</h2>
           <p className="text-lg text-gray-700 mb-6">
             SafeStorage Dubai is the UAE&apos;s leading provider of secure, climate-controlled self storage with
-            free door-to-door pickup and delivery. Whether you need to store furniture during a renovation,
+            hassle-free door-to-door pickup and delivery. Whether you need to store furniture during a renovation,
             keep business inventory safe, or find a long-term solution for your household items, SafeStorage
             offers flexible monthly plans with no long-term contracts.
           </p>

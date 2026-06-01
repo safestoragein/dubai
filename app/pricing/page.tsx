@@ -247,7 +247,7 @@ export default function Pricing() {
                   <p className="text-sm">Industrial HVAC systems maintain optimal temperature and 45–55% humidity in every unit year-round. Protects furniture, electronics, documents, clothing, and artwork from Dubai&apos;s extreme heat and humidity fluctuations. This is not an upgrade — it is standard.</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-[#0A2463]">Free Door-to-Door Pickup in Dubai</p>
+                  <p className="font-semibold text-[#0A2463]">Hassle-Free Door-to-Door Pickup in Dubai</p>
                   <p className="text-sm">Our professional team collects your belongings from any Dubai address at your chosen time. They bring all necessary equipment, wrap furniture, and handle all heavy lifting. No van rental, no labour charges, no fuel surcharges. Completely free.</p>
                 </div>
                 <div>

@@ -265,7 +265,7 @@ export default function LocationsPage() {
               <div>
                 <h4 className="text-lg font-semibold text-[#0A2463] mb-3">What Is Included in Every Plan</h4>
                 <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Free door-to-door pickup anywhere in Dubai</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Hassle-free door-to-door pickup anywhere in Dubai</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Climate-controlled storage at 18–22°C year-round</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>24/7 CCTV surveillance and biometric access control</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Complimentary insurance on all stored items</span></li>

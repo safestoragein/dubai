@@ -27,7 +27,7 @@ const deiraSchemas = [
     "@type": "Service",
     name: "Storage in Deira, Bur Dubai & Old Dubai",
     description:
-      "Climate-controlled storage for Deira, Bur Dubai, Karama, Oud Metha, and all old Dubai areas. Free door-to-door pickup. Flexible monthly plans from AED 9/month.",
+      "Climate-controlled storage for Deira, Bur Dubai, Karama, Oud Metha, and all old Dubai areas. Hassle-free door-to-door pickup. Flexible monthly plans from AED 9/month.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/deira",
     areaServed: [
@@ -94,7 +94,7 @@ export default function DeiraPage() {
             Deira and Bur Dubai are the historical heart of Dubai — a vibrant, densely populated mosaic of
             residential apartments, trading businesses, souks, and commercial zones. With some of the highest
             population densities in the emirate, these areas have significant demand for affordable, accessible
-            storage. SafeStorage serves all of old Dubai with the same free door-to-door pickup and flexible
+            storage. SafeStorage serves all of old Dubai with the same hassle-free door-to-door pickup and flexible
             monthly pricing available elsewhere in the city.
           </p>
           <p className="text-lg text-gray-700 mb-8">
