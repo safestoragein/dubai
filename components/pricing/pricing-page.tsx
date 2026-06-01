@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { pricingFaqs } from "./pricing-data"
 import Link from "next/link"
-import StorageSizes from "@/components/storage-sizes"
 
 export default function PricingPage() {
   // Scroll to pricing section if hash is present
@@ -84,9 +83,6 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
-
-      {/* Storage Sizes Section */}
-      <StorageSizes />
 
       {/* Why Choose Us Section */}
       <section className="w-full py-20 bg-gray-50">
