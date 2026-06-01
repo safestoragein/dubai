@@ -182,7 +182,7 @@ export default function GetQuote() {
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <div className="space-y-3">
                 <p><strong>Climate control (18–22°C):</strong> All storage is temperature and humidity controlled, protecting your belongings from Dubai&apos;s extreme heat year-round. This is not an upgrade — it is standard on every plan.</p>
-                <p><strong>Hassle-free door-to-door pickup:</strong> Our team collects your items from any Dubai address at your chosen time. No van rental, no heavy lifting for you. Pickup is 100% free for all Dubai locations.</p>
+                <p><strong>Hassle-free door-to-door pickup:</strong> Our team collects your items from any Dubai address at your chosen time. No van rental, no heavy lifting for you. We cover all Dubai locations door-to-door; for areas outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies.</p>
                 <p><strong>24/7 HD CCTV security:</strong> Every unit and corridor is monitored continuously by high-definition cameras. Footage is retained and available if any issue arises.</p>
               </div>
               <div className="space-y-3">
@@ -240,8 +240,8 @@ export default function GetQuote() {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. Is pickup really free, or are there fuel charges?</h3>
-              <p className="text-gray-700">Pickup and delivery within Dubai is genuinely free — no fuel surcharges, no handling fees, no exceptions. This is included in your storage plan from day one. The only scenario where a pickup fee may apply is if you are located outside Dubai (for example, Sharjah, Ajman, or Abu Dhabi), in which case we charge a modest fixed transport fee. Our team will inform you of any such charges before you confirm the booking, so there are never any surprises.</p>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. How does pickup and delivery work?</h3>
+              <p className="text-gray-700">Door-to-door pickup and delivery is part of our hassle-free service across Dubai — our team handles collection and return so you never need to hire a van. If you are located outside Dubai (for example, Sharjah, Ajman, or Abu Dhabi), we charge a modest fixed transport fee. Our team will inform you of any such charges before you confirm the booking, so there are never any surprises.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -261,7 +261,7 @@ export default function GetQuote() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">9. What happens if I need to cancel my storage before the contract ends?</h3>
-              <p className="text-gray-700">SafeStorage operates on flexible monthly terms with no long-term lock-in. To cancel, simply provide 7 days&apos; notice and we will arrange delivery of all your items back to your address free of charge. If you have prepaid for 3, 6, or 12 months and cancel early, we will refund the unused months minus a small administrative fee. There are no cancellation penalties and no hidden exit costs. We believe customers should stay because they love the service, not because they are contractually trapped.</p>
+              <p className="text-gray-700">SafeStorage operates on flexible monthly terms with no long-term lock-in. To cancel, simply provide 7 days&apos; notice and we will arrange hassle-free door-to-door delivery of all your items back to your address. If you have prepaid for 3, 6, or 12 months and cancel early, we will refund the unused months minus a small administrative fee. There are no cancellation penalties and no hidden exit costs. We believe customers should stay because they love the service, not because they are contractually trapped.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -291,7 +291,7 @@ export default function GetQuote() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. What is the process if I want to retrieve some — but not all — of my stored items?</h3>
-              <p className="text-gray-700">Partial retrieval is completely supported. Simply contact your dedicated storage consultant and specify which items you want returned. For customers on item-based plans, each item is catalogued and photographed when it enters storage, making it easy to identify and retrieve specific pieces. For customers with dedicated units, you can either request selected items to be delivered or visit the facility yourself and take what you need. Partial delivery is handled at no extra charge within Dubai.</p>
+              <p className="text-gray-700">Partial retrieval is completely supported. Simply contact your dedicated storage consultant and specify which items you want returned. For customers on item-based plans, each item is catalogued and photographed when it enters storage, making it easy to identify and retrieve specific pieces. For customers with dedicated units, you can either request selected items to be delivered or visit the facility yourself and take what you need. Partial delivery is fully supported within Dubai.</p>
             </div>
 
           </div>

@@ -237,7 +237,7 @@ export default function BusinessBayPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What happens if I need my items back urgently from storage?</h3>
-            <p className="text-gray-700">If you need items urgently, contact us on +971505773388 or WhatsApp as early as possible in the day. For urgent requests received before 12 PM, we can often arrange same-day delivery back to any Business Bay or Downtown Dubai address. Standard delivery is within 24–48 hours. You can request specific items from your digital inventory to be returned without having to retrieve everything. There is no charge for the first delivery per month on most plans, and additional deliveries are charged at a flat rate disclosed upfront.</p>
+            <p className="text-gray-700">If you need items urgently, contact us on +971505773388 or WhatsApp as early as possible in the day. For urgent requests received before 12 PM, we can often arrange same-day delivery back to any Business Bay or Downtown Dubai address. Standard delivery is within 24–48 hours. You can request specific items from your digital inventory to be returned without having to retrieve everything. Deliveries within Dubai are handled door-to-door as part of our hassle-free service, with any additional fees disclosed upfront before you book.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can I store office furniture from a Business Bay office during relocation?</h3>

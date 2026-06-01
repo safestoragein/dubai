@@ -89,7 +89,7 @@ export default function MobileStorageDubaiPage() {
                 </thead>
                 <tbody>
                   {[
-                    ["Pickup", "Free — team comes to you", "You arrange and pay for transport"],
+                    ["Pickup", "Hassle-free — team comes to you", "You arrange and pay for transport"],
                     ["Furniture wrapping", "Professional wrapping included", "You wrap it yourself"],
                     ["Heavy lifting", "Team does it", "You do it"],
                     ["Vehicle needed", "No", "Yes — car or rental van"],

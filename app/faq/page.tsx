@@ -92,7 +92,7 @@ const faqCategories = [
       },
       {
         question: "Are there any hidden fees?",
-        answer: "Absolutely not! We believe in transparent pricing. The price quoted includes: climate-controlled storage, 24/7 security, basic insurance (up to AED 5,000), and access during operating hours. Pickup and delivery within Dubai is FREE. The only additional costs would be for premium insurance or packing materials, both of which are optional."
+        answer: "Absolutely not! We believe in transparent pricing. The price quoted includes: climate-controlled storage, 24/7 security, basic insurance (up to AED 5,000), and access during operating hours. Pickup and delivery within Dubai is handled door-to-door by our team as part of our hassle-free service. The only additional costs would be for premium insurance, packing materials, or transport to locations outside Dubai, all of which are optional and confirmed upfront."
       },
       {
         question: "What payment methods do you accept?",
@@ -181,7 +181,7 @@ const faqCategories = [
       },
       {
         question: "How do I cancel my storage plan?",
-        answer: "Cancelling with SafeStorage is straightforward and penalty-free. Simply provide 7 days&apos; written or verbal notice to your dedicated storage consultant or contact us via email or WhatsApp. We will schedule the delivery of all your stored items back to your Dubai address free of charge within your notice period. If you have prepaid for a longer term and cancel early, we will refund the unused months minus a small administrative processing fee. There are no cancellation penalties, no lock-in clauses, and no obstacles to ending your storage — we want you to stay because you love the service, not because you feel trapped."
+        answer: "Cancelling with SafeStorage is straightforward and penalty-free. Simply provide 7 days&apos; written or verbal notice to your dedicated storage consultant or contact us via email or WhatsApp. We will schedule hassle-free door-to-door delivery of all your stored items back to your Dubai address within your notice period. If you have prepaid for a longer term and cancel early, we will refund the unused months minus a small administrative processing fee. There are no cancellation penalties, no lock-in clauses, and no obstacles to ending your storage — we want you to stay because you love the service, not because you feel trapped."
       },
       {
         question: "What happens if I miss a monthly payment?",
@@ -198,7 +198,7 @@ const faqCategories = [
       },
       {
         question: "Can I retrieve a single item from storage without getting everything back?",
-        answer: "Yes, absolutely. Partial retrieval is fully supported and completely free within Dubai. Simply contact your dedicated storage consultant, tell them which specific item or items you need, and we will arrange delivery of just those items to your address. For item-based storage plans, each item is individually catalogued and photographed, making it easy to identify and retrieve specific pieces from your inventory. For unit-based storage customers, you can either request specific item delivery or visit the facility yourself and take what you need while leaving everything else in storage."
+        answer: "Yes, absolutely. Partial retrieval is fully supported within Dubai. Simply contact your dedicated storage consultant, tell them which specific item or items you need, and we will arrange delivery of just those items to your address. For item-based storage plans, each item is individually catalogued and photographed, making it easy to identify and retrieve specific pieces from your inventory. For unit-based storage customers, you can either request specific item delivery or visit the facility yourself and take what you need while leaving everything else in storage."
       },
       {
         question: "Is there emergency access available outside normal hours?",

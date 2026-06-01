@@ -94,7 +94,7 @@ export default function EcommerceStoragePage() {
                 { stat: "1 Month", label: "Minimum contract" },
                 { stat: "12.65 AED", label: "Starting price / sqft" },
                 { stat: "24hrs", label: "Scale up time" },
-                { stat: "Free", label: "Initial inventory pickup" },
+                { stat: "Door-to-Door", label: "Initial inventory pickup" },
               ].map((s) => (
                 <div key={s.label}>
                   <div className="text-3xl font-bold text-dubai-navy">{s.stat}</div>

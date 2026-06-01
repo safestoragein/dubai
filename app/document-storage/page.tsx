@@ -92,7 +92,7 @@ export default function DocumentStoragePage() {
                 { stat: "12.65 AED", label: "Starting price / sqft" },
                 { stat: "5+ Years", label: "UAE retention requirements" },
                 { stat: "24/7", label: "Security monitoring" },
-                { stat: "Free", label: "Initial collection" },
+                { stat: "Door-to-Door", label: "Initial collection" },
               ].map((s) => (
                 <div key={s.label}>
                   <div className="text-3xl font-bold text-dubai-navy">{s.stat}</div>
@@ -321,7 +321,7 @@ export default function DocumentStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">How do I get started with document storage at SafeStorage Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Getting started is simple. Call us at +971505773388 or request a quote at safestorage.ae/get-quote, telling us approximately how many boxes you need to store. We provide a same-day quote based on volume and storage duration. If you need boxes supplied, we can provide standardised archive boxes at a small additional cost. We offer a free initial collection service &mdash; our team comes to your office or home and transports your documents to our facility. On arrival, each box is logged into our system with your reference labels. You sign the storage agreement, receive a copy of the inventory record, and we handle the rest. Most businesses have their entire document archive moved within a single working day.</p>
+                <p className="text-gray-700 leading-relaxed">Getting started is simple. Call us at +971505773388 or request a quote at safestorage.ae/get-quote, telling us approximately how many boxes you need to store. We provide a same-day quote based on volume and storage duration. If you need boxes supplied, we can provide standardised archive boxes at a small additional cost. We offer a hassle-free door-to-door collection service &mdash; our team comes to your office or home and transports your documents to our facility. On arrival, each box is logged into our system with your reference labels. You sign the storage agreement, receive a copy of the inventory record, and we handle the rest. Most businesses have their entire document archive moved within a single working day.</p>
               </div>
             </div>
           </div>

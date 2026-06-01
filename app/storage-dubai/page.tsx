@@ -52,8 +52,8 @@ const whyChooseUs = [
   {
     icon: Truck,
     title: "Hassle-Free Pickup & Delivery",
-    description: "We collect from your location and deliver back when needed. Competitors charge AED 200-500 for this - we include it FREE.",
-    highlight: "Competitors Charge Extra",
+    description: "We collect from your location and deliver back when needed - hassle-free door-to-door, with no van rental or heavy lifting required on your part.",
+    highlight: "Door-to-Door Service",
   },
   {
     icon: Thermometer,

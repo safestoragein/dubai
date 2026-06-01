@@ -91,7 +91,7 @@ export default function FurnitureStoragePage() {
           <div className="container px-4 max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
-                { stat: "Free", label: "Pickup across Dubai" },
+                { stat: "Door-to-Door", label: "Pickup across Dubai" },
                 { stat: "18–24°C", label: "Climate-controlled units" },
                 { stat: "12.65 AED", label: "Per sqft from" },
                 { stat: "No", label: "Long-term contract required" },

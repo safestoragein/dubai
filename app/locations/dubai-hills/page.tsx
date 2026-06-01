@@ -234,7 +234,7 @@ export default function DubaiHillsPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I access or retrieve specific items stored from my Dubai Hills villa?</h3>
-              <p className="text-gray-700">Yes. All items stored from your Dubai Hills villa are photographed and catalogued in a digital inventory you can access. If you need specific items returned — for example, a specific chair for your temporary apartment, a specific document, or seasonal clothing — you can request those specific items and we will deliver them to any Dubai address within 24–48 hours. There is no requirement to retrieve everything at once. Partial retrievals are handled at no extra charge on most plans. This is particularly useful for customers waiting for long Dubai Hills villa renovations.</p>
+              <p className="text-gray-700">Yes. All items stored from your Dubai Hills villa are photographed and catalogued in a digital inventory you can access. If you need specific items returned — for example, a specific chair for your temporary apartment, a specific document, or seasonal clothing — you can request those specific items and we will deliver them to any Dubai address within 24–48 hours. There is no requirement to retrieve everything at once. Partial retrievals are fully supported on most plans. This is particularly useful for customers waiting for long Dubai Hills villa renovations.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is there a minimum storage period for Dubai Hills customers?</h3>

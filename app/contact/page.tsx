@@ -176,7 +176,7 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">3. How much does storage cost in Dubai?</h3>
-              <p className="text-gray-700">SafeStorage Dubai offers some of the most competitive storage rates in the UAE. Our pricing starts from <strong>12.65 AED / sqft</strong> (VAT-inclusive). All plans include climate control, 24/7 security, and free insurance up to AED 5,000. There are no setup fees, admin fees, or fuel surcharges. The price quoted is the price charged — period.</p>
+              <p className="text-gray-700">SafeStorage Dubai offers some of the most competitive storage rates in the UAE. Our pricing starts from <strong>12.65 AED / sqft</strong> (VAT-inclusive). All plans include climate control, 24/7 security, and free insurance up to AED 5,000. There are no setup fees or admin fees, and the price quoted is the price charged — period.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -186,7 +186,7 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. Do you offer door-to-door pickup and delivery in Dubai?</h3>
-              <p className="text-gray-700">Yes. Our door-to-door service is one of the key reasons customers choose SafeStorage over traditional self-storage. Our professional team arrives at your home, office, or any Dubai address, wraps and packs your belongings with care, and transports them to our secure facility. When you need your items back, simply call or WhatsApp us and we deliver them back to your door — usually within 24 to 48 hours. This service is completely free within Dubai.</p>
+              <p className="text-gray-700">Yes. Our door-to-door service is one of the key reasons customers choose SafeStorage over traditional self-storage. Our professional team arrives at your home, office, or any Dubai address, wraps and packs your belongings with care, and transports them to our secure facility. When you need your items back, simply call or WhatsApp us and we deliver them back to your door — usually within 24 to 48 hours. We cover all of Dubai door-to-door; for locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, which we confirm before you book.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

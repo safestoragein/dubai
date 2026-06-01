@@ -82,7 +82,7 @@ export default function StudentStoragePage() {
               {[
                 { stat: "12.65 AED", label: "Starting price / sqft" },
                 { stat: "1 Month", label: "Minimum contract" },
-                { stat: "Free", label: "Pickup near universities" },
+                { stat: "Door-to-Door", label: "Pickup near universities" },
                 { stat: "7 Days", label: "Access per week" },
               ].map((s) => (
                 <div key={s.label}>

@@ -102,7 +102,7 @@ export default function Pricing() {
               </div>
               <div>
                 <p className="mb-2">✓ <strong>Free insurance</strong> — up to AED 5,000 coverage included</p>
-                <p className="mb-2">✓ <strong>Pickup &amp; delivery</strong> — free across Dubai</p>
+                <p className="mb-2">✓ <strong>Pickup &amp; delivery</strong> — hassle-free door-to-door across Dubai</p>
                 <p className="mb-2">✓ <strong>No hidden fees</strong> — price quoted is price charged</p>
                 <p className="mb-2">✓ <strong>Flexible terms</strong> — cancel anytime, no penalties</p>
               </div>
@@ -141,8 +141,8 @@ export default function Pricing() {
                 <p>No. SafeStorage charges no setup, admin, or registration fees. You only pay the monthly storage rate.</p>
               </div>
               <div>
-                <p className="font-semibold mb-1">Is pickup and delivery really free?</p>
-                <p>Yes. Pickup and delivery within Dubai is included in your storage plan at no extra cost. There are no fuel or handling surcharges.</p>
+                <p className="font-semibold mb-1">How does pickup and delivery work?</p>
+                <p>Door-to-door pickup and delivery across Dubai is part of our hassle-free service — our team handles collection and return so you never need to hire a van. For locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, confirmed before you book.</p>
               </div>
               <div>
                 <p className="font-semibold mb-1">What payment methods are accepted?</p>
@@ -211,11 +211,11 @@ export default function Pricing() {
                 </div>
                 <div>
                   <p className="font-semibold text-[#0A2463]">Hassle-Free Door-to-Door Pickup in Dubai</p>
-                  <p className="text-sm">Our professional team collects your belongings from any Dubai address at your chosen time. They bring all necessary equipment, wrap furniture, and handle all heavy lifting. No van rental, no labour charges, no fuel surcharges. Completely free.</p>
+                  <p className="text-sm">Our professional team collects your belongings from any Dubai address at your chosen time. They bring all necessary equipment, wrap furniture, and handle all heavy lifting — so there is no van rental or heavy lifting needed on your part.</p>
                 </div>
                 <div>
                   <p className="font-semibold text-[#0A2463]">Hassle-Free Return Delivery in Dubai</p>
-                  <p className="text-sm">When you need items back, we deliver them to your door within 24–48 hours at no charge. Same-day delivery is available for urgent requests. Partial retrieval — getting some but not all items back — is also free.</p>
+                  <p className="text-sm">When you need items back, we deliver them to your door within 24–48 hours. Same-day delivery is available for urgent requests. Partial retrieval — getting some but not all items back — is fully supported.</p>
                 </div>
               </div>
               <div className="space-y-4">
@@ -274,7 +274,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. Are there any additional charges for accessing my items?</h3>
-              <p className="text-gray-700">No. Accessing your items — whether by visiting the facility personally or requesting a delivery — is included in your monthly plan at no extra charge. There are no per-visit fees, no access surcharges, and no charges for partial retrievals. The only scenario where an additional fee applies is if you request delivery outside Dubai (such as to Sharjah, Abu Dhabi, or Al Ain), in which case a small fixed transport fee applies, which your consultant will confirm before the delivery is scheduled.</p>
+              <p className="text-gray-700">You are welcome to access your items by visiting the facility personally or by requesting a delivery. There are no per-visit fees and no limit on how often you can access or partially retrieve your belongings. For deliveries within Dubai our team handles door-to-door collection and return as part of our hassle-free service. The only scenario where a transport fee applies is if you request delivery outside Dubai (such as to Sharjah, Abu Dhabi, or Al Ain), in which case a small fixed transport fee applies, which your consultant will confirm before the delivery is scheduled.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -313,8 +313,8 @@ export default function Pricing() {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">13. What does same-day pickup cost?</h3>
-              <p className="text-gray-700">Same-day pickup for requests made before 12 PM on any day is available at no additional charge. It is included in the standard hassle-free pickup service that comes with every storage plan. Subject to availability, our team will arrive at your address the same day, typically within 4 to 6 hours of booking confirmation. For very last-minute requests where same-day pickup is needed urgently (for example, a sudden eviction or emergency relocation), call +971505773388 directly and our dispatch team will confirm availability immediately.</p>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">13. Is same-day pickup available?</h3>
+              <p className="text-gray-700">Yes. Same-day pickup is available for requests made before 12 PM on any day, as part of the standard hassle-free pickup service that comes with every storage plan. Subject to availability, our team will arrive at your address the same day, typically within 4 to 6 hours of booking confirmation. For very last-minute requests where same-day pickup is needed urgently (for example, a sudden eviction or emergency relocation), call +971505773388 directly and our dispatch team will confirm availability immediately.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

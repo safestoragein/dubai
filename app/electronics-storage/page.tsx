@@ -92,7 +92,7 @@ export default function ElectronicsStoragePage() {
                 { stat: "18–24°C", label: "Year-round temperature" },
                 { stat: "45–55%", label: "Relative humidity maintained" },
                 { stat: "24/7", label: "Climate monitoring" },
-                { stat: "Free", label: "Pickup & delivery" },
+                { stat: "Door-to-Door", label: "Pickup & delivery" },
               ].map((s) => (
                 <div key={s.label}>
                   <div className="text-3xl font-bold text-dubai-navy">{s.stat}</div>

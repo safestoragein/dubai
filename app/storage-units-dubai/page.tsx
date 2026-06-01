@@ -50,7 +50,7 @@ const features = [
   {
     icon: Truck,
     title: "Hassle-Free Pickup & Delivery",
-    description: "We collect from your location and deliver back when needed. No extra charges, no hidden fees.",
+    description: "We collect from your location and deliver back when needed — no van rental or heavy lifting required on your part.",
     highlight: "Save AED 300+",
   },
   {
@@ -387,7 +387,7 @@ export default function StorageUnitsDubaiPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {[
                 { label: "Starting Price", value: "12.65 AED / sqft" },
-                { label: "Pickup", value: "FREE" },
+                { label: "Pickup", value: "Hassle-Free" },
                 { label: "Insurance", value: "AED 5,000" },
                 { label: "Response", value: "15 min" },
               ].map((stat, i) => (
