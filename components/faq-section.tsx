@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "How much does storage cost in Dubai?",
     answer:
-      "SafeStorage Dubai offers climate-controlled storage starting from AED 9/month. The final price depends on the unit size, rental duration, and any additional services. Importantly, our pricing is fully transparent — what we quote is what you pay, with no admin fees, hidden charges, or deposit surprises. We also offer a price-match guarantee: show us a lower quote and we'll beat it.",
+      "SafeStorage Dubai offers climate-controlled storage starting from 12.6 AED / Sqft (VAT-inclusive). The final price depends on the unit size, rental duration, and any additional services. Importantly, our pricing is fully transparent — what we quote is what you pay, with no admin fees, hidden charges, or deposit surprises. We also offer a price-match guarantee: show us a lower quote and we'll beat it.",
   },
   {
     question: "Do you offer hassle-free pickup and delivery across Dubai?",

@@ -483,7 +483,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the starting price for storage at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">SafeStorage Dubai plans start from AED 9 per month for a small volume of items such as a handful of boxes or a few personal items. Pricing scales with the volume of items stored — you pay for the actual space your belongings occupy, not a fixed unit size. A typical 1-bedroom apartment storage plan runs from approximately AED 150–200 per month, and full villa storage for a large property can range from AED 400–600+ per month. All pricing is provided transparently in your quote with no hidden fees. Hassle-free pickup, climate control, insurance, and the digital inventory system are included in every plan regardless of the amount you store.</p>
+              <p className="text-gray-700">SafeStorage Dubai pricing starts from 12.6 AED / Sqft (VAT-inclusive). Pricing scales with the space your belongings occupy — you pay for the actual area your items take up, not a fixed unit size. All pricing is provided transparently in your quote with no hidden fees. Hassle-free pickup, climate control, insurance, and the digital inventory system are included in every plan regardless of the amount you store.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I speak to a real person at SafeStorage, or is everything automated?</h3>

@@ -123,11 +123,11 @@ export default function RenovationStorageTipsPage() {
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">The Cost of Renovation Storage vs The Cost of Renovation Damage</h2>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-green-50 border border-green-200 rounded-xl p-5">
-                <h3 className="font-bold text-green-800 mb-3">Storage Cost (2BR Apartment, 3 months)</h3>
+                <h3 className="font-bold text-green-800 mb-3">Storage Cost (2BR Apartment)</h3>
                 <div className="space-y-2 text-sm text-green-700">
-                  <div className="flex justify-between"><span>Medium unit (3 months)</span><span className="font-bold">AED 1,497–2,097</span></div>
+                  <div className="flex justify-between"><span>Unit pricing</span><span className="font-bold">From 12.6 AED / Sqft</span></div>
                   <div className="flex justify-between"><span>Hassle-free pickup + delivery</span><span className="font-bold">AED 0</span></div>
-                  <div className="border-t border-green-300 pt-2 flex justify-between font-bold"><span>Total</span><span>AED 1,497–2,097</span></div>
+                  <div className="border-t border-green-300 pt-2 flex justify-between font-bold"><span>Total</span><span>From 12.6 AED / Sqft</span></div>
                 </div>
               </div>
               <div className="bg-red-50 border border-red-200 rounded-xl p-5">

@@ -652,7 +652,7 @@ export default function QuotePage() {
                           </div>
                           <div className="text-right">
                             <div className="text-sm text-slate-500">Starting from</div>
-                            <div className="font-bold text-blue-600">AED 50/month</div>
+                            <div className="font-bold text-blue-600">12.6 AED / Sqft</div>
                           </div>
                         </Label>
                         
@@ -664,7 +664,7 @@ export default function QuotePage() {
                           </div>
                           <div className="text-right">
                             <div className="text-sm text-slate-500">Starting from</div>
-                            <div className="font-bold text-emerald-600">AED 42/month</div>
+                            <div className="font-bold text-emerald-600">12.6 AED / Sqft</div>
                           </div>
                           <span className="absolute top-2 right-2 bg-emerald-500 text-white text-xs px-2 py-1 rounded-full font-bold">
                             BEST VALUE

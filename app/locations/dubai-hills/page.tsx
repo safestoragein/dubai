@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Dubai Hills Estate Storage — Hassle-Free Pickup",
   description:
-    "Storage for Dubai Hills Estate villas and apartments. Hassle-free pickup service, climate-controlled units, flexible plans from AED 9/month. Al Quoz also covered. Call +971505773388.",
+    "Storage for Dubai Hills Estate villas and apartments. Hassle-free pickup service, climate-controlled units, flexible plans from 12.6 AED / Sqft. Al Quoz also covered. Call +971505773388.",
   keywords:
     "dubai hills estate storage, storage dubai hills, storage near dubai hills mall, al quoz storage, dubai hills villa storage, storage emaar dubai hills",
   openGraph: {
@@ -222,7 +222,7 @@ export default function DubaiHillsPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Dubai Hills 4-bedroom villa?</h3>
-              <p className="text-gray-700">A typical Dubai Hills 4-bedroom villa (Maple, Sidra, or Golf Place) with full furniture and personal contents costs approximately AED 400–650 per month to store. This includes hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery. For villas with premium furniture, artwork, or high-value electronics, extended insurance is available at a small additional cost. For the most accurate quote, share a video walkthrough of your villa via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
+              <p className="text-gray-700">Storing a Dubai Hills 4-bedroom villa (Maple, Sidra, or Golf Place) with full furniture and personal contents starts from 12.6 AED / Sqft (VAT-inclusive). This includes hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery. For villas with premium furniture, artwork, or high-value electronics, extended insurance is available at a small additional cost. For the most accurate quote, share a video walkthrough of your villa via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage handle golf equipment storage for Dubai Hills Golf Club members?</h3>

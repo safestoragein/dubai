@@ -68,7 +68,7 @@ const businessStorageSchemas = [
     url: 'https://safestorage.ae/business-storage',
     areaServed: { '@type': 'City', name: 'Dubai' },
     serviceType: 'Business Storage',
-    offers: { '@type': 'AggregateOffer', priceCurrency: 'AED', lowPrice: '599', highPrice: '4999' },
+    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.6' },
   },
   {
     '@context': 'https://schema.org',
@@ -253,8 +253,8 @@ export default function BusinessStoragePage() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Business Storage Plans &amp; Pricing</h3>
             <p className="text-gray-700 mb-4">
-              Business storage plans at SafeStorage start from AED 599/month for medium units (50–100 sq ft),
-              suitable for a small office clearance or modest inventory. Larger units (100–300+ sq ft) are
+              Business storage plans at SafeStorage start from 12.6 AED / Sqft (VAT-inclusive). Medium units (50–100 sq ft)
+              suit a small office clearance or modest inventory, while larger units (100–300+ sq ft) are
               available for full office contents, warehouse overflow, or bulk retail stock.
             </p>
             <ul className="space-y-2 text-gray-700">
@@ -376,7 +376,7 @@ export default function BusinessStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. How is business storage priced in Dubai?</h3>
-              <p className="text-gray-700">Business storage at SafeStorage is priced monthly based on the unit size required. Medium units (50–100 sq ft) start from AED 599/month and are suitable for small office clearances, modest inventory, or document archives. Large units (100–200 sq ft) start from AED 999/month and accommodate full office contents or substantial inventory volumes. Extra-large units (200–400+ sq ft) are priced from AED 1,799/month and suit larger commercial storage needs. All plans include hassle-free pickup and delivery across Dubai, climate control, 24/7 security, and a dedicated account manager.</p>
+              <p className="text-gray-700">Business storage at SafeStorage starts from 12.6 AED / Sqft (VAT-inclusive), based on the unit size required. Medium units (50–100 sq ft) are suitable for small office clearances, modest inventory, or document archives. Large units (100–200 sq ft) accommodate full office contents or substantial inventory volumes. Extra-large units (200–400+ sq ft) suit larger commercial storage needs. All plans include hassle-free pickup and delivery across Dubai, climate control, 24/7 security, and a dedicated account manager.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

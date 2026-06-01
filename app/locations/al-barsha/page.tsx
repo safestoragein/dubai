@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Al Barsha Storage Dubai — Hassle-Free Home Pickup",
   description:
-    "Storage in Al Barsha 1, 2, 3 & 4 Dubai. Hassle-free pickup from your home or office. Climate-controlled units from AED 9/month. Barsha Heights & Tecom also covered. Call +971505773388.",
+    "Storage in Al Barsha 1, 2, 3 & 4 Dubai. Hassle-free pickup from your home or office. Climate-controlled units from 12.6 AED / Sqft. Barsha Heights & Tecom also covered. Call +971505773388.",
   keywords:
     "al barsha storage dubai, storage al barsha 1, storage al barsha 2, storage near mall of the emirates, barsha heights storage, tecom storage dubai, al barsha self storage",
   openGraph: {
     title: "Al Barsha Storage Dubai — Hassle-Free Pickup | SafeStorage",
-    description: "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights & Tecom. Hassle-free home pickup. From AED 9/month. Call +971505773388.",
+    description: "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights & Tecom. Hassle-free home pickup. From 12.6 AED / Sqft. Call +971505773388.",
     url: "https://safestorage.ae/locations/al-barsha",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const alBarshaSchemas = [
     "@type": "Service",
     name: "Storage in Al Barsha Dubai",
     description:
-      "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Hassle-free pickup from your home or office. Flexible monthly plans from AED 9/month.",
+      "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Hassle-free pickup from your home or office. Flexible plans from 12.6 AED / Sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/al-barsha",
     areaServed: [
@@ -202,11 +202,11 @@ export default function AlBarshaPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I store furniture from a villa in Al Barsha during renovation?</h3>
-              <p className="text-gray-700">Yes. Villa renovation storage in Al Barsha is one of our most common services. Our team can clear a 3–4 bedroom villa in Al Barsha in a single day, professionally packing and loading all furniture, appliances, and household contents. Everything is transported to our climate-controlled facility and stored securely until your renovation is complete. Villa renovation storage in Al Barsha typically costs AED 200–400 per month depending on the volume of contents. Get an accurate quote by sharing photos or a video of your villa contents via WhatsApp (+971505773388).</p>
+              <p className="text-gray-700">Yes. Villa renovation storage in Al Barsha is one of our most common services. Our team can clear a 3–4 bedroom villa in Al Barsha in a single day, professionally packing and loading all furniture, appliances, and household contents. Everything is transported to our climate-controlled facility and stored securely until your renovation is complete. Villa renovation storage in Al Barsha starts from 12.6 AED / Sqft (VAT-inclusive). Get an accurate quote by sharing photos or a video of your villa contents via WhatsApp (+971505773388).</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage serve Barsha Heights apartment residents?</h3>
-              <p className="text-gray-700">Yes. Barsha Heights (IMPZ) is fully covered by SafeStorage. Barsha Heights apartment residents use our service primarily for between-lease storage, apartment renovation storage, and personal household storage for items that don&apos;t fit in compact Barsha Heights units. Our team knows the building access and loading procedures for major Barsha Heights towers and can manage pickups efficiently without causing inconvenience to building management. Typical Barsha Heights 1-bedroom apartment storage costs AED 100–200 per month.</p>
+              <p className="text-gray-700">Yes. Barsha Heights (IMPZ) is fully covered by SafeStorage. Barsha Heights apartment residents use our service primarily for between-lease storage, apartment renovation storage, and personal household storage for items that don&apos;t fit in compact Barsha Heights units. Our team knows the building access and loading procedures for major Barsha Heights towers and can manage pickups efficiently without causing inconvenience to building management. Barsha Heights 1-bedroom apartment storage starts from 12.6 AED / Sqft (VAT-inclusive).</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What business storage services are available for Tecom companies?</h3>
@@ -226,7 +226,7 @@ export default function AlBarshaPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How does SafeStorage pricing work for Al Barsha residents?</h3>
-              <p className="text-gray-700">SafeStorage pricing is volume-based and identical across all Dubai areas including Al Barsha. Starting from AED 9 per month for a small box or single item, you pay only for the actual volume you store — not a fixed unit size. A typical Al Barsha 1-bedroom apartment costs AED 100–200 per month to store. A 3-bedroom villa contents would typically be AED 250–450 per month. All prices include hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery. There are no additional charges based on location or building type.</p>
+              <p className="text-gray-700">SafeStorage pricing is volume-based and identical across all Dubai areas including Al Barsha, starting from 12.6 AED / Sqft (VAT-inclusive). You pay only for the actual volume you store — not a fixed unit size — whether you are storing a 1-bedroom apartment or a 3-bedroom villa's contents. All prices include hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery. There are no additional charges based on location or building type.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store large appliances like washing machines and fridges from Al Barsha apartments?</h3>

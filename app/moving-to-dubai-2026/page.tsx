@@ -162,7 +162,7 @@ const sections = [
       "Entertainment: Variable (beach is free!)",
       "School fees: AED 15,000-100,000/child/year"
     ],
-    storageConnection: "Save money on rent! Instead of paying for a bigger apartment, store seasonal items, sports gear, and rarely-used belongings. AED 300/month for storage beats AED 3,000+ extra rent annually.",
+    storageConnection: "Save money on rent! Instead of paying for a bigger apartment, store seasonal items, sports gear, and rarely-used belongings. Storage from 12.6 AED / Sqft beats paying AED 3,000+ extra rent annually for a bigger place.",
     image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=800&fit=crop",
     color: "from-yellow-500 to-yellow-600"
   },

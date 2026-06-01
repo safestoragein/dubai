@@ -40,7 +40,7 @@ export default function WhyChooseUs() {
       icon: DollarSign,
       title: "Transparent Pricing",
       description:
-        "What we quote is what you pay. No admin fees, no deposit surprises, no hidden charges on your invoice. VAT-inclusive pricing from AED 9/month. We also offer a price-match guarantee — show us a lower quoted price and we'll beat it.",
+        "What we quote is what you pay. No admin fees, no deposit surprises, no hidden charges on your invoice. VAT-inclusive pricing from 12.6 AED / Sqft. We also offer a price-match guarantee — show us a lower quoted price and we'll beat it.",
       highlight: "No Hidden Fees",
     },
     {

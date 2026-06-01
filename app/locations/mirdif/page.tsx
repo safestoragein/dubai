@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Mirdif Storage Dubai — Villa & Family Storage",
   description:
-    "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Hassle-free pickup from villas and apartments. Climate-controlled, flexible plans from AED 9/month. Same-day available. Call +971505773388.",
+    "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Hassle-free pickup from villas and apartments. Climate-controlled, flexible plans from 12.6 AED / Sqft. Same-day available. Call +971505773388.",
   keywords:
     "mirdif storage dubai, storage mirdif, mirdif self storage, rashidiya storage dubai, storage near mirdif city centre, east dubai storage, muhaisnah storage",
   openGraph: {
     title: "Mirdif Storage Dubai — Villa & Family Pickup | SafeStorage",
-    description: "Hassle-free pickup storage for Mirdif villas and apartments. Climate-controlled, from AED 9/month. Rashidiya also covered. Call +971505773388.",
+    description: "Hassle-free pickup storage for Mirdif villas and apartments. Climate-controlled, from 12.6 AED / Sqft. Rashidiya also covered. Call +971505773388.",
     url: "https://safestorage.ae/locations/mirdif",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const mirdifSchemas = [
     "@type": "Service",
     name: "Storage in Mirdif & East Dubai",
     description:
-      "Climate-controlled storage for Mirdif, Rashidiya, Muhaisnah, and east Dubai residents. Hassle-free pickup from villas and apartments. Flexible monthly plans from AED 9/month.",
+      "Climate-controlled storage for Mirdif, Rashidiya, Muhaisnah, and east Dubai residents. Hassle-free pickup from villas and apartments. Flexible plans from 12.6 AED / Sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/mirdif",
     areaServed: [
@@ -216,7 +216,7 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Mirdif villa&apos;s contents?</h3>
-              <p className="text-gray-700">Full-villa storage pricing depends on the volume of items. A typical 3-bedroom Mirdif villa costs AED 300–500 per month to store, including hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery. A 4–5 bedroom villa with full furniture and contents typically costs AED 450–700 per month. These are estimates — the most accurate quote requires an assessment of your specific villa. Send us photos or a short video via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
+              <p className="text-gray-700">Full-villa storage pricing starts from 12.6 AED / Sqft (VAT-inclusive) and depends on the volume of items. Whether you are storing a 3-bedroom Mirdif villa or a larger 4–5 bedroom villa with full furniture and contents, you pay only for the space you use — including hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery. For the most accurate quote, we assess your specific villa. Send us photos or a short video via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage move items from Mirdif to a new address in another part of Dubai?</h3>

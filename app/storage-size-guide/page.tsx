@@ -6,11 +6,11 @@ import { Package, CheckCircle2, ArrowRight, Star, Phone, Home, Building2, Truck 
 
 export const metadata: Metadata = {
   title: "Storage Size Guide Dubai — Which Size?",
-  description: "Find the perfect storage unit size in Dubai. Detailed guide covering locker to extra-large units, what fits in each size, and pricing. From AED 99/month. Call +971505773388.",
+  description: "Find the perfect storage unit size in Dubai. Detailed guide covering locker to extra-large units, what fits in each size, and pricing. From 12.6 AED / Sqft. Call +971505773388.",
   keywords: "storage unit size guide dubai, what size storage do I need, storage unit sizes dubai, self storage sizes, storage unit calculator dubai, how big storage unit do i need",
   openGraph: {
     title: "Storage Unit Size Guide Dubai — Find Your Perfect Fit | SafeStorage",
-    description: "Complete guide to storage unit sizes in Dubai. See what fits in each unit and get the right size first time. From AED 99/month.",
+    description: "Complete guide to storage unit sizes in Dubai. See what fits in each unit and get the right size first time. From 12.6 AED / Sqft.",
     url: "https://safestorage.ae/storage-size-guide",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -44,7 +44,7 @@ const sizes = [
   {
     name: "Locker / Mini Unit",
     sqft: "25 sq ft (2.3 m²)",
-    price: "AED 99–150/month",
+    price: "from 12.6 AED / Sqft",
     color: "bg-blue-50 border-blue-200",
     badge: "bg-blue-100 text-blue-700",
     fits: ["10–15 medium boxes", "Small seasonal items", "Suitcases & bags", "Sports equipment", "Files & documents"],
@@ -54,7 +54,7 @@ const sizes = [
   {
     name: "Small Unit",
     sqft: "50 sq ft (4.6 m²)",
-    price: "AED 199–299/month",
+    price: "from 12.6 AED / Sqft",
     color: "bg-green-50 border-green-200",
     badge: "bg-green-100 text-green-700",
     fits: ["Studio apartment contents", "20–30 boxes", "Small sofa or 2 armchairs", "Single mattress + bed frame", "TV up to 55 inch", "Small fridge"],
@@ -64,7 +64,7 @@ const sizes = [
   {
     name: "Medium Unit",
     sqft: "100 sq ft (9.3 m²)",
-    price: "AED 499–699/month",
+    price: "from 12.6 AED / Sqft",
     color: "bg-yellow-50 border-yellow-200",
     badge: "bg-yellow-100 text-yellow-700",
     fits: ["1–2 bedroom apartment contents", "Full sofa set", "Dining table + 6 chairs", "Double bed + frame", "Washing machine & fridge", "30–50 boxes", "Wardrobe"],
@@ -74,7 +74,7 @@ const sizes = [
   {
     name: "Large Unit",
     sqft: "150 sq ft (14 m²)",
-    price: "AED 899–1,299/month",
+    price: "from 12.6 AED / Sqft",
     color: "bg-orange-50 border-orange-200",
     badge: "bg-orange-100 text-orange-700",
     fits: ["3 bedroom apartment contents", "Multiple sofa sets", "King bed + furniture", "Full kitchen appliances", "50–80 boxes", "Exercise equipment", "Bicycles"],
@@ -84,7 +84,7 @@ const sizes = [
   {
     name: "Extra Large Unit",
     sqft: "200+ sq ft (18+ m²)",
-    price: "AED 1,499–2,499/month",
+    price: "from 12.6 AED / Sqft",
     color: "bg-red-50 border-red-200",
     badge: "bg-red-100 text-red-700",
     fits: ["4–5 bedroom villa contents", "Entire home furniture", "80–120+ boxes", "Multiple sets of everything", "Business stock & inventory", "Large appliances"],
@@ -94,7 +94,7 @@ const sizes = [
   {
     name: "Vehicle Bay",
     sqft: "Dedicated bay",
-    price: "Cars AED 899+, Bikes AED 399+",
+    price: "from 12.6 AED / Sqft",
     color: "bg-purple-50 border-purple-200",
     badge: "bg-purple-100 text-purple-700",
     fits: ["Cars & SUVs", "Motorcycles & scooters", "Classic cars", "Boats & jet skis", "Light commercial vehicles"],
@@ -104,9 +104,9 @@ const sizes = [
 ]
 
 const scenarios = [
-  { icon: Home, title: "Renovating your apartment", rec: "Medium unit (AED 499–699/mo)", desc: "Most 1-2BR apartments fit comfortably in a medium unit for renovation periods of 2-4 months." },
+  { icon: Home, title: "Renovating your apartment", rec: "Medium unit (from 12.6 AED / Sqft)", desc: "Most 1-2BR apartments fit comfortably in a medium unit for renovation periods of 2-4 months." },
   { icon: Building2, title: "Between rental leases", rec: "Small to Medium unit", desc: "Gap between leases averages 2-4 weeks in Dubai. Don't rush into a bad apartment — bridge with storage." },
-  { icon: Truck, title: "Expat leaving temporarily", rec: "Large unit (AED 899–1,299/mo)", desc: "If you're leaving Dubai for 3-12 months and plan to return, storing everything costs a fraction of shipping and back." },
+  { icon: Truck, title: "Expat leaving temporarily", rec: "Large unit (from 12.6 AED / Sqft)", desc: "If you're leaving Dubai for 3-12 months and plan to return, storing everything costs a fraction of shipping and back." },
   { icon: Package, title: "E-commerce inventory", rec: "Medium to Large unit", desc: "Flexible alternative to warehouse rental — no 3-year lease, scale up or down as inventory changes." },
 ]
 
@@ -287,8 +287,8 @@ export default function StorageSizeGuidePage() {
               <p className="text-gray-700 mb-4">
                 This size is ideal for students storing between semesters, individuals archiving documents and files, Dubai residents
                 storing seasonal items such as winter clothes or air conditioning units, and anyone who simply needs a secure overflow
-                space for boxes they cannot keep at home. The pricing range for a 25 sq ft climate-controlled unit in Dubai is
-                approximately AED 99–150 per month, making it the most affordable entry point into professional storage.
+                space for boxes they cannot keep at home. Pricing for a 25 sq ft climate-controlled unit in Dubai starts from
+                12.6 AED / Sqft (VAT-inclusive), making it the most affordable entry point into professional storage.
               </p>
               <p className="text-gray-700">
                 To maximise a 25 sq ft unit: stack boxes ceiling-high, use the full depth, and store any freestanding items
@@ -307,7 +307,7 @@ export default function StorageSizeGuidePage() {
                 move into a 50 sq ft unit while work is underway.
               </p>
               <p className="text-gray-700 mb-4">
-                In Dubai, a 50 sq ft climate-controlled unit typically costs between AED 199–299 per month. This size accounts
+                In Dubai, a 50 sq ft climate-controlled unit starts from 12.6 AED / Sqft (VAT-inclusive). This size accounts
                 for a large share of bookings from solo expats relocating, students finishing their degree and leaving Dubai
                 temporarily, and individuals between short-term lets who need a bridge solution for a few weeks.
               </p>
@@ -329,8 +329,8 @@ export default function StorageSizeGuidePage() {
               </p>
               <p className="text-gray-700 mb-4">
                 This size is popular among Dubai residents who are relocating between apartments, going home to their country
-                for several months, or between lease handover dates. Pricing for 75 sq ft in Dubai typically ranges from
-                AED 350–499 per month with climate control included.
+                for several months, or between lease handover dates. Pricing for 75 sq ft in Dubai starts from
+                12.6 AED / Sqft (VAT-inclusive) with climate control included.
               </p>
               <p className="text-gray-700">
                 Organisation advice: place sofas and mattresses (vertical) at the back, then boxes stacked around them, with
@@ -352,7 +352,7 @@ export default function StorageSizeGuidePage() {
                 This unit size is frequently used for renovation projects covering multiple rooms, expats leaving Dubai for six
                 months to a year who want to avoid the cost of shipping all their furniture, and individuals downsizing from a
                 larger apartment who want to keep their furniture while they decide what to do long-term. Pricing in Dubai
-                for a 100 sq ft climate-controlled unit ranges from AED 499–699 per month.
+                for a 100 sq ft climate-controlled unit starts from 12.6 AED / Sqft (VAT-inclusive).
               </p>
               <p className="text-gray-700">
                 At this size, investing 20 minutes in a proper storage plan makes a significant difference. Sketch a simple
@@ -373,8 +373,8 @@ export default function StorageSizeGuidePage() {
               <p className="text-gray-700 mb-4">
                 Common use cases for 150 sq ft storage include families relocating during major villa renovations, households
                 moving back to their home country for a year or more and leaving their Dubai belongings in storage, and small
-                businesses storing commercial inventory alongside office furniture. Monthly pricing for this size in Dubai
-                typically ranges from AED 899–1,299.
+                businesses storing commercial inventory alongside office furniture. Pricing for this size in Dubai
+                starts from 12.6 AED / Sqft (VAT-inclusive).
               </p>
               <p className="text-gray-700">
                 At this size, consider using freestanding shelving units inside the storage space for additional vertical
@@ -394,8 +394,8 @@ export default function StorageSizeGuidePage() {
                 small warehouse floor — and can be accessed with loading equipment for particularly heavy items.
               </p>
               <p className="text-gray-700 mb-4">
-                Monthly pricing for 200+ sq ft climate-controlled storage in Dubai ranges from AED 1,499–2,499 depending on
-                the exact size and any additional services. This is still considerably less than the cost of maintaining a
+                Pricing for 200+ sq ft climate-controlled storage in Dubai starts from 12.6 AED / Sqft (VAT-inclusive), inclusive of
+                any additional services. This is still considerably less than the cost of maintaining a
                 warehouse or keeping a large vacant villa for storage purposes. Many large families and businesses have found
                 that using professional storage versus paying ongoing rent on an oversized space saves them AED 5,000–15,000
                 per month.
@@ -428,7 +428,7 @@ export default function StorageSizeGuidePage() {
               },
               {
                 q: "Can I store a car in a standard storage unit?",
-                a: "No. Cars require dedicated vehicle storage bays, not standard box-storage units. SafeStorage Dubai offers indoor climate-controlled vehicle bays for cars starting from AED 899 per month. Motorcycles and scooters can be stored in dedicated bays from AED 399 per month. Standard units — even our largest 200+ sq ft options — are not configured for vehicle access and are not suitable for vehicle storage."
+                a: "No. Cars require dedicated vehicle storage bays, not standard box-storage units. SafeStorage Dubai offers indoor climate-controlled vehicle bays for cars, motorcycles, and scooters starting from 12.6 AED / Sqft (VAT-inclusive). Standard units — even our largest 200+ sq ft options — are not configured for vehicle access and are not suitable for vehicle storage."
               },
               {
                 q: "Is a 25 sq ft unit big enough for documents and files?",
@@ -452,7 +452,7 @@ export default function StorageSizeGuidePage() {
               },
               {
                 q: "What is the cheapest unit size available at SafeStorage Dubai?",
-                a: "The smallest and most affordable unit size is our 25 sq ft mini unit, starting from AED 99 per month. This unit is suitable for documents, seasonal items, boxes, suitcases, and small equipment. It is popular with students, solo residents, and businesses with limited archival needs. Even at this entry-level price, the unit includes full climate control, 24/7 security, insurance coverage, and the option to add door-to-door pickup and delivery."
+                a: "The smallest and most affordable unit size is our 25 sq ft mini unit, starting from 12.6 AED / Sqft (VAT-inclusive). This unit is suitable for documents, seasonal items, boxes, suitcases, and small equipment. It is popular with students, solo residents, and businesses with limited archival needs. Even at this entry-level price, the unit includes full climate control, 24/7 security, insurance coverage, and the option to add door-to-door pickup and delivery."
               },
               {
                 q: "How many boxes fit in a 100 sq ft storage unit?",
@@ -460,7 +460,7 @@ export default function StorageSizeGuidePage() {
               },
               {
                 q: "Should I book a larger unit just in case?",
-                a: "Not necessarily — our consultants are very experienced at right-sizing and the estimates we give are reliable. However, if you are between two sizes, it is generally better to book the larger one. The monthly cost difference between adjacent sizes (for example, between 50 and 75 sq ft) is typically AED 100–150. That difference is far less annoying than being too tight and having to urgently upgrade, or worse, not being able to store everything you needed to."
+                a: "Not necessarily — our consultants are very experienced at right-sizing and the estimates we give are reliable. However, if you are between two sizes, it is generally better to book the larger one. With our simple 12.6 AED / Sqft pricing, the extra cost for a little more space is small — far less annoying than being too tight and having to urgently upgrade, or worse, not being able to store everything you needed to."
               },
               {
                 q: "Can two people share a storage unit to split costs?",

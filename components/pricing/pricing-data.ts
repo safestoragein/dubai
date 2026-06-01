@@ -1,27 +1,11 @@
 export const pricingPlans = [
   {
-    name: "Basic Plan",
-    price: "19.99",
-    description: "Perfect for small items and personal storage needs",
-    space: "Small Box (1m³)",
-    features: ["24/7 Security", "Climate Control", "Online Access", "Basic Insurance", "Monthly Billing"],
-    popular: false,
-  },
-  {
-    name: "Standard Plan",
-    price: "49.99",
-    description: "Ideal for medium-sized storage requirements",
-    space: "Medium Box (5m³)",
-    features: ["All Basic Features", "Hassle-Free Pickup", "Priority Support", "Extended Insurance", "Flexible Duration"],
+    name: "Storage Plan",
+    price: "12.6 AED / Sqft",
+    description: "One simple, transparent price for all your storage needs",
+    space: "Flexible space — small, medium or large",
+    features: ["24/7 Security", "Climate Control", "Hassle-Free Pickup", "Insurance", "Flexible Monthly Billing"],
     popular: true,
-  },
-  {
-    name: "Premium Plan",
-    price: "99.99",
-    description: "Best for large storage needs and businesses",
-    space: "Large Space (10m³)",
-    features: ["All Standard Features", "Priority Access", "On-Demand Returns", "Extra Security", "Dedicated Support"],
-    popular: false,
   },
 ]
 
@@ -29,7 +13,7 @@ export const pricingFaqs = [
   {
     question: "How much does storage cost?",
     answer:
-      "Our storage plans start at just 99 AEB/month for small storage units. Prices vary based on size and features.",
+      "Our storage starts from 12.6 AED / Sqft (VAT-inclusive). It is one simple, transparent price for any unit size.",
   },
   {
     question: "Are there any hidden fees?",

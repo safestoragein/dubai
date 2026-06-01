@@ -218,7 +218,7 @@ export default function Services() {
                 Personal storage customers typically store seasonal clothing, sports equipment, holiday decorations, extra bedding, books, electronics not in current use, suitcases, and items inherited or gifted that they are not ready to part with. In Dubai, where apartments tend to be compact relative to the average household&apos;s belongings, personal storage is an increasingly popular alternative to cramming everything into already-full wardrobes and store rooms.
               </p>
               <p className="text-gray-700">
-                Plans start from AED 9 per month for a small number of boxes, scaling up based on volume. Hassle-free pickup from your home address, digital photo inventory, climate control, and insurance are included in every personal storage plan. On-demand delivery back to your address is available within 24–48 hours.
+                Plans start from 12.6 AED / Sqft (VAT-inclusive), scaling with the volume you store. Hassle-free pickup from your home address, digital photo inventory, climate control, and insurance are included in every personal storage plan. On-demand delivery back to your address is available within 24–48 hours.
               </p>
             </div>
 
@@ -257,7 +257,7 @@ export default function Services() {
                 Our document storage service solves this challenge comprehensively. Documents are stored in individual fireproof units, with each box individually labelled and indexed using barcodes. When a specific file or box is needed, clients request retrieval via phone, WhatsApp, or our portal, and the item is delivered to their office within 24–48 hours. Annual box audits help clients identify documents that have reached their required retention period and can be securely shredded.
               </p>
               <p className="text-gray-700">
-                Document storage is priced per box per month with volume discounts for larger archives. Secure shredding with a certificate of destruction is available for records that have exceeded their required retention period. Our service is trusted by law firms, financial institutions, DIFC companies, free zone businesses, and government-related entities across Dubai.
+                Document storage starts from 12.6 AED / Sqft (VAT-inclusive). Secure shredding with a certificate of destruction is available for records that have exceeded their required retention period. Our service is trusted by law firms, financial institutions, DIFC companies, free zone businesses, and government-related entities across Dubai.
               </p>
             </div>
 
@@ -306,7 +306,7 @@ export default function Services() {
                 Dubai&apos;s numerous universities, colleges, and international schools create a large student population with specific storage needs. Students who return home during semester breaks — whether domestically within the UAE or internationally — need affordable, flexible storage for their room&apos;s worth of belongings without committing to long-term contracts.
               </p>
               <p className="text-gray-700 mb-4">
-                SafeStorage&apos;s student storage plans are specifically designed to be affordable and aligned with academic calendars. We pick up from student accommodation at the end of term and return everything to the same or a new address at the start of the next term. Plans are month-to-month with no minimum and pricing starts from AED 9 per month for a small storage volume.
+                SafeStorage&apos;s student storage plans are specifically designed to be affordable and aligned with academic calendars. We pick up from student accommodation at the end of term and return everything to the same or a new address at the start of the next term. Plans are month-to-month with no minimum and pricing starts from 12.6 AED / Sqft (VAT-inclusive).
               </p>
               <p className="text-gray-700">
                 Student storage includes the same climate-controlled security, insurance, and on-demand delivery as all other SafeStorage plans. We serve students from universities in Knowledge Village, Dubai International Academic City, Dubai Knowledge Park, and all other major educational hubs across Dubai. Special student discount rates are available — contact us with your student ID for current pricing.

@@ -461,7 +461,7 @@ export default function HouseholdStoragePage() {
               <p className="text-gray-700">
                 All household items are stored in individual climate-controlled units at 20–25°C, protecting
                 furniture, electronics, clothing, documents, and sensitive items from Dubai&apos;s heat and
-                humidity. Monthly plans from AED 199 — no long-term contract, cancel anytime.
+                humidity. Plans start from 12.6 AED / Sqft — no long-term contract, cancel anytime.
               </p>
             </div>
           </div>
@@ -565,7 +565,7 @@ export default function HouseholdStoragePage() {
           <div className="space-y-6">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">1. How much does household storage cost in Dubai?</h3>
-              <p className="text-gray-700">Household storage in Dubai at SafeStorage starts from AED 199/month for a small unit (25–50 sq ft), suitable for a studio apartment&apos;s worth of items or seasonal belongings. Medium units for 1–2 bedroom apartment contents typically cost AED 499–799/month. Large units for 3-bedroom apartments or villa contents start from AED 999/month. All prices include climate control, 24/7 security, free insurance up to AED 5,000, and hassle-free pickup and delivery across Dubai. Call +971505773388 for a personalised quote.</p>
+              <p className="text-gray-700">Household storage in Dubai at SafeStorage starts from 12.6 AED / Sqft (VAT-inclusive), whether you need a small unit (25–50 sq ft) for a studio apartment&apos;s worth of items, a medium unit for 1–2 bedroom apartment contents, or a large unit for 3-bedroom apartments or villa contents. The price includes climate control, 24/7 security, free insurance up to AED 5,000, and hassle-free pickup and delivery across Dubai. Call +971505773388 for a personalised quote.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

@@ -6,11 +6,11 @@ import { FileText, CheckCircle2, Star, Phone, ArrowRight, Shield, Lock, Clock } 
 
 export const metadata: Metadata = {
   title: "Document Storage Dubai — Secure Records",
-  description: "Secure document and records storage in Dubai. Store business files, legal documents, contracts and personal records safely. Fire-resistant, climate-controlled. From AED 99/month. Call +971505773388.",
+  description: "Secure document and records storage in Dubai. Store business files, legal documents, contracts and personal records safely. Fire-resistant, climate-controlled. From 12.6 AED / Sqft. Call +971505773388.",
   keywords: "document storage dubai, records storage dubai, file storage dubai, business document storage dubai, legal document storage dubai, archive storage dubai, confidential document storage dubai",
   openGraph: {
     title: "Document Storage Dubai — Secure Records & Archive Storage | SafeStorage",
-    description: "Secure document storage in Dubai for businesses and individuals. Fire-resistant, climate-controlled, access-controlled. From AED 99/month.",
+    description: "Secure document storage in Dubai for businesses and individuals. Fire-resistant, climate-controlled, access-controlled. From 12.6 AED / Sqft.",
     url: "https://safestorage.ae/document-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -70,7 +70,7 @@ export default function DocumentStoragePage() {
                 <FileText className="w-4 h-4" /> Document & Records Storage
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Document Storage Dubai — Secure Archive & Records Management</h1>
-              <p className="text-xl text-white/85 mb-8">Free up prime office space and comply with UAE retention requirements — without destroying documents you're legally required to keep. SafeStorage Dubai provides secure, climate-controlled document and archive storage for businesses and individuals from AED 99/month.</p>
+              <p className="text-xl text-white/85 mb-8">Free up prime office space and comply with UAE retention requirements — without destroying documents you're legally required to keep. SafeStorage Dubai provides secure, climate-controlled document and archive storage for businesses and individuals from 12.6 AED / Sqft.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Quote</Button>
@@ -89,7 +89,7 @@ export default function DocumentStoragePage() {
           <div className="container px-4 max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
-                { stat: "AED 99", label: "Starting price/month" },
+                { stat: "12.6 AED", label: "Starting price / Sqft" },
                 { stat: "5+ Years", label: "UAE retention requirements" },
                 { stat: "24/7", label: "Security monitoring" },
                 { stat: "Free", label: "Initial collection" },
@@ -127,7 +127,7 @@ export default function DocumentStoragePage() {
             </div>
             <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6">
               <p className="text-dubai-navy font-medium">
-                <strong>Cost comparison:</strong> Storing 20 filing boxes of business records with SafeStorage costs approximately AED 150/month. Renting the equivalent office floor space in Business Bay costs AED 800–1,500/month. Offsite document storage saves 80% vs using prime office space for archive boxes.
+                <strong>Cost comparison:</strong> Storing business records with SafeStorage starts from 12.6 AED / Sqft (VAT-inclusive). Renting the equivalent office floor space in Business Bay costs AED 800–1,500/month. Offsite document storage saves 80% vs using prime office space for archive boxes.
               </p>
             </div>
           </div>
@@ -243,7 +243,7 @@ export default function DocumentStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our Document Storage Service in Dubai</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
               <p>SafeStorage Dubai provides secure, climate-controlled document and records storage for businesses and individuals across the emirate. Every box stored with us is held in a dedicated, access-controlled area maintained at 18&ndash;24&deg;C with 45&ndash;55% relative humidity &mdash; conditions that prevent paper degradation, yellowing, brittleness, and mould growth that occur in ambient UAE temperatures. Documents stored in prime office space or in uncontrolled environments deteriorate significantly faster, and in Dubai&apos;s humid summer months, paper files stored without climate control can develop mould within weeks. Our facility offers the physical security and environmental conditions that confidential, legally required, and irreplaceable documents demand.</p>
-              <p>UAE businesses are legally required to retain a wide range of documents for minimum statutory periods &mdash; from 2 years for employee records under UAE Labour Law to 10 years for real estate transactions under Dubai Land Department regulations. Failing to retain documents for the required period, or failing to produce them during an audit or legal proceeding, can result in regulatory penalties and significant legal exposure. SafeStorage Dubai provides an affordable, reliable solution that allows businesses to maintain full compliance with retention requirements without using expensive prime office floor space for archive boxes. Our pricing starts from AED 99/month for individual storage arrangements, representing a fraction of the cost of equivalent office storage space in Dubai&apos;s commercial districts.</p>
+              <p>UAE businesses are legally required to retain a wide range of documents for minimum statutory periods &mdash; from 2 years for employee records under UAE Labour Law to 10 years for real estate transactions under Dubai Land Department regulations. Failing to retain documents for the required period, or failing to produce them during an audit or legal proceeding, can result in regulatory penalties and significant legal exposure. SafeStorage Dubai provides an affordable, reliable solution that allows businesses to maintain full compliance with retention requirements without using expensive prime office floor space for archive boxes. Our pricing starts from 12.6 AED / Sqft (VAT-inclusive), representing a fraction of the cost of equivalent office storage space in Dubai&apos;s commercial districts.</p>
               <p>Every business customer receives an outer inventory record for their stored boxes, and specific boxes can be retrieved within 2 business hours on request. We also offer a certified document destruction service for records that have reached the end of their required retention period, with a destruction certificate issued for your compliance records. Access to your stored documents is logged biometrically, creating a complete audit trail of every access event. We serve law firms, accounting practices, medical clinics, real estate agencies, HR departments, government contractors, and private individuals with sensitive personal documents to protect. Call us at +971505773388 to discuss your document storage requirements.</p>
             </div>
 

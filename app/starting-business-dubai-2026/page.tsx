@@ -481,7 +481,7 @@ export default function StartingBusinessDubai2026() {
                           </p>
                         ) : (
                           <p className="text-gray-700">
-                            <strong>Secure document storage from day 1.</strong> Store licenses, contracts, invoices, and legal documents safely. UAE law requires keeping business records for 5 years. Climate-controlled facility with 24/7 access for just AED 199/month.
+                            <strong>Secure document storage from day 1.</strong> Store licenses, contracts, invoices, and legal documents safely. UAE law requires keeping business records for 5 years. Climate-controlled facility with 24/7 access from just 12.6 AED / Sqft.
                           </p>
                         )}
                       </div>
@@ -545,7 +545,7 @@ export default function StartingBusinessDubai2026() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-1 h-6 w-6 flex-shrink-0" />
-                    <span><strong>Document archival:</strong> Secure 5-year record keeping from AED 199/month</span>
+                    <span><strong>Document archival:</strong> Secure 5-year record keeping from 12.6 AED / Sqft</span>
                   </li>
                 </ul>
                 <div className="mt-6">
@@ -719,7 +719,7 @@ export default function StartingBusinessDubai2026() {
               },
               {
                 q: "How do I store my business documents and inventory?",
-                a: "Use professional storage like SafeStorage. UAE law requires keeping business records for 5 years. Climate-controlled document storage from AED 199/month. Inventory storage available for e-commerce businesses.",
+                a: "Use professional storage like SafeStorage. UAE law requires keeping business records for 5 years. Climate-controlled document storage from 12.6 AED / Sqft. Inventory storage available for e-commerce businesses.",
               },
               {
                 q: "What's the corporate tax in Dubai?",

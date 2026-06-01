@@ -6,7 +6,7 @@ import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Summer Storage Dubai — What to Do with Your Belongings When You Leave | SafeStorage",
-  description: "Leaving Dubai for summer? Complete guide to storing your belongings, protecting your apartment, and saving money during the summer break. From AED 99/month.",
+  description: "Leaving Dubai for summer? Complete guide to storing your belongings, protecting your apartment, and saving money during the summer break. From 12.6 AED / Sqft.",
   keywords: "summer storage dubai, leaving dubai for summer, storage during summer holidays dubai, what to do with belongings summer dubai, expat summer dubai storage",
   openGraph: {
     title: "Summer Storage Dubai — Complete Guide for Expats Leaving for Summer",
@@ -85,7 +85,7 @@ export default function SummerStorageDubaiPage() {
               {[
                 { option: "Option 1: Keep the apartment running (AC on)", cost: "AED 500–1,500/month in electricity, plus full rent", pros: ["Nothing gets damaged", "Return to ready home"], cons: ["Expensive — paying for empty apartment", "Risk of AC failure while you're away", "No security for valuables"] },
                 { option: "Option 2: Leave everything and hope for the best", cost: "AED 0", pros: ["No effort"], cons: ["High risk of heat/humidity damage", "Security concerns in empty property", "Returns to an apartment that may need deep clean", "Electronics and valuables at risk"] },
-                { option: "Option 3: Store with SafeStorage Dubai", cost: "AED 199–699/month depending on volume", pros: ["Climate-controlled protection", "Hassle-free pickup", "Security monitored 24/7", "Pay only for what you store", "Peace of mind abroad"], cons: ["Requires move-out and move-in effort", "Monthly storage cost"] },
+                { option: "Option 3: Store with SafeStorage Dubai", cost: "from 12.6 AED / Sqft (you only pay for the space you use)", pros: ["Climate-controlled protection", "Hassle-free pickup", "Security monitored 24/7", "Pay only for what you store", "Peace of mind abroad"], cons: ["Requires move-out and move-in effort", "Monthly storage cost"] },
               ].map((opt) => (
                 <div key={opt.option} className="border border-gray-200 rounded-xl p-6">
                   <h3 className="font-bold text-dubai-navy text-lg mb-1">{opt.option}</h3>
@@ -131,9 +131,9 @@ export default function SummerStorageDubaiPage() {
             <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
               <div className="space-y-3">
                 {[
-                  { item: "Medium storage unit (3 months)", cost: "AED 1,497–2,097" },
+                  { item: "Medium storage unit", cost: "From 12.6 AED / Sqft" },
                   { item: "Hassle-free pickup + delivery (SafeStorage)", cost: "AED 0" },
-                  { item: "Total storage cost", cost: "AED 1,497–2,097" },
+                  { item: "Total storage cost", cost: "From 12.6 AED / Sqft" },
                   { item: "", cost: "" },
                   { item: "Alternative: Keep AC running (electricity only)", cost: "AED 1,500–4,500" },
                   { item: "Alternative: Replace heat-damaged electronics", cost: "AED 3,000–15,000+" },
@@ -152,7 +152,7 @@ export default function SummerStorageDubaiPage() {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               {[
                 { name: "Nadia O.", location: "Dubai Marina", text: "Third year using SafeStorage for summer. First year I left my laptop at home — came back to a dead battery and cracked screen from the heat. Now I store everything valuable. Not worth the risk." },
-                { name: "Vikram S.", location: "JVC", text: "Leaving for 3 months, didn't want to keep paying AED 1,500 electricity for an empty flat. Stored everything for AED 600/mo and switched off the AC entirely. Came back to a working home and AED 2,700 saved on electricity alone." },
+                { name: "Vikram S.", location: "JVC", text: "Leaving for 3 months, didn't want to keep paying AED 1,500 electricity for an empty flat. Storage worked out to just 12.6 AED / Sqft and I switched off the AC entirely. Came back to a working home and AED 2,700 saved on electricity alone." },
               ].map((t) => (
                 <div key={t.name} className="bg-slate-50 rounded-xl p-5 border border-gray-200">
                   <p className="text-gray-700 italic mb-3">"{t.text}"</p>

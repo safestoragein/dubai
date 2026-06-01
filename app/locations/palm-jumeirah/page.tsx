@@ -190,7 +190,7 @@ export default function PalmJumeirahPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a full Palm villa during renovation?</h3>
-              <p className="text-gray-700">Full-villa storage pricing depends on the volume of items. A typical 4-bedroom Signature Villa costs AED 400–700 per month to store, including hassle-free pickup, climate control, insurance, and on-demand delivery. A 5–6 bedroom villa can cost AED 600–1,000 per month depending on the quantity of furniture and personal items. These are estimates — the most accurate quote requires a brief assessment of your specific villa contents. Send us photos via WhatsApp (+971505773388) or a video walkthrough and we will provide a confirmed price within a few hours.</p>
+              <p className="text-gray-700">Full-villa storage pricing starts from 12.6 AED / Sqft (VAT-inclusive) and depends on the volume of items. Whether you are storing a 4-bedroom Signature Villa or a larger 5–6 bedroom villa, you pay only for the space your furniture and personal items occupy — including hassle-free pickup, climate control, insurance, and on-demand delivery. For the most accurate quote, we carry out a brief assessment of your specific villa contents. Send us photos via WhatsApp (+971505773388) or a video walkthrough and we will provide a confirmed price within a few hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can you store a jet ski or personal watercraft from Palm Jumeirah?</h3>

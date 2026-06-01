@@ -202,17 +202,17 @@ export default function DubaiMarinaPage() {
           <div className="grid md:grid-cols-3 gap-4 text-gray-700">
             <div className="bg-white rounded-lg p-4 border border-gray-200">
               <p className="font-bold text-[#0A2463] text-lg mb-2">Small (Few Boxes)</p>
-              <p className="text-2xl font-bold text-[#D8315B] mb-2">From AED 9/mo</p>
+              <p className="text-xl font-bold text-[#D8315B] mb-2">From 12.6 AED / Sqft</p>
               <p className="text-sm">5–10 boxes of personal items, seasonal clothes, sports equipment</p>
             </div>
             <div className="bg-white rounded-lg p-4 border border-gray-200">
               <p className="font-bold text-[#0A2463] text-lg mb-2">Medium (1-Bedroom)</p>
-              <p className="text-2xl font-bold text-[#D8315B] mb-2">From AED 150/mo</p>
+              <p className="text-xl font-bold text-[#D8315B] mb-2">From 12.6 AED / Sqft</p>
               <p className="text-sm">Full 1-bedroom apartment furniture plus personal items</p>
             </div>
             <div className="bg-white rounded-lg p-4 border border-gray-200">
               <p className="font-bold text-[#0A2463] text-lg mb-2">Large (2-3 Bedroom)</p>
-              <p className="text-2xl font-bold text-[#D8315B] mb-2">From AED 300/mo</p>
+              <p className="text-xl font-bold text-[#D8315B] mb-2">From 12.6 AED / Sqft</p>
               <p className="text-sm">Full 2–3 bedroom apartment contents including all furniture</p>
             </div>
           </div>
@@ -264,7 +264,7 @@ export default function DubaiMarinaPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I get a quote for storing my entire Marina apartment during a long trip abroad?</h3>
-            <p className="text-gray-700">For whole-apartment storage during an extended trip, the quickest way to get a quote is to share a short video walkthrough of your apartment via WhatsApp (+971505773388). This allows our team to assess the volume of items and give you an accurate quote within a few hours. Alternatively, you can call us and answer a few questions about your apartment size and the items you want to store. Whole-apartment storage for a 1-bedroom Dubai Marina apartment typically starts from AED 150–250 per month depending on volume, and includes free collection, climate control, security, insurance, and one hassle-free delivery when you return.</p>
+            <p className="text-gray-700">For whole-apartment storage during an extended trip, the quickest way to get a quote is to share a short video walkthrough of your apartment via WhatsApp (+971505773388). This allows our team to assess the volume of items and give you an accurate quote within a few hours. Alternatively, you can call us and answer a few questions about your apartment size and the items you want to store. Whole-apartment storage for a 1-bedroom Dubai Marina apartment starts from 12.6 AED / Sqft (VAT-inclusive), and includes free collection, climate control, security, insurance, and one hassle-free delivery when you return.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there parking available when SafeStorage collects from my JBR apartment?</h3>

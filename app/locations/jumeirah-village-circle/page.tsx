@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "JVC Storage Dubai — Jumeirah Village Circle",
   description:
-    "Self storage for JVC (Jumeirah Village Circle) Dubai. Hassle-free pickup from apartments & townhouses. Climate-controlled units from AED 9/month. JVT also covered. Call +971505773388.",
+    "Self storage for JVC (Jumeirah Village Circle) Dubai. Hassle-free pickup from apartments & townhouses. Climate-controlled units from 12.6 AED / Sqft. JVT also covered. Call +971505773388.",
   keywords:
     "JVC storage dubai, jumeirah village circle storage, storage near JVC, JVT storage dubai, self storage jumeirah village, storage pickup JVC dubai",
   openGraph: {
@@ -27,7 +27,7 @@ const jvcSchemas = [
     "@type": "Service",
     name: "Storage in Jumeirah Village Circle (JVC) Dubai",
     description:
-      "Climate-controlled storage for JVC and JVT residents. Hassle-free pickup from apartments and townhouses. Flexible monthly plans from AED 9/month.",
+      "Climate-controlled storage for JVC and JVT residents. Hassle-free pickup from apartments and townhouses. Flexible plans from 12.6 AED / Sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/jumeirah-village-circle",
     areaServed: [
@@ -97,8 +97,8 @@ export default function JumeirahVillageCirclePage() {
           </p>
           <p className="text-lg text-gray-700 mb-8">
             As a growing community where many residents are first-time renters or buyers in Dubai, JVC has a strong
-            demand for affordable, flexible storage. SafeStorage&apos;s volume-based pricing — starting from AED 9
-            per month — makes quality storage accessible to all JVC residents, from compact studio apartment dwellers
+            demand for affordable, flexible storage. SafeStorage&apos;s volume-based pricing — starting from 12.6 AED / Sqft
+            (VAT-inclusive) — makes quality storage accessible to all JVC residents, from compact studio apartment dwellers
             to families in spacious JVC townhouses and villas.
           </p>
 
@@ -112,7 +112,7 @@ export default function JumeirahVillageCirclePage() {
                 boxes of belongings from a previous larger home — and reclaim your living space.
               </p>
               <p className="text-gray-700">
-                Our item-based pricing means JVC studio residents can store just a few boxes from AED 9/month without
+                Our volume-based pricing means JVC studio residents can store just a few boxes from 12.6 AED / Sqft (VAT-inclusive) without
                 committing to a full storage unit. This makes it financially practical for JVC&apos;s younger,
                 value-conscious residents who need flexible, affordable storage without long-term commitment.
               </p>
@@ -203,7 +203,7 @@ export default function JumeirahVillageCirclePage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cheapest storage option for JVC studio apartment residents?</h3>
-              <p className="text-gray-700">For JVC studio residents, our item-based storage plan is the most cost-effective option. Rather than renting a full storage unit, you pay per item stored — starting from AED 9 per month for a single box or small item. A typical JVC studio resident storing 10–15 items (suitcases, boxes, a small piece of furniture) would pay AED 90–150 per month total. This is significantly cheaper than renting a storage unit in traditional self-storage facilities, which typically have minimum unit sizes costing AED 400–600/month regardless of how little you store.</p>
+              <p className="text-gray-700">For JVC studio residents, our volume-based storage plan is the most cost-effective option. Rather than renting a full storage unit, you pay only for the space you use — starting from 12.6 AED / Sqft (VAT-inclusive). Whether you are storing a single box or 10–15 items (suitcases, boxes, a small piece of furniture), you pay only for the space they occupy. This is significantly cheaper than renting a storage unit in traditional self-storage facilities, which typically have minimum unit sizes costing AED 400–600/month regardless of how little you store.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is JVT (Jumeirah Village Triangle) included in the JVC service area?</h3>
@@ -231,7 +231,7 @@ export default function JumeirahVillageCirclePage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a full JVC 1-bedroom apartment?</h3>
-              <p className="text-gray-700">A typical JVC 1-bedroom apartment (furniture, appliances, personal items) costs AED 120–200 per month to store with SafeStorage. This includes hassle-free pickup from your JVC address, climate-controlled storage, free insurance, and on-demand delivery back. JVC 2-bedroom apartments typically cost AED 200–350 per month. For the most accurate quote, share a brief description or WhatsApp photos of your items and we&apos;ll provide a confirmed price within 30 minutes during business hours.</p>
+              <p className="text-gray-700">Storing a JVC 1-bedroom apartment (furniture, appliances, personal items) with SafeStorage starts from 12.6 AED / Sqft (VAT-inclusive). This includes hassle-free pickup from your JVC address, climate-controlled storage, free insurance, and on-demand delivery back. The same per-square-foot rate applies to JVC 2-bedroom apartments — you simply pay for the additional space. For the most accurate quote, share a brief description or WhatsApp photos of your items and we&apos;ll provide a confirmed price within 30 minutes during business hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is climate-controlled storage really necessary for items from JVC apartments?</h3>

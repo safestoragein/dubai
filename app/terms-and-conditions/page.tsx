@@ -153,14 +153,13 @@ export default function TermsAndConditionsPage() {
         <ol style={{ paddingLeft: '20px' }}>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer agrees to pay the Company according to the rates agreed as per quotation.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer agrees to pay for storage and service in one-month advance.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer also agrees to pay additional storage and packing charges for items that are not mentioned in the quotation. Charges for additional items would be minimum AED 50 or more according to the dimension of the items.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer also agrees to pay additional storage and packing charges for items that are not mentioned in the quotation, calculated according to the space the items occupy.</li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Additional Item Charges:</strong>
             <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
-              <li>Small Item/Box: Packing and transport charges AED 50 + VAT. Storage charges AED 25 + VAT per month.</li>
-              <li>Medium Item/Box: Packing and transport charges AED 100 + VAT. Storage charges AED 50 + VAT per month.</li>
-              <li>Large Item/Box: Packing and transport charges AED 150 + VAT. Storage charges AED 75 + VAT per month.</li>
-              <li>Extra-large items to be discussed with SafeStorage team for custom pricing.</li>
+              <li>Storage charges start from 12.6 AED / Sqft (VAT-inclusive). You pay only for the space your items actually occupy.</li>
+              <li>Applicable packing and transport charges are confirmed in your quotation based on the items being collected.</li>
+              <li>Extra-large or unusual items to be discussed with the SafeStorage team for an accurate quote.</li>
             </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>The Customer also agrees to pay all applicable VAT and government charges, which are subject to change as per UAE regulations.</li>

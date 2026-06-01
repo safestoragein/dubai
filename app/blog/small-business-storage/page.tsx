@@ -6,7 +6,7 @@ import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Small Business Storage Dubai — Flexible Alternative to Warehouse Rental | SafeStorage",
-  description: "How small businesses in Dubai use self storage to avoid warehouse leases. Flexible monthly contracts, no long-term commitment, scale as you grow. From AED 499/month.",
+  description: "How small businesses in Dubai use self storage to avoid warehouse leases. Flexible monthly contracts, no long-term commitment, scale as you grow. From 12.6 AED / Sqft.",
   keywords: "small business storage dubai, business storage solution dubai, warehouse alternative dubai, inventory storage small business dubai, office storage dubai, retail storage dubai",
   openGraph: {
     title: "Small Business Storage Dubai — Flexible Alternative to Warehouses",
@@ -107,8 +107,8 @@ export default function SmallBusinessStoragePage() {
                 </thead>
                 <tbody>
                   {[
-                    ["Monthly rent", "AED 899–1,299", "AED 4,000–8,000+"],
-                    ["Security deposit", "AED 899–1,299 (1 month)", "AED 12,000–24,000 (3-6 months)"],
+                    ["Monthly rent", "From 12.6 AED / Sqft", "AED 4,000–8,000+"],
+                    ["Security deposit", "From 12.6 AED / Sqft (1 month)", "AED 12,000–24,000 (3-6 months)"],
                     ["Fit-out costs", "None", "AED 15,000–50,000+"],
                     ["Minimum commitment", "1 month", "2-3 years"],
                     ["Setup time", "3-5 days", "2-4 months"],

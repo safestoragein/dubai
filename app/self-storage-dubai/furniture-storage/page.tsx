@@ -5,11 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Sofa, Shield, Thermometer, Package, ArrowRight, CheckCircle2, AlertCircle, Truck } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Furniture Storage Dubai — From AED 150/Month",
-  description: "Dubai's most affordable furniture storage starting from AED 150/month. Climate-controlled units protect sofas, beds & dining sets from heat damage. Hassle-free pickup available. 24/7 access, CCTV security.",
+  title: "Furniture Storage Dubai — From 12.6 AED / Sqft",
+  description: "Dubai's most affordable furniture storage starting from 12.6 AED / Sqft. Climate-controlled units protect sofas, beds & dining sets from heat damage. Hassle-free pickup available. 24/7 access, CCTV security.",
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, climate controlled furniture storage, cheap furniture storage dubai, furniture storage al quoz, furniture storage units dubai, affordable furniture storage",
   openGraph: {
-    title: "Furniture Storage Dubai – Climate-Controlled Units from AED 150/Month",
+    title: "Furniture Storage Dubai – Climate-Controlled Units from 12.6 AED / Sqft",
     description: "Store furniture safely in Dubai with 24/7 access, climate control, and professional handling. Hassle-free pickup & delivery available.",
     url: "https://safestorage.ae/self-storage-dubai/furniture-storage",
   },
@@ -48,7 +48,7 @@ export default function FurnitureStoragePage() {
               </Button>
             </div>
             <p className="text-white/80 mt-4 text-lg">
-              Climate-controlled furniture storage starting from AED 150/month
+              Climate-controlled furniture storage starting from 12.6 AED / Sqft
             </p>
           </div>
         </div>
@@ -122,8 +122,8 @@ export default function FurnitureStoragePage() {
               <Card className="border-2 hover:border-dubai-gold transition-colors">
                 <CardHeader>
                   <CardTitle className="text-center">Small Units</CardTitle>
-                  <div className="text-center text-3xl font-bold text-dubai-gold mt-2">
-                    AED 150<span className="text-base text-gray-500">/month</span>
+                  <div className="text-center text-2xl font-bold text-dubai-gold mt-2">
+                    from 12.6 AED / Sqft
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -144,8 +144,8 @@ export default function FurnitureStoragePage() {
                 </div>
                 <CardHeader>
                   <CardTitle className="text-center">Medium Units</CardTitle>
-                  <div className="text-center text-3xl font-bold text-dubai-gold mt-2">
-                    AED 280<span className="text-base text-gray-500">/month</span>
+                  <div className="text-center text-2xl font-bold text-dubai-gold mt-2">
+                    from 12.6 AED / Sqft
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -163,8 +163,8 @@ export default function FurnitureStoragePage() {
               <Card className="border-2 hover:border-dubai-gold transition-colors">
                 <CardHeader>
                   <CardTitle className="text-center">Large Units</CardTitle>
-                  <div className="text-center text-3xl font-bold text-dubai-gold mt-2">
-                    AED 450<span className="text-base text-gray-500">/month</span>
+                  <div className="text-center text-2xl font-bold text-dubai-gold mt-2">
+                    from 12.6 AED / Sqft
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -697,7 +697,7 @@ export default function FurnitureStoragePage() {
                   <tr>
                     <td className="border p-4 font-semibold">Starting Price</td>
                     <td className="border p-4 text-center bg-dubai-gold/10">
-                      <span className="text-dubai-gold font-bold">AED 150/month</span>
+                      <span className="text-dubai-gold font-bold">from 12.6 AED / Sqft</span>
                     </td>
                     <td className="border p-4 text-center text-gray-600">AED 350+/month</td>
                   </tr>
@@ -849,7 +849,7 @@ export default function FurnitureStoragePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Furniture storage in Dubai starts from AED 150/month for small units (3-5 m²), AED 280/month for medium units (8-10 m²), and AED 450/month for large units (15-20 m²). All units include climate control, 24/7 CCTV security, pest control, and flexible month-to-month contracts with no long-term commitment required.
+                    Furniture storage in Dubai starts from 12.6 AED / Sqft (VAT-inclusive), whether you need a small unit (3-5 m²), a medium unit (8-10 m²), or a large unit (15-20 m²). All units include climate control, 24/7 CCTV security, pest control, and flexible month-to-month contracts with no long-term commitment required.
                   </p>
                 </CardContent>
               </Card>
@@ -1110,7 +1110,7 @@ export default function FurnitureStoragePage() {
               ["Can I get a refund if I end my storage early?", "SafeStorage Dubai operates on monthly contracts paid in advance. If you end your storage before the end of a paid month, the unused portion of the current month is not refunded as standard, but any full unused months that have been prepaid as part of a long-term plan will be refunded. For example, if you prepaid for 6 months and cancel after 4 months, the 2 remaining unused full months are refunded. There are no administrative fees or exit penalties charged on top of this. The 7 days' cancellation notice requirement ensures the team can schedule your return delivery within the prepaid period."],
               ["Do you store pianos and other musical instruments?", "SafeStorage Dubai handles pianos and musical instruments with specialist care. Upright and baby grand pianos are stored in padded frames with individual climate monitoring to maintain the ideal temperature and humidity for the instrument's materials. String instruments, woodwinds, and brass instruments are stored in their cases with humidity control packets inside. Pianos are never stored horizontally. All musical instruments benefit from the stable 20–22°C climate-controlled environment which prevents string tension changes, soundboard warping, and wood contraction that would require expensive retuning or repair."],
               ["How is pricing affected if I store items for longer than 12 months?", "For storage beyond 12 months, SafeStorage Dubai reserves the right to revise the monthly rate to reflect any changes in operating costs or market pricing. In practice, long-term customers are typically offered renewal rates at the same or similar price with an early renewal discount. The best approach for customers anticipating 12+ months of storage is to prepay a 12-month plan upfront, locking in the current rate with a 20% discount, and then renewing at the prevailing rate. Our team proactively contacts customers before their plan expires to discuss renewal options with no pressure to commit immediately."],
-              ["Is furniture storage cheaper than renting extra space in Dubai?", "In virtually every scenario, furniture storage at SafeStorage Dubai is significantly cheaper than renting additional residential space in Dubai. A small storage unit holding the contents of a studio apartment costs approximately AED 199–399 per month at SafeStorage. The cheapest studio apartments in Dubai rent for AED 3,000–4,500 per month. Even the most premium large storage unit holding a 4-bedroom villa's full contents typically costs less than AED 1,500 per month — a fraction of any Dubai residential rent. For businesses, storage is similarly far more economical than retaining oversized commercial premises purely for inventory or document storage."],
+              ["Is furniture storage cheaper than renting extra space in Dubai?", "In virtually every scenario, furniture storage at SafeStorage Dubai is significantly cheaper than renting additional residential space in Dubai. SafeStorage furniture storage starts from 12.6 AED / Sqft (VAT-inclusive), whether you are storing the contents of a studio apartment or a full 4-bedroom villa. The cheapest studio apartments in Dubai rent for AED 3,000–4,500 per month, so storage is a fraction of any Dubai residential rent. For businesses, storage is similarly far more economical than retaining oversized commercial premises purely for inventory or document storage."],
             ].map(([q, a], i) => (
               <div key={i} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
                 <h3 className="text-base font-bold text-[#0A2463] mb-2">Q: {q}</h3>
@@ -1163,9 +1163,9 @@ export default function FurnitureStoragePage() {
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-xl font-bold text-[#0A2463] mb-3">Furniture Storage Pricing in Dubai</h3>
             <p className="text-gray-700">
-              Furniture storage starts from AED 199/month for small collections. A full 1-bedroom apartment&apos;s
-              furniture typically needs a medium unit (50–100 sq ft) from AED 599/month. A full villa clearance
-              requires a large unit (100–200 sq ft) from AED 1,299/month. All plans include hassle-free pickup,
+              Furniture storage starts from 12.6 AED / Sqft (VAT-inclusive) — whether you are storing a small
+              collection, a full 1-bedroom apartment&apos;s furniture in a medium unit (50–100 sq ft), or a full
+              villa clearance in a large unit (100–200 sq ft). All plans include hassle-free pickup,
               climate control, 24/7 security, and free insurance up to AED 5,000. No minimum contract — store
               for a week or several years.
             </p>

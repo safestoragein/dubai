@@ -10,12 +10,12 @@ import {
 import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
-  title: "Cheap Storage Dubai 2026 — From AED 99/Month",
-  description: "Find the cheapest storage in Dubai! Transparent pricing starts from AED 99/month. Compare costs, save money, and get flexible storage solutions. No hidden fees. Hassle-Free Pickup included.",
+  title: "Cheap Storage Dubai 2026 — From 12.6 AED / Sqft",
+  description: "Find the cheapest storage in Dubai! Transparent pricing starts from 12.6 AED / Sqft. Compare costs, save money, and get flexible storage solutions. No hidden fees. Hassle-Free Pickup included.",
   keywords: "cheap storage dubai, affordable storage dubai, storage prices dubai, budget storage uae, cheapest storage dubai, low cost storage, storage deals dubai, student storage dubai, small business storage",
   openGraph: {
-    title: "Cheap Storage Dubai 2026: Best Affordable Options - Starts from AED 99",
-    description: "Transparent pricing, no hidden fees. Professional storage starts from AED 99/month in Dubai.",
+    title: "Cheap Storage Dubai 2026: Best Affordable Options - Starts from 12.6 AED / Sqft",
+    description: "Transparent pricing, no hidden fees. Professional storage starts from 12.6 AED / Sqft in Dubai.",
     url: "https://safestorage.ae/cheap-storage-dubai",
     siteName: "SafeStorage Dubai",
     images: [
@@ -39,7 +39,7 @@ export default function CheapStorageDubai() {
     {
       size: "Small (25 sq ft)",
       equivalent: "Studio closet",
-      priceText: "Starts from AED 99",
+      priceText: "Starts from 12.6 AED / Sqft",
       savingsText: "Save up to 30% with annual plans",
       goodFor: "Documents, seasonal clothes, small items",
       capacity: "50-75 boxes",
@@ -48,7 +48,7 @@ export default function CheapStorageDubai() {
     {
       size: "Medium (50 sq ft)",
       equivalent: "1-bedroom apartment",
-      priceText: "Starts from AED 249",
+      priceText: "Starts from 12.6 AED / Sqft",
       savingsText: "Save up to 30% with annual plans",
       goodFor: "Furniture, household items, business inventory",
       capacity: "150-200 boxes",
@@ -58,7 +58,7 @@ export default function CheapStorageDubai() {
     {
       size: "Large (100 sq ft)",
       equivalent: "2-bedroom apartment",
-      priceText: "Starts from AED 499",
+      priceText: "Starts from 12.6 AED / Sqft",
       savingsText: "Save up to 30% with annual plans",
       goodFor: "Full household, vehicles, business stock",
       capacity: "300-400 boxes",
@@ -67,7 +67,7 @@ export default function CheapStorageDubai() {
     {
       size: "Extra Large (200 sq ft)",
       equivalent: "Small warehouse",
-      priceText: "Starts from AED 799",
+      priceText: "Starts from 12.6 AED / Sqft",
       savingsText: "Save up to 30% with annual plans",
       goodFor: "Commercial inventory, multiple vehicles, full office",
       capacity: "600-800 boxes",
@@ -124,7 +124,7 @@ export default function CheapStorageDubai() {
       icon: GraduationCap,
       scenario: "Studying in Dubai or summer break storage",
       challenge: "Limited budget, temporary storage between semesters",
-      solution: "Small unit starting from AED 99/month for 3-4 months",
+      solution: "Small unit starting from 12.6 AED / Sqft for 3-4 months",
       savings: "Save AED 15,000-25,000 vs keeping larger apartment year-round",
       tips: [
         "Share a unit with classmates",
@@ -139,7 +139,7 @@ export default function CheapStorageDubai() {
       icon: Home,
       scenario: "Moving from villa to apartment",
       challenge: "Kids moved out, large home too expensive",
-      solution: "Medium unit starting from AED 249/month to store excess furniture and memories",
+      solution: "Medium unit starting from 12.6 AED / Sqft to store excess furniture and memories",
       savings: "Save AED 50,000-100,000/year on smaller apartment vs villa rent",
       tips: [
         "Store seasonal decorations and extra furniture",
@@ -154,7 +154,7 @@ export default function CheapStorageDubai() {
       icon: Briefcase,
       scenario: "E-commerce or trading business",
       challenge: "Need inventory storage without expensive warehouse",
-      solution: "Large unit starting from AED 499/month for business inventory and equipment",
+      solution: "Large unit starting from 12.6 AED / Sqft for business inventory and equipment",
       savings: "Save AED 2,000-4,000/month vs renting commercial warehouse space",
       tips: [
         "Store seasonal inventory and reduce office space needs",
@@ -169,7 +169,7 @@ export default function CheapStorageDubai() {
       icon: Zap,
       scenario: "Flexible lifestyle, traveling frequently",
       challenge: "Don't want to pay high rent when away",
-      solution: "Small-Medium unit starting from AED 99/month + flexible short-term accommodation",
+      solution: "Small-Medium unit starting from 12.6 AED / Sqft + flexible short-term accommodation",
       savings: "Save AED 30,000-60,000/year vs keeping full apartment year-round",
       tips: [
         "Store belongings and use hotel apartments when in Dubai",
@@ -260,7 +260,7 @@ export default function CheapStorageDubai() {
       fits: ["10-15 boxes", "Seasonal clothes", "Small furniture pieces", "Documents & files"],
       notFits: ["Full bedroom set", "Large appliances", "Multiple furniture pieces"],
       bestFor: "Students, documents, seasonal storage",
-      price: "Starts from AED 99/month",
+      price: "Starts from 12.6 AED / Sqft",
     },
     {
       size: "50 sq ft",
@@ -268,7 +268,7 @@ export default function CheapStorageDubai() {
       fits: ["20-30 boxes", "1-bedroom furniture", "Mattress & bed frame", "Small appliances", "Bike or motorcycle"],
       notFits: ["Car", "Full 2-bedroom apartment", "Large commercial inventory"],
       bestFor: "1-bedroom apartment, small family, startup inventory",
-      price: "Starts from AED 249/month",
+      price: "Starts from 12.6 AED / Sqft",
     },
     {
       size: "100 sq ft",
@@ -276,7 +276,7 @@ export default function CheapStorageDubai() {
       fits: ["40-60 boxes", "2-bedroom furniture", "Major appliances", "Car (small)", "Office furniture"],
       notFits: ["3+ bedroom villa contents", "Large vehicle + furniture", "Full warehouse stock"],
       bestFor: "2-bedroom apartment, growing business, vehicle storage",
-      price: "Starts from AED 499/month",
+      price: "Starts from 12.6 AED / Sqft",
     },
     {
       size: "200 sq ft",
@@ -284,7 +284,7 @@ export default function CheapStorageDubai() {
       fits: ["80-100 boxes", "3-bedroom furniture", "Multiple vehicles", "Commercial stock", "Full office"],
       notFits: ["Nothing - this fits almost everything!"],
       bestFor: "Villa contents, commercial inventory, multiple vehicles",
-      price: "Starts from AED 799/month",
+      price: "Starts from 12.6 AED / Sqft",
     },
   ]
 
@@ -300,7 +300,7 @@ export default function CheapStorageDubai() {
               LOWEST PRICES IN DUBAI 2026
             </div>
             <h1 className="mb-6 text-5xl font-bold leading-tight md:text-6xl">
-              Cheap Storage Dubai: Starts from AED 99/Month
+              Cheap Storage Dubai: Starts from 12.6 AED / Sqft
             </h1>
             <p className="mb-8 text-xl leading-relaxed md:text-2xl">
               Transparent pricing. No hidden fees. Professional storage that doesn't break your budget. Save up to 30% with annual plans.
@@ -392,7 +392,6 @@ export default function CheapStorageDubai() {
                 <div className="mb-6 border-y border-gray-200 py-4">
                   <div className="mb-2">
                     <span className="text-2xl font-bold text-[#D8315B]">{tier.priceText}</span>
-                    <span className="text-gray-600">/month</span>
                   </div>
                   <div className="text-sm text-green-600 font-semibold">
                     {tier.savingsText}
@@ -656,7 +655,7 @@ export default function CheapStorageDubai() {
             {[
               {
                 q: "What's the cheapest storage option in Dubai?",
-                a: "Our small units start from AED 99/month for 25 sq ft. This is perfect for students, documents, or seasonal items. Annual plans save you up to 30% more.",
+                a: "Our storage starts from 12.6 AED / Sqft (VAT-inclusive), including small 25 sq ft units. This is perfect for students, documents, or seasonal items. Annual plans save you up to 30% more.",
               },
               {
                 q: "Are there really no hidden fees?",
@@ -668,7 +667,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "How can storage help me save money in Dubai?",
-                a: "Storage lets you downsize to a cheaper apartment while keeping your belongings safe. Many people save AED 20,000-60,000/year by moving from a 2-bed to 1-bed apartment and storing extra items starting from AED 249/month.",
+                a: "Storage lets you downsize to a cheaper apartment while keeping your belongings safe. Many people save AED 20,000-60,000/year by moving from a 2-bed to 1-bed apartment and storing extra items starting from 12.6 AED / Sqft.",
               },
               {
                 q: "Is cheap storage safe and secure?",
@@ -676,7 +675,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "What size storage unit do I need?",
-                a: "Most people overestimate! A 25 sq ft unit starting from AED 99/month fits 10-15 boxes and seasonal items. A 50 sq ft unit starting from AED 249/month holds a full 1-bedroom apartment. Use our size guide above to choose wisely.",
+                a: "Most people overestimate! A 25 sq ft unit fits 10-15 boxes and seasonal items, while a 50 sq ft unit holds a full 1-bedroom apartment. Pricing starts from 12.6 AED / Sqft (VAT-inclusive). Use our size guide above to choose wisely.",
               },
               {
                 q: "Can I access my storage anytime?",
@@ -684,7 +683,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "Do you offer student discounts?",
-                a: "Yes! Students get special rates on our small units starting from AED 99/month. Perfect for summer storage between semesters. Show your student ID to qualify. Save thousands vs keeping a large apartment year-round.",
+                a: "Yes! Students get special rates on our small units starting from 12.6 AED / Sqft. Perfect for summer storage between semesters. Show your student ID to qualify. Save thousands vs keeping a large apartment year-round.",
               },
               {
                 q: "What's included in the monthly price?",
@@ -692,7 +691,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "Can I share a unit with friends to save money?",
-                a: "Absolutely! Many students and roommates split a medium unit starting from AED 249/month, sharing the cost. It's a smart way to halve your costs while storing more items.",
+                a: "Absolutely! Many students and roommates split a medium unit starting from 12.6 AED / Sqft, sharing the cost. It's a smart way to halve your costs while storing more items.",
               },
               {
                 q: "How much notice do I need to give to move out?",
@@ -704,7 +703,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "Can businesses use cheap storage too?",
-                a: "Yes! Many small businesses use our medium (starting from AED 249) or large (starting from AED 499) units for inventory, documents, and equipment. Save AED 2,000-4,000/month vs renting commercial warehouse space.",
+                a: "Yes! Many small businesses use our medium or large units for inventory, documents, and equipment, with pricing starting from 12.6 AED / Sqft (VAT-inclusive). Save AED 2,000-4,000/month vs renting commercial warehouse space.",
               },
               {
                 q: "How do I know what size I need?",
@@ -733,12 +732,12 @@ export default function CheapStorageDubai() {
               Start Saving Money Today!
             </h2>
             <p className="mb-8 text-xl">
-              Starts from AED 99/month. No hidden fees. Hassle-Free Pickup. 24/7 access. Climate controlled. Cancel anytime.
+              Starts from 12.6 AED / Sqft. No hidden fees. Hassle-Free Pickup. 24/7 access. Climate controlled. Cancel anytime.
             </p>
             <div className="mb-8 grid gap-4 md:grid-cols-3">
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
-                <p className="text-3xl font-bold">AED 99</p>
-                <p className="text-sm">Starting price/month</p>
+                <p className="text-2xl font-bold">12.6 AED / Sqft</p>
+                <p className="text-sm">Starting price</p>
               </div>
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
                 <p className="text-3xl font-bold">AED 0</p>

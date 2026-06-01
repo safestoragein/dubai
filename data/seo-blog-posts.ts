@@ -31,11 +31,11 @@ export const seoBlogPosts = [
       <p>Essential in Dubai's extreme heat. Maintains optimal temperature (20-25°C) and humidity (45-55%).</p>
       
       <h3>Storage Costs in Dubai</h3>
-      <p>Storage prices in Dubai vary based on:</p>
+      <p>At SafeStorage Dubai, pricing starts from 12.6 AED / Sqft (VAT-inclusive), and you only pay for the space you use. Your final cost depends on:</p>
       <ul>
-        <li>Unit size (AED 199-2999/month)</li>
+        <li>Unit size (pricing starts from 12.6 AED / Sqft)</li>
         <li>Location (premium areas cost more)</li>
-        <li>Climate control (adds 15-20% to cost)</li>
+        <li>Climate control (included as standard)</li>
         <li>Contract duration (longer terms = better rates)</li>
       </ul>
       
@@ -83,7 +83,7 @@ export const seoBlogPosts = [
     category: "Storage Guide",
     tags: ["storage dubai", "self storage", "storage guide", "dubai storage solutions"],
     metaTitle: "Complete Guide to Storage in Dubai 2024 | Costs, Sizes & Tips",
-    metaDescription: "Ultimate guide to storage solutions in Dubai. Learn about costs (AED 199-2999), unit sizes, best locations, and tips for choosing the right storage facility.",
+    metaDescription: "Ultimate guide to storage solutions in Dubai. Learn about costs (from 12.6 AED / Sqft), unit sizes, best locations, and tips for choosing the right storage facility.",
     image: "/blog/storage-guide-dubai.jpg"
   },
   {
@@ -141,11 +141,11 @@ export const seoBlogPosts = [
       </ul>
       
       <h3>Storage Costs for Movers</h3>
-      <p>Budget for storage when planning your move:</p>
+      <p>Budget for storage when planning your move. At SafeStorage Dubai, pricing starts from 12.6 AED / Sqft (VAT-inclusive), and you only pay for the space you use:</p>
       <ul>
-        <li><strong>Small units (25-50 sq ft):</strong> AED 199-399/month - Perfect for boxes and small items</li>
-        <li><strong>Medium units (50-100 sq ft):</strong> AED 499-899/month - Ideal for 1-bedroom apartment</li>
-        <li><strong>Large units (100-200 sq ft):</strong> AED 999-1799/month - Suitable for 2-3 bedroom contents</li>
+        <li><strong>Small units (25-50 sq ft):</strong> from 12.6 AED / Sqft - Perfect for boxes and small items</li>
+        <li><strong>Medium units (50-100 sq ft):</strong> from 12.6 AED / Sqft - Ideal for 1-bedroom apartment</li>
+        <li><strong>Large units (100-200 sq ft):</strong> from 12.6 AED / Sqft - Suitable for 2-3 bedroom contents</li>
       </ul>
       
       <h3>Moving Timeline with Storage</h3>
@@ -252,8 +252,8 @@ export const seoBlogPosts = [
         </tr>
         <tr>
           <td>Storage Unit (Climate Controlled)</td>
-          <td>AED 60-120</td>
-          <td>AED 500-1,000</td>
+          <td>from 12.6 AED / Sqft</td>
+          <td>from 12.6 AED / Sqft</td>
         </tr>
       </table>
       <p><strong>Savings: 50-70% compared to office space!</strong></p>

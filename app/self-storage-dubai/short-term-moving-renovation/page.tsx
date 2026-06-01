@@ -592,7 +592,7 @@ export default function ShortTermStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">What does 1-month moving storage typically cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">For one month of moving storage, costs depend on the volume of belongings. A medium unit accommodating a 1–2 bedroom apartment&apos;s complete contents costs AED 499–699 for the first month, with hassle-free pickup included. A small unit for a studio apartment or room contents runs AED 199–299 per month. Large units for 3-bedroom apartments or villas cost AED 899–1,299 per month. All prices include climate control, 24/7 security, insurance up to AED 5,000, and hassle-free delivery back to your new address at the end of the storage period. When compared to the cost of renting a removal van, booking a hotel for an extra week, or paying lease overlap, professional storage with hassle-free pickup and delivery often represents the most economical solution overall.</p>
+              <p className="text-gray-700 leading-relaxed">Moving storage at SafeStorage starts from 12.6 AED / Sqft (VAT-inclusive), whether you need a small unit for a studio apartment or room contents, a medium unit for a 1–2 bedroom apartment&apos;s complete contents, or a large unit for 3-bedroom apartments or villas — with hassle-free pickup included. The price includes climate control, 24/7 security, insurance up to AED 5,000, and hassle-free delivery back to your new address at the end of the storage period. When compared to the cost of renting a removal van, booking a hotel for an extra week, or paying lease overlap, professional storage with hassle-free pickup and delivery often represents the most economical solution overall.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How does renovation storage work in practice?</h3>
@@ -686,11 +686,11 @@ export default function ShortTermStoragePage() {
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-xl font-bold text-[#0A2463] mb-3">Short-Term Storage Rates</h3>
             <p className="text-gray-700">
-              Short-term storage is priced on monthly plans with no minimum contract. A typical 1–2 bedroom
-              apartment contents fits in a medium unit from AED 599/month. Hassle-free pickup and delivery are
-              included. For renovations lasting 1–3 months, we offer a renovation storage package with
-              preferential rates. Same-day pickup is available for bookings before 12 PM. Call
-              +971 50 577 3388 to book or get an instant quote.
+              Short-term storage is priced on monthly plans with no minimum contract, starting from
+              12.6 AED / Sqft (VAT-inclusive). A typical 1–2 bedroom apartment contents fits in a medium unit.
+              Hassle-free pickup and delivery are included. For renovations lasting 1–3 months, we offer a
+              renovation storage package with preferential rates. Same-day pickup is available for bookings
+              before 12 PM. Call +971 50 577 3388 to book or get an instant quote.
             </p>
           </div>
         </div>

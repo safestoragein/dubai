@@ -6,11 +6,11 @@ import { Car, ShieldCheck, Thermometer, Clock, Star, CheckCircle2, Phone, Bike, 
 
 export const metadata: Metadata = {
   title: "Car Storage Dubai — Vehicle Storage",
-  description: "Store your car, motorcycle, boat or classic vehicle safely in Dubai. Climate-controlled 20-25°C, 24/7 CCTV, free insurance up to AED 5,000. Cars from AED 899/month. Hassle-free pickup. Call +971505773388.",
+  description: "Store your car, motorcycle, boat or classic vehicle safely in Dubai. Climate-controlled 20-25°C, 24/7 CCTV, free insurance up to AED 5,000. Vehicle storage from 12.6 AED / Sqft. Hassle-free pickup. Call +971505773388.",
   keywords: "car storage dubai, vehicle storage dubai, motorcycle storage dubai, classic car storage dubai, boat storage dubai, climate controlled car storage, indoor vehicle storage dubai, summer car storage dubai, car storage near me dubai",
   openGraph: {
     title: "Car Storage Dubai — Climate-Controlled Vehicle Storage | SafeStorage",
-    description: "Protect your car, motorcycle, or classic vehicle from Dubai's 50°C summer heat. Secure climate-controlled storage from AED 899/month with hassle-free pickup.",
+    description: "Protect your car, motorcycle, or classic vehicle from Dubai's 50°C summer heat. Secure climate-controlled storage from 12.6 AED / Sqft with hassle-free pickup.",
     url: "https://safestorage.ae/car-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -24,15 +24,12 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Car & Vehicle Storage Dubai",
-    description: "Climate-controlled vehicle storage in Dubai for cars, motorcycles, boats and classic vehicles. 24/7 security, free insurance, from AED 899/month.",
+    description: "Climate-controlled vehicle storage in Dubai for cars, motorcycles, boats and classic vehicles. 24/7 security, free insurance, from 12.6 AED / Sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/car-storage",
     areaServed: { "@type": "City", name: "Dubai" },
     serviceType: "Vehicle Storage",
-    offers: [
-      { "@type": "Offer", name: "Car Storage", price: "899", priceCurrency: "AED", availability: "https://schema.org/InStock" },
-      { "@type": "Offer", name: "Motorcycle Storage", price: "399", priceCurrency: "AED", availability: "https://schema.org/InStock" },
-    ],
+    offers: { "@type": "Offer", price: "12.6", priceCurrency: "AED", availability: "https://schema.org/InStock" },
   },
   {
     "@context": "https://schema.org",
@@ -54,7 +51,7 @@ const schemas = [
 ]
 
 const faqs = [
-  { q: "How much does car storage cost in Dubai?", a: "Car storage in Dubai starts from AED 899/month at SafeStorage Dubai. Pricing depends on vehicle size and duration. Motorcycles start from AED 399/month. Classic cars and larger vehicles are quoted individually. Long-term storage (3+ months) receives significant discounts." },
+  { q: "How much does car storage cost in Dubai?", a: "Car storage in Dubai starts from 12.6 AED / Sqft (VAT-inclusive) at SafeStorage Dubai, covering cars, motorcycles, and standard vehicles. Classic cars and larger vehicles are quoted individually. Long-term storage (3+ months) receives significant discounts." },
   { q: "Is your car storage climate-controlled?", a: "Yes, all our vehicle storage bays are climate-controlled at 20-25°C year-round with 45-55% humidity — critical protection against Dubai's 50°C summer heat. This prevents paint oxidation, rubber seal cracking, battery damage, and interior fading that occurs in non-climate-controlled storage." },
   { q: "Do you offer pickup for vehicle storage?", a: "Yes, we offer drive-in options and can arrange transportation for vehicles that cannot be driven. For motorcycles and smaller vehicles, our team can coordinate transport. Contact us at +971505773388 to discuss your specific vehicle." },
   { q: "Is my vehicle insured while in storage?", a: "Yes, every stored vehicle is covered by our complimentary insurance policy up to AED 5,000. For high-value classic cars, luxury vehicles, or collector items worth more, we offer extended coverage options. Our facility's 24/7 CCTV security and controlled access also provides an additional layer of protection." },
@@ -104,7 +101,7 @@ export default function CarStoragePage() {
                 { value: "4.9★", label: "Google Rating" },
                 { value: "500+", label: "Vehicles Stored" },
                 { value: "20-25°C", label: "Year-Round Temperature" },
-                { value: "AED 899", label: "Cars from /month" },
+                { value: "12.6 AED", label: "Vehicles from / Sqft" },
               ].map((s) => (
                 <div key={s.label}>
                   <div className="text-2xl font-bold text-dubai-navy">{s.value}</div>
@@ -172,12 +169,12 @@ export default function CarStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">Vehicles We Store</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { icon: Car, title: "Cars & SUVs", desc: "Sedans, SUVs, sports cars, family vehicles. From hatchbacks to Range Rovers.", price: "From AED 899/month" },
-                { icon: Bike, title: "Motorcycles & Scooters", desc: "All makes and models. Harley Davidson, Ducati, Yamaha, delivery scooters.", price: "From AED 399/month" },
+                { icon: Car, title: "Cars & SUVs", desc: "Sedans, SUVs, sports cars, family vehicles. From hatchbacks to Range Rovers.", price: "From 12.6 AED / Sqft" },
+                { icon: Bike, title: "Motorcycles & Scooters", desc: "All makes and models. Harley Davidson, Ducati, Yamaha, delivery scooters.", price: "From 12.6 AED / Sqft" },
                 { icon: Trophy, title: "Classic & Luxury Cars", desc: "Ferrari, Lamborghini, Porsche, vintage and collector vehicles with white-glove care.", price: "Quoted individually" },
                 { icon: Ship, title: "Boats & Jet Skis", desc: "Personal watercraft, speedboats, and small leisure vessels.", price: "Quoted individually" },
                 { icon: Truck, title: "Caravans & Motorhomes", desc: "Large recreational vehicles and camper vans with oversized bay options.", price: "Quoted individually" },
-                { icon: Car, title: "Light Commercial Vehicles", desc: "Pickups, vans, and small trucks for businesses between contracts.", price: "From AED 1,299/month" },
+                { icon: Car, title: "Light Commercial Vehicles", desc: "Pickups, vans, and small trucks for businesses between contracts.", price: "From 12.6 AED / Sqft" },
               ].map((v) => (
                 <div key={v.title} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                   <v.icon className="w-10 h-10 text-dubai-gold mb-4" />
@@ -282,7 +279,7 @@ export default function CarStoragePage() {
         <section className="py-16 bg-dubai-gold text-white text-center">
           <div className="container px-4 max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">Ready to Protect Your Vehicle?</h2>
-            <p className="text-xl text-white/90 mb-8">Get a free quote in 2 minutes. Cars from AED 899/month. No commitment required.</p>
+            <p className="text-xl text-white/90 mb-8">Get a free quote in 2 minutes. Vehicle storage from 12.6 AED / Sqft. No commitment required.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="https://safestorage.ae/get-quote">
                 <Button className="bg-white text-dubai-gold hover:bg-gray-100 px-8 py-4 text-lg font-semibold">Get a Free Quote</Button>
@@ -303,7 +300,7 @@ export default function CarStoragePage() {
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
               <p>SafeStorage Dubai provides specialist climate-controlled vehicle storage for cars, motorcycles, classic and luxury vehicles, boats, caravans, and light commercial vehicles across Dubai. Our facility maintains a precise 20&ndash;25&deg;C year-round with humidity control at 45&ndash;55% relative humidity &mdash; conditions that are scientifically optimal for preserving paintwork, rubber seals, leather interiors, electronics, and mechanical components. Dubai&apos;s summers are uniquely destructive to vehicles stored in standard parking: temperatures exceed 48&deg;C outdoors and routinely reach 65&ndash;70&deg;C inside non-climate-controlled storage units. A single summer in inadequate storage can reduce a vehicle&apos;s resale value by AED 5,000&ndash;20,000 and result in thousands of dirhams in preventable mechanical repairs.</p>
               <p>Every vehicle stored with us goes through a documented intake process: our team photographs the vehicle from all angles, notes any pre-existing marks, scratches, or mechanical issues, checks tyre pressure, and records the fuel and battery status. You receive a digital copy of this pre-storage condition report. During storage, our team conducts monthly visual inspections of all vehicles and monitors the storage environment continuously. For classic vehicles and long-term storage (6+ months), our premium care package includes battery trickle-charging, periodic engine starts to keep mechanical components lubricated, and detailed monthly condition reports with photographs. Our facility is protected by 24/7 CCTV monitoring and biometric access control, ensuring that only authorised personnel ever have contact with your vehicle.</p>
-              <p>Vehicle storage at SafeStorage Dubai is used by expats taking extended summer trips, multiple-car owners managing seasonal vehicles, classic car collectors protecting investment-grade vehicles, motorcycle owners who avoid riding in Dubai&apos;s extreme summer heat, and businesses storing fleet vehicles between contracts. Cars start from AED 899/month, motorcycles from AED 399/month, and all vehicles receive complimentary insurance coverage up to AED 5,000. Extended coverage for luxury, classic, and high-value vehicles is available. Call us at +971505773388 for a free, no-obligation quote.</p>
+              <p>Vehicle storage at SafeStorage Dubai is used by expats taking extended summer trips, multiple-car owners managing seasonal vehicles, classic car collectors protecting investment-grade vehicles, motorcycle owners who avoid riding in Dubai&apos;s extreme summer heat, and businesses storing fleet vehicles between contracts. Vehicle storage starts from 12.6 AED / Sqft (VAT-inclusive), and all vehicles receive complimentary insurance coverage up to AED 5,000. Extended coverage for luxury, classic, and high-value vehicles is available. Call us at +971505773388 for a free, no-obligation quote.</p>
             </div>
 
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Vehicle Storage FAQs</h2>
@@ -345,7 +342,7 @@ export default function CarStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the price for luxury cars versus motorcycles?</h3>
-                <p className="text-gray-700 leading-relaxed">Motorcycles and scooters start from AED 399/month, making our storage very accessible for riders who want to protect their bikes during Dubai&apos;s April-to-October heat season. Standard cars and SUVs start from AED 899/month. Light commercial vehicles start from AED 1,299/month. Luxury and classic cars &mdash; Ferrari, Lamborghini, Porsche, Rolls-Royce, vintage vehicles &mdash; are quoted individually as they may require dedicated bays, premium care packages, and enhanced insurance arrangements. All prices include climate control, 24/7 CCTV monitoring, monthly inspections, and complimentary insurance up to AED 5,000. Discounts of 10&ndash;20% apply for 3-month, 6-month, and 12-month commitments. Call +971505773388 for a personalised quote.</p>
+                <p className="text-gray-700 leading-relaxed">Vehicle storage at SafeStorage starts from 12.6 AED / Sqft (VAT-inclusive), covering motorcycles and scooters, standard cars and SUVs, and light commercial vehicles &mdash; making our storage accessible for riders who want to protect their bikes during Dubai&apos;s April-to-October heat season and drivers protecting their cars. Luxury and classic cars &mdash; Ferrari, Lamborghini, Porsche, Rolls-Royce, vintage vehicles &mdash; are quoted individually as they may require dedicated bays, premium care packages, and enhanced insurance arrangements. The price includes climate control, 24/7 CCTV monitoring, monthly inspections, and complimentary insurance up to AED 5,000. Discounts of 10&ndash;20% apply for 3-month, 6-month, and 12-month commitments. Call +971505773388 for a personalised quote.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

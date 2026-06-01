@@ -176,7 +176,7 @@ export default function BusinessBayPage() {
           <div>
             <h3 className="text-xl font-semibold text-[#0A2463] mb-3">High-Rise Apartment Storage — Business Bay Towers</h3>
             <p className="text-gray-700 mb-3">Living in a Business Bay high-rise means paying a premium for every square metre of living space. Residents commonly find themselves storing items they rarely use — extra furniture from a previous larger home, seasonal decorations, sports equipment, suitcases, or clothing for a different climate. These items take up valuable space in apartments where storage rooms are often tiny or non-existent.</p>
-            <p className="text-gray-700">SafeStorage solves this by offering flexible, volume-based storage from AED 9 per month. You pay only for the actual volume you store, not a fixed unit size. Our team collects directly from your apartment floor, handles all the carrying and loading, and returns items to your door whenever you need them — usually within 24 hours of a delivery request.</p>
+            <p className="text-gray-700">SafeStorage solves this by offering flexible, volume-based storage starting from 12.6 AED / Sqft (VAT-inclusive). You pay only for the actual volume you store, not a fixed unit size. Our team collects directly from your apartment floor, handles all the carrying and loading, and returns items to your door whenever you need them — usually within 24 hours of a delivery request.</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Corporate Office Storage — Business Bay &amp; Sheikh Zayed Road</h3>
@@ -225,7 +225,7 @@ export default function BusinessBayPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the best storage option for Downtown Dubai apartment residents?</h3>
-            <p className="text-gray-700">For Downtown Dubai residents, our personal household storage service is the most popular option. It works on a volume-based pricing model — you pay for the actual space your items take up, not a fixed unit size. This is ideal for residents who have a mix of small and large items to store. Most Downtown residents store seasonal clothing, suitcases, sporting equipment, extra furniture, and items from previous larger homes. Plans start from AED 9 per month and include hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery.</p>
+            <p className="text-gray-700">For Downtown Dubai residents, our personal household storage service is the most popular option. It works on a volume-based pricing model — you pay for the actual space your items take up, not a fixed unit size. This is ideal for residents who have a mix of small and large items to store. Most Downtown residents store seasonal clothing, suitcases, sporting equipment, extra furniture, and items from previous larger homes. Plans start from 12.6 AED / Sqft (VAT-inclusive) and include hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there storage available near the Burj Khalifa?</h3>

@@ -176,7 +176,7 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">3. How much does storage cost in Dubai?</h3>
-              <p className="text-gray-700">SafeStorage Dubai offers some of the most competitive storage rates in the UAE. Our pricing starts from <strong>AED 9 per month</strong> for item-based storage and from <strong>AED 199 per month</strong> for dedicated private units. All plans include climate control, 24/7 security, and free insurance up to AED 5,000. There are no setup fees, admin fees, or fuel surcharges. The price quoted is the price charged — period.</p>
+              <p className="text-gray-700">SafeStorage Dubai offers some of the most competitive storage rates in the UAE. Our pricing starts from <strong>12.6 AED / Sqft</strong> (VAT-inclusive). All plans include climate control, 24/7 security, and free insurance up to AED 5,000. There are no setup fees, admin fees, or fuel surcharges. The price quoted is the price charged — period.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -201,7 +201,7 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. Can I store my vehicle at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">Yes. SafeStorage offers covered vehicle storage bays for cars, motorcycles, boats, jet skis, and caravans. Vehicle storage starts from AED 899 per month and includes 24/7 CCTV monitoring, covered shelter from Dubai&apos;s sun and sandstorms, and optional battery maintenance and tire pressure checks for long-term vehicle storage. Our facility is popular among expats leaving Dubai temporarily, classic car collectors, and owners of seasonal recreational vehicles.</p>
+              <p className="text-gray-700">Yes. SafeStorage offers covered vehicle storage bays for cars, motorcycles, boats, jet skis, and caravans. Vehicle storage starts from 12.6 AED / Sqft (VAT-inclusive) and includes 24/7 CCTV monitoring, covered shelter from Dubai&apos;s sun and sandstorms, and optional battery maintenance and tire pressure checks for long-term vehicle storage. Our facility is popular among expats leaving Dubai temporarily, classic car collectors, and owners of seasonal recreational vehicles.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

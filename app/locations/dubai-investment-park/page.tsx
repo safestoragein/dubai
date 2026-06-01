@@ -244,7 +244,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the pricing for commercial storage near Dubai Investment Park?</h3>
-            <p className="text-gray-700">Commercial storage pricing for DIP and surrounding areas follows the same transparent volume-based model as all SafeStorage plans. For businesses, we also offer dedicated commercial units from 100 sq ft to 1,000+ sq ft at competitive monthly rates. Document archiving is priced per box per month. There are no setup fees, no long-term contracts required, and no hidden charges. Your dedicated commercial storage consultant will prepare a customised quote based on your specific volume, access requirements, and service frequency. Call +971505773388 or email us for a commercial quote.</p>
+            <p className="text-gray-700">Commercial storage pricing for DIP and surrounding areas follows the same transparent volume-based model as all SafeStorage plans, starting from 12.6 AED / Sqft (VAT-inclusive). For businesses, we also offer dedicated commercial units from 100 sq ft to 1,000+ sq ft. There are no setup fees, no long-term contracts required, and no hidden charges. Your dedicated commercial storage consultant will prepare a customised quote based on your specific volume, access requirements, and service frequency. Call +971505773388 or email us for a commercial quote.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can SafeStorage handle a full factory or warehouse clearance in DIP?</h3>
@@ -256,7 +256,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there student storage available near Dubai Production City and Studio City?</h3>
-            <p className="text-gray-700">Yes, SafeStorage offers student storage plans for students at institutions near Dubai Production City and Dubai Studio City, including those studying at media, film, and broadcasting institutions in the area. Student storage plans are designed to be affordable and flexible, covering semester breaks when students return home and need to store their room&apos;s worth of belongings securely. Plans start from AED 9 per month and include hassle-free pickup from your accommodation and delivery back when your new semester begins. Contact us for our dedicated student storage discount.</p>
+            <p className="text-gray-700">Yes, SafeStorage offers student storage plans for students at institutions near Dubai Production City and Dubai Studio City, including those studying at media, film, and broadcasting institutions in the area. Student storage plans are designed to be affordable and flexible, covering semester breaks when students return home and need to store their room&apos;s worth of belongings securely. Plans start from 12.6 AED / Sqft (VAT-inclusive) and include hassle-free pickup from your accommodation and delivery back when your new semester begins. Contact us for our dedicated student storage discount.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do residents in the DIP residential community book storage?</h3>

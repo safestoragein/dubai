@@ -6,7 +6,7 @@ import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Climate Controlled Storage Dubai — Why It's Essential & What to Look For | SafeStorage",
-  description: "Why climate-controlled storage is essential in Dubai. What temperatures destroy, what 'climate controlled' actually means, and what to check before booking. From AED 199/month.",
+  description: "Why climate-controlled storage is essential in Dubai. What temperatures destroy, what 'climate controlled' actually means, and what to check before booking. From 12.6 AED / Sqft.",
   keywords: "climate controlled storage dubai, temperature controlled storage dubai, why climate control storage dubai, best climate controlled storage dubai, ac storage dubai",
   openGraph: {
     title: "Climate Controlled Storage Dubai — Why It's Essential in Dubai's Heat",

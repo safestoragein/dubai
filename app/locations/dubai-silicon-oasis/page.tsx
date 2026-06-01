@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Dubai Silicon Oasis Storage — DSO & Academic City",
   description:
-    "Storage in Dubai Silicon Oasis (DSO), Academic City & International City. Hassle-free pickup, climate-controlled, from AED 9/month. Same-day available. Call +971505773388.",
+    "Storage in Dubai Silicon Oasis (DSO), Academic City & International City. Hassle-free pickup, climate-controlled, from 12.6 AED / Sqft. Same-day available. Call +971505773388.",
   keywords:
     "dubai silicon oasis storage, DSO storage dubai, academic city storage, international city storage dubai, storage near DSO, dubai silicon oasis self storage",
   openGraph: {
     title: "Dubai Silicon Oasis Storage — DSO & Academic City | SafeStorage",
-    description: "Hassle-free pickup storage for DSO, Academic City & International City. Climate-controlled, from AED 9/month. Call +971505773388.",
+    description: "Hassle-free pickup storage for DSO, Academic City & International City. Climate-controlled, from 12.6 AED / Sqft. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-silicon-oasis",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const dsoSchemas = [
     "@type": "Service",
     name: "Storage in Dubai Silicon Oasis (DSO)",
     description:
-      "Climate-controlled storage for Dubai Silicon Oasis, Academic City, and International City residents and businesses. Hassle-free pickup. Flexible monthly plans from AED 9/month.",
+      "Climate-controlled storage for Dubai Silicon Oasis, Academic City, and International City residents and businesses. Hassle-free pickup. Flexible plans from 12.6 AED / Sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/dubai-silicon-oasis",
     areaServed: [
@@ -49,7 +49,7 @@ const dsoSchemas = [
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/dubai-silicon-oasis#webpage",
     name: "Dubai Silicon Oasis Storage — DSO & Academic City | SafeStorage",
-    description: "Hassle-free pickup storage for DSO, Academic City & International City. Climate-controlled, from AED 9/month.",
+    description: "Hassle-free pickup storage for DSO, Academic City & International City. Climate-controlled, from 12.6 AED / Sqft.",
     url: "https://safestorage.ae/locations/dubai-silicon-oasis",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -99,7 +99,7 @@ export default function DubaiSiliconOasisPage() {
             The DSO zone has distinct storage needs: tech companies need equipment and document storage; Academic City
             students need affordable short-term storage between semesters; International City residents need the most
             cost-effective per-item pricing available. SafeStorage&apos;s flexible volume-based model — starting from
-            just AED 9 per month — is perfectly matched to the diverse, value-conscious community of this zone.
+            12.6 AED / Sqft (VAT-inclusive) — is perfectly matched to the diverse, value-conscious community of this zone.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-10">
@@ -127,7 +127,7 @@ export default function DubaiSiliconOasisPage() {
                 or when transitioning between university accommodations.
               </p>
               <p className="text-gray-700">
-                SafeStorage&apos;s student plans start from AED 9 per month per item — making quality storage accessible
+                SafeStorage&apos;s student plans start from 12.6 AED / Sqft (VAT-inclusive) — making quality storage accessible
                 on a student budget. Students can store just their essentials: a few boxes of personal items, a bicycle,
                 a laptop and study materials. No minimum contract and no long commitment required. Ask about our
                 student discounts when booking.
@@ -179,7 +179,7 @@ export default function DubaiSiliconOasisPage() {
                 <p className="text-white/70 text-xs font-semibold">— Vikram S., Technology Startup, Dubai Silicon Oasis</p>
               </div>
               <div className="bg-white/10 rounded-lg p-4">
-                <p className="text-white/90 text-sm mb-3">&ldquo;As a student at Heriot-Watt University in Academic City, I needed somewhere affordable to store my things over summer. SafeStorage picked up from my apartment and stored 8 boxes for AED 90/month. Best solution for students by far.&rdquo;</p>
+                <p className="text-white/90 text-sm mb-3">&ldquo;As a student at Heriot-Watt University in Academic City, I needed somewhere affordable to store my things over summer. SafeStorage picked up from my apartment and stored 8 boxes at a great rate. Best solution for students by far.&rdquo;</p>
                 <p className="text-white/70 text-xs font-semibold">— Aisha M., Student, Heriot-Watt Dubai, Academic City</p>
               </div>
             </div>
@@ -204,7 +204,7 @@ export default function DubaiSiliconOasisPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What are the storage options for students at Academic City universities?</h3>
-              <p className="text-gray-700">Students at Academic City universities can use SafeStorage&apos;s student-friendly item-based pricing, starting from AED 9 per month per stored item. A typical student storing 8–12 boxes of personal items and study materials would pay AED 80–150 per month total. There is no minimum storage period, making it ideal for storing items over summer breaks or between semesters. Many Academic City students use SafeStorage annually at the end of each academic year and retrieve their items at the start of the new term. Ask about student discounts when booking — mention your university.</p>
+              <p className="text-gray-700">Students at Academic City universities can use SafeStorage&apos;s student-friendly pricing, starting from 12.6 AED / Sqft (VAT-inclusive). Whether you are storing 8–12 boxes of personal items and study materials or more, you pay only for the space you use. There is no minimum storage period, making it ideal for storing items over summer breaks or between semesters. Many Academic City students use SafeStorage annually at the end of each academic year and retrieve their items at the start of the new term. Ask about student discounts when booking — mention your university.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can DSO tech companies store electronic equipment and server hardware?</h3>
@@ -212,11 +212,11 @@ export default function DubaiSiliconOasisPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How affordable is storage for International City residents?</h3>
-              <p className="text-gray-700">International City is one of Dubai&apos;s most affordable residential areas and our pricing reflects that. With item-based storage starting at AED 9 per month, International City residents can store just what they need without paying for a full unit. A typical International City 1-bedroom apartment contents (furniture, appliances, personal items) costs AED 100–160 per month. Studio contents typically cost AED 60–100 per month. These are among the most competitively priced storage options in this part of Dubai, with no compromise on quality — the same climate control, insurance, and service apply regardless of area.</p>
+              <p className="text-gray-700">International City is one of Dubai&apos;s most affordable residential areas and our pricing reflects that. With storage starting from 12.6 AED / Sqft (VAT-inclusive), International City residents can store just what they need without paying for a full unit. Whether you are storing a 1-bedroom apartment's contents (furniture, appliances, personal items) or just studio contents, you pay only for the space you use. These are among the most competitively priced storage options in this part of Dubai, with no compromise on quality — the same climate control, insurance, and service apply regardless of area.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store bicycles and sports equipment from DSO apartments?</h3>
-              <p className="text-gray-700">Yes. Bicycles, electric scooters, skateboards, sports gear, and fitness equipment are all storable with SafeStorage. DSO and Academic City have active cycling and outdoor activity communities, and storing bikes in small apartments is a common challenge. Our item-based pricing means a bicycle can be stored from AED 25–49 per month depending on size. We wrap bicycles carefully to prevent scratches and damage during storage. Electric bikes and scooters are also accepted — please inform us at booking if you are storing battery-powered vehicles as we have specific handling protocols for lithium batteries.</p>
+              <p className="text-gray-700">Yes. Bicycles, electric scooters, skateboards, sports gear, and fitness equipment are all storable with SafeStorage. DSO and Academic City have active cycling and outdoor activity communities, and storing bikes in small apartments is a common challenge. Our volume-based pricing starts from 12.6 AED / Sqft (VAT-inclusive), so a bicycle can be stored for just the small amount of space it takes up. We wrap bicycles carefully to prevent scratches and damage during storage. Electric bikes and scooters are also accepted — please inform us at booking if you are storing battery-powered vehicles as we have specific handling protocols for lithium batteries.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Dubailand near DSO covered by SafeStorage?</h3>

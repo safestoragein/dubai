@@ -4,13 +4,13 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Storage Pricing Dubai — From AED 99/Month",
+  title: "Storage Pricing Dubai — From 12.6 AED / Sqft",
   description:
-    "Transparent storage pricing in Dubai starting from AED 99/month. Various unit sizes with flexible plans. Hassle-free pickup & delivery included. Call +971505773388 for best rates.",
+    "Transparent storage pricing in Dubai from 12.6 AED / Sqft (VAT-inclusive). Various unit sizes with flexible plans. Hassle-free pickup & delivery included. Call +971505773388 for best rates.",
   keywords:
     "storage pricing dubai, cheap storage dubai, storage costs, affordable storage, storage rates dubai, self storage prices, monthly storage cost, storage unit prices",
   openGraph: {
-    title: "SafeStorage Pricing - Affordable Storage from AED 99",
+    title: "SafeStorage Pricing - Storage from 12.6 AED / Sqft",
     description: "Competitive storage rates in Dubai. All sizes available with hassle-free pickup & delivery. Call +971505773388.",
     url: "https://safestorage.ae/pricing",
     siteName: "SafeStorage Dubai",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SafeStorage Pricing - From AED 99/month",
+    title: "SafeStorage Pricing - From 12.6 AED / Sqft",
     description: "Affordable storage units in Dubai with transparent pricing. Call +971505773388.",
     images: ["/twitter-pricing.jpg"],
   },
@@ -41,8 +41,8 @@ const pricingSchemas = [
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/pricing#webpage',
-    name: 'Storage Pricing Dubai | From AED 99/month',
-    description: 'Transparent storage pricing in Dubai starting from AED 99/month. Various unit sizes with flexible plans. Hassle-free pickup & delivery included.',
+    name: 'Storage Pricing Dubai | From 12.6 AED / Sqft',
+    description: 'Transparent storage pricing in Dubai from 12.6 AED / Sqft (VAT-inclusive). Various unit sizes with flexible plans. Hassle-free pickup & delivery included.',
     url: 'https://safestorage.ae/pricing',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -56,11 +56,11 @@ const pricingSchemas = [
     url: 'https://safestorage.ae/pricing',
     areaServed: { '@type': 'City', name: 'Dubai' },
     offers: [
-      { '@type': 'Offer', name: 'Small Storage Unit (25-50 sq ft)', price: '199', priceCurrency: 'AED', availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
-      { '@type': 'Offer', name: 'Medium Storage Unit (50-100 sq ft)', price: '599', priceCurrency: 'AED', availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
-      { '@type': 'Offer', name: 'Large Storage Unit (100-200 sq ft)', price: '1299', priceCurrency: 'AED', availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
-      { '@type': 'Offer', name: 'Extra Large Storage Unit (200+ sq ft)', price: '2499', priceCurrency: 'AED', availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
-      { '@type': 'Offer', name: 'Vehicle Storage', price: '899', priceCurrency: 'AED', availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Small Storage Unit (25-50 sq ft)', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.6', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Medium Storage Unit (50-100 sq ft)', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.6', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Large Storage Unit (100-200 sq ft)', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.6', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Extra Large Storage Unit (200+ sq ft)', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.6', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Vehicle Storage', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.6', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
     ],
   },
   {
@@ -92,25 +92,25 @@ export default function Pricing() {
             <div className="bg-white rounded-xl p-6 border border-gray-200 text-center">
               <h3 className="font-bold text-[#0A2463] mb-2">Small Unit</h3>
               <p className="text-sm text-gray-600 mb-2">25 – 50 sq ft</p>
-              <p className="text-2xl font-bold text-[#D8315B] mb-2">AED 199<span className="text-base font-normal text-gray-500">/mo</span></p>
+              <p className="text-2xl font-bold text-[#D8315B] mb-2">from 12.6 AED / Sqft</p>
               <p className="text-sm text-gray-600">Perfect for boxes, suitcases, small furniture & seasonal items</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200 text-center">
               <h3 className="font-bold text-[#0A2463] mb-2">Medium Unit</h3>
               <p className="text-sm text-gray-600 mb-2">50 – 100 sq ft</p>
-              <p className="text-2xl font-bold text-[#D8315B] mb-2">AED 599<span className="text-base font-normal text-gray-500">/mo</span></p>
+              <p className="text-2xl font-bold text-[#D8315B] mb-2">from 12.6 AED / Sqft</p>
               <p className="text-sm text-gray-600">Ideal for 1–2 bedroom apartment contents or business inventory</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200 text-center">
               <h3 className="font-bold text-[#0A2463] mb-2">Large Unit</h3>
               <p className="text-sm text-gray-600 mb-2">100 – 200 sq ft</p>
-              <p className="text-2xl font-bold text-[#D8315B] mb-2">AED 1,299<span className="text-base font-normal text-gray-500">/mo</span></p>
+              <p className="text-2xl font-bold text-[#D8315B] mb-2">from 12.6 AED / Sqft</p>
               <p className="text-sm text-gray-600">Suitable for 3 bedroom villa or full office clearance storage</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200 text-center">
               <h3 className="font-bold text-[#0A2463] mb-2">Extra Large</h3>
               <p className="text-sm text-gray-600 mb-2">200+ sq ft</p>
-              <p className="text-2xl font-bold text-[#D8315B] mb-2">AED 2,499<span className="text-base font-normal text-gray-500">/mo</span></p>
+              <p className="text-2xl font-bold text-[#D8315B] mb-2">from 12.6 AED / Sqft</p>
               <p className="text-sm text-gray-600">For large villas, full business stock & commercial requirements</p>
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function Pricing() {
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Vehicle Storage Rates</h3>
             <p className="text-gray-700 mb-3">
               SafeStorage provides secure covered parking and storage bays for cars, motorcycles, boats, jet skis,
-              and caravans. Vehicle storage starts from <strong>AED 899 per month</strong> and includes 24/7 CCTV
+              and caravans. Vehicle storage starts from <strong>12.6 AED / Sqft</strong> and includes 24/7 CCTV
               monitoring, covered protection from the elements, and battery maintenance services for long-term stays.
               Our facility is ideal for expats leaving Dubai temporarily, classic car collectors, and owners of
               seasonal recreational vehicles.
@@ -199,39 +199,33 @@ export default function Pricing() {
 
           <h2 className="text-3xl font-bold text-[#0A2463] mb-4">Complete Storage Pricing Guide for Dubai</h2>
           <p className="text-lg text-gray-700 mb-8">
-            Understanding exactly what you are paying for before you commit to a storage plan is important. This guide covers every aspect of SafeStorage Dubai&apos;s pricing — from our entry-level AED 9 per month item-based plans to dedicated large-unit storage, long-term discounts, VAT information, and what is included in every single plan at no extra charge.
+            Understanding exactly what you are paying for before you commit to a storage plan is important. This guide covers every aspect of SafeStorage Dubai&apos;s pricing — our single, transparent rate of 12.6 AED / Sqft (VAT-inclusive), long-term discounts, VAT information, and what is included in every single plan at no extra charge.
           </p>
 
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 mb-8">
-            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Understanding Our Two Pricing Models</h3>
-            <p className="text-gray-700 mb-6">SafeStorage Dubai offers two distinct pricing models to cater to different customer needs. The right model for you depends on how many items you need to store and whether you want a dedicated private space or flexible item-by-item billing.</p>
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">One Simple, Transparent Price</h3>
+            <p className="text-gray-700 mb-6">SafeStorage Dubai keeps pricing simple. Whether you are storing a few boxes or clearing an entire villa, our rate starts from <strong>12.6 AED / Sqft</strong> (VAT-inclusive). You pay only for the space you actually use, with no wasted space and no unnecessary charges — one clear price for every storage need.</p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border-2 border-[#0A2463]">
-                <h4 className="font-bold text-[#0A2463] text-lg mb-3">Model 1: Item-Based Storage</h4>
-                <p className="text-gray-700 mb-4">Pay only for the items you store. Starting from <strong>AED 9 per month</strong> per item. This model is ideal for customers storing fewer than 20–25 items and provides the most cost-effective option for small storage needs. Each item is individually catalogued, photographed, and stored. You pay a fixed monthly rate per item — no wasted space, no unnecessary charges.</p>
+                <h4 className="font-bold text-[#0A2463] text-lg mb-3">Flexible Item & Box Storage</h4>
+                <p className="text-gray-700 mb-4">Ideal for customers storing fewer than 20–25 items. Each item is individually catalogued, photographed, and stored. You pay only for the space your belongings occupy — starting from <strong>12.6 AED / Sqft</strong>.</p>
                 <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• Cardboard box or small item: AED 9/month</li>
-                  <li>• Suitcase or bag: AED 15/month</li>
-                  <li>• Bicycle: AED 29/month</li>
-                  <li>• Single mattress: AED 25/month</li>
-                  <li>• Double mattress: AED 35/month</li>
-                  <li>• Chair or small furniture: AED 29/month</li>
-                  <li>• Sofa (2-seater): AED 49/month</li>
-                  <li>• Wardrobe or large appliance: AED 39/month</li>
+                  <li>• Cardboard boxes and small items</li>
+                  <li>• Suitcases and bags</li>
+                  <li>• Bicycles and mattresses</li>
+                  <li>• Chairs and small furniture</li>
+                  <li>• Sofas, wardrobes, and large appliances</li>
                 </ul>
               </div>
               <div className="bg-white rounded-xl p-6 border-2 border-[#D8315B]">
-                <h4 className="font-bold text-[#0A2463] text-lg mb-3">Model 2: Dedicated Private Units</h4>
-                <p className="text-gray-700 mb-4">Rent a private, dedicated storage unit measured by square footage. Ideal for customers storing a large volume of items — full apartment contents, villa clearances, or business inventory. You have exclusive access to your unit, and pricing is a fixed monthly rate regardless of exactly how many items are inside.</p>
+                <h4 className="font-bold text-[#0A2463] text-lg mb-3">Dedicated Private Units</h4>
+                <p className="text-gray-700 mb-4">Rent a private, dedicated storage unit measured by square footage. Ideal for full apartment contents, villa clearances, or business inventory. The rate is the same simple <strong>12.6 AED / Sqft</strong>, whatever size you need.</p>
                 <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• Small unit (25–50 sq ft): AED 199/month</li>
-                  <li>• Medium unit (50–100 sq ft): AED 599/month</li>
-                  <li>• Large unit (100–200 sq ft): AED 1,299/month</li>
-                  <li>• Extra Large (200+ sq ft): AED 2,499/month</li>
-                  <li>• Vehicle bay (car): AED 899/month</li>
-                  <li>• Motorcycle bay: AED 399/month</li>
-                  <li>• Boat / jet ski bay: from AED 1,200/month</li>
-                  <li>• Custom commercial: call for pricing</li>
+                  <li>• Small unit (25–50 sq ft)</li>
+                  <li>• Medium unit (50–100 sq ft)</li>
+                  <li>• Large unit (100–200 sq ft)</li>
+                  <li>• Extra Large (200+ sq ft)</li>
+                  <li>• Vehicle, motorcycle, and boat bays</li>
                 </ul>
               </div>
             </div>
@@ -297,31 +291,31 @@ export default function Pricing() {
                     <td className="p-3 font-semibold">Small</td>
                     <td className="p-3">25–50 sq ft</td>
                     <td className="p-3">10–20 boxes, studio apartment, seasonal items, suitcases, small furniture</td>
-                    <td className="p-3 font-bold text-[#D8315B]">AED 199</td>
+                    <td className="p-3 font-bold text-[#D8315B]">from 12.6 AED / Sqft</td>
                   </tr>
                   <tr className="border-b border-gray-200 bg-gray-50">
                     <td className="p-3 font-semibold">Medium</td>
                     <td className="p-3">50–100 sq ft</td>
                     <td className="p-3">1–2 bedroom apartment, small office clearance, 20–50 boxes plus furniture</td>
-                    <td className="p-3 font-bold text-[#D8315B]">AED 599</td>
+                    <td className="p-3 font-bold text-[#D8315B]">from 12.6 AED / Sqft</td>
                   </tr>
                   <tr className="border-b border-gray-200 bg-white">
                     <td className="p-3 font-semibold">Large</td>
                     <td className="p-3">100–200 sq ft</td>
                     <td className="p-3">3–4 bedroom villa contents, large office clearance, commercial inventory</td>
-                    <td className="p-3 font-bold text-[#D8315B]">AED 1,299</td>
+                    <td className="p-3 font-bold text-[#D8315B]">from 12.6 AED / Sqft</td>
                   </tr>
                   <tr className="border-b border-gray-200 bg-gray-50">
                     <td className="p-3 font-semibold">Extra Large</td>
                     <td className="p-3">200+ sq ft</td>
                     <td className="p-3">Full villa, large business stock, warehouse overflow, commercial requirements</td>
-                    <td className="p-3 font-bold text-[#D8315B]">AED 2,499</td>
+                    <td className="p-3 font-bold text-[#D8315B]">from 12.6 AED / Sqft</td>
                   </tr>
                   <tr className="bg-white">
                     <td className="p-3 font-semibold rounded-bl-lg">Vehicle</td>
                     <td className="p-3">Covered bay</td>
                     <td className="p-3">Cars, motorcycles, boats, jet skis, caravans — indoor covered secure bays</td>
-                    <td className="p-3 font-bold text-[#D8315B] rounded-br-lg">From AED 399</td>
+                    <td className="p-3 font-bold text-[#D8315B] rounded-br-lg">from 12.6 AED / Sqft</td>
                   </tr>
                 </tbody>
               </table>
@@ -335,7 +329,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">1. What is the cheapest storage option available at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">Our cheapest storage option is our item-based plan, which starts from as little as AED 9 per month for a single small item such as a cardboard box. This is perfect for customers who only need to store a few things and do not want to pay for an entire private unit. For a student with five to ten boxes, for example, total monthly storage cost can be as low as AED 45 to AED 90. Contact us for an accurate item-by-item quote based on exactly what you need to store.</p>
+              <p className="text-gray-700">Our storage starts from just 12.6 AED / Sqft (VAT-inclusive). This is perfect for customers who only need to store a few things and do not want to pay for an entire private unit — you pay only for the space your belongings actually use. Contact us for an accurate quote based on exactly what you need to store.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -370,12 +364,12 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. What is the best value storage option for someone moving apartments in Dubai?</h3>
-              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — our medium unit (50–100 sq ft) at AED 599 per month is typically the best value option for a one to two-bedroom apartment. This includes hassle-free pickup from your old apartment, climate-controlled storage for the duration between leases, and hassle-free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
+              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — our medium unit (50–100 sq ft) at 12.6 AED / Sqft is typically the best value option for a one to two-bedroom apartment. This includes hassle-free pickup from your old apartment, climate-controlled storage for the duration between leases, and hassle-free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">9. Do you offer any student storage discounts in Dubai?</h3>
-              <p className="text-gray-700">Yes. SafeStorage Dubai partners with several universities and higher education institutions in Dubai to offer student storage discounts. Students can access our item-based storage plans from AED 9 per month per item, which is ideal for storing belongings between semesters or during summer holidays. Mention your student status and university affiliation when requesting a quote and we will apply the applicable student discount. Student plans are available on a minimum one-month basis with no long-term commitment required.</p>
+              <p className="text-gray-700">Yes. SafeStorage Dubai partners with several universities and higher education institutions in Dubai to offer student storage discounts. Students can access our storage plans from 12.6 AED / Sqft, which is ideal for storing belongings between semesters or during summer holidays. Mention your student status and university affiliation when requesting a quote and we will apply the applicable student discount. Student plans are available on a minimum one-month basis with no long-term commitment required.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -390,7 +384,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">12. Are document storage rates different from regular storage?</h3>
-              <p className="text-gray-700">Document and archive storage follows a separate pricing structure designed for businesses and individuals needing to store large volumes of paper records. Our document storage service includes indexed cataloguing of all boxes for easy retrieval, fireproof storage areas with enhanced fire suppression systems, humidity-controlled archival conditions to prevent paper deterioration, and a same-day retrieval service for urgent document access. Document storage pricing is calculated per box per month and starts from AED 12 per box. Call +971505773388 for a detailed document storage quotation.</p>
+              <p className="text-gray-700">Document and archive storage follows a separate pricing structure designed for businesses and individuals needing to store large volumes of paper records. Our document storage service includes indexed cataloguing of all boxes for easy retrieval, fireproof storage areas with enhanced fire suppression systems, humidity-controlled archival conditions to prevent paper deterioration, and a same-day retrieval service for urgent document access. Document storage starts from 12.6 AED / Sqft (VAT-inclusive). Call +971505773388 for a detailed document storage quotation.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -405,7 +399,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. What is the price for storing a full villa worth of furniture in Dubai?</h3>
-              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, a Large or Extra Large unit is usually required, starting from AED 1,299 to AED 2,499 per month. This includes hassle-free pickup from your villa, climate-controlled storage, 24/7 security, free insurance, and hassle-free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
+              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, a Large or Extra Large unit is usually required, starting from 12.6 AED / Sqft (VAT-inclusive). This includes hassle-free pickup from your villa, climate-controlled storage, 24/7 security, free insurance, and hassle-free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
             </div>
 
           </div>
