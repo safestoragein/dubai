@@ -56,11 +56,7 @@ const pricingSchemas = [
     url: 'https://safestorage.ae/pricing',
     areaServed: { '@type': 'City', name: 'Dubai' },
     offers: [
-      { '@type': 'Offer', name: 'Small Storage Unit (25-50 sq ft)', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.65', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
-      { '@type': 'Offer', name: 'Medium Storage Unit (50-100 sq ft)', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.65', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
-      { '@type': 'Offer', name: 'Large Storage Unit (100-200 sq ft)', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.65', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
-      { '@type': 'Offer', name: 'Extra Large Storage Unit (200+ sq ft)', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.65', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
-      { '@type': 'Offer', name: 'Vehicle Storage', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.65', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Storage in Dubai', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.65', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
     ],
   },
   {
@@ -199,14 +195,7 @@ export default function Pricing() {
               </div>
               <div className="bg-white rounded-xl p-6 border-2 border-[#D8315B]">
                 <h4 className="font-bold text-[#0A2463] text-lg mb-3">Dedicated Private Units</h4>
-                <p className="text-gray-700 mb-4">Rent a private, dedicated storage unit measured by square footage. Ideal for full apartment contents, villa clearances, or business inventory. The rate is the same simple <strong>12.65 AED / sqft</strong>, whatever size you need.</p>
-                <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• Small unit (25–50 sq ft)</li>
-                  <li>• Medium unit (50–100 sq ft)</li>
-                  <li>• Large unit (100–200 sq ft)</li>
-                  <li>• Extra Large (200+ sq ft)</li>
-                  <li>• Vehicle, motorcycle, and boat bays</li>
-                </ul>
+                <p className="text-gray-700 mb-4">Rent a private, dedicated storage space measured by square footage — for full apartment contents, villa clearances, business inventory, or vehicles. No fixed tiers and no guesswork: the rate is the same simple <strong>12.65 AED / sqft</strong>, whatever space you need. You pay only for the area you use.</p>
               </div>
             </div>
           </div>
@@ -254,46 +243,8 @@ export default function Pricing() {
           </div>
 
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 mb-8">
-            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Unit Size Guide — How Much Storage Do You Need?</h3>
-            <p className="text-gray-700 mb-5">Choosing the right storage unit size is crucial — too small and your items do not fit, too large and you overpay. Our consultants provide free volume assessments, but the following guide covers most common scenarios:</p>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm text-gray-700 border-collapse">
-                <thead>
-                  <tr className="bg-[#0A2463] text-white">
-                    <th className="p-3 text-left rounded-tl-lg">Unit Size</th>
-                    <th className="p-3 text-left">Square Footage</th>
-                    <th className="p-3 text-left rounded-tr-lg">Best For</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-gray-200 bg-white">
-                    <td className="p-3 font-semibold">Small</td>
-                    <td className="p-3">25–50 sq ft</td>
-                    <td className="p-3">10–20 boxes, studio apartment, seasonal items, suitcases, small furniture</td>
-                  </tr>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <td className="p-3 font-semibold">Medium</td>
-                    <td className="p-3">50–100 sq ft</td>
-                    <td className="p-3">1–2 bedroom apartment, small office clearance, 20–50 boxes plus furniture</td>
-                  </tr>
-                  <tr className="border-b border-gray-200 bg-white">
-                    <td className="p-3 font-semibold">Large</td>
-                    <td className="p-3">100–200 sq ft</td>
-                    <td className="p-3">3–4 bedroom villa contents, large office clearance, commercial inventory</td>
-                  </tr>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <td className="p-3 font-semibold">Extra Large</td>
-                    <td className="p-3">200+ sq ft</td>
-                    <td className="p-3">Full villa, large business stock, warehouse overflow, commercial requirements</td>
-                  </tr>
-                  <tr className="bg-white">
-                    <td className="p-3 font-semibold rounded-bl-lg">Vehicle</td>
-                    <td className="p-3">Covered bay</td>
-                    <td className="p-3 rounded-br-lg">Cars, motorcycles, boats, jet skis, caravans — indoor covered secure bays</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">How Much Storage Do You Need?</h3>
+            <p className="text-gray-700">There are no fixed unit tiers to choose between and no risk of overpaying for empty space. You pay only for the square footage your belongings actually occupy, at one simple rate of <strong>12.65 AED / sqft</strong> (VAT-inclusive). Not sure how much space you need? Our consultants provide a free, no-obligation volume assessment — just send photos via WhatsApp or call +971505773388 and we will confirm exactly what your storage will cost.</p>
           </div>
 
           {/* 15 pricing FAQ items */}
@@ -338,7 +289,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. What is the best value storage option for someone moving apartments in Dubai?</h3>
-              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — our medium unit (50–100 sq ft) at 12.65 AED / sqft is typically the best value option for a one to two-bedroom apartment. This includes hassle-free pickup from your old apartment, climate-controlled storage for the duration between leases, and hassle-free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
+              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — storage is priced simply at 12.65 AED / sqft (VAT-inclusive), so a one to two-bedroom apartment is straightforward and economical to store. This includes hassle-free pickup from your old apartment, climate-controlled storage for the duration between leases, and hassle-free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -373,7 +324,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. What is the price for storing a full villa worth of furniture in Dubai?</h3>
-              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, a Large or Extra Large unit is usually required, starting from 12.65 AED / sqft (VAT-inclusive). This includes hassle-free pickup from your villa, climate-controlled storage, 24/7 security, free insurance, and hassle-free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
+              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, storage is priced simply at 12.65 AED / sqft (VAT-inclusive) — you pay only for the space your belongings occupy. This includes hassle-free pickup from your villa, climate-controlled storage, 24/7 security, free insurance, and hassle-free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
             </div>
 
           </div>
