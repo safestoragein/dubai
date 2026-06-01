@@ -113,7 +113,7 @@ interface FormData {
   quotationId?: number
   totalPoints?: number
   totalPallets?: number
-  totalSqft?: number
+  totalsqft?: number
   closedPrice?: number
   sharedPrice?: number
 }
@@ -139,21 +139,21 @@ const calculateSquareFeet = (pallets: number): number => {
 const calculateSharedSpacePricing = (selectedItems: SelectedItem[]) => {
   const totalPoints = calculateTotalPoints(selectedItems)
   const pallets = calculatePallets(totalPoints)
-  const calculatedSqft = calculateSquareFeet(pallets)
+  const calculatedsqft = calculateSquareFeet(pallets)
   
   // Minimum 30 sqft for shared space
-  const chargeableSqft = Math.max(calculatedSqft, 30)
+  const chargeablesqft = Math.max(calculatedsqft, 30)
 
   // 10 AED per sqft
-  const pricePerSqft = 10
-  const totalCost = chargeableSqft * pricePerSqft
+  const pricePersqft = 10
+  const totalCost = chargeablesqft * pricePersqft
   
   return {
-    calculatedSqft,
-    chargeableSqft,
-    pricePerSqft,
+    calculatedsqft,
+    chargeablesqft,
+    pricePersqft,
     totalCost,
-    isMinimumApplied: calculatedSqft < 30
+    isMinimumApplied: calculatedsqft < 30
   }
 }
 
@@ -161,26 +161,26 @@ const calculateSharedSpacePricing = (selectedItems: SelectedItem[]) => {
 const calculateClosedSpacePricing = (selectedItems: SelectedItem[]) => {
   const totalPoints = calculateTotalPoints(selectedItems)
   const pallets = calculatePallets(totalPoints)
-  const calculatedSqft = calculateSquareFeet(pallets)
+  const calculatedsqft = calculateSquareFeet(pallets)
   
   // Each container is 30 sqft
   const containerSize = 30
   const pricePerContainer = 700
   
   // Calculate number of containers needed (round up)
-  const containersNeeded = Math.ceil(calculatedSqft / containerSize)
+  const containersNeeded = Math.ceil(calculatedsqft / containerSize)
   
   // Total sqft provided (containers * 30 sqft each)
-  const totalProvidedSqft = containersNeeded * containerSize
+  const totalProvidedsqft = containersNeeded * containerSize
   
   // Total cost
   const totalCost = containersNeeded * pricePerContainer
   
   return {
-    calculatedSqft,
+    calculatedsqft,
     containersNeeded,
     containerSize,
-    totalProvidedSqft,
+    totalProvidedsqft,
     pricePerContainer,
     totalCost
   }
@@ -599,7 +599,7 @@ export default function QuotePage() {
         // Calculate totals for both storage options
         const totalPoints = calculateTotalPoints(formData.selectedItems)
         const totalPallets = calculatePallets(totalPoints)
-        const totalSqft = calculateSquareFeet(totalPallets)
+        const totalsqft = calculateSquareFeet(totalPallets)
         const closedPrice = calculateClosedSpacePricing(formData.selectedItems).totalCost
         const sharedPrice = calculateSharedSpacePricing(formData.selectedItems).totalCost
 
@@ -647,7 +647,7 @@ export default function QuotePage() {
             lift: formData.liftAvailable,
             floor: formData.floor,
             bedrooms: formData.bedrooms,
-            total_sqft: totalSqft.toString(),
+            total_sqft: totalsqft.toString(),
             total_points: totalPoints.toString(),
             total_pallets: totalPallets.toString(),
           }),
@@ -707,7 +707,7 @@ export default function QuotePage() {
           quotationId: quotationId,
           totalPoints,
           totalPallets,
-          totalSqft,
+          totalsqft,
           closedPrice,
           sharedPrice
         }))
@@ -879,7 +879,7 @@ export default function QuotePage() {
           lift: formData.liftAvailable,
           floor: formData.floor,
           bedrooms: formData.bedrooms,
-          total_sqft: formData.totalSqft!.toString(),
+          total_sqft: formData.totalsqft!.toString(),
           total_points: formData.totalPoints!.toString(),
           total_pallets: formData.totalPallets!.toString(),
         }),
@@ -2103,7 +2103,7 @@ export default function QuotePage() {
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-slate-600">Storage Space:</span>
                       <span className="text-sm font-bold text-blue-600">
-                        {calculateSharedSpacePricing(formData.selectedItems).chargeableSqft} sqft
+                        {calculateSharedSpacePricing(formData.selectedItems).chargeablesqft} sqft
                       </span>
                     </div>
                   </div>

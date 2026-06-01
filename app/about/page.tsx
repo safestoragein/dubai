@@ -483,7 +483,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the starting price for storage at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">SafeStorage Dubai pricing starts from 12.6 AED / Sqft (VAT-inclusive). Pricing scales with the space your belongings occupy — you pay for the actual area your items take up, not a fixed unit size. All pricing is provided transparently in your quote with no hidden fees. Hassle-free pickup, climate control, insurance, and the digital inventory system are included in every plan regardless of the amount you store.</p>
+              <p className="text-gray-700">SafeStorage Dubai pricing starts from 12.65 AED / sqft (VAT-inclusive). Pricing scales with the space your belongings occupy — you pay for the actual area your items take up, not a fixed unit size. All pricing is provided transparently in your quote with no hidden fees. Hassle-free pickup, climate control, insurance, and the digital inventory system are included in every plan regardless of the amount you store.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I speak to a real person at SafeStorage, or is everything automated?</h3>

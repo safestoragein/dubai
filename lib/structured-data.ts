@@ -98,7 +98,7 @@ export const localBusinessSchema = {
   url: "https://safestorage.ae",
   telephone: "+971505773388",
   email: "safestoragedubai@gmail.com",
-  priceRange: "From 12.6 AED / Sqft",
+  priceRange: "From 12.65 AED / sqft",
   currenciesAccepted: "AED",
   paymentAccepted: "Cash, Credit Card, Debit Card, Bank Transfer, Cheque",
   areaServed: [
@@ -204,7 +204,7 @@ export const localBusinessSchema = {
       "@type": "Offer",
       name: "Small Storage Unit (25-50 sq ft)",
       description: "Perfect for boxes, seasonal items, and small furniture",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     },
@@ -212,7 +212,7 @@ export const localBusinessSchema = {
       "@type": "Offer",
       name: "Medium Storage Unit (50-100 sq ft)",
       description: "Ideal for 1-2 bedroom apartment contents",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     },
@@ -220,7 +220,7 @@ export const localBusinessSchema = {
       "@type": "Offer",
       name: "Large Storage Unit (100-200 sq ft)",
       description: "Suitable for 3 bedroom home or business inventory",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     },
@@ -228,7 +228,7 @@ export const localBusinessSchema = {
       "@type": "Offer",
       name: "Extra Large Storage Unit (200+ sq ft)",
       description: "For villas, large businesses, or bulk storage",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     },
@@ -236,7 +236,7 @@ export const localBusinessSchema = {
       "@type": "Offer",
       name: "Vehicle Storage",
       description: "Secure parking for cars, motorcycles, and boats",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     }
@@ -276,7 +276,7 @@ export const faqSchema = {
       name: "How much does storage cost in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Storage in Dubai starts from 12.6 AED / Sqft (VAT-inclusive) at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units include climate control, 24/7 security, and hassle-free pickup & delivery within Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
+        text: "Storage in Dubai starts from 12.65 AED / sqft (VAT-inclusive) at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units include climate control, 24/7 security, and hassle-free pickup & delivery within Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
       }
     },
     {
@@ -284,7 +284,7 @@ export const faqSchema = {
       name: "What is the cheapest storage option in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Storage in Dubai starts from 12.6 AED / Sqft (VAT-inclusive) at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with hassle-free pickup & delivery, climate control, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
+        text: "Storage in Dubai starts from 12.65 AED / sqft (VAT-inclusive) at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with hassle-free pickup & delivery, climate control, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
       }
     },
     {
@@ -309,7 +309,7 @@ export const faqSchema = {
       name: "What sizes of storage units are available at SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai offers flexible storage solutions for all needs: Small units for boxes, seasonal items, and small furniture; Medium units for 1-2 bedroom apartment contents; Large units for 3 bedroom home contents; Extra Large units for villas or business inventory; Vehicle Storage for cars, bikes, and boats. Pricing starts from 12.6 AED / Sqft (VAT-inclusive). Contact us at +971505773388 for a personalized quote."
+        text: "SafeStorage Dubai offers flexible storage solutions for all needs: Small units for boxes, seasonal items, and small furniture; Medium units for 1-2 bedroom apartment contents; Large units for 3 bedroom home contents; Extra Large units for villas or business inventory; Vehicle Storage for cars, bikes, and boats. Pricing starts from 12.65 AED / sqft (VAT-inclusive). Contact us at +971505773388 for a personalized quote."
       }
     },
     {
@@ -434,7 +434,7 @@ export const faqSchema = {
       name: "Can I store my car or vehicle in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! SafeStorage Dubai offers secure, climate-controlled vehicle storage starting from 12.6 AED / Sqft (VAT-inclusive). We store cars, motorcycles, classic cars, boats, jet skis, and RVs. All vehicles are protected from Dubai's extreme heat in our climate-controlled facility with 24/7 CCTV surveillance. Hassle-free pickup and delivery available for vehicles too."
+        text: "Yes! SafeStorage Dubai offers secure, climate-controlled vehicle storage starting from 12.65 AED / sqft (VAT-inclusive). We store cars, motorcycles, classic cars, boats, jet skis, and RVs. All vehicles are protected from Dubai's extreme heat in our climate-controlled facility with 24/7 CCTV surveillance. Hassle-free pickup and delivery available for vehicles too."
       }
     },
     // BUSINESS STORAGE
@@ -534,7 +534,7 @@ export const faqSchema = {
       name: "How much does it cost to store a car in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Car storage in Dubai starts from 12.6 AED / Sqft (VAT-inclusive) at SafeStorage Dubai. This includes: climate-controlled facility (protects from Dubai heat), 24/7 CCTV security, Hassle-free pickup and delivery, insurance coverage, and regular inspections. Ideal for classic cars, second vehicles, or when traveling. Call +971505773388 for vehicle storage quote."
+        text: "Car storage in Dubai starts from 12.65 AED / sqft (VAT-inclusive) at SafeStorage Dubai. This includes: climate-controlled facility (protects from Dubai heat), 24/7 CCTV security, Hassle-free pickup and delivery, insurance coverage, and regular inspections. Ideal for classic cars, second vehicles, or when traveling. Call +971505773388 for vehicle storage quote."
       }
     }
   ]
@@ -610,7 +610,7 @@ export const serviceSchema = {
       "@type": "Offer",
       name: "Small Storage Unit",
       description: "25-50 sq ft - Perfect for boxes, seasonal items, and small furniture",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     },
@@ -618,7 +618,7 @@ export const serviceSchema = {
       "@type": "Offer",
       name: "Medium Storage Unit",
       description: "50-100 sq ft - Ideal for one-bedroom apartment contents",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     },
@@ -626,7 +626,7 @@ export const serviceSchema = {
       "@type": "Offer",
       name: "Large Storage Unit",
       description: "100-200 sq ft - Suitable for 3 bedroom homes",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     },
@@ -634,7 +634,7 @@ export const serviceSchema = {
       "@type": "Offer",
       name: "Extra Large Storage Unit",
       description: "200-300+ sq ft - For villas or business inventory",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     },
@@ -642,7 +642,7 @@ export const serviceSchema = {
       "@type": "Offer",
       name: "Vehicle Storage",
       description: "Secure climate-controlled parking for cars, motorcycles, boats",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     }
@@ -655,7 +655,7 @@ export const productSchema = {
   "@type": "Product",
   "@id": "https://safestorage.ae/#product",
   name: "Self Storage Units Dubai",
-  description: "Premium climate-controlled storage units in Dubai with hassle-free pickup and delivery. Personal, business, and vehicle storage from 12.6 AED / Sqft (VAT-inclusive).",
+  description: "Premium climate-controlled storage units in Dubai with hassle-free pickup and delivery. Personal, business, and vehicle storage from 12.65 AED / sqft (VAT-inclusive).",
   brand: {
     "@type": "Brand",
     name: "SafeStorage Dubai"
@@ -689,14 +689,14 @@ export const productSchema = {
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "AED",
-    lowPrice: "12.6",
-    highPrice: "12.6",
+    lowPrice: "12.65",
+    highPrice: "12.65",
     offerCount: "5",
     offers: [
       {
         "@type": "Offer",
         name: "Small Unit",
-        price: "12.6",
+        price: "12.65",
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
@@ -723,7 +723,7 @@ export const productSchema = {
       {
         "@type": "Offer",
         name: "Medium Unit",
-        price: "12.6",
+        price: "12.65",
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
@@ -750,7 +750,7 @@ export const productSchema = {
       {
         "@type": "Offer",
         name: "Large Unit",
-        price: "12.6",
+        price: "12.65",
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
@@ -777,7 +777,7 @@ export const productSchema = {
       {
         "@type": "Offer",
         name: "Extra Large Unit",
-        price: "12.6",
+        price: "12.65",
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
@@ -804,7 +804,7 @@ export const productSchema = {
       {
         "@type": "Offer",
         name: "Vehicle Storage",
-        price: "12.6",
+        price: "12.65",
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
@@ -859,7 +859,7 @@ export const howToSchema = {
   estimatedCost: {
     "@type": "MonetaryAmount",
     currency: "AED",
-    value: "12.6"
+    value: "12.65"
   },
   step: [
     {
@@ -910,7 +910,7 @@ export const itemListSchema = {
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
-          price: "12.6",
+          price: "12.65",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
           url: "https://safestorage.ae/storage-units-dubai",
@@ -964,7 +964,7 @@ export const itemListSchema = {
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
-          price: "12.6",
+          price: "12.65",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
           url: "https://safestorage.ae/storage-units-dubai",
@@ -1018,7 +1018,7 @@ export const itemListSchema = {
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
-          price: "12.6",
+          price: "12.65",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
           url: "https://safestorage.ae/storage-units-dubai",
@@ -1072,7 +1072,7 @@ export const itemListSchema = {
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
-          price: "12.6",
+          price: "12.65",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
           url: "https://safestorage.ae/storage-units-dubai",
@@ -1126,7 +1126,7 @@ export const itemListSchema = {
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
-          price: "12.6",
+          price: "12.65",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
           url: "https://safestorage.ae/storage-dubai/vehicle-storage",
@@ -1191,7 +1191,7 @@ export const offerSchema = {
   "@id": "https://safestorage.ae/#offer",
   name: "New Customer Offer - SafeStorage Dubai",
   description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes hassle-free pickup and delivery, climate control, and insurance up to AED 5000.",
-  priceSpecification: { "@type": "UnitPriceSpecification", price: "12.6", priceCurrency: "AED", unitText: "per sq ft" },
+  priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
   priceValidUntil: "2026-12-31",
   availability: "https://schema.org/InStock",
   validFrom: "2024-01-01",

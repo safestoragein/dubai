@@ -6,7 +6,7 @@ import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Mobile Storage Dubai — Door-to-Door Pickup & Delivery Storage | SafeStorage",
-  description: "Mobile storage in Dubai — we come to you, pick up your belongings, store them safely, and deliver back when you're ready. Hassle-free pickup across Dubai. From 12.6 AED / Sqft.",
+  description: "Mobile storage in Dubai — we come to you, pick up your belongings, store them safely, and deliver back when you're ready. Hassle-free pickup across Dubai. From 12.65 AED / sqft.",
   keywords: "mobile storage dubai, door to door storage dubai, pickup storage dubai, collect and store dubai, storage with pickup and delivery dubai, valet storage dubai",
   openGraph: {
     title: "Mobile Storage Dubai — We Pick Up, Store & Deliver Back",

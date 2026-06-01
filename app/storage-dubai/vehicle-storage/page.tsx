@@ -267,7 +267,7 @@ export default function VehicleStoragePage() {
           <div className="bg-white rounded-xl p-8 border border-gray-200">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Vehicle Storage Rates</h3>
             <p className="text-gray-700 mb-3">
-              Vehicle storage at SafeStorage Dubai starts from <strong>12.6 AED / Sqft</strong> (VAT-inclusive)
+              Vehicle storage at SafeStorage Dubai starts from <strong>12.65 AED / sqft</strong> (VAT-inclusive)
               for standard cars and motorcycles, larger vehicles (SUVs, caravans, boats), and classic or
               high-value vehicles stored in premium enclosed bays with additional security features.
             </p>
@@ -388,7 +388,7 @@ export default function VehicleStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. How much does vehicle storage in Dubai cost?</h3>
-              <p className="text-gray-700">Vehicle storage at SafeStorage starts from 12.6 AED / Sqft (VAT-inclusive) — whether you are storing standard cars and motorcycles in our climate-controlled indoor bays, SUVs and larger vehicles, or classic vehicles requiring premium enclosed bay storage with additional security features. Boats, jet skis, and caravans are priced individually based on dimensions. All plans include 24/7 CCTV monitoring, climate control, and basic insurance. Long-term plans (3+ months) qualify for preferential rates. Call +971505773388 or get a quote online for precise pricing.</p>
+              <p className="text-gray-700">Vehicle storage at SafeStorage starts from 12.65 AED / sqft (VAT-inclusive) — whether you are storing standard cars and motorcycles in our climate-controlled indoor bays, SUVs and larger vehicles, or classic vehicles requiring premium enclosed bay storage with additional security features. Boats, jet skis, and caravans are priced individually based on dimensions. All plans include 24/7 CCTV monitoring, climate control, and basic insurance. Long-term plans (3+ months) qualify for preferential rates. Call +971505773388 or get a quote online for precise pricing.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

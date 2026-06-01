@@ -24,7 +24,7 @@ const BlogSection      = dynamic(() => import("@/components/blog-section"))
 export const metadata: Metadata = {
   title: { absolute: "SafeStorage Dubai — #1 Rated Storage with Hassle-Free Pickup" },
   description:
-    "SafeStorage Dubai: secure, climate-controlled self-storage units with hassle-free door-to-door pickup and delivery. Personal, business, vehicle & document storage from 12.6 AED / Sqft. 500+ Dubai customers. Get a free quote in 2 minutes.",
+    "SafeStorage Dubai: secure, climate-controlled self-storage units with hassle-free door-to-door pickup and delivery. Personal, business, vehicle & document storage from 12.65 AED / sqft. 500+ Dubai customers. Get a free quote in 2 minutes.",
   keywords:
     "safestorage dubai, climate controlled storage dubai, hassle-free pickup storage dubai, secure storage dubai, affordable storage dubai, storage facility dubai, self storage dubai, personal storage dubai, business storage dubai, furniture storage dubai, vehicle storage dubai, document storage dubai, storage units dubai, dubai storage solutions, storage with pickup and delivery dubai",
   openGraph: {
@@ -100,7 +100,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How much does storage cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">Storage at SafeStorage Dubai starts from 12.6 AED / Sqft (VAT-inclusive) — one simple, transparent price for everything from individual items to full household or furniture storage. All plans include hassle-free pickup and delivery, climate-controlled storage maintained at 20&ndash;25&deg;C, 24/7 security monitoring, and free insurance coverage up to AED 5,000. There are no setup fees, no registration costs, and no penalties for cancelling early. Long-term discounts of up to 20% are available for 6&ndash;12 month prepaid plans.</p>
+              <p className="text-gray-700 leading-relaxed">Storage at SafeStorage Dubai starts from 12.65 AED / sqft (VAT-inclusive) — one simple, transparent price for everything from individual items to full household or furniture storage. All plans include hassle-free pickup and delivery, climate-controlled storage maintained at 20&ndash;25&deg;C, 24/7 security monitoring, and free insurance coverage up to AED 5,000. There are no setup fees, no registration costs, and no penalties for cancelling early. Long-term discounts of up to 20% are available for 6&ndash;12 month prepaid plans.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">Is pickup really free?</h3>
@@ -191,7 +191,7 @@ export default function LandingPage() {
           <p className="text-lg text-gray-700 mb-8">
             Our storage units maintain a consistent 20–25°C temperature year-round, protecting your belongings
             from Dubai&apos;s extreme summer heat. Every unit is monitored by 24/7 CCTV, secured with biometric
-            access, and covered by free insurance up to AED 5,000. Storage plans start from 12.6 AED / Sqft
+            access, and covered by free insurance up to AED 5,000. Storage plans start from 12.65 AED / sqft
             with hassle-free pickup and delivery across all Dubai areas.
           </p>
 
@@ -250,7 +250,7 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="font-bold text-[#0A2463] mb-3">Flexible Storage Plans from 12.6 AED / Sqft</h3>
+              <h3 className="font-bold text-[#0A2463] mb-3">Flexible Storage Plans from 12.65 AED / sqft</h3>
               <p className="text-gray-700 text-sm mb-3">
                 Storage units are available in sizes from 25 sq ft (small locker) to 300+ sq ft
                 (full villa contents). Monthly plans with no setup fees, no registration costs,

@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   description: "One storage provider for all your Dubai needs: personal furniture, business inventory, vehicle storage & document archival. 4.9★ rated by 500+ customers. Hassle-free pickup, transparent pricing. Call +971505773388.",
   keywords: "all in one storage dubai, personal and business storage dubai, vehicle furniture storage dubai, storage provider dubai, full service storage dubai, pickup and delivery storage dubai, 4.9 rated storage dubai",
   openGraph: {
-    title: "Storage Dubai | #1 Rated Storage Facility | From 12.6 AED / Sqft",
-    description: "Best storage in Dubai from 12.6 AED / Sqft. Climate-controlled, 24/7 access, Hassle-free pickup & delivery. 4.9★ rated by 500+ customers.",
+    title: "Storage Dubai | #1 Rated Storage Facility | From 12.65 AED / sqft",
+    description: "Best storage in Dubai from 12.65 AED / sqft. Climate-controlled, 24/7 access, Hassle-free pickup & delivery. 4.9★ rated by 500+ customers.",
     url: "https://safestorage.ae/storage-dubai",
     siteName: "SafeStorage Dubai",
     images: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Storage Dubai | #1 Rated | From 12.6 AED / Sqft",
+    title: "Storage Dubai | #1 Rated | From 12.65 AED / sqft",
     description: "Best storage in Dubai. Climate-controlled, Hassle-free pickup. 500+ happy customers.",
   },
   alternates: {
@@ -124,42 +124,6 @@ const storageServices = [
     title: "E-commerce Storage",
     description: "Fulfillment-ready storage with receiving, shelving, and pick-pack services. Scale with your business growth.",
     link: "/business-storage",
-  },
-]
-
-// Pricing Data
-const pricingData = [
-  {
-    size: "Small",
-    sqft: "25-50 sq ft",
-    price: "from 12.6 AED / Sqft",
-    fits: "Studio apartment, 10-20 boxes",
-    ideal: "Seasonal items, small furniture",
-    popular: false,
-  },
-  {
-    size: "Medium",
-    sqft: "75-120 sq ft",
-    price: "from 12.6 AED / Sqft",
-    fits: "1-2 bedroom apartment",
-    ideal: "Apartment contents, office equipment",
-    popular: true,
-  },
-  {
-    size: "Large",
-    sqft: "150-300 sq ft",
-    price: "from 12.6 AED / Sqft",
-    fits: "3+ bedroom villa",
-    ideal: "Full house, business inventory",
-    popular: false,
-  },
-  {
-    size: "Vehicle",
-    sqft: "Covered parking",
-    price: "from 12.6 AED / Sqft",
-    fits: "Cars, bikes, boats",
-    ideal: "Classic cars, seasonal vehicles",
-    popular: false,
   },
 ]
 
@@ -297,7 +261,7 @@ const testimonials = [
 const faqs = [
   {
     question: "How much does storage cost in Dubai?",
-    answer: "Storage in Dubai at SafeStorage starts from just 12.6 AED / Sqft (VAT-inclusive). We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include climate control, security, and hassle-free pickup & delivery. Contact us at 050-577-3388 for a personalized quote.",
+    answer: "Storage in Dubai at SafeStorage starts from just 12.65 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include climate control, security, and hassle-free pickup & delivery. Contact us at 050-577-3388 for a personalized quote.",
   },
   {
     question: "Is climate control necessary for storage in Dubai?",
@@ -381,7 +345,7 @@ const storageDubaiSchemas = [
     url: 'https://safestorage.ae/storage-dubai',
     areaServed: { '@type': 'City', name: 'Dubai' },
     serviceType: 'Self Storage',
-    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.6', description: 'Starts from 12.6 AED / Sqft (VAT-inclusive)' },
+    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.65', description: 'Starts from 12.65 AED / sqft (VAT-inclusive)' },
     aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '312' },
   },
   {
@@ -448,7 +412,7 @@ export default function StorageDubaiPage() {
 
               {/* Subheadline */}
               <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-                Hassle-free pickup & delivery • From 12.6 AED / Sqft • 24/7 access • Climate controlled
+                Hassle-free pickup & delivery • From 12.65 AED / sqft • 24/7 access • Climate controlled
               </p>
 
               {/* CTAs */}
@@ -479,7 +443,7 @@ export default function StorageDubaiPage() {
                   { label: "Happy Customers", value: "500+" },
                   { label: "Google Rating", value: "4.9★" },
                   { label: "Access Hours", value: "24/7" },
-                  { label: "Starting Price", value: "12.6 AED / Sqft" },
+                  { label: "Starting Price", value: "12.65 AED / sqft" },
                 ].map((stat, i) => (
                   <div key={i} className="bg-white/5 backdrop-blur-sm rounded-lg p-4">
                     <div className="text-dubai-gold font-bold text-xl">{stat.value}</div>
@@ -576,59 +540,26 @@ export default function StorageDubaiPage() {
                 Storage Dubai Pricing
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Transparent pricing - Competitors hide this! Prices start from 12.6 AED / Sqft.
+                Transparent pricing - Competitors hide this! Prices start from 12.65 AED / sqft.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {pricingData.map((plan, index) => (
-                <div
-                  key={index}
-                  className={`relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden ${
-                    plan.popular ? "ring-2 ring-dubai-gold" : "border border-gray-200"
-                  }`}
+            <div className="max-w-xl mx-auto">
+              <div className="relative bg-white rounded-2xl shadow-lg ring-2 ring-dubai-gold overflow-hidden text-center p-10">
+                <h3 className="text-2xl md:text-3xl font-bold text-dubai-navy mb-3">
+                  Pricing starts from 12.65 AED / sqft
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  VAT-inclusive · all unit sizes · hassle-free pickup & delivery included
+                </p>
+                <Button
+                  className="bg-dubai-gold hover:bg-dubai-darkgold text-white"
+                  size="lg"
+                  asChild
                 >
-                  {plan.popular && (
-                    <div className="absolute top-0 left-0 right-0 bg-dubai-gold text-white text-center py-1 text-sm font-medium">
-                      Most Popular
-                    </div>
-                  )}
-                  <div className={`p-6 ${plan.popular ? "pt-10" : ""}`}>
-                    <h3 className="text-xl font-bold text-dubai-navy mb-1">{plan.size}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{plan.sqft}</p>
-
-                    <div className="mb-4">
-                      <span className="text-2xl font-bold text-dubai-gold">{plan.price}</span>
-                    </div>
-
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm"><strong>Fits:</strong> {plan.fits}</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm"><strong>Ideal:</strong> {plan.ideal}</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Hassle-free pickup & delivery</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Climate controlled</span>
-                      </div>
-                    </div>
-
-                    <Button
-                      className={`w-full ${plan.popular ? "bg-dubai-gold hover:bg-dubai-darkgold" : "bg-dubai-navy hover:bg-dubai-midnight"} text-white`}
-                      asChild
-                    >
-                      <Link href="/get-quote">Get Quote</Link>
-                    </Button>
-                  </div>
-                </div>
-              ))}
+                  <Link href="/get-quote">Get Quote</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
@@ -925,7 +856,7 @@ export default function StorageDubaiPage() {
               <div>
                 <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Storage Costs in Dubai</h3>
                 <p className="text-gray-700 mb-3">
-                  Storage in Dubai starts from 12.6 AED / Sqft (VAT-inclusive) — whether you need a small
+                  Storage in Dubai starts from 12.65 AED / sqft (VAT-inclusive) — whether you need a small
                   personal unit (25–50 sq ft), an extra-large unit (200+ sq ft) for full villa contents or
                   commercial inventory, or vehicle storage for standard cars and motorcycles.
                 </p>
@@ -997,7 +928,7 @@ export default function StorageDubaiPage() {
             <div className="bg-gray-50 rounded-xl p-8 mb-10">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Storage Pricing Guide — Dubai 2025</h3>
               <p className="text-gray-700 mb-4">
-                Storage prices in Dubai vary significantly depending on the provider, unit size, location, and included services. As a reference point for the Dubai market: basic self-service storage (no climate control, no pickup) ranges from AED 150–400/month for small units. Full-service climate-controlled storage with hassle-free pickup and delivery — the SafeStorage model — starts from 12.6 AED / Sqft (VAT-inclusive), whether for small personal units, large commercial units, or vehicle storage.
+                Storage prices in Dubai vary significantly depending on the provider, unit size, location, and included services. As a reference point for the Dubai market: basic self-service storage (no climate control, no pickup) ranges from AED 150–400/month for small units. Full-service climate-controlled storage with hassle-free pickup and delivery — the SafeStorage model — starts from 12.65 AED / sqft (VAT-inclusive), whether for small personal units, large commercial units, or vehicle storage.
               </p>
               <p className="text-gray-700">
                 When comparing storage prices in Dubai, always check what is included. Many providers advertise low base rates but charge separately for climate control, access, pickup, delivery, insurance, and administration. SafeStorage&apos;s pricing is fully inclusive — the monthly rate covers climate control, 24/7 security, free insurance up to AED 5,000, and hassle-free pickup and delivery. There are no hidden charges. Call +971505773388 for a personalised quote based on your specific requirements.

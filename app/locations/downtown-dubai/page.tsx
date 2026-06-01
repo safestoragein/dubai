@@ -42,7 +42,7 @@ const downtownSchemas = [
       "@type": "OfferCatalog",
       name: "Downtown Dubai Storage Plans",
       itemListElement: [
-        { "@type": "Offer", name: "Storage", price: "12.6", priceCurrency: "AED", description: "Starts from 12.6 AED / Sqft (VAT-inclusive)" },
+        { "@type": "Offer", name: "Storage", price: "12.65", priceCurrency: "AED", description: "Starts from 12.65 AED / sqft (VAT-inclusive)" },
       ],
     },
     aggregateRating: {
@@ -186,7 +186,7 @@ export default function DowntownDubaiPage() {
               </div>
               <div className="space-y-3">
                 <p><strong>Climate control as standard:</strong> All items are stored at 18–22°C with humidity control. In Downtown Dubai, where apartments often contain premium furniture and electronics, proper climate protection is essential.</p>
-                <p><strong>Transparent pricing, no surprises:</strong> Downtown residents pay the same rates as all Dubai customers — from 12.6 AED / Sqft (VAT-inclusive). No location premiums, no high-rise access fees, no surprises at billing.</p>
+                <p><strong>Transparent pricing, no surprises:</strong> Downtown residents pay the same rates as all Dubai customers — from 12.65 AED / sqft (VAT-inclusive). No location premiums, no high-rise access fees, no surprises at billing.</p>
                 <p><strong>Free insurance included:</strong> All stored items are covered by complimentary insurance against theft, fire, and accidental damage — standard on every plan with no additional paperwork.</p>
               </div>
             </div>
@@ -209,21 +209,10 @@ export default function DowntownDubaiPage() {
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Storage Pricing for Downtown Dubai &amp; DIFC Customers</h3>
             <p className="text-gray-700 mb-4">SafeStorage pricing is identical across all Dubai locations — no location premiums for Downtown or DIFC:</p>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-white rounded-lg p-5 border border-gray-200 text-center">
-                <p className="font-bold text-[#0A2463] mb-1">A Few Items</p>
-                <p className="text-2xl font-bold text-[#D8315B] mb-2">From 12.6 AED / Sqft</p>
-                <p className="text-sm text-gray-600">Boxes, seasonal items, sports equipment — pay for the space you use, not a fixed unit</p>
-              </div>
-              <div className="bg-white rounded-lg p-5 border-2 border-[#0A2463] text-center">
-                <p className="font-bold text-[#0A2463] mb-1">1–2 Bedroom Apt</p>
-                <p className="text-2xl font-bold text-[#D8315B] mb-2">From 12.6 AED / Sqft</p>
-                <p className="text-sm text-gray-600">Full apartment furniture including sofa, bed, wardrobe, appliances</p>
-              </div>
-              <div className="bg-white rounded-lg p-5 border border-gray-200 text-center">
-                <p className="font-bold text-[#0A2463] mb-1">Office / Archive</p>
-                <p className="text-2xl font-bold text-[#D8315B] mb-2">From 12.6 AED / Sqft</p>
-                <p className="text-sm text-gray-600">Document archiving with barcode indexing and on-demand retrieval</p>
+            <div className="max-w-xl mx-auto">
+              <div className="bg-white rounded-lg p-8 border-2 border-[#0A2463] text-center">
+                <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12.65 AED / sqft</p>
+                <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · hassle-free pickup &amp; delivery included</p>
               </div>
             </div>
           </div>
@@ -257,7 +246,7 @@ export default function DowntownDubaiPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What storage is available for Downtown Dubai apartment renovation?</h3>
-              <p className="text-gray-700">Renovation storage is one of our most common Downtown Dubai requests. The process: we arrive at your apartment, professionally wrap and remove all furniture, transport it to our climate-controlled facility, and store it securely while your contractor works. When your renovation is complete, we deliver everything back and our team places items in the rooms you specify. Renovation storage plans start from one week with no minimum contract, and pricing starts from 12.6 AED / Sqft (VAT-inclusive). Call us early to book your renovation pickup date, as Downtown slots fill quickly.</p>
+              <p className="text-gray-700">Renovation storage is one of our most common Downtown Dubai requests. The process: we arrive at your apartment, professionally wrap and remove all furniture, transport it to our climate-controlled facility, and store it securely while your contractor works. When your renovation is complete, we deliver everything back and our team places items in the rooms you specify. Renovation storage plans start from one week with no minimum contract, and pricing starts from 12.65 AED / sqft (VAT-inclusive). Call us early to book your renovation pickup date, as Downtown slots fill quickly.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I store items from my Sheikh Zayed Road office during relocation?</h3>
@@ -269,7 +258,7 @@ export default function DowntownDubaiPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost to store a full Downtown Dubai apartment?</h3>
-              <p className="text-gray-700">SafeStorage pricing is volume-based and transparent, starting from 12.6 AED / Sqft (VAT-inclusive). Whether you are storing a Downtown studio apartment (furniture, boxes, appliances), a 1-bedroom, or a 2-bedroom apartment with a full set of furniture and personal items, you pay only for the space you use. These prices include hassle-free pickup, climate-controlled storage, insurance, and one hassle-free delivery per month. Get an accurate personalised quote by calling +971505773388 or submitting the online quote form with a brief description or photos of what you need to store.</p>
+              <p className="text-gray-700">SafeStorage pricing is volume-based and transparent, starting from 12.65 AED / sqft (VAT-inclusive). Whether you are storing a Downtown studio apartment (furniture, boxes, appliances), a 1-bedroom, or a 2-bedroom apartment with a full set of furniture and personal items, you pay only for the space you use. These prices include hassle-free pickup, climate-controlled storage, insurance, and one hassle-free delivery per month. Get an accurate personalised quote by calling +971505773388 or submitting the online quote form with a brief description or photos of what you need to store.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store artwork, antiques, or high-value items from Downtown properties?</h3>

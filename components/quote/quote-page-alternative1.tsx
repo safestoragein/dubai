@@ -549,7 +549,7 @@ export default function QuotePage() {
                       <RadioGroupItem value="short-term" id="short-term" className="absolute top-4 right-4" />
                       <div className="font-semibold text-slate-800 mb-1">Short-term</div>
                       <div className="text-sm text-slate-600 mb-2">1-3 months</div>
-                      <div className="text-xl font-bold text-blue-600">12.6 AED / Sqft</div>
+                      <div className="text-xl font-bold text-blue-600">12.65 AED / sqft</div>
                     </Label>
                     
                     <Label htmlFor="long-term" className="relative flex flex-col p-4 rounded-xl border-2 border-slate-200 cursor-pointer hover:border-emerald-300 hover:bg-emerald-50 transition-all">
@@ -557,7 +557,7 @@ export default function QuotePage() {
                       <Badge className="absolute top-2 left-2 bg-emerald-500">SAVE 15%</Badge>
                       <div className="font-semibold text-slate-800 mb-1 mt-6">Long-term</div>
                       <div className="text-sm text-slate-600 mb-2">3+ months</div>
-                      <div className="text-xl font-bold text-emerald-600">12.6 AED / Sqft</div>
+                      <div className="text-xl font-bold text-emerald-600">12.65 AED / sqft</div>
                     </Label>
                     
                     <Label htmlFor="business" className="relative flex flex-col p-4 rounded-xl border-2 border-slate-200 cursor-pointer hover:border-purple-300 hover:bg-purple-50 transition-all">

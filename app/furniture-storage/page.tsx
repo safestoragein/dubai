@@ -6,11 +6,11 @@ import { Sofa, CheckCircle2, Star, Phone, ArrowRight, Shield, Thermometer, Packa
 
 export const metadata: Metadata = {
   title: "Furniture Storage Dubai — Hassle-Free Pickup",
-  description: "Furniture storage in Dubai with hassle-free pickup and climate control. Safe storage for sofas, beds, wardrobes, dining sets and full apartment contents. From 12.6 AED / Sqft. Call +971505773388.",
+  description: "Furniture storage in Dubai with hassle-free pickup and climate control. Safe storage for sofas, beds, wardrobes, dining sets and full apartment contents. From 12.65 AED / sqft. Call +971505773388.",
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, wardrobe storage dubai, dining table storage dubai, moving furniture storage dubai, apartment furniture storage dubai, villa furniture storage",
   openGraph: {
     title: "Furniture Storage Dubai — Climate-Controlled with Hassle-Free Pickup | SafeStorage",
-    description: "Store your furniture safely in Dubai. Climate-controlled, hassle-free pickup, flexible monthly contracts. From 12.6 AED / Sqft for single items to full villa contents.",
+    description: "Store your furniture safely in Dubai. Climate-controlled, hassle-free pickup, flexible monthly contracts. From 12.65 AED / sqft for single items to full villa contents.",
     url: "https://safestorage.ae/furniture-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -93,7 +93,7 @@ export default function FurnitureStoragePage() {
               {[
                 { stat: "Free", label: "Pickup across Dubai" },
                 { stat: "18–24°C", label: "Climate-controlled units" },
-                { stat: "12.6 AED", label: "Per Sqft from" },
+                { stat: "12.65 AED", label: "Per sqft from" },
                 { stat: "No", label: "Long-term contract required" },
               ].map((s) => (
                 <div key={s.label}>
@@ -167,10 +167,10 @@ export default function FurnitureStoragePage() {
             <p className="text-gray-600 text-center mb-12">Based on our customer patterns, these are the most frequent reasons Dubai residents store their furniture with us:</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { scenario: "Apartment Renovation", detail: "Renovating a 1-2BR apartment takes 4-12 weeks in Dubai. Storing furniture keeps it safe and gives contractors full access. A medium unit (from 12.6 AED / Sqft) handles most 1-2BR contents." },
+                { scenario: "Apartment Renovation", detail: "Renovating a 1-2BR apartment takes 4-12 weeks in Dubai. Storing furniture keeps it safe and gives contractors full access. A medium unit (from 12.65 AED / sqft) handles most 1-2BR contents." },
                 { scenario: "Between Rental Leases", detail: "New tenancy starting 2-4 weeks after current one ends? Rather than rushing or paying overlap rent, store furniture for the gap period. No long-term contracts — pay week by week if needed." },
                 { scenario: "Downsizing Apartments", detail: "Moving from a 3BR to 1BR? Don't sell good furniture under pressure. Store it while you settle in the smaller place and decide what you actually want over 2-3 months." },
-                { scenario: "Moving to New Country", detail: "International shipping furniture is expensive and risky. Store in Dubai first — most expats find they need different items abroad than they expected. Keep options open for 12 months from 12.6 AED / Sqft." },
+                { scenario: "Moving to New Country", detail: "International shipping furniture is expensive and risky. Store in Dubai first — most expats find they need different items abroad than they expected. Keep options open for 12 months from 12.65 AED / sqft." },
                 { scenario: "Summer Travel", detail: "Leaving for 2-3 months summer in home country? Put your apartment contents in storage rather than leaving valuables in an empty flat with AC off in 48°C summer heat." },
                 { scenario: "Villa Clearance or Estate", detail: "Managing a villa clearance, estate contents, or inherited furniture? Secure storage gives you time to make decisions without rush. We can help coordinate access for buyers, charity collections, or shipping." },
               ].map((s) => (
@@ -271,7 +271,7 @@ export default function FurnitureStoragePage() {
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">What is the typical cost for furniture storage in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Furniture storage at SafeStorage starts from 12.6 AED / Sqft (VAT-inclusive), whether you are storing a single large item like a sofa, wardrobe, or bed in a small unit, a full 1–2 bedroom apartment&apos;s furniture in a medium unit, or a full 3-bedroom apartment or large villa in a large unit. The price includes climate control, free insurance up to AED 5,000, and 24/7 security monitoring. Hassle-free pickup is included for most Dubai locations. For very large volumes such as commercial furniture or multi-villa clearances, custom pricing is available.</p>
+                <p className="text-gray-700 leading-relaxed">Furniture storage at SafeStorage starts from 12.65 AED / sqft (VAT-inclusive), whether you are storing a single large item like a sofa, wardrobe, or bed in a small unit, a full 1–2 bedroom apartment&apos;s furniture in a medium unit, or a full 3-bedroom apartment or large villa in a large unit. The price includes climate control, free insurance up to AED 5,000, and 24/7 security monitoring. Hassle-free pickup is included for most Dubai locations. For very large volumes such as commercial furniture or multi-villa clearances, custom pricing is available.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How long can furniture safely remain in storage?</h3>

@@ -61,7 +61,7 @@ export default function GetQuote() {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Get Your Free Storage Quote in Dubai</h1>
           <p className="text-lg text-white/90 mb-2">
             Tell us what you need to store and we&apos;ll give you a transparent, no-obligation quote in minutes.
-            Storage units start from 12.6 AED / Sqft with hassle-free pickup and delivery across Dubai.
+            Storage units start from 12.65 AED / sqft with hassle-free pickup and delivery across Dubai.
           </p>
         </div>
       </section>
@@ -103,7 +103,7 @@ export default function GetQuote() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Why SafeStorage Dubai?</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
-              <p>✓ Storage units from 12.6 AED / Sqft — no setup fees</p>
+              <p>✓ Storage units from 12.65 AED / sqft — no setup fees</p>
               <p>✓ Hassle-free pickup and delivery anywhere in Dubai</p>
               <p>✓ Climate-controlled units — 20–25°C year-round</p>
               <p>✓ 24/7 CCTV and biometric security</p>
@@ -146,9 +146,9 @@ export default function GetQuote() {
           </p>
 
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 mb-8">
-            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Starting Price: 12.6 AED / Sqft</h3>
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Starting Price: 12.65 AED / sqft</h3>
             <p className="text-gray-700 mb-4">
-              Our storage starts from just <strong>12.6 AED / Sqft</strong> (VAT-inclusive). This makes SafeStorage Dubai one of the most affordable storage solutions in the UAE — whether you need to store a handful of items or an entire villa. You pay for the space you actually use, not for a fixed unit regardless of how full it is. All prices are VAT-inclusive with no additional charges applied at checkout.
+              Our storage starts from just <strong>12.65 AED / sqft</strong> (VAT-inclusive). This makes SafeStorage Dubai one of the most affordable storage solutions in the UAE — whether you need to store a handful of items or an entire villa. You pay for the space you actually use, not for a fixed unit regardless of how full it is. All prices are VAT-inclusive with no additional charges applied at checkout.
             </p>
             <div className="grid md:grid-cols-2 gap-6 mt-6">
               <div className="bg-white rounded-lg p-5 border border-gray-200">
@@ -160,7 +160,7 @@ export default function GetQuote() {
                   <li>• Bicycles and sports equipment</li>
                   <li>• Mattresses (single/double)</li>
                 </ul>
-                <p className="text-xs text-gray-500 mt-3">Ideal for customers with fewer than 20 items, from 12.6 AED / Sqft. Final price confirmed in your personalised quote.</p>
+                <p className="text-xs text-gray-500 mt-3">Ideal for customers with fewer than 20 items, from 12.65 AED / sqft. Final price confirmed in your personalised quote.</p>
               </div>
               <div className="bg-white rounded-lg p-5 border border-gray-200">
                 <h4 className="font-bold text-[#0A2463] mb-3">Dedicated Private Units</h4>
@@ -171,7 +171,7 @@ export default function GetQuote() {
                   <li>• Extra Large (200+ sq ft)</li>
                   <li>• Vehicle bay (car/motorcycle)</li>
                 </ul>
-                <p className="text-xs text-gray-500 mt-3">All units are from 12.6 AED / Sqft, climate-controlled and include hassle-free pickup, security, and insurance.</p>
+                <p className="text-xs text-gray-500 mt-3">All units are from 12.65 AED / sqft, climate-controlled and include hassle-free pickup, security, and insurance.</p>
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@ export default function GetQuote() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">3. Can I get a quote for just a few items rather than a full unit?</h3>
-              <p className="text-gray-700">Absolutely. Our item-based pricing model is designed for exactly this. Rather than paying for an entire storage unit, you can pay only for the space your items occupy. Starting from 12.6 AED / Sqft (VAT-inclusive), this is the most economical option for customers storing fewer than 20 to 25 items. Simply list or photograph your items and send them to us via WhatsApp or the online form — we will price each item individually and give you a total monthly cost.</p>
+              <p className="text-gray-700">Absolutely. Our item-based pricing model is designed for exactly this. Rather than paying for an entire storage unit, you can pay only for the space your items occupy. Starting from 12.65 AED / sqft (VAT-inclusive), this is the most economical option for customers storing fewer than 20 to 25 items. Simply list or photograph your items and send them to us via WhatsApp or the online form — we will price each item individually and give you a total monthly cost.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -266,7 +266,7 @@ export default function GetQuote() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">10. Are there student storage plans in Dubai?</h3>
-              <p className="text-gray-700">Yes. SafeStorage Dubai offers student-specific storage plans designed for university students who need affordable short-term storage between semesters or during summer holidays. Student plans start from 12.6 AED / Sqft (VAT-inclusive) with a minimum booking of one month. We partner with several Dubai universities to offer preferential rates to students. If you are a student, mention your university affiliation when getting a quote and we will apply the applicable discount automatically.</p>
+              <p className="text-gray-700">Yes. SafeStorage Dubai offers student-specific storage plans designed for university students who need affordable short-term storage between semesters or during summer holidays. Student plans start from 12.65 AED / sqft (VAT-inclusive) with a minimum booking of one month. We partner with several Dubai universities to offer preferential rates to students. If you are a student, mention your university affiliation when getting a quote and we will apply the applicable discount automatically.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

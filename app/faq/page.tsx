@@ -88,7 +88,7 @@ const faqCategories = [
     faqs: [
       {
         question: "How much does storage cost at SafeStorage Dubai?",
-        answer: "Our storage pricing starts from 12.6 AED / Sqft (VAT-inclusive). We offer flexible storage solutions for all needs - from small boxes to full villa contents. Contact us at +971505773388 for a personalized quote based on your storage requirements. We also offer flexible payment plans and discounts for long-term storage (3+ months)."
+        answer: "Our storage pricing starts from 12.65 AED / sqft (VAT-inclusive). We offer flexible storage solutions for all needs - from small boxes to full villa contents. Contact us at +971505773388 for a personalized quote based on your storage requirements. We also offer flexible payment plans and discounts for long-term storage (3+ months)."
       },
       {
         question: "Are there any hidden fees?",
@@ -211,7 +211,7 @@ const faqCategories = [
     faqs: [
       {
         question: "Can I store valuable documents and important records?",
-        answer: "Yes. SafeStorage Dubai offers specialist document and archive storage with enhanced protection measures. Our document storage areas feature fireproof construction, advanced fire suppression systems, and controlled humidity levels that prevent paper deterioration. All document boxes are individually indexed and catalogued for easy retrieval. We offer same-day retrieval for specific documents when needed urgently. This service is popular with law firms, accounting practices, medical clinics, and businesses required to retain records under UAE compliance regulations. Pricing starts from 12.6 AED / Sqft (VAT-inclusive)."
+        answer: "Yes. SafeStorage Dubai offers specialist document and archive storage with enhanced protection measures. Our document storage areas feature fireproof construction, advanced fire suppression systems, and controlled humidity levels that prevent paper deterioration. All document boxes are individually indexed and catalogued for easy retrieval. We offer same-day retrieval for specific documents when needed urgently. This service is popular with law firms, accounting practices, medical clinics, and businesses required to retain records under UAE compliance regulations. Pricing starts from 12.65 AED / sqft (VAT-inclusive)."
       },
       {
         question: "What prohibited items must I not bring to SafeStorage?",
@@ -254,7 +254,7 @@ const faqCategories = [
     faqs: [
       {
         question: "Is SafeStorage suitable for university students in Dubai?",
-        answer: "Absolutely. SafeStorage Dubai is a popular storage solution for students at universities and colleges in Dubai and the wider UAE. Our pricing starting from 12.6 AED / Sqft (VAT-inclusive) makes storage genuinely affordable for students on tight budgets. You pay only for the space your belongings actually occupy, so typical student storage needs — 5 to 15 boxes plus a bicycle, sports equipment, or small appliances — remain very affordable. We can store your belongings between semesters, during study-abroad periods, or over summer breaks. Student discounts are available — ask about our current student offer when you get a quote."
+        answer: "Absolutely. SafeStorage Dubai is a popular storage solution for students at universities and colleges in Dubai and the wider UAE. Our pricing starting from 12.65 AED / sqft (VAT-inclusive) makes storage genuinely affordable for students on tight budgets. You pay only for the space your belongings actually occupy, so typical student storage needs — 5 to 15 boxes plus a bicycle, sports equipment, or small appliances — remain very affordable. We can store your belongings between semesters, during study-abroad periods, or over summer breaks. Student discounts are available — ask about our current student offer when you get a quote."
       },
       {
         question: "What makes SafeStorage ideal for Dubai expats specifically?",
@@ -489,7 +489,7 @@ export default function FAQPage() {
           <div className="bg-gray-50 rounded-xl p-8">
             <h3 className="text-xl font-bold text-dubai-navy mb-4">SafeStorage Dubai — Key Facts</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
-              <p>• Storage from 12.6 AED / Sqft (VAT-inclusive) — no setup fees</p>
+              <p>• Storage from 12.65 AED / sqft (VAT-inclusive) — no setup fees</p>
               <p>• Hassle-free pickup and delivery anywhere in Dubai</p>
               <p>• Climate-controlled: 20–25°C maintained year-round</p>
               <p>• 24/7 HD CCTV security and biometric access</p>

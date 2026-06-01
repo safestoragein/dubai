@@ -339,7 +339,7 @@ export default function EcommerceFulfilmentPage() {
               One of the most important advantages of SafeStorage over traditional warehousing is our transparent monthly billing model. There are no setup fees, no minimum commitment periods, and no surprise charges. You receive a single monthly invoice covering your storage space, any pick-and-pack orders processed, and any additional services used.
             </p>
             <p className="text-gray-700">
-              Storage for e-commerce sellers starts from 12.6 AED / Sqft (VAT-inclusive), whether you are a small seller (fewer than 500 SKUs, low-volume orders) using a medium storage unit or a high-volume seller with an extensive SKU catalogue and multiple daily orders. All pricing is fixed monthly — no per-pick charges or variable rates that make cost forecasting difficult. Contact our team at +971505773388 for a quote based on your specific product mix and order volume.
+              Storage for e-commerce sellers starts from 12.65 AED / sqft (VAT-inclusive), whether you are a small seller (fewer than 500 SKUs, low-volume orders) using a medium storage unit or a high-volume seller with an extensive SKU catalogue and multiple daily orders. All pricing is fixed monthly — no per-pick charges or variable rates that make cost forecasting difficult. Contact our team at +971505773388 for a quote based on your specific product mix and order volume.
             </p>
           </div>
         </div>
@@ -418,7 +418,7 @@ export default function EcommerceFulfilmentPage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">14. How is e-commerce storage priced compared to renting a warehouse in Dubai?</h3>
-              <p className="text-gray-700">Warehousing in Dubai typically requires a minimum 1-year lease, upfront rental deposits, and rents ranging from AED 25–60 per square foot per year in logistics zones like DIP, JAFZA, and Al Quoz. A modest 1,000 sq ft warehouse would cost AED 25,000–60,000 annually, plus fit-out costs, DEWA deposits, and staffing. SafeStorage e-commerce storage starts from 12.6 AED / Sqft (VAT-inclusive) with no deposit, no fit-out, no minimum term, and staff included. For most small and medium e-commerce businesses, this represents a saving of AED 15,000–40,000 per year.</p>
+              <p className="text-gray-700">Warehousing in Dubai typically requires a minimum 1-year lease, upfront rental deposits, and rents ranging from AED 25–60 per square foot per year in logistics zones like DIP, JAFZA, and Al Quoz. A modest 1,000 sq ft warehouse would cost AED 25,000–60,000 annually, plus fit-out costs, DEWA deposits, and staffing. SafeStorage e-commerce storage starts from 12.65 AED / sqft (VAT-inclusive) with no deposit, no fit-out, no minimum term, and staff included. For most small and medium e-commerce businesses, this represents a saving of AED 15,000–40,000 per year.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

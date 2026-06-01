@@ -401,7 +401,7 @@ export default function RecordsArchivalPage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. How much does document archival storage cost in Dubai?</h3>
-              <p className="text-gray-700">Document archival storage at SafeStorage starts from 12.6 AED / Sqft (VAT-inclusive), whether you are storing a small collection or a large archive of boxes. Retrieval fees apply for physical delivery of boxes to your office, while digital scanning services are charged per page for urgent scan requests. There are no setup fees or minimum contract periods. Contact us at +971505773388 for a quote based on your document volume.</p>
+              <p className="text-gray-700">Document archival storage at SafeStorage starts from 12.65 AED / sqft (VAT-inclusive), whether you are storing a small collection or a large archive of boxes. Retrieval fees apply for physical delivery of boxes to your office, while digital scanning services are charged per page for urgent scan requests. There are no setup fees or minimum contract periods. Contact us at +971505773388 for a quote based on your document volume.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

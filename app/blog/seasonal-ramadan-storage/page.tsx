@@ -6,7 +6,7 @@ import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Seasonal & Ramadan Storage Dubai — What to Store & When | SafeStorage",
-  description: "Guide to seasonal storage in Dubai including Ramadan storage, Eid clearouts, summer storage, and managing seasonal items in Dubai's unique calendar. From 12.6 AED / Sqft.",
+  description: "Guide to seasonal storage in Dubai including Ramadan storage, Eid clearouts, summer storage, and managing seasonal items in Dubai's unique calendar. From 12.65 AED / sqft.",
   keywords: "seasonal storage dubai, ramadan storage dubai, eid storage dubai, seasonal items storage dubai, holiday storage dubai, furniture storage ramadan",
   openGraph: {
     title: "Seasonal & Ramadan Storage Dubai — Managing Seasonal Items",
@@ -133,7 +133,7 @@ export default function SeasonalRamadanStoragePage() {
             </div>
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
-              <h2 className="text-2xl font-bold mb-3">Seasonal Storage from 12.6 AED / Sqft</h2>
+              <h2 className="text-2xl font-bold mb-3">Seasonal Storage from 12.65 AED / sqft</h2>
               <p className="text-white/80 mb-6">Store seasonal items between uses. No minimum contract — 1 month is fine. Hassle-free pickup across Dubai.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
