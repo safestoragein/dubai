@@ -9,12 +9,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Personal Storage Dubai — Furniture & Boxes from AED 99",
   description:
-    "Store household furniture, seasonal items, and moving boxes in Dubai with free pickup from your door. Personal storage from AED 99/month — no lorry, no hassle. Trusted by 500+ Dubai residents. Call +971505773388.",
+    "Store household furniture, seasonal items, and moving boxes in Dubai with hassle-free pickup from your door. Personal storage from AED 99/month — no lorry, no hassle. Trusted by 500+ Dubai residents. Call +971505773388.",
   keywords:
     "personal household storage dubai, furniture storage home move dubai, moving boxes storage dubai, declutter home storage dubai, seasonal items storage dubai, apartment storage dubai, storage pickup from home dubai",
   openGraph: {
     title: "Personal Household Storage Dubai | Furniture & Boxes | SafeStorage",
-    description: "Store household furniture and moving boxes with free pickup from your Dubai home. From AED 99/month. Call +971505773388.",
+    description: "Store household furniture and moving boxes with hassle-free pickup from your Dubai home. From AED 99/month. Call +971505773388.",
     url: "https://safestorage.ae/personal-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -86,7 +86,7 @@ const personalStorageSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Personal Household Storage Dubai',
-    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with free pickup from your door. Personal storage from AED 99/month.',
+    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with hassle-free pickup from your door. Personal storage from AED 99/month.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/personal-storage',
     areaServed: { '@type': 'City', name: 'Dubai' },
@@ -98,7 +98,7 @@ const personalStorageSchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/personal-storage#webpage',
     name: 'Personal Household Storage Dubai | Furniture & Boxes from AED 99/mo',
-    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with free pickup. Personal storage from AED 99/month.',
+    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with hassle-free pickup. Personal storage from AED 99/month.',
     url: 'https://safestorage.ae/personal-storage',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -142,7 +142,7 @@ export default function PersonalStoragePage() {
               Starting from just <span className="text-dubai-gold font-bold">AED 24/month</span>.
             </p>
             <p className="text-base md:text-lg text-gray-400 mb-8">
-              Hassle-hassle-free pickup & delivery | No hidden fees | Cancel anytime
+              Hassle-free pickup & delivery | No hidden fees | Cancel anytime
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -283,7 +283,7 @@ export default function PersonalStoragePage() {
               Starting from Just AED 24/Month
             </h2>
             <p className="text-white/90 mb-8 text-lg">
-              No setup fees • Hassle-hassle-free pickup & delivery • Cancel anytime
+              No setup fees • Hassle-free pickup & delivery • Cancel anytime
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
               <div className="grid sm:grid-cols-3 gap-6 text-center">
@@ -364,7 +364,7 @@ export default function PersonalStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does personal storage cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">Personal storage at SafeStorage starts from AED 99 per month for a small locker unit. A small unit suitable for a student room or a collection of boxes runs AED 199–299 per month. A medium unit that accommodates a 1–2 bedroom apartment&apos;s complete contents costs AED 499–699 per month. Large units for 3-bedroom apartments or villas start from AED 899 per month. All prices include climate control, 24/7 security monitoring, and basic insurance coverage up to AED 5,000. Free pickup is included for addresses across Dubai. There are no setup fees, no hidden admin charges, and no long-term contracts required. You simply pay monthly and cancel with 30 days&apos; notice.</p>
+              <p className="text-gray-700 leading-relaxed">Personal storage at SafeStorage starts from AED 99 per month for a small locker unit. A small unit suitable for a student room or a collection of boxes runs AED 199–299 per month. A medium unit that accommodates a 1–2 bedroom apartment&apos;s complete contents costs AED 499–699 per month. Large units for 3-bedroom apartments or villas start from AED 899 per month. All prices include climate control, 24/7 security monitoring, and basic insurance coverage up to AED 5,000. Hassle-free pickup is included for addresses across Dubai. There are no setup fees, no hidden admin charges, and no long-term contracts required. You simply pay monthly and cancel with 30 days&apos; notice.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store seasonal clothing and winter wear in Dubai?</h3>
@@ -499,7 +499,7 @@ export default function PersonalStoragePage() {
             </p>
             <p className="text-gray-700">
               All personal storage plans include climate control, 24/7 security, free insurance up to AED 5,000,
-              free pickup from your Dubai address, and delivery back to you on demand. No long-term contracts —
+              hassle-free pickup from your Dubai address, and delivery back to you on demand. No long-term contracts —
               pay monthly and cancel whenever you are ready.
             </p>
           </div>

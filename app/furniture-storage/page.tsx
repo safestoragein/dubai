@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 import { Sofa, CheckCircle2, Star, Phone, ArrowRight, Shield, Thermometer, Package } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Furniture Storage Dubai — Free Pickup",
-  description: "Furniture storage in Dubai with free pickup and climate control. Safe storage for sofas, beds, wardrobes, dining sets and full apartment contents. From AED 299/month. Call +971505773388.",
+  title: "Furniture Storage Dubai — Hassle-Free Pickup",
+  description: "Furniture storage in Dubai with hassle-free pickup and climate control. Safe storage for sofas, beds, wardrobes, dining sets and full apartment contents. From AED 299/month. Call +971505773388.",
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, wardrobe storage dubai, dining table storage dubai, moving furniture storage dubai, apartment furniture storage dubai, villa furniture storage",
   openGraph: {
-    title: "Furniture Storage Dubai — Climate-Controlled with Free Pickup | SafeStorage",
-    description: "Store your furniture safely in Dubai. Climate-controlled, free pickup, flexible monthly contracts. From AED 299/month for single items to full villa contents.",
+    title: "Furniture Storage Dubai — Climate-Controlled with Hassle-Free Pickup | SafeStorage",
+    description: "Store your furniture safely in Dubai. Climate-controlled, hassle-free pickup, flexible monthly contracts. From AED 299/month for single items to full villa contents.",
     url: "https://safestorage.ae/furniture-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -24,7 +24,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Furniture Storage Dubai",
-    description: "Safe, climate-controlled furniture storage in Dubai with free pickup. Store sofas, beds, wardrobes and full apartment or villa contents. Flexible monthly contracts.",
+    description: "Safe, climate-controlled furniture storage in Dubai with hassle-free pickup. Store sofas, beds, wardrobes and full apartment or villa contents. Flexible monthly contracts.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/furniture-storage",
     areaServed: { "@type": "City", name: "Dubai" },
@@ -72,7 +72,7 @@ export default function FurnitureStoragePage() {
                 <Sofa className="w-4 h-4" /> Furniture Storage Dubai
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Furniture Storage Dubai — Safe, Secure and Climate-Controlled</h1>
-              <p className="text-xl text-white/85 mb-8">Moving, renovating, or between leases? SafeStorage Dubai provides professional furniture storage with free pickup across Dubai. Climate-controlled units protect your furniture from Dubai's extreme heat — from a single sofa to a full villa's contents.</p>
+              <p className="text-xl text-white/85 mb-8">Moving, renovating, or between leases? SafeStorage Dubai provides professional furniture storage with hassle-free pickup across Dubai. Climate-controlled units protect your furniture from Dubai's extreme heat — from a single sofa to a full villa's contents.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Free Quote</Button>
@@ -271,7 +271,7 @@ export default function FurnitureStoragePage() {
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">What is the typical cost for furniture storage in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Furniture storage costs at SafeStorage depend primarily on volume. A single large item (one sofa, one wardrobe, or one bed) fits in a small unit at AED 199–299 per month. A full 1–2 bedroom apartment&apos;s furniture fits in a medium unit at AED 499–699 per month. A full 3-bedroom apartment or large villa requires a large unit at AED 899–1,299 per month. All prices include climate control, free insurance up to AED 5,000, and 24/7 security monitoring. Free pickup is included for most Dubai locations. For very large volumes such as commercial furniture or multi-villa clearances, custom pricing is available.</p>
+                <p className="text-gray-700 leading-relaxed">Furniture storage costs at SafeStorage depend primarily on volume. A single large item (one sofa, one wardrobe, or one bed) fits in a small unit at AED 199–299 per month. A full 1–2 bedroom apartment&apos;s furniture fits in a medium unit at AED 499–699 per month. A full 3-bedroom apartment or large villa requires a large unit at AED 899–1,299 per month. All prices include climate control, free insurance up to AED 5,000, and 24/7 security monitoring. Hassle-free pickup is included for most Dubai locations. For very large volumes such as commercial furniture or multi-villa clearances, custom pricing is available.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How long can furniture safely remain in storage?</h3>
@@ -305,7 +305,7 @@ export default function FurnitureStoragePage() {
 
         <section className="py-16 bg-dubai-gold text-white text-center">
           <div className="container px-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Store Your Furniture Safely — Free Pickup Included</h2>
+            <h2 className="text-3xl font-bold mb-4">Store Your Furniture Safely — Hassle-Free Pickup Included</h2>
             <p className="text-xl text-white/90 mb-8">Get a free quote for furniture storage across Dubai. Our team wraps, loads and stores — you don't lift a finger.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="https://safestorage.ae/get-quote">

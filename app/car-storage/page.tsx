@@ -6,11 +6,11 @@ import { Car, ShieldCheck, Thermometer, Clock, Star, CheckCircle2, Phone, Bike, 
 
 export const metadata: Metadata = {
   title: "Car Storage Dubai — Vehicle Storage",
-  description: "Store your car, motorcycle, boat or classic vehicle safely in Dubai. Climate-controlled 20-25°C, 24/7 CCTV, free insurance up to AED 5,000. Cars from AED 899/month. Free pickup. Call +971505773388.",
+  description: "Store your car, motorcycle, boat or classic vehicle safely in Dubai. Climate-controlled 20-25°C, 24/7 CCTV, free insurance up to AED 5,000. Cars from AED 899/month. Hassle-free pickup. Call +971505773388.",
   keywords: "car storage dubai, vehicle storage dubai, motorcycle storage dubai, classic car storage dubai, boat storage dubai, climate controlled car storage, indoor vehicle storage dubai, summer car storage dubai, car storage near me dubai",
   openGraph: {
     title: "Car Storage Dubai — Climate-Controlled Vehicle Storage | SafeStorage",
-    description: "Protect your car, motorcycle, or classic vehicle from Dubai's 50°C summer heat. Secure climate-controlled storage from AED 899/month with free pickup.",
+    description: "Protect your car, motorcycle, or classic vehicle from Dubai's 50°C summer heat. Secure climate-controlled storage from AED 899/month with hassle-free pickup.",
     url: "https://safestorage.ae/car-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

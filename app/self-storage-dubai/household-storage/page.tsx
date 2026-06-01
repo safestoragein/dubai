@@ -565,7 +565,7 @@ export default function HouseholdStoragePage() {
           <div className="space-y-6">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">1. How much does household storage cost in Dubai?</h3>
-              <p className="text-gray-700">Household storage in Dubai at SafeStorage starts from AED 199/month for a small unit (25–50 sq ft), suitable for a studio apartment&apos;s worth of items or seasonal belongings. Medium units for 1–2 bedroom apartment contents typically cost AED 499–799/month. Large units for 3-bedroom apartments or villa contents start from AED 999/month. All prices include climate control, 24/7 security, free insurance up to AED 5,000, and free pickup and delivery across Dubai. Call +971505773388 for a personalised quote.</p>
+              <p className="text-gray-700">Household storage in Dubai at SafeStorage starts from AED 199/month for a small unit (25–50 sq ft), suitable for a studio apartment&apos;s worth of items or seasonal belongings. Medium units for 1–2 bedroom apartment contents typically cost AED 499–799/month. Large units for 3-bedroom apartments or villa contents start from AED 999/month. All prices include climate control, 24/7 security, free insurance up to AED 5,000, and hassle-free pickup and delivery across Dubai. Call +971505773388 for a personalised quote.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

@@ -110,7 +110,7 @@ export default function SelfStorageCostDubaiPage() {
               <div className="space-y-4 mb-8">
                 {[
                   { fee: "Admin / registration fee", detail: "Some facilities charge AED 100–300 one-time registration fee on top of the first month. Ask if this applies." },
-                  { fee: "Pickup / delivery charges", detail: "Free pickup is offered by premium providers like SafeStorage. Others charge AED 200–500 per pickup trip — significant for large moves." },
+                  { fee: "Pickup / delivery charges", detail: "Hassle-free pickup is offered by premium providers like SafeStorage. Others charge AED 200–500 per pickup trip — significant for large moves." },
                   { fee: "Insurance premium", detail: "Basic insurance is usually included but some providers charge separately. Confirm coverage limits (typically AED 5,000 per unit standard)." },
                   { fee: "Late payment penalty", detail: "Can be 5-15% of monthly rent. Know the late payment window before committing — some facilities lock access the day after payment is due." },
                   { fee: "Move-out notice period", detail: "Most require 30 days written notice. Not knowing this means paying an extra month when you want to leave." },
@@ -130,7 +130,7 @@ export default function SelfStorageCostDubaiPage() {
                 {[
                   { tip: "Choose the right size first", desc: "Paying for a large unit when a medium would suffice is the most common waste. Use our size guide or call a consultant to size correctly before booking." },
                   { tip: "Ask about longer-term discounts", desc: "Most Dubai storage providers offer 10-20% discount for 3-month, 6-month or annual payments upfront. If you know you'll store for 6+ months, ask about discounted rates." },
-                  { tip: "Choose providers with free pickup", desc: "Free pickup saves AED 200-500 on initial move. SafeStorage Dubai offers free pickup across all Dubai areas — factor this into your total cost comparison." },
+                  { tip: "Choose providers with hassle-free pickup", desc: "Hassle-free pickup saves AED 200-500 on initial move. SafeStorage Dubai offers hassle-free pickup across all Dubai areas — factor this into your total cost comparison." },
                   { tip: "Compare total cost not headline rate", desc: "A facility advertising AED 350/month may end up costing AED 500/month after admin fees, insurance add-ons, and paid pickup. Always ask for an all-in monthly total." },
                 ].map((t) => (
                   <div key={t.tip} className="flex gap-3 p-4 bg-slate-50 rounded-xl">
@@ -162,7 +162,7 @@ export default function SelfStorageCostDubaiPage() {
 
               <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6 my-8">
                 <h3 className="font-bold text-dubai-navy mb-2">SafeStorage Dubai Pricing</h3>
-                <p>At SafeStorage Dubai, our monthly rates start from AED 99 for mini units and include free pickup across Dubai, climate control, 24/7 security, and basic insurance — with no hidden admin fees. Get a personalised quote for your specific needs.</p>
+                <p>At SafeStorage Dubai, our monthly rates start from AED 99 for mini units and include hassle-free pickup across Dubai, climate control, 24/7 security, and basic insurance — with no hidden admin fees. Get a personalised quote for your specific needs.</p>
               </div>
             </div>
 

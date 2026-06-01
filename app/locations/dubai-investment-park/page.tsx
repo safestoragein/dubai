@@ -68,7 +68,7 @@ export default function DubaiInvestmentParkPage() {
       benefits={[
         "Perfect for DIP warehouse and business storage",
         "Ideal for Motor City residents",
-        "Hassle-hassle-free pickup from Production City",
+        "Hassle-free pickup from Production City",
         "Convenient for Sports City apartments"
       ]}
     />
@@ -166,7 +166,7 @@ export default function DubaiInvestmentParkPage() {
       <div className="container mx-auto px-4 max-w-5xl">
         <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Dubai Investment Park Storage — Comprehensive Guide for Businesses &amp; Residents</h2>
         <p className="text-lg text-gray-700 mb-6">
-          Dubai Investment Park (DIP) is one of the UAE&apos;s most strategically important industrial and mixed-use zones, housing hundreds of manufacturing facilities, logistics companies, warehouses, and residential communities. SafeStorage serves the entire DIP area with premium document archiving, commercial storage, and residential storage solutions — all delivered with the same free pickup, climate control, and flexible monthly plans available across all Dubai zones.
+          Dubai Investment Park (DIP) is one of the UAE&apos;s most strategically important industrial and mixed-use zones, housing hundreds of manufacturing facilities, logistics companies, warehouses, and residential communities. SafeStorage serves the entire DIP area with premium document archiving, commercial storage, and residential storage solutions — all delivered with the same hassle-free pickup, climate control, and flexible monthly plans available across all Dubai zones.
         </p>
         <p className="text-lg text-gray-700 mb-8">
           The DIP service zone also covers several popular residential communities including Motor City, Dubai Sports City, and Discovery Gardens, each with thousands of residents who benefit from SafeStorage&apos;s convenient door-to-door service. Whether you are a factory manager needing to archive a decade of compliance records, a resident of Motor City storing a season&apos;s worth of cycling equipment, or a Jumeirah Village Circle apartment owner clearing space during a renovation, our team is ready to serve you efficiently and professionally.
@@ -232,7 +232,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is Discovery Gardens covered for pickup and delivery?</h3>
-            <p className="text-gray-700">Yes, Discovery Gardens is fully within our Dubai Investment Park service zone. We serve all clusters in Discovery Gardens — Mediterranean, Zen, Contemporary, Mogul, and Mesoamerican — with the same free pickup and delivery service available across all Dubai. Discovery Gardens residents frequently use our service for personal storage, seasonal items, renovation clearance, and between-lease storage. Typical pickup time from Discovery Gardens is 15–20 minutes. WhatsApp us on +971505773388 to check availability for your specific cluster and building.</p>
+            <p className="text-gray-700">Yes, Discovery Gardens is fully within our Dubai Investment Park service zone. We serve all clusters in Discovery Gardens — Mediterranean, Zen, Contemporary, Mogul, and Mesoamerican — with the same hassle-free pickup and delivery service available across all Dubai. Discovery Gardens residents frequently use our service for personal storage, seasonal items, renovation clearance, and between-lease storage. Typical pickup time from Discovery Gardens is 15–20 minutes. WhatsApp us on +971505773388 to check availability for your specific cluster and building.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How does SafeStorage handle document retrieval for DIP businesses?</h3>
@@ -256,7 +256,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there student storage available near Dubai Production City and Studio City?</h3>
-            <p className="text-gray-700">Yes, SafeStorage offers student storage plans for students at institutions near Dubai Production City and Dubai Studio City, including those studying at media, film, and broadcasting institutions in the area. Student storage plans are designed to be affordable and flexible, covering semester breaks when students return home and need to store their room&apos;s worth of belongings securely. Plans start from AED 9 per month and include free pickup from your accommodation and delivery back when your new semester begins. Contact us for our dedicated student storage discount.</p>
+            <p className="text-gray-700">Yes, SafeStorage offers student storage plans for students at institutions near Dubai Production City and Dubai Studio City, including those studying at media, film, and broadcasting institutions in the area. Student storage plans are designed to be affordable and flexible, covering semester breaks when students return home and need to store their room&apos;s worth of belongings securely. Plans start from AED 9 per month and include hassle-free pickup from your accommodation and delivery back when your new semester begins. Contact us for our dedicated student storage discount.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do residents in the DIP residential community book storage?</h3>

@@ -163,10 +163,10 @@ export default function PackingTipsDubaiPage() {
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center mt-10">
               <h2 className="text-2xl font-bold mb-3">Need Help Packing for Storage?</h2>
-              <p className="text-white/80 mb-6">Our team provides free pickup with professional wrapping and packing assistance. We bring materials and ensure everything is stored safely.</p>
+              <p className="text-white/80 mb-6">Our team provides hassle-free pickup with professional wrapping and packing assistance. We bring materials and ensure everything is stored safely.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
-                  <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Book Free Pickup</Button>
+                  <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Book Hassle-Free Pickup</Button>
                 </Link>
                 <a href="tel:+971505773388">
                   <Button variant="outline" className="border-white text-white hover:bg-white hover:text-dubai-navy px-8 py-3">

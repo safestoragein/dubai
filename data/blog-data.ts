@@ -497,7 +497,7 @@ export const blogPosts: BlogPost[] = [
         <li>Temporary storage while house-hunting</li>
         <li>Multilingual customer service</li>
         <li>Flexible contracts for uncertain stay durations</li>
-        <li>Free pickup service to ease your transition</li>
+        <li>Hassle-free pickup service to ease your transition</li>
       </ul>
       
       <p>Contact SafeStorage Dubai today to discuss your relocation storage needs and make your move to Dubai as smooth as possible.</p>

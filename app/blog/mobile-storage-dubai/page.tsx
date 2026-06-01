@@ -6,11 +6,11 @@ import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Mobile Storage Dubai — Door-to-Door Pickup & Delivery Storage | SafeStorage",
-  description: "Mobile storage in Dubai — we come to you, pick up your belongings, store them safely, and deliver back when you're ready. Free pickup across Dubai. From AED 199/month.",
+  description: "Mobile storage in Dubai — we come to you, pick up your belongings, store them safely, and deliver back when you're ready. Hassle-free pickup across Dubai. From AED 199/month.",
   keywords: "mobile storage dubai, door to door storage dubai, pickup storage dubai, collect and store dubai, storage with pickup and delivery dubai, valet storage dubai",
   openGraph: {
     title: "Mobile Storage Dubai — We Pick Up, Store & Deliver Back",
-    description: "Mobile storage with free pickup across Dubai. We come to you, collect your items, store them safely, and deliver back. No hassle, no transport needed.",
+    description: "Mobile storage with hassle-free pickup across Dubai. We come to you, collect your items, store them safely, and deliver back. No hassle, no transport needed.",
     url: "https://safestorage.ae/blog/mobile-storage-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -59,7 +59,7 @@ export default function MobileStorageDubaiPage() {
 
         <article className="py-12">
           <div className="container px-4 max-w-4xl mx-auto prose prose-lg max-w-none text-gray-700">
-            <p className="text-xl leading-relaxed mb-8">Traditional self storage requires you to load everything into a van or car, drive to the facility, unload into your unit, and repeat when you want to collect. Mobile storage (also called valet storage or doorstep storage) flips this — a professional team comes to your home, wraps and loads your items, drives them to secure climate-controlled storage, and delivers back when you're ready. SafeStorage Dubai's free pickup model makes this the standard, not the premium.</p>
+            <p className="text-xl leading-relaxed mb-8">Traditional self storage requires you to load everything into a van or car, drive to the facility, unload into your unit, and repeat when you want to collect. Mobile storage (also called valet storage or doorstep storage) flips this — a professional team comes to your home, wraps and loads your items, drives them to secure climate-controlled storage, and delivers back when you're ready. SafeStorage Dubai's hassle-free pickup model makes this the standard, not the premium.</p>
 
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">How Mobile Storage Works at SafeStorage Dubai</h2>
             <div className="grid md:grid-cols-4 gap-5 mb-8">
@@ -137,11 +137,11 @@ export default function MobileStorageDubaiPage() {
             </div>
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
-              <h2 className="text-2xl font-bold mb-3">Book Your Free Pickup Today</h2>
-              <p className="text-white/80 mb-6">Available 7 days a week across all Dubai areas. Free pickup, professional wrapping, climate-controlled storage.</p>
+              <h2 className="text-2xl font-bold mb-3">Book Your Hassle-Free Pickup Today</h2>
+              <p className="text-white/80 mb-6">Available 7 days a week across all Dubai areas. Hassle-free pickup, professional wrapping, climate-controlled storage.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
-                  <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Book Free Pickup</Button>
+                  <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Book Hassle-Free Pickup</Button>
                 </Link>
                 <a href="tel:+971505773388">
                   <Button variant="outline" className="border-white text-white hover:bg-white hover:text-dubai-navy px-8 py-3">

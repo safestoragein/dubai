@@ -134,7 +134,7 @@ export default function SeasonalRamadanStoragePage() {
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
               <h2 className="text-2xl font-bold mb-3">Seasonal Storage from AED 99/month</h2>
-              <p className="text-white/80 mb-6">Store seasonal items between uses. No minimum contract — 1 month is fine. Free pickup across Dubai.</p>
+              <p className="text-white/80 mb-6">Store seasonal items between uses. No minimum contract — 1 month is fine. Hassle-free pickup across Dubai.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Seasonal Quote</Button>

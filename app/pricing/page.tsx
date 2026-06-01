@@ -6,7 +6,7 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Storage Pricing Dubai — From AED 99/Month",
   description:
-    "Transparent storage pricing in Dubai starting from AED 99/month. Various unit sizes with flexible plans. Hassle-hassle-free pickup & delivery included. Call +971505773388 for best rates.",
+    "Transparent storage pricing in Dubai starting from AED 99/month. Various unit sizes with flexible plans. Hassle-free pickup & delivery included. Call +971505773388 for best rates.",
   keywords:
     "storage pricing dubai, cheap storage dubai, storage costs, affordable storage, storage rates dubai, self storage prices, monthly storage cost, storage unit prices",
   openGraph: {
@@ -370,7 +370,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. What is the best value storage option for someone moving apartments in Dubai?</h3>
-              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — our medium unit (50–100 sq ft) at AED 599 per month is typically the best value option for a one to two-bedroom apartment. This includes free pickup from your old apartment, climate-controlled storage for the duration between leases, and free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
+              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — our medium unit (50–100 sq ft) at AED 599 per month is typically the best value option for a one to two-bedroom apartment. This includes hassle-free pickup from your old apartment, climate-controlled storage for the duration between leases, and free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -395,7 +395,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">13. What does same-day pickup cost?</h3>
-              <p className="text-gray-700">Same-day pickup for requests made before 12 PM on any day is available at no additional charge. It is included in the standard free pickup service that comes with every storage plan. Subject to availability, our team will arrive at your address the same day, typically within 4 to 6 hours of booking confirmation. For very last-minute requests where same-day pickup is needed urgently (for example, a sudden eviction or emergency relocation), call +971505773388 directly and our dispatch team will confirm availability immediately.</p>
+              <p className="text-gray-700">Same-day pickup for requests made before 12 PM on any day is available at no additional charge. It is included in the standard hassle-free pickup service that comes with every storage plan. Subject to availability, our team will arrive at your address the same day, typically within 4 to 6 hours of booking confirmation. For very last-minute requests where same-day pickup is needed urgently (for example, a sudden eviction or emergency relocation), call +971505773388 directly and our dispatch team will confirm availability immediately.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -405,7 +405,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. What is the price for storing a full villa worth of furniture in Dubai?</h3>
-              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, a Large or Extra Large unit is usually required, starting from AED 1,299 to AED 2,499 per month. This includes free pickup from your villa, climate-controlled storage, 24/7 security, free insurance, and free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
+              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, a Large or Extra Large unit is usually required, starting from AED 1,299 to AED 2,499 per month. This includes hassle-free pickup from your villa, climate-controlled storage, 24/7 security, free insurance, and free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
             </div>
 
           </div>

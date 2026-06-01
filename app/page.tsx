@@ -22,11 +22,11 @@ const FAQSection       = dynamic(() => import("@/components/faq-section"))
 const BlogSection      = dynamic(() => import("@/components/blog-section"))
 
 export const metadata: Metadata = {
-  title: { absolute: "SafeStorage Dubai — #1 Rated Storage with Free Pickup" },
+  title: { absolute: "SafeStorage Dubai — #1 Rated Storage with Hassle-Free Pickup" },
   description:
     "SafeStorage Dubai: secure, climate-controlled self-storage units with free door-to-door pickup and delivery. Personal, business, vehicle & document storage from AED 9/month. 500+ Dubai customers. Get a free quote in 2 minutes.",
   keywords:
-    "safestorage dubai, climate controlled storage dubai, free pickup storage dubai, secure storage dubai, affordable storage dubai, storage facility dubai, self storage dubai, personal storage dubai, business storage dubai, furniture storage dubai, vehicle storage dubai, document storage dubai, storage units dubai, dubai storage solutions, storage with pickup and delivery dubai",
+    "safestorage dubai, climate controlled storage dubai, hassle-free pickup storage dubai, secure storage dubai, affordable storage dubai, storage facility dubai, self storage dubai, personal storage dubai, business storage dubai, furniture storage dubai, vehicle storage dubai, document storage dubai, storage units dubai, dubai storage solutions, storage with pickup and delivery dubai",
   openGraph: {
     title: "SafeStorage Dubai - Secure Storage Solutions | Hassle-Free Pickup",
     description: "Premium climate-controlled storage units in Dubai. 24/7 security, hassle-free pickup & delivery. Call +971505773388.",
@@ -100,7 +100,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How much does storage cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">Storage at SafeStorage Dubai starts from AED 9 per month for individual items, with full household or furniture storage plans from AED 199 per month. All plans include free pickup and delivery, climate-controlled storage maintained at 20&ndash;25&deg;C, 24/7 security monitoring, and free insurance coverage up to AED 5,000. There are no setup fees, no registration costs, and no penalties for cancelling early. Long-term discounts of up to 20% are available for 6&ndash;12 month prepaid plans.</p>
+              <p className="text-gray-700 leading-relaxed">Storage at SafeStorage Dubai starts from AED 9 per month for individual items, with full household or furniture storage plans from AED 199 per month. All plans include hassle-free pickup and delivery, climate-controlled storage maintained at 20&ndash;25&deg;C, 24/7 security monitoring, and free insurance coverage up to AED 5,000. There are no setup fees, no registration costs, and no penalties for cancelling early. Long-term discounts of up to 20% are available for 6&ndash;12 month prepaid plans.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">Is pickup really free?</h3>
@@ -132,7 +132,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What areas of Dubai are covered?</h3>
-              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai covers every area of Dubai for free pickup and delivery. Our primary service zones include Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, Al Quoz, Dubai Investment Park, Motor City, Sports City, Deira, Bur Dubai, Mirdif, Arabian Ranches, The Springs, The Meadows, and all other Dubai communities. We also serve Sharjah and other UAE emirates through our extended coverage network. If you are unsure whether your location is covered, simply call us and we will confirm.</p>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai covers every area of Dubai for hassle-free pickup and delivery. Our primary service zones include Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, Al Quoz, Dubai Investment Park, Motor City, Sports City, Deira, Bur Dubai, Mirdif, Arabian Ranches, The Springs, The Meadows, and all other Dubai communities. We also serve Sharjah and other UAE emirates through our extended coverage network. If you are unsure whether your location is covered, simply call us and we will confirm.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">Do you offer same-day pickup?</h3>
@@ -172,7 +172,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What makes SafeStorage different from other storage companies in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai combines every advantage of premium storage into one transparent, affordable package. Unlike traditional self-storage companies, we come to you &mdash; free pickup and delivery means you never need to hire a van or visit a warehouse. Every unit is climate-controlled at no extra charge, protecting belongings from Dubai&apos;s extreme heat. Free insurance up to AED 5,000 is included as standard. Our digital inventory system lets you track every item and request individual retrievals. With over 2,400 verified reviews and a 4.9/5 rating, SafeStorage is Dubai&apos;s highest-rated storage provider.</p>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai combines every advantage of premium storage into one transparent, affordable package. Unlike traditional self-storage companies, we come to you &mdash; hassle-free pickup and delivery means you never need to hire a van or visit a warehouse. Every unit is climate-controlled at no extra charge, protecting belongings from Dubai&apos;s extreme heat. Free insurance up to AED 5,000 is included as standard. Our digital inventory system lets you track every item and request individual retrievals. With over 2,400 verified reviews and a 4.9/5 rating, SafeStorage is Dubai&apos;s highest-rated storage provider.</p>
             </div>
           </div>
         </div>
@@ -192,7 +192,7 @@ export default function LandingPage() {
             Our storage units maintain a consistent 20–25°C temperature year-round, protecting your belongings
             from Dubai&apos;s extreme summer heat. Every unit is monitored by 24/7 CCTV, secured with biometric
             access, and covered by free insurance up to AED 5,000. Storage plans start from AED 199/month
-            with free pickup and delivery across all Dubai areas.
+            with hassle-free pickup and delivery across all Dubai areas.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-10">
@@ -201,7 +201,7 @@ export default function LandingPage() {
               <p className="text-gray-700 text-sm">
                 Store household items, seasonal belongings, sports equipment, and personal effects securely.
                 Our smallest units start from 25 sq ft — perfect for boxes, suitcases, and small furniture.
-                Free pickup from your home anywhere in Dubai.
+                Hassle-free pickup from your home anywhere in Dubai.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -225,7 +225,7 @@ export default function LandingPage() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Why SafeStorage is Dubai&apos;s #1 Rated Storage Provider</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
-              <p>✓ <strong>Free Pickup &amp; Delivery</strong> — No truck rental, no heavy lifting</p>
+              <p>✓ <strong>Hassle-Free Pickup &amp; Delivery</strong> — No truck rental, no heavy lifting</p>
               <p>✓ <strong>Climate Control</strong> — 20–25°C maintained year-round</p>
               <p>✓ <strong>24/7 Security</strong> — CCTV, biometric access, individual alarms</p>
               <p>✓ <strong>Free Insurance</strong> — AED 5,000 coverage included with every unit</p>
@@ -240,7 +240,7 @@ export default function LandingPage() {
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="font-bold text-[#0A2463] mb-3">Storage Across All Dubai Areas</h3>
               <p className="text-gray-700 text-sm mb-3">
-                SafeStorage serves every area of Dubai with free pickup and delivery. Our main service zones
+                SafeStorage serves every area of Dubai with hassle-free pickup and delivery. Our main service zones
                 cover Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah,
                 JLT, Al Quoz, Dubai Investment Park, Motor City, Sports City, Deira, and Bur Dubai.
               </p>

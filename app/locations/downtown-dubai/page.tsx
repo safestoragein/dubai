@@ -3,14 +3,14 @@ import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Downtown Dubai Storage — Free Pickup",
+  title: "Downtown Dubai Storage — Hassle-Free Pickup",
   description:
-    "Storage in Downtown Dubai, DIFC & Burj Khalifa District. Climate-controlled units, free pickup from your tower, same-day service. Trusted by 500+ Downtown residents. Call +971505773388.",
+    "Storage in Downtown Dubai, DIFC & Burj Khalifa District. Climate-controlled units, hassle-free pickup from your tower, same-day service. Trusted by 500+ Downtown residents. Call +971505773388.",
   keywords:
     "storage downtown dubai, storage near burj khalifa, DIFC storage dubai, downtown dubai self storage, storage units downtown dubai, burj khalifa district storage",
   openGraph: {
-    title: "Downtown Dubai & DIFC Storage — Free Pickup | SafeStorage",
-    description: "Climate-controlled storage for Downtown Dubai, DIFC & Burj Khalifa District. Free pickup. Same-day available. Call +971505773388.",
+    title: "Downtown Dubai & DIFC Storage — Hassle-Free Pickup | SafeStorage",
+    description: "Climate-controlled storage for Downtown Dubai, DIFC & Burj Khalifa District. Hassle-free pickup. Same-day available. Call +971505773388.",
     url: "https://safestorage.ae/locations/downtown-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const downtownSchemas = [
     "@type": "Service",
     name: "Storage Near Downtown Dubai & DIFC",
     description:
-      "Climate-controlled storage for Downtown Dubai, DIFC, Burj Khalifa District and Business Bay residents and businesses. Free pickup, same-day service, flexible plans.",
+      "Climate-controlled storage for Downtown Dubai, DIFC, Burj Khalifa District and Business Bay residents and businesses. Hassle-free pickup, same-day service, flexible plans.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/downtown-dubai",
     areaServed: [
@@ -58,9 +58,9 @@ const downtownSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/downtown-dubai#webpage",
-    name: "Downtown Dubai Storage — Free Pickup | SafeStorage",
+    name: "Downtown Dubai Storage — Hassle-Free Pickup | SafeStorage",
     description:
-      "Climate-controlled storage for Downtown Dubai, DIFC & Burj Khalifa District. Free pickup from your tower. Same-day available.",
+      "Climate-controlled storage for Downtown Dubai, DIFC & Burj Khalifa District. Hassle-free pickup from your tower. Same-day available.",
     url: "https://safestorage.ae/locations/downtown-dubai",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -271,7 +271,7 @@ export default function DowntownDubaiPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost to store a full Downtown Dubai apartment?</h3>
-              <p className="text-gray-700">SafeStorage pricing is volume-based and transparent. A typical Downtown studio apartment (furniture, boxes, appliances) costs AED 100–150 per month to store. A 1-bedroom apartment typically costs AED 150–250 per month. A 2-bedroom apartment with a full set of furniture and personal items typically costs AED 250–400 per month. These estimates include free pickup, climate-controlled storage, insurance, and one free delivery per month. Get an accurate personalised quote by calling +971505773388 or submitting the online quote form with a brief description or photos of what you need to store.</p>
+              <p className="text-gray-700">SafeStorage pricing is volume-based and transparent. A typical Downtown studio apartment (furniture, boxes, appliances) costs AED 100–150 per month to store. A 1-bedroom apartment typically costs AED 150–250 per month. A 2-bedroom apartment with a full set of furniture and personal items typically costs AED 250–400 per month. These estimates include hassle-free pickup, climate-controlled storage, insurance, and one free delivery per month. Get an accurate personalised quote by calling +971505773388 or submitting the online quote form with a brief description or photos of what you need to store.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store artwork, antiques, or high-value items from Downtown properties?</h3>

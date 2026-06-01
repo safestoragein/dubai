@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Mirdif Storage Dubai — Villa & Family Storage",
   description:
-    "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Free pickup from villas and apartments. Climate-controlled, flexible plans from AED 9/month. Same-day available. Call +971505773388.",
+    "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Hassle-free pickup from villas and apartments. Climate-controlled, flexible plans from AED 9/month. Same-day available. Call +971505773388.",
   keywords:
     "mirdif storage dubai, storage mirdif, mirdif self storage, rashidiya storage dubai, storage near mirdif city centre, east dubai storage, muhaisnah storage",
   openGraph: {
     title: "Mirdif Storage Dubai — Villa & Family Pickup | SafeStorage",
-    description: "Free pickup storage for Mirdif villas and apartments. Climate-controlled, from AED 9/month. Rashidiya also covered. Call +971505773388.",
+    description: "Hassle-free pickup storage for Mirdif villas and apartments. Climate-controlled, from AED 9/month. Rashidiya also covered. Call +971505773388.",
     url: "https://safestorage.ae/locations/mirdif",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const mirdifSchemas = [
     "@type": "Service",
     name: "Storage in Mirdif & East Dubai",
     description:
-      "Climate-controlled storage for Mirdif, Rashidiya, Muhaisnah, and east Dubai residents. Free pickup from villas and apartments. Flexible monthly plans from AED 9/month.",
+      "Climate-controlled storage for Mirdif, Rashidiya, Muhaisnah, and east Dubai residents. Hassle-free pickup from villas and apartments. Flexible monthly plans from AED 9/month.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/mirdif",
     areaServed: [
@@ -50,7 +50,7 @@ const mirdifSchemas = [
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/mirdif#webpage",
     name: "Mirdif Storage Dubai — Villa & Family Pickup | SafeStorage",
-    description: "Free pickup storage for Mirdif villas and apartments. Climate-controlled. Rashidiya also covered.",
+    description: "Hassle-free pickup storage for Mirdif villas and apartments. Climate-controlled. Rashidiya also covered.",
     url: "https://safestorage.ae/locations/mirdif",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -76,7 +76,7 @@ export default function MirdifPage() {
         areas={["Mirdif (all phases)", "Rashidiya", "Muhaisnah", "Al Warqa", "Nad Al Sheba", "Uptown Mirdif"]}
         distance="20-25 minutes"
         benefits={[
-          "Free pickup from Mirdif villas and townhouses",
+          "Hassle-free pickup from Mirdif villas and townhouses",
           "Ideal for families with large villa storage needs",
           "East Dubai specialists — experienced with Mirdif community",
           "Rashidiya and Al Warqa also fully covered",
@@ -186,7 +186,7 @@ export default function MirdifPage() {
           </div>
 
           <div className="text-center">
-            <p className="text-lg text-gray-700 mb-4">Storage in Mirdif — free pickup from your villa or apartment.</p>
+            <p className="text-lg text-gray-700 mb-4">Storage in Mirdif — hassle-free pickup from your villa or apartment.</p>
             <a href="/get-quote" className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c02a50] transition-colors">
               Get a Free Quote
             </a>
@@ -200,7 +200,7 @@ export default function MirdifPage() {
           <div className="space-y-5">
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage cover all parts of Mirdif including the newer Uptown Mirdif area?</h3>
-              <p className="text-gray-700">Yes. SafeStorage covers all Mirdif areas — the original Mirdif villa communities (Phases 1, 2, and 3), Uptown Mirdif townhouses, Mirdif Hills, and the Shorooq community. All Mirdif addresses qualify for our free pickup and delivery service. Call +971505773388 with your specific street or community name if you want to confirm coverage, though all Mirdif addresses are within our service zone.</p>
+              <p className="text-gray-700">Yes. SafeStorage covers all Mirdif areas — the original Mirdif villa communities (Phases 1, 2, and 3), Uptown Mirdif townhouses, Mirdif Hills, and the Shorooq community. All Mirdif addresses qualify for our hassle-free pickup and delivery service. Call +971505773388 with your specific street or community name if you want to confirm coverage, though all Mirdif addresses are within our service zone.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store a full Mirdif villa during summer vacation?</h3>
@@ -212,11 +212,11 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Rashidiya covered by SafeStorage?</h3>
-              <p className="text-gray-700">Yes. Rashidiya — located adjacent to Mirdif near Dubai International Airport — is fully within our east Dubai service zone. Rashidiya&apos;s mix of villas and apartments is served with the same free pickup and delivery as Mirdif. Rashidiya residents use SafeStorage primarily for villa renovation storage, summer holiday storage, and between-tenancy storage. Typical pickup times from Rashidiya are 20–25 minutes from confirmation.</p>
+              <p className="text-gray-700">Yes. Rashidiya — located adjacent to Mirdif near Dubai International Airport — is fully within our east Dubai service zone. Rashidiya&apos;s mix of villas and apartments is served with the same hassle-free pickup and delivery as Mirdif. Rashidiya residents use SafeStorage primarily for villa renovation storage, summer holiday storage, and between-tenancy storage. Typical pickup times from Rashidiya are 20–25 minutes from confirmation.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Mirdif villa&apos;s contents?</h3>
-              <p className="text-gray-700">Full-villa storage pricing depends on the volume of items. A typical 3-bedroom Mirdif villa costs AED 300–500 per month to store, including free pickup, climate-controlled storage, insurance, and on-demand delivery. A 4–5 bedroom villa with full furniture and contents typically costs AED 450–700 per month. These are estimates — the most accurate quote requires an assessment of your specific villa. Send us photos or a short video via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
+              <p className="text-gray-700">Full-villa storage pricing depends on the volume of items. A typical 3-bedroom Mirdif villa costs AED 300–500 per month to store, including hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery. A 4–5 bedroom villa with full furniture and contents typically costs AED 450–700 per month. These are estimates — the most accurate quote requires an assessment of your specific villa. Send us photos or a short video via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage move items from Mirdif to a new address in another part of Dubai?</h3>
@@ -232,7 +232,7 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is there storage available near Dubai Festival City from Mirdif?</h3>
-              <p className="text-gray-700">Yes. Dubai Festival City (Garhoud area), Al Jaddaf, and the Festival City Mall area are all within our east Dubai service zone, accessible from Mirdif via the Airport Road. Residents in the Festival City residential towers, the serviced apartments at Festival City, and the surrounding Garhoud community all receive our standard free pickup and delivery service. Festival City is approximately 10–15 minutes from central Mirdif, making it easy for our team to serve both areas in a single trip.</p>
+              <p className="text-gray-700">Yes. Dubai Festival City (Garhoud area), Al Jaddaf, and the Festival City Mall area are all within our east Dubai service zone, accessible from Mirdif via the Airport Road. Residents in the Festival City residential towers, the serviced apartments at Festival City, and the surrounding Garhoud community all receive our standard hassle-free pickup and delivery service. Festival City is approximately 10–15 minutes from central Mirdif, making it easy for our team to serve both areas in a single trip.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I get a same-day pickup from Mirdif?</h3>
@@ -240,7 +240,7 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What east Dubai areas besides Mirdif does SafeStorage cover?</h3>
-              <p className="text-gray-700">SafeStorage&apos;s east Dubai coverage extends beyond Mirdif to include Rashidiya, Muhaisnah (1–4), Al Warqa (1–5), Nad Al Sheba, Al Mizhar, Garhoud, Al Twar, Al Qusais, and Al Nahda (Dubai side). All these communities receive free pickup and delivery with the same pricing and service standards as our primary zones. East Dubai is a large and diverse area with significant residential density and we have dedicated team capacity to serve it reliably.</p>
+              <p className="text-gray-700">SafeStorage&apos;s east Dubai coverage extends beyond Mirdif to include Rashidiya, Muhaisnah (1–4), Al Warqa (1–5), Nad Al Sheba, Al Mizhar, Garhoud, Al Twar, Al Qusais, and Al Nahda (Dubai side). All these communities receive hassle-free pickup and delivery with the same pricing and service standards as our primary zones. East Dubai is a large and diverse area with significant residential density and we have dedicated team capacity to serve it reliably.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is there a minimum storage period for Mirdif customers?</h3>

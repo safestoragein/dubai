@@ -149,7 +149,7 @@ export default function Services() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h2 className="text-2xl font-bold text-[#0A2463] mb-4">Why Choose SafeStorage Dubai?</h2>
             <ul className="space-y-3 text-gray-700">
-              <li><strong>Free Pickup &amp; Delivery:</strong> We collect from anywhere in Dubai and return your items on demand — no truck rental needed.</li>
+              <li><strong>Hassle-Free Pickup &amp; Delivery:</strong> We collect from anywhere in Dubai and return your items on demand — no truck rental needed.</li>
               <li><strong>24/7 Security:</strong> HD CCTV, biometric access control, individual unit alarms, and on-site security personnel protect your belongings around the clock.</li>
               <li><strong>Flexible Plans:</strong> Monthly contracts with no long-term commitment required. Scale up or down at any time.</li>
               <li><strong>Free Insurance:</strong> Every unit comes with complimentary insurance coverage up to AED 5,000, with optional extended coverage available.</li>
@@ -218,7 +218,7 @@ export default function Services() {
                 Personal storage customers typically store seasonal clothing, sports equipment, holiday decorations, extra bedding, books, electronics not in current use, suitcases, and items inherited or gifted that they are not ready to part with. In Dubai, where apartments tend to be compact relative to the average household&apos;s belongings, personal storage is an increasingly popular alternative to cramming everything into already-full wardrobes and store rooms.
               </p>
               <p className="text-gray-700">
-                Plans start from AED 9 per month for a small number of boxes, scaling up based on volume. Free pickup from your home address, digital photo inventory, climate control, and insurance are included in every personal storage plan. On-demand delivery back to your address is available within 24–48 hours.
+                Plans start from AED 9 per month for a small number of boxes, scaling up based on volume. Hassle-free pickup from your home address, digital photo inventory, climate control, and insurance are included in every personal storage plan. On-demand delivery back to your address is available within 24–48 hours.
               </p>
             </div>
 
@@ -328,7 +328,7 @@ export default function Services() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is the pickup and delivery service really free?</h3>
-              <p className="text-gray-700">Yes, door-to-door pickup from your Dubai address is completely free with every SafeStorage plan. There is no collection fee, no fuel surcharge, no access fee for high-rise buildings, and no location premium for any area of Dubai. The free pickup is included in your monthly storage plan price. For delivery back to you, the first delivery per month is typically included in your plan, and additional deliveries are charged at a flat rate that is disclosed upfront when you sign up. There are never any surprise charges — all fees are explained in your quote before you confirm.</p>
+              <p className="text-gray-700">Yes, door-to-door pickup from your Dubai address is completely free with every SafeStorage plan. There is no collection fee, no fuel surcharge, no access fee for high-rise buildings, and no location premium for any area of Dubai. The hassle-free pickup is included in your monthly storage plan price. For delivery back to you, the first delivery per month is typically included in your plan, and additional deliveries are charged at a flat rate that is disclosed upfront when you sign up. There are never any surprise charges — all fees are explained in your quote before you confirm.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">What temperature is maintained in SafeStorage climate-controlled units?</h3>

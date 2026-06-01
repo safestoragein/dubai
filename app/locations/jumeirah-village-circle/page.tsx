@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "JVC Storage Dubai — Jumeirah Village Circle",
   description:
-    "Self storage for JVC (Jumeirah Village Circle) Dubai. Free pickup from apartments & townhouses. Climate-controlled units from AED 9/month. JVT also covered. Call +971505773388.",
+    "Self storage for JVC (Jumeirah Village Circle) Dubai. Hassle-free pickup from apartments & townhouses. Climate-controlled units from AED 9/month. JVT also covered. Call +971505773388.",
   keywords:
     "JVC storage dubai, jumeirah village circle storage, storage near JVC, JVT storage dubai, self storage jumeirah village, storage pickup JVC dubai",
   openGraph: {
     title: "JVC Storage Dubai — Jumeirah Village Circle | SafeStorage",
-    description: "Free pickup storage for JVC apartments and townhouses. Climate-controlled, flexible monthly plans. JVT also covered. Call +971505773388.",
+    description: "Hassle-free pickup storage for JVC apartments and townhouses. Climate-controlled, flexible monthly plans. JVT also covered. Call +971505773388.",
     url: "https://safestorage.ae/locations/jumeirah-village-circle",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const jvcSchemas = [
     "@type": "Service",
     name: "Storage in Jumeirah Village Circle (JVC) Dubai",
     description:
-      "Climate-controlled storage for JVC and JVT residents. Free pickup from apartments and townhouses. Flexible monthly plans from AED 9/month.",
+      "Climate-controlled storage for JVC and JVT residents. Hassle-free pickup from apartments and townhouses. Flexible monthly plans from AED 9/month.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/jumeirah-village-circle",
     areaServed: [
@@ -49,7 +49,7 @@ const jvcSchemas = [
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/jumeirah-village-circle#webpage",
     name: "JVC Storage Dubai — Jumeirah Village Circle | SafeStorage",
-    description: "Free pickup storage for JVC apartments and townhouses. Climate-controlled, flexible monthly plans. JVT also covered.",
+    description: "Hassle-free pickup storage for JVC apartments and townhouses. Climate-controlled, flexible monthly plans. JVT also covered.",
     url: "https://safestorage.ae/locations/jumeirah-village-circle",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -75,7 +75,7 @@ export default function JumeirahVillageCirclePage() {
         areas={["JVC District 10–18", "JVC Apartments", "JVC Townhouses", "Jumeirah Village Triangle (JVT)", "Dubai Sports City", "Motor City"]}
         distance="15-20 minutes"
         benefits={[
-          "Free pickup from all JVC districts and buildings",
+          "Hassle-free pickup from all JVC districts and buildings",
           "Ideal for growing families needing extra space",
           "Affordable storage that matches JVC's value-focused community",
           "JVT and Sports City also fully covered",
@@ -219,7 +219,7 @@ export default function JumeirahVillageCirclePage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can Dubai Sports City and Motor City residents use JVC-area SafeStorage?</h3>
-              <p className="text-gray-700">Yes. Dubai Sports City and Motor City are both within our JVC service zone and are fully covered by SafeStorage. Dubai Sports City residents in the various residential towers and Motor City residents in the apartment and townhouse communities all receive the same free pickup and delivery service as JVC. Typical pickup times from Dubai Sports City and Motor City are 15–20 minutes. Many Sports City residents use SafeStorage for sports equipment storage, which is a perfect fit given the area&apos;s active lifestyle community.</p>
+              <p className="text-gray-700">Yes. Dubai Sports City and Motor City are both within our JVC service zone and are fully covered by SafeStorage. Dubai Sports City residents in the various residential towers and Motor City residents in the apartment and townhouse communities all receive the same hassle-free pickup and delivery service as JVC. Typical pickup times from Dubai Sports City and Motor City are 15–20 minutes. Many Sports City residents use SafeStorage for sports equipment storage, which is a perfect fit given the area&apos;s active lifestyle community.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What storage is available for JVC residents between lease periods?</h3>
@@ -231,7 +231,7 @@ export default function JumeirahVillageCirclePage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a full JVC 1-bedroom apartment?</h3>
-              <p className="text-gray-700">A typical JVC 1-bedroom apartment (furniture, appliances, personal items) costs AED 120–200 per month to store with SafeStorage. This includes free pickup from your JVC address, climate-controlled storage, free insurance, and on-demand delivery back. JVC 2-bedroom apartments typically cost AED 200–350 per month. For the most accurate quote, share a brief description or WhatsApp photos of your items and we&apos;ll provide a confirmed price within 30 minutes during business hours.</p>
+              <p className="text-gray-700">A typical JVC 1-bedroom apartment (furniture, appliances, personal items) costs AED 120–200 per month to store with SafeStorage. This includes hassle-free pickup from your JVC address, climate-controlled storage, free insurance, and on-demand delivery back. JVC 2-bedroom apartments typically cost AED 200–350 per month. For the most accurate quote, share a brief description or WhatsApp photos of your items and we&apos;ll provide a confirmed price within 30 minutes during business hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is climate-controlled storage really necessary for items from JVC apartments?</h3>

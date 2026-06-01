@@ -67,7 +67,7 @@ export default function SelfStorageGuideDubaiPage() {
               {[
                 { step: "1. Get a quote", desc: "Contact a storage facility, describe what you need to store, and get a price for the right unit size." },
                 { step: "2. Book your unit", desc: "Confirm your booking with ID and payment. Units are available monthly — no annual commitment required at good facilities." },
-                { step: "3. Deliver your items", desc: "Either bring items yourself or use a facility that offers pickup (SafeStorage Dubai offers free pickup)." },
+                { step: "3. Deliver your items", desc: "Either bring items yourself or use a facility that offers pickup (SafeStorage Dubai offers hassle-free pickup)." },
                 { step: "4. Access as needed", desc: "Visit your unit during access hours whenever you need to add, remove, or reorganise items." },
                 { step: "5. End when ready", desc: "Give notice (typically 30 days) when you're done. Collect your items and close your contract." },
               ].map((s) => (
@@ -89,7 +89,7 @@ export default function SelfStorageGuideDubaiPage() {
             <div className="space-y-3 mb-8">
               {[
                 { check: "Is it truly climate-controlled?", what: "Ask specifically: what temperature do units reach in August? The answer should be under 24°C. If they say 'air-conditioned corridor' or 'cooled area' — probe further." },
-                { check: "Is pickup included?", what: "Good facilities offer free pickup. If you're quoted a pickup charge of AED 200-500, factor this into your total cost comparison." },
+                { check: "Is pickup included?", what: "Good facilities offer hassle-free pickup. If you're quoted a pickup charge of AED 200-500, factor this into your total cost comparison." },
                 { check: "What is the minimum contract length?", what: "1 month is standard. Some facilities require 3-month minimums. Know what you're committing to." },
                 { check: "What insurance is included?", what: "Basic coverage (typically AED 5,000) should be included. Understand the process to claim and ensure high-value items are covered at declared value." },
                 { check: "What are the access hours?", what: "8 AM–8 PM, 7 days/week is standard good access. 24/7 access is available at premium facilities. Restricted weekday-only access is too limiting for most users." },
@@ -153,7 +153,7 @@ export default function SelfStorageGuideDubaiPage() {
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
               <h2 className="text-2xl font-bold mb-3">Ready to Get Started?</h2>
-              <p className="text-white/80 mb-6">Get a free storage quote from SafeStorage Dubai. Climate-controlled, free pickup, no hidden fees — 7 days a week.</p>
+              <p className="text-white/80 mb-6">Get a free storage quote from SafeStorage Dubai. Climate-controlled, hassle-free pickup, no hidden fees — 7 days a week.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Free Quote</Button>

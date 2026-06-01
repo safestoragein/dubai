@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Dubai Silicon Oasis Storage — DSO & Academic City",
   description:
-    "Storage in Dubai Silicon Oasis (DSO), Academic City & International City. Free pickup, climate-controlled, from AED 9/month. Same-day available. Call +971505773388.",
+    "Storage in Dubai Silicon Oasis (DSO), Academic City & International City. Hassle-free pickup, climate-controlled, from AED 9/month. Same-day available. Call +971505773388.",
   keywords:
     "dubai silicon oasis storage, DSO storage dubai, academic city storage, international city storage dubai, storage near DSO, dubai silicon oasis self storage",
   openGraph: {
     title: "Dubai Silicon Oasis Storage — DSO & Academic City | SafeStorage",
-    description: "Free pickup storage for DSO, Academic City & International City. Climate-controlled, from AED 9/month. Call +971505773388.",
+    description: "Hassle-free pickup storage for DSO, Academic City & International City. Climate-controlled, from AED 9/month. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-silicon-oasis",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const dsoSchemas = [
     "@type": "Service",
     name: "Storage in Dubai Silicon Oasis (DSO)",
     description:
-      "Climate-controlled storage for Dubai Silicon Oasis, Academic City, and International City residents and businesses. Free pickup. Flexible monthly plans from AED 9/month.",
+      "Climate-controlled storage for Dubai Silicon Oasis, Academic City, and International City residents and businesses. Hassle-free pickup. Flexible monthly plans from AED 9/month.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/dubai-silicon-oasis",
     areaServed: [
@@ -49,7 +49,7 @@ const dsoSchemas = [
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/dubai-silicon-oasis#webpage",
     name: "Dubai Silicon Oasis Storage — DSO & Academic City | SafeStorage",
-    description: "Free pickup storage for DSO, Academic City & International City. Climate-controlled, from AED 9/month.",
+    description: "Hassle-free pickup storage for DSO, Academic City & International City. Climate-controlled, from AED 9/month.",
     url: "https://safestorage.ae/locations/dubai-silicon-oasis",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -78,7 +78,7 @@ export default function DubaiSiliconOasisPage() {
           "Ideal for DSO tech companies needing equipment storage",
           "Student-friendly rates for Academic City residents",
           "Affordable storage for International City apartment dwellers",
-          "Free pickup from all DSO residential buildings",
+          "Hassle-free pickup from all DSO residential buildings",
         ]}
       />
 
@@ -220,7 +220,7 @@ export default function DubaiSiliconOasisPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Dubailand near DSO covered by SafeStorage?</h3>
-              <p className="text-gray-700">Yes. Dubailand and its residential sub-communities — including Wadi Al Safa, Remraam, Layan, Villanova, Mudon, and other Dubailand developments — are within our extended east Dubai service zone. Dubailand is a large area with ongoing development, and many new communities in Dubailand receive free pickup and delivery from SafeStorage. Call +971505773388 with your specific Dubailand community name to confirm coverage and estimated pickup times.</p>
+              <p className="text-gray-700">Yes. Dubailand and its residential sub-communities — including Wadi Al Safa, Remraam, Layan, Villanova, Mudon, and other Dubailand developments — are within our extended east Dubai service zone. Dubailand is a large area with ongoing development, and many new communities in Dubailand receive hassle-free pickup and delivery from SafeStorage. Call +971505773388 with your specific Dubailand community name to confirm coverage and estimated pickup times.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store document archives for DSO-registered companies?</h3>

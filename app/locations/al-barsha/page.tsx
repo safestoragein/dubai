@@ -5,11 +5,11 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Al Barsha Storage Dubai — Free Home Pickup",
   description:
-    "Storage in Al Barsha 1, 2, 3 & 4 Dubai. Free pickup from your home or office. Climate-controlled units from AED 9/month. Barsha Heights & Tecom also covered. Call +971505773388.",
+    "Storage in Al Barsha 1, 2, 3 & 4 Dubai. Hassle-free pickup from your home or office. Climate-controlled units from AED 9/month. Barsha Heights & Tecom also covered. Call +971505773388.",
   keywords:
     "al barsha storage dubai, storage al barsha 1, storage al barsha 2, storage near mall of the emirates, barsha heights storage, tecom storage dubai, al barsha self storage",
   openGraph: {
-    title: "Al Barsha Storage Dubai — Free Pickup | SafeStorage",
+    title: "Al Barsha Storage Dubai — Hassle-Free Pickup | SafeStorage",
     description: "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights & Tecom. Free home pickup. From AED 9/month. Call +971505773388.",
     url: "https://safestorage.ae/locations/al-barsha",
     siteName: "SafeStorage Dubai",
@@ -27,7 +27,7 @@ const alBarshaSchemas = [
     "@type": "Service",
     name: "Storage in Al Barsha Dubai",
     description:
-      "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Free pickup from your home or office. Flexible monthly plans from AED 9/month.",
+      "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Hassle-free pickup from your home or office. Flexible monthly plans from AED 9/month.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/al-barsha",
     areaServed: [
@@ -50,7 +50,7 @@ const alBarshaSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/al-barsha#webpage",
-    name: "Al Barsha Storage Dubai — Free Pickup | SafeStorage",
+    name: "Al Barsha Storage Dubai — Hassle-Free Pickup | SafeStorage",
     description: "Climate-controlled storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Free home pickup.",
     url: "https://safestorage.ae/locations/al-barsha",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
@@ -77,7 +77,7 @@ export default function AlBarshaPage() {
         areas={["Al Barsha 1", "Al Barsha 2", "Al Barsha 3", "Al Barsha South", "Barsha Heights (IMPZ)", "Tecom"]}
         distance="15-20 minutes"
         benefits={[
-          "Free pickup from all Al Barsha sub-communities",
+          "Hassle-free pickup from all Al Barsha sub-communities",
           "Ideal for families downsizing or renovating",
           "Business storage for Tecom and IMPZ offices",
           "Convenient mid-Dubai location — near Mall of the Emirates",
@@ -107,7 +107,7 @@ export default function AlBarshaPage() {
                 families storing furniture during home renovation to residents downsizing from a villa to an apartment.
               </p>
               <p className="text-gray-700">
-                SafeStorage provides free pickup from all Al Barsha 1 and 2 addresses with no parking or access
+                SafeStorage provides hassle-free pickup from all Al Barsha 1 and 2 addresses with no parking or access
                 challenges in this relatively low-density area. Our team is experienced with villa storage in
                 Al Barsha, including garden furniture, swimming pool equipment, and the larger volume of contents
                 that villa properties generate.
@@ -194,7 +194,7 @@ export default function AlBarshaPage() {
           <div className="space-y-5">
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage cover all Al Barsha sub-communities?</h3>
-              <p className="text-gray-700">Yes. SafeStorage covers every Al Barsha sub-community including Al Barsha 1, Al Barsha 2, Al Barsha 3, Al Barsha South 1, 2, and 3, Barsha Heights (IMPZ), Tecom, and Arjan. All addresses within these communities qualify for free pickup and delivery. If your address is in or around the Mall of the Emirates area, Al Quoz, or JVT, please call us on +971505773388 and we will confirm coverage instantly — we serve all of these areas too.</p>
+              <p className="text-gray-700">Yes. SafeStorage covers every Al Barsha sub-community including Al Barsha 1, Al Barsha 2, Al Barsha 3, Al Barsha South 1, 2, and 3, Barsha Heights (IMPZ), Tecom, and Arjan. All addresses within these communities qualify for hassle-free pickup and delivery. If your address is in or around the Mall of the Emirates area, Al Quoz, or JVT, please call us on +971505773388 and we will confirm coverage instantly — we serve all of these areas too.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How quickly can SafeStorage pick up from Al Barsha 1 or Al Barsha 2?</h3>
@@ -226,7 +226,7 @@ export default function AlBarshaPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How does SafeStorage pricing work for Al Barsha residents?</h3>
-              <p className="text-gray-700">SafeStorage pricing is volume-based and identical across all Dubai areas including Al Barsha. Starting from AED 9 per month for a small box or single item, you pay only for the actual volume you store — not a fixed unit size. A typical Al Barsha 1-bedroom apartment costs AED 100–200 per month to store. A 3-bedroom villa contents would typically be AED 250–450 per month. All prices include free pickup, climate-controlled storage, insurance, and on-demand delivery. There are no additional charges based on location or building type.</p>
+              <p className="text-gray-700">SafeStorage pricing is volume-based and identical across all Dubai areas including Al Barsha. Starting from AED 9 per month for a small box or single item, you pay only for the actual volume you store — not a fixed unit size. A typical Al Barsha 1-bedroom apartment costs AED 100–200 per month to store. A 3-bedroom villa contents would typically be AED 250–450 per month. All prices include hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery. There are no additional charges based on location or building type.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store large appliances like washing machines and fridges from Al Barsha apartments?</h3>

@@ -262,7 +262,7 @@ export default function BusinessStoragePage() {
               <li>• <strong>Business account manager:</strong> Dedicated point of contact for scheduling pickups, deliveries, and additional requirements</li>
               <li>• <strong>Bulk discounts:</strong> Multi-unit bookings and annual prepayments receive preferential rates</li>
               <li>• <strong>Document archiving:</strong> Add-on service for businesses needing compliant records storage alongside physical inventory</li>
-              <li>• <strong>Free pickup &amp; delivery:</strong> All business plans include complimentary pickup and delivery across Dubai</li>
+              <li>• <strong>Hassle-free pickup &amp; delivery:</strong> All business plans include complimentary pickup and delivery across Dubai</li>
             </ul>
           </div>
 
@@ -376,7 +376,7 @@ export default function BusinessStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. How is business storage priced in Dubai?</h3>
-              <p className="text-gray-700">Business storage at SafeStorage is priced monthly based on the unit size required. Medium units (50–100 sq ft) start from AED 599/month and are suitable for small office clearances, modest inventory, or document archives. Large units (100–200 sq ft) start from AED 999/month and accommodate full office contents or substantial inventory volumes. Extra-large units (200–400+ sq ft) are priced from AED 1,799/month and suit larger commercial storage needs. All plans include free pickup and delivery across Dubai, climate control, 24/7 security, and a dedicated account manager.</p>
+              <p className="text-gray-700">Business storage at SafeStorage is priced monthly based on the unit size required. Medium units (50–100 sq ft) start from AED 599/month and are suitable for small office clearances, modest inventory, or document archives. Large units (100–200 sq ft) start from AED 999/month and accommodate full office contents or substantial inventory volumes. Extra-large units (200–400+ sq ft) are priced from AED 1,799/month and suit larger commercial storage needs. All plans include hassle-free pickup and delivery across Dubai, climate control, 24/7 security, and a dedicated account manager.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

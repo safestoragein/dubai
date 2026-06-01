@@ -90,7 +90,7 @@ export default function UseCasesSection() {
             Get a Free Quote — We Come to You
             <ArrowRight className="h-5 w-5" />
           </Link>
-          <p className="text-gray-400 text-sm mt-3">Free pickup anywhere in Dubai · No long-term contract</p>
+          <p className="text-gray-400 text-sm mt-3">Hassle-free pickup anywhere in Dubai · No long-term contract</p>
         </div>
       </div>
     </section>

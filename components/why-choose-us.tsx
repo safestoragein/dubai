@@ -17,7 +17,7 @@ export default function WhyChooseUs() {
     },
     {
       icon: Truck,
-      title: "Free Pickup & Delivery",
+      title: "Hassle-Free Pickup & Delivery",
       description:
         "We come to you — anywhere in Dubai. Our team brings packing materials, carefully loads your items, and transports them safely to our facility. No truck rental costs, no fuel charges, no toll fees. When you need items back, we deliver to your door.",
       highlight: "Anywhere Dubai",

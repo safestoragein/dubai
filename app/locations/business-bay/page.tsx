@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Storage Units Near Business Bay Dubai | 24hr Pickup",
   description:
-    "Looking for storage units near Business Bay Dubai? SafeStorage offers climate-controlled units with free pickup from Business Bay, DIFC & Downtown. Book online — space ready tomorrow. Call +971505773388.",
+    "Looking for storage units near Business Bay Dubai? SafeStorage offers climate-controlled units with hassle-free pickup from Business Bay, DIFC & Downtown. Book online — space ready tomorrow. Call +971505773388.",
   keywords:
     "storage units near business bay dubai, business bay self storage, storage near DIFC, downtown dubai storage units, business bay office storage, storage pickup business bay",
   openGraph: {
     title: "Storage Units Near Business Bay Dubai - Pickup in 24hrs | SafeStorage",
-    description: "Climate-controlled storage near Business Bay & DIFC. Free pickup from your address. Call +971505773388.",
+    description: "Climate-controlled storage near Business Bay & DIFC. Hassle-free pickup from your address. Call +971505773388.",
     url: "https://safestorage.ae/locations/business-bay",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -26,7 +26,7 @@ const businessBaySchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Storage Near Business Bay & DIFC Dubai',
-    description: 'Climate-controlled storage near Business Bay & DIFC. Free pickup from Business Bay, DIFC & Downtown Dubai. Space ready in 24 hours.',
+    description: 'Climate-controlled storage near Business Bay & DIFC. Hassle-free pickup from Business Bay, DIFC & Downtown Dubai. Space ready in 24 hours.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/locations/business-bay',
     areaServed: [
@@ -41,7 +41,7 @@ const businessBaySchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/locations/business-bay#webpage',
     name: 'Storage Units Near Business Bay Dubai | Pickup in 24hrs',
-    description: 'Climate-controlled storage near Business Bay & DIFC. Free pickup from your address.',
+    description: 'Climate-controlled storage near Business Bay & DIFC. Hassle-free pickup from your address.',
     url: 'https://safestorage.ae/locations/business-bay',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -68,7 +68,7 @@ export default function BusinessBayPage() {
       benefits={[
         "Perfect for Business Bay office storage",
         "Document archiving for DIFC companies",
-        "Hassle-hassle-free pickup from Downtown Dubai",
+        "Hassle-free pickup from Downtown Dubai",
         "Ideal for residents in high-rise apartments"
       ]}
     />
@@ -78,7 +78,7 @@ export default function BusinessBayPage() {
         <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Storage Near Business Bay, DIFC &amp; Downtown Dubai</h2>
         <p className="text-lg text-gray-700 mb-6">
           SafeStorage serves residents and businesses in Business Bay, Downtown Dubai, DIFC, and Sheikh Zayed Road
-          with premium climate-controlled storage units, free pickup and delivery, and flexible monthly plans.
+          with premium climate-controlled storage units, hassle-free pickup and delivery, and flexible monthly plans.
           Whether you are a high-rise apartment resident or a DIFC-registered company, we have the right storage
           solution for you.
         </p>
@@ -225,7 +225,7 @@ export default function BusinessBayPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the best storage option for Downtown Dubai apartment residents?</h3>
-            <p className="text-gray-700">For Downtown Dubai residents, our personal household storage service is the most popular option. It works on a volume-based pricing model — you pay for the actual space your items take up, not a fixed unit size. This is ideal for residents who have a mix of small and large items to store. Most Downtown residents store seasonal clothing, suitcases, sporting equipment, extra furniture, and items from previous larger homes. Plans start from AED 9 per month and include free pickup, climate-controlled storage, insurance, and on-demand delivery.</p>
+            <p className="text-gray-700">For Downtown Dubai residents, our personal household storage service is the most popular option. It works on a volume-based pricing model — you pay for the actual space your items take up, not a fixed unit size. This is ideal for residents who have a mix of small and large items to store. Most Downtown residents store seasonal clothing, suitcases, sporting equipment, extra furniture, and items from previous larger homes. Plans start from AED 9 per month and include hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there storage available near the Burj Khalifa?</h3>
@@ -249,7 +249,7 @@ export default function BusinessBayPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Does SafeStorage offer storage for Sheikh Zayed Road office towers?</h3>
-            <p className="text-gray-700">Yes, Sheikh Zayed Road (E11) is fully within our Business Bay service zone. We regularly serve businesses and residents in the SZR towers including World Trade Centre, Chelsea Tower, Jumeirah Emirates Towers, Rose Tower, and other iconic SZR high-rises. For businesses, we offer same-day commercial pickups, document archiving, and flexible monthly storage plans. For residents, we provide personal and household storage with free pickup directly from your apartment floor.</p>
+            <p className="text-gray-700">Yes, Sheikh Zayed Road (E11) is fully within our Business Bay service zone. We regularly serve businesses and residents in the SZR towers including World Trade Centre, Chelsea Tower, Jumeirah Emirates Towers, Rose Tower, and other iconic SZR high-rises. For businesses, we offer same-day commercial pickups, document archiving, and flexible monthly storage plans. For residents, we provide personal and household storage with hassle-free pickup directly from your apartment floor.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there a minimum storage period for Business Bay customers?</h3>

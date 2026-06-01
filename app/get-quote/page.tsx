@@ -61,7 +61,7 @@ export default function GetQuote() {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Get Your Free Storage Quote in Dubai</h1>
           <p className="text-lg text-white/90 mb-2">
             Tell us what you need to store and we&apos;ll give you a transparent, no-obligation quote in minutes.
-            Storage units start from AED 199/month with free pickup and delivery across Dubai.
+            Storage units start from AED 199/month with hassle-free pickup and delivery across Dubai.
           </p>
         </div>
       </section>
@@ -91,9 +91,9 @@ export default function GetQuote() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="text-3xl font-bold text-[#D8315B] mb-3">3</div>
-              <h3 className="font-bold text-[#0A2463] mb-2">Schedule Your Free Pickup</h3>
+              <h3 className="font-bold text-[#0A2463] mb-2">Schedule Your Hassle-Free Pickup</h3>
               <p className="text-gray-700 text-sm">
-                Once you&apos;re happy with the quote, we schedule a free pickup from your home or office at a time
+                Once you&apos;re happy with the quote, we schedule a hassle-free pickup from your home or office at a time
                 that suits you. Our team handles all the heavy lifting and transports your items safely to our
                 climate-controlled facility.
               </p>
@@ -104,7 +104,7 @@ export default function GetQuote() {
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Why SafeStorage Dubai?</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <p>✓ Storage units from AED 199/month — no setup fees</p>
-              <p>✓ Free pickup and delivery anywhere in Dubai</p>
+              <p>✓ Hassle-free pickup and delivery anywhere in Dubai</p>
               <p>✓ Climate-controlled units — 20–25°C year-round</p>
               <p>✓ 24/7 CCTV and biometric security</p>
               <p>✓ No long-term contracts — cancel anytime</p>
@@ -171,7 +171,7 @@ export default function GetQuote() {
                   <li>• Extra Large (200+ sq ft): from <strong>AED 2,499/month</strong></li>
                   <li>• Vehicle bay (car/motorcycle): from <strong>AED 899/month</strong></li>
                 </ul>
-                <p className="text-xs text-gray-500 mt-3">All units are climate-controlled and include free pickup, security, and insurance.</p>
+                <p className="text-xs text-gray-500 mt-3">All units are climate-controlled and include hassle-free pickup, security, and insurance.</p>
               </div>
             </div>
           </div>

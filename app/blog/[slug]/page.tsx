@@ -250,7 +250,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             Free Door-to-Door Pickup Across Dubai
           </h3>
           <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "16px" }}>
-            One of our most popular features is our free pickup service. You do not need to rent a lorry, hire movers separately, or make multiple trips. Our team comes to your door, carefully loads your belongings, transports them to our secure facility, and delivers them back when you need them — all included in your monthly plan. We serve every neighbourhood in Dubai including Business Bay, Dubai Marina, Jumeirah, JBR, DIFC, Downtown, Deira, Bur Dubai, Al Barsha, Dubai Investment Park, Motor City, and beyond.
+            One of our most popular features is our hassle-free pickup service. You do not need to rent a lorry, hire movers separately, or make multiple trips. Our team comes to your door, carefully loads your belongings, transports them to our secure facility, and delivers them back when you need them — all included in your monthly plan. We serve every neighbourhood in Dubai including Business Bay, Dubai Marina, Jumeirah, JBR, DIFC, Downtown, Deira, Bur Dubai, Al Barsha, Dubai Investment Park, Motor City, and beyond.
           </p>
 
           <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#111827", marginBottom: "12px", marginTop: "24px" }}>
@@ -380,7 +380,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>How much does storage cost in Dubai per month?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Storage prices in Dubai vary widely depending on unit size, climate control, and whether pickup and delivery are included. At SafeStorage Dubai, prices start from AED 99 per month for small units. A typical medium unit suitable for a one-bedroom apartment starts at around AED 299–499 per month. Larger units for full villa contents range from AED 899 to AED 2,499 per month. All SafeStorage plans include climate control, 24/7 security, and free pickup and delivery — which often saves customers AED 300–800 compared to hiring movers separately.
+              Storage prices in Dubai vary widely depending on unit size, climate control, and whether pickup and delivery are included. At SafeStorage Dubai, prices start from AED 99 per month for small units. A typical medium unit suitable for a one-bedroom apartment starts at around AED 299–499 per month. Larger units for full villa contents range from AED 899 to AED 2,499 per month. All SafeStorage plans include climate control, 24/7 security, and hassle-free pickup and delivery — which often saves customers AED 300–800 compared to hiring movers separately.
             </p>
           </div>
 
@@ -392,7 +392,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
-            <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Do storage companies in Dubai offer free pickup?</h3>
+            <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Do storage companies in Dubai offer hassle-free pickup?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
               Most traditional storage facilities in Dubai do not include pickup — customers are expected to bring their own items to the facility. SafeStorage Dubai is different: our door-to-door model means our team comes to your home or office, loads your belongings, transports them to our facility, and delivers them back when you need them — all included as standard in your monthly plan. We cover all Dubai neighbourhoods including Business Bay, Dubai Marina, JBR, Jumeirah, Downtown, Al Barsha, Deira, Bur Dubai, JVC, JLT, and Dubai Investment Park.
             </p>

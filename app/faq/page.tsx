@@ -490,7 +490,7 @@ export default function FAQPage() {
             <h3 className="text-xl font-bold text-dubai-navy mb-4">SafeStorage Dubai — Key Facts</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <p>• Storage units from AED 199/month — no setup fees</p>
-              <p>• Free pickup and delivery anywhere in Dubai</p>
+              <p>• Hassle-free pickup and delivery anywhere in Dubai</p>
               <p>• Climate-controlled: 20–25°C maintained year-round</p>
               <p>• 24/7 HD CCTV security and biometric access</p>
               <p>• Free insurance up to AED 5,000 included</p>

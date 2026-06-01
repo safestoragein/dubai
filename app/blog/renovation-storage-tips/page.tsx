@@ -126,7 +126,7 @@ export default function RenovationStorageTipsPage() {
                 <h3 className="font-bold text-green-800 mb-3">Storage Cost (2BR Apartment, 3 months)</h3>
                 <div className="space-y-2 text-sm text-green-700">
                   <div className="flex justify-between"><span>Medium unit (3 months)</span><span className="font-bold">AED 1,497–2,097</span></div>
-                  <div className="flex justify-between"><span>Free pickup + delivery</span><span className="font-bold">AED 0</span></div>
+                  <div className="flex justify-between"><span>Hassle-free pickup + delivery</span><span className="font-bold">AED 0</span></div>
                   <div className="border-t border-green-300 pt-2 flex justify-between font-bold"><span>Total</span><span>AED 1,497–2,097</span></div>
                 </div>
               </div>
@@ -143,7 +143,7 @@ export default function RenovationStorageTipsPage() {
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
               <h2 className="text-2xl font-bold mb-3">Planning a Dubai Renovation?</h2>
-              <p className="text-white/80 mb-6">Book your storage before your contractors start. Free pickup across all Dubai areas — we make renovation storage simple.</p>
+              <p className="text-white/80 mb-6">Book your storage before your contractors start. Hassle-free pickup across all Dubai areas — we make renovation storage simple.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Renovation Quote</Button>

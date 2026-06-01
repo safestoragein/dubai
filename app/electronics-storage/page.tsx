@@ -6,11 +6,11 @@ import { Cpu, CheckCircle2, Star, Phone, ArrowRight, Shield, Thermometer, Lock, 
 
 export const metadata: Metadata = {
   title: "Electronics Storage Dubai — Safe Tech",
-  description: "Safe, climate-controlled electronics storage in Dubai. Protect laptops, TVs, gaming gear, servers and tech equipment from Dubai's extreme heat and humidity. From AED 199/month. Free pickup.",
+  description: "Safe, climate-controlled electronics storage in Dubai. Protect laptops, TVs, gaming gear, servers and tech equipment from Dubai's extreme heat and humidity. From AED 199/month. Hassle-free pickup.",
   keywords: "electronics storage dubai, laptop storage dubai, TV storage dubai, tech storage dubai, gadget storage dubai, server storage dubai, climate controlled electronics storage, gaming equipment storage dubai",
   openGraph: {
     title: "Electronics Storage Dubai — Protect Your Tech from Dubai's Heat | SafeStorage",
-    description: "Dubai's extreme heat destroys electronics. Climate-controlled storage from AED 199/month. Protect laptops, TVs, servers & gaming gear. Free pickup included.",
+    description: "Dubai's extreme heat destroys electronics. Climate-controlled storage from AED 199/month. Protect laptops, TVs, servers & gaming gear. Hassle-free pickup included.",
     url: "https://safestorage.ae/electronics-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -254,7 +254,7 @@ export default function ElectronicsStoragePage() {
         <section className="py-16 bg-dubai-navy text-white text-center">
           <div className="container px-4 max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">Don't Let Dubai's Heat Destroy Your Electronics</h2>
-            <p className="text-xl text-white/85 mb-8">Get a free quote for climate-controlled electronics storage. Free pickup available across Dubai — available 7 days a week.</p>
+            <p className="text-xl text-white/85 mb-8">Get a free quote for climate-controlled electronics storage. Hassle-free pickup available across Dubai — available 7 days a week.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="https://safestorage.ae/get-quote">
                 <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Free Quote</Button>
@@ -274,7 +274,7 @@ export default function ElectronicsStoragePage() {
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
               <p>SafeStorage Dubai&apos;s electronics storage service addresses a specific and serious problem in the UAE: Dubai&apos;s extreme climate destroys electronics stored in non-climate-controlled environments. Standard storage units in Dubai are essentially metal or concrete boxes that absorb and trap heat. During the summer months of June through September, internal temperatures in non-climate-controlled storage regularly exceed 55&ndash;65&deg;C. At these temperatures, lithium batteries suffer permanent capacity loss, LCD screens develop discolouration, hard drives experience head crashes, solder joints crack, and rubber components degrade irreversibly. These are not theoretical risks &mdash; they are the predictable, well-documented consequences of thermal stress on electronic components that manufacturers design to operate between 0&ndash;40&deg;C and store between -20&ndash;45&deg;C.</p>
               <p>Our climate-controlled units maintain a precise 18&ndash;24&deg;C year-round with humidity at 45&ndash;55% relative humidity. This is within the safe storage specifications of virtually all electronics manufacturers. Humidity control is equally important: Dubai&apos;s coastal summer humidity can reach 85&ndash;95% relative humidity, and when warm, humid air comes into contact with cool electronics, condensation forms on circuit boards &mdash; the equivalent of spilling water directly onto your motherboard. Our HEPA-filtered environment also eliminates dust as a risk factor, since fine particulate matter is the second leading cause of electronics failure in storage after heat. Every item stored with us is photographed and documented with serial numbers where visible, providing a complete inventory record and supporting any insurance claims.</p>
-              <p>We serve expats storing their tech setups before leaving Dubai temporarily, businesses relocating offices who need interim IT equipment storage, renovation homeowners protecting electronics from construction dust, seasonal residents leaving expensive equipment during summer months, IT asset managers handling surplus equipment, and e-commerce sellers storing electronics inventory. Electronics storage starts from AED 199/month, with free pickup across Dubai. Our team can assist with basic de-installation of monitors, desktop setups, and rack-mounted equipment, and we stock anti-static bags, foam padding, and protective cartons for equipment that does not have original packaging. Call +971505773388 for a free quote and advice on preparing your electronics for safe long-term storage.</p>
+              <p>We serve expats storing their tech setups before leaving Dubai temporarily, businesses relocating offices who need interim IT equipment storage, renovation homeowners protecting electronics from construction dust, seasonal residents leaving expensive equipment during summer months, IT asset managers handling surplus equipment, and e-commerce sellers storing electronics inventory. Electronics storage starts from AED 199/month, with hassle-free pickup across Dubai. Our team can assist with basic de-installation of monitors, desktop setups, and rack-mounted equipment, and we stock anti-static bags, foam padding, and protective cartons for equipment that does not have original packaging. Call +971505773388 for a free quote and advice on preparing your electronics for safe long-term storage.</p>
             </div>
 
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Electronics Storage FAQs</h2>

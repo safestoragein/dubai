@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Expat Storage Dubai — Moving Back Home | Jumeirah",
   description:
-    "Moving back home from Jumeirah or leaving Dubai? SafeStorage offers expat-friendly storage — keep belongings safely stored while you decide what to ship. Free pickup, flexible terms, trusted by 500+ expats. Call +971505773388.",
+    "Moving back home from Jumeirah or leaving Dubai? SafeStorage offers expat-friendly storage — keep belongings safely stored while you decide what to ship. Hassle-free pickup, flexible terms, trusted by 500+ expats. Call +971505773388.",
   keywords:
     "expat storage dubai moving back home, jumeirah expat storage, leaving dubai storage, storage for expats dubai, moving out storage jumeirah, temporary storage expat dubai, repatriation storage dubai",
   openGraph: {
     title: "Expat Storage Dubai Moving Back Home | Jumeirah | SafeStorage",
-    description: "Trusted by 500+ expats leaving Dubai. Store belongings safely in Jumeirah — flexible terms, free pickup. Call +971505773388.",
+    description: "Trusted by 500+ expats leaving Dubai. Store belongings safely in Jumeirah — flexible terms, hassle-free pickup. Call +971505773388.",
     url: "https://safestorage.ae/locations/jumeirah",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -26,7 +26,7 @@ const jumeirahSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Expat & Villa Storage Near Jumeirah Dubai',
-    description: 'Expat-friendly storage in Jumeirah — keep belongings safely stored while you decide what to ship. Free pickup, flexible terms, trusted by 500+ expats.',
+    description: 'Expat-friendly storage in Jumeirah — keep belongings safely stored while you decide what to ship. Hassle-free pickup, flexible terms, trusted by 500+ expats.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/locations/jumeirah',
     areaServed: [
@@ -41,7 +41,7 @@ const jumeirahSchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/locations/jumeirah#webpage',
     name: 'Expat Storage Dubai Moving Back Home | Jumeirah Storage',
-    description: 'Trusted by 500+ expats leaving Dubai. Store belongings safely in Jumeirah — flexible terms, free pickup.',
+    description: 'Trusted by 500+ expats leaving Dubai. Store belongings safely in Jumeirah — flexible terms, hassle-free pickup.',
     url: 'https://safestorage.ae/locations/jumeirah',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -66,7 +66,7 @@ export default function JumeirahPage() {
       areas={["Jumeirah 1", "Jumeirah 2", "Jumeirah 3", "Umm Suqeim", "Al Safa", "Al Wasl"]}
       distance="20-25 minutes"
       benefits={[
-        "Hassle-hassle-free pickup from Jumeirah villas",
+        "Hassle-free pickup from Jumeirah villas",
         "Perfect for villa renovations",
         "Seasonal storage for beach equipment",
         "Secure storage for luxury items"
@@ -79,7 +79,7 @@ export default function JumeirahPage() {
         <p className="text-lg text-gray-700 mb-6">
           SafeStorage provides trusted, climate-controlled storage for villa owners, families, and expatriates
           across Jumeirah 1, 2, 3, Umm Suqeim, Al Safa, and Al Wasl. Whether you are renovating your Jumeirah
-          villa, preparing to move back home, or simply need extra space, our free pickup and delivery service
+          villa, preparing to move back home, or simply need extra space, our hassle-free pickup and delivery service
           makes storing easy from anywhere in Jumeirah.
         </p>
 
@@ -243,7 +243,7 @@ export default function JumeirahPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Does SafeStorage cover the Madinat Jumeirah residential area?</h3>
-            <p className="text-gray-700">Yes, the Madinat Jumeirah area including residential properties nearby is fully within our Jumeirah service zone. We cover the Umm Suqeim area, Al Safa, and the communities adjacent to Madinat Jumeirah. Residents in this prestigious part of Dubai benefit from the same free pickup, climate-controlled storage, and flexible monthly plans as all other Jumeirah customers. The nearby Al Wasl Road corridor, City Walk developments, and the surrounding villa communities are all within our coverage area.</p>
+            <p className="text-gray-700">Yes, the Madinat Jumeirah area including residential properties nearby is fully within our Jumeirah service zone. We cover the Umm Suqeim area, Al Safa, and the communities adjacent to Madinat Jumeirah. Residents in this prestigious part of Dubai benefit from the same hassle-free pickup, climate-controlled storage, and flexible monthly plans as all other Jumeirah customers. The nearby Al Wasl Road corridor, City Walk developments, and the surrounding villa communities are all within our coverage area.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How long does a typical Jumeirah villa storage pickup take?</h3>
@@ -259,7 +259,7 @@ export default function JumeirahPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What are the storage options for residents of Satwa?</h3>
-            <p className="text-gray-700">Satwa is fully within our Jumeirah service zone and we regularly serve Satwa&apos;s dense residential community. Satwa&apos;s residents include long-term Dubai families, working professionals, and a significant business community. We offer the full range of personal, household, and commercial storage options for Satwa customers with the same free pickup, climate-controlled security, and flexible monthly plans. Satwa residents appreciate our affordable pricing starting from AED 9 per month for small volumes, making SafeStorage accessible to residents across all income levels.</p>
+            <p className="text-gray-700">Satwa is fully within our Jumeirah service zone and we regularly serve Satwa&apos;s dense residential community. Satwa&apos;s residents include long-term Dubai families, working professionals, and a significant business community. We offer the full range of personal, household, and commercial storage options for Satwa customers with the same hassle-free pickup, climate-controlled security, and flexible monthly plans. Satwa residents appreciate our affordable pricing starting from AED 9 per month for small volumes, making SafeStorage accessible to residents across all income levels.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you offer short-term storage for Jumeirah residents who are travelling for a few weeks?</h3>

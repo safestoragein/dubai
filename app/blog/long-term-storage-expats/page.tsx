@@ -87,7 +87,7 @@ export default function LongTermStorageExpatsPage() {
             </div>
 
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Long-Term Storage Cost: Full Breakdown</h2>
-            <p className="mb-4">These prices reflect SafeStorage Dubai's current rates including climate control, free pickup, and security:</p>
+            <p className="mb-4">These prices reflect SafeStorage Dubai's current rates including climate control, hassle-free pickup, and security:</p>
             <div className="overflow-x-auto mb-6">
               <table className="w-full border-collapse">
                 <thead>

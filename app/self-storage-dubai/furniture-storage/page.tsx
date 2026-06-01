@@ -6,11 +6,11 @@ import { Sofa, Shield, Thermometer, Package, ArrowRight, CheckCircle2, AlertCirc
 
 export const metadata: Metadata = {
   title: "Furniture Storage Dubai — From AED 150/Month",
-  description: "Dubai's most affordable furniture storage starting from AED 150/month. Climate-controlled units protect sofas, beds & dining sets from heat damage. Hassle-hassle-free pickup available. 24/7 access, CCTV security.",
+  description: "Dubai's most affordable furniture storage starting from AED 150/month. Climate-controlled units protect sofas, beds & dining sets from heat damage. Hassle-free pickup available. 24/7 access, CCTV security.",
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, climate controlled furniture storage, cheap furniture storage dubai, furniture storage al quoz, furniture storage units dubai, affordable furniture storage",
   openGraph: {
     title: "Furniture Storage Dubai – Climate-Controlled Units from AED 150/Month",
-    description: "Store furniture safely in Dubai with 24/7 access, climate control, and professional handling. Hassle-hassle-free pickup & delivery available.",
+    description: "Store furniture safely in Dubai with 24/7 access, climate control, and professional handling. Hassle-free pickup & delivery available.",
     url: "https://safestorage.ae/self-storage-dubai/furniture-storage",
   },
   alternates: {
@@ -154,7 +154,7 @@ export default function FurnitureStoragePage() {
                     <li>✓ 2-bedroom apartment</li>
                     <li>✓ Full living room set</li>
                     <li>✓ Multiple bedroom sets</li>
-                    <li>✓ Hassle-hassle-free pickup service</li>
+                    <li>✓ Hassle-free pickup service</li>
                     <li>✓ 24/7 access available</li>
                   </ul>
                 </CardContent>
@@ -791,7 +791,7 @@ export default function FurnitureStoragePage() {
                     ))}
                   </div>
                   <p className="text-gray-600 mb-4 italic">
-                    "Best prices in Dubai! Saved over 40% compared to other storage companies. Hassle-hassle-free pickup was a huge bonus. Highly recommend for furniture storage."
+                    "Best prices in Dubai! Saved over 40% compared to other storage companies. Hassle-free pickup was a huge bonus. Highly recommend for furniture storage."
                   </p>
                   <p className="font-semibold text-dubai-navy">- Sarah M., Jumeirah</p>
                 </CardContent>
@@ -1165,7 +1165,7 @@ export default function FurnitureStoragePage() {
             <p className="text-gray-700">
               Furniture storage starts from AED 199/month for small collections. A full 1-bedroom apartment&apos;s
               furniture typically needs a medium unit (50–100 sq ft) from AED 599/month. A full villa clearance
-              requires a large unit (100–200 sq ft) from AED 1,299/month. All plans include free pickup,
+              requires a large unit (100–200 sq ft) from AED 1,299/month. All plans include hassle-free pickup,
               climate control, 24/7 security, and free insurance up to AED 5,000. No minimum contract — store
               for a week or several years.
             </p>

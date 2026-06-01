@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   keywords: "storage units dubai, self storage dubai, storage dubai price, storage units near me, cheap storage dubai, climate controlled storage, furniture storage dubai, storage facility dubai, storage space dubai, storage rental dubai",
   openGraph: {
     title: "Storage Units in Dubai - From AED 99/Month | Hassle-Free Pickup",
-    description: "Secure, climate-controlled storage units in Dubai. Hassle-hassle-free pickup & delivery, 24/7 access, transparent pricing. Trusted by 500+ customers.",
+    description: "Secure, climate-controlled storage units in Dubai. Hassle-free pickup & delivery, 24/7 access, transparent pricing. Trusted by 500+ customers.",
     url: "https://safestorage.ae/storage-units-dubai",
     siteName: "SafeStorage Dubai",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Storage Units in Dubai - From AED 99/Month",
-    description: "Climate-controlled storage with Hassle-Hassle-hassle-free pickup. 500+ happy customers.",
+    description: "Climate-controlled storage with Hassle-free pickup. 500+ happy customers.",
   },
   alternates: {
     canonical: "https://safestorage.ae/storage-units-dubai",
@@ -258,7 +258,7 @@ const testimonials = [
     useCase: "Apartment Downsizing",
     rating: 5,
     text: "Moved from 3BR to 1BR apartment. Instead of selling furniture, I stored it. The hassle-free pickup saved me so much time - they literally did everything!",
-    highlight: "Hassle-hassle-free pickup",
+    highlight: "Hassle-free pickup",
   },
   {
     name: "James Wilson",
@@ -394,7 +394,7 @@ export default function StorageUnitsDubaiPage() {
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Hassle-Hassle-hassle-free pickup & delivery • 24/7 access • Climate controlled • No hidden fees
+              Hassle-free pickup & delivery • 24/7 access • Climate controlled • No hidden fees
             </p>
 
             {/* CTAs */}
@@ -534,7 +534,7 @@ export default function StorageUnitsDubaiPage() {
                     </div>
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                      <span className="text-sm">Hassle-hassle-free pickup & delivery</span>
+                      <span className="text-sm">Hassle-free pickup & delivery</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
@@ -695,7 +695,7 @@ export default function StorageUnitsDubaiPage() {
               Storage Unit Pickup in All Dubai Areas
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Hassle-Hassle-hassle-free pickup & delivery from these locations (and anywhere else in Dubai!)
+              Hassle-free pickup & delivery from these locations (and anywhere else in Dubai!)
             </p>
           </div>
 
@@ -970,7 +970,7 @@ export default function StorageUnitsDubaiPage() {
               <div>
                 <p className="font-semibold mb-2">Value-Added Features</p>
                 <ul className="space-y-1 text-sm">
-                  <li>• <strong>Free pickup &amp; delivery:</strong> Saves time and cost vs renting a lorry</li>
+                  <li>• <strong>Hassle-free pickup &amp; delivery:</strong> Saves time and cost vs renting a lorry</li>
                   <li>• <strong>Flexible contracts:</strong> Month-to-month vs long-term lock-ins</li>
                   <li>• <strong>Transparent pricing:</strong> No hidden fees, clear invoicing</li>
                   <li>• <strong>Customer support:</strong> Dedicated consultant vs call centre-only service</li>
@@ -981,7 +981,7 @@ export default function StorageUnitsDubaiPage() {
           <div className="bg-white rounded-xl p-6 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-dubai-navy mb-3">Why SafeStorage is Dubai&apos;s Top-Rated Storage Unit Provider</h3>
             <p className="text-gray-700">
-              SafeStorage Dubai offers storage units from AED 199/month with climate control and free pickup
+              SafeStorage Dubai offers storage units from AED 199/month with climate control and hassle-free pickup
               and delivery included as standard. All units maintain 20–25°C year-round, are secured with
               biometric access and 24/7 CCTV, and come with free insurance up to AED 5,000. Monthly contracts
               with no minimum term, no cancellation fees, and no hidden charges make SafeStorage the most
@@ -995,7 +995,7 @@ export default function StorageUnitsDubaiPage() {
             {[
               { q: "How much do storage units cost in Dubai per month?", a: "Storage unit prices at SafeStorage Dubai start from AED 99 per month for small units. A medium unit (75–100 sq ft) typically costs AED 299–699 per month depending on size. Large units for full villas start at AED 899 per month. All prices include climate control maintained at 20–25°C, 24/7 CCTV security, free insurance up to AED 5,000, and door-to-door pickup and delivery. There are no setup fees, no deposits, and no hidden administration charges." },
               { q: "Are storage units in Dubai climate controlled?", a: "All units at SafeStorage Dubai are climate controlled, maintaining temperature at 20–25°C and humidity at 45–55% year-round. In Dubai, where outdoor summer temperatures regularly exceed 45°C, climate control is essential for protecting furniture, electronics, leather, clothing, documents, and artwork from heat damage, warping, cracking, and mould. Climate control is included in the standard monthly price at SafeStorage — it is not an add-on or upgrade." },
-              { q: "Do storage units in Dubai include free pickup and delivery?", a: "Yes. SafeStorage Dubai includes free door-to-door pickup and delivery in every monthly plan. Our professional team collects your items from your home, office, or any Dubai location, transports them to our secure facility, and delivers them back whenever you need them. This saves customers the cost and hassle of hiring a lorry or arranging separate movers — typically AED 300–800 in savings compared to traditional self-storage facilities." },
+              { q: "Do storage units in Dubai include hassle-free pickup and delivery?", a: "Yes. SafeStorage Dubai includes free door-to-door pickup and delivery in every monthly plan. Our professional team collects your items from your home, office, or any Dubai location, transports them to our secure facility, and delivers them back whenever you need them. This saves customers the cost and hassle of hiring a lorry or arranging separate movers — typically AED 300–800 in savings compared to traditional self-storage facilities." },
               { q: "What size storage unit do I need in Dubai?", a: "Unit size depends on what you are storing. A small unit (25–50 sq ft) suits a studio apartment, documents, or 10–20 boxes. A medium unit (75–120 sq ft) accommodates a one-to-two bedroom apartment. A large unit (150–300 sq ft) handles a three-bedroom villa or business inventory. The most accurate way to choose is to contact SafeStorage Dubai on +971505773388 — our consultant will assess your needs and recommend the exact size, preventing you from overpaying for space you don&apos;t need." },
               { q: "How secure are storage units in Dubai?", a: "SafeStorage Dubai operates enterprise-grade security across the facility: 24/7 HD CCTV coverage of every aisle and entry point, biometric fingerprint access so only you (or authorised persons) can open your unit, individual unit alarms, fire detection and suppression systems, perimeter security fencing, and on-site security personnel. Every stored item is also covered by free insurance up to AED 5,000. The facility has maintained an unbroken security record since opening." },
               { q: "What is the minimum rental period for a storage unit in Dubai?", a: "SafeStorage Dubai offers flexible month-to-month contracts with no long-term commitment required. The effective minimum period is one month. We also offer weekly arrangements for urgent short-term needs such as renovation projects, moving between apartments, or property handovers. Cancellation requires just 30 days&apos; notice — there is no early termination penalty. Longer-term plans (3, 6, or 12 months prepaid) are available with discounts of 10–20%." },
@@ -1008,7 +1008,7 @@ export default function StorageUnitsDubaiPage() {
               { q: "How quickly can I get a storage unit in Dubai?", a: "Very quickly. For same-day pickup, book before 12 PM and our team will collect your items the same day. Standard pickups are typically available within 24–48 hours based on your preferred time slot. Getting a quote takes under two minutes online at safestorage.ae or via a quick call to +971505773388. There is no paperwork to complete before your pickup — our team brings all necessary documents on the day." },
               { q: "Where is the SafeStorage Dubai facility located?", a: "SafeStorage Dubai&apos;s main facility is in Dubai Investment Park 2, with easy access from Sheikh Mohammed Bin Zayed Road. However, for most customers, the facility location is irrelevant because our door-to-door model means we collect from and deliver to your address — wherever in Dubai you are. You never need to visit the facility unless you specifically want to access your unit directly or are curious to see where your belongings are kept." },
               { q: "Does SafeStorage Dubai serve business customers?", a: "Yes. SafeStorage Dubai is used extensively by businesses including e-commerce sellers needing flexible inventory storage, law firms and consultancies archiving documents for the UAE&apos;s mandatory 5-year retention period, event management companies storing displays and equipment, retail businesses managing seasonal stock, and office relocations requiring short-term furniture and equipment storage. Commercial plans include dedicated consultant support, flexible access arrangements, and the ability to scale unit size up or down with 30 days&apos; notice." },
-              { q: "How is SafeStorage Dubai different from other storage companies?", a: "SafeStorage Dubai stands out through its door-to-door model (free pickup and delivery included in every plan), 100% climate-controlled units at every price point, transparent all-inclusive pricing with no hidden fees, free insurance up to AED 5,000 as standard, a 4.9-star Google rating from 487+ verified reviews, and personalised dedicated consultant service rather than a generic call centre. We believe storage should be completely hassle-free — and every element of our service is designed with that goal in mind." }
+              { q: "How is SafeStorage Dubai different from other storage companies?", a: "SafeStorage Dubai stands out through its door-to-door model (hassle-free pickup and delivery included in every plan), 100% climate-controlled units at every price point, transparent all-inclusive pricing with no hidden fees, free insurance up to AED 5,000 as standard, a 4.9-star Google rating from 487+ verified reviews, and personalised dedicated consultant service rather than a generic call centre. We believe storage should be completely hassle-free — and every element of our service is designed with that goal in mind." }
             ].map((faq, i) => (
               <div key={i} className="bg-white rounded-xl p-6 border border-gray-200">
                 <h4 className="font-bold text-dubai-navy mb-2">{faq.q}</h4>
