@@ -251,7 +251,7 @@ export default function Pricing() {
                   <p className="text-sm">Our professional team collects your belongings from any Dubai address at your chosen time. They bring all necessary equipment, wrap furniture, and handle all heavy lifting. No van rental, no labour charges, no fuel surcharges. Completely free.</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-[#0A2463]">Free Return Delivery in Dubai</p>
+                  <p className="font-semibold text-[#0A2463]">Hassle-Free Return Delivery in Dubai</p>
                   <p className="text-sm">When you need items back, we deliver them to your door within 24–48 hours at no charge. Same-day delivery is available for urgent requests. Partial retrieval — getting some but not all items back — is also free.</p>
                 </div>
               </div>
@@ -370,7 +370,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. What is the best value storage option for someone moving apartments in Dubai?</h3>
-              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — our medium unit (50–100 sq ft) at AED 599 per month is typically the best value option for a one to two-bedroom apartment. This includes hassle-free pickup from your old apartment, climate-controlled storage for the duration between leases, and free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
+              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — our medium unit (50–100 sq ft) at AED 599 per month is typically the best value option for a one to two-bedroom apartment. This includes hassle-free pickup from your old apartment, climate-controlled storage for the duration between leases, and hassle-free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -405,7 +405,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. What is the price for storing a full villa worth of furniture in Dubai?</h3>
-              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, a Large or Extra Large unit is usually required, starting from AED 1,299 to AED 2,499 per month. This includes hassle-free pickup from your villa, climate-controlled storage, 24/7 security, free insurance, and free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
+              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, a Large or Extra Large unit is usually required, starting from AED 1,299 to AED 2,499 per month. This includes hassle-free pickup from your villa, climate-controlled storage, 24/7 security, free insurance, and hassle-free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
             </div>
 
           </div>

@@ -413,7 +413,7 @@ export default function CheapStorageDubai() {
 
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-700">
-              <strong>All prices include:</strong> Hassle-Free Pickup, FREE delivery, 24/7 access, climate control, security monitoring
+              <strong>All prices include:</strong> Hassle-Free Pickup, Hassle-free delivery, 24/7 access, climate control, security monitoring
             </p>
           </div>
         </div>
@@ -660,7 +660,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "Are there really no hidden fees?",
-                a: "Absolutely! Our price includes Hassle-Free Pickup, FREE delivery, 24/7 access, security, and climate control. No setup fees, no access fees, no lock deposit. What you see is what you pay.",
+                a: "Absolutely! Our price includes Hassle-Free Pickup, Hassle-free delivery, 24/7 access, security, and climate control. No setup fees, no access fees, no lock deposit. What you see is what you pay.",
               },
               {
                 q: "Can I pay monthly or do I need to commit long-term?",
@@ -688,7 +688,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "What's included in the monthly price?",
-                a: "Everything! Climate control, 24/7 security, Hassle-Free Pickup, FREE delivery, unlimited access, and your own lock. The only optional extra is additional insurance (if you want coverage above the basic amount).",
+                a: "Everything! Climate control, 24/7 security, Hassle-Free Pickup, Hassle-free delivery, unlimited access, and your own lock. The only optional extra is additional insurance (if you want coverage above the basic amount).",
               },
               {
                 q: "Can I share a unit with friends to save money?",

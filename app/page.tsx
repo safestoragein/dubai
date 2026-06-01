@@ -160,7 +160,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What is included in the monthly storage price?</h3>
-              <p className="text-gray-700 leading-relaxed">The monthly storage rate at SafeStorage Dubai includes: hassle-free door-to-door pickup from anywhere in Dubai, secure climate-controlled storage in our monitored warehouse, digital inventory management with item-level tracking, free insurance coverage up to AED 5,000, 24/7 CCTV and biometric security, and free delivery back to your address when you need your items. There are no hidden fees. The only additional charges would be for optional packing materials if requested, enhanced insurance for high-value items, or same-day express service during peak periods.</p>
+              <p className="text-gray-700 leading-relaxed">The monthly storage rate at SafeStorage Dubai includes: hassle-free door-to-door pickup from anywhere in Dubai, secure climate-controlled storage in our monitored warehouse, digital inventory management with item-level tracking, free insurance coverage up to AED 5,000, 24/7 CCTV and biometric security, and hassle-free delivery back to your address when you need your items. There are no hidden fees. The only additional charges would be for optional packing materials if requested, enhanced insurance for high-value items, or same-day express service during peak periods.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">Is VAT included in the price?</h3>

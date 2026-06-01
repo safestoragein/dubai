@@ -201,7 +201,7 @@ const steps = [
     number: "4",
     title: "Access Anytime",
     description: "Visit during operating hours or request delivery back to your location when ready.",
-    cta: "FREE delivery",
+    cta: "Hassle-free delivery",
   },
 ]
 
@@ -302,7 +302,7 @@ const faqs = [
   },
   {
     question: "Can I access my storage unit 24/7?",
-    answer: "Standard access hours are Monday-Saturday 8AM-8PM and Sunday 10AM-6PM. Business customers can arrange extended hours or 24/7 access packages based on their needs. You can also request FREE delivery of your items to your location at any time.",
+    answer: "Standard access hours are Monday-Saturday 8AM-8PM and Sunday 10AM-6PM. Business customers can arrange extended hours or 24/7 access packages based on their needs. You can also request Hassle-free delivery of your items to your location at any time.",
   },
   {
     question: "What is the minimum rental period?",

@@ -187,7 +187,7 @@ export default function GetQuote() {
               </div>
               <div className="space-y-3">
                 <p><strong>Free insurance up to AED 5,000:</strong> Every plan includes complimentary insurance covering fire, theft, flood, and accidental damage. No paperwork to fill — it is automatic from day one.</p>
-                <p><strong>Free delivery back to your door:</strong> When you need items returned, we deliver them back to any Dubai address. Standard delivery within 24–48 hours. Urgent same-day delivery available on request.</p>
+                <p><strong>Hassle-free delivery back to your door:</strong> When you need items returned, we deliver them back to any Dubai address. Standard delivery within 24–48 hours. Urgent same-day delivery available on request.</p>
                 <p><strong>Dedicated storage consultant:</strong> Every customer is assigned a personal consultant who manages your account, answers questions, and coordinates pickups and deliveries on your behalf.</p>
               </div>
             </div>

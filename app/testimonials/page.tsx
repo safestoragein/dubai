@@ -232,7 +232,7 @@ export default function TestimonialsPage() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">6. Do customers find the pricing competitive compared to other Dubai storage companies?</h3>
-              <p className="text-gray-700">Customers consistently tell us that SafeStorage offers excellent value when they consider everything that is included. While the headline price may appear similar to some competitors, what distinguishes SafeStorage is that our price includes climate control, hassle-free door-to-door pickup, free delivery, free insurance, and dedicated customer support — all at no extra charge. Many customers who previously used basic storage facilities in Dubai report that they were paying separately for each of these services, making SafeStorage significantly better value overall.</p>
+              <p className="text-gray-700">Customers consistently tell us that SafeStorage offers excellent value when they consider everything that is included. While the headline price may appear similar to some competitors, what distinguishes SafeStorage is that our price includes climate control, hassle-free door-to-door pickup, hassle-free delivery, free insurance, and dedicated customer support — all at no extra charge. Many customers who previously used basic storage facilities in Dubai report that they were paying separately for each of these services, making SafeStorage significantly better value overall.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
