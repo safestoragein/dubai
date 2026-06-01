@@ -202,40 +202,8 @@ export const localBusinessSchema = {
   makesOffer: [
     {
       "@type": "Offer",
-      name: "Small Storage Unit (25-50 sq ft)",
-      description: "Perfect for boxes, seasonal items, and small furniture",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      name: "Medium Storage Unit (50-100 sq ft)",
-      description: "Ideal for 1-2 bedroom apartment contents",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      name: "Large Storage Unit (100-200 sq ft)",
-      description: "Suitable for 3 bedroom home or business inventory",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      name: "Extra Large Storage Unit (200+ sq ft)",
-      description: "For villas, large businesses, or bulk storage",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      name: "Vehicle Storage",
-      description: "Secure parking for cars, motorcycles, and boats",
+      name: "Storage in Dubai",
+      description: "Flexible climate-controlled storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
       priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
@@ -309,7 +277,7 @@ export const faqSchema = {
       name: "What sizes of storage units are available at SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai offers flexible storage solutions for all needs: Small units for boxes, seasonal items, and small furniture; Medium units for 1-2 bedroom apartment contents; Large units for 3 bedroom home contents; Extra Large units for villas or business inventory; Vehicle Storage for cars, bikes, and boats. Pricing starts from 12.65 AED / sqft (VAT-inclusive). Contact us at +971505773388 for a personalized quote."
+        text: "SafeStorage Dubai offers flexible storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use. We also store vehicles such as cars, bikes, and boats. Pricing starts from 12.65 AED / sqft (VAT-inclusive). Call +971505773388 for a quote."
       }
     },
     {
@@ -317,7 +285,7 @@ export const faqSchema = {
       name: "How do I know what storage unit size I need?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Here's a quick guide: Small (25-50 sq ft) - 10-20 boxes or studio apartment items; Medium (50-100 sq ft) - 1-2 bedroom apartment contents; Large (100-200 sq ft) - 3 bedroom home or office furniture; Extra Large (200+ sq ft) - 4+ bedroom villa or business inventory. Our dedicated storage consultants offer free assessments and can recommend the perfect size based on your specific items. Call +971505773388 for personalized advice."
+        text: "You only pay for the space you use, so there's no need to pick a fixed unit size. Whether you're storing a few boxes or the full contents of a villa or business, our dedicated storage consultants offer free assessments and will work out exactly how much space your items need. Pricing starts from 12.65 AED / sqft (VAT-inclusive). Call +971505773388 for personalized advice."
       }
     },
     {
@@ -608,40 +576,8 @@ export const serviceSchema = {
   offers: [
     {
       "@type": "Offer",
-      name: "Small Storage Unit",
-      description: "25-50 sq ft - Perfect for boxes, seasonal items, and small furniture",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      name: "Medium Storage Unit",
-      description: "50-100 sq ft - Ideal for one-bedroom apartment contents",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      name: "Large Storage Unit",
-      description: "100-200 sq ft - Suitable for 3 bedroom homes",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      name: "Extra Large Storage Unit",
-      description: "200-300+ sq ft - For villas or business inventory",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      name: "Vehicle Storage",
-      description: "Secure climate-controlled parking for cars, motorcycles, boats",
+      name: "Storage in Dubai",
+      description: "Flexible climate-controlled storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
       priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
@@ -691,119 +627,11 @@ export const productSchema = {
     priceCurrency: "AED",
     lowPrice: "12.65",
     highPrice: "12.65",
-    offerCount: "5",
+    offerCount: "1",
     offers: [
       {
         "@type": "Offer",
-        name: "Small Unit",
-        price: "12.65",
-        priceCurrency: "AED",
-        availability: "https://schema.org/InStock",
-        url: "https://safestorage.ae/storage-units-dubai",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
-        shippingDetails: {
-          "@type": "OfferShippingDetails",
-          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
-          shippingDestination: { "@type": "DefinedRegion", addressCountry: "AE", addressRegion: "Dubai" },
-          deliveryTime: {
-            "@type": "ShippingDeliveryTime",
-            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
-            transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" }
-          }
-        },
-        hasMerchantReturnPolicy: {
-          "@type": "MerchantReturnPolicy",
-          applicableCountry: "AE",
-          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-          merchantReturnDays: 30,
-          returnMethod: "https://schema.org/ReturnByMail",
-          returnFees: "https://schema.org/FreeReturn"
-        }
-      },
-      {
-        "@type": "Offer",
-        name: "Medium Unit",
-        price: "12.65",
-        priceCurrency: "AED",
-        availability: "https://schema.org/InStock",
-        url: "https://safestorage.ae/storage-units-dubai",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
-        shippingDetails: {
-          "@type": "OfferShippingDetails",
-          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
-          shippingDestination: { "@type": "DefinedRegion", addressCountry: "AE", addressRegion: "Dubai" },
-          deliveryTime: {
-            "@type": "ShippingDeliveryTime",
-            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
-            transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" }
-          }
-        },
-        hasMerchantReturnPolicy: {
-          "@type": "MerchantReturnPolicy",
-          applicableCountry: "AE",
-          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-          merchantReturnDays: 30,
-          returnMethod: "https://schema.org/ReturnByMail",
-          returnFees: "https://schema.org/FreeReturn"
-        }
-      },
-      {
-        "@type": "Offer",
-        name: "Large Unit",
-        price: "12.65",
-        priceCurrency: "AED",
-        availability: "https://schema.org/InStock",
-        url: "https://safestorage.ae/storage-units-dubai",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
-        shippingDetails: {
-          "@type": "OfferShippingDetails",
-          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
-          shippingDestination: { "@type": "DefinedRegion", addressCountry: "AE", addressRegion: "Dubai" },
-          deliveryTime: {
-            "@type": "ShippingDeliveryTime",
-            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
-            transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" }
-          }
-        },
-        hasMerchantReturnPolicy: {
-          "@type": "MerchantReturnPolicy",
-          applicableCountry: "AE",
-          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-          merchantReturnDays: 30,
-          returnMethod: "https://schema.org/ReturnByMail",
-          returnFees: "https://schema.org/FreeReturn"
-        }
-      },
-      {
-        "@type": "Offer",
-        name: "Extra Large Unit",
-        price: "12.65",
-        priceCurrency: "AED",
-        availability: "https://schema.org/InStock",
-        url: "https://safestorage.ae/storage-units-dubai",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
-        shippingDetails: {
-          "@type": "OfferShippingDetails",
-          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
-          shippingDestination: { "@type": "DefinedRegion", addressCountry: "AE", addressRegion: "Dubai" },
-          deliveryTime: {
-            "@type": "ShippingDeliveryTime",
-            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
-            transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" }
-          }
-        },
-        hasMerchantReturnPolicy: {
-          "@type": "MerchantReturnPolicy",
-          applicableCountry: "AE",
-          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-          merchantReturnDays: 30,
-          returnMethod: "https://schema.org/ReturnByMail",
-          returnFees: "https://schema.org/FreeReturn"
-        }
-      },
-      {
-        "@type": "Offer",
-        name: "Vehicle Storage",
+        name: "Storage in Dubai",
         price: "12.65",
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
@@ -895,17 +723,17 @@ export const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": "https://safestorage.ae/#itemlist",
-  name: "Storage Unit Sizes at SafeStorage Dubai",
-  description: "Complete list of storage unit sizes and prices available at SafeStorage Dubai",
-  numberOfItems: 5,
+  name: "Storage in Dubai at SafeStorage Dubai",
+  description: "Flexible storage in Dubai - pay only for the space you use, priced from 12.65 AED / sqft (VAT-inclusive)",
+  numberOfItems: 1,
   itemListElement: [
     {
       "@type": "ListItem",
       position: 1,
       item: {
         "@type": "Product",
-        name: "Small Storage Unit (25-50 sq ft)",
-        description: "Perfect for 10-20 boxes, seasonal items, small furniture",
+        name: "Storage in Dubai",
+        description: "Flexible climate-controlled storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
         image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
@@ -914,222 +742,6 @@ export const itemListSchema = {
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
           url: "https://safestorage.ae/storage-units-dubai",
-          shippingDetails: {
-            "@type": "OfferShippingDetails",
-            shippingRate: {
-              "@type": "MonetaryAmount",
-              value: "0",
-              currency: "AED"
-            },
-            shippingDestination: {
-              "@type": "DefinedRegion",
-              addressCountry: "AE",
-              addressRegion: "Dubai"
-            },
-            deliveryTime: {
-              "@type": "ShippingDeliveryTime",
-              handlingTime: {
-                "@type": "QuantitativeValue",
-                minValue: 1,
-                maxValue: 2,
-                unitCode: "DAY"
-              },
-              transitTime: {
-                "@type": "QuantitativeValue",
-                minValue: 0,
-                maxValue: 1,
-                unitCode: "DAY"
-              }
-            }
-          },
-          hasMerchantReturnPolicy: {
-            "@type": "MerchantReturnPolicy",
-            applicableCountry: "AE",
-            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-            merchantReturnDays: 30,
-            returnMethod: "https://schema.org/ReturnByMail",
-            returnFees: "https://schema.org/FreeReturn"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      item: {
-        "@type": "Product",
-        name: "Medium Storage Unit (50-100 sq ft)",
-        description: "Ideal for 1-2 bedroom apartment contents",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
-        brand: { "@type": "Brand", name: "SafeStorage Dubai" },
-        offers: {
-          "@type": "Offer",
-          price: "12.65",
-          priceCurrency: "AED",
-          availability: "https://schema.org/InStock",
-          url: "https://safestorage.ae/storage-units-dubai",
-          shippingDetails: {
-            "@type": "OfferShippingDetails",
-            shippingRate: {
-              "@type": "MonetaryAmount",
-              value: "0",
-              currency: "AED"
-            },
-            shippingDestination: {
-              "@type": "DefinedRegion",
-              addressCountry: "AE",
-              addressRegion: "Dubai"
-            },
-            deliveryTime: {
-              "@type": "ShippingDeliveryTime",
-              handlingTime: {
-                "@type": "QuantitativeValue",
-                minValue: 1,
-                maxValue: 2,
-                unitCode: "DAY"
-              },
-              transitTime: {
-                "@type": "QuantitativeValue",
-                minValue: 0,
-                maxValue: 1,
-                unitCode: "DAY"
-              }
-            }
-          },
-          hasMerchantReturnPolicy: {
-            "@type": "MerchantReturnPolicy",
-            applicableCountry: "AE",
-            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-            merchantReturnDays: 30,
-            returnMethod: "https://schema.org/ReturnByMail",
-            returnFees: "https://schema.org/FreeReturn"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      item: {
-        "@type": "Product",
-        name: "Large Storage Unit (100-200 sq ft)",
-        description: "Suitable for 3 bedroom home or business inventory",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
-        brand: { "@type": "Brand", name: "SafeStorage Dubai" },
-        offers: {
-          "@type": "Offer",
-          price: "12.65",
-          priceCurrency: "AED",
-          availability: "https://schema.org/InStock",
-          url: "https://safestorage.ae/storage-units-dubai",
-          shippingDetails: {
-            "@type": "OfferShippingDetails",
-            shippingRate: {
-              "@type": "MonetaryAmount",
-              value: "0",
-              currency: "AED"
-            },
-            shippingDestination: {
-              "@type": "DefinedRegion",
-              addressCountry: "AE",
-              addressRegion: "Dubai"
-            },
-            deliveryTime: {
-              "@type": "ShippingDeliveryTime",
-              handlingTime: {
-                "@type": "QuantitativeValue",
-                minValue: 1,
-                maxValue: 2,
-                unitCode: "DAY"
-              },
-              transitTime: {
-                "@type": "QuantitativeValue",
-                minValue: 0,
-                maxValue: 1,
-                unitCode: "DAY"
-              }
-            }
-          },
-          hasMerchantReturnPolicy: {
-            "@type": "MerchantReturnPolicy",
-            applicableCountry: "AE",
-            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-            merchantReturnDays: 30,
-            returnMethod: "https://schema.org/ReturnByMail",
-            returnFees: "https://schema.org/FreeReturn"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
-      item: {
-        "@type": "Product",
-        name: "Extra Large Storage Unit (200+ sq ft)",
-        description: "For villas, large businesses, or bulk storage",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
-        brand: { "@type": "Brand", name: "SafeStorage Dubai" },
-        offers: {
-          "@type": "Offer",
-          price: "12.65",
-          priceCurrency: "AED",
-          availability: "https://schema.org/InStock",
-          url: "https://safestorage.ae/storage-units-dubai",
-          shippingDetails: {
-            "@type": "OfferShippingDetails",
-            shippingRate: {
-              "@type": "MonetaryAmount",
-              value: "0",
-              currency: "AED"
-            },
-            shippingDestination: {
-              "@type": "DefinedRegion",
-              addressCountry: "AE",
-              addressRegion: "Dubai"
-            },
-            deliveryTime: {
-              "@type": "ShippingDeliveryTime",
-              handlingTime: {
-                "@type": "QuantitativeValue",
-                minValue: 1,
-                maxValue: 2,
-                unitCode: "DAY"
-              },
-              transitTime: {
-                "@type": "QuantitativeValue",
-                minValue: 0,
-                maxValue: 1,
-                unitCode: "DAY"
-              }
-            }
-          },
-          hasMerchantReturnPolicy: {
-            "@type": "MerchantReturnPolicy",
-            applicableCountry: "AE",
-            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-            merchantReturnDays: 30,
-            returnMethod: "https://schema.org/ReturnByMail",
-            returnFees: "https://schema.org/FreeReturn"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      position: 5,
-      item: {
-        "@type": "Product",
-        name: "Vehicle Storage",
-        description: "Climate-controlled parking for cars, motorcycles, boats",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
-        brand: { "@type": "Brand", name: "SafeStorage Dubai" },
-        offers: {
-          "@type": "Offer",
-          price: "12.65",
-          priceCurrency: "AED",
-          availability: "https://schema.org/InStock",
-          url: "https://safestorage.ae/storage-dubai/vehicle-storage",
           shippingDetails: {
             "@type": "OfferShippingDetails",
             shippingRate: {
@@ -1200,8 +812,8 @@ export const offerSchema = {
   },
   itemOffered: {
     "@type": "Service",
-    name: "Small Storage Unit",
-    description: "Climate-controlled storage unit 25-50 sq ft"
+    name: "Storage in Dubai",
+    description: "Flexible climate-controlled storage - pay only for the space you use"
   }
 }
 
