@@ -1103,7 +1103,16 @@ export default function QuotePage() {
                         label="Complete Address *"
                         placeholder="Villa 123, Dubai Marina, Dubai, UAE"
                         value={formData.address}
-                        onChange={(value) => setFormData({ ...formData, address: value })}
+                        onChange={(value) => {
+                          // Auto-detect the emirate from the Google-selected address
+                          // (e.g. "…, Sharjah, UAE" → sharjah). Longest name wins so
+                          // "Umm Al Quwain" is matched before shorter substrings.
+                          const lower = value.toLowerCase()
+                          const matched = apiEmirates
+                            .filter((em) => lower.includes(em.city_name.toLowerCase()))
+                            .sort((a, b) => b.city_name.length - a.city_name.length)[0]
+                          setFormData({ ...formData, address: value, emirate: matched ? matched.city_slug : formData.emirate })
+                        }}
                       />
 
                       <div className="space-y-2">
