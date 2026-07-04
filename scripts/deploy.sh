@@ -22,7 +22,7 @@ SSH="ssh -i $KEY -o StrictHostKeyChecking=accept-new"
 [ -f "$KEY" ] || { echo "SSH key not found: $KEY (set DUBAI_SSH_KEY)"; exit 1; }
 
 echo "==> 1/3  Syncing code to server (excludes .git, node_modules, .next, .env.local)…"
-rsync -az --delete-excluded \
+rsync -az \
   -e "$SSH" \
   --exclude '.git/' --exclude 'node_modules/' --exclude '.next/' \
   --exclude '.env.local' --exclude '.env*.local' --exclude '.vercel/' \

@@ -23,13 +23,6 @@ export default function WhyChooseUs() {
       highlight: "Anywhere Dubai",
     },
     {
-      icon: Shield,
-      title: "AED 5,000 Free Insurance",
-      description:
-        "Every storage unit includes complimentary insurance coverage up to AED 5,000 — included in your monthly plan at no extra cost. Additional coverage is available for high-value items such as electronics, fine art, jewellery, and collectibles.",
-      highlight: "Included Free",
-    },
-    {
       icon: Users,
       title: "Dedicated Storage Consultant",
       description:
