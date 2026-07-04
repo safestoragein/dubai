@@ -872,6 +872,7 @@ export default function QuotePage() {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
           customer_id: formData.customerId!.toString(),
+          quotation_id: formData.quotationId!.toString(), // finalize the existing quote (upsert), no duplicate row
           storage_price: finalPrice!.toString(),
           closed_storage_price: formData.closedPrice!.toString(),
           shared_storage_price: formData.sharedPrice!.toString(),
