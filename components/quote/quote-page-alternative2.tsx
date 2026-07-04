@@ -102,6 +102,7 @@ interface FormData {
   email: string
   phone: string
   address: string
+  emirate: string
   floor: string
   liftAvailable: string
   bedrooms: string
@@ -191,6 +192,7 @@ const initialFormData: FormData = {
   email: "",
   phone: "",
   address: "",
+  emirate: "",
   floor: "",
   liftAvailable: "",
   bedrooms: "",
@@ -426,6 +428,7 @@ export default function QuotePage() {
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [apiItems, setApiItems] = useState<ApiItem[]>([])
+  const [apiEmirates, setApiEmirates] = useState<{ city_slug: string; city_name: string }[]>([])
   const [filteredItems, setFilteredItems] = useState<ApiItem[]>([])
   const [searchTerm, setSearchTerm] = useState("")
   const [isLoadingItems, setIsLoadingItems] = useState(false)
@@ -443,6 +446,14 @@ export default function QuotePage() {
       setSelectedStorageOption('shared')
     }
   }, [currentStep, selectedStorageOption])
+
+  // Load UAE emirates from the backend (sourced from ss_city, country_code='AE')
+  useEffect(() => {
+    fetch('https://safestorage.in/back/app/get_dubai_emirates?country=AE')
+      .then((r) => r.json())
+      .then((d) => { if (d && d.status && Array.isArray(d.data)) setApiEmirates(d.data) })
+      .catch(() => {})
+  }, [])
   
   const { setNavigationGuard, setFormData: setGuardFormData, setCurrentStep: setGuardCurrentStep } = useNavigationGuard()
 
@@ -613,6 +624,7 @@ export default function QuotePage() {
             customer_email: formData.email,
             customer_contact1: formData.phone,
             pickup_address: formData.address,
+            customer_local_city: formData.emirate,
           }),
         })
 
@@ -805,7 +817,7 @@ export default function QuotePage() {
   }
 
   const validateStep1 = () => {
-    if (!formData.fullName || !formData.email || !formData.phone || !formData.address || !formData.floor || !formData.liftAvailable || !formData.bedrooms) {
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.address || !formData.emirate || !formData.floor || !formData.liftAvailable || !formData.bedrooms) {
       toast.error("Please fill in all required fields")
       return false
     }
@@ -1093,7 +1105,24 @@ export default function QuotePage() {
                         value={formData.address}
                         onChange={(value) => setFormData({ ...formData, address: value })}
                       />
-                      
+
+                      <div className="space-y-2">
+                        <Label className="text-sm font-semibold text-slate-700">Emirate *</Label>
+                        <Select
+                          value={formData.emirate}
+                          onValueChange={(value) => setFormData({ ...formData, emirate: value })}
+                        >
+                          <SelectTrigger className="h-12 border-2 border-slate-200 focus:border-blue-500 rounded-lg">
+                            <SelectValue placeholder="Select emirate" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {apiEmirates.map((em) => (
+                              <SelectItem key={em.city_slug} value={em.city_slug}>{em.city_name}</SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <Label className="text-sm font-semibold text-slate-700">Floor Level *</Label>
