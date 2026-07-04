@@ -1116,13 +1116,13 @@ export default function QuotePage() {
                       />
 
                       <div className="space-y-2">
-                        <Label className="text-sm font-semibold text-slate-700">Emirate *</Label>
+                        <Label className="text-sm font-semibold text-slate-700">Area *</Label>
                         <Select
                           value={formData.emirate}
                           onValueChange={(value) => setFormData({ ...formData, emirate: value })}
                         >
                           <SelectTrigger className="h-12 border-2 border-slate-200 focus:border-blue-500 rounded-lg">
-                            <SelectValue placeholder="Select emirate" />
+                            <SelectValue placeholder="Select area" />
                           </SelectTrigger>
                           <SelectContent>
                             {apiEmirates.map((em) => (
