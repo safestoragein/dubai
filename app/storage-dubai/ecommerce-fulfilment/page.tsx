@@ -31,11 +31,6 @@ const features = [
     description: "Secure storage for your products with organized inventory tracking",
   },
   {
-    icon: ShieldCheck,
-    title: "24/7 Security",
-    description: "Round-the-clock surveillance and secure biometric access",
-  },
-  {
     icon: Truck,
     title: "Fast Pickup & Delivery",
     description: "Same-day pickup and delivery service for your orders",
@@ -226,10 +221,6 @@ export default function EcommerceFulfilmentPage() {
                 and fixed space regardless of seasonal demand fluctuations. SafeStorage eliminates all of these
                 constraints. Our e-commerce storage model lets you pay for exactly the space you use each month,
                 scale up during Ramadan, back-to-school, or Black Friday sales periods, and reduce again in quieter months.
-              </p>
-              <p className="text-gray-700">
-                Your inventory is kept in clean, dedicated units and handled with care.
-                All inventory is stored in secure, individual units with 24/7 CCTV monitoring and biometric access.
               </p>
             </div>
             <div>

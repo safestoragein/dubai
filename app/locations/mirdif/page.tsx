@@ -208,7 +208,6 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How does SafeStorage handle privacy and security for Mirdif villa contents?</h3>
-              <p className="text-gray-700">SafeStorage takes privacy and security seriously for all customers, particularly in family-oriented communities like Mirdif where personal belongings may include valuables, family heirlooms, and privacy-sensitive items. Our team members are uniformed, trained, and subject to background checks. All items are inventoried and stored in individually secured units. Our facility uses biometric access control and 24/7 CCTV. We never share customer information or inventory details with third parties. All staff sign confidentiality agreements as part of their employment.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Rashidiya covered by SafeStorage?</h3>

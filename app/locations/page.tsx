@@ -227,9 +227,6 @@ export default function LocationsPage() {
           <p className="text-lg text-gray-700 mb-6">
             SafeStorage Dubai operates the most comprehensive door-to-door storage pickup network in the UAE. Unlike traditional self-storage facilities where you must rent a van, load your own furniture, and drive across the city, SafeStorage comes directly to your home or office anywhere in Dubai. Our professional team handles collection, secure transportation, and on-demand delivery — making storage genuinely hassle-free from start to finish. With service zones spanning Business Bay, Dubai Marina, Jumeirah, Dubai Investment Park, and all surrounding communities, there is no area of Dubai we cannot serve.
           </p>
-          <p className="text-lg text-gray-700 mb-8">
-            All stored items are kept in secure, indoor units, protected by 24/7 CCTV surveillance and biometric access control. Every customer&apos;s stored items are covered by complimentary insurance, and pricing starts from 12.60 AED / sqft (VAT-inclusive) with no long-term lock-in. Whether you need storage for one week or five years, SafeStorage provides the same premium standard of care, security, and service.
-          </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             <div className="bg-blue-50 rounded-xl p-6">
@@ -267,7 +264,6 @@ export default function LocationsPage() {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Hassle-free door-to-door pickup anywhere in Dubai</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Secure, indoor storage</span></li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>24/7 CCTV surveillance and biometric access control</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Complimentary insurance on all stored items</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Digital photo inventory of every item stored</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Dedicated storage consultant via phone and WhatsApp</span></li>

@@ -60,11 +60,6 @@ export default function AboutPage() {
 
   const values = [
     {
-      icon: Shield,
-      title: "Security First",
-      description: "24/7 CCTV surveillance, biometric access, and individual unit alarms ensure your belongings are always protected.",
-    },
-    {
       icon: Users,
       title: "Customer Focus",
       description: "Every customer gets a dedicated storage consultant who understands their unique needs and provides personalized service.",

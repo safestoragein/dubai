@@ -235,7 +235,6 @@ export default function JumeirahPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can SafeStorage store high-value antiques and luxury furniture from Jumeirah villas?</h3>
-            <p className="text-gray-700">Yes, SafeStorage regularly stores high-value antiques, custom furniture, luxury pieces, and collectibles for Jumeirah villa residents. Our specialist packing team uses museum-grade materials for fragile and valuable items including acid-free tissue paper, custom crating for fragile pieces, and individually secured units. We recommend declaring high-value items at booking so we can advise on extended insurance coverage. Our facility security — 24/7 CCTV, biometric access, individual unit alarms — provides the highest standard of protection for luxury items.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What storage options are available for expats leaving Dubai from Jumeirah?</h3>

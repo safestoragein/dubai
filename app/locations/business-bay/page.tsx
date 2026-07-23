@@ -253,7 +253,6 @@ export default function BusinessBayPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What security measures does SafeStorage use?</h3>
-            <p className="text-gray-700">SafeStorage employs multiple layers of security to protect your belongings. The facility uses 24/7 HD CCTV surveillance covering all internal and external areas, biometric fingerprint access control for unit entry, individual electronic alarms on each storage unit, perimeter fencing and controlled entry points, and on-site security personnel during operating hours. All staff are vetted and trained in security protocols. Every access event is digitally logged, creating a complete audit trail of who accessed your unit and when. This level of security significantly exceeds what most Dubai apartment buildings or offices provide for stored items.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is included in the free insurance provided with SafeStorage?</h3>

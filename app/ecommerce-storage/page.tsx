@@ -56,7 +56,6 @@ const comparison = [
   { aspect: "Scaling up", storage: "Next day", warehouse: "New lease or negotiation" },
   { aspect: "Scaling down", storage: "30 days notice", warehouse: "Lease break fees" },
   { aspect: "Access", storage: "Business hours + scheduled", warehouse: "24/7 typically" },
-  { aspect: "Security", storage: "Biometric + CCTV", warehouse: "Varies widely" },
 ]
 
 export default function EcommerceStoragePage() {
@@ -243,7 +242,6 @@ export default function EcommerceStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our E-Commerce Storage Service in Dubai</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
               <p>SafeStorage Dubai&apos;s e-commerce storage service is designed specifically for online sellers, D2C brands, and growing businesses that need flexible inventory space without the financial and legal commitments of a traditional warehouse lease. Unlike warehouse rentals that require 2&ndash;3 year minimum commitments, deposits equivalent to 3&ndash;6 months&apos; rent, and significant fit-out costs, our storage units are available on a month-to-month basis with no setup fees and no penalty for scaling up or down. This model is particularly valuable in Dubai&apos;s e-commerce market, where rapid growth, seasonal demand peaks, and category pivots are common, and where locking into a large warehouse before your business is ready creates financial risk that can threaten the entire venture.</p>
-              <p>Our clean, enclosed indoor units keep your stock dust-protected and away from the rain, direct sun, and outdoor elements &mdash; important for inventory categories including electronics, cosmetics, health &amp; beauty products, food supplements, candles, and anything with delicate packaging. Boxes and pallets are kept off the floor and organised so stock stays orderly and easy to pick. Our units are secured with biometric access control and 24/7 CCTV, so your inventory is protected at all times. You can access your unit during business hours to pick orders, receive incoming stock, conduct inventory counts, and manage your fulfilment operations exactly as you would in a private warehouse unit.</p>
               <p>We serve a wide range of Dubai e-commerce businesses including Amazon UAE and noon.com sellers, Instagram and TikTok shop operators, direct-to-consumer brands, importers and distributors, subscription box companies, and businesses selling across multiple platforms simultaneously. Our units range from small (suitable for high-value, low-volume categories like electronics or luxury goods) to large (suitable for high-volume fashion, electronics, or home goods sellers). Scaling from one unit size to the next can happen within 24&ndash;48 hours, giving you a responsive infrastructure that matches your business growth. Call us at +971505773388 to discuss your specific inventory needs and get a same-day business quote.</p>
             </div>
 
@@ -261,7 +259,6 @@ export default function EcommerceStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">Can my team access the unit for order fulfilment?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes. Business accounts can register multiple authorised users from your team, each with individual access credentials logged through our biometric system. This means your warehouse manager, fulfilment staff, and operations team members can all access the unit independently during business hours without needing to coordinate through a single keyholder. You control who is authorised on your account, and you can add or remove team members as your staffing changes. For very high-frequency access (multiple times per day for high-volume operations), we can arrange a dedicated access arrangement that accommodates your workflow. Contact us at +971505773388 to set up a multi-user business account tailored to your operations team.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

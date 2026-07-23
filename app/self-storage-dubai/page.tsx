@@ -376,10 +376,6 @@ export default function SelfStorageDubaiPage() {
                     </li>
                     <li className="flex items-start">
                       <Shield className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Biometric access control</span>
-                    </li>
-                    <li className="flex items-start">
-                      <Shield className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
                       <span>Fire protection systems</span>
                     </li>
                     <li className="flex items-start">
@@ -734,12 +730,6 @@ export default function SelfStorageDubaiPage() {
                   transports them to our secure facility, and stores them in your dedicated unit. When you want items
                   back, call or WhatsApp and we deliver within 24–48 hours.
                 </p>
-                <p className="text-gray-700">
-                  Each unit is clean, secure, and dedicated to you. 24/7 CCTV and biometric access control protect the facility.
-                  Free insurance up to AED 5,000 is included as standard. Pricing is month-to-month with no cancellation fees.
-                  The result is a storage experience that is genuinely simple, transparent, and stress-free — reflected in our
-                  4.9-star average rating from over 487 customer reviews.
-                </p>
               </div>
             </div>
 
@@ -769,7 +759,6 @@ export default function SelfStorageDubaiPage() {
                 { q: "What is self storage and how does it work in Dubai?", a: "Self storage is a service where individuals or businesses rent a secure, dedicated storage unit to keep their belongings. In Dubai, the most convenient model is door-to-door storage, offered by SafeStorage Dubai, where a team collects your items from your location, stores them in a secure facility, and delivers them back when needed. You pay a monthly fee based on the unit size you use. There are no long-term contracts, no lorry hire, and no heavy lifting required." },
                 { q: "How much does self storage cost per month in Dubai?", a: "SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit, a medium unit for a one-to-two bedroom apartment, or a large unit for a full villa. The price includes 24/7 security, free insurance up to AED 5,000, and door-to-door pickup and delivery. There are no setup fees, deposits, or hidden charges." },
                 { q: "Do I need to transport my items to the storage facility myself?", a: "No. SafeStorage Dubai provides a complete door-to-door service. Our team comes to your home, office, or any Dubai location, loads your items, transports them to our secure facility, and delivers them back when you need them. This service is included as standard in every monthly plan. You do not need to hire a lorry, arrange your own movers, or make multiple trips to the facility." },
-                { q: "Is self storage in Dubai safe and secure?", a: "Yes. SafeStorage Dubai operates a professional security system including 24/7 HD CCTV cameras, biometric PIN access for entry, individual unit alarms, fire detection and suppression systems, and regular security patrols. All stored items are covered by free insurance up to AED 5,000 as standard. The facility has an unbroken security record since opening and maintains enterprise-grade protection across every unit." },
                 { q: "How long can I store my items at SafeStorage Dubai?", a: "There is no maximum storage period. Customers store for as little as one week (for renovation or moving scenarios) or for several years. Many of our long-term customers are expats who left Dubai temporarily or businesses with ongoing archival needs. Month-to-month billing continues indefinitely with no lock-in, and you can cancel at any time with 30 days&apos; notice and no early termination penalty." },
                 { q: "What types of items can I store at SafeStorage Dubai?", a: "SafeStorage accepts all furniture, household appliances, electronics, clothing and textiles, sports equipment (bicycles, golf clubs, surfboards), business inventory, documents and archive files, seasonal decorations, and vehicles in dedicated bays. Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items, as well as flammable liquids, hazardous chemicals, live animals, perishable food, and illegal goods. Call +971505773388 to check any specific item." },
                 { q: "Can businesses use SafeStorage Dubai for commercial storage?", a: "Yes, and we serve a significant number of business customers including e-commerce sellers, trading companies, law firms, marketing agencies, and retail businesses. Business benefits include flexible unit sizes that scale with inventory, UAE-compliant document storage for the mandatory 5-year retention period, and no long-term warehouse lease commitment. Commercial plans include dedicated consultant support for logistics coordination." },

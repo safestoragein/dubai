@@ -60,12 +60,6 @@ const features = [
     highlight: "Well cared for",
   },
   {
-    icon: Shield,
-    title: "Enterprise-Grade Security",
-    description: "24/7 CCTV, biometric access, individual unit alarms, on-site security personnel.",
-    highlight: "100% Secure",
-  },
-  {
     icon: Clock,
     title: "24/7 Unit Access",
     description: "Access your belongings during extended hours. Business customers get round-the-clock access.",
@@ -249,20 +243,12 @@ const faqs = [
     answer: "Storage units at SafeStorage Dubai start from just 12.60 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific storage needs. All prices include clean, secure units, and hassle-free pickup & delivery. No hidden fees! Contact us at 050-577-3388 for a personalized quote.",
   },
   {
-    question: "How are my belongings kept safe in storage?",
-    answer: "All items are stored in clean, dedicated indoor units. Before storage, our team wraps and pads your furniture and dust-protects your belongings, keeping them off the floor on pallets or shelving where appropriate. The facility is monitored 24/7 by CCTV with biometric access control, on-site security, and fire protection, and every plan includes free insurance up to AED 5,000.",
-  },
-  {
     question: "Do you offer hassle-free pickup and delivery?",
     answer: "Yes! SafeStorage Dubai provides completely hassle-free pickup and delivery anywhere in Dubai. Our professional team will come to your home, office, or any location to collect your items. When you need them back, we deliver at your convenience. This saves you the hassle and cost of hiring movers separately.",
   },
   {
     question: "What size storage unit do I need?",
     answer: "Here's a quick guide: Small (25-50 sq ft) - Studio apartment, 10-20 boxes, seasonal items. Medium (75-120 sq ft) - 1-2 bedroom apartment contents. Large (150-300 sq ft) - 3+ bedroom villa or business inventory. Not sure? Our consultants offer FREE assessments and can recommend the exact size you need. Call 050-577-3388.",
-  },
-  {
-    question: "How secure are your storage facilities?",
-    answer: "Our facilities feature enterprise-grade security: 24/7 HD CCTV surveillance covering every angle, biometric fingerprint access (only YOU can access your unit), individual unit alarms, fire detection and suppression systems, on-site security personnel, and secure perimeter fencing. Your belongings are monitored and protected 24/7.",
   },
   {
     question: "Can I access my storage unit 24/7?",
@@ -287,10 +273,6 @@ const faqs = [
   {
     question: "Do you offer packing services and materials?",
     answer: "Yes! We offer complete packing solutions: high-quality boxes (small, medium, large), bubble wrap and packing paper, tape and markers, furniture covers and mattress bags, wardrobe boxes, and specialty packaging. Our professional team also offers full packing/unpacking services on request.",
-  },
-  {
-    question: "Can someone else access my storage unit?",
-    answer: "Yes, you can authorize family members, employees, or others to access your unit. Simply provide us their details (name, Emirates ID/passport, phone number) and we'll set up their biometric access credentials. You can add or remove authorized users anytime.",
   },
   {
     question: "How do I pay for storage?",
@@ -437,9 +419,6 @@ export default function StorageUnitsDubaiPage() {
                 <strong>Storage units in Dubai</strong> are essential for residents dealing with limited space, relocations, renovations, or business inventory. But here&apos;s what most storage companies don&apos;t tell you: <strong>how your belongings are handled and looked after matters just as much as the price</strong>.
               </p>
 
-              <p className="text-lg leading-relaxed mb-6">
-                At <strong>SafeStorage Dubai</strong>, every item is stored in a <strong>clean, dedicated indoor unit</strong>, carefully wrapped and dust-protected, and kept off the floor on pallets or shelving where appropriate. The facility is monitored 24/7 by CCTV with biometric access control and on-site security, so your belongings stay safe throughout their stay.
-              </p>
 
               <div className="bg-dubai-sand/30 border-l-4 border-dubai-gold p-6 rounded-r-lg my-8">
                 <p className="text-lg font-medium text-dubai-navy mb-2">What makes us different?</p>
@@ -905,13 +884,6 @@ export default function StorageUnitsDubaiPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-dubai-navy mb-3">Why SafeStorage is Dubai&apos;s Top-Rated Storage Unit Provider</h3>
-            <p className="text-gray-700">
-              SafeStorage Dubai offers storage units from 12.60 AED / sqft (VAT-inclusive) with clean, secure units and hassle-free pickup
-              and delivery included as standard. All units are clean, dedicated, and indoor, are secured with
-              biometric access and 24/7 CCTV, and come with free insurance up to AED 5,000. Monthly contracts
-              with no minimum term, no cancellation fees, and no hidden charges make SafeStorage the most
-              flexible and transparent storage unit provider in Dubai.
-            </p>
           </div>
 
           {/* Static FAQ section — plain HTML so search engines read every word */}
@@ -919,17 +891,14 @@ export default function StorageUnitsDubaiPage() {
           <div className="space-y-5">
             {[
               { q: "How much do storage units cost in Dubai per month?", a: "Storage unit prices at SafeStorage Dubai start from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit, a medium unit (75–100 sq ft), or a large unit for a full villa. The price includes clean, dedicated indoor units, 24/7 CCTV security, free insurance up to AED 5,000, and door-to-door pickup and delivery. There are no setup fees, no deposits, and no hidden administration charges." },
-              { q: "How are belongings kept safe in a Dubai storage unit?", a: "At SafeStorage Dubai, your belongings are stored in clean, dedicated indoor units. Furniture is wrapped and padded, items are dust-protected, and everything is kept off the floor on pallets or shelving where appropriate. The facility is monitored 24/7 by CCTV with biometric access control, on-site security, and fire protection, and every plan includes free insurance up to AED 5,000 — all included in the standard monthly price, with nothing charged as an add-on or upgrade." },
               { q: "Do storage units in Dubai include hassle-free pickup and delivery?", a: "Yes. SafeStorage Dubai includes hassle-free door-to-door pickup and delivery in every monthly plan. Our professional team collects your items from your home, office, or any Dubai location, transports them to our secure facility, and delivers them back whenever you need them. This saves customers the cost and hassle of hiring a lorry or arranging separate movers — typically AED 300–800 in savings compared to traditional self-storage facilities." },
               { q: "What size storage unit do I need in Dubai?", a: "Unit size depends on what you are storing. A small unit (25–50 sq ft) suits a studio apartment, documents, or 10–20 boxes. A medium unit (75–120 sq ft) accommodates a one-to-two bedroom apartment. A large unit (150–300 sq ft) handles a three-bedroom villa or business inventory. The most accurate way to choose is to contact SafeStorage Dubai on +971505773388 — our consultant will assess your needs and recommend the exact size, preventing you from overpaying for space you don&apos;t need." },
-              { q: "How secure are storage units in Dubai?", a: "SafeStorage Dubai operates enterprise-grade security across the facility: 24/7 HD CCTV coverage of every aisle and entry point, biometric fingerprint access so only you (or authorised persons) can open your unit, individual unit alarms, fire detection and suppression systems, perimeter security fencing, and on-site security personnel. Every stored item is also covered by free insurance up to AED 5,000. The facility has maintained an unbroken security record since opening." },
               { q: "What is the minimum rental period for a storage unit in Dubai?", a: "SafeStorage Dubai offers flexible month-to-month contracts with no long-term commitment required. The effective minimum period is one month. We also offer weekly arrangements for urgent short-term needs such as renovation projects, moving between apartments, or property handovers. Cancellation requires just 30 days&apos; notice — there is no early termination penalty. Longer-term prepaid plans are available with a wide range of discounts — the longer you store, the more you save." },
               { q: "Do Dubai storage units include free insurance?", a: "Yes. Every SafeStorage Dubai unit includes complimentary insurance coverage up to AED 5,000 at no extra charge. This covers fire, theft, water ingress from facility systems, and structural damage. For customers with higher-value stored items — art, antiques, electronics collections, or high-end furniture — we offer additional coverage up to AED 100,000. We recommend photographing and documenting any high-value items before storage to facilitate rapid claims processing if ever needed." },
               { q: "What items can I store in a Dubai storage unit?", a: "SafeStorage Dubai accepts virtually everything: all furniture, household appliances (fridges, washing machines, air conditioners), electronics, clothing and textiles, sports equipment, business inventory and commercial stock, documents and archive files, seasonal items, and vehicles in dedicated bays. Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items, as well as flammable or hazardous liquids, compressed gas cylinders, live animals, perishable food, firearms, and illegal goods. If you are unsure about a specific item, call +971505773388 and we will advise immediately." },
               { q: "Can I access my storage unit at any time?", a: "SafeStorage Dubai offers facility access during extended operating hours: Monday to Saturday 8 AM to 8 PM, and Sunday 10 AM to 6 PM. Business customers with specific requirements can arrange extended or 24/7 access packages. Alternatively, rather than visiting the facility, you can request specific items or boxes to be delivered to your address — our team retrieves and delivers within 24–48 hours. This delivery-on-demand feature is popular with customers who store business inventory or archive documents they need occasionally." },
               { q: "Can I change my storage unit size after I start?", a: "Yes. SafeStorage Dubai makes it easy to upgrade to a larger unit or downsize to a smaller one. Upgrades are processed within 2–3 business days subject to availability. Downgrades involve relocating your items, which our team handles on your behalf. Pricing adjusts from the date of the change, and there is no penalty or administration fee for size changes. Many customers adjust their unit size as their circumstances change — businesses scaling up inventory, or households removing items they no longer need." },
               { q: "Do you offer packing materials and packing services?", a: "Yes. SafeStorage Dubai provides high-quality packing materials including double-walled cardboard boxes in standard sizes, bubble wrap, packing paper, stretch film, furniture covers, mattress bags, and specialist wardrobe boxes. These are available for purchase at competitive prices. We also offer a full professional packing service where our trained team wraps, boxes, and loads your items using premium materials. The professional service is particularly valued for fragile items, antiques, electronics, and artwork." },
-              { q: "Can someone else access my storage unit on my behalf?", a: "Yes. You can authorise additional persons to access your storage unit — family members, employees, business partners, or any trusted individual. Provide their full name, Emirates ID or passport copy, and phone number to your SafeStorage consultant and they will be issued biometric access credentials. You can add or remove authorised users at any time by contacting your consultant. There is no limit to the number of authorised users per unit, and no fee for adding or removing access." },
               { q: "How quickly can I get a storage unit in Dubai?", a: "Very quickly. For same-day pickup, book before 12 PM and our team will collect your items the same day. Standard pickups are typically available within 24–48 hours based on your preferred time slot. Getting a quote takes under two minutes online at safestorage.ae or via a quick call to +971505773388. There is no paperwork to complete before your pickup — our team brings all necessary documents on the day." },
               { q: "Where is the SafeStorage Dubai facility located?", a: "SafeStorage Dubai&apos;s main facility is in Dubai Investment Park 2, with easy access from Sheikh Mohammed Bin Zayed Road. However, for most customers, the facility location is irrelevant because our door-to-door model means we collect from and deliver to your address — wherever in Dubai you are. You never need to visit the facility unless you specifically want to access your unit directly or are curious to see where your belongings are kept." },
               { q: "Does SafeStorage Dubai serve business customers?", a: "Yes. SafeStorage Dubai is used extensively by businesses including e-commerce sellers needing flexible inventory storage, law firms and consultancies archiving documents for the UAE&apos;s mandatory 5-year retention period, event management companies storing displays and equipment, retail businesses managing seasonal stock, and office relocations requiring short-term furniture and equipment storage. Commercial plans include dedicated consultant support, flexible access arrangements, and the ability to scale unit size up or down with 30 days&apos; notice." },

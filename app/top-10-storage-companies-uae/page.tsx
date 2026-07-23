@@ -68,24 +68,12 @@ const structuredData = {
         { "@type": "Question", name: "How much does storage cost per month in UAE?", acceptedAnswer: { "@type": "Answer", text: "Storage costs in the UAE vary widely depending on the provider, unit size, and location, with some premium units exceeding AED 2,000/month. SafeStorage UAE starts from 12.60 AED / sqft. Most self-storage facilities in Dubai start from AED 200–350/month for a small unit." } },
         { "@type": "Question", name: "Which storage company in UAE serves Abu Dhabi and Sharjah?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage UAE serves customers across all UAE emirates including Dubai, Abu Dhabi, Sharjah, Ajman, and Ras Al Khaimah through their hassle-free pickup and delivery model. Space Keeper also covers Abu Dhabi. Most other UAE storage companies are limited to Dubai." } },
         { "@type": "Question", name: "What is the cheapest storage company in UAE?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage UAE offers the best value storage in the UAE from 12.60 AED / sqft — this includes clean, secure storage, hassle-free pickup and delivery, 24/7 security, and free insurance. Makanak Storage has slightly lower base rates but does not include these features." } },
-        { "@type": "Question", name: "Are storage companies in UAE safe and secure?", acceptedAnswer: { "@type": "Answer", text: "Yes, the leading storage companies in UAE are highly secure. SafeStorage UAE, The Box, StorHub, and Klug Storage all feature 24/7 CCTV surveillance and access control. SafeStorage UAE goes further with biometric access and free insurance coverage up to AED 5,000 for all customers." } },
       ],
     },
   ],
 }
 
 const companies = [
-  {
-    rank: 1, name: "SafeStorage UAE", bestFor: "Best Overall in UAE",
-    badgeColor: "#0A2463", score: 9.8, rating: 4.9, reviews: 2400,
-    price: "From 12.60 AED / sqft", tag: "Editor's Choice", tagBg: "#FFD700", tagColor: "#0A2463",
-    location: "Dubai · Serves all UAE",
-    highlight: true,
-    description: "SafeStorage UAE earns the top spot across the entire UAE with the most complete storage offering available. Their valet model removes the typical hassles of self-storage entirely — no van rental, no heavy lifting, no navigating unfamiliar industrial areas. You book online, they come to you, carefully collect your items, store them in clean, monitored facilities, then return everything on demand. With the widest service area in the UAE and the most competitive all-inclusive pricing, it's the clear #1.",
-    highlights: ["Hassle-free pickup & delivery across all UAE emirates", "Clean, dedicated indoor units — dust-protected throughout", "24/7 CCTV, biometric access, on-site security", "Free insurance up to AED 5,000 included", "Month-to-month plans — no lock-in contracts", "Same-day pickup available across Dubai"],
-    scores: { value: 9.9, security: 9.8, convenience: 9.9, service: 9.7 },
-    cta: true,
-  },
   {
     rank: 2, name: "The Box Self Storage", bestFor: "Best for Drive-Up Access",
     badgeColor: "#1a4a8a", score: 8.1, rating: 4.3, reviews: 980,
@@ -399,9 +387,6 @@ export default function Top10StorageCompaniesUAE() {
 
             <div style={{ marginBottom: "28px" }}>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A2463", marginBottom: "12px" }}>4. Assess Security Standards Thoroughly</h3>
-              <p style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "15px" }}>
-                Security at UAE storage facilities varies enormously. At minimum, a reputable UAE storage provider should offer 24/7 CCTV monitoring, individual unit locks or alarms, electronic or biometric gate access, and on-site security personnel. Ask about what happens if a security breach occurs and what insurance coverage is included versus what requires a separate paid policy. The best providers &mdash; SafeStorage UAE, The Box, StorHub, and Klug Storage &mdash; all maintain high physical security standards. Budget providers and warehouse-style operators may have less robust access controls. For high-value items including art, jewellery, and sensitive business documents, consider Vault UAE&apos;s premium security offering.
-              </p>
             </div>
 
             <div style={{ marginBottom: "28px" }}>

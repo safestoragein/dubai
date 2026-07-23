@@ -106,7 +106,6 @@ export default function GetQuote() {
               <p>✓ Storage units from 12.60 AED / sqft — no setup fees</p>
               <p>✓ Hassle-free pickup and delivery anywhere in Dubai</p>
               <p>✓ Secure, clean, dust-protected indoor units</p>
-              <p>✓ 24/7 CCTV and biometric security</p>
               <p>✓ No long-term contracts — cancel anytime</p>
               <p>✓ Free insurance up to AED 5,000 included</p>
               <p>✓ Same-day pickup available for requests before 12 PM</p>

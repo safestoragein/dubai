@@ -423,9 +423,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>How secure is storage in Dubai?</h3>
-            <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              SafeStorage Dubai operates a multi-layered security system including 24/7 high-definition CCTV cameras covering every aisle and entry point, biometric PIN access so only authorised individuals can enter the facility, individual unit alarms, a secured perimeter fence, on-site security personnel, and fire detection and suppression systems throughout the building. Every stored item is also covered by complimentary insurance up to AED 5,000, with additional coverage available for high-value items. Our facility has an unbroken security record since opening.
-            </p>
           </div>
 
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>

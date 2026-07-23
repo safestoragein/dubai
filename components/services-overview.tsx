@@ -19,14 +19,6 @@ const services = [
     color: "#1a4a8a",
   },
   {
-    emoji: "🚗",
-    title: "Vehicle & Specialty Storage",
-    slug: "/storage-dubai/vehicle-storage",
-    body: "Leaving a vehicle outdoors in Dubai exposes it to dust and the elements. Our secure indoor vehicle storage protects cars, motorcycles, and boats from dust and outdoor exposure. Each vehicle bay includes 24/7 CCTV monitoring and biometric-controlled access — your vehicle stays in exactly the condition you left it.",
-    popular: "Classic car owners, seasonal Dubai residents, businesses with spare fleet vehicles.",
-    color: "#0891b2",
-  },
-  {
     emoji: "📦",
     title: "Document & Records Archival",
     slug: "/storage-dubai/records-archival",

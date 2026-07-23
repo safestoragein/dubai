@@ -379,21 +379,6 @@ const blogPosts = [
         <li>Backup power systems</li>
       </ul>
       
-      <p>Protect your valuables properly. Call <strong>+971505773388</strong> today.</p>
-    `,
-    extra_data: JSON.stringify({
-      author: "SafeStorage Team",
-      category: "Storage Features",
-      featured_image: "/blog/climate-controlled.jpg",
-      read_time: "5 mins"
-    }),
-    status: "published"
-  },
-  {
-    content_type: "blog",
-    meta_title: "Storage Facility Security Dubai - 24/7 Protection",
-    slug: "storage-facility-security-dubai",
-    meta_description: "Advanced security at SafeStorage Dubai: CCTV, biometric access, individual alarms. Better security than TheBox. Call +971505773388.",
     tags: "storage security,secure storage,cctv storage,safe storage",
     content: `
       <h2>State-of-the-Art Storage Security in Dubai</h2>
@@ -402,7 +387,6 @@ const blogPosts = [
       <h3>Our Security Features</h3>
       <ul>
         <li><strong>24/7 CCTV Surveillance:</strong> HD cameras covering all areas</li>
-        <li><strong>Biometric Access:</strong> Fingerprint entry system</li>
         <li><strong>Individual Unit Alarms:</strong> Alert on unauthorized access</li>
         <li><strong>On-Site Security:</strong> Trained personnel round-the-clock</li>
         <li><strong>Perimeter Fencing:</strong> Secured facility boundaries</li>
@@ -413,18 +397,12 @@ const blogPosts = [
       
       <h3>Access Control System</h3>
       <ol>
-        <li>Register your biometric data</li>
         <li>Receive unique access code</li>
         <li>Enter through secured gates</li>
         <li>Access only your unit</li>
         <li>All visits logged digitally</li>
       </ol>
       
-      <h3>Security Comparison</h3>
-      <table>
-        <tr><th>Feature</th><th>SafeStorage</th><th>TheBox</th></tr>
-        <tr><td>CCTV Coverage</td><td>100% HD</td><td>Basic</td></tr>
-        <tr><td>Biometric Access</td><td>✓</td><td>✗</td></tr>
         <tr><td>Individual Alarms</td><td>✓</td><td>✗</td></tr>
         <tr><td>24/7 Guards</td><td>✓</td><td>Limited</td></tr>
       </table>
@@ -1552,7 +1530,6 @@ const additionalBlogPosts = [
       
       <h3>Security Features</h3>
       <ul>
-        <li>Biometric access control</li>
         <li>24/7 CCTV monitoring</li>
         <li>Individual unit alarms</li>
         <li>Climate control essential</li>
@@ -2040,7 +2017,6 @@ const additionalBlogPosts = [
       <h3>Facility Features</h3>
       <ul>
         <li><strong>Climate Control:</strong> Both offer, but SafeStorage has advanced HVAC</li>
-        <li><strong>Security:</strong> SafeStorage has biometric access vs. TheBox's keypad</li>
         <li><strong>Location:</strong> SafeStorage more central in DIP</li>
         <li><strong>Access Hours:</strong> SafeStorage offers more flexible timing</li>
       </ul>

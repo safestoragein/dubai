@@ -31,11 +31,6 @@ const features = [
     description: "Fireproof, secure facilities with restricted access",
   },
   {
-    icon: ShieldCheck,
-    title: "24/7 Security",
-    description: "CCTV monitoring, biometric access, and on-site security guards",
-  },
-  {
     icon: Truck,
     title: "Hassle-Free Pickup & Delivery",
     description: "We collect and deliver documents at your convenience",
@@ -241,12 +236,6 @@ export default function RecordsArchivalPage() {
                 legal contracts, HR files, and medical records. SafeStorage maintains the highest standards
                 of physical security and access control to protect your confidential documents.
               </p>
-              <p className="text-gray-700">
-                Our document storage area is secured with biometric access, monitored by dedicated CCTV
-                cameras, and only accessible to authorised personnel. We sign confidentiality agreements
-                (NDAs) with all business clients, and our staff are background-checked and trained in
-                document handling protocols.
-              </p>
             </div>
           </div>
 
@@ -376,7 +365,6 @@ export default function RecordsArchivalPage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">3. How secure is off-site document storage at SafeStorage?</h3>
-              <p className="text-gray-700">Our document storage area operates at the highest physical security standards. Access is controlled by biometric fingerprint authentication and is restricted to authorised personnel only. The entire facility is covered by 24/7 HD CCTV with recordings retained for 90 days. Our document storage section is a dedicated zone within the facility, further separated from general storage areas. All staff handling documents are background-checked, trained in confidentiality protocols, and sign NDAs. We also sign confidentiality agreements with all business clients.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

@@ -108,7 +108,6 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How secure is SafeStorage Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai uses multiple layers of physical and digital security. All facilities are monitored 24/7 by high-definition CCTV cameras. Entry is controlled by biometric access systems, meaning only authorised personnel and customers can enter the facility. Every unit has an individual alarm. The site has on-site security staff during operating hours and remote monitoring outside hours. Additionally, all stored items are covered by free insurance up to AED 5,000, with optional enhanced coverage available for high-value items.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What is the minimum rental period?</h3>
@@ -156,7 +155,6 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What is included in the monthly storage price?</h3>
-              <p className="text-gray-700 leading-relaxed">The monthly storage rate at SafeStorage Dubai includes: hassle-free door-to-door pickup from anywhere in Dubai, secure indoor storage in our monitored warehouse, digital inventory management with item-level tracking, free insurance coverage up to AED 5,000, 24/7 CCTV and biometric security, and hassle-free delivery back to your address when you need your items. There are no hidden fees. The only additional charges would be for optional packing materials if requested, enhanced insurance for high-value items, or same-day express service during peak periods.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">Is VAT included in the price?</h3>
@@ -183,12 +181,6 @@ export default function LandingPage() {
             hassle-free door-to-door pickup and delivery. Whether you need to store furniture during a renovation,
             keep business inventory safe, or find a long-term solution for your household items, SafeStorage
             offers flexible monthly plans with no long-term contracts.
-          </p>
-          <p className="text-lg text-gray-700 mb-8">
-            Our storage units are secure, clean, and dust-protected, keeping your belongings safe.
-            Every unit is monitored by 24/7 CCTV, secured with biometric
-            access, and covered by free insurance up to AED 5,000. Storage plans start from 12.60 AED / sqft
-            with hassle-free pickup and delivery across all Dubai areas.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-10">
@@ -223,7 +215,6 @@ export default function LandingPage() {
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <p>✓ <strong>Hassle-Free Pickup &amp; Delivery</strong> — No truck rental, no heavy lifting</p>
               <p>✓ <strong>Secure &amp; Clean Units</strong> — Indoor, dust-protected storage</p>
-              <p>✓ <strong>24/7 Security</strong> — CCTV, biometric access, individual alarms</p>
               <p>✓ <strong>Free Insurance</strong> — AED 5,000 coverage included with every unit</p>
               <p>✓ <strong>No Lock-In</strong> — Monthly contracts, cancel anytime</p>
               <p>✓ <strong>Transparent Pricing</strong> — No hidden fees, no surprises</p>

@@ -71,13 +71,6 @@ export default function WhyChooseUs() {
         "We photograph and catalogue your items during pickup. Access your full inventory list anytime via WhatsApp or phone — know exactly what's stored, where it is, and when it was collected. Retrieve specific items without retrieving everything.",
       highlight: "Full Visibility",
     },
-    {
-      icon: DollarSign,
-      title: "Biometric Secure Access",
-      description:
-        "Each unit has its own dedicated lock — only you hold the key. Facility entry uses biometric or PIN-based access control to prevent any unauthorised access to the building. Every access event is logged with time and identity.",
-      highlight: "Your Lock Only",
-    },
   ]
 
   const container = {

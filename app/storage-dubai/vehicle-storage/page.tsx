@@ -31,11 +31,6 @@ const features = [
     description: "Fully enclosed indoor facility protecting from dust and sun",
   },
   {
-    icon: ShieldCheck,
-    title: "24/7 Security & CCTV",
-    description: "Round-the-clock surveillance and biometric access control",
-  },
-  {
     icon: VideoIcon,
     title: "Video Monitoring",
     description: "Live monitoring and recorded footage for complete peace of mind",
@@ -373,7 +368,6 @@ export default function VehicleStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. What security measures protect stored vehicles?</h3>
-              <p className="text-gray-700">Vehicle storage security at SafeStorage operates on multiple layers. The facility perimeter is secured with anti-vehicle barriers and monitored fencing. Entry requires biometric authentication — only registered account holders and authorised personnel can access the vehicle storage area. The entire facility is covered by 24/7 HD CCTV with live monitoring and 90-day recorded footage retention. Individual vehicle bays in our premium section have additional padlock points. On-site security personnel conduct regular patrols throughout the facility.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

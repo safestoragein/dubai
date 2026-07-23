@@ -96,34 +96,6 @@ export default function SmallBusinessStoragePage() {
             </div>
 
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Cost Comparison: Storage vs Warehouse</h2>
-            <div className="overflow-x-auto mb-8">
-              <table className="w-full border-collapse rounded-xl overflow-hidden">
-                <thead>
-                  <tr className="bg-dubai-navy text-white">
-                    <th className="p-4 text-left">Cost Factor</th>
-                    <th className="p-4 text-left bg-dubai-gold">Self Storage (Large Unit)</th>
-                    <th className="p-4 text-left">Warehouse (1,000 sq ft)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ["Monthly rent", "From 12.60 AED / sqft", "AED 4,000–8,000+"],
-                    ["Security deposit", "From 12.60 AED / sqft (1 month)", "AED 12,000–24,000 (3-6 months)"],
-                    ["Fit-out costs", "None", "AED 15,000–50,000+"],
-                    ["Minimum commitment", "1 month", "2-3 years"],
-                    ["Setup time", "3-5 days", "2-4 months"],
-                    ["Scale up", "Within 48 hours", "New lease negotiation"],
-                    ["Security", "Biometric + CCTV included", "Varies, often extra cost"],
-                  ].map(([factor, storage, warehouse], i) => (
-                    <tr key={factor} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
-                      <td className="p-4 font-medium text-dubai-navy">{factor}</td>
-                      <td className="p-4 text-green-700 bg-green-50/30">{storage}</td>
-                      <td className="p-4 text-gray-600">{warehouse}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
 
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">When Storage Makes Sense vs When to Get a Warehouse</h2>
             <div className="grid md:grid-cols-2 gap-6 mb-8">

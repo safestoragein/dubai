@@ -111,12 +111,6 @@ export default function HowItWorks() {
                     dedicated unit. Every unit is a clean, dust-protected indoor space, with items stored on
                     raised platforms and away from external walls for added protection.
                   </p>
-                  <p className="text-gray-700">
-                    Your unit is secured with a biometric lock — only you (or authorised persons) can access it.
-                    The facility is monitored by 24/7 HD CCTV cameras, protected by perimeter security, and
-                    has individual unit alarms. Fire detection and suppression systems are installed throughout.
-                    Every item is also covered by free insurance up to AED 5,000.
-                  </p>
                 </div>
               </div>
             </div>

@@ -131,7 +131,6 @@ export default function ArtStoragePage() {
               {[
                 { icon: Package, title: "Dust-Protected Dedicated Storage", desc: "Each collection is stored in a clean, enclosed indoor vault on dedicated racking — kept dust-protected, off the floor, and away from light, never mixed into open warehouse bays." },
                 { icon: Camera, title: "Photography on Intake", desc: "Every item photographed in detail before storage. Condition report signed by both parties. You receive digital copies for your records and insurance." },
-                { icon: Lock, title: "Individual Access Control", desc: "Your art stored in a dedicated, locked area. Biometric access control means only authorised personnel ever touch your collection." },
                 { icon: Shield, title: "Extended Insurance Options", desc: "Basic coverage up to AED 5,000 included. High-value art coverage available through our insurance partners — quoted based on declared value." },
                 { icon: Award, title: "White-Glove Handling", desc: "Our trained team uses cotton gloves, acid-free tissue, custom crating, and appropriate packing for each artwork type. No amateur handling." },
                 { icon: CheckCircle2, title: "Acid-Free Storage Materials", desc: "All packing materials are archival quality — acid-free tissue, polyethylene foam, and UV-resistant wrapping where appropriate." },
@@ -199,7 +198,6 @@ export default function ArtStoragePage() {
                 { q: "Do you photograph items before storage?", a: "Yes, every item is photographed in detail before storage begins. We document condition, dimensions, and any pre-existing damage. Both parties sign the condition report. You receive a digital copy. This protects both you and us." },
                 { q: "How do you pack paintings for storage?", a: "Large paintings are wrapped in acid-free tissue, then in polyethylene foam, and stored vertically in dedicated slots — never stacked horizontally unless specifically padded for it. Framed works have corner protectors. Works on canvas without frames are handled with particular care to avoid any pressure on the canvas surface." },
                 { q: "Can you arrange art transportation?", a: "We do not operate an art courier service, but we work with trusted specialist art transportation companies in Dubai and can recommend or facilitate connections. International art shipping for major works should always use an accredited fine art shipper." },
-                { q: "How is my artwork protected while in storage?", a: "Every piece is handled with white-glove care and packed in archival, acid-free materials. Paintings are stored vertically in dedicated padded slots, sculptures on bespoke foam cradles, and works on paper flat in archival boxes — all kept dust-protected, off the floor, and away from light in a clean, enclosed indoor vault with 24/7 CCTV and biometric access control." },
                 { q: "How much does art storage cost?", a: "Art storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), based on the volume and type of items stored. A full collection requires an in-person consultation and quotation. Please call us at +971505773388 to discuss your specific requirements." },
               ].map((faq) => (
                 <details key={faq.q} className="border border-gray-200 rounded-xl p-6 group">
@@ -248,7 +246,6 @@ export default function ArtStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">How is art protected while it is in storage?</h3>
-                <p className="text-gray-700 leading-relaxed">Fine art is protected through professional handling, archival packing, and physical security rather than being left to the risks of a general storage unit. Every piece is handled by trained staff using cotton gloves and appropriate lifting equipment, packed in acid-free, archival-grade materials, and stored on dedicated racking &mdash; paintings vertically in padded slots, sculptures on foam cradles, works on paper flat in archival boxes. Collections are kept in a clean, enclosed indoor vault, dust-protected, off the floor, and away from light, never mixed into open warehouse bays. Access is restricted by biometric control and the vault is monitored 24/7 by CCTV, so your collection is protected from careless handling, dust, light, pests, and theft throughout its time with us.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
@@ -303,7 +300,6 @@ export default function ArtStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">Is documentation available for insurance or exhibition loan purposes?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes. SafeStorage Dubai maintains detailed records for every piece in our care, including intake photography, dimensions, and a dual-signed condition report. If you require documentation &mdash; to satisfy an insurer&apos;s condition-of-storage requirement, to demonstrate handling standards to an exhibition venue, or as part of an art loan agreement &mdash; we can provide these records in digital format upon request, along with our biometric access logs showing exactly who accessed the collection and when. This level of documentation is valued by galleries, insurance providers, and art institutions as evidence that works were handled and secured to a professional standard throughout their time with us.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

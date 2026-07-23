@@ -266,10 +266,6 @@ const faqs = [
     answer: "Here's a quick guide: Small (25-50 sq ft) - 10-20 boxes, studio apartment items. Medium (75-120 sq ft) - 1-2 bedroom apartment contents. Large (150-300 sq ft) - 3+ bedroom villa or business inventory. Not sure? Our consultants offer free assessments and recommend the perfect size for your items. Call 050-577-3388.",
   },
   {
-    question: "How secure is your storage facility?",
-    answer: "Our facility features enterprise-grade security: 24/7 HD CCTV surveillance covering every angle, biometric fingerprint access (only YOU can access your unit), individual unit alarms, fire detection and suppression systems, on-site security personnel, and secure perimeter fencing. Your belongings are monitored and protected 24/7.",
-  },
-  {
     question: "Can I access my storage unit at any time?",
     answer: "Standard access hours are Monday-Saturday 8AM-8PM and Sunday 10AM-6PM. Business customers can arrange extended hours or 24/7 access packages. You can also request delivery of specific items to your location at any time - we'll bring what you need to you.",
   },
@@ -292,10 +288,6 @@ const faqs = [
   {
     question: "Do you offer packing services?",
     answer: "Yes! We offer complete packing solutions: high-quality boxes (small, medium, large), bubble wrap and packing paper, tape and markers, furniture covers and mattress bags, wardrobe boxes, and specialty packaging. Our professional team also offers full packing/unpacking services on request.",
-  },
-  {
-    question: "Can someone else access my storage unit?",
-    answer: "Your unit is secured with biometric access - only registered fingerprints can enter. You can authorize additional people (family members, business partners) by adding their biometrics to your account. Temporary access can also be arranged with advance notice for one-time visitors.",
   },
   {
     question: "Where is your storage facility located?",
@@ -902,9 +894,6 @@ export default function StorageDubaiPage() {
               <p className="text-gray-700 mb-4">
                 On pickup day, our team arrives at your location with all necessary packing materials — boxes, bubble wrap, furniture covers, mattress bags, and packing tape. We photograph all items before loading for your records. Large furniture is dismantled where appropriate and carefully padded for transit. Electronics are wrapped and packed in purpose-appropriate containers. Once everything is loaded, you receive a detailed packing list and your items are transported to our secure facility.
               </p>
-              <p className="text-gray-700">
-                At our facility, items are stored in your individual, secure unit. The unit is secured with biometric access and monitored by 24/7 CCTV. You can request retrieval of any or all items at any time with 24 hours&apos; notice. Delivery back to your location is coordinated by your dedicated account manager and carried out by the same professional team. The full process — from initial pickup to final return — is covered by free insurance up to AED 5,000.
-              </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8 mb-10">
@@ -919,9 +908,6 @@ export default function StorageDubaiPage() {
 
             <div className="bg-gray-50 rounded-xl p-8">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Security Standards at SafeStorage Dubai</h3>
-              <p className="text-gray-700 mb-4">
-                Security is the foundation of any storage service. SafeStorage operates a multi-layered security system that meets or exceeds industry standards for UAE storage facilities. The facility is protected by 24/7 HD CCTV covering all storage areas, access corridors, loading bays, and perimeter. Access to the facility requires biometric fingerprint authentication — only registered account holders and authorised personnel can enter.
-              </p>
               <p className="text-gray-700">
                 Individual storage units are secured with high-security locks and monitored by dedicated unit-level sensors. Fire detection and automated suppression systems protect against fire risk. The facility perimeter is secured with vehicle barriers and monitored fencing. On-site security staff conduct regular patrols throughout operating hours. All security incidents are logged and reported to account holders immediately. For business clients storing high-value inventory, additional security measures including dual-factor authentication and dedicated CCTV coverage can be arranged.
               </p>
@@ -941,7 +927,6 @@ export default function StorageDubaiPage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <h3 className="text-lg font-semibold text-[#0A2463] mb-3">Can I store furniture in Dubai storage units long-term?</h3>
-                <p className="text-gray-700">Yes. Furniture storage is one of the most common uses of our Dubai storage units. We wrap and pad every piece, cover furniture to keep dust off, and store items off the ground in clean, individual units. Our facility is monitored by 24/7 CCTV and biometric access control, keeping your furniture secure for as long as you need — whether that is a few months during a renovation or several years.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">

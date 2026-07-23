@@ -97,7 +97,6 @@ export default function Pricing() {
               <div>
                 <p className="mb-2">✓ <strong>Secure indoor unit</strong> — clean, dust-protected storage</p>
                 <p className="mb-2">✓ <strong>24/7 CCTV security</strong> — HD cameras monitoring all areas</p>
-                <p className="mb-2">✓ <strong>Biometric access</strong> — only you can access your unit</p>
                 <p className="mb-2">✓ <strong>Fire protection</strong> — detection and suppression systems</p>
               </div>
               <div>
@@ -225,7 +224,6 @@ export default function Pricing() {
                 </div>
                 <div>
                   <p className="font-semibold text-[#0A2463]">24/7 Multi-Layer Security</p>
-                  <p className="text-sm">HD CCTV covering every area of the facility, biometric access control on all units, individual unit alarms, fire detection and suppression systems, and on-site security personnel. Your belongings are protected every hour of every day.</p>
                 </div>
                 <div>
                   <p className="font-semibold text-[#0A2463]">Dedicated Storage Consultant</p>

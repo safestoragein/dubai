@@ -270,7 +270,6 @@ export default function DowntownDubaiPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How is security handled for high-value Downtown Dubai storage?</h3>
-              <p className="text-gray-700">SafeStorage employs multi-layer security: 24/7 HD CCTV covering all areas of the facility, biometric fingerprint access control for unit entry, individual electronic alarms on each storage unit, perimeter security fencing, controlled vehicle entry, and on-site security personnel during operating hours. Every access event is digitally logged. For customers storing particularly high-value items, we offer dedicated private vault storage with additional access restrictions. Our facility&apos;s security standards significantly exceed what is typically available in residential buildings or commercial office storage rooms.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can my Downtown Dubai building concierge coordinate with SafeStorage directly?</h3>

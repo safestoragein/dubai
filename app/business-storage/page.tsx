@@ -366,7 +366,6 @@ export default function BusinessStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. How is business inventory kept in good condition in storage?</h3>
-              <p className="text-gray-700">Your inventory is stored in clean, enclosed indoor units that keep stock dust-protected and away from the rain, direct sun, and outdoor elements that can damage products and packaging. Boxes and pallets are kept off the floor and organised so stock stays orderly and easy to pick. Combined with 24/7 CCTV monitoring, biometric access control, and individually secured units, this ensures your inventory investment is protected and products remain in sellable condition throughout their time with us.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -391,12 +390,10 @@ export default function BusinessStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. How secure is business storage at SafeStorage?</h3>
-              <p className="text-gray-700">Business storage security at SafeStorage operates at enterprise grade. The facility is protected by 24/7 HD CCTV covering all areas, biometric access control limiting entry to authorised personnel, individual unit locks and alarms, fire detection and suppression systems, perimeter security, and on-site security staff. For business clients storing high-value inventory, we offer additional security enhancements including dual-factor authentication, additional camera coverage, and alarm system integration with your business security team. All access events are logged and available for audit.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. Can multiple employees from our company access our storage unit?</h3>
-              <p className="text-gray-700">Yes. Business accounts allow multiple authorised users to access the storage unit or liaise with our operations team. Each authorised employee is registered in our access control system with individual biometric credentials. All access events are logged with time-stamps for your records. You can add or remove authorised users at any time by notifying your account manager. For businesses using our pick-and-pack or delivery coordination services, multiple team members can submit requests through our portal.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

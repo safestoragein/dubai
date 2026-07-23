@@ -53,10 +53,6 @@ const faqCategories = [
     title: "Security & Insurance",
     faqs: [
       {
-        question: "What security measures are in place at SafeStorage?",
-        answer: "Our facility features state-of-the-art security including: 24/7 HD CCTV surveillance covering all areas, biometric access control (only you can access your unit), individual unit alarms, fire detection and suppression systems, on-site security personnel, and secure perimeter fencing. Your belongings are protected around the clock."
-      },
-      {
         question: "Is insurance available for stored items?",
         answer: "Yes! Every storage unit at SafeStorage Dubai includes FREE insurance coverage up to AED 5,000. For higher-value items, we offer additional comprehensive insurance options. Our team can help you choose the right coverage based on the value of your belongings."
       },
@@ -110,10 +106,6 @@ const faqCategories = [
       {
         question: "What if I need something urgently outside operating hours?",
         answer: "We understand emergencies happen! Contact our support team, and we'll do our best to accommodate urgent access requests. For business customers with 24/7 access packages, round-the-clock access is available."
-      },
-      {
-        question: "Can someone else access my storage unit?",
-        answer: "Your unit is secured with biometric access linked to your profile. If you want to authorize someone else (family member, employee, etc.), you can add them as an authorized user. Just provide us with their details, and we'll set up their access credentials."
       },
     ]
   },
@@ -188,10 +180,6 @@ const faqCategories = [
   {
     title: "Access Hours &amp; Retrieval",
     faqs: [
-      {
-        question: "What are the facility operating hours for self-access?",
-        answer: "SafeStorage Dubai&apos;s facility is open for customer self-access Monday to Saturday from 8:00 AM to 8:00 PM, and Sunday from 10:00 AM to 6:00 PM. During these hours, customers with dedicated private units can visit the facility, access their unit using biometric or access code credentials, and add or remove items. For customers who prefer the convenience of delivery, simply contact your consultant any time during business hours and we will arrange delivery to your door within 24 to 48 hours. Business customers with 24/7 access requirements should enquire about our extended access packages."
-      },
       {
         question: "Can I retrieve a single item from storage without getting everything back?",
         answer: "Yes, absolutely. Partial retrieval is fully supported within Dubai. Simply contact your dedicated storage consultant, tell them which specific item or items you need, and we will arrange delivery of just those items to your address. For item-based storage plans, each item is individually catalogued and photographed, making it easy to identify and retrieve specific pieces from your inventory. For unit-based storage customers, you can either request specific item delivery or visit the facility yourself and take what you need while leaving everything else in storage."
@@ -422,10 +410,6 @@ export default function FAQPage() {
                 Every SafeStorage unit is a secure, clean, dust-protected indoor space. Your belongings are
                 wrapped with care on collection, stored on raised platforms, and kept away from external walls.
               </p>
-              <p className="text-gray-700">
-                The facility is monitored around the clock by 24/7 HD CCTV, secured with biometric access, and
-                covered by free insurance up to AED 5,000 — all included in every storage plan at no additional cost.
-              </p>
             </div>
           </div>
 
@@ -482,7 +466,6 @@ export default function FAQPage() {
               <p>• Storage from 12.60 AED / sqft (VAT-inclusive) — no setup fees</p>
               <p>• Hassle-free pickup and delivery anywhere in Dubai</p>
               <p>• Secure, clean, dust-protected indoor units</p>
-              <p>• 24/7 HD CCTV security and biometric access</p>
               <p>• Free insurance up to AED 5,000 included</p>
               <p>• Month-to-month contracts — no long-term lock-in</p>
               <p>• Same-day pickup available before 12 PM</p>

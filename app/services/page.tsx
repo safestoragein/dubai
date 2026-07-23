@@ -137,12 +137,6 @@ export default function Services() {
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Secure Indoor Storage</h3>
-              <p className="text-gray-700">
-                All SafeStorage units in Dubai are secure, clean, and dust-protected indoor spaces. Every item is
-                carefully wrapped, stored on raised platforms, and kept away from external walls to help protect
-                electronics, wooden furniture, artwork, musical instruments, leather goods, and sensitive documents.
-                The facility is monitored around the clock by 24/7 CCTV and secured with biometric access.
-              </p>
             </div>
           </div>
 
@@ -150,7 +144,6 @@ export default function Services() {
             <h2 className="text-2xl font-bold text-[#0A2463] mb-4">Why Choose SafeStorage Dubai?</h2>
             <ul className="space-y-3 text-gray-700">
               <li><strong>Hassle-Free Pickup &amp; Delivery:</strong> We collect from anywhere in Dubai and return your items on demand — no truck rental needed.</li>
-              <li><strong>24/7 Security:</strong> HD CCTV, biometric access control, individual unit alarms, and on-site security personnel protect your belongings around the clock.</li>
               <li><strong>Flexible Plans:</strong> Monthly contracts with no long-term commitment required. Scale up or down at any time.</li>
               <li><strong>Free Insurance:</strong> Every unit comes with complimentary insurance coverage up to AED 5,000, with optional extended coverage available.</li>
               <li><strong>Transparent Pricing:</strong> No hidden fees, no surprise charges. Prices include storage, security, and basic insurance.</li>
@@ -204,9 +197,6 @@ export default function Services() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold text-[#0A2463] mb-6">All SafeStorage Dubai Services Explained in Detail</h2>
-          <p className="text-lg text-gray-700 mb-8">
-            SafeStorage Dubai provides eight core storage services, each designed to address a specific set of customer needs in Dubai. Every service is built on the same foundation: hassle-free door-to-door pickup, secure and dust-protected indoor storage, 24/7 CCTV and biometric security, complimentary insurance, and flexible monthly billing with no lock-in contracts. Below is a detailed explanation of each service and who it is designed for.
-          </p>
 
           <div className="space-y-8 mb-10">
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
@@ -336,7 +326,6 @@ export default function Services() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">What security measures protect items stored at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">SafeStorage employs a comprehensive, multi-layered security system protecting all stored items. This includes continuous 24/7 HD CCTV surveillance covering all internal corridors, unit areas, loading bays, and external perimeter. Access to the facility requires biometric fingerprint authentication. Each individual storage unit has its own electronic alarm. The perimeter is secured with controlled entry points and fencing. On-site security personnel are present during operating hours. All access events are digitally logged with timestamps. No unauthorised person can access any storage unit without the registered owner&apos;s authentication — not even SafeStorage staff.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">What does the free insurance cover?</h3>

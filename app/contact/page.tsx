@@ -186,7 +186,6 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. What security measures protect my stored items?</h3>
-              <p className="text-gray-700">Security at SafeStorage Dubai is multi-layered and never compromised. Our facility uses 24/7 HD CCTV surveillance covering every corridor and storage bay, biometric access control ensuring only authorised individuals can enter, individual unit alarms on every storage bay, fire detection and suppression systems throughout the building, a secure perimeter fence with controlled entry points, and on-site security personnel during all operating hours. Your belongings are as safe as they would be in a bank vault.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -246,11 +245,9 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-yellow-300">Clean, Secure Facilities</h3>
-                <p className="text-white/90 leading-relaxed">Dubai&apos;s demanding conditions call for well-run storage facilities. Our purpose-built storage centre keeps every unit clean, dust-protected, and secure. Items are carefully wrapped on collection, stored on raised platforms, and kept away from external walls to help protect wood furniture, electronics, fabrics, and sensitive documents. Every plan includes this same standard of secure indoor storage at no extra charge — with 24/7 CCTV, biometric access, and free insurance up to AED 5,000.</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-yellow-300">Uncompromising Security</h3>
-                <p className="text-white/90 leading-relaxed">Your peace of mind is our priority. SafeStorage Dubai operates one of the most secure storage facilities in the UAE, with multiple layers of physical and electronic security working around the clock. Our 24/7 HD CCTV system covers every inch of the facility, biometric access ensures only you can open your unit, individual bay alarms trigger immediately on unauthorised entry, and our on-site security team monitors the premises at all times. In addition, every storage plan includes free insurance coverage up to AED 5,000, so even in the unlikely event of loss or damage, you are fully protected.</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-yellow-300">Genuinely Hassle-Free Service</h3>

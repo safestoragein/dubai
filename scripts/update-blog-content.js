@@ -11,7 +11,6 @@ function generateImprovedContent(title, category) {
 <p>Professional storage facilities provide numerous advantages over traditional storage methods:</p>
 <ul>
   <li><strong>Climate Control:</strong> Dubai's extreme temperatures can damage sensitive items. Our climate-controlled units maintain optimal temperature and humidity levels year-round.</li>
-  <li><strong>24/7 Security:</strong> Advanced surveillance systems, biometric access controls, and on-site security personnel ensure your belongings are always protected.</li>
   <li><strong>Flexible Space Options:</strong> From compact lockers to large warehouse spaces, we offer units in various sizes to match your exact requirements.</li>
   <li><strong>Convenient Access:</strong> Access your belongings whenever you need them with our flexible access hours and easy retrieval process.</li>
 </ul>
@@ -204,7 +203,6 @@ function generateImprovedContent(title, category) {
 <p>What sets SafeStorage Dubai apart from traditional storage options? Our commitment to excellence and customer satisfaction drives everything we do.</p>
 
 <h3>State-of-the-Art Facilities</h3>
-<p>Our storage facilities feature the latest in security technology and climate control systems. Every unit is monitored 24/7 with advanced surveillance, biometric access controls, and professional security personnel on-site.</p>
 
 <h3>Climate-Controlled Environment</h3>
 <p>Dubai's extreme temperatures can damage valuable items. Our climate-controlled units maintain consistent temperature and humidity levels, protecting your belongings from heat, moisture, and dust damage.</p>

@@ -147,7 +147,6 @@ Not sure what size you need? WhatsApp or call +971505773388 — the team will re
 ## Security Features
 
 - **24/7 CCTV Monitoring** — Multi-angle cameras cover every corridor, entry point, loading area, and storage zone. Footage retained for 90 days.
-- **Biometric / PIN Access Control** — Entry to the facility and individual zones is restricted to authorised customers only.
 - **Motion-Activated Alerts** — After-hours motion detection on all access points.
 - **Individual Unit Locks** — Each storage unit has its own lock; only the customer holds the key.
 - **On-Site Security Personnel** — Trained staff on-site during operating hours.
@@ -274,10 +273,8 @@ Yes. Because every item is photographed and catalogued at pickup, you can reques
 ### Security & Safety
 
 **How secure is the storage facility?**
-Facilities feature 24/7 CCTV, biometric access control, motion-activated after-hours alerts, individual unit locks, and on-site monitoring. Every unit also includes free insurance.
 
 **Who has access to my stored items?**
-Only you (the account holder) and authorised SafeStorage staff have access to your unit. Each unit has an individual lock. Facility access requires biometric or PIN authentication.
 
 **Is there insurance for my belongings?**
 Yes. Free insurance is included with every plan. Extended insurance is available for high-value, fragile, or irreplaceable items at a nominal additional cost.

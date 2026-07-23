@@ -112,7 +112,6 @@ export default function LocationPage({ location, areas, distance, benefits }: Lo
                 <CardContent className="pt-6 text-center">
                   <Shield className="mx-auto h-12 w-12 text-[#3E92CC] mb-4" />
                   <h3 className="font-semibold mb-2">24/7 Security</h3>
-                  <p className="text-sm text-gray-600">CCTV, biometric access, and on-site security</p>
                 </CardContent>
               </Card>
               <Card>

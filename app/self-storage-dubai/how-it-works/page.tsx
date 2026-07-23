@@ -728,9 +728,6 @@ export default function HowItWorksPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Once collected, your items are transported directly to SafeStorage Dubai&apos;s secure warehouse facility located in Dubai Investment Park. All items are stored off the floor on clean pallets or raised platforms to keep them clean and prevent moisture contact from the ground. Items are arranged to allow space between pieces for safe access. The facility undergoes daily pest control treatments and weekly deep cleaning.
               </p>
-              <p className="text-gray-700 leading-relaxed">
-                Security at the facility is multi-layered: 24/7 high-definition CCTV cameras cover every zone, biometric access control restricts entry to authorised personnel only, individual unit alarms alert to any unauthorised access attempt, and on-site security staff monitor the facility during operational hours with remote monitoring overnight. Your items are also covered by free insurance up to AED 5,000 from the moment they enter the facility. This insurance covers fire, theft, and natural calamity damage for the duration of your storage period.
-              </p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-sm">

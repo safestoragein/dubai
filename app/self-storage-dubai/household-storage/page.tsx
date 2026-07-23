@@ -547,9 +547,6 @@ export default function HouseholdStoragePage() {
             <p className="text-gray-700 mb-4">
               Every item is professionally wrapped and padded before it goes into storage. Furniture is covered to keep dust off, boxes are stacked safely to avoid crushing, and heavier items are stored off the ground.
             </p>
-            <p className="text-gray-700">
-              Your household items are kept in clean, individual, dedicated units monitored by 24/7 CCTV and biometric access control. Whether your items are in storage for 3 weeks or 3 years, they will be returned to you in the same condition as when they were collected.
-            </p>
           </div>
         </div>
       </section>
@@ -592,7 +589,6 @@ export default function HouseholdStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. How do I know my household items are safe in storage?</h3>
-              <p className="text-gray-700">SafeStorage provides multiple layers of protection for your household items. Physical security includes 24/7 CCTV monitoring, biometric access control (only you and authorised personnel can access your unit), individual unit alarms, and on-site security staff. Insurance protection is provided through complimentary coverage up to AED 5,000 included with all plans, with enhanced coverage available for high-value items. Additionally, every item is photographed at pickup and a detailed packing list is provided for your records.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -627,7 +623,6 @@ export default function HouseholdStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">14. Can two people access the same household storage unit?</h3>
-              <p className="text-gray-700">Yes. Couples and housemates can register multiple authorised users on a single storage account. Each authorised person has individual biometric access credentials and is independently registered in our access control system. Both parties can contact our team to request deliveries or add items to the unit. For households going through a separation or divorce, we can arrange separate access authorisations as needed, subject to both parties&apos; agreement. Contact your account manager to add or modify authorised users at any time.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

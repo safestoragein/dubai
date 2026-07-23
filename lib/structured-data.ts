@@ -191,7 +191,6 @@ export const localBusinessSchema = {
     { "@type": "LocationFeatureSpecification", name: "24/7 CCTV Security", value: true },
     { "@type": "LocationFeatureSpecification", name: "Secure Indoor Units", value: true },
     { "@type": "LocationFeatureSpecification", name: "Hassle-Free Pickup & Delivery", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Biometric Access Control", value: true },
     { "@type": "LocationFeatureSpecification", name: "Free Insurance (up to AED 5000)", value: true },
     { "@type": "LocationFeatureSpecification", name: "Fire Detection & Suppression", value: true },
     { "@type": "LocationFeatureSpecification", name: "Individual Unit Alarms", value: true },
@@ -300,10 +299,6 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "What security measures are in place at SafeStorage Dubai?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "SafeStorage Dubai features comprehensive security: 24/7 HD CCTV surveillance covering all areas, biometric access control (only you can access your unit), individual unit alarms, fire detection and suppression systems, on-site security personnel, secure perimeter fencing, and well-lit facilities. Your belongings are monitored and protected around the clock."
-      }
     },
     {
       "@type": "Question",
@@ -350,10 +345,6 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "Can someone else access my storage unit on my behalf?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, you can authorize other people to access your storage unit. Simply provide us with their details (name, Emirates ID/passport, phone number) and we'll set up their biometric access credentials. You can add or remove authorized users anytime by contacting your storage consultant."
-      }
     },
     // MOVING & PACKING
     {

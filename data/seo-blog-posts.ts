@@ -41,7 +41,6 @@ export const seoBlogPosts = [
       
       <h3>How to Choose the Right Storage Facility</h3>
       <ol>
-        <li><strong>Security:</strong> Look for 24/7 CCTV, biometric access, and on-site security</li>
         <li><strong>Cleanliness:</strong> Look for well-maintained, dust-protected units</li>
         <li><strong>Accessibility:</strong> Check operating hours and ease of access</li>
         <li><strong>Location:</strong> Choose a facility near your home or office</li>
@@ -70,7 +69,6 @@ export const seoBlogPosts = [
       <ul>
         <li>Hassle-free pickup and delivery across Dubai</li>
         <li>Secure, clean indoor units</li>
-        <li>24/7 security with biometric access</li>
         <li>Flexible contracts from 1 month</li>
         <li>Transparent pricing with no hidden fees</li>
       </ul>

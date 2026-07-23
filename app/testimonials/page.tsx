@@ -120,7 +120,6 @@ export default function TestimonialsPage() {
               <li>• <strong>Hassle-free service:</strong> We handle all the heavy lifting — pickup, storage, and delivery at your convenience</li>
               <li>• <strong>Clean, secure units:</strong> Dedicated indoor units keep furniture, electronics, and sensitive items dust-protected and safe</li>
               <li>• <strong>Transparent pricing:</strong> No hidden fees, no surprises — the price you see is the price you pay</li>
-              <li>• <strong>24/7 security:</strong> CCTV, biometric access, individual alarms and on-site security for complete peace of mind</li>
               <li>• <strong>Flexible terms:</strong> Monthly contracts, no long-term commitments — store for a week or a year</li>
             </ul>
           </div>
@@ -183,9 +182,6 @@ export default function TestimonialsPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 SafeStorage Dubai operates one of the most comprehensively secured storage facilities in the UAE. Our security infrastructure was designed from the ground up to ensure that every item stored in our care is protected around the clock. The facility features 24/7 HD CCTV surveillance covering every corridor, every loading bay, every entrance, and every exit — with footage retained and reviewed by our security team. The perimeter is secured with reinforced fencing and controlled access gates monitored at all times.
               </p>
-              <p className="text-gray-700 leading-relaxed">
-                Inside the facility, individual storage units and bays are protected by biometric access control — your unit can only be opened by your registered fingerprint or access code. Each unit also has its own individual alarm, triggered automatically by any unauthorised access attempt. Our on-site security personnel conduct regular patrols during all operating hours, and our fire detection and suppression systems are tested and certified to UAE civil defence standards. For additional peace of mind, every storage plan automatically includes free insurance coverage up to AED 5,000 — and customers with higher-value items can upgrade to comprehensive insurance at a small additional cost.
-              </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
@@ -227,7 +223,6 @@ export default function TestimonialsPage() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. Has SafeStorage ever had a security incident at its facility?</h3>
-              <p className="text-gray-700">SafeStorage maintains an exceptional security record. Our multi-layered security system — 24/7 CCTV, biometric access, individual unit alarms, on-site security personnel, and fire suppression systems — has prevented any significant security incidents. We are committed to full transparency and would always inform affected customers immediately if any issue occurred. Every customer&apos;s belongings are also covered by free insurance up to AED 5,000 as a further safeguard, providing financial protection in the extremely unlikely event of any loss or damage.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

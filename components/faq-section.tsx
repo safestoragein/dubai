@@ -16,11 +16,6 @@ const faqs = [
       "Yes — hassle-free pickup and delivery is included with every SafeStorage plan. Our professional team will come to your home or office anywhere in Dubai, bring packing materials, carefully load your items, and transport them to our secure facility. When you need anything back, we deliver it to your door. No truck rental and no heavy lifting needed on your part. Same-day pickup is available for bookings confirmed before 12 PM.",
   },
   {
-    question: "Is my storage unit secure?",
-    answer:
-      "Security is our top priority. Our facilities feature 24/7 CCTV cameras covering every corridor and access point, biometric or PIN-based entry control, motion-activated alerts after hours, and on-site monitoring. Every unit has its own individual lock — only you hold the key. All stored items are also covered by complimentary insurance up to AED 5,000, giving you additional peace of mind.",
-  },
-  {
     question: "What size storage unit do I need?",
     answer:
       "Unit sizes range from 25 sq ft (ideal for a studio's worth of boxes and small items) up to 200+ sq ft (suitable for a full villa's contents including appliances and furniture sets). Not sure what size fits your needs? Send our team a description or photos of your belongings and we'll recommend the right size — no guesswork needed.",
