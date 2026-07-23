@@ -117,7 +117,7 @@ export default function TestimonialsPage() {
               security, and outstanding customer service. Here is what sets us apart:
             </p>
             <ul className="space-y-3 text-gray-700">
-              <li>• <strong>Hassle-free service:</strong> We handle all the heavy lifting — pickup, storage, and delivery at your convenience</li>
+              <li>• <strong>Door-to-door service:</strong> We handle all the heavy lifting — pickup, storage, and delivery at your convenience</li>
               <li>• <strong>Clean, secure units:</strong> Dedicated indoor units keep furniture, electronics, and sensitive items dust-protected and safe</li>
               <li>• <strong>Transparent pricing:</strong> No hidden fees, no surprises — the price you see is the price you pay</li>
               <li>• <strong>Flexible terms:</strong> Monthly contracts, no long-term commitments — store for a week or a year</li>

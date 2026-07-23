@@ -63,7 +63,7 @@ const faqCategories = [
     faqs: [
       {
         question: "Do you offer pickup and delivery services?",
-        answer: "Yes! We provide door-to-door services across Dubai. Our professional team will collect your items from your location (home, office, or anywhere in Dubai), transport them safely to our secure facility, and return them whenever you need them back. This hassle-free service is what sets us apart!"
+        answer: "Yes! We provide door-to-door services across Dubai. Our professional team will collect your items from your location (home, office, or anywhere in Dubai), transport them safely to our secure facility, and return them whenever you need them back. This door-to-door service is what sets us apart!"
       },
       {
         question: "How quickly can you pick up my items?",
@@ -84,7 +84,7 @@ const faqCategories = [
       },
       {
         question: "Are there any hidden fees?",
-        answer: "Absolutely not! We believe in transparent pricing. The price quoted includes: secure storage, 24/7 security, basic insurance (up to AED 5,000), and access during operating hours. Pickup and delivery within Dubai is handled door-to-door by our team as part of our hassle-free service. The only additional costs would be for premium insurance, packing materials, or transport to locations outside Dubai, all of which are optional and confirmed upfront."
+        answer: "Absolutely not! We believe in transparent pricing. The price quoted includes: secure storage, 24/7 security, basic insurance (up to AED 5,000), and access during operating hours. Pickup and delivery within Dubai is handled door-to-door by our team as part of our service. The only additional costs would be for premium insurance, packing materials, or transport to locations outside Dubai, all of which are optional and confirmed upfront."
       },
       {
         question: "What payment methods do you accept?",

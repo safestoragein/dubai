@@ -318,7 +318,7 @@ export default function Services() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How does the pickup and delivery service work?</h3>
-              <p className="text-gray-700">Door-to-door pickup from your Dubai address is part of our hassle-free service with every SafeStorage plan — our team handles collection and return so you never need to hire a van or do any heavy lifting, in any area of Dubai. For locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies. All fees are explained in your quote before you confirm, so there are never any surprise charges.</p>
+              <p className="text-gray-700">Door-to-door pickup from your Dubai address is part of our service with every SafeStorage plan — our team handles collection and return so you never need to hire a van or do any heavy lifting, in any area of Dubai. For locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies. All fees are explained in your quote before you confirm, so there are never any surprise charges.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How does the digital inventory system work?</h3>

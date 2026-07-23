@@ -223,7 +223,7 @@ export default function GetQuote() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. How does pickup and delivery work?</h3>
-              <p className="text-gray-700">Door-to-door service is part of our hassle-free service across Dubai — our team handles collection and return so you never need to hire a van. If you are located outside Dubai (for example, Sharjah, Ajman, or Abu Dhabi), we charge a modest fixed transport fee. Our team will inform you of any such charges before you confirm the booking, so there are never any surprises.</p>
+              <p className="text-gray-700">Door-to-door service is part of our service across Dubai — our team handles collection and return so you never need to hire a van. If you are located outside Dubai (for example, Sharjah, Ajman, or Abu Dhabi), we charge a modest fixed transport fee. Our team will inform you of any such charges before you confirm the booking, so there are never any surprises.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

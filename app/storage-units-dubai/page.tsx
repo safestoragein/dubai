@@ -368,7 +368,7 @@ export default function StorageUnitsDubaiPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {[
                 { label: "Starting Price", value: "12.60 AED / sqft" },
-                { label: "Pickup", value: "Hassle-Free" },
+                { label: "Pickup", value: "Door-to-Door" },
                 { label: "Insurance", value: "AED 5,000" },
                 { label: "Response", value: "15 min" },
               ].map((stat, i) => (

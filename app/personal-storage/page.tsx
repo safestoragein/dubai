@@ -34,7 +34,7 @@ const features = [
   {
     icon: Truck,
     title: "Door-to-door Service",
-    description: "We collect and deliver your items door-to-door - completely hassle-free",
+    description: "We collect and deliver your items door-to-door",
   },
   {
     icon: Lock,
@@ -292,7 +292,7 @@ export default function PersonalStoragePage() {
                   <div className="text-white/80 text-sm">Security Monitoring</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold mb-2">Hassle-Free</div>
+                  <div className="text-3xl font-bold mb-2">Door-to-Door</div>
                   <div className="text-white/80 text-sm">Pickup & Delivery</div>
                 </div>
                 <div>

@@ -314,7 +314,7 @@ export const faqSchema = {
       name: "Do you offer door-to-door service for storage in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! SafeStorage Dubai provides Door-to-Door service anywhere in Dubai. Our professional team will collect your items from your home, office, or any location, transport them safely to our secure facility, and return them whenever you need. This hassle-free service sets us apart from other storage providers."
+        text: "Yes! SafeStorage Dubai provides Door-to-Door service anywhere in Dubai. Our professional team will collect your items from your home, office, or any location, transport them safely to our secure facility, and return them whenever you need. This door-to-door service sets us apart from other storage providers."
       }
     },
     {

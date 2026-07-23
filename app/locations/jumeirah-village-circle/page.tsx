@@ -185,7 +185,7 @@ export default function JumeirahVillageCirclePage() {
           </div>
 
           <div className="text-center">
-            <p className="text-lg text-gray-700 mb-4">Get hassle-free storage pickup from your JVC apartment or townhouse today.</p>
+            <p className="text-lg text-gray-700 mb-4">Get door-to-door storage pickup from your JVC apartment or townhouse today.</p>
             <a href="/get-quote" className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c02a50] transition-colors">
               Get a Free Quote
             </a>

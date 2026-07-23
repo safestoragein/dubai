@@ -141,7 +141,7 @@ export default function Pricing() {
               </div>
               <div>
                 <p className="font-semibold mb-1">How does pickup and delivery work?</p>
-                <p>Door-to-door service across Dubai is part of our hassle-free service — our team handles collection and return so you never need to hire a van. For locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, confirmed before you book.</p>
+                <p>Door-to-door service across Dubai is part of our service — our team handles collection and return so you never need to hire a van. For locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, confirmed before you book.</p>
               </div>
               <div>
                 <p className="font-semibold mb-1">What payment methods are accepted?</p>
@@ -272,7 +272,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. Are there any additional charges for accessing my items?</h3>
-              <p className="text-gray-700">You are welcome to access your items by visiting the facility personally or by requesting a delivery. There are no per-visit fees and no limit on how often you can access or partially retrieve your belongings. For deliveries within Dubai our team handles door-to-door collection and return as part of our hassle-free service. The only scenario where a transport fee applies is if you request delivery outside Dubai (such as to Sharjah, Abu Dhabi, or Al Ain), in which case a small fixed transport fee applies, which your consultant will confirm before the delivery is scheduled.</p>
+              <p className="text-gray-700">You are welcome to access your items by visiting the facility personally or by requesting a delivery. There are no per-visit fees and no limit on how often you can access or partially retrieve your belongings. For deliveries within Dubai our team handles door-to-door collection and return as part of our service. The only scenario where a transport fee applies is if you request delivery outside Dubai (such as to Sharjah, Abu Dhabi, or Al Ain), in which case a small fixed transport fee applies, which your consultant will confirm before the delivery is scheduled.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
