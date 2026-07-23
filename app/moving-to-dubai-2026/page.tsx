@@ -49,7 +49,6 @@ const sections = [
       "Understand visa sponsorship requirements",
       "Create a moving budget (flights, shipping, initial housing)",
       "Decide what to bring vs. buy in Dubai",
-      "Get international health insurance quotes",
       "Research neighborhoods and schools (if applicable)"
     ],
     storageConnection: "Not sure what to bring? Store non-essential items with SafeStorage while you settle in. Many people keep belongings in storage for 3-6 months until they understand what they actually need in Dubai.",
@@ -133,12 +132,10 @@ const sections = [
     icon: School,
     title: "Schools & Healthcare",
     subtitle: "For Families Moving to Dubai",
-    content: "Dubai has 200+ international schools offering British, American, IB, and other curricula. Fees range from AED 15,000 to AED 100,000+ per year. Apply 6-12 months in advance for popular schools. Healthcare is excellent - get mandatory health insurance through your employer or DHA/HAAD approved plans (AED 500-3000/person/year).",
     checklist: [
       "Research schools early (long waiting lists)",
       "Budget AED 20,000-80,000 per child annually",
       "Get school admission test dates",
-      "Mandatory health insurance for all family",
       "Register with a GP/clinic near home",
       "Get vaccinations up to date"
     ],

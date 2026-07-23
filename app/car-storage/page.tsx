@@ -6,7 +6,7 @@ import { Car, ShieldCheck, Clock, Star, CheckCircle2, Phone, Bike, Ship, Trophy,
 
 export const metadata: Metadata = {
   title: "Car Storage Dubai — Vehicle Storage",
-  description: "Store your car, motorcycle, boat or classic vehicle safely in Dubai. Secure covered indoor bays, 24/7 CCTV, free insurance up to AED 5,000. Vehicle storage from 12.60 AED / sqft. Door-to-Door pickup. Call +971505773388.",
+  description: "Store your car, motorcycle, boat or classic vehicle safely in Dubai. Secure covered indoor bays and 24/7 CCTV. Vehicle storage from 12.60 AED / sqft. Door-to-Door pickup. Call +971505773388.",
   keywords: "car storage dubai, vehicle storage dubai, motorcycle storage dubai, classic car storage dubai, boat storage dubai, covered car storage, indoor vehicle storage dubai, summer car storage dubai, car storage near me dubai",
   openGraph: {
     title: "Car Storage Dubai — Secure Indoor Vehicle Storage | SafeStorage",
@@ -20,17 +20,6 @@ export const metadata: Metadata = {
 }
 
 const schemas = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Car & Vehicle Storage Dubai",
-    description: "Secure covered indoor vehicle storage in Dubai for cars, motorcycles, boats and classic vehicles. 24/7 security, free insurance, from 12.60 AED / sqft.",
-    provider: { "@id": "https://safestorage.ae/#organization" },
-    url: "https://safestorage.ae/car-storage",
-    areaServed: { "@type": "City", name: "Dubai" },
-    serviceType: "Vehicle Storage",
-    offers: { "@type": "Offer", price: "12.60", priceCurrency: "AED", availability: "https://schema.org/InStock" },
-  },
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -54,7 +43,6 @@ const faqs = [
   { q: "How much does car storage cost in Dubai?", a: "Car storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai, covering cars, motorcycles, and standard vehicles. Classic cars and larger vehicles are quoted individually. Long-term storage (3+ months) receives significant discounts." },
   { q: "Is your car storage indoors and covered?", a: "Yes, all our vehicle storage bays are indoors and under cover. Your vehicle is protected from direct sun, dust, sandstorms, rain, and bird droppings — the outdoor exposure that causes paint oxidation, interior fading, and body damage to cars left parked in the open across Dubai." },
   { q: "Do you offer pickup for vehicle storage?", a: "Yes, we offer drive-in options and can arrange transportation for vehicles that cannot be driven. For motorcycles and smaller vehicles, our team can coordinate transport. Contact us at +971505773388 to discuss your specific vehicle." },
-  { q: "Is my vehicle insured while in storage?", a: "Yes, every stored vehicle is covered by our complimentary insurance policy up to AED 5,000. For high-value classic cars, luxury vehicles, or collector items worth more, we offer extended coverage options. Our facility's 24/7 CCTV security and controlled access also provides an additional layer of protection." },
   { q: "Can I access my vehicle while it's in storage?", a: "Yes, you can access your vehicle during our operating hours: Monday–Saturday 8 AM–8 PM, Sunday 10 AM–6 PM. Simply give us 2 hours' notice and your vehicle will be ready. For business customers with special requirements, extended access can be arranged." },
   { q: "What do you do to maintain my vehicle during storage?", a: "Our team conducts regular visual inspections of stored vehicles, checks tire pressure monthly, and monitors the storage environment 24/7. For classic or long-term storage (6+ months), we recommend our premium care package which includes battery trickle charging, regular engine start-ups, and detailed condition reporting." },
   { q: "Can you store oversized vehicles like caravans or trucks?", a: "Yes, we accommodate oversized vehicles including caravans, motorhomes, light commercial vehicles and boats on a case-by-case basis. Please contact us with your vehicle's dimensions so we can confirm availability and pricing." },
@@ -76,9 +64,6 @@ export default function CarStoragePage() {
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Car Storage Dubai — Secure Covered Indoor Vehicle Storage
               </h1>
-              <p className="text-xl text-white/85 mb-8 leading-relaxed">
-                Store your car, motorcycle, boat, or classic vehicle in our secure indoor facility, under cover and out of the sun, dust, and rain. 24/7 CCTV security, free insurance up to AED 5,000, and regular vehicle inspections. Dubai's most trusted vehicle storage.
-              </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Free Quote</Button>
@@ -197,7 +182,6 @@ export default function CarStoragePage() {
                 { icon: Car, title: "Covered Indoor Bays", desc: "Your vehicle is stored indoors under cover — shielded from direct sun, dust, sandstorms, rain, and bird droppings that damage vehicles left parked outdoors." },
                 { icon: Camera, title: "24/7 HD CCTV Coverage", desc: "Every bay is covered by high-definition CCTV cameras monitored around the clock. Footage retained for 30 days." },
                 { icon: CheckCircle2, title: "Monthly Inspections", desc: "Our team conducts monthly visual inspections of all stored vehicles — checking for leaks, tyre condition, and any visible issues." },
-                { icon: Star, title: "Free Insurance AED 5,000", desc: "Complimentary insurance coverage included with every storage booking. Extended coverage available for high-value vehicles." },
                 { icon: Clock, title: "Flexible Terms", desc: "Month-to-month contracts with no penalty. Store for 1 month or 5 years. A wide range of discounts available on longer prepaid commitments." },
               ].map((f) => (
                 <div key={f.title} className="flex gap-4 p-5 rounded-xl border border-gray-100 bg-slate-50">
@@ -298,7 +282,6 @@ export default function CarStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our Car &amp; Vehicle Storage Service in Dubai</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
               <p>SafeStorage Dubai provides specialist covered indoor vehicle storage for cars, motorcycles, classic and luxury vehicles, boats, caravans, and light commercial vehicles across Dubai. Every vehicle is stored indoors under cover &mdash; shielded from the direct sun, UV, blowing sand, dust, rain, and bird droppings that damage cars left parked in the open. Dubai&apos;s outdoor conditions are uniquely destructive to vehicles left in exposed parking, where paintwork oxidises, bodywork is scratched and stained, and tyres crack while a car sits unattended. A single summer in inadequate outdoor parking can reduce a vehicle&apos;s resale value by AED 5,000&ndash;20,000 and result in thousands of dirhams in preventable repairs.</p>
-              <p>Vehicle storage at SafeStorage Dubai is used by expats taking extended summer trips, multiple-car owners managing seasonal vehicles, classic car collectors protecting investment-grade vehicles, motorcycle owners who avoid riding in Dubai&apos;s extreme summer heat, and businesses storing fleet vehicles between contracts. Vehicle storage starts from 12.60 AED / sqft (VAT-inclusive), and all vehicles receive complimentary insurance coverage up to AED 5,000. Extended coverage for luxury, classic, and high-value vehicles is available. Call us at +971505773388 for a free, no-obligation quote.</p>
             </div>
 
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Vehicle Storage FAQs</h2>
@@ -319,8 +302,6 @@ export default function CarStoragePage() {
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Does my car insurance remain valid while the vehicle is in storage?</h3>
-                <p className="text-gray-700 leading-relaxed">This depends entirely on your existing car insurance policy in the UAE. Most UAE comprehensive car insurance policies remain valid while the vehicle is not in use, but you should confirm this directly with your insurance provider before placing your vehicle in storage. Some insurers require notification that a vehicle is being stored, while others may offer a reduced-premium &ldquo;storage endorsement&rdquo; for non-driven periods. SafeStorage Dubai provides our own complimentary storage insurance up to AED 5,000 covering damage occurring while in our care, but this is not a substitute for your own policy. We recommend confirming your policy status with your insurer and keeping it active throughout storage.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
@@ -340,7 +321,6 @@ export default function CarStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the price for luxury cars versus motorcycles?</h3>
-                <p className="text-gray-700 leading-relaxed">Vehicle storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), covering motorcycles and scooters, standard cars and SUVs, and light commercial vehicles &mdash; making our storage accessible for riders who want to protect their bikes during Dubai&apos;s April-to-October heat season and drivers protecting their cars. Luxury and classic cars &mdash; Ferrari, Lamborghini, Porsche, Rolls-Royce, vintage vehicles &mdash; are quoted individually as they may require dedicated bays, premium care packages, and enhanced insurance arrangements. The price includes covered indoor storage, 24/7 CCTV monitoring, monthly inspections, and complimentary insurance up to AED 5,000. A wide range of discounts applies to longer prepaid commitments &mdash; the longer you store, the more you save. Call +971505773388 for a personalised quote.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

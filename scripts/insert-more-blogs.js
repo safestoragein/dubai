@@ -25,7 +25,6 @@ const additionalBlogs = [
         <li><strong>Climate Control:</strong> Adds 15-20% but essential in Dubai</li>
         <li><strong>Access Hours:</strong> 24/7 access may cost extra</li>
         <li><strong>Contract Length:</strong> Longer terms get better rates</li>
-        <li><strong>Additional Services:</strong> Insurance, pickup, packing</li>
       </ul>
       
       <h3>Hidden Fees to Watch For</h3>
@@ -34,7 +33,6 @@ const additionalBlogs = [
         <li>Admin fees (AED 100-250)</li>
         <li>Security deposits (1-2 months rent)</li>
         <li>Lock purchase (AED 50-150)</li>
-        <li>Insurance (mandatory at some facilities)</li>
         <li>Access cards (AED 50-100)</li>
         <li>Late payment fees (AED 100-200)</li>
       </ul>
@@ -44,7 +42,6 @@ const additionalBlogs = [
         <li>NO admin fees</li>
         <li>NO security deposit</li>
         <li>Door-to-Door pickup and delivery</li>
-        <li>Insurance optional</li>
         <li>Lock included free</li>
       </ul>
       
@@ -447,7 +444,6 @@ const additionalBlogs = [
         <li>Proper documentation for authorities</li>
         <li>Climate-controlled environment</li>
         <li>24/7 security and access logs</li>
-        <li>Insurance certificates available</li>
         <li>Audit trail maintenance</li>
       </ul>
       
@@ -512,7 +508,6 @@ const additionalBlogs = [
         <li>Free packing supplies</li>
         <li>No deposit required</li>
         <li>Flexible payment terms</li>
-        <li>Insurance fast-track</li>
         <li>24/7 access immediately</li>
       </ul>
       
@@ -661,9 +656,7 @@ const additionalBlogs = [
         <li><strong>Solution:</strong> Read everything, ask questions</li>
       </ul>
       
-      <h3>Insurance Mistakes</h3>
       
-      <h4>❌ Mistake #7: Skipping Insurance</h4>
       <ul>
         <li><strong>Result:</strong> No coverage for damage/loss</li>
         <li><strong>Cost:</strong> Total loss of value</li>

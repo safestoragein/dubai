@@ -145,8 +145,6 @@ export default function Services() {
             <ul className="space-y-3 text-gray-700">
               <li><strong>Door-to-door Service:</strong> We collect from anywhere in Dubai and return your items on demand — no truck rental needed.</li>
               <li><strong>Flexible Plans:</strong> Monthly contracts with no long-term commitment required. Scale up or down at any time.</li>
-              <li><strong>Free Insurance:</strong> Every unit comes with complimentary insurance coverage up to AED 5,000, with optional extended coverage available.</li>
-              <li><strong>Transparent Pricing:</strong> No hidden fees, no surprise charges. Prices include storage, security, and basic insurance.</li>
               <li><strong>Professional Packing:</strong> Our team offers expert packing services using quality materials to ensure your items arrive safely.</li>
               <li><strong>Dedicated Consultant:</strong> Every customer gets a personal storage consultant available via phone, WhatsApp, or email.</li>
             </ul>
@@ -207,9 +205,6 @@ export default function Services() {
               <p className="text-gray-700 mb-4">
                 Personal storage customers typically store seasonal clothing, sports equipment, holiday decorations, extra bedding, books, electronics not in current use, suitcases, and items inherited or gifted that they are not ready to part with. In Dubai, where apartments tend to be compact relative to the average household&apos;s belongings, personal storage is an increasingly popular alternative to cramming everything into already-full wardrobes and store rooms.
               </p>
-              <p className="text-gray-700">
-                Plans start from 12.60 AED / sqft (VAT-inclusive), scaling with the volume you store. Door-to-Door pickup from your home address, digital photo inventory, secure storage, and insurance are included in every personal storage plan. On-demand delivery back to your address is available within 24–48 hours.
-              </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
@@ -259,21 +254,12 @@ export default function Services() {
               <p className="text-gray-700 mb-4">
                 Vehicle storage is particularly popular among expats who are leaving Dubai temporarily (taking a sabbatical, returning home for a long holiday, or transitioning between jobs) and want to keep their car safely in Dubai rather than selling and rebuying. Collectors of classic or vintage cars use our facilities for long-term secure storage between shows or events.
               </p>
-              <p className="text-gray-700">
-                All vehicles are inspected and photographed upon arrival with a detailed condition report. Vehicles are stored on clean, hard surfaces and checked periodically by our team. Insurance options are available for all stored vehicles. Contact us for current vehicle storage pricing based on the type and size of your vehicle.
-              </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
               <h3 className="text-2xl font-bold text-[#0A2463] mb-4">6. Art &amp; Valuables Storage Dubai</h3>
               <p className="text-gray-700 mb-4">
                 Dubai&apos;s international art scene and the high concentration of wealthy collectors among its resident population create significant demand for specialist art storage. SafeStorage provides secure, dedicated art storage — ideal for paintings, sculptures, photography prints, and mixed-media works. Each piece is wrapped in archival materials, handled with care, and kept in our clean, dust-protected facility.
-              </p>
-              <p className="text-gray-700 mb-4">
-                Valuable items beyond art — including antiques, wine collections, musical instruments, and rare collectibles — are stored in our most secure units with enhanced insurance options. Our team uses acid-free tissue paper, custom padded crating, and archival wrapping materials for art and antiques to prevent contact damage during handling and storage.
-              </p>
-              <p className="text-gray-700">
-                Customers storing art and valuables with SafeStorage receive a fully itemised, photographed inventory for insurance and customs purposes. For international arrivals or departures, we coordinate with freight forwarders and art handlers to ensure seamless transit and proper documentation.
               </p>
             </div>
 
@@ -285,9 +271,6 @@ export default function Services() {
               <p className="text-gray-700 mb-4">
                 Electronics storage is popular among Dubai residents who are upgrading their devices and want to store older equipment, professionals storing production or broadcasting equipment between projects, businesses storing IT assets not currently deployed, and expats who have more electronics than can practically be shipped internationally.
               </p>
-              <p className="text-gray-700">
-                Our team wraps all electronics using anti-static bubble wrap and foam padding. Large items like televisions are stored in purpose-appropriate packaging. We recommend removing batteries from devices stored long-term to prevent leakage. For sensitive professional electronics, we can provide a detailed pre-storage condition report for insurance purposes.
-              </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
@@ -297,9 +280,6 @@ export default function Services() {
               </p>
               <p className="text-gray-700 mb-4">
                 SafeStorage&apos;s student storage plans are specifically designed to be affordable and aligned with academic calendars. We pick up from student accommodation at the end of term and return everything to the same or a new address at the start of the next term. Plans are month-to-month with no minimum and pricing starts from 12.60 AED / sqft (VAT-inclusive).
-              </p>
-              <p className="text-gray-700">
-                Student storage includes the same secure storage, insurance, and on-demand delivery as all other SafeStorage plans. We serve students from universities in Knowledge Village, Dubai International Academic City, Dubai Knowledge Park, and all other major educational hubs across Dubai. Special student discount rates are available — contact us with your student ID for current pricing.
               </p>
             </div>
           </div>
@@ -328,8 +308,6 @@ export default function Services() {
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">What security measures protect items stored at SafeStorage Dubai?</h3>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-3">What does the free insurance cover?</h3>
-              <p className="text-gray-700">Every SafeStorage plan includes complimentary insurance covering all stored items against theft, fire, flood, water damage, and accidental damage while in our facility and during collection and delivery by our team. The standard complimentary insurance covers items up to a declared total value. Customers storing items with a higher combined value should declare this at booking and can purchase extended coverage at an additional premium. For high-value items such as art, electronics, and antiques, we recommend declaring accurate values and discussing extended insurance options with your storage consultant to ensure full coverage.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How quickly can I get my items back from SafeStorage?</h3>
@@ -361,7 +339,6 @@ export default function Services() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">What should I do to prepare my items for SafeStorage pickup?</h3>
-              <p className="text-gray-700">Preparation depends on what you are storing. For boxed items, ensure boxes are properly sealed and labelled with a general description of contents. For furniture, you do not need to disassemble anything — our team handles disassembly and reassembly if needed. For electronics, remove batteries from devices where possible and note down any serial numbers for insurance purposes. For clothing, items can be left on hangers (we use wardrobe boxes) or folded and packed in boxes. For fragile items, let our team know so they can bring appropriate specialist packing materials. If in doubt, leave items as they are and let our team advise on the best packing approach.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is SafeStorage available on weekends for pickup and delivery?</h3>

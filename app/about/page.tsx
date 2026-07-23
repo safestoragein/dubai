@@ -477,7 +477,6 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the starting price for storage at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">SafeStorage Dubai pricing starts from 12.60 AED / sqft (VAT-inclusive). Pricing scales with the space your belongings occupy — you pay for the actual area your items take up, not a fixed unit size. All pricing is provided transparently in your quote with no hidden fees. Door-to-Door pickup, secure storage, insurance, and the digital inventory system are included in every plan regardless of the amount you store.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I speak to a real person at SafeStorage, or is everything automated?</h3>
@@ -497,7 +496,6 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Is SafeStorage a good option for long-term storage (1–5 years)?</h3>
-              <p className="text-gray-700">Yes, SafeStorage is well-suited for long-term storage needs. Many of our customers store items for 1–5 years, particularly expats who have left Dubai and are keeping belongings stored while they decide on their long-term plans, businesses that need permanent overflow storage, and families storing inherited items or belongings from a previous larger home. Long-term customers benefit from the same secure storage, insurance, and digital inventory management as short-term customers. For storage exceeding 6 months, we offer long-term pricing that provides a discount on the standard monthly rate — contact us to discuss long-term storage pricing.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">How does SafeStorage ensure the safety of its staff and customers during pickups?</h3>

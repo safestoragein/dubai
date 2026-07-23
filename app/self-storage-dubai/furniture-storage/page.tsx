@@ -94,7 +94,6 @@ export default function FurnitureStoragePage() {
                     <li>• Dust-protected covers</li>
                     <li>• Stored off the ground</li>
                     <li>• 24/7 CCTV-monitored facility</li>
-                    <li>• Insured up to AED 5,000</li>
                     <li>• Ready-to-use condition</li>
                   </ul>
                 </CardContent>
@@ -143,7 +142,6 @@ export default function FurnitureStoragePage() {
                 </div>
                 <div className="flex items-start">
                   <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                  <span>Insurance options available</span>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
@@ -450,7 +448,6 @@ export default function FurnitureStoragePage() {
                   </li>
                   <li className="flex items-start">
                     <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                    <span>Photograph items for insurance</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
@@ -852,17 +849,6 @@ export default function FurnitureStoragePage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Is insurance available for stored furniture?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Yes, we offer comprehensive insurance options to protect your valuable furniture. Our facilities include 24/7 CCTV surveillance, fire safety systems, and pest control as standard. Additional insurance coverage is available for high-value or antique furniture pieces. We recommend photographing items before storage for your records.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
                   <CardTitle className="text-lg">What's the difference between your DIY and Full Service options?</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -879,9 +865,6 @@ export default function FurnitureStoragePage() {
                   <CardTitle className="text-lg">How do I prepare furniture for storage?</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">
-                    Clean thoroughly and let dry completely. Apply wood polish or leather conditioner. Remove batteries from electronic components. Photograph items for insurance. Keep assembly instructions. Our team can also provide professional wrapping services with furniture blankets, bubble wrap, and corner protection to ensure maximum safety during storage.
-                  </p>
                 </CardContent>
               </Card>
 
@@ -1020,7 +1003,6 @@ export default function FurnitureStoragePage() {
               ["Can I store outdoor or garden furniture at SafeStorage Dubai?", "Yes, outdoor and garden furniture can be stored at SafeStorage Dubai. Teak, aluminium, rattan, and other outdoor furniture materials benefit from secure indoor storage in Dubai's off-season. Outdoor furniture should be thoroughly cleaned and completely dry before storage, as soil and organic matter on garden furniture can attract pests. Metal garden furniture should be checked for rust spots, treated if necessary, and wiped dry before pickup. Garden cushions and umbrellas are best stored in sealed bags to prevent dust accumulation during the storage period."],
               ["How do you protect mirrors and glass tabletops during storage?", "Mirrors and glass items receive specialist handling at SafeStorage Dubai. Each mirror or glass panel is individually wrapped in a double layer of large-format bubble wrap, with the edges protected by foam corner guards. Glass tabletops are stored vertically in padded wooden crates rather than laid flat, as horizontal storage increases the risk of cracking from the weight of items placed above. All glass items are clearly labelled FRAGILE in your inventory account and handled separately from other furniture pieces during loading and unloading."],
               ["Can I store a mattress in storage?", "Mattresses can be stored safely at SafeStorage Dubai. All mattresses are sealed in dedicated professional mattress storage bags before loading, which protect against dust, moisture, and pest contact. In our secure facility, mattresses are stored flat on raised platforms to maintain their structure. We recommend storing mattresses for no longer than 6 months if possible, as extended horizontal storage can affect the internal spring structure over time. Memory foam mattresses store particularly well due to their ability to return to shape after storage."],
-              ["Do you handle antique or designer furniture?", "Yes, SafeStorage Dubai has extensive experience handling antique and high-value designer furniture. Our specialist packing team uses museum-grade materials including acid-free tissue paper, archival bubble wrap, and custom-cut foam inserts for particularly valuable or fragile pieces. Antique furniture is stored individually rather than stacked, with documentation of every scratch, patina mark, and pre-existing characteristic noted in the inventory. For extremely high-value antiques, we recommend adding enhanced insurance coverage beyond the standard AED 5,000 included free with every plan."],
               ["Is furniture storage useful during Ramadan relocation?", "Many Dubai residents restructure their living arrangements during Ramadan, and furniture storage is a practical solution. SafeStorage Dubai sees a significant increase in bookings during the weeks leading up to Ramadan from residents who are combining households, hosting extended family, or temporarily modifying their home setup. Our flexible monthly contracts are ideal for Ramadan relocation storage, which typically runs for 3–5 weeks. We offer fast turnaround pickups and deliveries to accommodate the time-sensitive nature of pre-Ramadan preparation."],
               ["Can I store kitchen appliances with my furniture?", "Yes, kitchen appliances can be stored alongside furniture. Refrigerators, washing machines, ovens, and other appliances must be completely defrosted, drained, cleaned, and left with doors slightly ajar for at least 24 hours before pickup to ensure all internal moisture has evaporated. Failure to dry appliances properly before storage is the leading cause of mould growth inside refrigerators and washing machines. Our team will remind you of appliance preparation requirements when your pickup is confirmed. Small appliances like mixers, kettles, and microwaves need no special preparation beyond being clean and dry."],
               ["What is the most common reason people store furniture in Dubai?", "The three most common reasons Dubai residents store furniture with SafeStorage are: home renovation (furniture is removed while construction, painting, or flooring work is completed — typically 2–4 months); relocation (moving between properties when there is a gap between lease end and new lease start — typically 1–6 weeks); and temporary departure from the UAE (expats leaving for extended periods rather than selling furniture at a loss — typically 3–12 months). Business furniture storage during office refits and downsizes is the fourth most common use case."],
@@ -1078,13 +1060,6 @@ export default function FurnitureStoragePage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-xl font-bold text-[#0A2463] mb-3">Furniture Storage Pricing in Dubai</h3>
-            <p className="text-gray-700">
-              Furniture storage starts from 12.60 AED / sqft (VAT-inclusive) — whether you are storing a small
-              collection, a full 1-bedroom apartment&apos;s furniture in a medium unit (50–100 sq ft), or a full
-              villa clearance in a large unit (100–200 sq ft). All plans include door-to-door pickup,
-              24/7 security, and free insurance up to AED 5,000. No minimum contract — store
-              for a week or several years.
-            </p>
           </div>
         </div>
       </section>

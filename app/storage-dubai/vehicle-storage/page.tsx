@@ -266,12 +266,6 @@ export default function VehicleStoragePage() {
               for standard cars and motorcycles, larger vehicles (SUVs, caravans, boats), and classic or
               high-value vehicles stored in premium enclosed bays with additional security features.
             </p>
-            <p className="text-gray-700">
-              All vehicle storage plans include 24/7 CCTV monitoring, indoor covered parking,
-              and basic insurance coverage. Long-term storage (3+ months) qualifies for
-              preferential rates. Contact us for a personalised quote based on your vehicle type and
-              storage duration.
-            </p>
           </div>
         </div>
       </section>
@@ -313,9 +307,6 @@ export default function VehicleStoragePage() {
             <p className="text-gray-700 mb-4">
               Our premium vehicle bays feature individual access with additional security layers, wheel dollies for easy positioning without rolling the vehicle, trickle charger connections, drip trays, and regular condition checks by our team. We can also coordinate with specialist classic car mechanics in Dubai for any maintenance work required during the storage period.
             </p>
-            <p className="text-gray-700">
-              For classic car owners, we recommend comprehensive insurance coverage for the full stored value of the vehicle. SafeStorage&apos;s basic insurance covers up to AED 5,000, but vehicles worth AED 50,000 to several million require extended coverage. Our team can connect you with specialist classic car insurance providers in the UAE.
-            </p>
           </div>
 
           <div className="bg-gray-50 rounded-xl p-8 mb-10">
@@ -342,13 +333,10 @@ export default function VehicleStoragePage() {
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">2. Is my vehicle insured while in storage at SafeStorage?</h3>
-              <p className="text-gray-700">Basic insurance coverage up to AED 5,000 is included with all vehicle storage plans. This covers fire, theft, and natural disasters while the vehicle is in our care. However, this coverage is insufficient for most standard cars, let alone luxury or classic vehicles. We strongly recommend that all vehicle owners maintain their own comprehensive UAE motor insurance policy throughout the storage period, or purchase additional coverage through our specialist insurance partners. Inform your insurance provider that the vehicle is in professional off-site storage, as this may actually reduce your premium.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">3. Do I need to deregister my vehicle in Dubai before storing it long-term?</h3>
-              <p className="text-gray-700">Dubai RTA requires vehicles to be registered and insured at all times while on public roads. While your vehicle is in storage at SafeStorage, it is off public roads, so you may be able to place your registration on hold depending on your circumstances. However, deregistration and re-registration involves costs and administrative work that may not be worthwhile for storage periods of less than 6–12 months. We recommend consulting with a UAE motor insurance provider and the RTA before making any changes to your vehicle&apos;s registration status. Our team can provide general guidance on the process.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -363,7 +351,6 @@ export default function VehicleStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. Can I access my stored vehicle at any time?</h3>
-              <p className="text-gray-700">Vehicle access is available during our standard operating hours (Monday–Saturday 8 AM–8 PM, Sunday 10 AM–6 PM). We require a minimum of 2 hours&apos; advance notice for vehicle access so our team can prepare the bay and ensure safe entry and exit. For vehicles that need to be driven out, please ensure your insurance is active and your registration is current. For urgent access outside standard hours, contact your account manager — we will do our best to accommodate emergency access requests where operationally possible.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -382,7 +369,6 @@ export default function VehicleStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. How much does vehicle storage in Dubai cost?</h3>
-              <p className="text-gray-700">Vehicle storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive) — whether you are storing standard cars and motorcycles in our indoor bays, SUVs and larger vehicles, or classic vehicles requiring premium enclosed bay storage with additional security features. Boats, jet skis, and caravans are priced individually based on dimensions. All plans include 24/7 CCTV monitoring, indoor covered parking, and basic insurance. Long-term plans (3+ months) qualify for preferential rates. Call +971505773388 or get a quote online for precise pricing.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

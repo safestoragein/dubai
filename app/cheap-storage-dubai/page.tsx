@@ -67,11 +67,6 @@ export default function CheapStorageDubai() {
       tip: "Sell or donate unused items. Every 10 boxes you don't store saves AED 50-100/month",
     },
     {
-      icon: Shield,
-      title: "Skip Unnecessary Insurance",
-      tip: "Check if your home insurance covers stored items. Don't pay twice for coverage",
-    },
-    {
       icon: Zap,
       title: "Only Pay for the Space You Need",
       tip: "Right-size your unit to what you're actually storing. Save 20-30% by not over-renting space",
@@ -165,10 +160,8 @@ export default function CheapStorageDubai() {
     },
     {
       icon: AlertCircle,
-      cost: "Insurance (Mandatory)",
       typical: "AED 50-200/month",
       ourPrice: "Optional, from AED 25/month",
-      avoid: "Check if your home insurance covers stored items first",
     },
     {
       icon: AlertCircle,
@@ -620,10 +613,6 @@ export default function CheapStorageDubai() {
               {
                 q: "Do you offer student discounts?",
                 a: "Yes! Students get special rates on our small units starting from 12.60 AED / sqft. Perfect for summer storage between semesters. Show your student ID to qualify. Save thousands vs keeping a large apartment year-round.",
-              },
-              {
-                q: "What's included in the monthly price?",
-                a: "Everything! Clean secure units, 24/7 security, Door-to-door Pickup, Doorstep delivery, unlimited access, and your own lock. The only optional extra is additional insurance (if you want coverage above the basic amount).",
               },
               {
                 q: "Can I share a unit with friends to save money?",

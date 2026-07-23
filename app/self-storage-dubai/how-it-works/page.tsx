@@ -364,7 +364,6 @@ export default function HowItWorksPage() {
                           </li>
                           <li className="flex items-start">
                             <Shield className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                            <span>Insurance available</span>
                           </li>
                         </ul>
                       </div>
@@ -695,9 +694,6 @@ export default function HowItWorksPage() {
           <div className="space-y-8 mb-12">
             <div className="bg-white rounded-xl p-8 shadow-sm">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Step 1 — Get an Instant Online Quote</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                The SafeStorage Dubai process begins with a free, no-obligation quote. You can get an instant estimate online by selecting the type and approximate volume of items you need to store, or by calling our team directly at +971505773388. For larger or more complex storage requirements &mdash; such as a full villa clearance or business inventory &mdash; you can send photos via WhatsApp and our team will provide a precise, itemised quote within a few hours. There are no hidden fees in the quote: the price you receive includes door-to-door pickup, secure storage, 24/7 security monitoring, insurance up to AED 5,000, and doorstep delivery when you need your items back.
-              </p>
               <p className="text-gray-700 leading-relaxed">
                 Once you are happy with the quote, you confirm your booking online or by phone. You choose your preferred pickup date and time &mdash; we are available 7 days a week, including weekends and public holidays. A booking confirmation is sent to your email immediately, along with a pre-pickup checklist to help you prepare your items. Digital contracts are signed electronically &mdash; there is no need to visit any office in person, and the entire booking process typically takes under 10 minutes.
               </p>
@@ -717,9 +713,6 @@ export default function HowItWorksPage() {
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Step 3 — Digital Inventory Creation &amp; Item Cataloguing</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
                 As items are collected, every individual piece is photographed, described, and logged into your personalised online inventory account in real time. This creates a complete visual record of everything stored with SafeStorage &mdash; including the condition of each item at the point of collection. Within 24 hours of your pickup, you receive an email confirmation containing the full inventory list with photos. You can access this inventory at any time through your online customer portal. The inventory system also records the location of each item within our warehouse, making individual item retrievals quick and accurate.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                The digital inventory is an extremely valuable tool for customers storing large volumes of items, as it eliminates the common problem of forgetting what is in storage. It is also essential for insurance purposes &mdash; should you ever need to make a claim, the photographic record from the time of collection provides verified evidence of the item&apos;s condition and value. For business customers managing inventory, the catalogue function allows stock tracking and selective retrieval without disrupting the full stored inventory.
               </p>
             </div>
 
@@ -755,7 +748,6 @@ export default function HowItWorksPage() {
               { q: "How is pricing calculated — by unit size or by item?", a: "SafeStorage Dubai prices storage based on the volume and type of items stored, not a fixed unit size. This means you only pay for the space your items actually occupy, rather than paying for an empty unit you may not fill completely. When you get a quote, the price is based on an assessment of your inventory. This model typically works out cheaper than self-storage for most customers, as self-storage units are often larger than needed and customers pay for unused space. A wide range of discounts is available on long-term and prepaid plans — the longer you store, the more you save." },
               { q: "What is the process for business storage?", a: "Business customers follow the same process as residential customers, but with additional features. A dedicated business account manager is assigned to handle all communications and coordination. Businesses can schedule regular recurring pickups and deliveries for inventory management. VAT invoices are provided for all transactions. Document and records archival is available with indexed cataloguing for easy retrieval. E-commerce businesses can use SafeStorage for order fulfilment storage with pick-and-pack services available on request. Contact our business team for a custom quote." },
               { q: "Is the pickup service available on weekends?", a: "Yes, SafeStorage Dubai operates 7 days a week including weekends and public holidays. Pickup and delivery slots are available Monday through Sunday. Weekend slots tend to fill faster than weekday slots, so we recommend booking at least 3–5 days in advance for weekend appointments. For same-day weekend pickup, call us directly at +971505773388 before 10 AM to check availability. Our team aims to accommodate all requests, including last-minute weekend pickups when team capacity allows." },
-              { q: "What happens if an item is damaged during pickup or storage?", a: "SafeStorage Dubai takes extensive precautions to prevent damage, including professional packing, careful handling, and secure storage. In the unlikely event that an item is damaged while under SafeStorage's care, the free insurance up to AED 5,000 included with every plan provides coverage for the declared value of the damaged item. The photographic inventory taken at collection provides a baseline record of each item's condition, making claims straightforward to process. For items worth more than AED 5,000, we recommend adding enhanced insurance coverage when booking." },
               { q: "How quickly can I get my items back in an emergency?", a: "For emergency retrievals, SafeStorage Dubai offers same-day delivery for requests made before 12 noon, subject to team availability. Call +971505773388 directly to request emergency retrieval rather than going through the online system. Our team will prioritise urgent situations such as fire, flood, unexpected relocation, or medical emergencies. Express same-day delivery may involve a small surcharge during peak periods, but our team will always confirm any additional cost before proceeding. In most cases, same-day service is provided at the standard rate." },
               { q: "Can I change my storage plan if my needs change?", a: "Yes, your storage plan can be adjusted at any time to reflect changes in your needs. If you need to add more items, we arrange an additional pickup. If you want to reduce your stored volume, you can request partial retrieval of specific items and your monthly rate will be adjusted accordingly. There is no penalty for scaling up or down. Long-term customers frequently adjust their storage volume multiple times as their life circumstances change. All changes are reflected immediately in your inventory account and the next invoice." },
               { q: "What areas of Dubai are covered for door-to-door pickup?", a: "SafeStorage Dubai covers every area of Dubai for door-to-door service. This includes Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, Al Quoz, Dubai Investment Park, Motor City, Sports City, Arabian Ranches, The Springs, The Meadows, Mirdif, Deira, Bur Dubai, Silicon Oasis, JVC, JVT, Discovery Gardens, International City, Al Barsha, and all other Dubai communities. Extended coverage to Sharjah, Abu Dhabi, and other UAE emirates is available — contact us to confirm your specific location." },
@@ -805,19 +797,12 @@ export default function HowItWorksPage() {
                 require 3- or 6-month minimums. You pay monthly in advance, and can give as little as 7 days&apos;
                 notice to end your storage arrangement.
               </p>
-              <p className="text-gray-700">
-                All contracts are signed digitally — no need to visit the office in person. Your agreement
-                clearly outlines the monthly rate, what is included (insurance, pickup and
-                delivery), and the terms for adding, removing, or changing the volume of items stored.
-                There are no hidden charges or surprise fees.
-              </p>
             </div>
           </div>
           <div className="bg-gray-50 rounded-xl p-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Tips for Getting the Best from Your Storage</h3>
             <ul className="space-y-3 text-gray-700">
               <li>• <strong>Label everything clearly:</strong> When items go into storage, label every box with its contents and a brief description. This makes retrieval much faster when you only need specific items.</li>
-              <li>• <strong>Create a packing list:</strong> Keep a digital record of everything you have stored, including photos. This makes insurance claims easier if ever needed and helps you remember what is stored.</li>
               <li>• <strong>Consider access frequency:</strong> Items you might need regularly should go near the front of the unit. Items for long-term storage can go to the back or bottom.</li>
               <li>• <strong>Use original packaging for electronics:</strong> If you still have the original box for a TV, laptop, or appliance, use it — it provides the best protection during transport and storage.</li>
               <li>• <strong>Clean items before storing:</strong> Food residue, grease, or moisture on items can cause damage over time. Clean and dry all items, especially appliances, before storage.</li>

@@ -169,7 +169,6 @@ export const blogPosts: BlogPost[] = [
         <li>Individual unit alarms</li>
         <li>Controlled access systems</li>
         <li>Fire protection</li>
-        <li>Insurance options</li>
       </ul>
       
       <p>SafeStorage Dubai offers customized business storage solutions with flexible terms, enhanced security, and optional services like inventory management and delivery.</p>

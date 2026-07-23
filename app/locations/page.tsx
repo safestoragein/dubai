@@ -264,7 +264,6 @@ export default function LocationsPage() {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Door-to-Door pickup anywhere in Dubai</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Secure, indoor storage</span></li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Complimentary insurance on all stored items</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Digital photo inventory of every item stored</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Dedicated storage consultant via phone and WhatsApp</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Flexible monthly plans — cancel anytime without penalty</span></li>
@@ -318,7 +317,6 @@ export default function LocationsPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How does SafeStorage pricing work — is it the same across all Dubai locations?</h3>
-              <p className="text-gray-700">Yes, SafeStorage pricing is uniform across all Dubai locations. We do not charge more for pickup from certain areas or premium residential communities. Pricing is based solely on the volume of items you store and starts from 12.60 AED / sqft (VAT-inclusive), whether you store a small amount of boxes or full villa contents. All quotes include door-to-door pickup, secure storage, insurance, and on-demand delivery. There are no hidden charges, fuel surcharges, or location premiums. Get an instant quote by calling +971505773388 or using our online quote tool.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can businesses in Dubai&apos;s free zones use SafeStorage?</h3>

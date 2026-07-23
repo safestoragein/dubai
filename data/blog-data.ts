@@ -116,7 +116,7 @@ export const blogPosts: BlogPost[] = [
     slug: "safe-storage-services-in-dubai-best-storage-options-for-you",
     title: "SafeStorage Services in Dubai: Best Storage Options For You",
     excerpt:
-      "SafeStorage has become the leading and trusted storage provider in Dubai, offering fully monitored, insured, and secure dedicated household and commercial units",
+      "SafeStorage has become the leading and trusted storage provider in Dubai, offering fully monitored and secure dedicated household and commercial units",
     content: `
       <p>Proper packing is essential for preserving your belongings during long-term storage. Follow these professional tips to ensure your items remain in perfect condition.</p>
       
@@ -333,13 +333,11 @@ export const blogPosts: BlogPost[] = [
         <li>24/7 surveillance systems</li>
         <li>Access control measures</li>
         <li>Fire protection systems</li>
-        <li>Insurance coverage</li>
       </ul>
       
       <h2>Cost-Benefit Analysis</h2>
       <p>When evaluating storage solutions, consider:</p>
       <ul>
-        <li><strong>Direct Costs:</strong> Rental fees, insurance, handling</li>
         <li><strong>Indirect Savings:</strong> Reduced damage, theft, and inventory loss</li>
         <li><strong>Operational Efficiency:</strong> Faster retrieval, better organization</li>
         <li><strong>Opportunity Costs:</strong> Using prime retail/office space for storage</li>
@@ -448,7 +446,6 @@ export const blogPosts: BlogPost[] = [
       <ul>
         <li>Discounted rates for longer commitments</li>
         <li>Enhanced security features</li>
-        <li>Insurance options</li>
         <li>Inventory management systems</li>
       </ul>
       
@@ -475,7 +472,6 @@ export const blogPosts: BlogPost[] = [
       <ul>
         <li>Prohibited items that cannot be imported or stored</li>
         <li>Documentation required for stored goods</li>
-        <li>Insurance requirements and options</li>
         <li>VAT considerations for long-term storage</li>
       </ul>
       

@@ -382,8 +382,6 @@ export default function EcommerceFulfilmentPage() {
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. Is my e-commerce inventory insured while stored at SafeStorage?</h3>
-              <p className="text-gray-700">All stored inventory is covered by complimentary insurance up to AED 5,000 against fire, theft, and natural disasters. For e-commerce sellers with high-value inventory, we recommend additional coverage. Extended insurance plans covering up to AED 100,000 in inventory value are available at a modest additional monthly cost. We will provide documentation of your insurance coverage which you can submit to your accountant or marketplace compliance team.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

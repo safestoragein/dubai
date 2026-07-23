@@ -258,9 +258,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "16px" }}>
             SafeStorage Dubai is the city&apos;s most trusted self-storage provider, offering secure, clean, dust-protected units for households and businesses alike. Every unit is monitored by 24/7 CCTV, secured with individual PIN access, and kept clean and dust-free — giving every customer peace of mind whether they are storing for a week or a year.
           </p>
-          <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "16px" }}>
-            With over 500 satisfied customers across Dubai and a 4.9-star average rating, we have helped households, businesses, expats, students, and e-commerce sellers manage their belongings efficiently. Every unit is monitored by 24/7 CCTV, secured with individual PIN access, and covered by complimentary insurance up to AED 5,000 — something very few storage providers in the UAE offer as standard.
-          </p>
 
           <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#111827", marginBottom: "12px", marginTop: "24px" }}>
             What We Store
@@ -369,10 +366,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           <div style={{ marginBottom: "16px" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>7. Document High-Value Items for Insurance</h3>
-            <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Before placing high-value items into storage — electronics, artwork, antiques, musical instruments — photograph each item against a plain background and note the serial number, make, model, and estimated value. Store these records in a cloud folder or email them to yourself. SafeStorage Dubai includes free insurance up to AED 5,000 with every unit, and additional coverage is available for higher-value items. Having photo documentation and written records speeds up any insurance claim significantly and removes ambiguity about the pre-storage condition of your belongings.
-            </p>
           </div>
 
           <div style={{ marginBottom: "16px" }}>
@@ -402,9 +395,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>How much does storage cost in Dubai per month?</h3>
-            <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Storage prices in Dubai vary widely depending on unit size and whether pickup and delivery are included. At SafeStorage Dubai, pricing starts from 12.60 AED / sqft (VAT-inclusive), and you only pay for the space you actually use. All SafeStorage plans include 24/7 security, insurance, and door-to-door service — which often saves customers AED 300–800 compared to hiring movers separately.
-            </p>
           </div>
 
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
@@ -461,10 +451,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
-            <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Is there insurance for stored items in Dubai?</h3>
-            <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              SafeStorage Dubai includes complimentary insurance coverage up to AED 5,000 with every storage plan at no extra charge. This covers theft, fire, water damage, and structural incidents. For customers with higher-value items — art, antiques, electronics collections, or high-end furniture — we offer additional insurance coverage up to AED 100,000. Before adding items to your unit, photograph them and note their estimated value so claims can be processed quickly and accurately if ever needed. Insurance claims are handled by our customer team within 48 working hours.
-            </p>
           </div>
 
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>

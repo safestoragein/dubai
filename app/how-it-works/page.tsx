@@ -148,7 +148,6 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-1">What happens if my items are damaged?</p>
-                <p>All stored items are covered by free insurance up to AED 5,000. Additional coverage can be arranged for high-value items. In the unlikely event of damage, file a claim with your dedicated consultant and we will process it within 48 hours.</p>
               </div>
               <div>
                 <p className="font-semibold mb-1">Can I access my unit directly at the facility?</p>
@@ -178,7 +177,6 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-2">Do I receive an inventory of my stored items?</p>
-                <p>Yes. Upon collection, our team creates a detailed inventory list of everything loaded. For customers who prefer a photo inventory — particularly useful for insurance purposes or businesses storing multiple SKUs — we offer a photo documentation service at no extra charge. The inventory is shared with you via WhatsApp or email on the same day as pickup so you have a complete record of what is in storage.</p>
               </div>
               <div>
                 <p className="font-semibold mb-2">How long can I keep items in storage?</p>
@@ -190,7 +188,6 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-2">Do I need to sign a contract?</p>
-                <p>Yes, a simple storage agreement is signed before or at the time of pickup. The agreement covers your unit size, monthly rate, access terms, insurance details, and cancellation policy. There are no hidden clauses or automatic long-term commitments — the contract is month-to-month by default. We strongly encourage customers to read the agreement and ask questions before signing. Our team is happy to walk you through every section.</p>
               </div>
               <div>
                 <p className="font-semibold mb-2">Can I change my unit size after storing?</p>

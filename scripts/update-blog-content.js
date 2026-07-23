@@ -41,7 +41,6 @@ function generateImprovedContent(title, category) {
 <ul>
   <li><strong>Door-to-door Pickup and Delivery:</strong> We offer complimentary transportation services for your convenience</li>
   <li><strong>Competitive Pricing:</strong> Transparent pricing with no hidden fees</li>
-  <li><strong>Insurance Options:</strong> Comprehensive insurance coverage available for added peace of mind</li>
   <li><strong>Professional Staff:</strong> Our experienced team provides personalized assistance and expert advice</li>
 </ul>
 
@@ -251,7 +250,6 @@ function generateImprovedContent(title, category) {
   <li>Flexible rental terms (short-term and long-term options)</li>
   <li>Free transportation services</li>
   <li>No deposit required</li>
-  <li>Insurance options available</li>
 </ul>
 
 <h2>Customer Success Stories</h2>
@@ -268,8 +266,6 @@ function generateImprovedContent(title, category) {
 <h3>Q: How quickly can I access my stored items?</h3>
 <p>A: You can access your items with just 24 hours notice. For urgent needs, we offer same-day retrieval services.</p>
 
-<h3>Q: Are my belongings insured?</h3>
-<p>A: Basic protection is included, with comprehensive insurance options available for valuable items.</p>
 
 <h3>Q: What items cannot be stored?</h3>
 <p>A: We cannot store hazardous materials, perishables, illegal items, or live plants/animals.</p>

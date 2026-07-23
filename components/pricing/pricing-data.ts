@@ -4,7 +4,6 @@ export const pricingPlans = [
     price: "12.60 AED / sqft",
     description: "One simple, transparent price for all your storage needs",
     space: "Flexible space — small, medium or large",
-    features: ["24/7 Security", "Secure Indoor Storage", "Door-to-door Pickup", "Insurance", "Flexible Monthly Billing"],
     popular: true,
   },
 ]
@@ -14,11 +13,6 @@ export const pricingFaqs = [
     question: "How much does storage cost?",
     answer:
       "Our storage starts from 12.60 AED / sqft (VAT-inclusive). It is one simple, transparent price for any unit size.",
-  },
-  {
-    question: "Are there any hidden fees?",
-    answer:
-      "No hidden fees! Our pricing is 100% transparent. The monthly rate you see includes all basic services like security, secure indoor storage, and standard insurance. Optional services like premium insurance or express delivery are clearly priced.",
   },
   {
     question: "Can I upgrade or downgrade my plan?",

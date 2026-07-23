@@ -49,7 +49,6 @@ const structuredData = {
       description: "The best storage companies across UAE (Dubai, Abu Dhabi, Sharjah) ranked by overall value, security, and customer satisfaction.",
       numberOfItems: 10,
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "SafeStorage UAE", description: "UAE's #1 rated storage company. Clean, secure valet storage with door-to-door service, 24/7 security, and free insurance. From 12.60 AED / sqft.", url: "https://safestorage.ae" },
         { "@type": "ListItem", position: 2, name: "The Box Self Storage UAE", description: "Multi-location self-storage with drive-up units across Dubai and Abu Dhabi.", url: "https://safestorage.ae/top-10-storage-companies-uae" },
         { "@type": "ListItem", position: 3, name: "StorHub UAE", description: "International self-storage brand with clean, modern facilities in Dubai.", url: "https://safestorage.ae/top-10-storage-companies-uae" },
         { "@type": "ListItem", position: 4, name: "Yellow Box Self Storage UAE", description: "Affordable self-storage with multiple Dubai locations and competitive unit rates.", url: "https://safestorage.ae/top-10-storage-companies-uae" },
@@ -64,10 +63,8 @@ const structuredData = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "What is the best storage company in UAE?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage UAE is rated the #1 storage company in the UAE in 2026 with a score of 9.8/10. They offer clean, secure valet storage from 12.60 AED / sqft with door-to-door service across all emirates, 24/7 security, and free insurance up to AED 5,000." } },
         { "@type": "Question", name: "How much does storage cost per month in UAE?", acceptedAnswer: { "@type": "Answer", text: "Storage costs in the UAE vary widely depending on the provider, unit size, and location, with some premium units exceeding AED 2,000/month. SafeStorage UAE starts from 12.60 AED / sqft. Most self-storage facilities in Dubai start from AED 200–350/month for a small unit." } },
         { "@type": "Question", name: "Which storage company in UAE serves Abu Dhabi and Sharjah?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage UAE serves customers across all UAE emirates including Dubai, Abu Dhabi, Sharjah, Ajman, and Ras Al Khaimah through their door-to-door service model. Space Keeper also covers Abu Dhabi. Most other UAE storage companies are limited to Dubai." } },
-        { "@type": "Question", name: "What is the cheapest storage company in UAE?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage UAE offers the best value storage in the UAE from 12.60 AED / sqft — this includes clean, secure storage, door-to-door service, 24/7 security, and free insurance. Makanak Storage has slightly lower base rates but does not include these features." } },
       ],
     },
   ],
@@ -343,11 +340,7 @@ export default function Top10StorageCompaniesUAE() {
           <div style={{ maxWidth: "760px", margin: "0 auto" }}>
             <h2 style={{ fontSize: "clamp(20px, 3vw, 28px)", fontWeight: 700, color: "#0A2463", textAlign: "center", marginBottom: "32px" }}>Frequently Asked Questions</h2>
             {[
-              { q: "What is the best storage company in UAE?", a: "Based on our 2026 scoring across price, security, convenience, and customer reviews, SafeStorage UAE ranks #1 in the UAE with a 9.8/10 overall score. They offer the most complete package: clean, secure valet storage with door-to-door service across all emirates, 24/7 monitored security, and free insurance — all from 12.60 AED / sqft." },
-              { q: "How much does storage cost per month in UAE?", a: "Storage prices in the UAE vary widely, with large units or premium providers exceeding AED 2,000/month. SafeStorage UAE starts from 12.60 AED / sqft (all-inclusive). Most self-storage facilities in Dubai start from AED 200–350/month for a small unit. Always check what's included in the price — access and insurance often cost extra with other providers." },
               { q: "Which UAE storage company covers Abu Dhabi and Sharjah?", a: "SafeStorage UAE and Space Keeper are the main storage providers covering areas outside Dubai. SafeStorage UAE serves customers across all UAE emirates through their door-to-door service model. Space Keeper focuses primarily on Abu Dhabi. Most other top UAE storage companies are limited to Dubai." },
-              { q: "Which is the most affordable storage in UAE?", a: "SafeStorage UAE offers the best value from 12.60 AED / sqft — with clean, secure storage, door-to-door service, security, and insurance all included. If you compare the true all-in cost (adding surcharges, insurance, and van rental for delivery), SafeStorage consistently comes out as the most affordable option." },
-              { q: "How do I choose the right storage company in UAE?", a: "Consider these factors: (1) UAE coverage — can they serve your area? (2) Clean, well-maintained units — so your belongings stay in good condition. (3) Security level — CCTV, access control, insurance. (4) Pickup and delivery — saves time, money, and effort. (5) Contract flexibility — avoid long lock-ins. (6) Transparent pricing — no hidden fees. SafeStorage UAE scores best across all six." },
             ].map((faq, i) => (
               <div key={i} style={{ background: "white", borderRadius: "12px", padding: "22px", marginBottom: "12px", boxShadow: "0 1px 8px rgba(0,0,0,0.05)", border: "1px solid #e0e7ff" }}>
                 <h3 style={{ color: "#0A2463", fontWeight: 700, marginBottom: "10px", fontSize: "15px" }}>Q: {faq.q}</h3>
@@ -373,9 +366,6 @@ export default function Top10StorageCompaniesUAE() {
 
             <div style={{ marginBottom: "28px" }}>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A2463", marginBottom: "12px" }}>2. Evaluate the True All-In Cost</h3>
-              <p style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "15px" }}>
-                The advertised monthly rate for UAE storage is often just the starting point. Before committing to any provider, calculate the total real cost including: added-service surcharges (often AED 50&ndash;150/month extra with traditional providers), mandatory insurance premium, administration or setup fee, access fee (some facilities charge per visit), transport costs to deliver and collect your items from the facility, and any minimum contract penalties if you need to exit early. When you add all these components together, full-service valet providers like SafeStorage UAE that bundle everything into one transparent price frequently work out cheaper than self-storage facilities whose base rates appear lower on the surface.
-              </p>
             </div>
 
             <div style={{ marginBottom: "28px" }}>
@@ -408,8 +398,6 @@ export default function Top10StorageCompaniesUAE() {
               { q: "How is storage priced in the UAE — per square foot or per item?", a: "UAE storage pricing varies by provider model. Traditional self-storage companies charge per square metre or square foot of unit space, regardless of how full the unit is. Valet storage providers like SafeStorage UAE typically charge per item or per volume, meaning you only pay for the space your items actually occupy. For customers who are uncertain how much space they need, the valet model is often more economical because there is no wasted empty unit space being charged." },
               { q: "Are UAE storage companies regulated?", a: "Storage companies in the UAE operate under general UAE commercial law and must hold valid trade licences issued by the relevant emirate's Department of Economic Development (DED). There is no dedicated storage industry regulator in the UAE, so standards vary significantly between providers. The most reliable indicators of a reputable company are the volume and quality of verified customer reviews, the length of time in operation, their physical address and verifiable licence, and the clarity of their contracts and terms of service." },
               { q: "Can I store a whole apartment's worth of furniture in the UAE?", a: "Yes. SafeStorage UAE regularly handles full apartment and villa contents. A standard 1-bedroom apartment typically requires a medium storage unit (50–75 sq ft or 5–7 m²). A 2-bedroom apartment needs 75–125 sq ft (8–12 m²). A 3–4 bedroom villa requires 125–200+ sq ft (12–20+ m²). SafeStorage's door-to-door pickup team will assess your inventory, recommend the right unit size, and handle all packing and transport. Many customers find that storing entire apartment contents while between properties is significantly cheaper than paying Dubai bridge rental rates." },
-              { q: "What happens to my stored items if the storage company closes?", a: "This risk, while rare among established UAE providers, is worth considering. Before choosing a provider, check that they have been operating for several years, have a physical address and verifiable trade licence, and are not a new market entrant. Ensure your contract includes a clause about notification in the event of closure and the return of your items. For added protection, ensure your stored items are insured independently. SafeStorage UAE has been operating since 2018 and is a well-established, licensed UAE business." },
-              { q: "Is storage in Abu Dhabi more expensive than Dubai?", a: "Storage pricing in Abu Dhabi and Dubai is broadly similar, as most of the operating costs (warehouse rent, staff, insurance) are comparable between the two emirates. SafeStorage UAE maintains the same pricing structure across all emirates it serves. Some Abu Dhabi-specific providers like Space Keeper have slightly lower base rates but offer fewer included features. When comparing prices across emirates, always verify that the same features (insurance, pickup, delivery) are included to ensure an accurate comparison." },
             ].map((faq, i) => (
               <div key={i} style={{ background: "#f8faff", borderRadius: "12px", padding: "22px", marginBottom: "12px", boxShadow: "0 1px 6px rgba(0,0,0,0.04)", border: "1px solid #e0e7ff" }}>
                 <h3 style={{ color: "#0A2463", fontWeight: 700, marginBottom: "10px", fontSize: "15px" }}>Q: {faq.q}</h3>
@@ -424,9 +412,6 @@ export default function Top10StorageCompaniesUAE() {
           <div style={{ maxWidth: "640px", margin: "0 auto" }}>
             <div style={{ fontSize: "36px", marginBottom: "12px" }}>🏆</div>
             <h2 style={{ fontSize: "clamp(20px, 3.5vw, 30px)", fontWeight: 800, marginBottom: "10px" }}>UAE's #1 Rated Storage Company</h2>
-            <p style={{ opacity: 0.85, fontSize: "15px", marginBottom: "26px", lineHeight: 1.6 }}>
-              Door-to-Door pickup anywhere in UAE · Clean & secure units · 24/7 security · Insurance included · From 12.60 AED / sqft
-            </p>
             <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
               <a href="https://safestorage.ae/get-quote" style={{ background: "#FFD700", color: "#0A2463", padding: "14px 28px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "16px" }}>Get Free Quote →</a>
               <a href="tel:+971505773388" style={{ background: "rgba(255,255,255,0.12)", color: "white", padding: "14px 28px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "16px", border: "1px solid rgba(255,255,255,0.25)" }}>📞 +971505773388</a>

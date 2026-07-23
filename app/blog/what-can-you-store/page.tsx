@@ -117,7 +117,6 @@ export default function WhatCanYouStorePage() {
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Items That Need Specialist Handling</h2>
             <div className="space-y-4 mb-8">
               {[
-                { item: "Artwork and paintings", note: "Allowed; we photograph items on intake and wrap them for protection. Declare value at booking for appropriate insurance coverage." },
                 { item: "Wine and spirits", note: "Allowed. Keep bottles boxed and packed securely to prevent breakage. For long-term collections, ask about dedicated wine storage options." },
                 { item: "Vehicles", note: "Vehicles need dedicated vehicle bays, not standard storage units. Petrol tank should be at minimum level (not full). Disconnect battery for long-term storage. Ask about our vehicle storage pricing." },
                 { item: "Musical instruments", note: "Piano storage requires specialist knowledge and moving equipment. Declare high-value instruments at intake and pack them in their cases for protection." },

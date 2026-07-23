@@ -130,8 +130,6 @@ export default function ArtStoragePage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { icon: Package, title: "Dust-Protected Dedicated Storage", desc: "Each collection is stored in a clean, enclosed indoor vault on dedicated racking — kept dust-protected, off the floor, and away from light, never mixed into open warehouse bays." },
-                { icon: Camera, title: "Photography on Intake", desc: "Every item photographed in detail before storage. Condition report signed by both parties. You receive digital copies for your records and insurance." },
-                { icon: Shield, title: "Extended Insurance Options", desc: "Basic coverage up to AED 5,000 included. High-value art coverage available through our insurance partners — quoted based on declared value." },
                 { icon: Award, title: "White-Glove Handling", desc: "Our trained team uses cotton gloves, acid-free tissue, custom crating, and appropriate packing for each artwork type. No amateur handling." },
                 { icon: CheckCircle2, title: "Acid-Free Storage Materials", desc: "All packing materials are archival quality — acid-free tissue, polyethylene foam, and UV-resistant wrapping where appropriate." },
               ].map((f) => (
@@ -194,7 +192,6 @@ export default function ArtStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy text-center mb-10">Art Storage FAQs</h2>
             <div className="space-y-4">
               {[
-                { q: "Do you store artworks worth over AED 500,000?", a: "Yes. We work with high-net-worth collectors and corporate clients with significant collections. For items above AED 5,000 in declared value, we can arrange comprehensive insurance coverage through our specialist insurance partners. Please declare values accurately at intake — insurance coverage depends on the declared amount." },
                 { q: "Do you photograph items before storage?", a: "Yes, every item is photographed in detail before storage begins. We document condition, dimensions, and any pre-existing damage. Both parties sign the condition report. You receive a digital copy. This protects both you and us." },
                 { q: "How do you pack paintings for storage?", a: "Large paintings are wrapped in acid-free tissue, then in polyethylene foam, and stored vertically in dedicated slots — never stacked horizontally unless specifically padded for it. Framed works have corner protectors. Works on canvas without frames are handled with particular care to avoid any pressure on the canvas surface." },
                 { q: "Can you arrange art transportation?", a: "We do not operate an art courier service, but we work with trusted specialist art transportation companies in Dubai and can recommend or facilitate connections. International art shipping for major works should always use an accredited fine art shipper." },
@@ -232,8 +229,6 @@ export default function ArtStoragePage() {
           <div className="container px-4 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our Art Storage Service in Dubai</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
-              <p>SafeStorage Dubai operates specialist art and valuables storage facilities designed to meet the exacting standards that paintings, sculptures, antiques, and high-value collectibles demand. Unlike general self-storage units where fragile works are stacked and handled without care, our dedicated art vaults offer archival-grade packing, dedicated racking, white-glove handling, and controlled access &mdash; keeping each piece dust-protected, off the floor, and away from light. Every artwork entering our care is photographed in detail, weighed, measured, and assessed for pre-existing condition before a dual-signed condition report is issued to the client. This documentation forms the basis of any insurance claim and provides an unambiguous baseline for when you retrieve your collection.</p>
-              <p>Our white-glove handling team is trained in the specific requirements of each artwork category &mdash; canvases are stored vertically in padded slots, sculptures on bespoke foam cradles, rugs rolled on archival tubes, and framed works protected with corner guards and Coroplast sheeting. We use only acid-free, archival-grade packing materials throughout. For clients with particularly significant collections &mdash; galleries, high-net-worth individuals, estate executors, and corporate art owners &mdash; we offer bespoke consultation to design a storage and access protocol that fits their specific requirements. Comprehensive insurance coverage beyond the standard AED 5,000 inclusion is available through our specialist fine art insurance partners, with coverage arranged based on professionally declared replacement values.</p>
               <p>Our facility serves clients across all major Dubai districts including DIFC, Downtown Dubai, Palm Jumeirah, Emirates Hills, Dubai Hills, and Jumeirah. We work with private collectors, commercial galleries, interior designers, auction houses, corporate clients, and individuals managing estate contents. Whether you need short-term storage during a villa renovation or long-term archive-quality storage for a collection not currently on display, SafeStorage Dubai provides the environment, security, and professional handling that fine art requires. Call us at +971505773388 for a free, confidential consultation.</p>
             </div>
 
@@ -250,12 +245,9 @@ export default function ArtStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">What packing and racking standards are used in the art vault?</h3>
-                <p className="text-gray-700 leading-relaxed">Every artwork is packed and stored to archival standards. We use only acid-free, archival-grade materials &mdash; glassine and acid-free tissue, polyethylene foam, corner protectors, and Coroplast sheeting &mdash; that will not off-gas or discolour over time. Paintings are stored vertically in dedicated padded slots and never stacked; sculptures rest on bespoke foam cradles; rugs and textiles are rolled on acid-free tubes; and works on paper are interleaved with tissue and stored flat in archival boxes or folio drawers. Everything is kept dust-protected, off the floor, and away from light. For clients such as galleries, insurers, or estate managers, we provide detailed intake photography and dual-signed condition reports documenting the state of each piece throughout the storage period.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What insurance is provided for stored artworks?</h3>
-                <p className="text-gray-700 leading-relaxed">Every stored item is covered by our standard insurance policy up to AED 5,000 at no extra charge. For artworks, sculptures, and valuables with a higher declared value, we work with specialist fine art insurance partners in the UAE who can arrange comprehensive coverage based on professionally declared replacement values. Before your artwork enters storage, you will sign a condition report that accurately records the item&apos;s current state &mdash; this document forms the baseline for any future insurance assessment. We strongly advise clients to declare accurate and current valuations, ideally supported by a recent appraisal certificate, to ensure full coverage in any claim scenario. Please call us to discuss insurance options for your specific collection before intake.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
@@ -280,7 +272,6 @@ export default function ArtStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I add items to my art storage after the initial intake?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes, you can add items to your stored collection at any time. Each new item added goes through the same intake process &mdash; photography, condition assessment, dimension and weight recording, and condition report sign-off &mdash; ensuring your inventory record remains accurate and that insurance coverage extends to new additions. Simply contact us at +971505773388 to arrange a convenient drop-off time or to schedule a pick-up of additional pieces from your home or gallery. There is no minimum number of items required for additional intakes, and your monthly storage fee is adjusted to reflect any additional space required for the new items.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
@@ -294,17 +285,13 @@ export default function ArtStoragePage() {
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I insure my artwork for its full replacement value?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes. While our standard coverage is up to AED 5,000 per storage arrangement, we can arrange specialist fine art insurance for artworks of any value through our insurance partners. To insure for full replacement value, you will need to provide either a recent auction record, a gallery purchase receipt, or a certified appraisal from a recognised art valuer. Fine art insurance premiums are generally a small fraction of the work&apos;s declared value. We strongly recommend full replacement value coverage for any artwork that would be financially or emotionally irreplaceable &mdash; do not underinsure important pieces to save on modest premiums when the cost of full coverage is proportionately small relative to the work&apos;s worth.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Is documentation available for insurance or exhibition loan purposes?</h3>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">What happens if damage occurs to my artwork while in storage?</h3>
-                <p className="text-gray-700 leading-relaxed">In the unlikely event that damage occurs to a stored artwork, our process is as follows: we notify you immediately upon discovery, document the damage with photographs, and provide a written incident report. The claim process is initiated through our insurance coverage (up to AED 5,000 standard, or your extended policy if arranged). The signed intake condition report is the critical baseline document that establishes what pre-existing condition was present versus what damage occurred during storage. This is precisely why the dual-signed condition report at intake is so important &mdash; it protects both parties in the event of any dispute. We handle all damage reports with full transparency and professional accountability.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

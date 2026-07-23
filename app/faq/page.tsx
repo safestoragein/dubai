@@ -50,15 +50,6 @@ const faqCategories = [
     ]
   },
   {
-    title: "Security & Insurance",
-    faqs: [
-      {
-        question: "Is insurance available for stored items?",
-        answer: "Yes! Every storage unit at SafeStorage Dubai includes FREE insurance coverage up to AED 5,000. For higher-value items, we offer additional comprehensive insurance options. Our team can help you choose the right coverage based on the value of your belongings."
-      },
-    ]
-  },
-  {
     title: "Pickup & Delivery",
     faqs: [
       {
@@ -81,10 +72,6 @@ const faqCategories = [
       {
         question: "How much does storage cost at SafeStorage Dubai?",
         answer: "Our storage pricing starts from 12.60 AED / sqft (VAT-inclusive). We offer flexible storage solutions for all needs - from small boxes to full villa contents. Contact us at +971505773388 for a personalized quote based on your storage requirements. We also offer flexible payment plans and discounts for long-term storage (3+ months)."
-      },
-      {
-        question: "Are there any hidden fees?",
-        answer: "Absolutely not! We believe in transparent pricing. The price quoted includes: secure storage, 24/7 security, basic insurance (up to AED 5,000), and access during operating hours. Pickup and delivery within Dubai is handled door-to-door by our team as part of our service. The only additional costs would be for premium insurance, packing materials, or transport to locations outside Dubai, all of which are optional and confirmed upfront."
       },
       {
         question: "What payment methods do you accept?",
@@ -123,23 +110,6 @@ const faqCategories = [
       {
         question: "What items can I store?",
         answer: "You can store most household and business items including: furniture, appliances, electronics, clothes and personal belongings, documents and files, business inventory, vehicles (cars, motorcycles, boats), and seasonal items. Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. Other prohibited items include hazardous materials, flammable substances, perishable food, live plants/animals, and illegal items."
-      },
-    ]
-  },
-  {
-    title: "Insurance &amp; Item Protection",
-    faqs: [
-      {
-        question: "What exactly does the free insurance cover?",
-        answer: "Every SafeStorage Dubai plan includes complimentary insurance coverage up to AED 5,000 per storage agreement. This coverage protects against loss or damage caused by fire, theft, flooding, and accidental damage while your items are in our care — both during transit and while in the storage facility. The insurance activates automatically from the moment our team collects your belongings. No paperwork or applications are required. For customers with higher-value items such as artwork, antiques, or high-end electronics, we offer enhanced insurance options at an additional monthly fee — ask your consultant for details."
-      },
-      {
-        question: "How do I make an insurance claim if something is damaged?",
-        answer: "In the unlikely event that an item is lost or damaged while in SafeStorage care, contact your dedicated storage consultant immediately or email support@safestorage.ae. Describe the item and the nature of the damage. Our team will arrange for one of our claims specialists to assess the situation within 48 hours. For insured items, the claim process is straightforward and we aim to resolve all claims within 7 to 14 working days. We photograph every item before storage, which means we have a clear record of the condition each item was in when it entered our care."
-      },
-      {
-        question: "Can I get insurance for items worth more than AED 5,000?",
-        answer: "Yes. For customers storing high-value items — such as fine art, antique furniture, luxury watches, or high-end electronics — SafeStorage offers enhanced insurance coverage beyond the standard AED 5,000 included in every plan. Enhanced coverage is priced based on the declared replacement value of your items and the level of cover required. Our consultant will help you calculate the appropriate coverage amount and provide a quote for the additional insurance premium. We strongly recommend enhanced coverage for any item valued over AED 5,000."
       },
     ]
   },
@@ -206,10 +176,6 @@ const faqCategories = [
   {
     title: "International Shipping &amp; Overseas Storage",
     faqs: [
-      {
-        question: "Can I use SafeStorage if I am moving abroad from Dubai?",
-        answer: "Yes. SafeStorage Dubai is an excellent solution for residents leaving the UAE permanently or temporarily. We can store your belongings securely while you transition to your new country, and arrange delivery back to your new address when you are ready — whether that is in Dubai when you return, or internationally via our partner freight and shipping services. Many expats use SafeStorage as a long-term base for their UAE belongings, knowing their items are safe, secure, and insured while they are overseas. Your account can be managed entirely remotely by phone, email, and WhatsApp."
-      },
       {
         question: "Do you offer international shipping of stored items?",
         answer: "SafeStorage Dubai partners with reputable international freight and logistics providers to offer shipping services for customers who need their stored belongings sent overseas. Whether you are moving to Europe, Asia, Australia, or the Americas, we can coordinate the packing, documentation, and shipping of your items from our facility to your international address. International shipping costs depend on destination, volume, weight, and shipping method (air freight vs. sea freight). Contact our team on +971505773388 to discuss international shipping options and receive a quotation for your specific destination."
@@ -466,7 +432,6 @@ export default function FAQPage() {
               <p>• Storage from 12.60 AED / sqft (VAT-inclusive) — no setup fees</p>
               <p>• Door-to-Door service anywhere in Dubai</p>
               <p>• Secure, clean, dust-protected indoor units</p>
-              <p>• Free insurance up to AED 5,000 included</p>
               <p>• Month-to-month contracts — no long-term lock-in</p>
               <p>• Same-day pickup available before 12 PM</p>
               <p>• Dedicated storage consultant for every customer</p>

@@ -225,7 +225,6 @@ export default function BusinessBayPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the best storage option for Downtown Dubai apartment residents?</h3>
-            <p className="text-gray-700">For Downtown Dubai residents, our personal household storage service is the most popular option. It works on a volume-based pricing model — you pay for the actual space your items take up, not a fixed unit size. This is ideal for residents who have a mix of small and large items to store. Most Downtown residents store seasonal clothing, suitcases, sporting equipment, extra furniture, and items from previous larger homes. Plans start from 12.60 AED / sqft (VAT-inclusive) and include door-to-door pickup, secure storage, insurance, and on-demand delivery.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there storage available near the Burj Khalifa?</h3>
@@ -255,8 +254,6 @@ export default function BusinessBayPage() {
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What security measures does SafeStorage use?</h3>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is included in the free insurance provided with SafeStorage?</h3>
-            <p className="text-gray-700">Every SafeStorage unit comes with complimentary insurance coverage protecting your items against theft, fire, flood, and accidental damage while in our facility. The standard free insurance covers items up to a declared value, with extended coverage available as an optional add-on for high-value items such as artwork, antiques, or expensive electronics. At the time of booking, you will be asked to declare the approximate value of your stored items so we can ensure the standard coverage is sufficient. Our storage consultant will advise if additional insurance is recommended based on what you are storing.</p>
           </div>
         </div>
       </div>

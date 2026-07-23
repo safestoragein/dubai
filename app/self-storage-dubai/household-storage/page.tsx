@@ -253,7 +253,6 @@ export default function HouseholdStoragePage() {
                     <li>• Scheduled collection</li>
                     <li>• Trained crews</li>
                     <li>• Safe transport</li>
-                    <li>• Insurance coverage</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -315,11 +314,6 @@ export default function HouseholdStoragePage() {
                   <li>• Individual unit locks</li>
                   <li>• Regular security patrols</li>
                 </ul>
-                <div className="mt-4">
-                  <Link href="/self-storage-dubai/security-insurance" className="text-dubai-gold hover:underline">
-                    View security details →
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
@@ -559,7 +553,6 @@ export default function HouseholdStoragePage() {
           <div className="space-y-6">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">1. How much does household storage cost in Dubai?</h3>
-              <p className="text-gray-700">Household storage in Dubai at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit (25–50 sq ft) for a studio apartment&apos;s worth of items, a medium unit for 1–2 bedroom apartment contents, or a large unit for 3-bedroom apartments or villa contents. The price includes 24/7 security, free insurance up to AED 5,000, and door-to-door service across Dubai. Call +971505773388 for a personalised quote.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

@@ -169,7 +169,6 @@ export default function ElectronicsStoragePage() {
                 { icon: Shield, title: "Dust-Protected Storage", desc: "Devices are stored in sealed cartons and anti-static bags in a clean, enclosed indoor unit, keeping dust away from sensitive components — a leading cause of electronics failure in storage." },
                 { icon: Cpu, title: "Anti-Static Handling", desc: "Our trained team uses anti-static procedures when handling circuit boards, storage media, and sensitive components. ESD (electrostatic discharge) can permanently damage electronics without leaving visible signs." },
                 { icon: CheckCircle2, title: "Original Packaging Preferred", desc: "We recommend storing electronics in original packaging where possible. If you don't have it, we provide appropriate anti-static bags, foam padding and protective cartons at cost." },
-                { icon: AlertTriangle, title: "Inventory Documentation", desc: "All electronics stored are photographed and documented with serial numbers where visible. You receive a digital copy. This supports insurance claims and ensures accountability." },
               ].map((f) => (
                 <div key={f.title} className="bg-slate-50 rounded-xl p-6 border border-gray-200">
                   <f.icon className="w-10 h-10 text-dubai-gold mb-4" />
@@ -233,7 +232,6 @@ export default function ElectronicsStoragePage() {
                 { q: "Can you store my gaming PC or desktop computer?", a: "Yes, desktop computers, gaming PCs, and towers are stored routinely. We recommend placing them upright (not on their side) in a sealed carton. If transported, we use appropriate anti-shock foam. Your graphics card, CPU and motherboard are handled with anti-static procedures and stored dust-protected in our clean, secure indoor units." },
                 { q: "Can I store a server or data centre equipment?", a: "Yes. We regularly store rack-mounted servers, NAS units, network switches, and UPS systems. For sensitive data equipment, we recommend you remove or encrypt drives before storage if you have data security requirements. We treat all storage contents with full confidentiality." },
                 { q: "How long can electronics be safely stored?", a: "In our clean, dust-protected indoor units, electronics can be stored for long periods. Sealed packing and anti-static handling protect equipment from the dust, physical damage, and pests that cause failures in open storage. Batteries are the one component that degrades over time regardless of storage; lithium batteries lose about 3-5% capacity per year even when stored well, which is why we advise storing them at around 50% charge for long-term storage." },
-                { q: "Is my electronics storage insured?", a: "Basic coverage is included in all storage plans. For high-value electronics (servers, professional equipment, large collections), we can arrange extended coverage through our insurance partners — quoted based on declared value. Please declare accurate replacement values at intake." },
               ].map((faq) => (
                 <details key={faq.q} className="border border-gray-200 rounded-xl p-6 group bg-white">
                   <summary className="font-semibold text-dubai-navy cursor-pointer list-none flex justify-between items-center">
@@ -288,7 +286,6 @@ export default function ElectronicsStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I store servers and networking equipment at SafeStorage?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes. We regularly store rack-mounted servers, tower servers, NAS (network-attached storage) units, network switches, routers, firewalls, UPS systems, and other data centre and networking equipment. For businesses relocating offices, consolidating data centre infrastructure, or managing IT asset transitions, our clean, dust-protected, secured facility provides appropriate conditions for enterprise equipment between deployments. For storage of equipment containing sensitive data, we recommend that you remove, encrypt, or wipe drives before storage in accordance with your organisation&apos;s data security policy &mdash; we store the hardware, but we do not take responsibility for data security on storage media. We can provide documentation of storage conditions for IT asset management or insurance purposes.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
@@ -317,8 +314,6 @@ export default function ElectronicsStoragePage() {
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What insurance covers stored electronics at SafeStorage?</h3>
-                <p className="text-gray-700 leading-relaxed">All stored electronics are covered by our standard insurance up to AED 5,000 at no extra charge. For high-value electronics &mdash; professional photography equipment, server infrastructure, a large collection of gaming equipment, or high-end consumer electronics &mdash; we can arrange extended coverage through our insurance partners, quoted based on declared replacement value. At intake, every item is photographed and serial numbers are recorded where visible. This documentation is essential for any insurance claim, as it establishes the pre-storage condition and identity of each device. Always declare accurate replacement values at intake &mdash; coverage is limited to declared values, and under-declaring items to reduce premiums leaves you exposed if a claim is ever needed.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
@@ -338,7 +333,6 @@ export default function ElectronicsStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I add items to my electronics storage after the initial intake?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes, you can add items to your storage unit at any time during your storage period. Each new item goes through the same intake process &mdash; photography, documentation, serial number recording, and packaging assessment. You can drop off additional items during business hours without prior appointment for small additions, or schedule a pickup from your location for larger items or bulky equipment. Your inventory record is updated to include all new items, ensuring your insurance coverage and documentation remain current and accurate. If the additional items significantly increase your storage volume, we will advise on whether a larger unit is needed and arrange the upgrade within 24&ndash;48 hours to ensure everything fits appropriately without risk of damage from overcrowding.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

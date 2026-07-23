@@ -187,7 +187,6 @@ export default function DowntownDubaiPage() {
               <div className="space-y-3">
                 <p><strong>Secure indoor storage:</strong> All items are kept in our clean, indoor facility under 24/7 CCTV monitoring. In Downtown Dubai, where apartments often contain premium furniture and electronics, keeping belongings safe and dust-protected is essential.</p>
                 <p><strong>Transparent pricing, no surprises:</strong> Downtown residents pay the same rates as all Dubai customers — from 12.60 AED / sqft (VAT-inclusive). No location premiums, no high-rise access fees, no surprises at billing.</p>
-                <p><strong>Free insurance included:</strong> All stored items are covered by complimentary insurance against theft, fire, and accidental damage — standard on every plan with no additional paperwork.</p>
               </div>
             </div>
           </div>
@@ -258,11 +257,9 @@ export default function DowntownDubaiPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost to store a full Downtown Dubai apartment?</h3>
-              <p className="text-gray-700">SafeStorage pricing is volume-based and transparent, starting from 12.60 AED / sqft (VAT-inclusive). Whether you are storing a Downtown studio apartment (furniture, boxes, appliances), a 1-bedroom, or a 2-bedroom apartment with a full set of furniture and personal items, you pay only for the space you use. These prices include door-to-door pickup, secure storage, insurance, and one doorstep delivery per month. Get an accurate personalised quote by calling +971505773388 or submitting the online quote form with a brief description or photos of what you need to store.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store artwork, antiques, or high-value items from Downtown properties?</h3>
-              <p className="text-gray-700">Yes. SafeStorage stores high-value items including original artwork, antique furniture, luxury carpets, sculptures, and collectibles. For valuable items, we recommend our enhanced storage option, which includes individual unit assignment (items not mixed with others) and extended insurance coverage above the standard complimentary threshold. Our team uses specialist packing materials including custom crating, acid-free wrapping, and museum-grade protection for fragile or irreplaceable pieces. Let us know during the quote process if you have high-value items so we can recommend the right protection level.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is there storage for expats leaving Dubai from the Downtown area?</h3>

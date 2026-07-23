@@ -231,7 +231,6 @@ export default function JumeirahVillageCirclePage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a full JVC 1-bedroom apartment?</h3>
-              <p className="text-gray-700">Storing a JVC 1-bedroom apartment (furniture, appliances, personal items) with SafeStorage starts from 12.60 AED / sqft (VAT-inclusive). This includes door-to-door pickup from your JVC address, secure storage, free insurance, and on-demand delivery back. The same per-square-foot rate applies to JVC 2-bedroom apartments — you simply pay for the additional space. For the most accurate quote, share a brief description or WhatsApp photos of your items and we&apos;ll provide a confirmed price within 30 minutes during business hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the average pickup time from JVC to SafeStorage facility?</h3>

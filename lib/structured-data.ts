@@ -18,7 +18,7 @@ export const organizationSchema = {
     height: 60
   },
   image: "https://safestorage.ae/images/storage-facility-background.png",
-  description: "Dubai's most trusted storage partner since 2018. Secure indoor units, 24/7 security, door-to-door service, and free insurance up to AED 5000.",
+  description: "Dubai's most trusted storage partner since 2018. Secure indoor units, 24/7 security, and door-to-door service.",
   foundingDate: "2018",
   founders: [
     {
@@ -88,7 +88,7 @@ export const localBusinessSchema = {
   "@id": "https://safestorage.ae/#business",
   name: "SafeStorage Dubai - Premium Storage Solutions",
   alternateName: "SafeStorage Dubai",
-  description: "Dubai's most trusted storage partner since 2018. Secure indoor units, 24/7 security, door-to-door service, and free insurance up to AED 5000. Serving Dubai Marina, Business Bay, JLT, Downtown, and all areas.",
+  description: "Dubai's most trusted storage partner since 2018. Secure indoor units, 24/7 security, and door-to-door service. Serving Dubai Marina, Business Bay, JLT, Downtown, and all areas.",
   image: [
     "https://safestorage.ae/images/storage-facility-background.png",
     "https://safestorage.ae/expansive-storage.png",
@@ -191,7 +191,6 @@ export const localBusinessSchema = {
     { "@type": "LocationFeatureSpecification", name: "24/7 CCTV Security", value: true },
     { "@type": "LocationFeatureSpecification", name: "Secure Indoor Units", value: true },
     { "@type": "LocationFeatureSpecification", name: "Door-to-door Service", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Free Insurance (up to AED 5000)", value: true },
     { "@type": "LocationFeatureSpecification", name: "Fire Detection & Suppression", value: true },
     { "@type": "LocationFeatureSpecification", name: "Individual Unit Alarms", value: true },
     { "@type": "LocationFeatureSpecification", name: "On-site Security Personnel", value: true },
@@ -249,18 +248,10 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "What is the cheapest storage option in Dubai?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with door-to-door service, secure clean units, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
-      }
     },
     {
       "@type": "Question",
       name: "Are there any hidden fees for storage in Dubai?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "At SafeStorage Dubai, there are absolutely no hidden fees. The quoted price includes: secure indoor storage, 24/7 security with CCTV, basic insurance up to AED 5000, and access during operating hours. Pickup and delivery within Dubai is door-to-door. Optional extras like premium insurance or packing materials are transparently priced."
-      }
     },
     {
       "@type": "Question",
@@ -299,14 +290,6 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "What security measures are in place at SafeStorage Dubai?",
-    },
-    {
-      "@type": "Question",
-      name: "Is my stored property insured?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes! Every storage unit at SafeStorage Dubai includes FREE insurance coverage up to AED 5,000. This covers damage from fire, theft, and natural disasters. For high-value items, we offer additional comprehensive insurance options with coverage up to AED 100,000. Our team can help you choose the right coverage based on your belongings' value."
-      }
     },
     // PICKUP & DELIVERY
     {
@@ -409,10 +392,6 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "Why should I choose SafeStorage Dubai over other storage companies?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "SafeStorage Dubai stands out with: Door-to-Door service (others charge AED 200-500), ALL units secure and clean with 24/7 CCTV, FREE insurance up to AED 5000 included, dedicated personal storage consultant, no hidden fees or admin charges, flexible month-to-month contracts, 4.9/5 rating from 487+ Google reviews, and 7+ years serving Dubai. We're trusted by 500+ happy customers."
-      }
     },
     {
       "@type": "Question",
@@ -467,26 +446,14 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "What is the best storage company in Dubai?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "SafeStorage Dubai is rated as one of the best storage companies in Dubai with a 4.9/5 Google rating from 487+ reviews. Key advantages: Door-to-Door service, ALL units secure with 24/7 CCTV, FREE insurance up to AED 5000, no hidden fees, and 7+ years experience. Trusted by 500+ customers. Call +971505773388 for a free quote."
-      }
     },
     {
       "@type": "Question",
       name: "Where can I store my furniture during renovation in Dubai?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "SafeStorage Dubai is ideal for renovation storage. We offer: Door-to-Door pickup from your home, secure indoor units (keeping furniture clean and dust-protected), flexible month-to-month terms perfect for renovation timelines, doorstep delivery back when you're ready, and FREE insurance up to AED 5000. Many customers have stored villa and apartment contents during renovations. Call +971505773388."
-      }
     },
     {
       "@type": "Question",
       name: "How much does it cost to store a car in Dubai?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Car storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. This includes: secure indoor facility, 24/7 CCTV security, Door-to-Door service, insurance coverage, and regular inspections. Ideal for classic cars, second vehicles, or when traveling. Call +971505773388 for vehicle storage quote."
-      }
     }
   ]
 }
@@ -785,7 +752,7 @@ export const offerSchema = {
   "@type": "Offer",
   "@id": "https://safestorage.ae/#offer",
   name: "New Customer Offer - SafeStorage Dubai",
-  description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes door-to-door service, secure indoor units, and insurance up to AED 5000.",
+  description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes door-to-door service and secure indoor units.",
   priceSpecification: { "@type": "UnitPriceSpecification", price: "12.60", priceCurrency: "AED", unitText: "per sq ft" },
   priceValidUntil: "2026-12-31",
   availability: "https://schema.org/InStock",

@@ -214,7 +214,6 @@ export default function DubaiHillsPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store a Dubai Hills villa for 6–12 months during an international assignment?</h3>
-              <p className="text-gray-700">Yes. Long-term villa storage for professionals on international assignments is a popular service in Dubai Hills. For longer-term storage, we offer a wide range of prepaid discounts that significantly reduce the monthly cost — the longer you store, the more you save. Your villa contents are kept secure for the entire storage period, fully insured, and returned to any Dubai address when you return. We can manage your account entirely remotely — you never need to visit the facility while abroad.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Mohammed Bin Rashid City (MBR City) near Dubai Hills covered?</h3>
@@ -222,7 +221,6 @@ export default function DubaiHillsPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Dubai Hills 4-bedroom villa?</h3>
-              <p className="text-gray-700">Storing a Dubai Hills 4-bedroom villa (Maple, Sidra, or Golf Place) with full furniture and personal contents starts from 12.60 AED / sqft (VAT-inclusive). This includes door-to-door pickup, secure storage, insurance, and on-demand delivery. For villas with premium furniture, artwork, or high-value electronics, extended insurance is available at a small additional cost. For the most accurate quote, share a video walkthrough of your villa via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage handle golf equipment storage for Dubai Hills Golf Club members?</h3>

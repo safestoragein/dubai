@@ -226,7 +226,6 @@ export default function AlBarshaPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How does SafeStorage pricing work for Al Barsha residents?</h3>
-              <p className="text-gray-700">SafeStorage pricing is volume-based and identical across all Dubai areas including Al Barsha, starting from 12.60 AED / sqft (VAT-inclusive). You pay only for the actual volume you store — not a fixed unit size — whether you are storing a 1-bedroom apartment or a 3-bedroom villa's contents. All prices include door-to-door pickup, secure storage, insurance, and on-demand delivery. There are no additional charges based on location or building type.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store large appliances like washing machines and fridges from Al Barsha apartments?</h3>

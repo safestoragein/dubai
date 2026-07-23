@@ -464,11 +464,6 @@ function FaqAccordion() {
         "For smooth operations we kindly request our customers to inform 7 days prior.",
     },
     {
-      question: "Are my items insured while in storage?",
-      answer:
-        "Yes, we provide basic insurance coverage for all stored items. We also offer premium insurance options for high-value items. You can select your preferred coverage level during the booking process.",
-    },
-    {
       question: "What items are not allowed in storage?",
       answer:
         "Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. For safety and legal reasons, we also do not accept perishable goods, hazardous materials, illegal items, live plants or animals, cash, or negotiable instruments. Please contact us if you're unsure about specific items.",

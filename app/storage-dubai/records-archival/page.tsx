@@ -58,7 +58,6 @@ const industries = [
   "Accounting & Finance",
   "Real Estate Agencies",
   "Government Contractors",
-  "Insurance Companies",
 ]
 
 export default function RecordsArchivalPage() {
@@ -257,7 +256,6 @@ export default function RecordsArchivalPage() {
                   <li>• Hospitals and clinics</li>
                   <li>• Dental practices</li>
                   <li>• Pharmacy records</li>
-                  <li>• Health insurance providers</li>
                 </ul>
               </div>
               <div>
@@ -355,7 +353,6 @@ export default function RecordsArchivalPage() {
           <div className="space-y-6">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">1. What types of documents can be stored in archival storage?</h3>
-              <p className="text-gray-700">SafeStorage accepts all categories of business documents including financial records, contracts and agreements, HR and employment files, legal case files, corporate governance documents (minutes, resolutions, shareholder registers), tax records, audit files, medical records, insurance documents, and general correspondence. Documents must be properly boxed and labelled — our team can assist with the packing and inventory process if needed.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

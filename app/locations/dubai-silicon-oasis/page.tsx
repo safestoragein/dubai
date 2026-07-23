@@ -211,7 +211,6 @@ export default function DubaiSiliconOasisPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How affordable is storage for International City residents?</h3>
-              <p className="text-gray-700">International City is one of Dubai&apos;s most affordable residential areas and our pricing reflects that. With storage starting from 12.60 AED / sqft (VAT-inclusive), International City residents can store just what they need without paying for a full unit. Whether you are storing a 1-bedroom apartment's contents (furniture, appliances, personal items) or just studio contents, you pay only for the space you use. These are among the most competitively priced storage options in this part of Dubai, with no compromise on quality — the same secure storage, insurance, and service apply regardless of area.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store bicycles and sports equipment from DSO apartments?</h3>

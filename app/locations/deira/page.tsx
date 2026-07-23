@@ -225,7 +225,6 @@ export default function DeiraPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a Karama or Bur Dubai apartment?</h3>
-              <p className="text-gray-700">SafeStorage pricing is the same across all Dubai areas — including Karama and Bur Dubai — and starts from 12.60 AED / sqft (VAT-inclusive). Whether you are storing a Karama 1-bedroom apartment's contents, a Bur Dubai 2-bedroom apartment, or just a few boxes, a sofa, and seasonal items, you pay only for the volume you use. All prices include door-to-door pickup, secure storage, insurance, and on-demand delivery. Get an accurate quote by calling +971505773388 or submitting our online form.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage serve the Oud Metha and Al Jaddaf areas?</h3>

@@ -132,7 +132,6 @@ export default function ShortTermStoragePage() {
                     <li>• Estate settlements</li>
                     <li>• Emergency relocations</li>
                     <li>• Home staging for sale</li>
-                    <li>• Insurance claims</li>
                   </ul>
                   <p className="mt-4 text-sm font-semibold">Typical duration: Varies</p>
                 </CardContent>
@@ -592,7 +591,6 @@ export default function ShortTermStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">What does 1-month moving storage typically cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">Moving storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit for a studio apartment or room contents, a medium unit for a 1–2 bedroom apartment&apos;s complete contents, or a large unit for 3-bedroom apartments or villas — with door-to-door pickup included. The price includes 24/7 security, insurance up to AED 5,000, and doorstep delivery back to your new address at the end of the storage period. When compared to the cost of renting a removal van, booking a hotel for an extra week, or paying lease overlap, professional storage with door-to-door service often represents the most economical solution overall.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How does renovation storage work in practice?</h3>
@@ -612,7 +610,6 @@ export default function ShortTermStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How are fragile items packed during moving storage?</h3>
-              <p className="text-gray-700 leading-relaxed">Fragile items receive specific attention during our moving storage pickup. Glassware, ceramics, ornaments, and decorative items should be individually wrapped in tissue paper or bubble wrap before our team arrives — we do not pack loose fragile items as part of the standard pickup service. If you require a full packing service for fragile items, request this when booking and our team can bring materials and pack fragile items on-site for an additional service fee. Glass-top tables, mirrors, and framed artwork are wrapped in foam and furniture blankets by our team as standard. For very high-value or irreplaceable fragile items, declare them when booking so we can allocate appropriate handling care and discuss insurance options.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Is moving storage cheaper than hiring a full removal company?</h3>
@@ -636,7 +633,6 @@ export default function ShortTermStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How is pricing calculated for short-term storage?</h3>
-              <p className="text-gray-700 leading-relaxed">Short-term storage at SafeStorage is priced on a monthly unit-size basis. You select or we recommend a unit size based on your inventory volume, and you pay a flat monthly rate for that unit regardless of how many or how few items are in the unit. There are no per-item charges, no per-visit access fees, and no administrative charges. The monthly rate includes pickup (for initial collection), 24/7 security, basic insurance, and final delivery to your new address. If your volume exceeds the initial unit size, an upgrade to the next size tier is processed at the difference in price. For very short durations (under 1 month), daily rates can sometimes be accommodated on request — discuss this with our team when your specific situation involves less than 30 days.</p>
             </div>
           </div>
         </div>

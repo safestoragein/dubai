@@ -176,7 +176,6 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">3. How much does storage cost in Dubai?</h3>
-              <p className="text-gray-700">SafeStorage Dubai offers some of the most competitive storage rates in the UAE. Our pricing starts from <strong>12.60 AED / sqft</strong> (VAT-inclusive). All plans include secure storage, 24/7 security, and free insurance up to AED 5,000. There are no setup fees or admin fees, and the price quoted is the price charged — period.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -189,8 +188,6 @@ export default function Contact() {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">6. Is insurance included in the storage price?</h3>
-              <p className="text-gray-700">Yes. Every SafeStorage Dubai plan includes free insurance coverage of up to AED 5,000 at no additional cost. This covers loss or damage due to fire, flood, theft, or accidental damage while your items are in our care. For customers with higher-value belongings — such as artwork, antiques, or electronics — we offer additional premium insurance at competitive rates. Our team can help you select the right coverage when you book.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

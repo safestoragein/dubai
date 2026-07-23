@@ -127,11 +127,6 @@ export default function MirdifPage() {
                 need secure, reliable storage for their belongings during these absences. SafeStorage provides
                 the ideal solution with flexible monthly plans and complete peace of mind.
               </p>
-              <p className="text-gray-700">
-                All stored items are kept safe and secure during your time away, including through Dubai&apos;s
-                extreme summer months. Your belongings are monitored 24/7 and fully insured throughout the
-                storage period.
-              </p>
             </div>
           </div>
 
@@ -215,7 +210,6 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Mirdif villa&apos;s contents?</h3>
-              <p className="text-gray-700">Full-villa storage pricing starts from 12.60 AED / sqft (VAT-inclusive) and depends on the volume of items. Whether you are storing a 3-bedroom Mirdif villa or a larger 4–5 bedroom villa with full furniture and contents, you pay only for the space you use — including door-to-door pickup, secure storage, insurance, and on-demand delivery. For the most accurate quote, we assess your specific villa. Send us photos or a short video via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage move items from Mirdif to a new address in another part of Dubai?</h3>

@@ -50,7 +50,6 @@ const structuredData = {
       description: "The best storage companies in Dubai ranked by overall score across value, security, and customer satisfaction.",
       numberOfItems: 10,
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "SafeStorage Dubai", description: "Dubai's #1 rated storage company. Valet storage with door-to-door service, clean secure units, 24/7 security, and free insurance. From 12.60 AED / sqft.", url: "https://safestorage.ae" },
         { "@type": "ListItem", position: 2, name: "The Box Self Storage Dubai", description: "Established self-storage brand with drive-up units and 24/7 access across Dubai and Abu Dhabi.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
         { "@type": "ListItem", position: 3, name: "Yellow Box Self Storage", description: "Popular self-storage provider with competitive unit rates and a good range of sizes across Dubai.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
         { "@type": "ListItem", position: 4, name: "Klug Storage Dubai", description: "Modern smart-tech storage facility with app-based access and secure units.", url: "https://safestorage.ae/top-10-storage-companies-dubai" },
@@ -65,12 +64,8 @@ const structuredData = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "What is the best storage company in Dubai?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is rated the #1 storage company in Dubai in 2026, with a 9.8/10 overall score based on price, security, convenience, and customer reviews. They offer secure valet storage from 12.60 AED / sqft with door-to-door service and free insurance up to AED 5,000." } },
         { "@type": "Question", name: "How much do storage companies charge in Dubai?", acceptedAnswer: { "@type": "Answer", text: "Storage prices in Dubai vary by company and unit size. SafeStorage Dubai starts from 12.60 AED / sqft. Self-storage units at providers like The Box and Yellow Box typically start from AED 150–250/month. Premium or larger units can cost AED 500–2,000+/month." } },
         { "@type": "Question", name: "Which storage company in Dubai is best for businesses?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is the best storage company for businesses in Dubai, offering dedicated business storage plans, document archival, e-commerce fulfilment, and flexible contracts. They serve businesses of all sizes from startups to large corporations." } },
-        { "@type": "Question", name: "Which storage company in Dubai is best for home storage?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is the best choice for home and personal storage in Dubai. Their door-to-door service means you don't need to hire a van. Careful packing and clean, secure units protect furniture and belongings, and free insurance gives peace of mind." } },
-        { "@type": "Question", name: "What should I look for when choosing a storage company in Dubai?", acceptedAnswer: { "@type": "Answer", text: "When choosing a storage company in Dubai, consider: overall price including hidden fees, whether units are clean and well-maintained, security features (CCTV, access control), whether pickup and delivery is offered, insurance coverage, contract flexibility, and customer reviews. SafeStorage Dubai scores highest across all these criteria." } },
-        { "@type": "Question", name: "Is SafeStorage Dubai trustworthy?", acceptedAnswer: { "@type": "Answer", text: "Yes. SafeStorage Dubai has been operating since 2018 with over 2,400 verified customer reviews and a 4.9/5 Google rating. They are fully licensed in UAE, provide free insurance up to AED 5,000, and have 24/7 monitored security at all facilities." } },
       ],
     },
   ],
@@ -94,7 +89,6 @@ const companies = [
     highlights: [
       "Door-to-Door service across all Dubai areas",
       "Clean, dedicated indoor units — dust-protected throughout",
-      "Free insurance coverage up to AED 5,000 included",
       "No long-term contracts — pay month to month",
       "Transparent pricing with no hidden charges",
     ],
@@ -523,11 +517,8 @@ export default function Top10StorageCompaniesDubai() {
               Frequently Asked Questions
             </h2>
             {[
-              { q: "What is the best storage company in Dubai?", a: "Based on our 2026 research and scoring, SafeStorage Dubai ranks #1 overall with a score of 9.8/10. They combine the best value, security, and convenience through their valet storage model. Pickup and delivery is door-to-door, all units are clean and secure, and free insurance is included from 12.60 AED / sqft." },
-              { q: "How much do storage companies charge in Dubai?", a: "Prices range widely depending on the company and unit size. SafeStorage Dubai starts from 12.60 AED / sqft. Self-storage facilities like The Box and Yellow Box typically start from AED 200–250/month. Premium providers like Vault UAE start from AED 500/month. Always check whether insurance and access are included in the quoted price." },
               { q: "Which storage company in Dubai is best for businesses?", a: "SafeStorage Dubai is the top pick for business storage in Dubai, offering document archival, e-commerce fulfilment, and bulk inventory storage with flexible contracts. They serve startups through to large enterprises and provide dedicated account management." },
               { q: "Which storage company is best for home furniture?", a: "SafeStorage Dubai is the best choice for furniture storage in Dubai. Every piece is professionally wrapped with furniture blankets and corner protection, then stored in a clean, dedicated indoor unit — protecting wood and upholstery throughout their stay. The door-to-door service also means no risk of damage during transport that often occurs with DIY van rentals." },
-              { q: "What should I look for in a Dubai storage company?", a: "Key criteria: (1) Clean, well-maintained units — so your belongings stay in good condition. (2) Security — CCTV, access control, on-site staff. (3) Insurance — in case of unexpected events. (4) Pickup/delivery — saves time, cost, and risk of damage. (5) Contract flexibility — monthly contracts are safer than annual lock-ins. (6) Transparent pricing — no hidden fees." },
             ].map((faq, i) => (
               <div key={i} style={{ background: "white", borderRadius: "12px", padding: "22px", marginBottom: "12px", boxShadow: "0 1px 8px rgba(0,0,0,0.05)", border: "1px solid #e0e7ff" }}>
                 <h3 style={{ color: "#0A2463", fontWeight: 700, marginBottom: "10px", fontSize: "15px" }}>Q: {faq.q}</h3>
@@ -560,9 +551,6 @@ export default function Top10StorageCompaniesDubai() {
 
             <div style={{ marginBottom: "28px" }}>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A2463", marginBottom: "12px" }}>3. Pricing Transparency — No Hidden Fees, No Surprises</h3>
-              <p style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "15px" }}>
-                One of the most common complaints about storage companies in Dubai is the gap between the advertised price and the actual monthly invoice once all surcharges, access fees, insurance premiums, and VAT are applied. SafeStorage Dubai publishes its full pricing upfront with a clear breakdown of what is included: door-to-door service, clean secure units, 24/7 security, and insurance up to AED 5,000 are all bundled into the quoted monthly rate. Customers report that their first invoice matches the quote they received &mdash; a level of pricing transparency that distinguishes SafeStorage from many of its competitors in the Dubai market. Starting from 12.60 AED / sqft (VAT-inclusive), SafeStorage also offers the lowest entry-point pricing in the city.
-              </p>
             </div>
 
             <div style={{ marginBottom: "28px" }}>
@@ -584,10 +572,8 @@ export default function Top10StorageCompaniesDubai() {
             </h2>
             {[
               { q: "How do I choose between self-storage and valet storage in Dubai?", a: "Self-storage requires you to transport your items to a facility, load and unload them yourself, and visit in person for access. Valet storage (like SafeStorage Dubai) handles all logistics — pickup from your door, cataloguing, and delivery back when needed. For most Dubai residents, valet storage is more convenient and often cheaper when you factor in the cost of van rental, fuel, and time for self-storage. Valet storage is particularly better for furniture, as professional handling reduces the risk of damage during transport." },
-              { q: "What is the most affordable storage company in Dubai?", a: "SafeStorage Dubai is the most affordable when you consider the true all-in cost. Starting from 12.60 AED / sqft, with door-to-door service, clean secure units, security, and insurance all included, it consistently beats the real total cost of traditional self-storage where you must add surcharges, insurance, and van rental. Yellow Box and Makanak offer lower unit rates but charge extra for added features and do not include pickup." },
               { q: "Which storage company in Dubai is best for furniture?", a: "SafeStorage Dubai is the best choice for furniture storage because of three key factors: clean, dedicated indoor units, professional packing with furniture blankets and corner protection during pickup, and no need to hire a van or risk damage during self-transport. Their team wraps every piece of furniture carefully and stores it off the ground. No other Dubai storage company combines these features at a comparable price." },
               { q: "Do Dubai storage companies require long-term contracts?", a: "Many traditional self-storage companies in Dubai require minimum 3-month contracts and charge penalties for early exit. SafeStorage Dubai operates on flexible monthly contracts with no lock-in and no cancellation fees. You can store for as short as one month and give just 7 days' notice to end your storage. This makes SafeStorage particularly suitable for renovation storage (typically 2–3 months), relocation storage (1–6 months), and expats with uncertain timelines." },
-              { q: "What should I check before signing a storage contract in Dubai?", a: "Before signing any Dubai storage contract, verify: (1) Are the units clean and well-maintained? (2) Are pickup and delivery included or charged separately? (3) What insurance coverage is included and what is the maximum payout? (4) Is there a minimum contract period? (5) What are the cancellation terms? (6) Are there access fees or surcharges for visiting the facility? (7) Is VAT included in the quoted price? SafeStorage Dubai is transparent on all these points upfront." },
               { q: "Can I store business documents securely in Dubai?", a: "Yes, SafeStorage Dubai offers document and records archival storage for businesses of all sizes. Documents are stored in clean, secure environments with access logs maintained. For legal, financial, and compliance documents, their facility meets Dubai data retention standards. Business customers can request specific box retrievals without disturbing other stored records. This service is significantly cheaper than maintaining in-office filing space in Dubai's expensive commercial real estate market." },
               { q: "Is there a storage company in Dubai that serves Abu Dhabi too?", a: "SafeStorage Dubai extends its service across all UAE emirates including Abu Dhabi, Sharjah, Ajman, and Ras Al Khaimah. Their door-to-door service covers UAE-wide locations, making them the only storage company on this list that truly operates nationally rather than being limited to Dubai. Space Keeper is the only other provider on our list with a significant Abu Dhabi presence, though their coverage and fleet are smaller than SafeStorage's." },
               { q: "What is the minimum notice needed to retrieve stored items?", a: "At SafeStorage Dubai, standard retrieval requests require a minimum of 24–48 hours' notice to schedule a delivery. Same-day retrieval is available for urgent requests placed before 12 noon, subject to slot availability. Full move-out requests (retrieving all stored items) typically need 48 hours' notice. Individual item retrievals from your digital inventory can be requested through your online account at any time, with delivery scheduled for your preferred date and time." },
@@ -608,9 +594,6 @@ export default function Top10StorageCompaniesDubai() {
             <h2 style={{ fontSize: "clamp(20px, 3.5vw, 30px)", fontWeight: 800, marginBottom: "10px" }}>
               Dubai's #1 Rated Storage Company
             </h2>
-            <p style={{ opacity: 0.85, fontSize: "15px", marginBottom: "26px", lineHeight: 1.6 }}>
-              Door-to-Door pickup anywhere in Dubai · Clean & secure units · 24/7 security · Insurance included · From 12.60 AED / sqft
-            </p>
             <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
               <a href="https://safestorage.ae/get-quote" style={{ background: "#FFD700", color: "#0A2463", padding: "14px 28px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "16px" }}>
                 Get Free Quote →

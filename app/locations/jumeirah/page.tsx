@@ -212,7 +212,6 @@ export default function JumeirahPage() {
               <p className="font-semibold mb-2">While You&apos;re Away</p>
               <ul className="space-y-1 text-sm">
                 <li>• Items remain secure with 24/7 CCTV and alarms</li>
-                <li>• Covered by complimentary insurance throughout</li>
                 <li>• Cancel or extend your plan anytime remotely</li>
                 <li>• Arrange international shipping from storage if needed</li>
                 <li>• Deliver back to Dubai address if you return</li>

@@ -100,7 +100,6 @@ export default function Pricing() {
                 <p className="mb-2">✓ <strong>Fire protection</strong> — detection and suppression systems</p>
               </div>
               <div>
-                <p className="mb-2">✓ <strong>Free insurance</strong> — up to AED 5,000 coverage included</p>
                 <p className="mb-2">✓ <strong>Pickup &amp; delivery</strong> — door-to-door across Dubai</p>
                 <p className="mb-2">✓ <strong>No hidden fees</strong> — price quoted is price charged</p>
                 <p className="mb-2">✓ <strong>Flexible terms</strong> — cancel anytime, no penalties</p>
@@ -201,7 +200,6 @@ export default function Pricing() {
 
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Everything Included — Zero Hidden Charges</h3>
-            <p className="text-gray-700 mb-5">Many storage companies in Dubai advertise a low headline rate but then add charges for insurance, pickup, delivery, and administration. At SafeStorage, every plan — at every price point — includes all of the following with absolutely no additional charge:</p>
             <div className="grid md:grid-cols-2 gap-6 text-gray-700">
               <div className="space-y-4">
                 <div>
@@ -219,8 +217,6 @@ export default function Pricing() {
               </div>
               <div className="space-y-4">
                 <div>
-                  <p className="font-semibold text-[#0A2463]">Free Insurance Up to AED 5,000</p>
-                  <p className="text-sm">Every storage plan automatically includes complimentary insurance coverage protecting against fire, theft, flood, and accidental damage. Coverage applies from the moment our team picks up your items. No paperwork, no waiting — it is automatic.</p>
                 </div>
                 <div>
                   <p className="font-semibold text-[#0A2463]">24/7 Multi-Layer Security</p>
@@ -301,8 +297,6 @@ export default function Pricing() {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">11. What is the cost of upgrading to higher insurance coverage?</h3>
-              <p className="text-gray-700">Every SafeStorage plan includes free insurance up to AED 5,000. For customers with higher-value items — artwork, antique furniture, high-end electronics, or luxury goods — we offer enhanced insurance options at competitive rates. Enhanced coverage typically ranges from AED 20 to AED 80 per month depending on the declared value of your items and the level of coverage required. Our team will help you assess the value of your stored belongings and recommend the appropriate coverage level when you sign up.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -322,7 +316,6 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. What is the price for storing a full villa worth of furniture in Dubai?</h3>
-              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, storage is priced simply at 12.60 AED / sqft (VAT-inclusive) — you pay only for the space your belongings occupy. This includes door-to-door pickup from your villa, secure storage, 24/7 security, free insurance, and doorstep delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
             </div>
 
           </div>

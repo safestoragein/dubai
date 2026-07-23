@@ -271,7 +271,6 @@ export default function FurnitureStoragePage() {
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">What is the typical cost for furniture storage in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Furniture storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you are storing a single large item like a sofa, wardrobe, or bed in a small unit, a full 1–2 bedroom apartment&apos;s furniture in a medium unit, or a full 3-bedroom apartment or large villa in a large unit. The price includes professional wrapping, free insurance up to AED 5,000, and 24/7 security monitoring. Door-to-Door pickup is included for most Dubai locations. For very large volumes such as commercial furniture or multi-villa clearances, custom pricing is available.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How long can furniture safely remain in storage?</h3>

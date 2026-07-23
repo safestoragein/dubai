@@ -456,10 +456,6 @@ export default function StorageSizeGuidePage() {
                 a: "Yes. You can upgrade to a larger unit at any time, subject to availability, typically within 2–3 business days. Downgrading involves moving your items to a smaller unit — our team can assist with this. Pricing adjusts from the next billing cycle. Many customers start with a medium unit and upgrade as their inventory grows (common with e-commerce businesses) or downgrade after a review of what they actually need (common with long-term household storage customers)."
               },
               {
-                q: "What is the cheapest unit size available at SafeStorage Dubai?",
-                a: "The smallest and most affordable unit size is our 25 sq ft mini unit, starting from 12.60 AED / sqft (VAT-inclusive). This unit is suitable for documents, seasonal items, boxes, suitcases, and small equipment. It is popular with students, solo residents, and businesses with limited archival needs. Even at this entry-level price, the unit includes 24/7 CCTV security, insurance coverage, and the option to add door-to-door service."
-              },
-              {
                 q: "How many boxes fit in a 100 sq ft storage unit?",
                 a: "A 100 sq ft unit can hold approximately 50–80 medium boxes (40x30x30 cm) when stacked ceiling-high using the full available height. If you are also storing furniture alongside boxes, the number of boxes reduces proportionally. For reference, the average one-bedroom apartment generates 20–30 boxes of personal items; a two-bedroom generates 35–50. So a 100 sq ft unit typically holds the box contents of a two-bedroom apartment plus the furniture."
               },

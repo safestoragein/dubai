@@ -106,7 +106,6 @@ const budgetProfiles = [
       { item: "Mobile & internet", amount: "500 - 700" },
       { item: "School fees (2 kids)", amount: "4,000 - 7,000" },
       { item: "Dining out & family activities", amount: "2,000 - 3,000" },
-      { item: "Healthcare insurance", amount: "800 - 1,200" },
       { item: "Clothing & misc", amount: "1,200 - 2,100" }
     ]
   }
@@ -162,7 +161,6 @@ const expenses = [
       { item: "New car (monthly payment)", price: "AED 1,500 - 3,500" },
       { item: "Used car (monthly payment)", price: "AED 800 - 2,000" },
       { item: "Petrol per month (regular use)", price: "AED 300 - 600" },
-      { item: "Car insurance (annual)", price: "AED 1,500 - 4,000" },
       { item: "Taxi (5 km ride)", price: "AED 20 - 30" },
       { item: "Metro daily pass", price: "AED 20" },
       { item: "Metro monthly pass", price: "AED 350" },
@@ -206,24 +204,6 @@ const expenses = [
     ],
     savingTip: "Apply early for affordable schools - they fill up fast! Some employers offer education allowance.",
     image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1200&h=800&fit=crop"
-  },
-  {
-    id: 6,
-    category: "Healthcare & Insurance",
-    icon: Heart,
-    color: "from-pink-500 to-pink-600",
-    description: "Mandatory health insurance for everyone. Usually employer provides basic coverage. Healthcare quality is excellent.",
-    prices: [
-      { item: "Basic insurance (employer provided)", price: "AED 500 - 1,500/year" },
-      { item: "Comprehensive insurance (self)", price: "AED 3,000 - 8,000/year" },
-      { item: "Family insurance (4 people)", price: "AED 8,000 - 20,000/year" },
-      { item: "Doctor visit (consultation)", price: "AED 200 - 500" },
-      { item: "Dental cleaning", price: "AED 200 - 400" },
-      { item: "Pharmacy (common medications)", price: "AED 20 - 100" },
-      { item: "Emergency room visit", price: "AED 500 - 2,000" }
-    ],
-    savingTip: "Use insurance network hospitals to avoid extra costs. Keep insurance card with you always!",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&fit=crop"
   },
   {
     id: 7,

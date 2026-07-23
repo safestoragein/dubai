@@ -1828,7 +1828,6 @@ export default function QuotePage() {
                               "Scheduled Access",
                               "Secure Indoor Storage",
                               "Professional Care",
-                              "Basic Insurance"
                             ].map((feature, index) => (
                               <div key={index} className="flex items-center gap-2">
                                 <div className="w-4 h-4 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">

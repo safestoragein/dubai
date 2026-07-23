@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Palm Jumeirah Storage — Villa & Apartment",
   description:
-    "Storage for Palm Jumeirah villas and apartments. Door-to-Door pickup from all Fronds, Trunk & Crescent. Secure, 24/7 monitored, free insurance. Same-day available. Call +971505773388.",
+    "Storage for Palm Jumeirah villas and apartments. Door-to-Door pickup from all Fronds, Trunk & Crescent. Secure and 24/7 monitored. Same-day available. Call +971505773388.",
   keywords:
     "palm jumeirah storage, storage palm jumeirah dubai, villa storage palm jumeirah, furniture storage palm fronds, palm jumeirah self storage, storage near palm jumeirah",
   openGraph: {
@@ -27,7 +27,7 @@ const palmJumeirahSchemas = [
     "@type": "Service",
     name: "Storage Services for Palm Jumeirah",
     description:
-      "Premium villa and apartment storage for Palm Jumeirah residents. Door-to-Door pickup from all Fronds, Trunk, and Crescent. Secure, fully insured, flexible monthly plans.",
+      "Premium villa and apartment storage for Palm Jumeirah residents. Door-to-Door pickup from all Fronds, Trunk, and Crescent. Secure, flexible monthly plans.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/palm-jumeirah",
     areaServed: [
@@ -140,7 +140,6 @@ export default function PalmJumeirahPage() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Popular Storage Uses — Palm Jumeirah Residents</h3>
             <ul className="space-y-3 text-gray-700">
-              <li>• <strong>Villa renovation storage:</strong> Clear an entire villa into secure storage while contractors work — fully insured, professionally packed</li>
               <li>• <strong>Property sale staging:</strong> Declutter and store personal items before professional photography and viewings to maximise sale appeal</li>
               <li>• <strong>Seasonal item storage:</strong> Garden furniture, holiday decorations, winter clothing, and items not needed year-round</li>
               <li>• <strong>Water sports equipment:</strong> Jet skis (in-water or trailered), kayaks, paddleboards, diving gear, wetsuits, and water toys</li>
@@ -190,7 +189,6 @@ export default function PalmJumeirahPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a full Palm villa during renovation?</h3>
-              <p className="text-gray-700">Full-villa storage pricing starts from 12.60 AED / sqft (VAT-inclusive) and depends on the volume of items. Whether you are storing a 4-bedroom Signature Villa or a larger 5–6 bedroom villa, you pay only for the space your furniture and personal items occupy — including door-to-door pickup, secure storage, insurance, and on-demand delivery. For the most accurate quote, we carry out a brief assessment of your specific villa contents. Send us photos via WhatsApp (+971505773388) or a video walkthrough and we will provide a confirmed price within a few hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can you store a jet ski or personal watercraft from Palm Jumeirah?</h3>
@@ -198,7 +196,6 @@ export default function PalmJumeirahPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you provide specialist packing for valuable art and antiques from Palm villas?</h3>
-              <p className="text-gray-700">Yes. Many Palm Jumeirah villas contain significant artwork, antiques, luxury carpets, and sculptures. SafeStorage provides specialist packing for high-value items using museum-grade materials including acid-free tissue, custom crating, foam padding, and protective wrap. For particularly valuable or irreplaceable pieces, we can arrange specialist fine art storage in individually secured vault conditions. We always recommend disclosing high-value items when booking so we can prepare the appropriate materials and ensure sufficient insurance coverage is in place.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What happens to my belongings while the Palm villa is on the market for sale?</h3>
@@ -221,8 +218,6 @@ export default function PalmJumeirahPage() {
               <p className="text-gray-700">Yes. Garden furniture storage is a popular seasonal service for Palm Frond villa owners. During summer (May–September), when Dubai&apos;s heat peaks, high-quality garden furniture can degrade rapidly if left outdoors. SafeStorage collects outdoor furniture, planters, outdoor cushions and covers, barbecue equipment, and garden accessories at the start of summer and stores them safely indoors until October when the outdoor season resumes. Seasonal storage plans with automatic renewal are available for Palm residents who want to make this a regular annual arrangement.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is insurance standard for Palm Jumeirah storage, including high-value villa contents?</h3>
-              <p className="text-gray-700">Yes. Every SafeStorage plan includes complimentary insurance covering theft, fire, flood, and accidental damage while in our facility and during transport. For Palm Jumeirah villa contents, which often include high-value designer furniture, artwork, and electronics, we strongly recommend declaring the full value of your items at booking. The standard complimentary coverage applies up to a declared value threshold. Extended insurance for higher-value collections is available as an affordable add-on. Our consultant will advise on the appropriate coverage level when you discuss your specific Palm villa contents.</p>
             </div>
           </div>
         </div>

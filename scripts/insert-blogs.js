@@ -519,31 +519,8 @@ const blogPosts = [
         <li>Fleet storage needs</li>
       </ul>
       
-      <p>Secure your vehicle today. Call <strong>+971505773388</strong> for availability.</p>
-    `,
-    extra_data: JSON.stringify({
-      author: "SafeStorage Team",
-      category: "Vehicle Storage",
-      featured_image: "/blog/vehicle-storage.jpg",
-      read_time: "4 mins"
-    }),
-    status: "published"
-  }
-];
-
-// Continue with more blog posts (11-50)...
-const moreBlogPosts = [
-  {
-    content_type: "blog",
-    meta_title: "Storage Insurance Dubai - Protect Your Belongings",
-    slug: "storage-insurance-dubai-protection",
-    meta_description: "Comprehensive storage insurance in Dubai. Protect your belongings against damage, theft & disasters. Better coverage than TheBox. Call +971505773388.",
-    tags: "storage insurance,insurance,protection,coverage",
     content: `
-      <h2>Storage Insurance: Complete Protection in Dubai</h2>
-      <p>While our facilities are extremely secure, insurance provides peace of mind and financial protection for your stored belongings.</p>
       
-      <h3>What Storage Insurance Covers</h3>
       <ul>
         <li>Theft and burglary</li>
         <li>Fire and smoke damage</li>
@@ -553,7 +530,6 @@ const moreBlogPosts = [
         <li>Mysterious disappearance</li>
       </ul>
       
-      <h3>Insurance Options</h3>
       <table>
         <tr><th>Coverage Level</th><th>Value Protected</th><th>Monthly Cost</th></tr>
         <tr><td>Basic</td><td>Up to AED 10,000</td><td>AED 49</td></tr>
@@ -571,12 +547,6 @@ const moreBlogPosts = [
         <li>Collectibles and memorabilia</li>
       </ul>
       
-      <p>Get complete protection. Call <strong>+971505773388</strong> for insurance options.</p>
-    `,
-    extra_data: JSON.stringify({
-      author: "SafeStorage Team",
-      category: "Storage Insurance",
-      featured_image: "/blog/storage-insurance.jpg",
       read_time: "4 mins"
     }),
     status: "published"
@@ -787,7 +757,6 @@ const moreBlogPosts = [
       <ul>
         <li>Wine rack installation</li>
         <li>Inventory management system</li>
-        <li>Insurance valuation assistance</li>
         <li>Private viewing room available</li>
       </ul>
       
@@ -844,7 +813,6 @@ const moreBlogPosts = [
       <ul>
         <li>Museum-standard conditions</li>
         <li>Art handling expertise</li>
-        <li>Insurance partnerships</li>
         <li>Gallery viewing room</li>
         <li>Conservation advice</li>
       </ul>
@@ -951,7 +919,6 @@ const moreBlogPosts = [
         <li>Humidity regulation</li>
         <li>Pest-free environment</li>
         <li>Emergency access available</li>
-        <li>Insurance options</li>
       </ul>
       
       <p>Compliant medical storage. Call <strong>+971505773388</strong> for healthcare solutions.</p>
@@ -1055,7 +1022,6 @@ const moreBlogPosts = [
         <li>Chain of custody maintenance</li>
         <li>Audit trail documentation</li>
         <li>Confidentiality guaranteed</li>
-        <li>Insurance coverage available</li>
       </ul>
       
       <h3>Retrieval Services</h3>
@@ -1447,7 +1413,6 @@ const additionalBlogPosts = [
         <li>Stable temperature/humidity</li>
         <li>Pest-free storage</li>
         <li>Security for valuable items</li>
-        <li>Insurance options available</li>
       </ul>
       
       <p>Protect your passion. Call <strong>+971505773388</strong> for hobby storage.</p>
@@ -1731,7 +1696,6 @@ const additionalBlogPosts = [
       <ul>
         <li>Prevents deterioration</li>
         <li>Maintains value</li>
-        <li>Insurance compliance</li>
         <li>Estate planning</li>
         <li>Collection organization</li>
       </ul>
@@ -1868,7 +1832,6 @@ const additionalBlogPosts = [
         <li>Anti-static environment</li>
         <li>Surge protection</li>
         <li>Security monitoring</li>
-        <li>Insurance available</li>
       </ul>
       
       <h3>Why Climate Control?</h3>

@@ -364,7 +364,6 @@ export default function PersonalStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does personal storage cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">Personal storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small locker for a student room or boxes, a medium unit for a 1–2 bedroom apartment&apos;s complete contents, or a large unit for a 3-bedroom apartment or villa. The price includes 24/7 security monitoring and basic insurance coverage up to AED 5,000. Door-to-Door pickup is included for addresses across Dubai. There are no setup fees, no hidden admin charges, and no long-term contracts required. You simply pay monthly and cancel with 30 days&apos; notice.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store seasonal clothing and winter wear in Dubai?</h3>
@@ -372,7 +371,6 @@ export default function PersonalStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How are valuables protected in personal storage?</h3>
-              <p className="text-gray-700 leading-relaxed">SafeStorage&apos;s facilities feature 24/7 CCTV surveillance covering all storage areas, access-controlled entry requiring ID verification, individually locked storage units that only you can access, and on-site security personnel during operating hours. All stored items receive basic insurance coverage up to AED 5,000 included in the monthly fee, and additional insurance can be arranged for higher-value items. We recommend declaring the value of significant items at intake, particularly electronics, artwork, and collectibles. For items of very high monetary value, we recommend consulting with a specialist insurance broker for dedicated transit and storage coverage beyond our standard inclusion.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store hobby equipment like bicycles and kayaks?</h3>
@@ -388,11 +386,9 @@ export default function PersonalStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How secure are personal storage units at SafeStorage?</h3>
-              <p className="text-gray-700 leading-relaxed">Security at SafeStorage Dubai operates on multiple levels. Facilities are monitored by 24/7 CCTV camera systems covering all access points, corridors, and storage areas. Entry to the facility requires identity verification, and each individual storage unit has its own padlock to which only you hold the key. Access records are maintained and available to customers on request. Our facilities are fully enclosed structures with controlled perimeter access — not open warehouses. On-site staff are present during business hours. We do not publicise the exact facility addresses publicly, adding an additional layer of security. For peace of mind, all stored items are covered by basic insurance included in the monthly fee.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">What about vintage or collectible items — are they safe?</h3>
-              <p className="text-gray-700 leading-relaxed">Vintage items, collectibles, and valuable personal effects are stored in the same clean, secure indoor units that SafeStorage provides as standard. Vintage clothing, vinyl records, comic books, stamps, coins, trading cards, vintage electronics, and similar collectibles are kept dust-protected and away from outdoor elements. For particularly high-value collections, we recommend declaring the items and their value at intake, and considering additional specialist insurance coverage. We also offer white-glove handling for fragile or irreplaceable items on request.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Do you store sports equipment such as bikes and gym gear?</h3>
@@ -496,11 +492,6 @@ export default function PersonalStoragePage() {
               Small units (25–50 sq ft) are suitable for 10–20 boxes or a small collection of household items,
               medium units (50–100 sq ft) accommodate a 1–2 bedroom apartment&apos;s contents, and large units
               (100–200 sq ft) can hold a full 3-bedroom apartment.
-            </p>
-            <p className="text-gray-700">
-              All personal storage plans include 24/7 security, free insurance up to AED 5,000,
-              door-to-door pickup from your Dubai address, and delivery back to you on demand. No long-term contracts —
-              pay monthly and cancel whenever you are ready.
             </p>
           </div>
         </div>

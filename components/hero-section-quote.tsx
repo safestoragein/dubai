@@ -217,10 +217,6 @@ export default function HeroSectionQuote() {
                 24/7 Access
               </span>
               <span className="hidden md:inline text-white/50">•</span>
-              <span className="flex items-center gap-1.5">
-                <Shield className="h-4 w-4 md:h-5 md:w-5 text-dubai-gold" aria-hidden="true" />
-                Secure &amp; Insured
-              </span>
               <span className="hidden md:inline text-white/50">•</span>
               <span className="flex items-center gap-1.5">
                 <Truck className="h-4 w-4 md:h-5 md:w-5 text-dubai-gold" aria-hidden="true" />
@@ -255,7 +251,6 @@ export default function HeroSectionQuote() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-7 max-w-4xl mx-auto">
               {[
                 { icon: Shield,      text: "24/7 CCTV Monitoring" },
-                { icon: Package,     text: "Free Insurance" },
                 { icon: Truck,       text: "Same-Day Pickup" },
                 { icon: Clock,       text: "24/7 Access" },
               ].map((feature, index) => (

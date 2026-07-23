@@ -100,7 +100,6 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How much does storage cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">Storage at SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive) — one simple, transparent price for everything from individual items to full household or furniture storage. All plans include door-to-door service, secure indoor storage, 24/7 security monitoring, and free insurance coverage up to AED 5,000. There are no setup fees, no registration costs, and no penalties for cancelling early. A wide range of discounts is available on long-term and prepaid plans &mdash; the longer you store, the more you save.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How does pickup and delivery work?</h3>
@@ -134,8 +133,6 @@ export default function LandingPage() {
               <p className="text-gray-700 leading-relaxed">Yes, same-day pickup is available at SafeStorage Dubai for requests submitted before 12 noon, subject to slot availability. For planned storage needs, we recommend booking at least 24&ndash;48 hours in advance to ensure your preferred time slot is available. Our team will confirm your pickup appointment and send you a reminder. Emergency storage needs can often be accommodated on very short notice &mdash; call us directly at +971505773388 and we will do our best to arrange same-day service for urgent situations.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-dubai-navy mb-2">What insurance is provided?</h3>
-              <p className="text-gray-700 leading-relaxed">Every SafeStorage Dubai plan includes free insurance coverage up to AED 5,000 for all stored items. This covers fire damage, theft, and natural calamities. For customers with higher-value items, comprehensive extended insurance is available at an additional cost. We strongly recommend declaring accurate values for all items when completing your inventory during pickup, as the insurance payout is based on declared value. Enhanced coverage plans are available for antiques, art, and high-value electronics &mdash; ask our team for details when booking.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How do I cancel my storage?</h3>
@@ -166,7 +163,6 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What makes SafeStorage different from other storage companies in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai combines every advantage of premium storage into one transparent, affordable package. Unlike traditional self-storage companies, we come to you &mdash; door-to-door service means you never need to hire a van or visit a warehouse. Every unit is secure, clean, and dust-protected. Free insurance up to AED 5,000 is included as standard. Our digital inventory system lets you track every item and request individual retrievals. With over 2,400 verified reviews and a 4.9/5 rating, SafeStorage is Dubai&apos;s highest-rated storage provider.</p>
             </div>
           </div>
         </div>
@@ -215,7 +211,6 @@ export default function LandingPage() {
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <p>✓ <strong>Door-to-door Service</strong> — No truck rental, no heavy lifting</p>
               <p>✓ <strong>Secure &amp; Clean Units</strong> — Indoor, dust-protected storage</p>
-              <p>✓ <strong>Free Insurance</strong> — AED 5,000 coverage included with every unit</p>
               <p>✓ <strong>No Lock-In</strong> — Monthly contracts, cancel anytime</p>
               <p>✓ <strong>Transparent Pricing</strong> — No hidden fees, no surprises</p>
               <p>✓ <strong>Same-Day Pickup</strong> — Available for requests before 12 PM</p>

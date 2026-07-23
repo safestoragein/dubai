@@ -88,7 +88,6 @@ export default function SelfStorageGuideDubaiPage() {
                 { check: "Is the facility secure and monitored?", what: "Ask about security: look for 24/7 CCTV monitoring, controlled access, and individually secured units. Your belongings should be protected around the clock." },
                 { check: "Is pickup included?", what: "Good facilities offer door-to-door pickup. If you're quoted a pickup charge of AED 200-500, factor this into your total cost comparison." },
                 { check: "What is the minimum contract length?", what: "1 month is standard. Some facilities require 3-month minimums. Know what you're committing to." },
-                { check: "What insurance is included?", what: "Basic coverage (typically AED 5,000) should be included. Understand the process to claim and ensure high-value items are covered at declared value." },
                 { check: "What are the access hours?", what: "8 AM–8 PM, 7 days/week is standard good access. 24/7 access is available at premium facilities. Restricted weekday-only access is too limiting for most users." },
               ].map((c) => (
                 <div key={c.check} className="flex gap-3 p-4 bg-white border border-gray-200 rounded-xl">
@@ -105,7 +104,6 @@ export default function SelfStorageGuideDubaiPage() {
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Common Self Storage Mistakes in Dubai</h2>
             <div className="space-y-4 mb-8">
               {[
-                "Choosing a facility purely on price without checking security, cleanliness, or insurance cover",
                 "Booking too small a unit and having to move everything to a larger unit mid-storage",
                 "Not labelling boxes, then spending hours searching for one specific item",
                 "Not checking the access hours before booking — discovering it's weekday-only too late",

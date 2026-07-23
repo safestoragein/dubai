@@ -107,7 +107,6 @@ export default function GetQuote() {
               <p>✓ Door-to-Door service anywhere in Dubai</p>
               <p>✓ Secure, clean, dust-protected indoor units</p>
               <p>✓ No long-term contracts — cancel anytime</p>
-              <p>✓ Free insurance up to AED 5,000 included</p>
               <p>✓ Same-day pickup available for requests before 12 PM</p>
               <p>✓ Dedicated storage consultant for every customer</p>
             </div>
@@ -170,7 +169,6 @@ export default function GetQuote() {
                   <li>• Extra Large (200+ sq ft)</li>
                   <li>• Vehicle bay (car/motorcycle)</li>
                 </ul>
-                <p className="text-xs text-gray-500 mt-3">All units are from 12.60 AED / sqft, secure and clean, and include door-to-door pickup, security, and insurance.</p>
               </div>
             </div>
           </div>
@@ -185,7 +183,6 @@ export default function GetQuote() {
                 <p><strong>24/7 HD CCTV security:</strong> Every unit and corridor is monitored continuously by high-definition cameras. Footage is retained and available if any issue arises.</p>
               </div>
               <div className="space-y-3">
-                <p><strong>Free insurance up to AED 5,000:</strong> Every plan includes complimentary insurance covering fire, theft, flood, and accidental damage. No paperwork to fill — it is automatic from day one.</p>
                 <p><strong>Doorstep delivery back to your door:</strong> When you need items returned, we deliver them back to any Dubai address. Standard delivery within 24–48 hours. Urgent same-day delivery available on request.</p>
                 <p><strong>Dedicated storage consultant:</strong> Every customer is assigned a personal consultant who manages your account, answers questions, and coordinates pickups and deliveries on your behalf.</p>
               </div>
@@ -253,7 +250,6 @@ export default function GetQuote() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">11. Do you offer storage for expats leaving Dubai temporarily?</h3>
-              <p className="text-gray-700">Absolutely. Expat storage is one of our most popular services. Many Dubai residents relocate temporarily for work assignments, family obligations, or extended travel and need a secure place to keep their belongings while they are away. SafeStorage provides flexible month-to-month storage with complete peace of mind — your items are securely stored, fully insured, and monitored 24/7. When you return to Dubai, we deliver everything back to your new address within 48 hours. We can also manage your storage account remotely via phone and email while you are abroad.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

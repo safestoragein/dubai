@@ -149,7 +149,6 @@ export default function StudentStoragePage() {
                 <div className="space-y-4">
                   {[
                     { tip: "Label boxes by category", desc: "Use clear labels: BOOKS, CLOTHES, KITCHEN, ELECTRONICS. When you return, you can pick exactly what you need without unpacking everything." },
-                    { tip: "Take photos before packing", desc: "Quick photos of electronics with serial numbers supports insurance claims and helps you confirm everything's accounted for on return." },
                     { tip: "Use vacuum bags for bedding", desc: "Duvets and pillows take up huge amounts of space. Vacuum bags compress them to 1/4 the size — worth the AED 20 investment from any supermarket." },
                     { tip: "Put fragile items in clothes", desc: "Use clothes and soft items as padding around breakable items. Reduces the number of boxes needed and protects fragile contents." },
                   ].map((t) => (
@@ -251,7 +250,6 @@ export default function StudentStoragePage() {
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How safe and secure is student storage?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage facilities provide the same level of security for student storage as for all other customer types. This includes 24/7 CCTV surveillance of all areas, access-controlled entry with identity verification, individually padlocked storage units, on-site staff during business hours, and fire suppression systems. Your laptop, electronics, and other valuable academic equipment are far safer in a properly secured storage facility than they are in an empty university accommodation or left with friends. All stored items are covered by basic insurance, and our clean, secure indoor units keep electronics, books, and soft items dust-protected throughout the storage period.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store my bicycle in student storage?</h3>

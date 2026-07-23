@@ -51,7 +51,6 @@ const testimonials = [
     verified: true,
   },
   {
-    content: "Professional service from start to finish! They helped me choose the right unit size for my needs and the free insurance gave me peace of mind. Will definitely use again!",
     author: "Jennifer Lee",
     role: "Expat, Downtown Dubai",
     rating: 5,

@@ -65,11 +65,6 @@ export default function SelfStorageCostDubaiPage() {
               <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">What's Typically Included in Dubai Storage Prices</h2>
               <p className="mb-4">With established Dubai storage providers, these are typically included in the monthly rate:</p>
               <ul className="space-y-2 mb-8">
-                {["Secure, dust-protected indoor units", "24/7 CCTV security monitoring", "Basic contents insurance", "Free access during business hours", "One padlock per unit (some providers)"].map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-dubai-gold flex-shrink-0 mt-0.5" />{item}
-                  </li>
-                ))}
               </ul>
 
               <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Hidden Fees to Watch Out For</h2>
@@ -78,7 +73,6 @@ export default function SelfStorageCostDubaiPage() {
                 {[
                   { fee: "Admin / registration fee", detail: "Some facilities charge AED 100–300 one-time registration fee on top of the first month. Ask if this applies." },
                   { fee: "Pickup / delivery charges", detail: "Door-to-Door pickup is offered by premium providers like SafeStorage. Others charge AED 200–500 per pickup trip — significant for large moves." },
-                  { fee: "Insurance premium", detail: "Basic insurance is usually included but some providers charge separately. Confirm coverage limits (typically AED 5,000 per unit standard)." },
                   { fee: "Late payment penalty", detail: "Can be 5-15% of monthly rent. Know the late payment window before committing — some facilities lock access the day after payment is due." },
                   { fee: "Move-out notice period", detail: "Most require 30 days written notice. Not knowing this means paying an extra month when you want to leave." },
                 ].map((f) => (
@@ -98,7 +92,6 @@ export default function SelfStorageCostDubaiPage() {
                   { tip: "Choose the right size first", desc: "Paying for a large unit when a medium would suffice is the most common waste. Use our size guide or call a consultant to size correctly before booking." },
                   { tip: "Ask about longer-term discounts", desc: "Most Dubai storage providers offer a wide range of discounts for longer prepaid periods paid upfront. If you know you'll store for 6+ months, ask about discounted rates." },
                   { tip: "Choose providers with door-to-door pickup", desc: "Door-to-Door pickup saves AED 200-500 on initial move. SafeStorage Dubai offers door-to-door pickup across all Dubai areas — factor this into your total cost comparison." },
-                  { tip: "Compare total cost not headline rate", desc: "A facility advertising AED 350/month may end up costing AED 500/month after admin fees, insurance add-ons, and paid pickup. Always ask for an all-in monthly total." },
                 ].map((t) => (
                   <div key={t.tip} className="flex gap-3 p-4 bg-slate-50 rounded-xl">
                     <CheckCircle2 className="w-5 h-5 text-dubai-gold flex-shrink-0 mt-0.5" />
@@ -129,7 +122,6 @@ export default function SelfStorageCostDubaiPage() {
 
               <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6 my-8">
                 <h3 className="font-bold text-dubai-navy mb-2">SafeStorage Dubai Pricing</h3>
-                <p>At SafeStorage Dubai, pricing starts from 12.60 AED / sqft (VAT-inclusive) and includes door-to-door pickup across Dubai, 24/7 security, and basic insurance — with no hidden admin fees. You only pay for the space you use. Get a personalised quote for your specific needs.</p>
               </div>
             </div>
 

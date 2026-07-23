@@ -65,7 +65,6 @@ export default function BestMoversDubaiPage() {
             <div className="space-y-4 mb-8">
               {[
                 { check: "DED Trade License", how: "Ask for the company trade license number and verify at Dubai Economy portal (dubaieconomy.ae). No license = no accountability if things go wrong." },
-                { check: "Insurance coverage", how: "Any professional mover should carry public liability insurance and goods-in-transit insurance. Ask specifically for the policy number and coverage amount." },
                 { check: "Physical office address", how: "Verify a real physical address, not just a WhatsApp number. Google Street View the address. Companies with no physical office have nowhere to hold accountable." },
                 { check: "Google and Trustpilot reviews", how: "Look for movers with 50+ reviews (not 5 reviews all from last month). Pay attention to how complaints are handled — every company has occasional issues; professional ones resolve them." },
                 { check: "Written quote with itemised costs", how: "Any quote should be in writing with the cost breakdown — packing materials, labour, vehicle, any access charges (high floor, distance to lift, etc.)." },
@@ -88,7 +87,6 @@ export default function BestMoversDubaiPage() {
                 "Significantly cheaper than every other quote (labour is labour — extreme discounts mean corners cut)",
                 "Cash-only payment with no receipt",
                 "No physical office or business address — just a mobile number",
-                "Can't provide insurance documentation when asked",
                 "Demand full payment upfront before moving day",
                 "Previous reviews mention items going missing or arriving damaged with no resolution",
                 "Turn up with fewer people or smaller vehicle than agreed",

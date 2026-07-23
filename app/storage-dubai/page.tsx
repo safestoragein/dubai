@@ -62,12 +62,6 @@ const whyChooseUs = [
     highlight: "No Hidden Fees",
   },
   {
-    icon: Shield,
-    title: "FREE Insurance (AED 5,000)",
-    description: "Every unit includes complimentary insurance coverage up to AED 5,000. Additional coverage available for high-value items.",
-    highlight: "Included Free",
-  },
-  {
     icon: Zap,
     title: "Same-Day Service",
     description: "Need storage urgently? We offer same-day pickup for requests before 12 PM. Competitors typically need 2-3 days advance notice.",
@@ -229,13 +223,6 @@ const testimonials = [
     text: "Running an online business from home was getting impossible with all the inventory. Now SafeStorage handles my receiving and I just tell them what to ship. My apartment is mine again and my business runs smoother than ever.",
   },
   {
-    name: "Lisa Chen",
-    location: "Palm Jumeirah",
-    rating: 5,
-    useCase: "Furniture Storage",
-    text: "I was worried about storing my antique furniture. SafeStorage wrapped and protected every piece and kept it dust-free. After 6 months, my pieces came back exactly as I left them. The insurance coverage gave me extra peace of mind.",
-  },
-  {
     name: "James Williams",
     location: "Downtown Dubai",
     rating: 5,
@@ -272,10 +259,6 @@ const faqs = [
   {
     question: "What is the minimum rental period?",
     answer: "SafeStorage Dubai offers flexible month-to-month contracts with just 1-month minimum. No long-term commitment required! You can extend as needed or cancel with 30 days notice. We also offer a wide range of discounts on prepaid plans — the longer you store, the more you save. Contact us for the best available rate.",
-  },
-  {
-    question: "Are my stored items insured?",
-    answer: "Yes! Every storage unit includes FREE insurance coverage up to AED 5,000. This covers fire, theft, and natural disasters. For valuable items, we offer additional comprehensive coverage up to AED 100,000. Our team helps you choose the right protection for your belongings.",
   },
   {
     question: "What items cannot be stored?",
@@ -780,10 +763,6 @@ export default function StorageDubaiPage() {
                   <CheckCircle2 className="h-4 w-4 text-green-400" />
                   No Hidden Fees
                 </span>
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-400" />
-                  AED 5,000 Free Insurance
-                </span>
               </div>
 
               {/* Address & Social Proof */}
@@ -820,12 +799,6 @@ export default function StorageDubaiPage() {
                   challenges with secure, dedicated units, city-wide pickup and delivery, flexible
                   month-to-month contracts, and a hassle-free service model.
                 </p>
-                <p className="text-gray-700">
-                  Our most popular services are household storage during apartment moves and renovations,
-                  business storage for office clearances and inventory management, and expat storage for
-                  residents who need to keep belongings safely in Dubai while they travel or relocate.
-                  All services include the same security and insurance standards.
-                </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Storage Costs in Dubai</h3>
@@ -833,12 +806,6 @@ export default function StorageDubaiPage() {
                   Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) — whether you need a small
                   personal unit (25–50 sq ft), an extra-large unit (200+ sq ft) for full villa contents or
                   commercial inventory, or vehicle storage for standard cars and motorcycles.
-                </p>
-                <p className="text-gray-700">
-                  All SafeStorage plans include 24/7 security, free insurance up to AED 5,000,
-                  and door-to-door service. There are no setup fees, no admin charges, and no hidden costs.
-                  Long-term customers benefit from a wide range of discounts — the longer you store, the more
-                  you save. Contact us for a personalised quote based on exactly what you need to store.
                 </p>
               </div>
             </div>
@@ -901,9 +868,6 @@ export default function StorageDubaiPage() {
               <p className="text-gray-700 mb-4">
                 Storage prices in Dubai vary significantly depending on the provider, unit size, location, and included services. As a reference point for the Dubai market: basic self-service storage (no pickup) ranges from AED 150–400/month for small units. Full-service storage with door-to-door service — the SafeStorage model — starts from 12.60 AED / sqft (VAT-inclusive), whether for small personal units, large commercial units, or vehicle storage.
               </p>
-              <p className="text-gray-700">
-                When comparing storage prices in Dubai, always check what is included. Many providers advertise low base rates but charge separately for access, pickup, delivery, insurance, and administration. SafeStorage&apos;s pricing is fully inclusive — the monthly rate covers 24/7 security, free insurance up to AED 5,000, and door-to-door service. There are no hidden charges. Call +971505773388 for a personalised quote based on your specific requirements.
-              </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8">
@@ -922,7 +886,6 @@ export default function StorageDubaiPage() {
             <div className="space-y-6">
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <h3 className="text-lg font-semibold text-[#0A2463] mb-3">How does SafeStorage compare to other storage companies in Dubai?</h3>
-                <p className="text-gray-700">SafeStorage differentiates on two key dimensions: service model and price transparency. Unlike traditional self-service storage, we collect from your location and deliver back — you never need to hire a van or do any heavy lifting. And our pricing is fully inclusive with no hidden charges — what you see in the quote is what you pay each month, with no surprise add-ons for access, insurance, or administration.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
