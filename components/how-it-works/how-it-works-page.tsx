@@ -56,14 +56,14 @@ export default function HowItWorksPage() {
       number: "03",
       title: "Secure Storage",
       description:
-        "Your items are stored safely in our state-of-the-art climate-controlled facility with 24/7 security monitoring. We ensure your belongings remain in perfect condition.",
+        "Your items are stored safely in our state-of-the-art secure facility with 24/7 security monitoring. We ensure your belongings remain in perfect condition.",
       icon: Warehouse,
       color: "from-purple-500 to-purple-600",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/full-shot-woman-scanning-products_23-2148943323.jpg-FAOsFt1liszoayCOCLFr9S99saKR82.jpeg",
       features: [
         "24/7 security surveillance",
-        "Climate-controlled environment",
+        "Clean, indoor storage environment",
         "Fire protection systems",
         "Pest control measures",
       ],
@@ -225,7 +225,7 @@ export default function HowItWorksPage() {
               },
               {
                 quote:
-                  "I was amazed at how quickly and carefully they handled my furniture. The climate-controlled storage kept everything in perfect condition.",
+                  "I was amazed at how quickly and carefully they handled my furniture. The secure storage kept everything in perfect condition.",
                 author: "Ahmed K.",
                 role: "Business Owner",
               },
@@ -471,7 +471,7 @@ function FaqAccordion() {
     {
       question: "What items are not allowed in storage?",
       answer:
-        "For safety and legal reasons, we do not accept perishable goods, hazardous materials, illegal items, live plants or animals, and certain valuables like cash or unregistered jewelry. Please contact us if you're unsure about specific items.",
+        "Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. For safety and legal reasons, we also do not accept perishable goods, hazardous materials, illegal items, live plants or animals, cash, or negotiable instruments. Please contact us if you're unsure about specific items.",
     },
   ]
 

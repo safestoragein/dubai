@@ -79,7 +79,7 @@ const places = [
       "Private beach access at luxury resorts"
     ],
     bestTime: "Early morning (9 AM) for waterpark",
-    storageConnection: "Seasonal resident at Palm Jumeirah? Our climate-controlled storage keeps your summer wardrobe, water sports gear, and luxury items safe year-round.",
+    storageConnection: "Seasonal resident at Palm Jumeirah? Our clean, secure storage keeps your summer wardrobe, water sports gear, and luxury items safe year-round.",
     image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&h=800&fit=crop"
   },
   {
@@ -325,13 +325,13 @@ export default function TopPlacesDubai2026() {
                   <div className="relative h-48 rounded-lg overflow-hidden">
                     <Image
                       src={index % 3 === 0 ? "/organized-warehouse-space.png" : index % 3 === 1 ? "/expansive-storage.png" : "/images/storage-facility-background.png"}
-                      alt="SafeStorage Climate-Controlled Warehouse"
+                      alt="SafeStorage Clean, Secure Warehouse"
                       width={500}
                       height={300}
                       className="object-cover w-full h-full"
                     />
                     <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg">
-                      <p className="text-xs font-semibold text-[#0A2463]">Climate-Controlled • 24/7 Security</p>
+                      <p className="text-xs font-semibold text-[#0A2463]">Clean & Secure • 24/7 Security</p>
                     </div>
                   </div>
                 </div>
@@ -360,8 +360,8 @@ export default function TopPlacesDubai2026() {
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                 <Package className="h-10 w-10 text-[#D8315B] mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Climate Controlled</h3>
-                <p className="text-sm text-gray-200">Protect items from Dubai's heat</p>
+                <h3 className="font-semibold mb-2">Clean & Secure</h3>
+                <p className="text-sm text-gray-200">Dedicated, dust-protected units</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                 <Package className="h-10 w-10 text-[#D8315B] mx-auto mb-3" />

@@ -33,7 +33,7 @@ export default function ServicesPage() {
               transition={{ delay: 0.1 }}
               className="text-lg md:text-xl text-gray-300 mb-8"
             >
-              Secure, climate-controlled storage solutions tailored to your needs
+              Secure, clean storage solutions tailored to your needs
             </m.p>
             <m.div
               initial={{ opacity: 0, y: 20 }}

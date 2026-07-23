@@ -357,7 +357,7 @@ export default function StartingBusinessDubai2026() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
-                  <h4 className="font-bold text-lg">Climate Controlled</h4>
+                  <h4 className="font-bold text-lg">Clean & Secure</h4>
                   <p className="text-sm">Protect your inventory</p>
                 </div>
               </div>
@@ -481,7 +481,7 @@ export default function StartingBusinessDubai2026() {
                           </p>
                         ) : (
                           <p className="text-gray-700">
-                            <strong>Secure document storage from day 1.</strong> Store licenses, contracts, invoices, and legal documents safely. UAE law requires keeping business records for 5 years. Climate-controlled facility with 24/7 access from just 12.65 AED / sqft.
+                            <strong>Secure document storage from day 1.</strong> Store licenses, contracts, invoices, and legal documents safely. UAE law requires keeping business records for 5 years. Clean, secure facility with 24/7 access from just 12.60 AED / sqft.
                           </p>
                         )}
                       </div>
@@ -545,7 +545,7 @@ export default function StartingBusinessDubai2026() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-1 h-6 w-6 flex-shrink-0" />
-                    <span><strong>Document archival:</strong> Secure 5-year record keeping from 12.65 AED / sqft</span>
+                    <span><strong>Document archival:</strong> Secure 5-year record keeping from 12.60 AED / sqft</span>
                   </li>
                 </ul>
                 <div className="mt-6">
@@ -631,7 +631,7 @@ export default function StartingBusinessDubai2026() {
                     <Clock className="mt-1 h-6 w-6 flex-shrink-0 text-[#D8315B]" />
                     <div>
                       <h4 className="font-bold text-white">24/7 Access</h4>
-                      <p className="text-gray-300">Access your documents and inventory anytime. Climate-controlled facility.</p>
+                      <p className="text-gray-300">Access your documents and inventory anytime. Clean, secure facility.</p>
                     </div>
                   </div>
                 </div>
@@ -719,7 +719,7 @@ export default function StartingBusinessDubai2026() {
               },
               {
                 q: "How do I store my business documents and inventory?",
-                a: "Use professional storage like SafeStorage. UAE law requires keeping business records for 5 years. Climate-controlled document storage from 12.65 AED / sqft. Inventory storage available for e-commerce businesses.",
+                a: "Use professional storage like SafeStorage. UAE law requires keeping business records for 5 years. Clean, secure document storage from 12.60 AED / sqft. Inventory storage available for e-commerce businesses.",
               },
               {
                 q: "What's the corporate tax in Dubai?",

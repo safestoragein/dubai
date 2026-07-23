@@ -3,7 +3,6 @@ import { Check, X, AlertTriangle } from "lucide-react"
 export default function ComparisonTable() {
   const features = [
     { name: "24/7 Security & CCTV Monitoring", safestorage: "yes", others: "limited" },
-    { name: "Climate-Controlled Units", safestorage: "yes", others: "no" },
     { name: "Flexible Payment Plans", safestorage: "yes", others: "no" },
     { name: "Hassle-Free Pickup & Delivery", safestorage: "yes", others: "no" },
     { name: "Online Booking & Instant Quote", safestorage: "yes", others: "no" },

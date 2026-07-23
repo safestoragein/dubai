@@ -4,13 +4,13 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Storage Pricing Dubai — From 12.65 AED / sqft",
+  title: "Storage Pricing Dubai — From 12.60 AED / sqft",
   description:
-    "Transparent storage pricing in Dubai from 12.65 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Hassle-free pickup & delivery included. Call +971505773388 for best rates.",
+    "Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Hassle-free pickup & delivery included. Call +971505773388 for best rates.",
   keywords:
     "storage pricing dubai, cheap storage dubai, storage costs, affordable storage, storage rates dubai, self storage prices, monthly storage cost, storage unit prices",
   openGraph: {
-    title: "SafeStorage Pricing - Storage from 12.65 AED / sqft",
+    title: "SafeStorage Pricing - Storage from 12.60 AED / sqft",
     description: "Competitive storage rates in Dubai. All sizes available with hassle-free pickup & delivery. Call +971505773388.",
     url: "https://safestorage.ae/pricing",
     siteName: "SafeStorage Dubai",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SafeStorage Pricing - From 12.65 AED / sqft",
+    title: "SafeStorage Pricing - From 12.60 AED / sqft",
     description: "Affordable storage units in Dubai with transparent pricing. Call +971505773388.",
     images: ["/twitter-pricing.jpg"],
   },
@@ -41,8 +41,8 @@ const pricingSchemas = [
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/pricing#webpage',
-    name: 'Storage Pricing Dubai | From 12.65 AED / sqft',
-    description: 'Transparent storage pricing in Dubai from 12.65 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Hassle-free pickup & delivery included.',
+    name: 'Storage Pricing Dubai | From 12.60 AED / sqft',
+    description: 'Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Hassle-free pickup & delivery included.',
     url: 'https://safestorage.ae/pricing',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -56,7 +56,7 @@ const pricingSchemas = [
     url: 'https://safestorage.ae/pricing',
     areaServed: { '@type': 'City', name: 'Dubai' },
     offers: [
-      { '@type': 'Offer', name: 'Storage in Dubai', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.65', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
+      { '@type': 'Offer', name: 'Storage in Dubai', priceSpecification: { '@type': 'UnitPriceSpecification', price: '12.60', priceCurrency: 'AED', unitText: 'per sq ft' }, availability: 'https://schema.org/InStock', priceValidUntil: '2026-12-31' },
     ],
   },
   {
@@ -86,8 +86,8 @@ export default function Pricing() {
 
           <div className="flex justify-center mb-12">
             <div className="bg-white rounded-2xl p-10 border-2 border-[#0A2463] text-center max-w-xl w-full">
-              <p className="text-2xl md:text-3xl font-bold text-[#0A2463]">Pricing starts from 12.65 AED / sqft</p>
-              <p className="text-sm text-gray-500 mt-3">VAT-inclusive · climate-controlled · hassle-free pickup &amp; delivery included</p>
+              <p className="text-2xl md:text-3xl font-bold text-[#0A2463]">Pricing starts from 12.60 AED / sqft</p>
+              <p className="text-sm text-gray-500 mt-3">VAT-inclusive · secure indoor storage · hassle-free pickup &amp; delivery included</p>
             </div>
           </div>
 
@@ -95,7 +95,7 @@ export default function Pricing() {
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">What's Included in Every Storage Plan</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <div>
-                <p className="mb-2">✓ <strong>Climate-controlled unit</strong> — 20–25°C maintained year-round</p>
+                <p className="mb-2">✓ <strong>Secure indoor unit</strong> — clean, dust-protected storage</p>
                 <p className="mb-2">✓ <strong>24/7 CCTV security</strong> — HD cameras monitoring all areas</p>
                 <p className="mb-2">✓ <strong>Biometric access</strong> — only you can access your unit</p>
                 <p className="mb-2">✓ <strong>Fire protection</strong> — detection and suppression systems</p>
@@ -112,13 +112,13 @@ export default function Pricing() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Long-Term Storage Discounts</h3>
             <p className="text-gray-700 mb-4">
-              Planning to store for 3 months or more? SafeStorage rewards commitment with attractive discounts:
+              Planning to store for the longer term? SafeStorage rewards commitment with a wide range of discounts:
             </p>
             <ul className="space-y-2 text-gray-700">
-              <li>• <strong>3-month prepaid:</strong> Save 10% on total storage cost</li>
-              <li>• <strong>6-month prepaid:</strong> Save 15% on total storage cost</li>
-              <li>• <strong>12-month prepaid:</strong> Save 20% on total storage cost</li>
+              <li>• <strong>Prepaid plans:</strong> Save more when you pay several months upfront</li>
+              <li>• <strong>Long-term storage:</strong> The longer you store, the bigger your discount</li>
               <li>• <strong>Business accounts:</strong> Custom rates available for multi-unit or long-term commercial arrangements</li>
+              <li>• <strong>Best rate guaranteed:</strong> Contact our team for the best available discount on your storage duration</li>
             </ul>
           </div>
 
@@ -126,7 +126,7 @@ export default function Pricing() {
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Vehicle Storage Rates</h3>
             <p className="text-gray-700 mb-3">
               SafeStorage provides secure covered parking and storage bays for cars, motorcycles, boats, jet skis,
-              and caravans. Vehicle storage starts from <strong>12.65 AED / sqft</strong> and includes 24/7 CCTV
+              and caravans. Vehicle storage starts from <strong>12.60 AED / sqft</strong> and includes 24/7 CCTV
               monitoring, covered protection from the elements, and battery maintenance services for long-term stays.
               Our facility is ideal for expats leaving Dubai temporarily, classic car collectors, and owners of
               seasonal recreational vehicles.
@@ -175,16 +175,16 @@ export default function Pricing() {
 
           <h2 className="text-3xl font-bold text-[#0A2463] mb-4">Complete Storage Pricing Guide for Dubai</h2>
           <p className="text-lg text-gray-700 mb-8">
-            Understanding exactly what you are paying for before you commit to a storage plan is important. This guide covers every aspect of SafeStorage Dubai&apos;s pricing — our single, transparent rate of 12.65 AED / sqft (VAT-inclusive), long-term discounts, VAT information, and what is included in every single plan at no extra charge.
+            Understanding exactly what you are paying for before you commit to a storage plan is important. This guide covers every aspect of SafeStorage Dubai&apos;s pricing — our single, transparent rate of 12.60 AED / sqft (VAT-inclusive), long-term discounts, VAT information, and what is included in every single plan at no extra charge.
           </p>
 
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">One Simple, Transparent Price</h3>
-            <p className="text-gray-700 mb-6">SafeStorage Dubai keeps pricing simple. Whether you are storing a few boxes or clearing an entire villa, our rate starts from <strong>12.65 AED / sqft</strong> (VAT-inclusive). You pay only for the space you actually use, with no wasted space and no unnecessary charges — one clear price for every storage need.</p>
+            <p className="text-gray-700 mb-6">SafeStorage Dubai keeps pricing simple. Whether you are storing a few boxes or clearing an entire villa, our rate starts from <strong>12.60 AED / sqft</strong> (VAT-inclusive). You pay only for the space you actually use, with no wasted space and no unnecessary charges — one clear price for every storage need.</p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border-2 border-[#0A2463]">
                 <h4 className="font-bold text-[#0A2463] text-lg mb-3">Flexible Item & Box Storage</h4>
-                <p className="text-gray-700 mb-4">Ideal for customers storing fewer than 20–25 items. Each item is individually catalogued, photographed, and stored. You pay only for the space your belongings occupy — starting from <strong>12.65 AED / sqft</strong>.</p>
+                <p className="text-gray-700 mb-4">Ideal for customers storing fewer than 20 to 25 items. Each item is individually catalogued, photographed, and stored. You pay only for the space your belongings occupy — starting from <strong>12.60 AED / sqft</strong>.</p>
                 <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Cardboard boxes and small items</li>
                   <li>• Suitcases and bags</li>
@@ -195,19 +195,19 @@ export default function Pricing() {
               </div>
               <div className="bg-white rounded-xl p-6 border-2 border-[#D8315B]">
                 <h4 className="font-bold text-[#0A2463] text-lg mb-3">Dedicated Private Units</h4>
-                <p className="text-gray-700 mb-4">Rent a private, dedicated storage space measured by square footage — for full apartment contents, villa clearances, business inventory, or vehicles. No fixed tiers and no guesswork: the rate is the same simple <strong>12.65 AED / sqft</strong>, whatever space you need. You pay only for the area you use.</p>
+                <p className="text-gray-700 mb-4">Rent a private, dedicated storage space measured by square footage — for full apartment contents, villa clearances, business inventory, or vehicles. No fixed tiers and no guesswork: the rate is the same simple <strong>12.60 AED / sqft</strong>, whatever space you need. You pay only for the area you use.</p>
               </div>
             </div>
           </div>
 
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Everything Included — Zero Hidden Charges</h3>
-            <p className="text-gray-700 mb-5">Many storage companies in Dubai advertise a low headline rate but then add charges for climate control, insurance, pickup, delivery, and administration. At SafeStorage, every plan — at every price point — includes all of the following with absolutely no additional charge:</p>
+            <p className="text-gray-700 mb-5">Many storage companies in Dubai advertise a low headline rate but then add charges for insurance, pickup, delivery, and administration. At SafeStorage, every plan — at every price point — includes all of the following with absolutely no additional charge:</p>
             <div className="grid md:grid-cols-2 gap-6 text-gray-700">
               <div className="space-y-4">
                 <div>
-                  <p className="font-semibold text-[#0A2463]">Climate Control (18–22°C)</p>
-                  <p className="text-sm">Industrial HVAC systems maintain optimal temperature and 45–55% humidity in every unit year-round. Protects furniture, electronics, documents, clothing, and artwork from Dubai&apos;s extreme heat and humidity fluctuations. This is not an upgrade — it is standard.</p>
+                  <p className="font-semibold text-[#0A2463]">Secure Indoor Storage</p>
+                  <p className="text-sm">Every unit is a clean, dust-protected indoor space. Items are carefully wrapped, stored on raised platforms, and kept away from external walls to help protect furniture, electronics, documents, clothing, and artwork. This is not an upgrade — it is standard.</p>
                 </div>
                 <div>
                   <p className="font-semibold text-[#0A2463]">Hassle-Free Door-to-Door Pickup in Dubai</p>
@@ -244,7 +244,7 @@ export default function Pricing() {
 
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">How Much Storage Do You Need?</h3>
-            <p className="text-gray-700">There are no fixed unit tiers to choose between and no risk of overpaying for empty space. You pay only for the square footage your belongings actually occupy, at one simple rate of <strong>12.65 AED / sqft</strong> (VAT-inclusive). Not sure how much space you need? Our consultants provide a free, no-obligation volume assessment — just send photos via WhatsApp or call +971505773388 and we will confirm exactly what your storage will cost.</p>
+            <p className="text-gray-700">There are no fixed unit tiers to choose between and no risk of overpaying for empty space. You pay only for the square footage your belongings actually occupy, at one simple rate of <strong>12.60 AED / sqft</strong> (VAT-inclusive). Not sure how much space you need? Our consultants provide a free, no-obligation volume assessment — just send photos via WhatsApp or call +971505773388 and we will confirm exactly what your storage will cost.</p>
           </div>
 
           {/* 15 pricing FAQ items */}
@@ -254,7 +254,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">1. What is the cheapest storage option available at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">Our storage starts from just 12.65 AED / sqft (VAT-inclusive). This is perfect for customers who only need to store a few things and do not want to pay for an entire private unit — you pay only for the space your belongings actually use. Contact us for an accurate quote based on exactly what you need to store.</p>
+              <p className="text-gray-700">Our storage starts from just 12.60 AED / sqft (VAT-inclusive). This is perfect for customers who only need to store a few things and do not want to pay for an entire private unit — you pay only for the space your belongings actually use. Contact us for an accurate quote based on exactly what you need to store.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -279,7 +279,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">6. Can I get a corporate or bulk storage discount?</h3>
-              <p className="text-gray-700">Yes. SafeStorage Dubai offers preferential corporate rates for businesses storing large volumes of items, multiple storage units, or with ongoing high-frequency pickup and delivery requirements. Corporate accounts include custom pricing, dedicated account management, itemised monthly invoicing, multi-user access credentials, and priority scheduling. Contact our business team on +971505773388 or email safestoragedubai@gmail.com to discuss your organisation&apos;s storage requirements and receive a customised commercial proposal.</p>
+              <p className="text-gray-700">Yes. SafeStorage Dubai offers preferential corporate rates for businesses storing large volumes of items, multiple storage units, or with ongoing high-frequency pickup and delivery requirements. Corporate accounts include custom pricing, dedicated account management, itemised monthly invoicing, multi-user access credentials, and priority scheduling. Contact our business team on +971505773388 or email support@safestorage.ae to discuss your organisation&apos;s storage requirements and receive a customised commercial proposal.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -289,27 +289,27 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. What is the best value storage option for someone moving apartments in Dubai?</h3>
-              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — storage is priced simply at 12.65 AED / sqft (VAT-inclusive), so a one to two-bedroom apartment is straightforward and economical to store. This includes hassle-free pickup from your old apartment, climate-controlled storage for the duration between leases, and hassle-free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
+              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — storage is priced simply at 12.60 AED / sqft (VAT-inclusive), so a one to two-bedroom apartment is straightforward and economical to store. This includes hassle-free pickup from your old apartment, secure storage for the duration between leases, and hassle-free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">9. Do you offer any student storage discounts in Dubai?</h3>
-              <p className="text-gray-700">Yes. SafeStorage Dubai partners with several universities and higher education institutions in Dubai to offer student storage discounts. Students can access our storage plans from 12.65 AED / sqft, which is ideal for storing belongings between semesters or during summer holidays. Mention your student status and university affiliation when requesting a quote and we will apply the applicable student discount. Student plans are available on a minimum one-month basis with no long-term commitment required.</p>
+              <p className="text-gray-700">Yes. SafeStorage Dubai partners with several universities and higher education institutions in Dubai to offer student storage discounts. Students can access our storage plans from 12.60 AED / sqft, which is ideal for storing belongings between semesters or during summer holidays. Mention your student status and university affiliation when requesting a quote and we will apply the applicable student discount. Student plans are available on a minimum one-month basis with no long-term commitment required.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">10. How does billing work — monthly, quarterly, or annually?</h3>
-              <p className="text-gray-700">SafeStorage offers flexible billing cycles to suit your preferences. Monthly billing is the default option — you pay one month in advance and continue month-by-month with no commitment. Quarterly billing (every three months) offers a 10% discount. Semi-annual billing (every six months) offers a 15% discount. Annual billing (pay once per year) offers the maximum 20% discount. You can switch billing cycles at any time by contacting your storage consultant. All billing is handled via secure online payment, bank transfer, cash, or cheque.</p>
+              <p className="text-gray-700">SafeStorage offers flexible billing cycles to suit your preferences. Monthly billing is the default option — you pay one month in advance and continue month-by-month with no commitment. Quarterly, semi-annual, and annual billing cycles each unlock a wide range of discounts — the longer the cycle you prepay, the more you save. You can switch billing cycles at any time by contacting your storage consultant. All billing is handled via secure online payment, bank transfer, cash, or cheque.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">11. What is the cost of upgrading to higher insurance coverage?</h3>
-              <p className="text-gray-700">Every SafeStorage plan includes free insurance up to AED 5,000. For customers with higher-value items — artwork, jewellery, antique furniture, high-end electronics, or luxury goods — we offer enhanced insurance options at competitive rates. Enhanced coverage typically ranges from AED 20 to AED 80 per month depending on the declared value of your items and the level of coverage required. Our team will help you assess the value of your stored belongings and recommend the appropriate coverage level when you sign up.</p>
+              <p className="text-gray-700">Every SafeStorage plan includes free insurance up to AED 5,000. For customers with higher-value items — artwork, antique furniture, high-end electronics, or luxury goods — we offer enhanced insurance options at competitive rates. Enhanced coverage typically ranges from AED 20 to AED 80 per month depending on the declared value of your items and the level of coverage required. Our team will help you assess the value of your stored belongings and recommend the appropriate coverage level when you sign up.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">12. Are document storage rates different from regular storage?</h3>
-              <p className="text-gray-700">Document and archive storage follows a separate pricing structure designed for businesses and individuals needing to store large volumes of paper records. Our document storage service includes indexed cataloguing of all boxes for easy retrieval, fireproof storage areas with enhanced fire suppression systems, humidity-controlled archival conditions to prevent paper deterioration, and a same-day retrieval service for urgent document access. Document storage starts from 12.65 AED / sqft (VAT-inclusive). Call +971505773388 for a detailed document storage quotation.</p>
+              <p className="text-gray-700">Document and archive storage follows a separate pricing structure designed for businesses and individuals needing to store large volumes of paper records. Our document storage service includes indexed cataloguing of all boxes for easy retrieval, fireproof storage areas with enhanced fire suppression systems, clean and dust-protected archival shelving that keeps records in good condition, and a same-day retrieval service for urgent document access. Document storage starts from 12.60 AED / sqft (VAT-inclusive). Call +971505773388 for a detailed document storage quotation.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -324,7 +324,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. What is the price for storing a full villa worth of furniture in Dubai?</h3>
-              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, storage is priced simply at 12.65 AED / sqft (VAT-inclusive) — you pay only for the space your belongings occupy. This includes hassle-free pickup from your villa, climate-controlled storage, 24/7 security, free insurance, and hassle-free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
+              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, storage is priced simply at 12.60 AED / sqft (VAT-inclusive) — you pay only for the space your belongings occupy. This includes hassle-free pickup from your villa, secure storage, 24/7 security, free insurance, and hassle-free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
             </div>
 
           </div>

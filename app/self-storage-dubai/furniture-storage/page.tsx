@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Sofa, Shield, Thermometer, Package, ArrowRight, CheckCircle2, AlertCircle, Truck } from "lucide-react"
+import { Sofa, Shield, Package, ArrowRight, CheckCircle2, AlertCircle, Truck } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Furniture Storage Dubai — From 12.65 AED / sqft",
-  description: "Dubai's most affordable furniture storage starting from 12.65 AED / sqft. Climate-controlled units protect sofas, beds & dining sets from heat damage. Hassle-free pickup available. 24/7 access, CCTV security.",
-  keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, climate controlled furniture storage, cheap furniture storage dubai, furniture storage al quoz, furniture storage units dubai, affordable furniture storage",
+  title: "Furniture Storage Dubai — From 12.60 AED / sqft",
+  description: "Dubai's most affordable furniture storage starting from 12.60 AED / sqft. Secure units protect sofas, beds & dining sets. Hassle-free pickup available. 24/7 access, CCTV security.",
+  keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, cheap furniture storage dubai, furniture storage al quoz, furniture storage units dubai, affordable furniture storage",
   openGraph: {
-    title: "Furniture Storage Dubai – Climate-Controlled Units from 12.65 AED / sqft",
-    description: "Store furniture safely in Dubai with 24/7 access, climate control, and professional handling. Hassle-free pickup & delivery available.",
+    title: "Furniture Storage Dubai – Secure Units from 12.60 AED / sqft",
+    description: "Store furniture safely in Dubai with 24/7 access and professional handling. Hassle-free pickup & delivery available.",
     url: "https://safestorage.ae/self-storage-dubai/furniture-storage",
   },
   alternates: {
@@ -35,9 +35,8 @@ export default function FurnitureStoragePage() {
               Furniture Storage Dubai – Keep Your Pieces Perfect
             </h1>
             <p className="text-xl text-white/90 mb-8">
-              Dubai's extreme heat and humidity can warp wood, crack leather, and fade fabrics. 
-              Whether you're renovating, relocating, or simply need extra space, our climate-controlled 
-              furniture storage protects your valuable pieces from damage while keeping them accessible when needed.
+              Whether you're renovating, relocating, or simply need extra space, our secure
+              furniture storage protects your valuable pieces while keeping them accessible when needed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
@@ -48,7 +47,7 @@ export default function FurnitureStoragePage() {
               </Button>
             </div>
             <p className="text-white/80 mt-4 text-lg">
-              Climate-controlled furniture storage starting from 12.65 AED / sqft
+              Secure furniture storage starting from 12.60 AED / sqft
             </p>
           </div>
         </div>
@@ -59,43 +58,43 @@ export default function FurnitureStoragePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-dubai-navy">
-              Why Furniture Needs Climate-Controlled Storage
+              Why Furniture Needs Professional Storage
             </h2>
             <p className="text-gray-600 mb-8">
-              Dubai's climate poses unique challenges for furniture storage. Without proper protection, 
-              your valuable pieces can suffer irreversible damage:
+              Storing furniture at home or in an improvised space risks avoidable damage.
+              Professional storage keeps your valuable pieces protected:
             </p>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="border-red-100">
                 <CardHeader>
                   <AlertCircle className="h-10 w-10 text-red-500 mb-2" />
-                  <CardTitle className="text-red-900">Without Climate Control</CardTitle>
+                  <CardTitle className="text-red-900">Stored Improperly</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Wood warps and cracks</li>
-                    <li>• Leather dries and splits</li>
-                    <li>• Metal rusts and corrodes</li>
-                    <li>• Fabric fades and deteriorates</li>
-                    <li>• Glue weakens in joints</li>
-                    <li>• Mold and mildew growth</li>
+                    <li>• Dust and grime build-up</li>
+                    <li>• Scratches, dents, and chips</li>
+                    <li>• Crushing under stacked items</li>
+                    <li>• Pest damage</li>
+                    <li>• Clutter taking over your home</li>
+                    <li>• Higher risk of accidental damage</li>
                   </ul>
                 </CardContent>
               </Card>
-              
+
               <Card className="border-green-100">
                 <CardHeader>
                   <CheckCircle2 className="h-10 w-10 text-green-500 mb-2" />
-                  <CardTitle className="text-green-900">With Climate Control</CardTitle>
+                  <CardTitle className="text-green-900">Stored with SafeStorage</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Stable temperature year-round</li>
-                    <li>• Controlled humidity levels</li>
-                    <li>• Protection from UV damage</li>
-                    <li>• Prevention of pest infestations</li>
-                    <li>• Maintains furniture value</li>
+                    <li>• Individually wrapped and padded</li>
+                    <li>• Dust-protected covers</li>
+                    <li>• Stored off the ground</li>
+                    <li>• 24/7 CCTV-monitored facility</li>
+                    <li>• Insured up to AED 5,000</li>
                     <li>• Ready-to-use condition</li>
                   </ul>
                 </CardContent>
@@ -114,7 +113,7 @@ export default function FurnitureStoragePage() {
                 Transparent Furniture Storage Pricing Dubai
               </h2>
               <p className="text-xl text-gray-600">
-                No hidden fees. No surprises. Just affordable, climate-controlled furniture storage.
+                No hidden fees. No surprises. Just affordable, secure furniture storage.
               </p>
             </div>
 
@@ -122,7 +121,7 @@ export default function FurnitureStoragePage() {
               <Card className="border-2 border-dubai-gold shadow-lg">
                 <CardContent className="text-center py-10">
                   <h3 className="text-2xl md:text-3xl font-bold text-dubai-navy mb-3">
-                    Pricing starts from 12.65 AED / sqft
+                    Pricing starts from 12.60 AED / sqft
                   </h3>
                   <p className="text-gray-600">
                     VAT-inclusive · all unit sizes · hassle-free pickup &amp; delivery included
@@ -136,7 +135,7 @@ export default function FurnitureStoragePage() {
               <div className="grid md:grid-cols-2 gap-4 text-gray-700">
                 <div className="flex items-start">
                   <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                  <span>Climate control (20-22°C maintained)</span>
+                  <span>Secure, dedicated indoor units</span>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
@@ -231,8 +230,8 @@ export default function FurnitureStoragePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 mb-4">
-                    Have valuable or antique pieces? We provide extra care with specialized wrapping, 
-                    dedicated climate zones, and careful handling protocols.
+                    Have valuable or antique pieces? We provide extra care with specialized wrapping,
+                    dedicated storage space, and careful handling protocols.
                   </p>
                   <ul className="grid md:grid-cols-2 gap-2 text-gray-600">
                     <li>• Antique furniture</li>
@@ -319,10 +318,10 @@ export default function FurnitureStoragePage() {
                   5
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Climate Monitoring</h3>
+                  <h3 className="font-semibold mb-2">Ongoing Monitoring</h3>
                   <p className="text-gray-600">
-                    Maintain 20-22°C temperature and 45-55% humidity. Monitor conditions 24/7 
-                    with automatic adjustments and regular inspections.
+                    Monitor the facility around the clock with 24/7 CCTV and conduct regular
+                    inspections to keep your furniture secure throughout storage.
                   </p>
                 </div>
               </div>
@@ -547,7 +546,7 @@ export default function FurnitureStoragePage() {
                   </p>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li>• Art-quality wrapping</li>
-                    <li>• Individual climate zones</li>
+                    <li>• Dedicated storage space</li>
                     <li>• Monthly inspections</li>
                     <li>• Priority handling</li>
                   </ul>
@@ -648,18 +647,9 @@ export default function FurnitureStoragePage() {
                   <tr>
                     <td className="border p-4 font-semibold">Starting Price</td>
                     <td className="border p-4 text-center bg-dubai-gold/10">
-                      <span className="text-dubai-gold font-bold">from 12.65 AED / sqft</span>
+                      <span className="text-dubai-gold font-bold">from 12.60 AED / sqft</span>
                     </td>
                     <td className="border p-4 text-center text-gray-600">AED 350+/month</td>
-                  </tr>
-                  <tr>
-                    <td className="border p-4 font-semibold">Climate Control</td>
-                    <td className="border p-4 text-center bg-dubai-gold/10">
-                      <CheckCircle2 className="h-6 w-6 text-green-600 mx-auto" />
-                    </td>
-                    <td className="border p-4 text-center">
-                      <CheckCircle2 className="h-6 w-6 text-green-600 mx-auto" />
-                    </td>
                   </tr>
                   <tr>
                     <td className="border p-4 font-semibold">24/7 Access</td>
@@ -728,7 +718,7 @@ export default function FurnitureStoragePage() {
                     ))}
                   </div>
                   <p className="text-gray-600 mb-4 italic">
-                    "Stored my entire 2-bedroom apartment furniture for 6 months during villa renovation. Everything came back in perfect condition. Climate control really works!"
+                    "Stored my entire 2-bedroom apartment furniture for 6 months during villa renovation. Everything came back in perfect condition. Their care really shows!"
                   </p>
                   <p className="font-semibold text-dubai-navy">- Ahmed K., Dubai Marina</p>
                 </CardContent>
@@ -800,18 +790,7 @@ export default function FurnitureStoragePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Furniture storage in Dubai starts from 12.65 AED / sqft (VAT-inclusive), whether you need a small unit (3-5 m²), a medium unit (8-10 m²), or a large unit (15-20 m²). All units include climate control, 24/7 CCTV security, pest control, and flexible month-to-month contracts with no long-term commitment required.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Is climate control necessary for furniture storage in Dubai?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Yes, absolutely. Dubai's extreme heat (40-50°C in summer) and humidity cause wood to warp, leather to crack, metal to rust, and fabrics to fade. Climate-controlled storage maintains a stable 20-22°C temperature and 45-55% humidity year-round, protecting your furniture from irreversible damage. Without climate control, furniture can be damaged within weeks during Dubai's summer months.
+                    Furniture storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit (3-5 m²), a medium unit (8-10 m²), or a large unit (15-20 m²). All units include 24/7 CCTV security, pest control, and flexible month-to-month contracts with no long-term commitment required.
                   </p>
                 </CardContent>
               </Card>
@@ -822,7 +801,7 @@ export default function FurnitureStoragePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Yes! We offer hassle-free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our climate-controlled facility. Delivery is also available when you're ready to retrieve your items. Call +971 50 577 3388 or email safestoragedubai@gmail.com to schedule your pickup.
+                    Yes! We offer hassle-free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our secure facility. Delivery is also available when you're ready to retrieve your items. Call +971 50 577 3388 or email support@safestorage.ae to schedule your pickup.
                   </p>
                 </CardContent>
               </Card>
@@ -855,7 +834,7 @@ export default function FurnitureStoragePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Our main facility is centrally located in Al Quoz Industrial Area, Dubai - easily accessible from Dubai Marina, Jumeirah, Business Bay, Downtown Dubai, and other major areas. The facility features 24/7 CCTV surveillance, climate control, pest control, and daily cleaning. We also offer pickup service from anywhere in Dubai, so you don't need to transport furniture yourself.
+                    Our main facility is centrally located in Al Quoz Industrial Area, Dubai - easily accessible from Dubai Marina, Jumeirah, Business Bay, Downtown Dubai, and other major areas. The facility features 24/7 CCTV surveillance, pest control, and daily cleaning. We also offer pickup service from anywhere in Dubai, so you don't need to transport furniture yourself.
                   </p>
                 </CardContent>
               </Card>
@@ -890,7 +869,7 @@ export default function FurnitureStoragePage() {
                   <p className="text-gray-600">
                     <strong>DIY Storage:</strong> You transport furniture yourself, we provide trolleys and drive-up access. Best for those with a van/truck.<br/><br/>
                     <strong>Full Service (Most Popular):</strong> We handle everything - professional packing, hassle-free pickup, transport, storage, and scheduled return delivery. Perfect for busy professionals or those without transport.<br/><br/>
-                    <strong>Premium Care:</strong> White-glove service for antique/valuable pieces with art-quality wrapping, individual climate zones, and monthly inspections.
+                    <strong>Premium Care:</strong> White-glove service for antique/valuable pieces with art-quality wrapping, dedicated storage space, and monthly inspections.
                   </p>
                 </CardContent>
               </Card>
@@ -912,7 +891,7 @@ export default function FurnitureStoragePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Absolutely! We specialize in storing valuable and oversized items including pianos, antique furniture, designer pieces, art furniture, and custom-made items. We provide specialized wrapping, dedicated climate zones, careful handling protocols, and optional monthly inspections for peace of mind. Our Premium Care service is perfect for heritage and high-value pieces.
+                    Absolutely! We specialize in storing valuable and oversized items including pianos, antique furniture, designer pieces, art furniture, and custom-made items. We provide specialized wrapping, dedicated storage space, careful handling protocols, and optional monthly inspections for peace of mind. Our Premium Care service is perfect for heritage and high-value pieces.
                   </p>
                 </CardContent>
               </Card>
@@ -950,7 +929,7 @@ export default function FurnitureStoragePage() {
                 </Button>
               </div>
               <p className="text-gray-600 text-center">
-                Email us at: <a href="mailto:safestoragedubai@gmail.com" className="text-dubai-gold hover:underline font-semibold">safestoragedubai@gmail.com</a>
+                Email us at: <a href="mailto:support@safestorage.ae" className="text-dubai-gold hover:underline font-semibold">support@safestorage.ae</a>
               </p>
             </div>
           </div>
@@ -965,7 +944,7 @@ export default function FurnitureStoragePage() {
               Protect Your Furniture Investment
             </h2>
             <p className="text-xl mb-8 text-white/90">
-              Get a customized quote for climate-controlled furniture storage. 
+              Get a customized quote for secure furniture storage.
               Professional handling, secure facilities, and flexible terms.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -990,34 +969,21 @@ export default function FurnitureStoragePage() {
               <Link href="/self-storage-dubai" className="text-white/80 hover:text-white underline">
                 ← Back to Self Storage
               </Link>
-              <Link href="/self-storage-dubai/climate-controlled" className="text-white/80 hover:text-white underline">
-                Learn About Climate Control →
-              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Complete Furniture Storage Guide — Dubai climate section */}
+      {/* Complete Furniture Storage Guide — Dubai */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl font-bold text-[#0A2463] mb-8 text-center">Complete Furniture Storage Guide &mdash; Dubai</h2>
 
           <div className="space-y-8 mb-12">
             <div className="bg-gray-50 rounded-xl p-8">
-              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Why Dubai&apos;s Climate Is a Serious Threat to Stored Furniture</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Dubai occupies one of the most extreme climatic zones in the world for stored furniture. Between May and September, outdoor temperatures regularly exceed 45&deg;C, and industrial warehouse interiors without active climate control can reach 55&ndash;60&deg;C. At these temperatures, the adhesives used in furniture joints liquefy, causing chairs, beds, and wardrobes to literally fall apart at the seams. Solid wood shrinks and expands with temperature fluctuations, creating cracks in surfaces, splits in panels, and warping in table tops and door fronts. Leather, deprived of moisture at high temperatures, dries to the point of cracking &mdash; a process that cannot be reversed once it occurs. For homeowners storing furniture valued at thousands of dirhams, choosing a non-climate-controlled storage unit to save a few hundred dirhams per month is a decision that almost always results in significant financial loss.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Beyond heat, Dubai&apos;s coastal humidity creates a second set of risks. Humidity levels in Dubai regularly reach 80&ndash;95% during summer months, particularly in coastal communities. At these humidity levels, wood furniture absorbs moisture and expands, causing drawers to jam, doors to warp, and laminate surfaces to bubble and peel. Fabric sofas and mattresses stored in humid, non-climate-controlled spaces develop mould and mildew growth within weeks during summer &mdash; often penetrating deep into the foam and padding where it cannot be cleaned out. Metal components on furniture rust and corrode. Electronics and remote controls fail. SafeStorage Dubai&apos;s climate control maintains temperature at 20&ndash;22&deg;C and humidity at 45&ndash;55% year-round, eliminating both of these risks entirely.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-8">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">How to Properly Prepare Furniture for Storage in Dubai</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Proper preparation before furniture goes into storage significantly extends the life of your pieces and ensures they come back in the same condition they left. For wooden furniture, apply a quality wood polish or conditioner before storage &mdash; this creates a protective barrier that helps the wood retain moisture during storage and resist temperature-induced expansion and contraction. For leather sofas and chairs, apply a leather conditioner at least 24 hours before the pickup date. This moisturises the leather before the drying effect of cool, climate-controlled air can begin. For mattresses, ensure they are completely dry before storage &mdash; any residual moisture will be sealed in when the mattress cover is applied, creating ideal conditions for mould growth.
+                Proper preparation before furniture goes into storage significantly extends the life of your pieces and ensures they come back in the same condition they left. For wooden furniture, apply a quality wood polish or conditioner before storage &mdash; this creates a protective barrier that helps the wood retain moisture during storage and resist temperature-induced expansion and contraction. For leather sofas and chairs, apply a leather conditioner at least 24 hours before the pickup date. This keeps the leather supple before it goes into storage. For mattresses, ensure they are completely dry before storage &mdash; any residual moisture will be sealed in when the mattress cover is applied, creating ideal conditions for mould growth.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Disassemble furniture wherever possible before storage. Beds, wardrobes, dining tables, and modular shelving units all take up significantly less storage space when disassembled. This also reduces the risk of damage during transport, as large assembled pieces are more prone to scratching and stress fractures when moved. Keep all assembly hardware (screws, bolts, dowels) in labelled plastic bags taped to the item they belong to &mdash; losing assembly hardware is one of the most common frustrations when retrieving furniture from long-term storage. The SafeStorage pickup team can assist with disassembly of furniture as part of the service.
@@ -1040,10 +1006,10 @@ export default function FurnitureStoragePage() {
             <div className="bg-gray-50 rounded-xl p-8">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Long-Term Furniture Storage in Dubai — What to Expect</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                For furniture stored for 6 months or longer, SafeStorage Dubai recommends taking advantage of the periodic inspection service, where our team checks the condition of your stored items at regular intervals and flags any concerns before they become serious problems. This is particularly important for natural materials like solid wood, which can be sensitive to minor fluctuations in temperature and humidity even within a climate-controlled facility. Leather items benefit from a conditioning treatment every 6&ndash;12 months during extended storage &mdash; ask our team about this service when booking long-term storage.
+                For furniture stored for 6 months or longer, SafeStorage Dubai recommends taking advantage of the periodic inspection service, where our team checks the condition of your stored items at regular intervals and flags any concerns before they become serious problems. This is particularly important for natural materials like solid wood, which benefit from regular checks during extended storage. Leather items benefit from a conditioning treatment every 6&ndash;12 months during extended storage &mdash; ask our team about this service when booking long-term storage.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Many Dubai expats and long-term residents choose SafeStorage for furniture storage when leaving the UAE temporarily or for extended periods. Rather than selling high-quality furniture at a fraction of its value in a rushed departure sale, storing with SafeStorage allows you to return to your Dubai lifestyle exactly as you left it. The monthly cost of climate-controlled furniture storage is typically 10&ndash;15% of the value of the furniture stored &mdash; a compelling alternative to replacing everything upon return. Long-term prepaid plans (6&ndash;12 months) offer discounts of 15&ndash;20% off the monthly rate, making extended storage even more economical.
+                Many Dubai expats and long-term residents choose SafeStorage for furniture storage when leaving the UAE temporarily or for extended periods. Rather than selling high-quality furniture at a fraction of its value in a rushed departure sale, storing with SafeStorage allows you to return to your Dubai lifestyle exactly as you left it. The monthly cost of furniture storage is typically 10&ndash;15% of the value of the furniture stored &mdash; a compelling alternative to replacing everything upon return. Long-term prepaid plans offer a wide range of discounts off the monthly rate, making extended storage even more economical.
               </p>
             </div>
           </div>
@@ -1051,17 +1017,17 @@ export default function FurnitureStoragePage() {
           <h2 className="text-2xl font-bold text-[#0A2463] mb-8 text-center">Furniture Storage Dubai &mdash; Additional FAQs</h2>
           <div className="space-y-5">
             {[
-              ["Can I store outdoor or garden furniture at SafeStorage Dubai?", "Yes, outdoor and garden furniture can be stored at SafeStorage Dubai. Teak, aluminium, rattan, and other outdoor furniture materials benefit from climate-controlled storage in Dubai's off-season. Outdoor furniture should be thoroughly cleaned and completely dry before storage, as soil and organic matter on garden furniture can attract pests. Metal garden furniture should be checked for rust spots, treated if necessary, and wiped dry before pickup. Garden cushions and umbrellas are best stored in sealed bags to prevent dust accumulation during the storage period."],
+              ["Can I store outdoor or garden furniture at SafeStorage Dubai?", "Yes, outdoor and garden furniture can be stored at SafeStorage Dubai. Teak, aluminium, rattan, and other outdoor furniture materials benefit from secure indoor storage in Dubai's off-season. Outdoor furniture should be thoroughly cleaned and completely dry before storage, as soil and organic matter on garden furniture can attract pests. Metal garden furniture should be checked for rust spots, treated if necessary, and wiped dry before pickup. Garden cushions and umbrellas are best stored in sealed bags to prevent dust accumulation during the storage period."],
               ["How do you protect mirrors and glass tabletops during storage?", "Mirrors and glass items receive specialist handling at SafeStorage Dubai. Each mirror or glass panel is individually wrapped in a double layer of large-format bubble wrap, with the edges protected by foam corner guards. Glass tabletops are stored vertically in padded wooden crates rather than laid flat, as horizontal storage increases the risk of cracking from the weight of items placed above. All glass items are clearly labelled FRAGILE in your inventory account and handled separately from other furniture pieces during loading and unloading."],
-              ["Can I store a mattress in storage?", "Mattresses can be stored safely at SafeStorage Dubai. All mattresses are sealed in dedicated professional mattress storage bags before loading, which protect against dust, moisture, and pest contact. In our climate-controlled facility, mattresses are stored flat on raised platforms to maintain their structure. We recommend storing mattresses for no longer than 6 months if possible, as extended horizontal storage can affect the internal spring structure over time. Memory foam mattresses store particularly well due to their ability to return to shape after storage."],
+              ["Can I store a mattress in storage?", "Mattresses can be stored safely at SafeStorage Dubai. All mattresses are sealed in dedicated professional mattress storage bags before loading, which protect against dust, moisture, and pest contact. In our secure facility, mattresses are stored flat on raised platforms to maintain their structure. We recommend storing mattresses for no longer than 6 months if possible, as extended horizontal storage can affect the internal spring structure over time. Memory foam mattresses store particularly well due to their ability to return to shape after storage."],
               ["Do you handle antique or designer furniture?", "Yes, SafeStorage Dubai has extensive experience handling antique and high-value designer furniture. Our specialist packing team uses museum-grade materials including acid-free tissue paper, archival bubble wrap, and custom-cut foam inserts for particularly valuable or fragile pieces. Antique furniture is stored individually rather than stacked, with documentation of every scratch, patina mark, and pre-existing characteristic noted in the inventory. For extremely high-value antiques, we recommend adding enhanced insurance coverage beyond the standard AED 5,000 included free with every plan."],
               ["Is furniture storage useful during Ramadan relocation?", "Many Dubai residents restructure their living arrangements during Ramadan, and furniture storage is a practical solution. SafeStorage Dubai sees a significant increase in bookings during the weeks leading up to Ramadan from residents who are combining households, hosting extended family, or temporarily modifying their home setup. Our flexible monthly contracts are ideal for Ramadan relocation storage, which typically runs for 3–5 weeks. We offer fast turnaround pickups and deliveries to accommodate the time-sensitive nature of pre-Ramadan preparation."],
               ["Can I store kitchen appliances with my furniture?", "Yes, kitchen appliances can be stored alongside furniture. Refrigerators, washing machines, ovens, and other appliances must be completely defrosted, drained, cleaned, and left with doors slightly ajar for at least 24 hours before pickup to ensure all internal moisture has evaporated. Failure to dry appliances properly before storage is the leading cause of mould growth inside refrigerators and washing machines. Our team will remind you of appliance preparation requirements when your pickup is confirmed. Small appliances like mixers, kettles, and microwaves need no special preparation beyond being clean and dry."],
               ["What is the most common reason people store furniture in Dubai?", "The three most common reasons Dubai residents store furniture with SafeStorage are: home renovation (furniture is removed while construction, painting, or flooring work is completed — typically 2–4 months); relocation (moving between properties when there is a gap between lease end and new lease start — typically 1–6 weeks); and temporary departure from the UAE (expats leaving for extended periods rather than selling furniture at a loss — typically 3–12 months). Business furniture storage during office refits and downsizes is the fourth most common use case."],
               ["Can I get a refund if I end my storage early?", "SafeStorage Dubai operates on monthly contracts paid in advance. If you end your storage before the end of a paid month, the unused portion of the current month is not refunded as standard, but any full unused months that have been prepaid as part of a long-term plan will be refunded. For example, if you prepaid for 6 months and cancel after 4 months, the 2 remaining unused full months are refunded. There are no administrative fees or exit penalties charged on top of this. The 7 days' cancellation notice requirement ensures the team can schedule your return delivery within the prepaid period."],
-              ["Do you store pianos and other musical instruments?", "SafeStorage Dubai handles pianos and musical instruments with specialist care. Upright and baby grand pianos are stored in padded frames with individual climate monitoring to maintain the ideal temperature and humidity for the instrument's materials. String instruments, woodwinds, and brass instruments are stored in their cases with humidity control packets inside. Pianos are never stored horizontally. All musical instruments benefit from the stable 20–22°C climate-controlled environment which prevents string tension changes, soundboard warping, and wood contraction that would require expensive retuning or repair."],
-              ["How is pricing affected if I store items for longer than 12 months?", "For storage beyond 12 months, SafeStorage Dubai reserves the right to revise the monthly rate to reflect any changes in operating costs or market pricing. In practice, long-term customers are typically offered renewal rates at the same or similar price with an early renewal discount. The best approach for customers anticipating 12+ months of storage is to prepay a 12-month plan upfront, locking in the current rate with a 20% discount, and then renewing at the prevailing rate. Our team proactively contacts customers before their plan expires to discuss renewal options with no pressure to commit immediately."],
-              ["Is furniture storage cheaper than renting extra space in Dubai?", "In virtually every scenario, furniture storage at SafeStorage Dubai is significantly cheaper than renting additional residential space in Dubai. SafeStorage furniture storage starts from 12.65 AED / sqft (VAT-inclusive), whether you are storing the contents of a studio apartment or a full 4-bedroom villa. The cheapest studio apartments in Dubai rent for AED 3,000–4,500 per month, so storage is a fraction of any Dubai residential rent. For businesses, storage is similarly far more economical than retaining oversized commercial premises purely for inventory or document storage."],
+              ["Do you store pianos and other musical instruments?", "SafeStorage Dubai handles pianos and musical instruments with specialist care. Upright and baby grand pianos are stored in padded frames and handled by our trained team. String instruments, woodwinds, and brass instruments are stored in their cases. Pianos are never stored horizontally. All musical instruments are wrapped, padded, and stored with care to keep them in the same condition as when they arrived."],
+              ["How is pricing affected if I store items for longer than 12 months?", "For storage beyond 12 months, SafeStorage Dubai reserves the right to revise the monthly rate to reflect any changes in operating costs or market pricing. In practice, long-term customers are typically offered renewal rates at the same or similar price with an early renewal discount. The best approach for customers anticipating 12+ months of storage is to prepay a 12-month plan upfront, locking in the current rate with a long-term prepaid discount, and then renewing at the prevailing rate. Our team proactively contacts customers before their plan expires to discuss renewal options with no pressure to commit immediately."],
+              ["Is furniture storage cheaper than renting extra space in Dubai?", "In virtually every scenario, furniture storage at SafeStorage Dubai is significantly cheaper than renting additional residential space in Dubai. SafeStorage furniture storage starts from 12.60 AED / sqft (VAT-inclusive), whether you are storing the contents of a studio apartment or a full 4-bedroom villa. The cheapest studio apartments in Dubai rent for AED 3,000–4,500 per month, so storage is a fraction of any Dubai residential rent. For businesses, storage is similarly far more economical than retaining oversized commercial premises purely for inventory or document storage."],
             ].map(([q, a], i) => (
               <div key={i} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
                 <h3 className="text-base font-bold text-[#0A2463] mb-2">Q: {q}</h3>
@@ -1079,21 +1045,20 @@ export default function FurnitureStoragePage() {
           <p className="text-lg text-gray-700 mb-6">
             Furniture storage in Dubai is one of the most common storage needs for both residents and expats.
             Whether you are renovating your home, moving between apartments, downsizing to a smaller space,
-            or leaving Dubai temporarily, SafeStorage provides safe, climate-controlled furniture storage
-            that protects every piece from Dubai&apos;s extreme heat and humidity.
+            or leaving Dubai temporarily, SafeStorage provides safe, secure furniture storage
+            that protects every piece.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">How Dubai&apos;s Heat Damages Furniture</h3>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Why Store Furniture Professionally</h3>
               <p className="text-gray-700 mb-3">
-                Dubai&apos;s summer heat — regularly exceeding 45°C — causes irreversible damage to wood furniture
-                through warping, cracking, and joint failure. Leather and fabric sofas dry out, crack, and
-                fade. Metal components corrode from the high humidity. Electronics fail. Mattresses develop
-                mould in non-climate-controlled spaces.
+                Storing furniture at home or in an improvised space often leads to scratches, dents,
+                dust build-up, and crushing under stacked items. Professional storage keeps each piece
+                wrapped, padded, and stored off the ground so it stays in good condition.
               </p>
               <p className="text-gray-700">
-                SafeStorage maintains 20–25°C in all units year-round, completely eliminating these risks.
-                Your furniture arrives back in exactly the condition it was collected.
+                Every unit is secure, dust-protected, and monitored by 24/7 CCTV. Your furniture is
+                handled by a trained team and returned in exactly the condition it was collected.
               </p>
             </div>
             <div>
@@ -1114,10 +1079,10 @@ export default function FurnitureStoragePage() {
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-xl font-bold text-[#0A2463] mb-3">Furniture Storage Pricing in Dubai</h3>
             <p className="text-gray-700">
-              Furniture storage starts from 12.65 AED / sqft (VAT-inclusive) — whether you are storing a small
+              Furniture storage starts from 12.60 AED / sqft (VAT-inclusive) — whether you are storing a small
               collection, a full 1-bedroom apartment&apos;s furniture in a medium unit (50–100 sq ft), or a full
               villa clearance in a large unit (100–200 sq ft). All plans include hassle-free pickup,
-              climate control, 24/7 security, and free insurance up to AED 5,000. No minimum contract — store
+              24/7 security, and free insurance up to AED 5,000. No minimum contract — store
               for a week or several years.
             </p>
           </div>

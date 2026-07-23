@@ -70,7 +70,7 @@ const sections = [
       "Medical fitness test upon arrival",
       "Emirates ID application (done in Dubai)"
     ],
-    storageConnection: "Important documents need safe keeping! Store original certificates, family records, and sensitive paperwork in our climate-controlled, secure facility. Access them anytime you need.",
+    storageConnection: "Important documents need safe keeping! Store original certificates, family records, and sensitive paperwork in our clean, secure facility. Access them anytime you need.",
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop",
     color: "from-purple-500 to-purple-600"
   },
@@ -162,7 +162,7 @@ const sections = [
       "Entertainment: Variable (beach is free!)",
       "School fees: AED 15,000-100,000/child/year"
     ],
-    storageConnection: "Save money on rent! Instead of paying for a bigger apartment, store seasonal items, sports gear, and rarely-used belongings. Storage from 12.65 AED / sqft beats paying AED 3,000+ extra rent annually for a bigger place.",
+    storageConnection: "Save money on rent! Instead of paying for a bigger apartment, store seasonal items, sports gear, and rarely-used belongings. Storage from 12.60 AED / sqft beats paying AED 3,000+ extra rent annually for a bigger place.",
     image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=800&fit=crop",
     color: "from-yellow-500 to-yellow-600"
   },
@@ -361,7 +361,7 @@ export default function MovingToDubai2026() {
                   <div className="relative h-48 rounded-lg overflow-hidden">
                     <Image
                       src={index % 3 === 0 ? "/organized-warehouse-space.png" : index % 3 === 1 ? "/expansive-storage.png" : "/images/storage-facility-background.png"}
-                      alt="SafeStorage Climate-Controlled Warehouse"
+                      alt="SafeStorage Clean, Secure Warehouse"
                       width={500}
                       height={300}
                       className="object-cover w-full h-full"
@@ -369,7 +369,7 @@ export default function MovingToDubai2026() {
                     <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg">
                       <p className="text-xs font-semibold text-[#0A2463] flex items-center gap-2">
                         <Shield className="h-3 w-3" />
-                        Climate-Controlled • 24/7 Security
+                        Clean & Secure • 24/7 Security
                       </p>
                     </div>
                   </div>
@@ -408,8 +408,8 @@ export default function MovingToDubai2026() {
 
               <Card className="text-center p-6 hover:shadow-lg transition-shadow">
                 <Shield className="h-12 w-12 text-[#D8315B] mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Climate Protected</h3>
-                <p className="text-sm text-gray-600">Dubai heat ruins belongings. Our climate-controlled facility keeps everything at perfect temperature year-round.</p>
+                <h3 className="font-bold text-lg mb-2">Clean & Secure</h3>
+                <p className="text-sm text-gray-600">Your belongings are stored in clean, dedicated indoor units, wrapped and dust-protected throughout their stay.</p>
               </Card>
             </div>
           </div>

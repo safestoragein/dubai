@@ -40,7 +40,7 @@ const useCases = [
   {
     emoji: "🚙",
     title: "Seasonal Vehicle Storage",
-    body: "Protect your car or motorcycle from Dubai's summer heat damage and dust. Climate-controlled vehicle bays maintain safe temperatures while you're travelling or between seasons. CCTV-monitored bays with controlled entry — your vehicle stays in the same condition you left it.",
+    body: "Protect your car or motorcycle from Dubai's dust and the elements. Secure indoor vehicle bays keep your vehicle covered while you're travelling or between seasons. CCTV-monitored bays with controlled entry — your vehicle stays in the same condition you left it.",
     cta: "/storage-dubai/vehicle-storage",
     ctaLabel: "Vehicle Storage →",
   },

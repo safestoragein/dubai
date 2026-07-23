@@ -77,8 +77,8 @@ export default function PricingPage() {
         <div className="container px-4 md:px-6">
           <div className="flex justify-center">
             <div className="bg-blue-50 rounded-2xl p-10 border-2 border-primary text-center max-w-xl w-full">
-              <p className="text-2xl md:text-3xl font-bold text-primary">Pricing starts from 12.65 AED / sqft</p>
-              <p className="text-sm text-muted-foreground mt-3">VAT-inclusive · climate-controlled · hassle-free pickup &amp; delivery included</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary">Pricing starts from 12.60 AED / sqft</p>
+              <p className="text-sm text-muted-foreground mt-3">VAT-inclusive · secure indoor storage · hassle-free pickup &amp; delivery included</p>
             </div>
           </div>
         </div>
@@ -107,8 +107,8 @@ export default function PricingPage() {
                 icon: Shield,
               },
               {
-                title: "Climate-Controlled",
-                description: "Perfect environment for sensitive items and valuables.",
+                title: "Clean & Dust-Protected",
+                description: "Clean, indoor units that keep your items dust-free.",
                 icon: Lock,
               },
               {

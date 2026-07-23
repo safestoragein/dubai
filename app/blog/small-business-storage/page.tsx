@@ -6,7 +6,7 @@ import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Small Business Storage Dubai — Flexible Alternative to Warehouse Rental | SafeStorage",
-  description: "How small businesses in Dubai use self storage to avoid warehouse leases. Flexible monthly contracts, no long-term commitment, scale as you grow. From 12.65 AED / sqft.",
+  description: "How small businesses in Dubai use self storage to avoid warehouse leases. Flexible monthly contracts, no long-term commitment, scale as you grow. From 12.60 AED / sqft.",
   keywords: "small business storage dubai, business storage solution dubai, warehouse alternative dubai, inventory storage small business dubai, office storage dubai, retail storage dubai",
   openGraph: {
     title: "Small Business Storage Dubai — Flexible Alternative to Warehouses",
@@ -85,7 +85,7 @@ export default function SmallBusinessStoragePage() {
                 { business: "E-commerce and online retailers", useCase: "Store inventory, pack orders on-site, scale the unit as product range grows. Many Dubai noon.com and Amazon UAE sellers start with a medium unit and graduate to large as their catalogue grows — without warehouse lease exposure." },
                 { business: "Event and exhibition companies", useCase: "Store display stands, promotional materials, branded equipment and event infrastructure between events. No need to lease permanent warehouse space for items only actively used 10-15 times per year." },
                 { business: "Interior design and contractor firms", useCase: "Store client furnishings, fabric samples, decorative inventory, and tools between projects. Scale storage up during busy delivery periods, down in quieter months." },
-                { business: "Food and hospitality businesses", useCase: "Store non-perishable supplies, packaging, branded merchandise, equipment, and catering materials. Climate-controlled storage maintains product integrity." },
+                { business: "Food and hospitality businesses", useCase: "Store non-perishable supplies, packaging, branded merchandise, equipment, and catering materials in a secure, clean unit between service periods." },
                 { business: "Real estate and property management", useCase: "Store model apartment furniture, marketing materials, photography equipment, and maintenance inventory across a portfolio of properties without needing a central office warehouse." },
               ].map((b) => (
                 <div key={b.business} className="p-5 border border-gray-200 rounded-xl bg-slate-50">
@@ -107,13 +107,12 @@ export default function SmallBusinessStoragePage() {
                 </thead>
                 <tbody>
                   {[
-                    ["Monthly rent", "From 12.65 AED / sqft", "AED 4,000–8,000+"],
-                    ["Security deposit", "From 12.65 AED / sqft (1 month)", "AED 12,000–24,000 (3-6 months)"],
+                    ["Monthly rent", "From 12.60 AED / sqft", "AED 4,000–8,000+"],
+                    ["Security deposit", "From 12.60 AED / sqft (1 month)", "AED 12,000–24,000 (3-6 months)"],
                     ["Fit-out costs", "None", "AED 15,000–50,000+"],
                     ["Minimum commitment", "1 month", "2-3 years"],
                     ["Setup time", "3-5 days", "2-4 months"],
                     ["Scale up", "Within 48 hours", "New lease negotiation"],
-                    ["Climate control", "Included", "Additional cost typically"],
                     ["Security", "Biometric + CCTV included", "Varies, often extra cost"],
                   ].map(([factor, storage, warehouse], i) => (
                     <tr key={factor} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>

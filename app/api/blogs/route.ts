@@ -1,112 +1,56 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getAllBlogs, insertBlog } from '@/lib/blog-db'
+import { saveBlogImage } from '@/lib/blog-upload'
 
-const BACKEND_URL = 'https://safestorage.in/back/app'
-
-// GET all blogs
-export async function GET(request: NextRequest) {
+// GET all blogs (from local EC2 MariaDB)
+export async function GET() {
   try {
-    const response = await fetch(`${BACKEND_URL}/get_all_blogs`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-
-    const data = await response.json()
+    const data = await getAllBlogs()
     return NextResponse.json(data)
   } catch (error) {
     console.error('Error fetching blogs:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch blogs' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to fetch blogs' }, { status: 500 })
   }
 }
 
-// POST new blog
+// POST new blog (writes to local DB; uploaded image saved to the blog-images dir)
 export async function POST(request: NextRequest) {
   try {
-    // Parse multipart form data
     const formData = await request.formData()
-    
-    // Generate slug from title if not provided
-    const generateSlug = (title: string) => {
-      return title
-        .toLowerCase()
-        .replace(/[^a-z0-9 -]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .trim()
+
+    const title = (formData.get('title') as string) || ''
+    const content = (formData.get('content') as string) || ''
+    const metaTitle = (formData.get('meta_title') as string) || title
+    const metaDescription = (formData.get('meta_description') as string) || ''
+    const tags = (formData.get('tags') as string) || ''
+    const category = (formData.get('category') as string) || 'General'
+    const featuredImage = (formData.get('featured_image') as string) || ''
+
+    // Save the first uploaded image, if any; else fall back to a provided URL.
+    let postImages = featuredImage
+    const images = formData.getAll('images').filter((v): v is File => v instanceof File && v.size > 0)
+    if (images.length > 0) {
+      postImages = await saveBlogImage(images[0])
     }
-    
-    // Get form fields
-    const title = formData.get('title') as string
-    const content = formData.get('content') as string
-    const metaTitle = formData.get('meta_title') as string || title
-    const metaDescription = formData.get('meta_description') as string
-    const tags = formData.get('tags') as string
-    const author = formData.get('author') as string || 'SafeStorage Team'
-    const category = formData.get('category') as string || 'General'
-    const featuredImage = formData.get('featured_image') as string || ''
-    const excerpt = formData.get('excerpt') as string || ''
-    
-    // Prepare extra_data
-    const extraData = {
-      author: author,
-      category: category,
-      featured_image: featuredImage,
-      excerpt: excerpt,
-      page_title: title,
-      read_time: '5 min read',
-      created_by: 'admin'
-    }
-    
-    // Create new FormData for backend
-    const backendFormData = new FormData()
-    backendFormData.append('content_type', 'post')
-    backendFormData.append('content', content)
-    backendFormData.append('meta_title', metaTitle)
-    backendFormData.append('meta_description', metaDescription)
-    backendFormData.append('slug', generateSlug(metaTitle))
-    backendFormData.append('tags', tags)
-    backendFormData.append('extra_data', JSON.stringify(extraData))
-    backendFormData.append('status', '1')
-    
-    // Handle multiple image uploads
-    const images = formData.getAll('images') as File[]
-    if (images && images.length > 0) {
-      // Add each image to FormData - PHP backend expects 'image' field with array notation
-      images.forEach((image, index) => {
-        backendFormData.append(`image[${index}]`, image, image.name)
-      })
-    }
-    
-    // Send to backend with FormData
-    const response = await fetch(`${BACKEND_URL}/insert_blog_content`, {
-      method: 'POST',
-      body: backendFormData, // Send as FormData
+
+    const postId = await insertBlog({
+      title,
+      description: content,
+      seo_title: metaTitle,
+      seo_desc: metaDescription,
+      tags,
+      post_category: category,
+      post_images: postImages,
+      status: '1',
     })
 
-    const responseText = await response.text()
-    
-    // Handle the response
-    if (response.ok && responseText.includes('success')) {
-      return NextResponse.json({
-        status: 'success',
-        message: 'Blog post created successfully'
-      })
-    } else {
-      return NextResponse.json({
-        status: 'error',
-        message: responseText || 'Failed to create blog post'
-      }, { status: response.status || 400 })
-    }
-
+    return NextResponse.json({
+      status: 'success',
+      message: 'Blog post created successfully',
+      post_id: postId,
+    })
   } catch (error) {
     console.error('Error creating blog:', error)
-    return NextResponse.json(
-      { error: 'Failed to create blog post' },
-      { status: 500 }
-    )
+    return NextResponse.json({ status: 'error', message: 'Failed to create blog post' }, { status: 500 })
   }
 }

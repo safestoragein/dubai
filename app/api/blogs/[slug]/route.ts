@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getAllBlogs, updateBlog, deleteBlog } from '@/lib/blog-db'
 
-// Cache this route at the Vercel edge for 5 minutes
 export const revalidate = 300
-
-const BACKEND_URL = 'https://safestorage.in'
 
 // Helper function to generate slug from title
 function generateSlug(title: string): string {
@@ -22,31 +20,9 @@ export async function GET(
   try {
     const { slug } = await params
     const targetSlug = slug
-    console.log('Looking for blog with slug:', targetSlug)
 
-    // Fetch all blogs and find the one with matching slug
-    const response = await fetch(`${BACKEND_URL}/get_blog_content`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      next: { revalidate: 300 },
-    })
-
-    const data = await response.json()
-    console.log('Backend response type:', Array.isArray(data) ? 'array' : typeof data, 'Length:', Array.isArray(data) ? data.length : 'N/A')
-
-    // Handle different response formats - backend returns array directly
-    let blogs: any[] = []
-    if (Array.isArray(data)) {
-      blogs = data
-    } else if (data.status === 'success' && data.data) {
-      blogs = Array.isArray(data.data) ? data.data : [data.data]
-    } else if (data.all_content) {
-      blogs = Array.isArray(data.all_content) ? data.all_content : [data.all_content]
-    }
-
-    console.log('Total blogs to search:', blogs.length)
+    // Served from the local EC2 MariaDB (see lib/blog-db.ts).
+    const blogs: any[] = await getAllBlogs()
 
     // Find blog by slug (generate slug from title since new API doesn't have slug field)
     const blog = blogs.find((b: any) => {
@@ -97,26 +73,25 @@ export async function PUT(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const { slug } = await params
+    await params
     const body = await request.json()
-    
-    const formData = new URLSearchParams()
-    Object.keys(body).forEach(key => {
-      if (body[key] !== undefined && body[key] !== null) {
-        formData.append(key, body[key])
-      }
+    const postId = parseInt(body.blog_id || body.post_id)
+    if (!postId) {
+      return NextResponse.json({ status: 'error', message: 'Missing blog id' }, { status: 400 })
+    }
+
+    const ok = await updateBlog(postId, {
+      title: body.title,
+      description: body.content ?? body.description,
+      seo_title: body.meta_title ?? body.seo_title,
+      seo_desc: body.meta_description ?? body.seo_desc,
+      tags: body.tags,
+      post_category: body.category ?? body.post_category,
+      post_images: body.post_images,
+      status: body.status,
     })
 
-    const response = await fetch(`${BACKEND_URL}/update_blog/${body.blog_id}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: formData.toString(),
-    })
-
-    const data = await response.json()
-    return NextResponse.json(data)
+    return NextResponse.json({ status: ok ? 'success' : 'error' })
   } catch (error) {
     console.error('Error updating blog:', error)
     return NextResponse.json(
@@ -133,16 +108,13 @@ export async function DELETE(
 ) {
   try {
     const { slug } = await params
-    // Assuming the slug here is the blog_id for delete
-    const response = await fetch(`${BACKEND_URL}/delete_blog/${slug}`, {
-      method: 'POST', // CodeIgniter often uses POST for delete operations
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-
-    const data = await response.json()
-    return NextResponse.json(data)
+    // The [slug] segment carries the blog_id for delete.
+    const postId = parseInt(slug)
+    if (!postId) {
+      return NextResponse.json({ status: 'error', message: 'Invalid blog id' }, { status: 400 })
+    }
+    const ok = await deleteBlog(postId)
+    return NextResponse.json({ status: ok ? 'success' : 'error' })
   } catch (error) {
     console.error('Error deleting blog:', error)
     return NextResponse.json(

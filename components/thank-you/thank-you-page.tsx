@@ -586,10 +586,10 @@ export default function ThankYouPage() {
                     <div>
                       <p className="font-medium text-dubai-gold">Email</p>
                       <a
-                        href="mailto:safestoragedubai@gmail.com"
+                        href="mailto:support@safestorage.ae"
                         className="text-white hover:text-dubai-gold transition-colors"
                       >
-                        safestoragedubai@gmail.com
+                        support@safestorage.ae
                       </a>
                     </div>
                   </m.li>

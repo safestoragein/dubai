@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Shield, Users, Award, Clock, Thermometer, Truck, CheckCircle2, Star } from "lucide-react"
+import { Shield, Users, Award, Clock, Truck, CheckCircle2, Star } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
@@ -11,12 +11,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "About Us — Dubai's Most Trusted Storage Partner",
   description:
-    "Learn about SafeStorage Dubai - serving Dubai since 2015 with climate-controlled storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers trust us.",
+    "Learn about SafeStorage Dubai - serving Dubai since 2015 with secure storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers trust us.",
   keywords:
-    "about safestorage dubai, storage company dubai, trusted storage dubai, climate controlled storage, secure storage facility",
+    "about safestorage dubai, storage company dubai, trusted storage dubai, secure storage facility",
   openGraph: {
     title: "About SafeStorage Dubai - Your Trusted Storage Partner",
-    description: "Serving Dubai since 2015 with premium storage solutions. Climate-controlled units, 24/7 security, hassle-free pickup & delivery.",
+    description: "Serving Dubai since 2015 with premium storage solutions. Secure units, 24/7 security, hassle-free pickup & delivery.",
     url: "https://safestorage.ae/about",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -33,7 +33,7 @@ const aboutSchemas = [
     '@type': 'AboutPage',
     '@id': 'https://safestorage.ae/about#webpage',
     name: 'About SafeStorage Dubai — Dubai\'s Most Trusted Storage Partner',
-    description: 'Learn about SafeStorage Dubai — serving Dubai since 2015 with climate-controlled storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers trust us.',
+    description: 'Learn about SafeStorage Dubai — serving Dubai since 2015 with secure storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers trust us.',
     url: 'https://safestorage.ae/about',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     mainEntity: { '@id': 'https://safestorage.ae/#organization' },
@@ -72,7 +72,7 @@ export default function AboutPage() {
     {
       icon: Award,
       title: "Quality Excellence",
-      description: "Premium climate-controlled facilities maintained to the highest standards, protecting your items from Dubai's extreme weather.",
+      description: "Premium, secure facilities maintained to the highest standards, keeping your items clean, dust-protected, and safe.",
     },
     {
       icon: Clock,
@@ -187,7 +187,7 @@ export default function AboutPage() {
                 ✓
               </div>
               <p className="text-muted-foreground text-lg">
-                Fully climate-controlled and secure storage units
+                Secure, clean, dust-protected storage units
               </p>
             </div>
 
@@ -205,7 +205,7 @@ export default function AboutPage() {
                 ✓
               </div>
               <p className="text-muted-foreground text-lg">
-                Flexible plans with dedicated customer support
+                Flexible plans with dedicated customer supports
               </p>
             </div>
           </div>
@@ -317,7 +317,7 @@ export default function AboutPage() {
             SafeStorage was founded with one mission: to make storage in Dubai completely hassle-free. We looked
             at the traditional storage industry — where customers had to rent lorries, load heavy furniture
             themselves, and visit a facility to access their items — and decided there had to be a better way.
-            The result is SafeStorage: a full-service, climate-controlled storage solution where our team does
+            The result is SafeStorage: a full-service, secure storage solution where our team does
             everything from collection to delivery.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -332,7 +332,7 @@ export default function AboutPage() {
               <p className="text-gray-700">
                 SafeStorage serves all of these customers with the same commitment to quality, transparency,
                 and convenience. Every customer — whether storing a few boxes for three weeks or a full villa
-                for three years — receives the same climate-controlled security, hassle-free pickup, and dedicated
+                for three years — receives the same secure storage, hassle-free pickup, and dedicated
                 customer service.
               </p>
             </div>
@@ -345,10 +345,9 @@ export default function AboutPage() {
                 We come to you, collect your items with care, and return them on demand.
               </p>
               <p className="text-gray-700">
-                All our units are climate-controlled at 20–25°C year-round — not as an optional add-on but
-                as a standard feature. Dubai&apos;s extreme heat can damage furniture, electronics, clothing, and
-                documents in non-climate-controlled storage. We believe every stored item deserves proper
-                protection, so we make climate control standard.
+                Every item is wrapped and handled with care, then kept in our secure, clean, dust-protected
+                facility. We believe every stored item deserves proper protection, so careful handling and
+                secure storage come as standard.
               </p>
             </div>
           </div>
@@ -397,7 +396,7 @@ export default function AboutPage() {
                 SafeStorage&apos;s entry into the UAE market was driven by clear demand. Dubai&apos;s population — over 90% expatriate — has a uniquely high demand for flexible storage solutions. The transient nature of expat life in Dubai creates constant storage needs: moving between apartments, renovating villas, leaving the country temporarily, repatriating after years in the UAE, and managing the belongings of growing families in apartments that do not always provide adequate storage space.
               </p>
               <p className="text-gray-700">
-                SafeStorage Dubai launched with the same full-service, door-to-door model that had succeeded in India, adapted for the specific needs of the UAE market. The UAE business operates under an ISO 9001:2015 certified quality management system, ensuring that service delivery standards are consistent, measurable, and continuously improving. SafeStorage Dubai&apos;s climate-controlled facilities maintain 18–22°C year-round — a critical feature in a climate where outdoor temperatures regularly exceed 45°C in summer.
+                SafeStorage Dubai launched with the same full-service, door-to-door model that had succeeded in India, adapted for the specific needs of the UAE market. The UAE business operates under an ISO 9001:2015 certified quality management system, ensuring that service delivery standards are consistent, measurable, and continuously improving. SafeStorage Dubai&apos;s facilities are secure, clean, and dust-protected, with 24/7 CCTV monitoring and careful handling of every item.
               </p>
             </div>
             <div>
@@ -467,11 +466,11 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">What makes SafeStorage different from other Dubai storage companies?</h3>
-              <p className="text-gray-700">SafeStorage differs from traditional Dubai storage providers in several fundamental ways. First, we are a full-service provider: our team handles collection, packing, transport, storage, and delivery — customers never need to do any physical work or visit our facility. Traditional self-storage companies require customers to do everything themselves. Second, every SafeStorage unit is climate-controlled at 18–22°C as a standard feature, not an optional upgrade. Third, we use a volume-based pricing model, so customers pay only for the space their items actually occupy rather than a fixed unit size. Fourth, hassle-free door-to-door pickup and delivery is included in every plan. Fifth, our ISO 9001:2015 certification and global scale provide a service quality standard that most local Dubai storage providers cannot match.</p>
+              <p className="text-gray-700">SafeStorage differs from traditional Dubai storage providers in several fundamental ways. First, we are a full-service provider: our team handles collection, packing, transport, storage, and delivery — customers never need to do any physical work or visit our facility. Traditional self-storage companies require customers to do everything themselves. Second, every SafeStorage unit is secure, clean, and dust-protected as standard. Third, we use a volume-based pricing model, so customers pay only for the space their items actually occupy rather than a fixed unit size. Fourth, hassle-free door-to-door pickup and delivery is included in every plan. Fifth, our ISO 9001:2015 certification and global scale provide a service quality standard that most local Dubai storage providers cannot match.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">How much total storage space does SafeStorage manage globally?</h3>
-              <p className="text-gray-700">SafeStorage manages over 1.2 million square feet of storage space across its operations in India and the UAE. This makes SafeStorage one of the larger organised storage providers in the region. This scale enables significant operational advantages including purpose-built climate-controlled facilities, investment in technology and digital inventory management systems, staff training infrastructure, quality packing materials purchased in bulk, and the ability to handle both individual customer needs (a few boxes) and large commercial requirements (entire factory or office clearances) with the same professional standard of service.</p>
+              <p className="text-gray-700">SafeStorage manages over 1.2 million square feet of storage space across its operations in India and the UAE. This makes SafeStorage one of the larger organised storage providers in the region. This scale enables significant operational advantages including purpose-built secure facilities, investment in technology and digital inventory management systems, staff training infrastructure, quality packing materials purchased in bulk, and the ability to handle both individual customer needs (a few boxes) and large commercial requirements (entire factory or office clearances) with the same professional standard of service.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Does SafeStorage operate only in Dubai within the UAE?</h3>
@@ -483,7 +482,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the starting price for storage at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">SafeStorage Dubai pricing starts from 12.65 AED / sqft (VAT-inclusive). Pricing scales with the space your belongings occupy — you pay for the actual area your items take up, not a fixed unit size. All pricing is provided transparently in your quote with no hidden fees. Hassle-free pickup, climate control, insurance, and the digital inventory system are included in every plan regardless of the amount you store.</p>
+              <p className="text-gray-700">SafeStorage Dubai pricing starts from 12.60 AED / sqft (VAT-inclusive). Pricing scales with the space your belongings occupy — you pay for the actual area your items take up, not a fixed unit size. All pricing is provided transparently in your quote with no hidden fees. Hassle-free pickup, secure storage, insurance, and the digital inventory system are included in every plan regardless of the amount you store.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I speak to a real person at SafeStorage, or is everything automated?</h3>
@@ -503,7 +502,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Is SafeStorage a good option for long-term storage (1–5 years)?</h3>
-              <p className="text-gray-700">Yes, SafeStorage is well-suited for long-term storage needs. Many of our customers store items for 1–5 years, particularly expats who have left Dubai and are keeping belongings stored while they decide on their long-term plans, businesses that need permanent overflow storage, and families storing inherited items or belongings from a previous larger home. Long-term customers benefit from the same climate-controlled security, insurance, and digital inventory management as short-term customers. For storage exceeding 6 months, we offer long-term pricing that provides a discount on the standard monthly rate — contact us to discuss long-term storage pricing.</p>
+              <p className="text-gray-700">Yes, SafeStorage is well-suited for long-term storage needs. Many of our customers store items for 1–5 years, particularly expats who have left Dubai and are keeping belongings stored while they decide on their long-term plans, businesses that need permanent overflow storage, and families storing inherited items or belongings from a previous larger home. Long-term customers benefit from the same secure storage, insurance, and digital inventory management as short-term customers. For storage exceeding 6 months, we offer long-term pricing that provides a discount on the standard monthly rate — contact us to discuss long-term storage pricing.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">How does SafeStorage ensure the safety of its staff and customers during pickups?</h3>

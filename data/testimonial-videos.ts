@@ -23,7 +23,7 @@ export const testimonialVideos: TestimonialVideo[] = [
     videoId: "video-placeholder-2",
     title: "SafeStorage Dubai - The Perfect Storage Solution",
     description:
-      "Sarah explains how SafeStorage Dubai's climate-controlled units perfectly preserved her valuable antique collection during Dubai's hot summer months. She highlights the temperature monitoring, security features, and easy access process.",
+      "Sarah explains how SafeStorage Dubai's secure, clean, dust-protected units kept her valuable antique collection in perfect condition. She highlights the careful handling, security features, and easy access process.",
     customer: "Sarah Ahmed - Antique Collector",
     category: "personal",
     rating: 5,
@@ -88,7 +88,7 @@ export const testimonialVideos: TestimonialVideo[] = [
     videoId: "video-placeholder-9",
     title: "Wine Collection Storage Solutions",
     description:
-      "Thomas discusses how SafeStorage Dubai's specialized climate-controlled units preserved his valuable wine collection. He explains the precise temperature and humidity controls, security features, and accessibility that made it the perfect solution.",
+      "Thomas discusses how SafeStorage Dubai's secure, clean units kept his valuable collection safe and well organized. He explains the careful handling, security features, and accessibility that made it the perfect solution.",
     customer: "Thomas Brown - Wine Collector",
     category: "specialty",
     rating: 5,
@@ -98,7 +98,7 @@ export const testimonialVideos: TestimonialVideo[] = [
     videoId: "video-placeholder-10",
     title: "RV Storage During Summer in Dubai",
     description:
-      "Elena shares her experience using SafeStorage Dubai for her recreational vehicle during Dubai's intense summer heat. She discusses the specialized vehicle storage features, climate control, and maintenance services that kept her RV in perfect condition.",
+      "Elena shares her experience using SafeStorage Dubai for her recreational vehicle. She discusses the specialized vehicle storage features, secure indoor facility, and maintenance services that kept her RV in perfect condition.",
     customer: "Elena Petrova - RV Enthusiast",
     category: "vehicle",
     rating: 5,
@@ -107,7 +107,7 @@ export const testimonialVideos: TestimonialVideo[] = [
     videoId: "video-placeholder-11",
     title: "Art Gallery Storage Solutions",
     description:
-      "Ahmed explains how SafeStorage Dubai provided the perfect solution for his art gallery's overflow inventory. He highlights the climate-controlled environment, security features, and flexible access that made it ideal for valuable artwork storage.",
+      "Ahmed explains how SafeStorage Dubai provided the perfect solution for his art gallery's overflow inventory. He highlights the secure, clean indoor environment, security features, and flexible access that made it ideal for valuable artwork storage.",
     customer: "Ahmed Hassan - Gallery Owner",
     category: "specialty",
     rating: 5,

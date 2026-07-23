@@ -141,7 +141,7 @@ export default function VillaMovingGuideDubaiPage() {
                   {[
                     ["Professional movers (4BR villa, local move)", "AED 2,500–5,000"],
                     ["Packing service (full villa)", "AED 1,500–3,000"],
-                    ["Storage unit (if bridging)", "From 12.65 AED / sqft"],
+                    ["Storage unit (if bridging)", "From 12.60 AED / sqft"],
                     ["DEWA transfer/connection", "AED 110–130"],
                     ["Cleaning service (outgoing villa)", "AED 600–1,500"],
                     ["Building moving permit (many required)", "AED 0–500"],

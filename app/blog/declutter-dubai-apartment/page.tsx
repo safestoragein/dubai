@@ -87,7 +87,7 @@ export default function DeclutterDubaiApartmentPage() {
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Room-by-Room Dubai Declutter Plan</h2>
             <div className="space-y-5 mb-8">
               {[
-                { room: "Bedroom & Wardrobe", time: "2-3 hours", tips: ["Sort clothes into seasons — summer clothes stay, winter clothes are often worth storing or selling in Dubai's market", "Jewellery and accessories: keep what you wear regularly, store high-value pieces safely off-site", "Under-bed storage is prime — use it for items you store on-site seasonally"] },
+                { room: "Bedroom & Wardrobe", time: "2-3 hours", tips: ["Sort clothes into seasons — summer clothes stay, winter clothes are often worth storing or selling in Dubai's market", "Jewellery and accessories: keep what you wear regularly, and keep high-value pieces in a home safe or bank deposit box (storage units are not suitable for jewellery)", "Under-bed storage is prime — use it for items you store on-site seasonally"] },
                 { room: "Living Room", time: "1-2 hours", tips: ["Question every decorative item — each piece should earn its space in smaller Dubai apartments", "Books: keep current reads and references, donate the rest to Dubai's many expat book exchanges", "Electronics graveyard (old remotes, cables): photograph serial numbers then responsibly dispose or donate"] },
                 { room: "Kitchen", time: "2-3 hours", tips: ["Appliances: if you haven't used it in 3 months in a Dubai kitchen, you likely won't", "Storage containers: keep a set that nests properly, dispose of mismatched items", "Spices and pantry: Dubai grocery access is excellent — don't hoard pantry items"] },
                 { room: "Study / Storage Room", time: "3-4 hours", tips: ["Documents: create a keep/scan/shred system. Scan important documents digitally", "Sports equipment: assess honestly — Dubai summer limits outdoor activity anyway", "Children's items: sort by age — donate outgrown items to Filipino Community or other Dubai charity networks"] },
@@ -130,7 +130,7 @@ export default function DeclutterDubaiApartmentPage() {
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
               <h2 className="text-2xl font-bold mb-3">Store What You're Not Ready to Decide On</h2>
-              <p className="text-white/80 mb-6">The STORE pile is where SafeStorage comes in. Don't make permanent decisions under time pressure. Store items while you take time to decide what truly matters — from 12.65 AED / sqft.</p>
+              <p className="text-white/80 mb-6">The STORE pile is where SafeStorage comes in. Don't make permanent decisions under time pressure. Store items while you take time to decide what truly matters — from 12.60 AED / sqft.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Storage Quote</Button>

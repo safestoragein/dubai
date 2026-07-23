@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Storage Units Near Business Bay Dubai | 24hr Pickup",
   description:
-    "Looking for storage units near Business Bay Dubai? SafeStorage offers climate-controlled units with hassle-free pickup from Business Bay, DIFC & Downtown. Book online — space ready tomorrow. Call +971505773388.",
+    "Looking for storage units near Business Bay Dubai? SafeStorage offers secure units with hassle-free pickup from Business Bay, DIFC & Downtown. Book online — space ready tomorrow. Call +971505773388.",
   keywords:
     "storage units near business bay dubai, business bay self storage, storage near DIFC, downtown dubai storage units, business bay office storage, storage pickup business bay",
   openGraph: {
     title: "Storage Units Near Business Bay Dubai - Pickup in 24hrs | SafeStorage",
-    description: "Climate-controlled storage near Business Bay & DIFC. Hassle-free pickup from your address. Call +971505773388.",
+    description: "Secure storage near Business Bay & DIFC. Hassle-free pickup from your address. Call +971505773388.",
     url: "https://safestorage.ae/locations/business-bay",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -26,7 +26,7 @@ const businessBaySchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Storage Near Business Bay & DIFC Dubai',
-    description: 'Climate-controlled storage near Business Bay & DIFC. Hassle-free pickup from Business Bay, DIFC & Downtown Dubai. Space ready in 24 hours.',
+    description: 'Secure storage near Business Bay & DIFC. Hassle-free pickup from Business Bay, DIFC & Downtown Dubai. Space ready in 24 hours.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/locations/business-bay',
     areaServed: [
@@ -41,7 +41,7 @@ const businessBaySchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/locations/business-bay#webpage',
     name: 'Storage Units Near Business Bay Dubai | Pickup in 24hrs',
-    description: 'Climate-controlled storage near Business Bay & DIFC. Hassle-free pickup from your address.',
+    description: 'Secure storage near Business Bay & DIFC. Hassle-free pickup from your address.',
     url: 'https://safestorage.ae/locations/business-bay',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -78,7 +78,7 @@ export default function BusinessBayPage() {
         <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Storage Near Business Bay, DIFC &amp; Downtown Dubai</h2>
         <p className="text-lg text-gray-700 mb-6">
           SafeStorage serves residents and businesses in Business Bay, Downtown Dubai, DIFC, and Sheikh Zayed Road
-          with premium climate-controlled storage units, hassle-free pickup and delivery, and flexible monthly plans.
+          with premium secure storage units, hassle-free pickup and delivery, and flexible monthly plans.
           Whether you are a high-rise apartment resident or a DIFC-registered company, we have the right storage
           solution for you.
         </p>
@@ -93,7 +93,7 @@ export default function BusinessBayPage() {
             </p>
             <p className="text-gray-700">
               Our same-day pickup service can clear an entire office floor of furniture, equipment, and files within
-              hours. Items are transported to our secure, climate-controlled facility and can be retrieved on demand.
+              hours. Items are transported to our secure facility and can be retrieved on demand.
               We serve startups, SMEs, and large corporations with tailored business storage plans.
             </p>
           </div>
@@ -176,12 +176,12 @@ export default function BusinessBayPage() {
           <div>
             <h3 className="text-xl font-semibold text-[#0A2463] mb-3">High-Rise Apartment Storage — Business Bay Towers</h3>
             <p className="text-gray-700 mb-3">Living in a Business Bay high-rise means paying a premium for every square metre of living space. Residents commonly find themselves storing items they rarely use — extra furniture from a previous larger home, seasonal decorations, sports equipment, suitcases, or clothing for a different climate. These items take up valuable space in apartments where storage rooms are often tiny or non-existent.</p>
-            <p className="text-gray-700">SafeStorage solves this by offering flexible, volume-based storage starting from 12.65 AED / sqft (VAT-inclusive). You pay only for the actual volume you store, not a fixed unit size. Our team collects directly from your apartment floor, handles all the carrying and loading, and returns items to your door whenever you need them — usually within 24 hours of a delivery request.</p>
+            <p className="text-gray-700">SafeStorage solves this by offering flexible, volume-based storage starting from 12.60 AED / sqft (VAT-inclusive). You pay only for the actual volume you store, not a fixed unit size. Our team collects directly from your apartment floor, handles all the carrying and loading, and returns items to your door whenever you need them — usually within 24 hours of a delivery request.</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Corporate Office Storage — Business Bay &amp; Sheikh Zayed Road</h3>
             <p className="text-gray-700 mb-3">Businesses on Sheikh Zayed Road and in Business Bay frequently need to store excess office furniture, equipment, and files when downsizing, relocating, or remodelling their offices. SafeStorage provides a faster and more cost-effective solution than leasing additional warehouse space or paying for removalist storage.</p>
-            <p className="text-gray-700">We offer same-day commercial pickups (subject to availability) and can clear an entire office floor within a single working day with our larger team options. All office furniture is professionally wrapped and stored in climate-controlled units, ready to be returned to any Dubai address when your new office is ready or when needed again.</p>
+            <p className="text-gray-700">We offer same-day commercial pickups (subject to availability) and can clear an entire office floor within a single working day with our larger team options. All office furniture is professionally wrapped and stored in secure units, ready to be returned to any Dubai address when your new office is ready or when needed again.</p>
           </div>
         </div>
         <div className="bg-gray-50 rounded-xl p-8 mb-8">
@@ -225,7 +225,7 @@ export default function BusinessBayPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the best storage option for Downtown Dubai apartment residents?</h3>
-            <p className="text-gray-700">For Downtown Dubai residents, our personal household storage service is the most popular option. It works on a volume-based pricing model — you pay for the actual space your items take up, not a fixed unit size. This is ideal for residents who have a mix of small and large items to store. Most Downtown residents store seasonal clothing, suitcases, sporting equipment, extra furniture, and items from previous larger homes. Plans start from 12.65 AED / sqft (VAT-inclusive) and include hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery.</p>
+            <p className="text-gray-700">For Downtown Dubai residents, our personal household storage service is the most popular option. It works on a volume-based pricing model — you pay for the actual space your items take up, not a fixed unit size. This is ideal for residents who have a mix of small and large items to store. Most Downtown residents store seasonal clothing, suitcases, sporting equipment, extra furniture, and items from previous larger homes. Plans start from 12.60 AED / sqft (VAT-inclusive) and include hassle-free pickup, secure storage, insurance, and on-demand delivery.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there storage available near the Burj Khalifa?</h3>
@@ -241,11 +241,7 @@ export default function BusinessBayPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can I store office furniture from a Business Bay office during relocation?</h3>
-            <p className="text-gray-700">Yes, this is one of our most common commercial services. When businesses in Business Bay relocate their offices, they often need temporary storage for furniture, equipment, and files during the transition period. SafeStorage can collect an entire office floor of furniture within a day, store everything in climate-controlled units, and return specific items to your new address as you need them. We work with businesses of all sizes from small startup offices to multi-floor corporate suites, and we can handle the entire process with minimal disruption to your operations.</p>
-          </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">How is climate control maintained in the storage facility?</h3>
-            <p className="text-gray-700">All SafeStorage units are maintained at 18–22°C with humidity levels between 45% and 55% year-round using industrial-grade air conditioning and dehumidification systems. The temperature and humidity are monitored continuously with automated alerts if levels deviate from the target range. This prevents heat damage, warping of wooden furniture, mould and mildew, condensation on electronics, and deterioration of fabrics and documents. In Dubai, where summer outdoor temperatures exceed 45°C, proper climate control is the single most important factor in protecting your stored belongings.</p>
+            <p className="text-gray-700">Yes, this is one of our most common commercial services. When businesses in Business Bay relocate their offices, they often need temporary storage for furniture, equipment, and files during the transition period. SafeStorage can collect an entire office floor of furniture within a day, store everything in secure units, and return specific items to your new address as you need them. We work with businesses of all sizes from small startup offices to multi-floor corporate suites, and we can handle the entire process with minimal disruption to your operations.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Does SafeStorage offer storage for Sheikh Zayed Road office towers?</h3>
@@ -261,7 +257,7 @@ export default function BusinessBayPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is included in the free insurance provided with SafeStorage?</h3>
-            <p className="text-gray-700">Every SafeStorage unit comes with complimentary insurance coverage protecting your items against theft, fire, flood, and accidental damage while in our facility. The standard free insurance covers items up to a declared value, with extended coverage available as an optional add-on for high-value items such as artwork, jewellery, antiques, or expensive electronics. At the time of booking, you will be asked to declare the approximate value of your stored items so we can ensure the standard coverage is sufficient. Our storage consultant will advise if additional insurance is recommended based on what you are storing.</p>
+            <p className="text-gray-700">Every SafeStorage unit comes with complimentary insurance coverage protecting your items against theft, fire, flood, and accidental damage while in our facility. The standard free insurance covers items up to a declared value, with extended coverage available as an optional add-on for high-value items such as artwork, antiques, or expensive electronics. At the time of booking, you will be asked to declare the approximate value of your stored items so we can ensure the standard coverage is sufficient. Our storage consultant will advise if additional insurance is recommended based on what you are storing.</p>
           </div>
         </div>
       </div>

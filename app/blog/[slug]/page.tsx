@@ -2,10 +2,13 @@ import BlogPostDetail from "@/components/blog/blog-post-detail"
 import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 import { cache } from "react"
-import { notFound } from "next/navigation"
+import { notFound, permanentRedirect } from "next/navigation"
+import { blogImageUrl } from "@/lib/blog-image"
+import { getAllBlogs } from "@/lib/blog-db"
 
-// ISR: regenerate at most once per hour
-export const revalidate = 3600
+// ISR safety net; the blog sync also triggers on-demand revalidation so edits
+// appear promptly rather than waiting for this window.
+export const revalidate = 600
 
 // Helper function to generate slug from title
 function generateSlug(title: string): string {
@@ -17,6 +20,25 @@ function generateSlug(title: string): string {
     .replace(/^-+|-+$/g, '')
 }
 
+// Legacy climate-storage slugs were renamed when climate/temperature/humidity
+// "control" wording was stripped from blog titles (climate-controlled -> secure,
+// climate control -> secure storage, then de-duplicated). This maps an old slug
+// onto its current form using the exact same substitutions, so legacy URLs can be
+// 301-redirected to the live post instead of 404ing. Returns null if unchanged.
+function remapLegacyClimateSlug(slug: string): string | null {
+  const mapped = slug
+    // "...-controlled" phrases -> secure
+    .replace(/(climate|temperature|humidity)-controlled/g, 'secure')
+    // standalone "...-control" -> secure-storage
+    .replace(/(climate|temperature|humidity)-control(?![a-z])/g, 'secure-storage')
+    // collapse the duplicate "secure" the substitutions can produce
+    .replace(/secure-and-secure/g, 'secure')
+    .replace(/(?:secure-)+secure/g, 'secure')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+  return mapped && mapped !== slug ? mapped : null
+}
+
 interface BlogPostPageProps {
   params: Promise<{
     slug: string
@@ -25,20 +47,9 @@ interface BlogPostPageProps {
 
 // cache() deduplicates this across generateMetadata + page component in a single request
 const fetchAllBlogs = cache(async () => {
-  const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), 10000)
-  try {
-    const response = await fetch('https://safestorage.in/get_blog_content', {
-      next: { revalidate: 3600 },
-      signal: controller.signal,
-    })
-    clearTimeout(timeout)
-    const data = await response.json()
-    return Array.isArray(data) ? data : []
-  } catch {
-    clearTimeout(timeout)
-    return []
-  }
+  // Blog content now lives in the local EC2 MariaDB (see lib/blog-db.ts),
+  // no longer fetched from safestorage.in at runtime.
+  return await getAllBlogs()
 })
 
 // Pre-generate all CMS blog post pages at build time so they're served
@@ -97,11 +108,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
           .slice(0, 160) ||
         `Learn about ${post.title || "storage tips"} from SafeStorage Dubai experts.`
 
-    const imageUrl = post.post_images
-      ? post.post_images.startsWith('http')
-        ? post.post_images
-        : `https://safestorage.in/post_images/${post.post_images}`
-      : null
+    const imageUrl = blogImageUrl(post.post_images)
 
     return {
       title: { absolute: metaTitle },
@@ -137,30 +144,46 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const canonicalUrl = `https://safestorage.ae/blog/${slug}`
 
   let post: any = null
+  // Legacy climate-storage slug to 301 to, if the requested one no longer exists.
+  let legacyRedirect: string | null = null
   try {
     const blogs = await fetchAllBlogs()
-    post = blogs.find((b: any) => {
-      const title = b.title || b.seo_title || ''
-      const postId = parseInt(b.post_id) || 0
-      const idMatch = slug.match(/^(\d+)-/)
-      if (idMatch) return parseInt(idMatch[1]) === postId
-      return generateSlug(title) === slug
-    })
+    const matchPost = (candidate: string) =>
+      blogs.find((b: any) => {
+        const title = b.title || b.seo_title || ''
+        const postId = parseInt(b.post_id) || 0
+        const idMatch = candidate.match(/^(\d+)-/)
+        if (idMatch) return parseInt(idMatch[1]) === postId
+        return generateSlug(title) === candidate
+      })
+
+    post = matchPost(slug)
 
     if (!post) {
-      notFound()
+      // Legacy climate-storage URL? Map it to the renamed post so old
+      // Google-indexed links and backlinks 301 through instead of 404ing.
+      const remapped = remapLegacyClimateSlug(slug)
+      if (remapped && matchPost(remapped)) {
+        legacyRedirect = `/blog/${remapped}`
+      }
     }
   } catch (error) {
     console.error('Error checking blog post:', error)
-    // API failed — treat as not found to avoid soft 404
+    // DB failed — treat as not found to avoid soft 404
     notFound()
   }
 
-  const imageUrl = post?.post_images
-    ? post.post_images.startsWith('http')
-      ? post.post_images
-      : `https://safestorage.in/post_images/${post.post_images}`
-    : 'https://safestorage.ae/images/storage-facility-background.png'
+  // Redirect/notFound live outside the try so their control-flow errors
+  // (NEXT_REDIRECT / NEXT_NOT_FOUND) are never swallowed by the catch above.
+  if (legacyRedirect) {
+    permanentRedirect(legacyRedirect)
+  }
+  if (!post) {
+    notFound()
+  }
+
+  const imageUrl = blogImageUrl(post?.post_images)
+    || 'https://safestorage.ae/images/storage-facility-background.png'
 
   const plainText = (post?.description || '')
     .replace(/<[^>]+>/g, ' ')
@@ -233,7 +256,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             Why Dubai Residents Trust SafeStorage
           </h2>
           <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "16px" }}>
-            SafeStorage Dubai is the city&apos;s most trusted self-storage provider, offering climate-controlled units that maintain a steady 20–25°C year-round. Dubai&apos;s extreme summer heat — regularly exceeding 45°C outdoors — can warp wooden furniture, crack leather, destroy electronics, and damage documents stored in ordinary spaces. Our facility eliminates that risk entirely, giving every customer peace of mind whether they are storing for a week or a year.
+            SafeStorage Dubai is the city&apos;s most trusted self-storage provider, offering secure, clean, dust-protected units for households and businesses alike. Every unit is monitored by 24/7 CCTV, secured with individual PIN access, and kept clean and dust-free — giving every customer peace of mind whether they are storing for a week or a year.
           </p>
           <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "16px" }}>
             With over 500 satisfied customers across Dubai and a 4.9-star average rating, we have helped households, businesses, expats, students, and e-commerce sellers manage their belongings efficiently. Every unit is monitored by 24/7 CCTV, secured with individual PIN access, and covered by complimentary insurance up to AED 5,000 — something very few storage providers in the UAE offer as standard.
@@ -254,10 +277,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </p>
 
           <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#111827", marginBottom: "12px", marginTop: "24px" }}>
-            Flexible Plans Starting from 12.65 AED / sqft
+            Flexible Plans Starting from 12.60 AED / sqft
           </h3>
           <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "24px" }}>
-            There are no long-term lock-ins. Pricing starts from 12.65 AED / sqft (VAT-inclusive), and you only pay for the space you use. You can start with as little as one week of storage, extend month by month, or book long-term for the best rates. Getting started takes less than two minutes: visit our website, select your unit size, book your pickup slot, and we handle everything else. Most customers have their items picked up within 24 hours of booking.
+            There are no long-term lock-ins. Pricing starts from 12.60 AED / sqft (VAT-inclusive), and you only pay for the space you use. You can start with as little as one week of storage, extend month by month, or book long-term for the best rates. Getting started takes less than two minutes: visit our website, select your unit size, book your pickup slot, and we handle everything else. Most customers have their items picked up within 24 hours of booking.
           </p>
 
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
@@ -304,9 +327,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </h2>
 
           <div style={{ marginBottom: "16px" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>1. Always Choose Climate-Controlled Storage</h3>
+            <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>1. Wrap and Cover Everything Against Dust</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Dubai&apos;s summer temperatures regularly exceed 45°C outdoors, and unventilated spaces such as garages or non-cooled storage rooms can reach 60°C or more. At these temperatures, wooden furniture warps irreversibly, leather cracks and dries out, electronics suffer battery swelling and circuit damage, and candles, cosmetics, and medications melt or degrade. Climate-controlled units at SafeStorage Dubai maintain a steady 18–22°C year-round, completely eliminating heat damage. If you are storing anything you plan to use again — or anything with sentimental or financial value — climate control is non-negotiable in Dubai.
+              Dust is the most common threat to items in any storage setting, and Dubai is a particularly dusty environment. Before storing, wrap furniture in breathable covers, seal boxes with strong tape on all seams, and use furniture blankets over wooden and upholstered surfaces. This keeps fine dust out and your belongings clean for retrieval. SafeStorage Dubai units are kept clean and dust-protected, and our team supplies quality covers and wrapping materials as part of our door-to-door service, so everything you store stays in the condition you left it.
             </p>
           </div>
 
@@ -348,7 +371,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "16px" }}>
             <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>7. Document High-Value Items for Insurance</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Before placing high-value items into storage — electronics, jewellery, artwork, antiques, musical instruments — photograph each item against a plain background and note the serial number, make, model, and estimated value. Store these records in a cloud folder or email them to yourself. SafeStorage Dubai includes free insurance up to AED 5,000 with every unit, and additional coverage is available for higher-value items. Having photo documentation and written records speeds up any insurance claim significantly and removes ambiguity about the pre-storage condition of your belongings.
+              Before placing high-value items into storage — electronics, artwork, antiques, musical instruments — photograph each item against a plain background and note the serial number, make, model, and estimated value. Store these records in a cloud folder or email them to yourself. SafeStorage Dubai includes free insurance up to AED 5,000 with every unit, and additional coverage is available for higher-value items. Having photo documentation and written records speeds up any insurance claim significantly and removes ambiguity about the pre-storage condition of your belongings.
             </p>
           </div>
 
@@ -380,14 +403,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>How much does storage cost in Dubai per month?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Storage prices in Dubai vary widely depending on unit size, climate control, and whether pickup and delivery are included. At SafeStorage Dubai, pricing starts from 12.65 AED / sqft (VAT-inclusive), and you only pay for the space you actually use. All SafeStorage plans include climate control, 24/7 security, and hassle-free pickup and delivery — which often saves customers AED 300–800 compared to hiring movers separately.
-            </p>
-          </div>
-
-          <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
-            <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Is climate-controlled storage necessary in Dubai?</h3>
-            <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Yes, for the vast majority of household and business items, climate-controlled storage is essential in Dubai. Without it, summer temperatures inside an uncontrolled storage unit can reach 50–60°C. At these temperatures, wood warps and cracks, leather dries and splits, electronics suffer battery damage and circuit failure, photographs discolour, documents become brittle, clothing yellows, and artwork deteriorates rapidly. SafeStorage Dubai maintains all units at 18–22°C with 45–55% humidity year-round, completely eliminating these risks.
+              Storage prices in Dubai vary widely depending on unit size and whether pickup and delivery are included. At SafeStorage Dubai, pricing starts from 12.60 AED / sqft (VAT-inclusive), and you only pay for the space you actually use. All SafeStorage plans include 24/7 security, insurance, and hassle-free pickup and delivery — which often saves customers AED 300–800 compared to hiring movers separately.
             </p>
           </div>
 
@@ -415,7 +431,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>What items can I NOT store in a Dubai storage unit?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              The following items cannot be stored in any professional storage facility in Dubai: flammable liquids (petrol, paint thinner, acetone), compressed gas cylinders, explosives or firearms, live animals or plants, perishable food or anything that will decompose, illegal substances or counterfeit goods, and corrosive chemicals. Everything else — furniture, electronics, clothing, documents, artwork, antiques, sports equipment, vehicles, business inventory, and seasonal items — is welcome at SafeStorage Dubai. If you are unsure about a specific item, call our team at +971505773388 and we will advise.
+              SafeStorage Dubai does not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. The following are also prohibited in any professional storage facility in Dubai: flammable liquids (petrol, paint thinner, acetone), compressed gas cylinders, explosives or firearms, live animals or plants, perishable food or anything that will decompose, illegal substances or counterfeit goods, and corrosive chemicals. Everything else — furniture, electronics, clothing, documents, sports equipment, vehicles, business inventory, and seasonal items — is welcome at SafeStorage Dubai. If you are unsure about a specific item, call our team at +971505773388 and we will advise.
             </p>
           </div>
 
@@ -450,7 +466,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Is there insurance for stored items in Dubai?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              SafeStorage Dubai includes complimentary insurance coverage up to AED 5,000 with every storage plan at no extra charge. This covers theft, fire, water damage, and structural incidents. For customers with higher-value items — art, antiques, jewellery, electronics collections, or high-end furniture — we offer additional insurance coverage up to AED 100,000. Before adding items to your unit, photograph them and note their estimated value so claims can be processed quickly and accurately if ever needed. Insurance claims are handled by our customer team within 48 working hours.
+              SafeStorage Dubai includes complimentary insurance coverage up to AED 5,000 with every storage plan at no extra charge. This covers theft, fire, water damage, and structural incidents. For customers with higher-value items — art, antiques, electronics collections, or high-end furniture — we offer additional insurance coverage up to AED 100,000. Before adding items to your unit, photograph them and note their estimated value so claims can be processed quickly and accurately if ever needed. Insurance claims are handled by our customer team within 48 working hours.
             </p>
           </div>
 
@@ -478,7 +494,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Does SafeStorage Dubai store vehicles?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Yes. SafeStorage Dubai offers dedicated indoor covered vehicle storage bays for cars, SUVs, motorcycles, scooters, and classic vehicles. Vehicle storage is climate-controlled and under 24/7 CCTV surveillance. Vehicle storage pricing starts from 12.65 AED / sqft (VAT-inclusive), so you only pay for the space your vehicle occupies. This is ideal for expats travelling abroad for extended periods, classic car owners who want their vehicle stored safely over summer, or individuals who own a second vehicle they do not use daily. All vehicle storage bays include a complimentary wash before return. Call +971505773388 for vehicle storage availability and pricing.
+              Yes. SafeStorage Dubai offers dedicated indoor covered vehicle storage bays for cars, SUVs, motorcycles, scooters, and classic vehicles. Vehicle storage is indoor and under 24/7 CCTV surveillance. Vehicle storage pricing starts from 12.60 AED / sqft (VAT-inclusive), so you only pay for the space your vehicle occupies. This is ideal for expats travelling abroad for extended periods, classic car owners who want their vehicle stored safely over summer, or individuals who own a second vehicle they do not use daily. All vehicle storage bays include a complimentary wash before return. Call +971505773388 for vehicle storage availability and pricing.
             </p>
           </div>
 

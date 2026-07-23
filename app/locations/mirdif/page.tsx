@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Mirdif Storage Dubai — Villa & Family Storage",
   description:
-    "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Hassle-free pickup from villas and apartments. Climate-controlled, flexible plans from 12.65 AED / sqft. Same-day available. Call +971505773388.",
+    "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Hassle-free pickup from villas and apartments. Secure, flexible plans from 12.60 AED / sqft. Same-day available. Call +971505773388.",
   keywords:
     "mirdif storage dubai, storage mirdif, mirdif self storage, rashidiya storage dubai, storage near mirdif city centre, east dubai storage, muhaisnah storage",
   openGraph: {
     title: "Mirdif Storage Dubai — Villa & Family Pickup | SafeStorage",
-    description: "Hassle-free pickup storage for Mirdif villas and apartments. Climate-controlled, from 12.65 AED / sqft. Rashidiya also covered. Call +971505773388.",
+    description: "Hassle-free pickup storage for Mirdif villas and apartments. Secure, from 12.60 AED / sqft. Rashidiya also covered. Call +971505773388.",
     url: "https://safestorage.ae/locations/mirdif",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const mirdifSchemas = [
     "@type": "Service",
     name: "Storage in Mirdif & East Dubai",
     description:
-      "Climate-controlled storage for Mirdif, Rashidiya, Muhaisnah, and east Dubai residents. Hassle-free pickup from villas and apartments. Flexible plans from 12.65 AED / sqft.",
+      "Secure storage for Mirdif, Rashidiya, Muhaisnah, and east Dubai residents. Hassle-free pickup from villas and apartments. Flexible plans from 12.60 AED / sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/mirdif",
     areaServed: [
@@ -50,7 +50,7 @@ const mirdifSchemas = [
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/mirdif#webpage",
     name: "Mirdif Storage Dubai — Villa & Family Pickup | SafeStorage",
-    description: "Hassle-free pickup storage for Mirdif villas and apartments. Climate-controlled. Rashidiya also covered.",
+    description: "Hassle-free pickup storage for Mirdif villas and apartments. Secure. Rashidiya also covered.",
     url: "https://safestorage.ae/locations/mirdif",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -110,7 +110,7 @@ export default function MirdifPage() {
                 Mirdif&apos;s villa communities — characterised by generous plot sizes, enclosed gardens, and multi-car
                 garages — generate substantial storage volumes when families renovate, relocate, or need to free
                 up space. SafeStorage provides full-villa clearance for Mirdif villas with professional packing,
-                climate-controlled storage, and on-demand delivery.
+                secure storage, and on-demand delivery.
               </p>
               <p className="text-gray-700">
                 Our Mirdif team is experienced with the area&apos;s villa layouts and access requirements. We work
@@ -128,9 +128,9 @@ export default function MirdifPage() {
                 the ideal solution with flexible monthly plans and complete peace of mind.
               </p>
               <p className="text-gray-700">
-                All stored items are maintained in climate-controlled conditions during Dubai&apos;s extreme summer
-                months, protecting furniture, electronics, clothing, and personal items from heat damage and
-                humidity. Your belongings are monitored 24/7 and fully insured throughout the storage period.
+                All stored items are kept safe and secure during your time away, including through Dubai&apos;s
+                extreme summer months. Your belongings are monitored 24/7 and fully insured throughout the
+                storage period.
               </p>
             </div>
           </div>
@@ -179,7 +179,7 @@ export default function MirdifPage() {
                 <p className="text-white/70 text-xs font-semibold">— Hessa A., Mirdif Villa Owner</p>
               </div>
               <div className="bg-white/10 rounded-lg p-4">
-                <p className="text-white/90 text-sm mb-3">&ldquo;We travel every summer for 3 months and used SafeStorage to store our furniture and valuables while we were away. Returned to find everything exactly as we left it. Climate control made all the difference — nothing was damaged by the heat.&rdquo;</p>
+                <p className="text-white/90 text-sm mb-3">&ldquo;We travel every summer for 3 months and used SafeStorage to store our furniture and valuables while we were away. Returned to find everything exactly as we left it. Everything was kept safe and nothing was damaged.&rdquo;</p>
                 <p className="text-white/70 text-xs font-semibold">— Tariq M., Rashidiya Community</p>
               </div>
             </div>
@@ -204,7 +204,7 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store a full Mirdif villa during summer vacation?</h3>
-              <p className="text-gray-700">Yes. Summer villa storage is one of our most popular services in Mirdif. Many Mirdif families — particularly UAE nationals and South Asian expats — travel abroad for extended periods during summer (May–September). SafeStorage stores your villa contents safely in climate-controlled conditions during your absence, ensuring furniture, electronics, and personal items are protected from Dubai&apos;s extreme summer heat. You return to find everything exactly as you left it. Annual plans (saving 20%) are popular with families who store regularly every summer.</p>
+              <p className="text-gray-700">Yes. Summer villa storage is one of our most popular services in Mirdif. Many Mirdif families — particularly UAE nationals and South Asian expats — travel abroad for extended periods during summer (May–September). SafeStorage stores your villa contents safely and securely during your absence, keeping furniture, electronics, and personal items protected while you are away. You return to find everything exactly as you left it. Annual plans (with a wide range of discounts) are popular with families who store regularly every summer.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How does SafeStorage handle privacy and security for Mirdif villa contents?</h3>
@@ -216,7 +216,7 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Mirdif villa&apos;s contents?</h3>
-              <p className="text-gray-700">Full-villa storage pricing starts from 12.65 AED / sqft (VAT-inclusive) and depends on the volume of items. Whether you are storing a 3-bedroom Mirdif villa or a larger 4–5 bedroom villa with full furniture and contents, you pay only for the space you use — including hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery. For the most accurate quote, we assess your specific villa. Send us photos or a short video via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
+              <p className="text-gray-700">Full-villa storage pricing starts from 12.60 AED / sqft (VAT-inclusive) and depends on the volume of items. Whether you are storing a 3-bedroom Mirdif villa or a larger 4–5 bedroom villa with full furniture and contents, you pay only for the space you use — including hassle-free pickup, secure storage, insurance, and on-demand delivery. For the most accurate quote, we assess your specific villa. Send us photos or a short video via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage move items from Mirdif to a new address in another part of Dubai?</h3>
@@ -224,7 +224,7 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store vehicles from Mirdif — cars, motorcycles?</h3>
-              <p className="text-gray-700">Yes. SafeStorage provides vehicle storage for cars, motorcycles, and other vehicles in our secure covered bays. This service is popular among Mirdif residents who are travelling abroad for extended periods and prefer to store vehicles safely rather than leaving them parked at home. Vehicle storage includes covered bay with security monitoring, protection from Dubai&apos;s extreme heat, and basic vehicle condition checks. Standard vehicle storage rates are available on request. Contact us at +971505773388 to arrange vehicle storage pickup from any Mirdif address.</p>
+              <p className="text-gray-700">Yes. SafeStorage provides vehicle storage for cars, motorcycles, and other vehicles in our secure covered bays. This service is popular among Mirdif residents who are travelling abroad for extended periods and prefer to store vehicles safely rather than leaving them parked at home. Vehicle storage includes a covered bay with security monitoring, indoor protection from sun and dust, and basic vehicle condition checks. Standard vehicle storage rates are available on request. Contact us at +971505773388 to arrange vehicle storage pickup from any Mirdif address.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Are there female-only pickup teams available for Mirdif villa storage?</h3>

@@ -1,7 +1,7 @@
 "use client"
 
 import { m } from "framer-motion"
-import { Star, Shield, Clock, Thermometer, Truck, Award } from "lucide-react"
+import { Star, Shield, Clock, Truck, Award } from "lucide-react"
 
 export default function TrustBadges() {
   const badges = [
@@ -30,14 +30,6 @@ export default function TrustBadges() {
       bgColor: "bg-blue-500/10",
     },
     {
-      icon: Thermometer,
-      value: "100%",
-      label: "Climate Controlled",
-      subtext: "Protect from Dubai Heat",
-      color: "text-green-500",
-      bgColor: "bg-green-500/10",
-    },
-    {
       icon: Truck,
       value: "Hassle-Free",
       label: "Pickup & Delivery",
@@ -58,7 +50,7 @@ export default function TrustBadges() {
   return (
     <section className="w-full py-8 bg-white border-b border-gray-100">
       <div className="container px-4 md:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {badges.map((badge, index) => {
             const Icon = badge.icon
             return (

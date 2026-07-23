@@ -15,103 +15,31 @@ export default function BlogsManagement() {
 
   const fetchBlogs = async () => {
     try {
-      console.log('Fetching blogs from endpoint...')
-      
-      // Try the get_blog_content endpoint first
-      let response = await fetch('https://safestorage.in/back/app/get_blog_content')
-      let data = await response.json()
-      
-      console.log('Primary API Response:', data)
-      
-      let posts = []
-      
-      // Handle the case where data is directly an array (current response format)
-      if (Array.isArray(data)) {
-        console.log('Data is directly an array with', data.length, 'items')
-        posts = data.filter((item: any) => item.content_type === 'blog' || item.content_type === 'post')
-        console.log('Filtered posts:', posts.length)
-      } 
-      // Handle wrapped response format
-      else if (data.status === 'success' && data.data) {
-        if (data.data.posts && Array.isArray(data.data.posts)) {
-          posts = data.data.posts
-          console.log('Using data.data.posts')
-        } else if (data.data.all_content && Array.isArray(data.data.all_content)) {
-          posts = data.data.all_content.filter((item: any) => item.content_type === 'post' || item.content_type === 'blog')
-          console.log('Using data.data.all_content filtered for posts')
-        } else if (Array.isArray(data.data)) {
-          posts = data.data.filter((item: any) => item.content_type === 'post' || item.content_type === 'blog')
-          console.log('Using direct data.data array')
-        }
-      }
-      // If no posts found, try the fallback endpoint
-      else {
-        console.log('Primary endpoint failed, trying fallback...')
-        try {
-          response = await fetch('/api/blogs')
-          const fallbackData = await response.json()
-          console.log('Fallback API Response:', fallbackData)
-          
-          if (fallbackData.status === 'success' && Array.isArray(fallbackData.data)) {
-            posts = fallbackData.data.map((blog: any) => {
-              const extraData = blog.extra_data ? (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
-              return {
-                id: blog.blog_id,
-                blog_id: blog.blog_id,
-                slug: blog.slug,
-                meta_title: blog.meta_title,
-                title: blog.meta_title,
-                meta_description: blog.meta_description,
-                content: blog.content,
-                content_type: 'post',
-                author: extraData.author || 'SafeStorage Team',
-                category: extraData.category || 'General',
-                featured_image: extraData.featured_image,
-                views: extraData.views || 0,
-                likes: extraData.likes || 0,
-                is_published: extraData.is_published !== false,
-                is_featured: extraData.is_featured || false,
-                created_at: extraData.created_at || new Date().toISOString(),
-                status: 'active'
-              }
-            })
-            console.log('Using fallback data')
-          }
-        } catch (fallbackError) {
-          console.error('Fallback endpoint also failed:', fallbackError)
-        }
-      }
-      
-      console.log('Found posts:', posts.length)
-      
-      if (posts.length > 0) {
-        // Process the data to match our display format
-        const processedBlogs = posts.map((blog: any) => {
-          return {
-            id: blog.id || blog.blog_id,
-            slug: blog.slug || '',
-            title: blog.meta_title || blog.title || 'Untitled',
-            excerpt: blog.meta_description || blog.excerpt || 'No excerpt',
-            content: blog.content || '',
-            author: { name: blog.author || 'SafeStorage Team' },
-            category: blog.category || 'General',
-            categories: [blog.category || 'General'],
-            date: blog.created_at || new Date().toISOString(),
-            featured_image: blog.featured_image || '',
-            views: blog.views || 0,
-            likes: blog.likes || 0,
-            status: blog.status || 'active',
-            is_published: blog.is_published !== false,
-            is_featured: blog.is_featured || false,
-          }
-        })
-        
-        console.log('Processed blogs:', processedBlogs.length, processedBlogs)
-        setBlogs(processedBlogs)
-      } else {
-        console.log('No posts found after processing')
-        setBlogs([])
-      }
+      // Local EC2 DB (feed-shaped array): post_id, title, post_category,
+      // post_images, description, seo_title, seo_desc, tags, status, created_at.
+      const response = await fetch('/api/blogs')
+      const data = await response.json()
+      const posts = Array.isArray(data) ? data : (Array.isArray(data?.data) ? data.data : [])
+
+      const processedBlogs = posts.map((blog: any) => ({
+        id: blog.post_id,
+        slug: '',
+        title: blog.title || blog.seo_title || 'Untitled',
+        excerpt: blog.seo_desc || '',
+        content: blog.description || '',
+        author: { name: 'SafeStorage Team' },
+        category: blog.post_category || 'General',
+        categories: [blog.post_category || 'General'],
+        date: blog.created_at || new Date().toISOString(),
+        featured_image: blog.post_images || '',
+        views: 0,
+        likes: 0,
+        status: blog.status || '1',
+        is_published: true,
+        is_featured: false,
+      }))
+
+      setBlogs(processedBlogs)
     } catch (error) {
       console.error('Error fetching blogs:', error)
       setBlogs([])

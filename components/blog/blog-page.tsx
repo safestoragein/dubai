@@ -12,23 +12,11 @@ import LikeButtonMini from "./like-button-mini"
 // If there are any Clock imports from icons.tsx, update them
 import { Clock } from "@/components/icons"
 import { getCategoryColor } from "@/lib/blog-images"
+import { blogImageUrl } from "@/lib/blog-image"
 
 // Helper function to construct image URL from endpoint data
 function constructImageUrl(postImages: string | null | undefined): string {
-  if (!postImages) return "/blog-placeholder.jpg"
-
-  // If it's already a full URL, return as is
-  if (postImages.startsWith('http://') || postImages.startsWith('https://')) {
-    return postImages
-  }
-
-  // If it starts with "post_images/", construct full URL
-  if (postImages.startsWith('post_images/')) {
-    return `https://safestorage.in/${postImages}`
-  }
-
-  // Otherwise assume it's just the filename
-  return `https://safestorage.in/post_images/${postImages}`
+  return blogImageUrl(postImages) || "/blog-placeholder.jpg"
 }
 
 // Generate consistent likes/views based on post ID (deterministic)

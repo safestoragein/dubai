@@ -27,7 +27,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "Safe storage for furniture, appliances, and personal belongings.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TRpiMtPUFMomL5oXUMC3TrB4CUiw1p.png",
     features: [
-      "Climate-controlled units",
+      "Secure indoor units",
       "24/7 security monitoring",
       "Flexible rental options",
     ],
@@ -55,7 +55,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "Secure archiving for business and personal documents.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-4qeLQMWUCZMkaOPtWAdcNfZFvyhbyI.png",
     features: [
-      "Climate-controlled environment",
+      "Secure indoor environment",
       "Fire protection systems",
       "Quick retrieval service",
     ],

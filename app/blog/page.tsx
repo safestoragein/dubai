@@ -1,6 +1,8 @@
 import BlogPage from "@/components/blog/blog-page"
 import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
+import { blogImageUrl } from "@/lib/blog-image"
+import { getAllBlogs } from "@/lib/blog-db"
 
 export const metadata: Metadata = {
   title: "Storage Tips & Guides | SafeStorage Dubai Blog",
@@ -26,16 +28,8 @@ export const revalidate = 600
 
 // Fetch blog posts on the server so crawlers see full article list in HTML
 async function fetchBlogPosts() {
-  try {
-    const response = await fetch("https://safestorage.in/get_blog_content", {
-      next: { revalidate: 600 },
-    })
-    if (!response.ok) return []
-    const data = await response.json()
-    return Array.isArray(data) ? data : []
-  } catch {
-    return []
-  }
+  // Served from the local EC2 MariaDB (see lib/blog-db.ts).
+  return await getAllBlogs()
 }
 
 function generateSlug(title: string) {
@@ -48,10 +42,7 @@ function generateSlug(title: string) {
 }
 
 function constructImageUrl(postImages: string | null | undefined): string {
-  if (!postImages) return "/blog-placeholder.jpg"
-  if (postImages.startsWith("http://") || postImages.startsWith("https://")) return postImages
-  if (postImages.startsWith("post_images/")) return `https://safestorage.in/${postImages}`
-  return `https://safestorage.in/post_images/${postImages}`
+  return blogImageUrl(postImages) || "/blog-placeholder.jpg"
 }
 
 function getConsistentLikes(postId: number) {

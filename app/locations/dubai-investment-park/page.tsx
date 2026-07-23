@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Document Archival — Dubai Investment Park",
   description:
-    "Professional document archival and records storage in Dubai Investment Park. Fireproof, climate-controlled document storage for businesses in DIP, Motor City & JAFZA. Pickup & retrieval on demand. Call +971505773388.",
+    "Professional document archival and records storage in Dubai Investment Park. Fireproof, secure document storage for businesses in DIP, Motor City & JAFZA. Pickup & retrieval on demand. Call +971505773388.",
   keywords:
     "document archival service dubai investment park, records storage DIP dubai, document storage motor city dubai, business records archival JAFZA, secure document storage dubai investment park, file storage DIP",
   openGraph: {
@@ -26,7 +26,7 @@ const dipSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Document Archival & Storage Near Dubai Investment Park',
-    description: 'Professional document archival and records storage in Dubai Investment Park. Fireproof, climate-controlled document storage for businesses in DIP, Motor City & JAFZA.',
+    description: 'Professional document archival and records storage in Dubai Investment Park. Fireproof, secure document storage for businesses in DIP, Motor City & JAFZA.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/locations/dubai-investment-park',
     areaServed: [
@@ -166,7 +166,7 @@ export default function DubaiInvestmentParkPage() {
       <div className="container mx-auto px-4 max-w-5xl">
         <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Dubai Investment Park Storage — Comprehensive Guide for Businesses &amp; Residents</h2>
         <p className="text-lg text-gray-700 mb-6">
-          Dubai Investment Park (DIP) is one of the UAE&apos;s most strategically important industrial and mixed-use zones, housing hundreds of manufacturing facilities, logistics companies, warehouses, and residential communities. SafeStorage serves the entire DIP area with premium document archiving, commercial storage, and residential storage solutions — all delivered with the same hassle-free pickup, climate control, and flexible monthly plans available across all Dubai zones.
+          Dubai Investment Park (DIP) is one of the UAE&apos;s most strategically important industrial and mixed-use zones, housing hundreds of manufacturing facilities, logistics companies, warehouses, and residential communities. SafeStorage serves the entire DIP area with premium document archiving, commercial storage, and residential storage solutions — all delivered with the same hassle-free pickup, secure storage, and flexible monthly plans available across all Dubai zones.
         </p>
         <p className="text-lg text-gray-700 mb-8">
           The DIP service zone also covers several popular residential communities including Motor City, Dubai Sports City, and Discovery Gardens, each with thousands of residents who benefit from SafeStorage&apos;s convenient door-to-door service. Whether you are a factory manager needing to archive a decade of compliance records, a resident of Motor City storing a season&apos;s worth of cycling equipment, or a Jumeirah Village Circle apartment owner clearing space during a renovation, our team is ready to serve you efficiently and professionally.
@@ -224,7 +224,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can JAFZA companies use SafeStorage for document archiving?</h3>
-            <p className="text-gray-700">Yes, SafeStorage is an excellent solution for JAFZA (Jebel Ali Free Zone) companies needing document archiving and records management. We provide regular scheduled pickups from JAFZA facilities, with all documents stored in fireproof, climate-controlled units at our secure facility. Documents are individually labelled and indexed using barcodes, allowing specific files or boxes to be retrieved within 24–48 hours of a request. This service helps JAFZA businesses meet UAE regulatory requirements for document retention without using valuable warehouse or office space for dead files.</p>
+            <p className="text-gray-700">Yes, SafeStorage is an excellent solution for JAFZA (Jebel Ali Free Zone) companies needing document archiving and records management. We provide regular scheduled pickups from JAFZA facilities, with all documents stored in fireproof, secure units at our facility. Documents are individually labelled and indexed using barcodes, allowing specific files or boxes to be retrieved within 24–48 hours of a request. This service helps JAFZA businesses meet UAE regulatory requirements for document retention without using valuable warehouse or office space for dead files.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What types of businesses in Dubai Investment Park use SafeStorage?</h3>
@@ -244,7 +244,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the pricing for commercial storage near Dubai Investment Park?</h3>
-            <p className="text-gray-700">Commercial storage pricing for DIP and surrounding areas follows the same transparent volume-based model as all SafeStorage plans, starting from 12.65 AED / sqft (VAT-inclusive). For businesses, we also offer dedicated commercial units from 100 sq ft to 1,000+ sq ft. There are no setup fees, no long-term contracts required, and no hidden charges. Your dedicated commercial storage consultant will prepare a customised quote based on your specific volume, access requirements, and service frequency. Call +971505773388 or email us for a commercial quote.</p>
+            <p className="text-gray-700">Commercial storage pricing for DIP and surrounding areas follows the same transparent volume-based model as all SafeStorage plans, starting from 12.60 AED / sqft (VAT-inclusive). For businesses, we also offer dedicated commercial units from 100 sq ft to 1,000+ sq ft. There are no setup fees, no long-term contracts required, and no hidden charges. Your dedicated commercial storage consultant will prepare a customised quote based on your specific volume, access requirements, and service frequency. Call +971505773388 or email us for a commercial quote.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can SafeStorage handle a full factory or warehouse clearance in DIP?</h3>
@@ -256,7 +256,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there student storage available near Dubai Production City and Studio City?</h3>
-            <p className="text-gray-700">Yes, SafeStorage offers student storage plans for students at institutions near Dubai Production City and Dubai Studio City, including those studying at media, film, and broadcasting institutions in the area. Student storage plans are designed to be affordable and flexible, covering semester breaks when students return home and need to store their room&apos;s worth of belongings securely. Plans start from 12.65 AED / sqft (VAT-inclusive) and include hassle-free pickup from your accommodation and delivery back when your new semester begins. Contact us for our dedicated student storage discount.</p>
+            <p className="text-gray-700">Yes, SafeStorage offers student storage plans for students at institutions near Dubai Production City and Dubai Studio City, including those studying at media, film, and broadcasting institutions in the area. Student storage plans are designed to be affordable and flexible, covering semester breaks when students return home and need to store their room&apos;s worth of belongings securely. Plans start from 12.60 AED / sqft (VAT-inclusive) and include hassle-free pickup from your accommodation and delivery back when your new semester begins. Contact us for our dedicated student storage discount.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do residents in the DIP residential community book storage?</h3>
@@ -264,7 +264,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What items are NOT allowed in SafeStorage units?</h3>
-            <p className="text-gray-700">For safety and regulatory compliance, certain items cannot be stored in SafeStorage units. These include hazardous materials, flammable liquids and gases, explosives, perishable food, live plants or animals, illegal substances, currency or negotiable instruments, and items that emit strong odours. Vehicles with fuel in the tank should have the tank partially drained before storage. If you are unsure whether a specific item can be stored, contact us before booking and we will advise. The vast majority of household, business, and commercial items are fully acceptable for storage in our climate-controlled units.</p>
+            <p className="text-gray-700">For safety and regulatory compliance, certain items cannot be stored in SafeStorage units. Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. We also cannot accept hazardous materials, flammable liquids and gases, explosives, perishable food, live plants or animals, illegal substances, currency or negotiable instruments, and items that emit strong odours. Vehicles with fuel in the tank should have the tank partially drained before storage. If you are unsure whether a specific item can be stored, contact us before booking and we will advise. The vast majority of household, business, and commercial items are fully acceptable for storage in our secure units.</p>
           </div>
         </div>
       </div>

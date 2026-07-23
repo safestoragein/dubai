@@ -277,29 +277,29 @@ export default function HouseholdStoragePage() {
         </div>
       </section>
 
-      {/* Climate & Security */}
+      {/* Protection & Security */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-dubai-navy">
-              Climate & Security Protection
+              Protection & Security
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-dubai-navy">Climate Control</h3>
+                <h3 className="text-xl font-semibold mb-4 text-dubai-navy">Clean, Secure Units</h3>
                 <p className="text-gray-600 mb-4">
-                  Protect sensitive household items from Dubai's extreme weather:
+                  Your household items are kept in clean, dedicated units and carefully protected:
                 </p>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Wood furniture protection</li>
-                  <li>• Fabric and leather care</li>
-                  <li>• Electronics safety</li>
-                  <li>• Document preservation</li>
+                  <li>• Professionally wrapped and padded</li>
+                  <li>• Dust-protected covers</li>
+                  <li>• Stored off the ground</li>
+                  <li>• Individual, dedicated units</li>
                 </ul>
                 <div className="mt-4">
-                  <Link href="/self-storage-dubai/climate-controlled" className="text-dubai-gold hover:underline">
-                    Learn about climate control →
+                  <Link href="/self-storage-dubai/furniture-storage" className="text-dubai-gold hover:underline">
+                    Learn about furniture storage →
                   </Link>
                 </div>
               </div>
@@ -436,7 +436,7 @@ export default function HouseholdStoragePage() {
           <p className="text-lg text-gray-700 mb-6">
             Dubai apartments and villas often feel cramped not because they are small, but because they are
             filled with items that are rarely used but too valuable or sentimental to discard. SafeStorage
-            household storage gives you a secure, climate-controlled extension of your home — available
+            household storage gives you a secure extension of your home — available
             whenever you need it, without the expense of renting a larger property.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -459,9 +459,9 @@ export default function HouseholdStoragePage() {
                 items whenever needed. You never lift a heavy box or rent a van.
               </p>
               <p className="text-gray-700">
-                All household items are stored in individual climate-controlled units at 20–25°C, protecting
-                furniture, electronics, clothing, documents, and sensitive items from Dubai&apos;s heat and
-                humidity. Plans start from 12.65 AED / sqft — no long-term contract, cancel anytime.
+                All household items are stored in individual, secure units, keeping furniture, electronics,
+                clothing, and documents protected. Plans start from 12.60 AED / sqft — no long-term contract,
+                cancel anytime.
               </p>
             </div>
           </div>
@@ -483,7 +483,7 @@ export default function HouseholdStoragePage() {
                 Apartment and villa renovation is one of the most stressful events in any homeowner&apos;s life. Beyond the disruption and cost of the renovation itself, residents face the challenge of protecting their furniture and belongings from dust, paint, and contractor damage. Many Dubai residents try to live around their renovation — squeezing furniture into rooms not currently being worked on — with unsatisfying results.
               </p>
               <p className="text-gray-700">
-                The cleanest solution is to clear the entire space before work begins. SafeStorage provides full household pickup services — our team dismantles and wraps furniture, boxes and labels smaller items, loads everything into our vehicles, and stores it in climate-controlled units until your renovation is complete. When your contractors are finished, we return everything in a coordinated delivery that matches your move-back schedule. This approach typically reduces renovation timelines by allowing contractors to work without obstacles.
+                The cleanest solution is to clear the entire space before work begins. SafeStorage provides full household pickup services — our team dismantles and wraps furniture, boxes and labels smaller items, loads everything into our vehicles, and stores it in secure units until your renovation is complete. When your contractors are finished, we return everything in a coordinated delivery that matches your move-back schedule. This approach typically reduces renovation timelines by allowing contractors to work without obstacles.
               </p>
             </div>
             <div>
@@ -492,7 +492,7 @@ export default function HouseholdStoragePage() {
                 Dubai&apos;s rental market moves quickly and lease timings often do not align perfectly. It is common for a resident to need to vacate their current apartment before their new one is ready, creating a storage gap of anywhere from a few days to a few months. Hotels and serviced apartments are expensive alternatives, and leaving furniture with friends or family is impractical for most people.
               </p>
               <p className="text-gray-700">
-                SafeStorage&apos;s short-term household storage fills this gap perfectly. We collect everything from your outgoing apartment, store it safely at 18–22°C, and deliver it to your new home when ready. The minimum storage period is just 1 month — there is no requirement to commit to a longer arrangement. Our team handles all the heavy lifting at both ends, making your apartment transition as smooth as possible. Many customers tell us that using SafeStorage is far less stressful than doing a traditional same-day move.
+                SafeStorage&apos;s short-term household storage fills this gap perfectly. We collect everything from your outgoing apartment, store it safely in our secure facility, and deliver it to your new home when ready. The minimum storage period is just 1 month — there is no requirement to commit to a longer arrangement. Our team handles all the heavy lifting at both ends, making your apartment transition as smooth as possible. Many customers tell us that using SafeStorage is far less stressful than doing a traditional same-day move.
               </p>
             </div>
           </div>
@@ -543,15 +543,12 @@ export default function HouseholdStoragePage() {
           </div>
 
           <div className="bg-gray-50 rounded-xl p-8 mb-10">
-            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Protecting Household Items from Dubai&apos;s Climate</h3>
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">How We Protect Your Household Items</h3>
             <p className="text-gray-700 mb-4">
-              Dubai&apos;s summer heat is not just uncomfortable — it is genuinely damaging to many common household items when they are stored in non-climate-controlled environments. This is why choosing climate-controlled household storage is so important in Dubai, and why SafeStorage maintains a consistent 18–22°C year-round in all storage units.
-            </p>
-            <p className="text-gray-700 mb-4">
-              Solid wood furniture warps, cracks, and develops joint failures when exposed to prolonged heat and humidity fluctuations. Leather sofas, chairs, and bed frames fade and crack in heat. MDF and particleboard furniture can swell and delaminate. Electronics — TVs, computers, audio equipment, cameras — suffer heat-related component failure and battery degradation. Artwork and photographs can fade, warp, and deteriorate. Clothing and fabrics can develop mould and mildew in humid conditions. Books and paper documents can yellow and become brittle.
+              Every item is professionally wrapped and padded before it goes into storage. Furniture is covered to keep dust off, boxes are stacked safely to avoid crushing, and heavier items are stored off the ground.
             </p>
             <p className="text-gray-700">
-              SafeStorage&apos;s climate-controlled units completely eliminate these risks. Your household items are stored in the same conditions as a modern air-conditioned Dubai apartment, year-round. Whether your items are in storage for 3 weeks or 3 years, they will be returned to you in the same condition as when they were collected.
+              Your household items are kept in clean, individual, dedicated units monitored by 24/7 CCTV and biometric access control. Whether your items are in storage for 3 weeks or 3 years, they will be returned to you in the same condition as when they were collected.
             </p>
           </div>
         </div>
@@ -565,7 +562,7 @@ export default function HouseholdStoragePage() {
           <div className="space-y-6">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">1. How much does household storage cost in Dubai?</h3>
-              <p className="text-gray-700">Household storage in Dubai at SafeStorage starts from 12.65 AED / sqft (VAT-inclusive), whether you need a small unit (25–50 sq ft) for a studio apartment&apos;s worth of items, a medium unit for 1–2 bedroom apartment contents, or a large unit for 3-bedroom apartments or villa contents. The price includes climate control, 24/7 security, free insurance up to AED 5,000, and hassle-free pickup and delivery across Dubai. Call +971505773388 for a personalised quote.</p>
+              <p className="text-gray-700">Household storage in Dubai at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit (25–50 sq ft) for a studio apartment&apos;s worth of items, a medium unit for 1–2 bedroom apartment contents, or a large unit for 3-bedroom apartments or villa contents. The price includes 24/7 security, free insurance up to AED 5,000, and hassle-free pickup and delivery across Dubai. Call +971505773388 for a personalised quote.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -590,22 +587,22 @@ export default function HouseholdStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. What household items cannot be stored?</h3>
-              <p className="text-gray-700">For safety reasons, SafeStorage cannot store perishable food, live plants, animals, hazardous materials (petrol, paint, aerosols, cleaning chemicals), flammable liquids, firearms and ammunition, explosives, and illegal items. Items containing liquids (aquariums, water features, fuel tanks) must be completely drained before storage. All other common household items — furniture, electronics, clothing, kitchenware, books, toys, appliances, artwork, sports equipment, musical instruments — are welcome. If you are unsure about a specific item, ask your account manager before pickup.</p>
+              <p className="text-gray-700">Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. For safety reasons, SafeStorage also cannot store perishable food, live plants, animals, hazardous materials (petrol, paint, aerosols, cleaning chemicals), flammable liquids, firearms and ammunition, explosives, and illegal items. Items containing liquids (aquariums, water features, fuel tanks) must be completely drained before storage. All other common household items — furniture, electronics, clothing, kitchenware, books, toys, appliances, artwork, sports equipment, musical instruments — are welcome. If you are unsure about a specific item, ask your account manager before pickup.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. How do I know my household items are safe in storage?</h3>
-              <p className="text-gray-700">SafeStorage provides multiple layers of protection for your household items. Physical security includes 24/7 CCTV monitoring, biometric access control (only you and authorised personnel can access your unit), individual unit alarms, and on-site security staff. Climate protection is provided by year-round temperature control at 18–22°C. Insurance protection is provided through complimentary coverage up to AED 5,000 included with all plans, with enhanced coverage available for high-value items. Additionally, every item is photographed at pickup and a detailed packing list is provided for your records.</p>
+              <p className="text-gray-700">SafeStorage provides multiple layers of protection for your household items. Physical security includes 24/7 CCTV monitoring, biometric access control (only you and authorised personnel can access your unit), individual unit alarms, and on-site security staff. Insurance protection is provided through complimentary coverage up to AED 5,000 included with all plans, with enhanced coverage available for high-value items. Additionally, every item is photographed at pickup and a detailed packing list is provided for your records.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. Can you store a complete villa&apos;s contents during a long renovation?</h3>
-              <p className="text-gray-700">Yes. We regularly handle full villa clearances for customers undergoing major renovation projects. A typical 3–4 bedroom villa clearance involves 1–2 full-day pickups with multiple vehicles and a team of 4–6 trained movers. All furniture is dismantled, wrapped, and carefully loaded. The entire contents are stored in one or more large climate-controlled units. For very large villas with extensive furniture and belongings, a site survey can be arranged in advance to ensure we allocate the right team size and storage capacity.</p>
+              <p className="text-gray-700">Yes. We regularly handle full villa clearances for customers undergoing major renovation projects. A typical 3–4 bedroom villa clearance involves 1–2 full-day pickups with multiple vehicles and a team of 4–6 trained movers. All furniture is dismantled, wrapped, and carefully loaded. The entire contents are stored in one or more large secure units. For very large villas with extensive furniture and belongings, a site survey can be arranged in advance to ensure we allocate the right team size and storage capacity.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. How do you handle fragile or valuable household items?</h3>
-              <p className="text-gray-700">Fragile and high-value items receive special attention throughout the pickup, transit, and storage process. Glassware and ceramics are individually wrapped in bubble wrap and packed in double-walled boxes with foam cushioning. Artwork, mirrors, and framed pictures are packed in custom picture boxes with corner protectors. Antiques and collectibles are photographed extensively, wrapped in acid-free materials where appropriate, and stored upright or flat as required. Musical instruments are stored in their cases in climate-controlled conditions. Please notify your account manager of any particularly fragile or valuable items so we can arrange appropriate handling.</p>
+              <p className="text-gray-700">Fragile and high-value items receive special attention throughout the pickup, transit, and storage process. Glassware and ceramics are individually wrapped in bubble wrap and packed in double-walled boxes with foam cushioning. Artwork, mirrors, and framed pictures are packed in custom picture boxes with corner protectors. Antiques and collectibles are photographed extensively, wrapped in acid-free materials where appropriate, and stored upright or flat as required. Musical instruments are stored in their cases. Please notify your account manager of any particularly fragile or valuable items so we can arrange appropriate handling.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

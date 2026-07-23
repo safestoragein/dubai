@@ -34,13 +34,13 @@ export default function LandingQuoteSection() {
             <h3 className="text-2xl font-bold mb-6 text-dubai-navy">Why Choose SafeStorage Dubai?</h3>
             <p className="text-dubai-navy/70 mb-8">
               We offer premium storage solutions with transparent pricing and exceptional service. Our secure,
-              climate-controlled facilities ensure your belongings remain in perfect condition.
+              clean facilities ensure your belongings remain in perfect condition.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               {[
                 { icon: Truck, text: "Hassle hassle-free Pickup & Delivery" },
-                { icon: Building, text: "Climate-Controlled Units" },
+                { icon: Building, text: "Clean Indoor Units" },
                 { icon: Box, text: "Flexible Storage Terms" },
                 { icon: Package, text: "Secure Facilities" },
               ].map((feature, index) => (

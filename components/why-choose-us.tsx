@@ -1,20 +1,13 @@
 "use client"
 
 import { m } from "framer-motion"
-import { Users, Truck, DollarSign, Thermometer, Smartphone, Shield, CheckCircle2 } from "lucide-react"
+import { Users, Truck, DollarSign, Smartphone, Shield, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
 export default function WhyChooseUs() {
   const features = [
-    {
-      icon: Thermometer,
-      title: "Climate-Controlled Facilities",
-      description:
-        "Every unit maintained at 20–24°C with 45–55% humidity. Your furniture, electronics, artwork, and documents stay fully protected from Dubai's extreme summer heat and humidity year-round — whether you store for 2 weeks or 2 years.",
-      highlight: "All Units",
-    },
     {
       icon: Truck,
       title: "Hassle-Free Pickup & Delivery",
@@ -33,7 +26,7 @@ export default function WhyChooseUs() {
       icon: DollarSign,
       title: "Transparent Pricing",
       description:
-        "What we quote is what you pay. No admin fees, no deposit surprises, no hidden charges on your invoice. VAT-inclusive pricing from 12.65 AED / sqft. We also offer a price-match guarantee — show us a lower quoted price and we'll beat it.",
+        "What we quote is what you pay. No admin fees, no deposit surprises, no hidden charges on your invoice. VAT-inclusive pricing from 12.60 AED / sqft. We also offer a price-match guarantee — show us a lower quoted price and we'll beat it.",
       highlight: "No Hidden Fees",
     },
     {
@@ -65,7 +58,7 @@ export default function WhyChooseUs() {
       highlight: "All Areas",
     },
     {
-      icon: Thermometer,
+      icon: CheckCircle2,
       title: "Pest-Free, Clean Environment",
       description:
         "Regular professional pest control treatments and thorough cleaning of all storage halls. Every unit is sealed to prevent dust, moisture, and insect contamination. We maintain the same standard for every unit regardless of plan size.",

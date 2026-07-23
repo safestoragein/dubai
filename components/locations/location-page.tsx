@@ -118,8 +118,8 @@ export default function LocationPage({ location, areas, distance, benefits }: Lo
               <Card>
                 <CardContent className="pt-6 text-center">
                   <Clock className="mx-auto h-12 w-12 text-[#0A2463] mb-4" />
-                  <h3 className="font-semibold mb-2">Climate Controlled</h3>
-                  <p className="text-sm text-gray-600">Optimal temperature and humidity year-round</p>
+                  <h3 className="font-semibold mb-2">Clean & Dust-Protected</h3>
+                  <p className="text-sm text-gray-600">Indoor units kept clean and dust-protected year-round</p>
                 </CardContent>
               </Card>
             </div>

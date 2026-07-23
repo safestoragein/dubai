@@ -20,16 +20,16 @@ const steps = [
   },
   {
     number: "3",
-    title: "We Pick Up From Your Door — Free",
+    title: "We Pick Up From Your Door — Hassle Free",
     description:
-      "No need to rent a truck or drive across Dubai. Our professional team arrives at your location with packing materials, carefully loads your items, and transports everything to our climate-controlled facility. We handle your belongings with the same care we'd give our own.",
+      "No need to rent a truck or drive across Dubai. Our professional team arrives at your location with packing materials, carefully loads your items, and transports everything to our secure facility. We handle your belongings with the same care we'd give our own.",
     icon: Truck,
   },
   {
     number: "4",
     title: "Access Anytime, Return When Ready",
     description:
-      "Your items are stored securely with 24/7 CCTV and climate control. Need something back? Request a full or partial delivery to your door. You can also visit our facility anytime with your secure access pass. Month-to-month billing — cancel anytime with zero penalties.",
+      "Your items are stored securely with 24/7 CCTV monitoring. Need something back? Request a full or partial delivery to your door. You can also visit our facility anytime with your secure access pass. Month-to-month billing — cancel anytime with zero penalties.",
     icon: Clock,
   },
 ]

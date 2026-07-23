@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import SchemaScript from "@/components/schema-script"
-import { Cpu, CheckCircle2, Star, Phone, ArrowRight, Shield, Thermometer, Lock, AlertTriangle } from "lucide-react"
+import { Cpu, CheckCircle2, Star, Phone, ArrowRight, Shield, Package, Lock, AlertTriangle } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Electronics Storage Dubai — Safe Tech",
-  description: "Safe, climate-controlled electronics storage in Dubai. Protect laptops, TVs, gaming gear, servers and tech equipment from Dubai's extreme heat and humidity. From 12.65 AED / sqft. Hassle-free pickup.",
-  keywords: "electronics storage dubai, laptop storage dubai, TV storage dubai, tech storage dubai, gadget storage dubai, server storage dubai, climate controlled electronics storage, gaming equipment storage dubai",
+  description: "Safe, secure electronics storage in Dubai. Protect laptops, TVs, gaming gear, servers and tech equipment in clean, dust-protected indoor units. From 12.60 AED / sqft. Hassle-free pickup.",
+  keywords: "electronics storage dubai, laptop storage dubai, TV storage dubai, tech storage dubai, gadget storage dubai, server storage dubai, secure electronics storage, gaming equipment storage dubai",
   openGraph: {
-    title: "Electronics Storage Dubai — Protect Your Tech from Dubai's Heat | SafeStorage",
-    description: "Dubai's extreme heat destroys electronics. Climate-controlled storage from 12.65 AED / sqft. Protect laptops, TVs, servers & gaming gear. Hassle-free pickup included.",
+    title: "Electronics Storage Dubai — Secure Storage for Your Tech | SafeStorage",
+    description: "Protect your electronics in clean, dust-protected indoor storage from 12.60 AED / sqft. Laptops, TVs, servers & gaming gear. Hassle-free pickup included.",
     url: "https://safestorage.ae/electronics-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -24,7 +24,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Electronics Storage Dubai",
-    description: "Climate-controlled electronics and technology storage in Dubai. Safe storage for laptops, TVs, servers, gaming equipment and sensitive tech items protected from heat and humidity.",
+    description: "Secure electronics and technology storage in Dubai. Safe storage for laptops, TVs, servers, gaming equipment and sensitive tech items in clean, dust-protected indoor units with anti-static handling.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/electronics-storage",
     areaServed: { "@type": "City", name: "Dubai" },
@@ -34,7 +34,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/electronics-storage#webpage",
-    name: "Electronics Storage Dubai — Climate-Controlled Tech Storage",
+    name: "Electronics Storage Dubai — Secure Tech Storage",
     url: "https://safestorage.ae/electronics-storage",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -50,12 +50,12 @@ const schemas = [
 ]
 
 const electronicsRisks = [
-  { temp: "Above 35°C", risk: "Lithium batteries begin permanent capacity loss. Most laptops throttle or shut down entirely above 35°C ambient temperature." },
-  { temp: "Above 45°C", risk: "Hard drives experience head crashes as metal components expand. SSD NAND cells degrade faster reducing lifespan by 30-50%." },
-  { temp: "Above 50°C", risk: "LCD screens develop permanent discolouration and pixel damage. Capacitors in power supplies can rupture." },
-  { temp: "Above 60°C", risk: "Circuit boards delaminate. Solder joints crack due to thermal expansion. Permanent component damage likely." },
-  { temp: "High Humidity (>70% RH)", risk: "Condensation forms on circuit boards. Oxidation destroys copper traces. Mould grows on organic components." },
-  { temp: "Rapid Temp Changes", risk: "Moving from AC to 48°C Dubai heat causes condensation inside devices — the same effect as moving a cold glass to a hot day." },
+  { temp: "Dust & sand ingress", risk: "Fine desert dust settles inside vents, fans, ports, and circuit boards, causing overheating and short circuits when equipment is powered back on." },
+  { temp: "Static discharge (ESD)", risk: "Careless handling of exposed boards, GPUs, and RAM causes invisible electrostatic damage that leaves devices dead on arrival." },
+  { temp: "Physical knocks & stacking", risk: "Screens crack and connectors bend when devices are stacked or handled without proper padding and anti-shock packing." },
+  { temp: "Pests & rodents", risk: "Cables, insulation, and internal components are chewed by pests in poorly kept, open storage spaces." },
+  { temp: "Theft & tampering", risk: "High-value tech is a target. Open warehouse bays without access control leave equipment exposed to loss." },
+  { temp: "Battery drain in disuse", risk: "Lithium batteries left at full or empty charge for months degrade — proper preparation and charge levels protect them." },
 ]
 
 export default function ElectronicsStoragePage() {
@@ -69,8 +69,8 @@ export default function ElectronicsStoragePage() {
               <div className="inline-flex items-center gap-2 bg-dubai-gold/20 text-dubai-gold px-4 py-1.5 rounded-full text-sm font-medium mb-6">
                 <Cpu className="w-4 h-4" /> Electronics Storage Specialists
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Electronics Storage Dubai — Climate-Controlled Protection for Your Tech</h1>
-              <p className="text-xl text-white/85 mb-8">Dubai's 48°C summer heat is the number-one killer of electronics in storage. At SafeStorage Dubai, our climate-controlled units maintain 18-24°C year-round — protecting your laptops, TVs, servers, gaming equipment and sensitive tech from heat, humidity, and dust.</p>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Electronics Storage Dubai — Secure Protection for Your Tech</h1>
+              <p className="text-xl text-white/85 mb-8">Your electronics deserve more than an open warehouse bay. At SafeStorage Dubai, our clean, dust-protected indoor units, anti-static handling, and 24/7 secured access protect your laptops, TVs, servers, gaming equipment and sensitive tech from dust, damage, and theft.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Free Quote</Button>
@@ -89,9 +89,9 @@ export default function ElectronicsStoragePage() {
           <div className="container px-4 max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
-                { stat: "18–24°C", label: "Year-round temperature" },
-                { stat: "45–55%", label: "Relative humidity maintained" },
-                { stat: "24/7", label: "Climate monitoring" },
+                { stat: "Dust-Free", label: "Clean indoor units" },
+                { stat: "Anti-Static", label: "Component handling" },
+                { stat: "24/7", label: "CCTV monitoring" },
                 { stat: "Door-to-Door", label: "Pickup & delivery" },
               ].map((s) => (
                 <div key={s.label}>
@@ -105,8 +105,8 @@ export default function ElectronicsStoragePage() {
 
         <section className="py-16 bg-white">
           <div className="container px-4 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy mb-4">Why Dubai's Heat Destroys Electronics in Storage</h2>
-            <p className="text-gray-600 mb-8 text-lg">Standard storage facilities in Dubai are essentially metal warehouses or converted industrial units. In summer, internal temperatures regularly exceed 55–65°C. Here's what happens to electronics at each temperature threshold:</p>
+            <h2 className="text-3xl font-bold text-dubai-navy mb-4">Why Electronics Fail in the Wrong Storage</h2>
+            <p className="text-gray-600 mb-8 text-lg">Standard storage in Dubai often means an open, dusty warehouse bay with no access control and no careful handling. Here are the real risks that damage or lose electronics in storage:</p>
             <div className="space-y-4">
               {electronicsRisks.map((r) => (
                 <div key={r.temp} className="flex gap-4 p-4 border border-red-100 rounded-xl bg-red-50/50">
@@ -120,7 +120,7 @@ export default function ElectronicsStoragePage() {
             </div>
             <div className="mt-8 bg-dubai-navy/5 border border-dubai-navy/20 rounded-xl p-6">
               <p className="text-dubai-navy font-medium">
-                <strong>The SafeStorage difference:</strong> Our climate-controlled units never exceed 24°C — even during Dubai's peak summer months of June–September. Humidity is maintained at 45–55% RH, the optimal range for all electronics. Your equipment stores safely for months or years without degradation.
+                <strong>The SafeStorage difference:</strong> Your equipment is stored in clean, enclosed, dust-protected indoor units, handled with anti-static procedures, packed in appropriate protective materials, and secured behind biometric access control and 24/7 CCTV. Your tech stores safely for months or years, protected from dust, damage, pests, and theft.
               </p>
             </div>
           </div>
@@ -168,8 +168,8 @@ export default function ElectronicsStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">Our Electronics Storage Protection Standards</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: Thermometer, title: "Precise Climate Control", desc: "Temperature held at 18-24°C year-round. Humidity maintained at 45-55% RH. Continuous monitoring with automated alerts. Never exposed to Dubai summer extremes." },
-                { icon: Shield, title: "Dust-Free Environment", desc: "HEPA-filtered air circulation keeps dust particles away from sensitive components. Dust is the second-biggest cause of electronics failure in storage after heat." },
+                { icon: Package, title: "Clean, Dust-Protected Units", desc: "Your electronics are stored in clean, enclosed indoor units and packed in sealed protective materials — kept dust-protected, off the floor, and away from the elements." },
+                { icon: Shield, title: "Dust-Protected Storage", desc: "Devices are stored in sealed cartons and anti-static bags in a clean, enclosed indoor unit, keeping dust away from sensitive components — a leading cause of electronics failure in storage." },
                 { icon: Lock, title: "Secure Individual Access", desc: "Biometric access control. CCTV coverage 24/7. Your electronics are stored in a dedicated, individually secured area — not mixed in open warehouse bays." },
                 { icon: Cpu, title: "Anti-Static Handling", desc: "Our trained team uses anti-static procedures when handling circuit boards, storage media, and sensitive components. ESD (electrostatic discharge) can permanently damage electronics without leaving visible signs." },
                 { icon: CheckCircle2, title: "Original Packaging Preferred", desc: "We recommend storing electronics in original packaging where possible. If you don't have it, we provide appropriate anti-static bags, foam padding and protective cartons at cost." },
@@ -194,8 +194,8 @@ export default function ElectronicsStoragePage() {
                 { title: "Businesses Between Offices", desc: "Relocating offices, downsizing, or fitting out new premises? Store IT equipment, servers, monitors and peripherals safely while the new space is prepared. Avoid rushed decisions about what to keep vs dispose." },
                 { title: "Renovation & Remodelling", desc: "Keeping electronics in a dusty Dubai villa renovation is risky. Dust from drilling and construction is as damaging as heat. Store your tech safely during the 2-4 month renovation window." },
                 { title: "Seasonal Residents", desc: "Leaving Dubai for summer in Europe, India, or the UK? Don't leave expensive electronics in a hot apartment with the AC off. Short-term storage ensures they're in perfect condition when you return." },
-                { title: "E-Commerce & Resellers", desc: "Storing a tech inventory for resale? Climate-controlled storage prevents stock degradation. Products stay in sellable condition — no warranty voids, no returns due to heat damage." },
-                { title: "IT Asset Management", desc: "Companies with surplus IT equipment pending refresh, donation, or resale. Proper climate-controlled storage maintains equipment value and supports ESG/circular economy commitments." },
+                { title: "E-Commerce & Resellers", desc: "Storing a tech inventory for resale? Clean, dust-protected storage keeps products in sellable condition — no dust damage, no packaging deterioration, no surprises at dispatch." },
+                { title: "IT Asset Management", desc: "Companies with surplus IT equipment pending refresh, donation, or resale. Secure, dust-protected storage maintains equipment value and supports ESG/circular economy commitments." },
               ].map((u) => (
                 <div key={u.title} className="flex gap-4 p-5 border border-gray-200 rounded-xl bg-white">
                   <CheckCircle2 className="w-6 h-6 text-dubai-gold flex-shrink-0 mt-1" />
@@ -214,8 +214,8 @@ export default function ElectronicsStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">Customer Reviews</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { name: "Ravi M.", location: "Business Bay", text: "Relocated from Dubai to Singapore for work. Had a full home office setup — 2 monitors, gaming PC, PS5, plus work servers. SafeStorage stored everything climate-controlled. 6 months later when I came back to collect, everything powered on perfectly. No heat damage, no dust. Worth every dirham.", rating: 5 },
-                { name: "Chris B.", location: "JLT", text: "IT manager at a mid-size company. We needed to store 40+ laptops and servers during our office move. SafeStorage handled the inventory documentation, stored everything climate-controlled, and returned items on schedule. Everything accounted for and working. Professional service from start to finish.", rating: 5 },
+                { name: "Ravi M.", location: "Business Bay", text: "Relocated from Dubai to Singapore for work. Had a full home office setup — 2 monitors, gaming PC, PS5, plus work servers. SafeStorage stored everything in clean, dust-protected units. 6 months later when I came back to collect, everything powered on perfectly. No dust, no damage. Worth every dirham.", rating: 5 },
+                { name: "Chris B.", location: "JLT", text: "IT manager at a mid-size company. We needed to store 40+ laptops and servers during our office move. SafeStorage handled the inventory documentation, stored everything securely and dust-protected, and returned items on schedule. Everything accounted for and working. Professional service from start to finish.", rating: 5 },
                 { name: "Aisha K.", location: "Mirdif", text: "Left Dubai for summer and came back to find my friend's place (where I left my TV and laptop) had AC failure during my trip. Everything was destroyed. Never again — this year I stored with SafeStorage. Came back to a perfectly working TV and laptop. The peace of mind alone is worth it.", rating: 5 },
               ].map((t) => (
                 <div key={t.name} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
@@ -234,10 +234,10 @@ export default function ElectronicsStoragePage() {
             <div className="space-y-4">
               {[
                 { q: "Do I need to prepare my electronics before storage?", a: "We recommend: (1) Power down all devices fully — not sleep mode. (2) Remove batteries from devices that allow it (remotes, detachable battery packs). (3) Back up important data to cloud before storage. (4) Use original packaging if available. (5) Label all cables with the device they belong to. We can advise further during pickup." },
-                { q: "Can you store my gaming PC or desktop computer?", a: "Yes, desktop computers, gaming PCs, and towers are stored routinely. We recommend placing them upright (not on their side) in climate-controlled storage. If transported, we use appropriate anti-shock foam. Your graphics card, CPU and motherboard are safe in our temperature-controlled environment." },
-                { q: "What temperature do you maintain for electronics?", a: "Our climate-controlled units maintain 18-24°C year-round, which is the optimal range recommended by IEEE and most electronics manufacturers for long-term storage. Humidity is maintained at 45-55% relative humidity to prevent condensation and oxidation." },
+                { q: "Can you store my gaming PC or desktop computer?", a: "Yes, desktop computers, gaming PCs, and towers are stored routinely. We recommend placing them upright (not on their side) in a sealed carton. If transported, we use appropriate anti-shock foam. Your graphics card, CPU and motherboard are handled with anti-static procedures and stored dust-protected in our clean, secure indoor units." },
+                { q: "How are electronics kept in good condition in storage?", a: "Your electronics are stored in clean, enclosed indoor units and packed in sealed cartons, anti-static bags, and foam padding — keeping them dust-protected, off the floor, and away from the elements. All components are handled with anti-static procedures to prevent electrostatic damage, and the facility is secured with biometric access control and 24/7 CCTV." },
                 { q: "Can I store a server or data centre equipment?", a: "Yes. We regularly store rack-mounted servers, NAS units, network switches, and UPS systems. For sensitive data equipment, we recommend you remove or encrypt drives before storage if you have data security requirements. We treat all storage contents with full confidentiality." },
-                { q: "How long can electronics be safely stored?", a: "In our climate-controlled environment, electronics can be stored indefinitely. Manufacturers design equipment for 10-15 year lifespans in controlled conditions. The main risks to electronics in storage — heat, humidity and dust — are all eliminated in our facility. Batteries are the only component that degrade over time regardless of conditions; lithium batteries lose about 3-5% capacity per year even when stored perfectly." },
+                { q: "How long can electronics be safely stored?", a: "In our clean, dust-protected indoor units, electronics can be stored for long periods. Sealed packing and anti-static handling protect equipment from the dust, physical damage, and pests that cause failures in open storage. Batteries are the one component that degrades over time regardless of storage; lithium batteries lose about 3-5% capacity per year even when stored well, which is why we advise storing them at around 50% charge for long-term storage." },
                 { q: "Is my electronics storage insured?", a: "Basic coverage is included in all storage plans. For high-value electronics (servers, professional equipment, large collections), we can arrange extended coverage through our insurance partners — quoted based on declared value. Please declare accurate replacement values at intake." },
               ].map((faq) => (
                 <details key={faq.q} className="border border-gray-200 rounded-xl p-6 group bg-white">
@@ -253,8 +253,8 @@ export default function ElectronicsStoragePage() {
 
         <section className="py-16 bg-dubai-navy text-white text-center">
           <div className="container px-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Don't Let Dubai's Heat Destroy Your Electronics</h2>
-            <p className="text-xl text-white/85 mb-8">Get a free quote for climate-controlled electronics storage. Hassle-free pickup available across Dubai — available 7 days a week.</p>
+            <h2 className="text-3xl font-bold mb-4">Store Your Electronics Safely</h2>
+            <p className="text-xl text-white/85 mb-8">Get a free quote for secure, dust-protected electronics storage. Hassle-free pickup available across Dubai — available 7 days a week.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="https://safestorage.ae/get-quote">
                 <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Free Quote</Button>
@@ -272,21 +272,21 @@ export default function ElectronicsStoragePage() {
           <div className="container px-4 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our Electronics Storage Service in Dubai</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
-              <p>SafeStorage Dubai&apos;s electronics storage service addresses a specific and serious problem in the UAE: Dubai&apos;s extreme climate destroys electronics stored in non-climate-controlled environments. Standard storage units in Dubai are essentially metal or concrete boxes that absorb and trap heat. During the summer months of June through September, internal temperatures in non-climate-controlled storage regularly exceed 55&ndash;65&deg;C. At these temperatures, lithium batteries suffer permanent capacity loss, LCD screens develop discolouration, hard drives experience head crashes, solder joints crack, and rubber components degrade irreversibly. These are not theoretical risks &mdash; they are the predictable, well-documented consequences of thermal stress on electronic components that manufacturers design to operate between 0&ndash;40&deg;C and store between -20&ndash;45&deg;C.</p>
-              <p>Our climate-controlled units maintain a precise 18&ndash;24&deg;C year-round with humidity at 45&ndash;55% relative humidity. This is within the safe storage specifications of virtually all electronics manufacturers. Humidity control is equally important: Dubai&apos;s coastal summer humidity can reach 85&ndash;95% relative humidity, and when warm, humid air comes into contact with cool electronics, condensation forms on circuit boards &mdash; the equivalent of spilling water directly onto your motherboard. Our HEPA-filtered environment also eliminates dust as a risk factor, since fine particulate matter is the second leading cause of electronics failure in storage after heat. Every item stored with us is photographed and documented with serial numbers where visible, providing a complete inventory record and supporting any insurance claims.</p>
-              <p>We serve expats storing their tech setups before leaving Dubai temporarily, businesses relocating offices who need interim IT equipment storage, renovation homeowners protecting electronics from construction dust, seasonal residents leaving expensive equipment during summer months, IT asset managers handling surplus equipment, and e-commerce sellers storing electronics inventory. Electronics storage starts from 12.65 AED / sqft (VAT-inclusive), with hassle-free pickup across Dubai. Our team can assist with basic de-installation of monitors, desktop setups, and rack-mounted equipment, and we stock anti-static bags, foam padding, and protective cartons for equipment that does not have original packaging. Call +971505773388 for a free quote and advice on preparing your electronics for safe long-term storage.</p>
+              <p>SafeStorage Dubai&apos;s electronics storage service addresses a specific and serious problem in the UAE: valuable tech is too often stored in open, dusty warehouse bays with no careful handling and no access control. Fine desert dust settles inside vents, fans, ports, and circuit boards; devices are stacked and knocked without proper padding; exposed boards are handled without static protection; and high-value equipment sits unsecured. These are not theoretical risks &mdash; they are the everyday causes of electronics failing or going missing in inadequate storage.</p>
+              <p>Our approach is built around clean, dust-protected indoor units, professional packing, anti-static handling, and physical security. Devices are packed in sealed cartons, anti-static bags, and foam padding, then stored on dedicated racking, off the floor and away from the elements. Our trained staff use grounded anti-static procedures when handling exposed circuit boards, GPUs, and RAM to prevent electrostatic damage, and the facility is secured with biometric access control and 24/7 CCTV. Every item stored with us is photographed and documented with serial numbers where visible, providing a complete inventory record and supporting any insurance claims.</p>
+              <p>We serve expats storing their tech setups before leaving Dubai temporarily, businesses relocating offices who need interim IT equipment storage, renovation homeowners protecting electronics from construction dust, seasonal residents leaving expensive equipment during summer months, IT asset managers handling surplus equipment, and e-commerce sellers storing electronics inventory. Electronics storage starts from 12.60 AED / sqft (VAT-inclusive), with hassle-free pickup across Dubai. Our team can assist with basic de-installation of monitors, desktop setups, and rack-mounted equipment, and we stock anti-static bags, foam padding, and protective cartons for equipment that does not have original packaging. Call +971505773388 for a free quote and advice on preparing your electronics for safe long-term storage.</p>
             </div>
 
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Electronics Storage FAQs</h2>
             <div className="space-y-6">
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Why is climate control so critical for electronics in Dubai specifically?</h3>
-                <p className="text-gray-700 leading-relaxed">Dubai&apos;s climate presents a combination of risks that makes it among the most hostile environments in the world for stored electronics. Summer temperatures regularly reach 48&deg;C outdoors, and non-climate-controlled storage units &mdash; typically metal-clad or concrete structures with minimal insulation &mdash; can reach 55&ndash;65&deg;C internally. These temperatures are well above the safe storage specifications for virtually all consumer and professional electronics. Simultaneously, Dubai&apos;s coastal summer humidity can reach 85&ndash;95% relative humidity, creating condensation risk whenever warm air contacts cooler surfaces. The combination of extreme heat, high humidity, and intense UV radiation (which penetrates storage doors and windows) creates an environment that degrades electronics far faster than in temperate climates &mdash; often causing irreversible damage within a single summer season.</p>
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">Why does the right storage matter so much for electronics in Dubai?</h3>
+                <p className="text-gray-700 leading-relaxed">Electronics are precision equipment that fail from causes that are easy to overlook. Fine desert dust and sand are pervasive in Dubai and work their way into vents, fans, ports, and onto circuit boards, causing overheating and short circuits when a device is powered back on. Careless handling of exposed components causes invisible electrostatic (ESD) damage; stacking and knocks crack screens and bend connectors; pests chew cables in poorly kept spaces; and high-value tech is a target for theft in unsecured, open storage. SafeStorage addresses each of these directly with clean, dust-protected indoor units, sealed packing, anti-static handling, and biometric access control with 24/7 CCTV &mdash; the standard of care that valuable electronics deserve.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What temperature range is maintained for electronics storage?</h3>
-                <p className="text-gray-700 leading-relaxed">Our climate-controlled units maintain 18&ndash;24&deg;C year-round, which falls within the safe storage specifications of virtually all electronics manufacturers. Most consumer electronics have a storage temperature specification of 0&ndash;45&deg;C, but sustained storage above 35&deg;C begins to cause battery degradation, and storage above 45&deg;C accelerates component failure across most device categories. Our 18&ndash;24&deg;C range provides comfortable headroom below any risk threshold. Relative humidity is maintained at 45&ndash;55%, preventing both condensation (which occurs above 65&ndash;70% RH) and the static electricity risk that increases in very dry conditions below 35% RH. Both temperature and humidity are monitored continuously and logged at regular intervals throughout your storage period.</p>
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How should electronics be packed and stored to stay protected?</h3>
+                <p className="text-gray-700 leading-relaxed">The most important protections for stored electronics are keeping dust out, preventing physical and electrostatic damage, and securing equipment against loss. We store devices in clean, enclosed indoor units, sealed inside original packaging, anti-static bags, or moisture-resistant cartons, with foam padding to prevent movement and stacking damage. Exposed components such as motherboards, GPUs, and RAM are handled with grounded anti-static procedures. Equipment is kept on dedicated racking, off the floor and away from the elements, and the facility is secured with biometric access control and 24/7 CCTV so your tech is protected throughout your storage period.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
@@ -296,12 +296,12 @@ export default function ElectronicsStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I store servers and networking equipment at SafeStorage?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes. We regularly store rack-mounted servers, tower servers, NAS (network-attached storage) units, network switches, routers, firewalls, UPS systems, and other data centre and networking equipment. For businesses relocating offices, consolidating data centre infrastructure, or managing IT asset transitions, our climate-controlled facility provides appropriate conditions for enterprise equipment between deployments. For storage of equipment containing sensitive data, we recommend that you remove, encrypt, or wipe drives before storage in accordance with your organisation&apos;s data security policy &mdash; we store the hardware, but we do not take responsibility for data security on storage media. We can provide documentation of storage conditions for IT asset management or insurance purposes.</p>
+                <p className="text-gray-700 leading-relaxed">Yes. We regularly store rack-mounted servers, tower servers, NAS (network-attached storage) units, network switches, routers, firewalls, UPS systems, and other data centre and networking equipment. For businesses relocating offices, consolidating data centre infrastructure, or managing IT asset transitions, our clean, dust-protected, secured facility provides appropriate conditions for enterprise equipment between deployments. For storage of equipment containing sensitive data, we recommend that you remove, encrypt, or wipe drives before storage in accordance with your organisation&apos;s data security policy &mdash; we store the hardware, but we do not take responsibility for data security on storage media. We can provide documentation of storage conditions for IT asset management or insurance purposes.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">How are devices protected from humidity during storage?</h3>
-                <p className="text-gray-700 leading-relaxed">Our HVAC system maintains relative humidity at 45&ndash;55% continuously, preventing condensation formation on circuit boards, connectors, and display components. In addition to ambient humidity control, we recommend storing electronics in sealed packaging &mdash; original boxes, sealed anti-static bags, or moisture-resistant cartons &mdash; to provide a secondary barrier against any localised humidity fluctuations. For devices with known moisture sensitivity (certain camera bodies, optical instruments, and precision electronics), we can provide silica gel desiccant packs for inclusion in storage packaging. Humidity monitoring is continuous and automated, with alerts triggered if readings move outside the target range, allowing immediate corrective action before any device is exposed to damaging humidity levels.</p>
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How are devices protected from dust and moisture during storage?</h3>
+                <p className="text-gray-700 leading-relaxed">The best protection for stored electronics is sealed packaging inside a clean, enclosed indoor unit. We recommend storing electronics in original boxes, sealed anti-static bags, or moisture-resistant cartons, which keep dust out and provide a barrier against moisture. For devices with known moisture sensitivity (certain camera bodies, optical instruments, and precision electronics), we can provide silica gel desiccant packs for inclusion in storage packaging. Keeping equipment sealed, off the floor, and dust-protected on dedicated racking is what keeps sensitive devices safe throughout their time in storage.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
@@ -331,17 +331,17 @@ export default function ElectronicsStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">Can businesses store IT equipment between office moves?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes, this is one of the most common business use cases for electronics storage at SafeStorage Dubai. When a company is moving offices, there is almost always a gap between vacating the old premises and having the new premises ready for equipment installation &mdash; typically 2 to 8 weeks. Storing IT equipment, monitors, servers, networking gear, and peripherals in a climate-controlled environment during this period is far preferable to leaving equipment in an empty, un-air-conditioned office or attempting to rush installation before the new space is fully ready. We can accommodate bulk intake of business IT equipment at short notice and can work with your IT team to ensure proper handling and documentation throughout the storage period. Call us at +971505773388 to discuss business relocation storage requirements.</p>
+                <p className="text-gray-700 leading-relaxed">Yes, this is one of the most common business use cases for electronics storage at SafeStorage Dubai. When a company is moving offices, there is almost always a gap between vacating the old premises and having the new premises ready for equipment installation &mdash; typically 2 to 8 weeks. Storing IT equipment, monitors, servers, networking gear, and peripherals in clean, dust-protected, secured units during this period is far preferable to leaving equipment in an empty, unsecured office or attempting to rush installation before the new space is fully ready. We can accommodate bulk intake of business IT equipment at short notice and can work with your IT team to ensure proper handling and documentation throughout the storage period. Call us at +971505773388 to discuss business relocation storage requirements.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">How long can electronics be stored safely at SafeStorage Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">In our climate-controlled environment, electronics can be stored safely for indefinite periods. Electronics manufacturers design products with a 10&ndash;15 year operational lifespan in controlled conditions, and the main risks to electronics in storage &mdash; heat, humidity, dust, and UV exposure &mdash; are all eliminated in our facility. The one component that does degrade over time regardless of storage conditions is lithium-ion batteries, which lose approximately 3&ndash;5% capacity per year at room temperature even when not in use. For devices with non-removable batteries intended for very long-term storage (over 12 months), storing the battery at 40&ndash;60% charge level slows this degradation. Our team can advise on battery preparation during the booking process for long-term storage customers.</p>
+                <p className="text-gray-700 leading-relaxed">In our clean, dust-protected indoor units, electronics can be stored safely for long periods. Sealed packing, anti-static handling, and secured access protect equipment from the dust, physical damage, pests, and theft that cause failures and losses in open storage. The one component that does degrade over time regardless of storage conditions is lithium-ion batteries, which lose approximately 3&ndash;5% capacity per year even when not in use. For devices with non-removable batteries intended for very long-term storage (over 12 months), storing the battery at 40&ndash;60% charge level slows this degradation. Our team can advise on battery preparation during the booking process for long-term storage customers.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">What about lithium battery devices &mdash; are there special requirements?</h3>
-                <p className="text-gray-700 leading-relaxed">Lithium-ion and lithium-polymer batteries require particular attention for long-term storage. The optimal storage charge level for lithium batteries is 40&ndash;60% &mdash; storing at 100% charge accelerates degradation of the cathode, while storing at near-zero charge risks the battery entering an unrecoverable deep discharge state. We recommend that before storing any lithium battery device for more than 2 months, you discharge it to approximately 50% charge. For devices where the battery is accessible and removable, removing the battery and storing it separately at 50% charge is best practice for storage periods over 6 months. Our climate-controlled environment significantly slows the natural self-discharge rate compared to warm ambient storage, extending usable battery life over the storage period.</p>
+                <p className="text-gray-700 leading-relaxed">Lithium-ion and lithium-polymer batteries require particular attention for long-term storage. The optimal storage charge level for lithium batteries is 40&ndash;60% &mdash; storing at 100% charge accelerates degradation of the cathode, while storing at near-zero charge risks the battery entering an unrecoverable deep discharge state. We recommend that before storing any lithium battery device for more than 2 months, you discharge it to approximately 50% charge. For devices where the battery is accessible and removable, removing the battery and storing it separately at 50% charge is best practice for storage periods over 6 months. Keeping devices sealed and dust-protected in our clean indoor units also keeps battery terminals and contacts clean and free of the dust and corrosion that can shorten battery life.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

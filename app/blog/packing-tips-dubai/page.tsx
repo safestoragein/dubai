@@ -59,7 +59,7 @@ export default function PackingTipsDubaiPage() {
 
         <article className="py-12">
           <div className="container px-4 max-w-4xl mx-auto prose prose-lg max-w-none text-gray-700">
-            <p className="text-xl leading-relaxed mb-8">How you pack for storage determines whether your belongings emerge in perfect condition or damaged and disorganised. After helping thousands of Dubai residents pack for storage, our team has developed a set of expert packing principles that apply specifically to Dubai's climate and storage conditions. Here's everything you need to know.</p>
+            <p className="text-xl leading-relaxed mb-8">How you pack for storage determines whether your belongings emerge in perfect condition or damaged and disorganised. After helping thousands of Dubai residents pack for storage, our team has developed a set of expert packing principles that apply specifically to Dubai's storage conditions. Here's everything you need to know.</p>
 
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-6">The Right Materials: What You Need Before You Start</h2>
             <div className="grid md:grid-cols-2 gap-4 mb-8">
@@ -148,7 +148,7 @@ export default function PackingTipsDubaiPage() {
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Common Packing Mistakes in Dubai Storage</h2>
             <div className="space-y-4 mb-8">
               {[
-                { mistake: "Using plastic bags for fabric and clothes", fix: "Plastic traps moisture in Dubai's humidity. Use cardboard boxes or breathable bags for all fabric items." },
+                { mistake: "Using plastic bags for fabric and clothes", fix: "Plastic traps moisture against fabric. Use cardboard boxes or breathable bags for all fabric items." },
                 { mistake: "Packing damp or wet items", fix: "Moisture in a sealed box creates mould within weeks in Dubai. Everything must be completely dry." },
                 { mistake: "Not disassembling furniture", fix: "Large furniture wastes space and is harder to move safely. Disassembly can reduce your storage unit need by one size." },
                 { mistake: "Leaving food or organic matter in boxes", fix: "Even sealed food attracts pests. Remove all food items before storage." },

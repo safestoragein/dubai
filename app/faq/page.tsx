@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Find answers to common questions about SafeStorage Dubai. Learn about our storage units, pricing, pickup services, security, and more.",
   keywords:
-    "storage faq dubai, self storage questions, storage pricing dubai, storage unit sizes, climate controlled storage questions",
+    "storage faq dubai, self storage questions, storage pricing dubai, storage unit sizes, secure storage questions",
   openGraph: {
     title: "FAQs - SafeStorage Dubai",
     description: "Find answers to common questions about our storage services, pricing, security, and more.",
@@ -50,12 +50,8 @@ const faqCategories = [
     ]
   },
   {
-    title: "Climate Control & Security",
+    title: "Security & Insurance",
     faqs: [
-      {
-        question: "Is the storage facility climate-controlled?",
-        answer: "Yes, all our storage units are fully climate-controlled with advanced HVAC systems maintaining optimal temperature (20-25°C) and humidity levels (45-55%) year-round. This is essential in Dubai's extreme heat to protect furniture, electronics, documents, artwork, and other sensitive items from heat damage, humidity, and dust."
-      },
       {
         question: "What security measures are in place at SafeStorage?",
         answer: "Our facility features state-of-the-art security including: 24/7 HD CCTV surveillance covering all areas, biometric access control (only you can access your unit), individual unit alarms, fire detection and suppression systems, on-site security personnel, and secure perimeter fencing. Your belongings are protected around the clock."
@@ -71,7 +67,7 @@ const faqCategories = [
     faqs: [
       {
         question: "Do you offer pickup and delivery services?",
-        answer: "Yes! We provide hassle-free pickup and delivery services across Dubai. Our professional team will collect your items from your location (home, office, or anywhere in Dubai), transport them safely to our climate-controlled facility, and return them whenever you need them back. This hassle-free service is what sets us apart!"
+        answer: "Yes! We provide hassle-free pickup and delivery services across Dubai. Our professional team will collect your items from your location (home, office, or anywhere in Dubai), transport them safely to our secure facility, and return them whenever you need them back. This hassle-free service is what sets us apart!"
       },
       {
         question: "How quickly can you pick up my items?",
@@ -88,11 +84,11 @@ const faqCategories = [
     faqs: [
       {
         question: "How much does storage cost at SafeStorage Dubai?",
-        answer: "Our storage pricing starts from 12.65 AED / sqft (VAT-inclusive). We offer flexible storage solutions for all needs - from small boxes to full villa contents. Contact us at +971505773388 for a personalized quote based on your storage requirements. We also offer flexible payment plans and discounts for long-term storage (3+ months)."
+        answer: "Our storage pricing starts from 12.60 AED / sqft (VAT-inclusive). We offer flexible storage solutions for all needs - from small boxes to full villa contents. Contact us at +971505773388 for a personalized quote based on your storage requirements. We also offer flexible payment plans and discounts for long-term storage (3+ months)."
       },
       {
         question: "Are there any hidden fees?",
-        answer: "Absolutely not! We believe in transparent pricing. The price quoted includes: climate-controlled storage, 24/7 security, basic insurance (up to AED 5,000), and access during operating hours. Pickup and delivery within Dubai is handled door-to-door by our team as part of our hassle-free service. The only additional costs would be for premium insurance, packing materials, or transport to locations outside Dubai, all of which are optional and confirmed upfront."
+        answer: "Absolutely not! We believe in transparent pricing. The price quoted includes: secure storage, 24/7 security, basic insurance (up to AED 5,000), and access during operating hours. Pickup and delivery within Dubai is handled door-to-door by our team as part of our hassle-free service. The only additional costs would be for premium insurance, packing materials, or transport to locations outside Dubai, all of which are optional and confirmed upfront."
       },
       {
         question: "What payment methods do you accept?",
@@ -100,7 +96,7 @@ const faqCategories = [
       },
       {
         question: "Do you offer any discounts?",
-        answer: "Yes! We offer several discount programs: 10% off for 3-month prepaid plans, 15% off for 6-month prepaid plans, 20% off for annual prepaid plans, Special rates for businesses and bulk storage, Referral discounts when you recommend us to friends."
+        answer: "Yes! We offer a wide range of discounts: savings on prepaid plans that grow the longer you store, special rates for businesses and bulk storage, and referral discounts when you recommend us to friends. Contact us for the best available rate for your storage duration."
       },
     ]
   },
@@ -134,7 +130,7 @@ const faqCategories = [
       },
       {
         question: "What items can I store?",
-        answer: "You can store most household and business items including: furniture, appliances, electronics, clothes and personal belongings, documents and files, business inventory, vehicles (cars, motorcycles, boats), and seasonal items. Prohibited items include: hazardous materials, flammable substances, perishable food, live plants/animals, and illegal items."
+        answer: "You can store most household and business items including: furniture, appliances, electronics, clothes and personal belongings, documents and files, business inventory, vehicles (cars, motorcycles, boats), and seasonal items. Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. Other prohibited items include hazardous materials, flammable substances, perishable food, live plants/animals, and illegal items."
       },
     ]
   },
@@ -143,15 +139,15 @@ const faqCategories = [
     faqs: [
       {
         question: "What exactly does the free insurance cover?",
-        answer: "Every SafeStorage Dubai plan includes complimentary insurance coverage up to AED 5,000 per storage agreement. This coverage protects against loss or damage caused by fire, theft, flooding, and accidental damage while your items are in our care — both during transit and while in the storage facility. The insurance activates automatically from the moment our team collects your belongings. No paperwork or applications are required. For customers with higher-value items such as artwork, antiques, jewellery, or high-end electronics, we offer enhanced insurance options at an additional monthly fee — ask your consultant for details."
+        answer: "Every SafeStorage Dubai plan includes complimentary insurance coverage up to AED 5,000 per storage agreement. This coverage protects against loss or damage caused by fire, theft, flooding, and accidental damage while your items are in our care — both during transit and while in the storage facility. The insurance activates automatically from the moment our team collects your belongings. No paperwork or applications are required. For customers with higher-value items such as artwork, antiques, or high-end electronics, we offer enhanced insurance options at an additional monthly fee — ask your consultant for details."
       },
       {
         question: "How do I make an insurance claim if something is damaged?",
-        answer: "In the unlikely event that an item is lost or damaged while in SafeStorage care, contact your dedicated storage consultant immediately or email safestoragedubai@gmail.com. Describe the item and the nature of the damage. Our team will arrange for one of our claims specialists to assess the situation within 48 hours. For insured items, the claim process is straightforward and we aim to resolve all claims within 7 to 14 working days. We photograph every item before storage, which means we have a clear record of the condition each item was in when it entered our care."
+        answer: "In the unlikely event that an item is lost or damaged while in SafeStorage care, contact your dedicated storage consultant immediately or email support@safestorage.ae. Describe the item and the nature of the damage. Our team will arrange for one of our claims specialists to assess the situation within 48 hours. For insured items, the claim process is straightforward and we aim to resolve all claims within 7 to 14 working days. We photograph every item before storage, which means we have a clear record of the condition each item was in when it entered our care."
       },
       {
         question: "Can I get insurance for items worth more than AED 5,000?",
-        answer: "Yes. For customers storing high-value items — such as fine art, antique furniture, luxury watches, jewellery collections, or high-end electronics — SafeStorage offers enhanced insurance coverage beyond the standard AED 5,000 included in every plan. Enhanced coverage is priced based on the declared replacement value of your items and the level of cover required. Our consultant will help you calculate the appropriate coverage amount and provide a quote for the additional insurance premium. We strongly recommend enhanced coverage for any item valued over AED 5,000."
+        answer: "Yes. For customers storing high-value items — such as fine art, antique furniture, luxury watches, or high-end electronics — SafeStorage offers enhanced insurance coverage beyond the standard AED 5,000 included in every plan. Enhanced coverage is priced based on the declared replacement value of your items and the level of cover required. Our consultant will help you calculate the appropriate coverage amount and provide a quote for the additional insurance premium. We strongly recommend enhanced coverage for any item valued over AED 5,000."
       },
     ]
   },
@@ -211,15 +207,11 @@ const faqCategories = [
     faqs: [
       {
         question: "Can I store valuable documents and important records?",
-        answer: "Yes. SafeStorage Dubai offers specialist document and archive storage with enhanced protection measures. Our document storage areas feature fireproof construction, advanced fire suppression systems, and controlled humidity levels that prevent paper deterioration. All document boxes are individually indexed and catalogued for easy retrieval. We offer same-day retrieval for specific documents when needed urgently. This service is popular with law firms, accounting practices, medical clinics, and businesses required to retain records under UAE compliance regulations. Pricing starts from 12.65 AED / sqft (VAT-inclusive)."
+        answer: "Yes. SafeStorage Dubai offers specialist document and archive storage with enhanced protection measures. Our document storage areas feature fireproof construction, advanced fire suppression systems, and clean, dust-protected shelving that keeps records in good condition. All document boxes are individually indexed and catalogued for easy retrieval. We offer same-day retrieval for specific documents when needed urgently. This service is popular with law firms, accounting practices, medical clinics, and businesses required to retain records under UAE compliance regulations. Pricing starts from 12.60 AED / sqft (VAT-inclusive)."
       },
       {
         question: "What prohibited items must I not bring to SafeStorage?",
-        answer: "For the safety of all customers, staff, and stored property, the following items are strictly prohibited at SafeStorage Dubai: hazardous chemicals and toxic substances, flammable liquids and gases (including fuel, propane, and aerosols in large quantities), perishable food and beverages, live animals or plants, illegal goods of any kind, weapons and ammunition, stolen property, and items with strong or offensive odours. If you are unsure whether a specific item is permitted, contact your storage consultant before your pickup date. Attempting to store prohibited items may result in immediate contract termination."
-      },
-      {
-        question: "Can I store temperature-sensitive items like wine or medication?",
-        answer: "SafeStorage&apos;s climate-controlled units maintain 18–22°C, which is suitable for many temperature-sensitive items. However, wine and medication have specific temperature and humidity requirements that may differ from our standard climate-controlled range. For fine wine collections, we recommend consulting us about whether our temperature range is appropriate for your specific varietals. For pharmaceutical products and medication, please confirm storage requirements with your healthcare provider before using our facility. We are happy to discuss special requirements and explore whether a custom temperature arrangement is possible for specific cases."
+        answer: "For the safety of all customers, staff, and stored property, the following items are strictly prohibited at SafeStorage Dubai: food and grocery items, liquids, detergents, cosmetics, ornaments and jewellery, medicines, and masala or spice items, as well as hazardous chemicals and toxic substances, flammable liquids and gases (including fuel, propane, and aerosols in large quantities), perishable food and beverages, live animals or plants, illegal goods of any kind, weapons and ammunition, stolen property, and items with strong or offensive odours. If you are unsure whether a specific item is permitted, contact your storage consultant before your pickup date. Attempting to store prohibited items may result in immediate contract termination."
       },
     ]
   },
@@ -228,7 +220,7 @@ const faqCategories = [
     faqs: [
       {
         question: "Can I use SafeStorage if I am moving abroad from Dubai?",
-        answer: "Yes. SafeStorage Dubai is an excellent solution for residents leaving the UAE permanently or temporarily. We can store your belongings securely while you transition to your new country, and arrange delivery back to your new address when you are ready — whether that is in Dubai when you return, or internationally via our partner freight and shipping services. Many expats use SafeStorage as a long-term base for their UAE belongings, knowing their items are safe, climate-controlled, and insured while they are overseas. Your account can be managed entirely remotely by phone, email, and WhatsApp."
+        answer: "Yes. SafeStorage Dubai is an excellent solution for residents leaving the UAE permanently or temporarily. We can store your belongings securely while you transition to your new country, and arrange delivery back to your new address when you are ready — whether that is in Dubai when you return, or internationally via our partner freight and shipping services. Many expats use SafeStorage as a long-term base for their UAE belongings, knowing their items are safe, secure, and insured while they are overseas. Your account can be managed entirely remotely by phone, email, and WhatsApp."
       },
       {
         question: "Do you offer international shipping of stored items?",
@@ -254,7 +246,7 @@ const faqCategories = [
     faqs: [
       {
         question: "Is SafeStorage suitable for university students in Dubai?",
-        answer: "Absolutely. SafeStorage Dubai is a popular storage solution for students at universities and colleges in Dubai and the wider UAE. Our pricing starting from 12.65 AED / sqft (VAT-inclusive) makes storage genuinely affordable for students on tight budgets. You pay only for the space your belongings actually occupy, so typical student storage needs — 5 to 15 boxes plus a bicycle, sports equipment, or small appliances — remain very affordable. We can store your belongings between semesters, during study-abroad periods, or over summer breaks. Student discounts are available — ask about our current student offer when you get a quote."
+        answer: "Absolutely. SafeStorage Dubai is a popular storage solution for students at universities and colleges in Dubai and the wider UAE. Our pricing starting from 12.60 AED / sqft (VAT-inclusive) makes storage genuinely affordable for students on tight budgets. You pay only for the space your belongings actually occupy, so typical student storage needs — 5 to 15 boxes plus a bicycle, sports equipment, or small appliances — remain very affordable. We can store your belongings between semesters, during study-abroad periods, or over summer breaks. Student discounts are available — ask about our current student offer when you get a quote."
       },
       {
         question: "What makes SafeStorage ideal for Dubai expats specifically?",
@@ -425,16 +417,14 @@ export default function FAQPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-dubai-navy mb-3">Why Climate Control Is Essential in Dubai</h3>
+              <h3 className="text-xl font-semibold text-dubai-navy mb-3">Secure, Clean Indoor Storage</h3>
               <p className="text-gray-700 mb-3">
-                Dubai summer temperatures regularly exceed 45°C outdoors and 55°C inside non-climate-controlled
-                storage containers. This extreme heat causes irreversible damage to wood, leather, electronics,
-                photographs, artwork, and many fabrics within weeks.
+                Every SafeStorage unit is a secure, clean, dust-protected indoor space. Your belongings are
+                wrapped with care on collection, stored on raised platforms, and kept away from external walls.
               </p>
               <p className="text-gray-700">
-                All SafeStorage units maintain a consistent 20–25°C temperature and 45–55% relative humidity
-                year-round using industrial HVAC systems. This is not an optional upgrade — it is included
-                in every storage plan at no additional cost.
+                The facility is monitored around the clock by 24/7 HD CCTV, secured with biometric access, and
+                covered by free insurance up to AED 5,000 — all included in every storage plan at no additional cost.
               </p>
             </div>
           </div>
@@ -449,7 +439,7 @@ export default function FAQPage() {
               <li><strong>1. Book online or call:</strong> Schedule a pickup time through our website, WhatsApp, or by calling +971 50 577 3388.</li>
               <li><strong>2. We arrive at your door:</strong> Our uniformed team arrives at your chosen time window with all necessary equipment.</li>
               <li><strong>3. We pack and load:</strong> Our team wraps furniture, boxes loose items, and loads everything carefully into our transport vehicle.</li>
-              <li><strong>4. Secure storage:</strong> Your items are transported to our climate-controlled facility and stored in your dedicated unit.</li>
+              <li><strong>4. Secure storage:</strong> Your items are transported to our secure facility and stored in your dedicated unit.</li>
               <li><strong>5. Retrieve on demand:</strong> Call or WhatsApp whenever you need items back. We deliver to your address within 24–48 hours.</li>
             </ol>
           </div>
@@ -489,9 +479,9 @@ export default function FAQPage() {
           <div className="bg-gray-50 rounded-xl p-8">
             <h3 className="text-xl font-bold text-dubai-navy mb-4">SafeStorage Dubai — Key Facts</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
-              <p>• Storage from 12.65 AED / sqft (VAT-inclusive) — no setup fees</p>
+              <p>• Storage from 12.60 AED / sqft (VAT-inclusive) — no setup fees</p>
               <p>• Hassle-free pickup and delivery anywhere in Dubai</p>
-              <p>• Climate-controlled: 20–25°C maintained year-round</p>
+              <p>• Secure, clean, dust-protected indoor units</p>
               <p>• 24/7 HD CCTV security and biometric access</p>
               <p>• Free insurance up to AED 5,000 included</p>
               <p>• Month-to-month contracts — no long-term lock-in</p>

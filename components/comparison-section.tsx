@@ -10,11 +10,6 @@ const features = [
     others: "limited",
   },
   {
-    name: "Climate-Controlled Units",
-    safestorage: "yes",
-    others: "no",
-  },
-  {
     name: "Flexible Payment Plans",
     safestorage: "yes",
     others: "no",

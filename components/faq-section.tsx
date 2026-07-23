@@ -8,22 +8,17 @@ const faqs = [
   {
     question: "How much does storage cost in Dubai?",
     answer:
-      "SafeStorage Dubai offers climate-controlled storage starting from 12.65 AED / sqft (VAT-inclusive). The final price depends on the unit size, rental duration, and any additional services. Importantly, our pricing is fully transparent — what we quote is what you pay, with no admin fees, hidden charges, or deposit surprises. We also offer a price-match guarantee: show us a lower quote and we'll beat it.",
+      "SafeStorage Dubai offers secure storage starting from 12.60 AED / sqft (VAT-inclusive). The final price depends on the unit size, rental duration, and any additional services. Importantly, our pricing is fully transparent — what we quote is what you pay, with no admin fees, hidden charges, or deposit surprises. We also offer a price-match guarantee: show us a lower quote and we'll beat it.",
   },
   {
     question: "Do you offer hassle-free pickup and delivery across Dubai?",
     answer:
-      "Yes — hassle-free pickup and delivery is included with every SafeStorage plan. Our professional team will come to your home or office anywhere in Dubai, bring packing materials, carefully load your items, and transport them to our climate-controlled facility. When you need anything back, we deliver it to your door. No truck rental and no heavy lifting needed on your part. Same-day pickup is available for bookings confirmed before 12 PM.",
+      "Yes — hassle-free pickup and delivery is included with every SafeStorage plan. Our professional team will come to your home or office anywhere in Dubai, bring packing materials, carefully load your items, and transport them to our secure facility. When you need anything back, we deliver it to your door. No truck rental and no heavy lifting needed on your part. Same-day pickup is available for bookings confirmed before 12 PM.",
   },
   {
     question: "Is my storage unit secure?",
     answer:
       "Security is our top priority. Our facilities feature 24/7 CCTV cameras covering every corridor and access point, biometric or PIN-based entry control, motion-activated alerts after hours, and on-site monitoring. Every unit has its own individual lock — only you hold the key. All stored items are also covered by complimentary insurance up to AED 5,000, giving you additional peace of mind.",
-  },
-  {
-    question: "Are the storage units climate-controlled?",
-    answer:
-      "Yes, every SafeStorage unit is fully climate-controlled and maintained at 20–24°C with 45–55% humidity year-round. This is essential in Dubai, where outdoor summer temperatures can exceed 45°C. Climate control protects furniture from warping, electronics from overheating, clothing from mildew, artwork from fading, and documents from deterioration — regardless of how long you store.",
   },
   {
     question: "What size storage unit do I need?",
@@ -38,7 +33,7 @@ const faqs = [
   {
     question: "What items are not allowed in storage?",
     answer:
-      "For safety reasons, we do not allow: perishable food or drinks, flammable or combustible materials (petrol, gas cylinders), illegal or controlled substances, live plants or animals, firearms, explosives, or any hazardous chemicals. If you're unsure whether a specific item can be stored, simply call us on +971505773388 and we'll advise you immediately.",
+      "Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. For safety reasons we also do not allow flammable or combustible materials (petrol, gas cylinders), illegal or controlled substances, live plants or animals, firearms, explosives, or any hazardous chemicals. If you're unsure whether a specific item can be stored, simply call us on +971505773388 and we'll advise you immediately.",
   },
   {
     question: "How do I get started with SafeStorage Dubai?",

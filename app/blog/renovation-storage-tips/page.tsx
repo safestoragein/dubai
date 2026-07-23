@@ -104,7 +104,7 @@ export default function RenovationStorageTipsPage() {
                 { phase: "2-3 Weeks Before Renovation Starts", tasks: ["Get storage quote and book unit", "Decide what to store vs cover in place", "Order packing materials", "Notify contractors of storage access date"] },
                 { phase: "3-5 Days Before Start", tasks: ["Disassemble large furniture", "Pack all electronics with protective materials", "Wrap items staying in property (heavy plastic)", "Book SafeStorage pickup"] },
                 { phase: "Pickup Day", tasks: ["Team arrives, wraps and loads all items", "Document condition for all pieces", "Confirm storage unit inventory", "Get access for any renovation deliveries required"] },
-                { phase: "During Renovation", tasks: ["Items safe in climate-controlled storage", "Contractors have full access to the space", "Request any specific items if needed", "Plan return delivery date (1 week post-completion)"] },
+                { phase: "During Renovation", tasks: ["Items safe in secure, dust-protected storage", "Contractors have full access to the space", "Request any specific items if needed", "Plan return delivery date (1 week post-completion)"] },
                 { phase: "Renovation Complete", tasks: ["Deep clean property before delivery", "Schedule SafeStorage delivery", "Items returned and positioned", "Inspect for any damage (rare but possible during transit)"] },
               ].map((phase) => (
                 <div key={phase.phase} className="p-5 bg-slate-50 border border-gray-200 rounded-xl">
@@ -125,9 +125,9 @@ export default function RenovationStorageTipsPage() {
               <div className="bg-green-50 border border-green-200 rounded-xl p-5">
                 <h3 className="font-bold text-green-800 mb-3">Storage Cost (2BR Apartment)</h3>
                 <div className="space-y-2 text-sm text-green-700">
-                  <div className="flex justify-between"><span>Unit pricing</span><span className="font-bold">From 12.65 AED / sqft</span></div>
+                  <div className="flex justify-between"><span>Unit pricing</span><span className="font-bold">From 12.60 AED / sqft</span></div>
                   <div className="flex justify-between"><span>Hassle-free pickup + delivery</span><span className="font-bold">AED 0</span></div>
-                  <div className="border-t border-green-300 pt-2 flex justify-between font-bold"><span>Total</span><span>From 12.65 AED / sqft</span></div>
+                  <div className="border-t border-green-300 pt-2 flex justify-between font-bold"><span>Total</span><span>From 12.60 AED / sqft</span></div>
                 </div>
               </div>
               <div className="bg-red-50 border border-red-200 rounded-xl p-5">

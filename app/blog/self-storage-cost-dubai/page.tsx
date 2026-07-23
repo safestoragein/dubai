@@ -6,11 +6,11 @@ import { Phone, ArrowRight, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "How Much Does Self Storage Cost in Dubai? 2025 Price Guide | SafeStorage",
-  description: "Complete 2025 guide to self storage costs in Dubai. Unit prices by size, what's included, hidden fees to watch for, and how to get the best deal. From 12.65 AED / sqft.",
+  description: "Complete 2025 guide to self storage costs in Dubai. Unit prices by size, what's included, hidden fees to watch for, and how to get the best deal. From 12.60 AED / sqft.",
   keywords: "self storage cost dubai, storage unit price dubai, how much is storage dubai, storage unit cost per month dubai, cheap storage dubai, affordable storage dubai 2025",
   openGraph: {
     title: "How Much Does Self Storage Cost in Dubai? 2025 Price Guide",
-    description: "Detailed breakdown of self storage costs in Dubai by unit size. SafeStorage Dubai pricing from 12.65 AED / sqft. What's included and what to avoid.",
+    description: "Detailed breakdown of self storage costs in Dubai by unit size. SafeStorage Dubai pricing from 12.60 AED / sqft. What's included and what to avoid.",
     url: "https://safestorage.ae/blog/self-storage-cost-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -44,16 +44,6 @@ const schemas = [
   },
 ]
 
-const prices = [
-  { size: "Locker / Mini (25 sq ft)", monthlyRange: "AED 99–150", bestFor: "Boxes, suitcases, seasonal items" },
-  { size: "Small Unit (50 sq ft)", monthlyRange: "AED 199–299", bestFor: "Studio apartment contents" },
-  { size: "Medium Unit (100 sq ft)", monthlyRange: "AED 499–699", bestFor: "1-2 bedroom apartment" },
-  { size: "Large Unit (150 sq ft)", monthlyRange: "AED 899–1,299", bestFor: "3 bedroom apartment / small villa" },
-  { size: "Extra Large (200+ sq ft)", monthlyRange: "AED 1,499–2,499", bestFor: "4-5 bedroom villa / business" },
-  { size: "Vehicle Bay (car)", monthlyRange: "AED 899–1,499", bestFor: "Cars, SUVs, classic vehicles" },
-  { size: "Vehicle Bay (motorbike)", monthlyRange: "AED 399–599", bestFor: "Motorcycles, scooters" },
-]
-
 export default function SelfStorageCostDubaiPage() {
   return (
     <>
@@ -70,35 +60,12 @@ export default function SelfStorageCostDubaiPage() {
         <article className="py-12">
           <div className="container px-4 max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-gray-700">
-              <p className="text-xl leading-relaxed mb-8">Storage costs in Dubai range from <strong>AED 99/month</strong> for a small locker to <strong>AED 2,500/month</strong> for a large unit suitable for a full villa. The exact price depends on unit size, whether it's climate-controlled, and what's included in the monthly rate. This guide breaks down exactly what you should expect to pay — and the hidden fees some facilities charge that you should watch out for.</p>
-
-              <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-6">2025 Self Storage Price Guide by Unit Size</h2>
-              <p className="mb-6">These are current market prices for Dubai self storage as of 2025. Climate-controlled units are now standard with reputable providers — prices below include climate control:</p>
-              <div className="overflow-x-auto mb-8">
-                <table className="w-full border-collapse rounded-xl overflow-hidden">
-                  <thead>
-                    <tr className="bg-dubai-navy text-white">
-                      <th className="text-left p-4">Unit Size</th>
-                      <th className="text-left p-4">Monthly Range</th>
-                      <th className="text-left p-4">Best For</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {prices.map((row, i) => (
-                      <tr key={row.size} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
-                        <td className="p-4 font-medium text-dubai-navy">{row.size}</td>
-                        <td className="p-4 font-bold text-dubai-gold">{row.monthlyRange}</td>
-                        <td className="p-4 text-gray-600">{row.bestFor}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <p className="text-xl leading-relaxed mb-8">Storage costs in Dubai range from <strong>AED 99/month</strong> for a small locker to <strong>AED 2,500/month</strong> for a large unit suitable for a full villa. The exact price depends on unit size and what's included in the monthly rate. This guide breaks down exactly what you should expect to pay — and the hidden fees some facilities charge that you should watch out for.</p>
 
               <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">What's Typically Included in Dubai Storage Prices</h2>
               <p className="mb-4">With established Dubai storage providers, these are typically included in the monthly rate:</p>
               <ul className="space-y-2 mb-8">
-                {["Climate-controlled temperature (18-24°C)", "24/7 CCTV security monitoring", "Basic contents insurance", "Free access during business hours", "One padlock per unit (some providers)"].map((item) => (
+                {["Secure, dust-protected indoor units", "24/7 CCTV security monitoring", "Basic contents insurance", "Free access during business hours", "One padlock per unit (some providers)"].map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-dubai-gold flex-shrink-0 mt-0.5" />{item}
                   </li>
@@ -129,7 +96,7 @@ export default function SelfStorageCostDubaiPage() {
               <div className="space-y-4 mb-8">
                 {[
                   { tip: "Choose the right size first", desc: "Paying for a large unit when a medium would suffice is the most common waste. Use our size guide or call a consultant to size correctly before booking." },
-                  { tip: "Ask about longer-term discounts", desc: "Most Dubai storage providers offer 10-20% discount for 3-month, 6-month or annual payments upfront. If you know you'll store for 6+ months, ask about discounted rates." },
+                  { tip: "Ask about longer-term discounts", desc: "Most Dubai storage providers offer a wide range of discounts for longer prepaid periods paid upfront. If you know you'll store for 6+ months, ask about discounted rates." },
                   { tip: "Choose providers with hassle-free pickup", desc: "Hassle-free pickup saves AED 200-500 on initial move. SafeStorage Dubai offers hassle-free pickup across all Dubai areas — factor this into your total cost comparison." },
                   { tip: "Compare total cost not headline rate", desc: "A facility advertising AED 350/month may end up costing AED 500/month after admin fees, insurance add-ons, and paid pickup. Always ask for an all-in monthly total." },
                 ].map((t) => (
@@ -147,10 +114,10 @@ export default function SelfStorageCostDubaiPage() {
               <p className="mb-4">In most common Dubai scenarios, storage saves money compared to alternatives:</p>
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 {[
-                  { vs: "vs Keeping apartment for renovation", storage: "from 12.65 AED / sqft", alternative: "AED 3,500–8,000/mo (keeping flat during renovation)" },
-                  { vs: "vs International shipping", storage: "from 12.65 AED / sqft", alternative: "AED 12,000–25,000 (one-way sea freight to UK)" },
-                  { vs: "vs Replacing items abroad", storage: "from 12.65 AED / sqft", alternative: "AED 15,000–30,000 (refurnishing abroad)" },
-                  { vs: "vs Warehouse rental for business", storage: "from 12.65 AED / sqft", alternative: "AED 5,000–15,000/mo (min. 2-3 year warehouse lease)" },
+                  { vs: "vs Keeping apartment for renovation", storage: "from 12.60 AED / sqft", alternative: "AED 3,500–8,000/mo (keeping flat during renovation)" },
+                  { vs: "vs International shipping", storage: "from 12.60 AED / sqft", alternative: "AED 12,000–25,000 (one-way sea freight to UK)" },
+                  { vs: "vs Replacing items abroad", storage: "from 12.60 AED / sqft", alternative: "AED 15,000–30,000 (refurnishing abroad)" },
+                  { vs: "vs Warehouse rental for business", storage: "from 12.60 AED / sqft", alternative: "AED 5,000–15,000/mo (min. 2-3 year warehouse lease)" },
                 ].map((c) => (
                   <div key={c.vs} className="p-4 border border-gray-200 rounded-xl">
                     <div className="font-semibold text-dubai-navy text-sm mb-2">{c.vs}</div>
@@ -162,7 +129,7 @@ export default function SelfStorageCostDubaiPage() {
 
               <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6 my-8">
                 <h3 className="font-bold text-dubai-navy mb-2">SafeStorage Dubai Pricing</h3>
-                <p>At SafeStorage Dubai, pricing starts from 12.65 AED / sqft (VAT-inclusive) and includes hassle-free pickup across Dubai, climate control, 24/7 security, and basic insurance — with no hidden admin fees. You only pay for the space you use. Get a personalised quote for your specific needs.</p>
+                <p>At SafeStorage Dubai, pricing starts from 12.60 AED / sqft (VAT-inclusive) and includes hassle-free pickup across Dubai, 24/7 security, and basic insurance — with no hidden admin fees. You only pay for the space you use. Get a personalised quote for your specific needs.</p>
               </div>
             </div>
 

@@ -47,13 +47,17 @@ const schemas = [
 const allowed = [
   { category: "Furniture & Home", items: ["Sofas, chairs, tables", "Beds, mattresses, wardrobes", "Appliances (fridge, washer, dryer)", "Décor, lamps, mirrors", "Carpets and rugs"] },
   { category: "Electronics & Tech", items: ["TVs, monitors, projectors", "Computers, laptops, tablets", "Gaming consoles", "Cameras and audio equipment", "Servers and IT equipment"] },
-  { category: "Clothing & Personal", items: ["Clothing and shoes", "Bags and luggage", "Jewellery and accessories", "Sports equipment", "Toys and games"] },
+  { category: "Clothing & Personal", items: ["Clothing and shoes", "Bags and luggage", "Belts and accessories", "Sports equipment", "Toys and games"] },
   { category: "Business & Commercial", items: ["Office furniture and equipment", "Inventory and stock", "Documents and archives", "Tools and equipment", "Display fixtures and signage"] },
-  { category: "Specialist Items", items: ["Artwork and paintings", "Musical instruments", "Wine and spirits (climate)", "Classic and collector vehicles", "Antiques and collectibles"] },
+  { category: "Specialist Items", items: ["Artwork and paintings", "Musical instruments", "Wine and spirits", "Classic and collector vehicles", "Antiques and collectibles"] },
   { category: "Vehicles", items: ["Cars and SUVs", "Motorcycles and scooters", "Bicycles", "Boats and jet skis", "Classic and collector vehicles"] },
 ]
 
 const prohibited = [
+  { item: "Ornaments & jewellery", detail: "For security reasons SafeStorage does not store ornaments, jewellery, or similar small high-value items — keep these in a bank safe deposit box." },
+  { item: "Food, grocery & spice items", detail: "Food and grocery items, and masala or spice items, are not accepted as they attract pests and spoil in storage." },
+  { item: "Liquids & detergents", detail: "Liquids of any kind and detergents are not permitted as they can leak and damage other stored items." },
+  { item: "Cosmetics & medicines", detail: "Cosmetics and medicines are not accepted for storage." },
   { item: "Flammable materials", detail: "Petrol, diesel, paint, solvents, propane tanks, lighter fluid — all prohibited under UAE fire code." },
   { item: "Explosives or ammunition", detail: "Any type of explosive material, firearms, or ammunition — strictly prohibited and subject to legal penalties." },
   { item: "Hazardous chemicals", detail: "Pesticides, industrial chemicals, corrosives and class 1-9 dangerous goods are not permitted." },
@@ -113,10 +117,10 @@ export default function WhatCanYouStorePage() {
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Items That Need Specialist Handling</h2>
             <div className="space-y-4 mb-8">
               {[
-                { item: "Artwork and paintings", note: "Allowed but recommended in climate-controlled units with photography on intake. Declare value at booking for appropriate insurance coverage." },
-                { item: "Wine and spirits", note: "Allowed in climate-controlled units. Store at 12-16°C for wine — standard climate-controlled units at 18-24°C are adequate for short-term (under 5 years). Ask about dedicated wine storage options for long-term collections." },
+                { item: "Artwork and paintings", note: "Allowed; we photograph items on intake and wrap them for protection. Declare value at booking for appropriate insurance coverage." },
+                { item: "Wine and spirits", note: "Allowed. Keep bottles boxed and packed securely to prevent breakage. For long-term collections, ask about dedicated wine storage options." },
                 { item: "Vehicles", note: "Vehicles need dedicated vehicle bays, not standard storage units. Petrol tank should be at minimum level (not full). Disconnect battery for long-term storage. Ask about our vehicle storage pricing." },
-                { item: "Musical instruments", note: "Piano storage requires specialist knowledge and moving equipment. High-value string instruments need climate-controlled storage with humidity monitoring. Declare instruments at intake." },
+                { item: "Musical instruments", note: "Piano storage requires specialist knowledge and moving equipment. Declare high-value instruments at intake and pack them in their cases for protection." },
                 { item: "Medical or laboratory equipment", note: "Allowed but may require documentation of intended use. Contact us before booking if you have specific medical or lab equipment to store." },
               ].map((s) => (
                 <div key={s.item} className="p-4 bg-yellow-50 border border-yellow-200 rounded-xl">

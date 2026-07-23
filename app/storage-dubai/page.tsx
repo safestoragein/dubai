@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
-  Star, Shield, Thermometer, Clock, Truck, Phone, MessageCircle,
+  Star, Shield, Clock, Truck, Phone, MessageCircle,
   CheckCircle2, ArrowRight, MapPin, Package, Users, Building2,
   Car, FileText, ShoppingBag, Home, Briefcase, Lock, CreditCard,
   Calendar, HelpCircle, ChevronRight, Boxes, UserCheck, Zap, BadgeCheck
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   description: "One storage provider for all your Dubai needs: personal furniture, business inventory, vehicle storage & document archival. 4.9★ rated by 500+ customers. Hassle-free pickup, transparent pricing. Call +971505773388.",
   keywords: "all in one storage dubai, personal and business storage dubai, vehicle furniture storage dubai, storage provider dubai, full service storage dubai, pickup and delivery storage dubai, 4.9 rated storage dubai",
   openGraph: {
-    title: "Storage Dubai | #1 Rated Storage Facility | From 12.65 AED / sqft",
-    description: "Best storage in Dubai from 12.65 AED / sqft. Climate-controlled, 24/7 access, Hassle-free pickup & delivery. 4.9★ rated by 500+ customers.",
+    title: "Storage Dubai | #1 Rated Storage Facility | From 12.60 AED / sqft",
+    description: "Best storage in Dubai from 12.60 AED / sqft. Secure units, 24/7 access, Hassle-free pickup & delivery. 4.9★ rated by 500+ customers.",
     url: "https://safestorage.ae/storage-dubai",
     siteName: "SafeStorage Dubai",
     images: [
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Storage Dubai | #1 Rated | From 12.65 AED / sqft",
-    description: "Best storage in Dubai. Climate-controlled, Hassle-free pickup. 500+ happy customers.",
+    title: "Storage Dubai | #1 Rated | From 12.60 AED / sqft",
+    description: "Best storage in Dubai. Secure units, Hassle-free pickup. 500+ happy customers.",
   },
   alternates: {
     canonical: "https://safestorage.ae/storage-dubai",
@@ -54,12 +54,6 @@ const whyChooseUs = [
     title: "Hassle-Free Pickup & Delivery",
     description: "We collect from your location and deliver back when needed - hassle-free door-to-door, with no van rental or heavy lifting required on your part.",
     highlight: "Door-to-Door Service",
-  },
-  {
-    icon: Thermometer,
-    title: "True Climate Control (20-25°C)",
-    description: "Not just 'air conditioning' - real temperature and humidity control (45-55%) to protect your belongings from Dubai's extreme heat.",
-    highlight: "Specific Temperature Range",
   },
   {
     icon: CreditCard,
@@ -104,7 +98,7 @@ const storageServices = [
   {
     icon: Package,
     title: "Furniture Storage",
-    description: "Climate-controlled units perfect for protecting furniture from Dubai's heat. Ideal for relocations and staging.",
+    description: "Secure, dedicated units perfect for protecting furniture. Ideal for relocations and staging.",
     link: "/self-storage-dubai/furniture-storage",
   },
   {
@@ -116,7 +110,7 @@ const storageServices = [
   {
     icon: Car,
     title: "Vehicle Storage",
-    description: "Covered and climate-controlled options for cars, motorcycles, boats, and classic vehicles. Regular checks available.",
+    description: "Covered indoor options for cars, motorcycles, boats, and classic vehicles. Regular checks available.",
     link: "/services",
   },
   {
@@ -144,7 +138,7 @@ const howItWorks = [
   {
     step: 3,
     title: "Safe Storage",
-    description: "Your belongings are transported to our climate-controlled facility with 24/7 security and stored in your personal unit.",
+    description: "Your belongings are transported to our secure facility with 24/7 security and stored in your personal unit.",
     icon: Shield,
   },
   {
@@ -185,7 +179,7 @@ const userGroups = [
   {
     icon: Star,
     title: "Collectors & Hobbyists",
-    description: "Art, antiques, sports equipment, wine collections. Climate-controlled protection for valuable and sensitive items.",
+    description: "Art, antiques, sports equipment, wine collections. Secure, dedicated protection for valuable and sensitive items.",
   },
 ]
 
@@ -218,14 +212,14 @@ const testimonials = [
     location: "Dubai Marina",
     rating: 5,
     useCase: "Villa Renovation",
-    text: "Stored our entire villa contents for 4 months during renovation. The team picked up everything, stored it safely in climate control, and delivered it all back in perfect condition. The coordinator Ahmed kept us updated throughout. Couldn't be happier!",
+    text: "Stored our entire villa contents for 4 months during renovation. The team picked up everything, stored it safely in a secure unit, and delivered it all back in perfect condition. The coordinator Ahmed kept us updated throughout. Couldn't be happier!",
   },
   {
     name: "Sarah Mitchell",
     location: "Business Bay",
     rating: 5,
     useCase: "Expat Relocation",
-    text: "Moving back to UK temporarily and needed to store everything. SafeStorage made it so easy - they packed, collected, and now I have peace of mind knowing my furniture is in climate-controlled storage. Will definitely use again when I return.",
+    text: "Moving back to UK temporarily and needed to store everything. SafeStorage made it so easy - they packed, collected, and now I have peace of mind knowing my furniture is in secure storage. Will definitely use again when I return.",
   },
   {
     name: "Mohammed Hassan",
@@ -239,7 +233,7 @@ const testimonials = [
     location: "Palm Jumeirah",
     rating: 5,
     useCase: "Furniture Storage",
-    text: "Was worried about storing my antique furniture in Dubai's heat. SafeStorage's climate control kept everything at 22°C. After 6 months, my pieces came back exactly as I left them. The insurance coverage gave me extra peace of mind.",
+    text: "I was worried about storing my antique furniture. SafeStorage wrapped and protected every piece and kept it dust-free. After 6 months, my pieces came back exactly as I left them. The insurance coverage gave me extra peace of mind.",
   },
   {
     name: "James Williams",
@@ -261,11 +255,7 @@ const testimonials = [
 const faqs = [
   {
     question: "How much does storage cost in Dubai?",
-    answer: "Storage in Dubai at SafeStorage starts from just 12.65 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include climate control, security, and hassle-free pickup & delivery. Contact us at 050-577-3388 for a personalized quote.",
-  },
-  {
-    question: "Is climate control necessary for storage in Dubai?",
-    answer: "Absolutely! Dubai's temperatures exceed 45°C in summer and humidity fluctuates dramatically. Without climate control, furniture warps, electronics fail, documents deteriorate, and mold grows. All SafeStorage units maintain 20-25°C temperature and 45-55% humidity year-round to protect your belongings.",
+    answer: "Storage in Dubai at SafeStorage starts from just 12.60 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include security, and hassle-free pickup & delivery. Contact us at 050-577-3388 for a personalized quote.",
   },
   {
     question: "Do you pick up items from my location?",
@@ -285,7 +275,7 @@ const faqs = [
   },
   {
     question: "What is the minimum rental period?",
-    answer: "SafeStorage Dubai offers flexible month-to-month contracts with just 1-month minimum. No long-term commitment required! You can extend as needed or cancel with 30 days notice. We also offer discounts for prepaid plans: 10% off for 3 months, 15% off for 6 months, 20% off for 12 months.",
+    answer: "SafeStorage Dubai offers flexible month-to-month contracts with just 1-month minimum. No long-term commitment required! You can extend as needed or cancel with 30 days notice. We also offer a wide range of discounts on prepaid plans — the longer you store, the more you save. Contact us for the best available rate.",
   },
   {
     question: "Are my stored items insured?",
@@ -293,7 +283,7 @@ const faqs = [
   },
   {
     question: "What items cannot be stored?",
-    answer: "For safety, we cannot store: hazardous materials and chemicals, flammable substances (petrol, paint, aerosols), perishable food items, live plants or animals, firearms and explosives, and illegal items. Everything else - furniture, electronics, documents, vehicles, artwork, sports equipment - is welcome!",
+    answer: "Please note we do not store: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. For safety, we also cannot store hazardous materials and chemicals, flammable substances (petrol, paint, aerosols), perishable food, live plants or animals, firearms and explosives, and illegal items. Everything else - furniture, electronics, documents, vehicles, sports equipment - is welcome!",
   },
   {
     question: "Can I change my storage unit size later?",
@@ -345,7 +335,7 @@ const storageDubaiSchemas = [
     url: 'https://safestorage.ae/storage-dubai',
     areaServed: { '@type': 'City', name: 'Dubai' },
     serviceType: 'Self Storage',
-    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.65', description: 'Starts from 12.65 AED / sqft (VAT-inclusive)' },
+    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.60', description: 'Starts from 12.60 AED / sqft (VAT-inclusive)' },
     aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '312' },
   },
   {
@@ -398,10 +388,6 @@ export default function StorageDubaiPage() {
                   <Truck className="h-4 w-4 text-green-400" />
                   <span className="text-white text-sm font-medium">Hassle-Free Pickup</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                  <Thermometer className="h-4 w-4 text-blue-400" />
-                  <span className="text-white text-sm font-medium">Climate Controlled</span>
-                </div>
               </div>
 
               {/* Main Headline */}
@@ -412,7 +398,7 @@ export default function StorageDubaiPage() {
 
               {/* Subheadline */}
               <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-                Hassle-free pickup & delivery • From 12.65 AED / sqft • 24/7 access • Climate controlled
+                Hassle-free pickup & delivery • From 12.60 AED / sqft • 24/7 access • Secure units
               </p>
 
               {/* CTAs */}
@@ -443,7 +429,7 @@ export default function StorageDubaiPage() {
                   { label: "Happy Customers", value: "500+" },
                   { label: "Google Rating", value: "4.9★" },
                   { label: "Access Hours", value: "24/7" },
-                  { label: "Starting Price", value: "12.65 AED / sqft" },
+                  { label: "Starting Price", value: "12.60 AED / sqft" },
                 ].map((stat, i) => (
                   <div key={i} className="bg-white/5 backdrop-blur-sm rounded-lg p-4">
                     <div className="text-dubai-gold font-bold text-xl">{stat.value}</div>
@@ -540,14 +526,14 @@ export default function StorageDubaiPage() {
                 Storage Dubai Pricing
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Transparent pricing - Competitors hide this! Prices start from 12.65 AED / sqft.
+                Transparent pricing - Competitors hide this! Prices start from 12.60 AED / sqft.
               </p>
             </div>
 
             <div className="max-w-xl mx-auto">
               <div className="relative bg-white rounded-2xl shadow-lg ring-2 ring-dubai-gold overflow-hidden text-center p-10">
                 <h3 className="text-2xl md:text-3xl font-bold text-dubai-navy mb-3">
-                  Pricing starts from 12.65 AED / sqft
+                  Pricing starts from 12.60 AED / sqft
                 </h3>
                 <p className="text-muted-foreground mb-6">
                   VAT-inclusive · all unit sizes · hassle-free pickup & delivery included
@@ -800,10 +786,6 @@ export default function StorageDubaiPage() {
                 </span>
                 <span className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-400" />
-                  Climate Controlled
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-400" />
                   No Hidden Fees
                 </span>
                 <span className="flex items-center gap-2">
@@ -816,7 +798,7 @@ export default function StorageDubaiPage() {
               <div className="mt-12 pt-8 border-t border-white/20">
                 <p className="text-white/60 text-sm">
                   <MapPin className="inline h-4 w-4 mr-1" />
-                  Dubai Investment Park 2, Dubai, UAE
+                  Building 23, Warehouse 5, DIP-1, Dubai, UAE
                 </p>
                 <p className="text-white/60 text-sm mt-2">
                   Trusted by 500+ customers | 4.9★ on Google | 7+ Years Serving Dubai
@@ -843,28 +825,28 @@ export default function StorageDubaiPage() {
                   Dubai&apos;s combination of extreme heat, high rental costs, and a transient expat population
                   creates unique storage demands that traditional self-service facilities are poorly equipped
                   to meet. SafeStorage was built specifically for Dubai — addressing the city&apos;s specific
-                  challenges with climate-controlled units, hassle-free city-wide pickup and delivery, flexible
+                  challenges with secure, dedicated units, hassle-free city-wide pickup and delivery, flexible
                   month-to-month contracts, and a hassle-free service model.
                 </p>
                 <p className="text-gray-700">
                   Our most popular services are household storage during apartment moves and renovations,
                   business storage for office clearances and inventory management, and expat storage for
                   residents who need to keep belongings safely in Dubai while they travel or relocate.
-                  All services include the same climate control, security, and insurance standards.
+                  All services include the same security and insurance standards.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Storage Costs in Dubai</h3>
                 <p className="text-gray-700 mb-3">
-                  Storage in Dubai starts from 12.65 AED / sqft (VAT-inclusive) — whether you need a small
+                  Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) — whether you need a small
                   personal unit (25–50 sq ft), an extra-large unit (200+ sq ft) for full villa contents or
                   commercial inventory, or vehicle storage for standard cars and motorcycles.
                 </p>
                 <p className="text-gray-700">
-                  All SafeStorage plans include climate control, 24/7 security, free insurance up to AED 5,000,
+                  All SafeStorage plans include 24/7 security, free insurance up to AED 5,000,
                   and hassle-free pickup and delivery. There are no setup fees, no admin charges, and no hidden costs.
-                  Long-term customers (3+ months) receive discounts of 10–20%. Contact us for a personalised
-                  quote based on exactly what you need to store.
+                  Long-term customers benefit from a wide range of discounts — the longer you store, the more
+                  you save. Contact us for a personalised quote based on exactly what you need to store.
                 </p>
               </div>
             </div>
@@ -918,20 +900,20 @@ export default function StorageDubaiPage() {
                 The SafeStorage experience begins with a free quote. Contact our team by phone, WhatsApp, or through our online quote form with details of what you need to store, your location, and your preferred timeframe. We will provide a transparent quote with no hidden fees within a few hours. There are no deposits required, no minimum contract, and no administrative charges.
               </p>
               <p className="text-gray-700 mb-4">
-                On pickup day, our team arrives at your location with all necessary packing materials — boxes, bubble wrap, furniture covers, mattress bags, and packing tape. We photograph all items before loading for your records. Large furniture is dismantled where appropriate and carefully padded for transit. Electronics are wrapped and packed in purpose-appropriate containers. Once everything is loaded, you receive a detailed packing list and your items are transported to our climate-controlled facility.
+                On pickup day, our team arrives at your location with all necessary packing materials — boxes, bubble wrap, furniture covers, mattress bags, and packing tape. We photograph all items before loading for your records. Large furniture is dismantled where appropriate and carefully padded for transit. Electronics are wrapped and packed in purpose-appropriate containers. Once everything is loaded, you receive a detailed packing list and your items are transported to our secure facility.
               </p>
               <p className="text-gray-700">
-                At our facility, items are stored in your individual climate-controlled unit at 18–22°C. The unit is secured with biometric access and monitored by 24/7 CCTV. You can request retrieval of any or all items at any time with 24 hours&apos; notice. Delivery back to your location is coordinated by your dedicated account manager and carried out by the same professional team. The full process — from initial pickup to final return — is covered by free insurance up to AED 5,000.
+                At our facility, items are stored in your individual, secure unit. The unit is secured with biometric access and monitored by 24/7 CCTV. You can request retrieval of any or all items at any time with 24 hours&apos; notice. Delivery back to your location is coordinated by your dedicated account manager and carried out by the same professional team. The full process — from initial pickup to final return — is covered by free insurance up to AED 5,000.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8 mb-10">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Storage Pricing Guide — Dubai 2025</h3>
               <p className="text-gray-700 mb-4">
-                Storage prices in Dubai vary significantly depending on the provider, unit size, location, and included services. As a reference point for the Dubai market: basic self-service storage (no climate control, no pickup) ranges from AED 150–400/month for small units. Full-service climate-controlled storage with hassle-free pickup and delivery — the SafeStorage model — starts from 12.65 AED / sqft (VAT-inclusive), whether for small personal units, large commercial units, or vehicle storage.
+                Storage prices in Dubai vary significantly depending on the provider, unit size, location, and included services. As a reference point for the Dubai market: basic self-service storage (no pickup) ranges from AED 150–400/month for small units. Full-service storage with hassle-free pickup and delivery — the SafeStorage model — starts from 12.60 AED / sqft (VAT-inclusive), whether for small personal units, large commercial units, or vehicle storage.
               </p>
               <p className="text-gray-700">
-                When comparing storage prices in Dubai, always check what is included. Many providers advertise low base rates but charge separately for climate control, access, pickup, delivery, insurance, and administration. SafeStorage&apos;s pricing is fully inclusive — the monthly rate covers climate control, 24/7 security, free insurance up to AED 5,000, and hassle-free pickup and delivery. There are no hidden charges. Call +971505773388 for a personalised quote based on your specific requirements.
+                When comparing storage prices in Dubai, always check what is included. Many providers advertise low base rates but charge separately for access, pickup, delivery, insurance, and administration. SafeStorage&apos;s pricing is fully inclusive — the monthly rate covers 24/7 security, free insurance up to AED 5,000, and hassle-free pickup and delivery. There are no hidden charges. Call +971505773388 for a personalised quote based on your specific requirements.
               </p>
             </div>
 
@@ -954,17 +936,12 @@ export default function StorageDubaiPage() {
             <div className="space-y-6">
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <h3 className="text-lg font-semibold text-[#0A2463] mb-3">How does SafeStorage compare to other storage companies in Dubai?</h3>
-                <p className="text-gray-700">SafeStorage differentiates on three key dimensions: service model, climate quality, and price transparency. Unlike traditional self-service storage, we collect from your location and deliver back — you never need to hire a van or do any heavy lifting. Our climate control maintains a precise 18–22°C with monitored humidity, not just &ldquo;air conditioning.&rdquo; And our pricing is fully inclusive with no hidden charges — what you see in the quote is what you pay each month, with no surprise add-ons for access, insurance, or administration.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h3 className="text-lg font-semibold text-[#0A2463] mb-3">What is the safest way to store electronics in Dubai&apos;s heat?</h3>
-                <p className="text-gray-700">Electronics are among the most heat-sensitive items commonly stored in Dubai. Lithium-ion batteries (found in laptops, phones, tablets, cameras, and drones) suffer permanent capacity loss when stored above 30°C. Circuit boards can develop solder joint failures with extreme temperature cycling. LCD and OLED screens can develop dead pixels and discolouration from prolonged heat exposure. Safe electronics storage in Dubai requires a climate-controlled environment maintained between 18–22°C with stable humidity. SafeStorage&apos;s units meet this standard year-round, making them the appropriate choice for storing any electronic equipment during Dubai summers.</p>
+                <p className="text-gray-700">SafeStorage differentiates on two key dimensions: service model and price transparency. Unlike traditional self-service storage, we collect from your location and deliver back — you never need to hire a van or do any heavy lifting. And our pricing is fully inclusive with no hidden charges — what you see in the quote is what you pay each month, with no surprise add-ons for access, insurance, or administration.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <h3 className="text-lg font-semibold text-[#0A2463] mb-3">Can I store furniture in Dubai storage units long-term?</h3>
-                <p className="text-gray-700">Yes. Furniture storage is one of the most common uses of our Dubai storage units. Wood furniture is sensitive to both heat and humidity — prolonged exposure to Dubai&apos;s summer conditions causes warping, splitting, and joint failure in solid wood pieces. Leather furniture fades and cracks when exposed to UV radiation and heat. Upholstered pieces can develop mould in humid conditions. SafeStorage&apos;s climate-controlled units maintain optimal conditions for furniture preservation. We also use appropriate furniture covers and padding during pickup and storage to prevent surface damage.</p>
+                <p className="text-gray-700">Yes. Furniture storage is one of the most common uses of our Dubai storage units. We wrap and pad every piece, cover furniture to keep dust off, and store items off the ground in clean, individual units. Our facility is monitored by 24/7 CCTV and biometric access control, keeping your furniture secure for as long as you need — whether that is a few months during a renovation or several years.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">

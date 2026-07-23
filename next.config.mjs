@@ -21,6 +21,9 @@ const nextConfig = {
 
   images: {
     formats: ['image/avif', 'image/webp'],
+    // Display optimized images inline (Next defaults to "attachment", which makes
+    // the /_next/image URL download instead of render when opened directly).
+    contentDispositionType: 'inline',
     minimumCacheTTL: 31536000,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
@@ -302,6 +305,18 @@ const nextConfig = {
             value: 'public, max-age=31536000, immutable',
           },
         ],
+      },
+    ]
+  },
+
+  // Serve blog images from our own domain for SEO. The bytes still live on the
+  // safestorage.in image store, but crawlers/social see safestorage.ae URLs.
+  // Used by lib/blog-image.ts which builds /blog-images/<file> URLs.
+  async rewrites() {
+    return [
+      {
+        source: '/blog-images/:path*',
+        destination: 'https://safestorage.in/post_images/:path*',
       },
     ]
   },

@@ -147,7 +147,7 @@ const shoppingDestinations = [
         tip: "Sample everything! Custom blends available"
       }
     ],
-    storageConnection: "Bought bulk spices, fabrics, or gold jewelry for the family? Store your souk treasures safely in climate-controlled environment. Protect gold, textiles, and delicate items from Dubai's humidity!",
+    storageConnection: "Bought bulk fabrics, carpets, or home décor from the souks? Store your souk treasures safely in a clean, secure environment. Keep textiles and delicate items wrapped and dust-protected! (Note: we do not store gold, jewellery, or ornaments.)",
     image: "https://images.unsplash.com/photo-1601024445121-e5b82f020549?w=1200&h=800&fit=crop"
   },
   {
@@ -605,7 +605,7 @@ export default function DubaiShoppingGuide2026() {
                       className="object-cover w-full h-full"
                     />
                     <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg">
-                      <p className="text-xs font-semibold text-[#0A2463]">Climate-Controlled • 24/7 Access</p>
+                      <p className="text-xs font-semibold text-[#0A2463]">Clean & Secure • 24/7 Access</p>
                     </div>
                   </div>
                 </div>
@@ -719,7 +719,7 @@ export default function DubaiShoppingGuide2026() {
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold mb-4 text-[#0A2463]">Shop Till You Drop - We'll Store the Rest!</h3>
           <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-            Dubai shopping is addictive! Keep buying, we'll keep storing. Climate-controlled, secure, and accessible anytime.
+            Dubai shopping is addictive! Keep buying, we'll keep storing. Clean, secure, and accessible anytime.
           </p>
           <Button className="bg-[#0A2463] hover:bg-[#3E92CC]" asChild>
             <Link href="/storage-dubai">

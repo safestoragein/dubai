@@ -30,7 +30,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-dubai-sand/80 max-w-xs">
-              Dubai&apos;s most trusted storage partner since 2015 Globally. Climate-controlled units, 24/7 security, and hassle-free pickup & delivery.
+              Dubai&apos;s most trusted storage partner since 2015 Globally. Secure units, 24/7 security, and hassle-free pickup & delivery.
             </p>
             {/* Google Rating */}
             <div className="flex items-center gap-2 pt-2">
@@ -152,7 +152,14 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-dubai-gold shrink-0 mt-0.5" />
-                <span>402- B Wing, Emarat Atrium Bldg - Dubai - United Arab Emirates</span>
+                <a
+                  href="https://www.google.com/maps?q=24.990346908569336,55.15397644042969&z=17&hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-dubai-gold transition-colors"
+                >
+                  Building 23, Warehouse 5, DIP-1, Dubai, United Arab Emirates
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Clock className="h-4 w-4 text-dubai-gold shrink-0" />

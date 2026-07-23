@@ -1,7 +1,7 @@
 "use client"
 
 import { AnimatePresence, m } from "framer-motion"
-import { Truck, Package, ArrowRight, Phone, Star, Shield, Thermometer, Clock } from "lucide-react"
+import { Truck, Package, ArrowRight, Phone, Star, Shield, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useEffect, useState, lazy, Suspense } from "react"
@@ -218,8 +218,8 @@ export default function HeroSectionQuote() {
               </span>
               <span className="hidden md:inline text-white/50">•</span>
               <span className="flex items-center gap-1.5">
-                <Thermometer className="h-4 w-4 md:h-5 md:w-5 text-dubai-gold" aria-hidden="true" />
-                Climate-Controlled
+                <Shield className="h-4 w-4 md:h-5 md:w-5 text-dubai-gold" aria-hidden="true" />
+                Secure &amp; Insured
               </span>
               <span className="hidden md:inline text-white/50">•</span>
               <span className="flex items-center gap-1.5">
@@ -246,18 +246,18 @@ export default function HeroSectionQuote() {
 
             {/* Descriptive paragraph — keyword-rich, fully SSR'd for Google */}
             <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto mb-5 leading-relaxed">
-              SafeStorage provides secure, climate-controlled self-storage units across Dubai with hassle-free doorstep pickup and delivery.
+              SafeStorage provides secure, clean self-storage units across Dubai with hassle-free doorstep pickup and delivery.
               Whether you&apos;re renovating your villa, relocating between apartments, or need business inventory storage —
-              we handle everything from your door to our facility. No truck rental needed. Flexible monthly plans from 12.65 AED / sqft.
+              we handle everything from your door to our facility. No truck rental needed. Flexible monthly plans from 12.60 AED / sqft.
             </p>
 
             {/* Trust features grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-7 max-w-4xl mx-auto">
               {[
                 { icon: Shield,      text: "24/7 CCTV Monitoring" },
-                { icon: Thermometer, text: "Climate Controlled" },
                 { icon: Package,     text: "Free Insurance" },
                 { icon: Truck,       text: "Same-Day Pickup" },
+                { icon: Clock,       text: "24/7 Access" },
               ].map((feature, index) => (
                 <div
                   key={index}

@@ -343,7 +343,7 @@ export default function StudentStoragePage() {
                 <div>
                   <h3 className="font-semibold mb-2">Secure Storage</h3>
                   <p className="text-gray-600">
-                    Items stored in our climate-controlled facility with 24/7 security monitoring.
+                    Items stored in our secure facility with 24/7 security monitoring.
                   </p>
                 </div>
               </div>
@@ -437,12 +437,13 @@ export default function StudentStoragePage() {
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-dubai-navy">What NOT to Store</h3>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Perishable food items</li>
+                  <li>• Food, grocery, and spice items</li>
+                  <li>• Liquids, detergents, and cosmetics</li>
                   <li>• Hazardous materials</li>
                   <li>• Important documents (keep with you)</li>
-                  <li>• Medication</li>
+                  <li>• Medicines</li>
                   <li>• Plants</li>
-                  <li>• Valuables (jewelry, cash)</li>
+                  <li>• Ornaments, jewellery, and cash</li>
                 </ul>
               </div>
             </div>
@@ -495,7 +496,7 @@ export default function StudentStoragePage() {
           <div className="space-y-6">
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">What unit sizes are available for student storage and what do they fit?</h3>
-              <p className="text-gray-700 leading-relaxed">SafeStorage offers several unit sizes suited to student storage needs. A mini or locker unit (approximately 25 sq ft) holds 10–15 boxes, bags, bedding, and small personal items — ideal for a light packer or student storing only academic materials and clothes. A small unit (approximately 50 sq ft) accommodates a full student room including a single bed, mattress, desk, chair, wardrobe, and 20–30 boxes. This is the most popular student size. A medium unit (approximately 100 sq ft) is appropriate for students with more furniture, a bicycle, sports equipment, or those sharing with a roommate. All unit sizes include climate control and 24/7 security as standard features.</p>
+              <p className="text-gray-700 leading-relaxed">SafeStorage offers several unit sizes suited to student storage needs. A mini or locker unit (approximately 25 sq ft) holds 10–15 boxes, bags, bedding, and small personal items — ideal for a light packer or student storing only academic materials and clothes. A small unit (approximately 50 sq ft) accommodates a full student room including a single bed, mattress, desk, chair, wardrobe, and 20–30 boxes. This is the most popular student size. A medium unit (approximately 100 sq ft) is appropriate for students with more furniture, a bicycle, sports equipment, or those sharing with a roommate. All unit sizes include 24/7 security as a standard feature.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Which Dubai university areas do you provide pickup service from?</h3>
@@ -507,11 +508,11 @@ export default function StudentStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I share a storage unit with my university roommate?</h3>
-              <p className="text-gray-700 leading-relaxed">Sharing a storage unit with a roommate or fellow student is a popular and cost-effective arrangement at SafeStorage. We accommodate group storage with separate item labelling for each student, so belongings remain clearly identified throughout the storage period. When it is time to retrieve items, each student can request their own belongings independently — you do not need to be present at the same time or return to Dubai simultaneously. Billing can be split, with separate invoices for each participant. A shared medium unit starts from 12.65 AED / sqft (VAT-inclusive) and, divided between two students, costs even less per person than two individual small units.</p>
+              <p className="text-gray-700 leading-relaxed">Sharing a storage unit with a roommate or fellow student is a popular and cost-effective arrangement at SafeStorage. We accommodate group storage with separate item labelling for each student, so belongings remain clearly identified throughout the storage period. When it is time to retrieve items, each student can request their own belongings independently — you do not need to be present at the same time or return to Dubai simultaneously. Billing can be split, with separate invoices for each participant. A shared medium unit starts from 12.60 AED / sqft (VAT-inclusive) and, divided between two students, costs even less per person than two individual small units.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How does the pickup process work from university dormitories or student residences?</h3>
-              <p className="text-gray-700 leading-relaxed">The pickup process from university dormitories is straightforward. You book a date and time, and our team arrives at your residence reception or building entrance. If your building requires prior notice of external contractors or vehicles, let us know in advance and we will manage the coordination. Our team brings all protective materials — furniture covers, foam pads, stretch wrap — and handles all the loading. You do not need a vehicle, extra help, or any equipment. The entire pickup for a standard student room typically takes 1–2 hours. We complete a condition checklist and provide you with intake photographs, then transport everything to our secure, climate-controlled facility.</p>
+              <p className="text-gray-700 leading-relaxed">The pickup process from university dormitories is straightforward. You book a date and time, and our team arrives at your residence reception or building entrance. If your building requires prior notice of external contractors or vehicles, let us know in advance and we will manage the coordination. Our team brings all protective materials — furniture covers, foam pads, stretch wrap — and handles all the loading. You do not need a vehicle, extra help, or any equipment. The entire pickup for a standard student room typically takes 1–2 hours. We complete a condition checklist and provide you with intake photographs, then transport everything to our secure facility.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I retrieve items mid-semester if I need something from storage?</h3>
@@ -535,7 +536,7 @@ export default function StudentStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How is student storage different from standard personal storage?</h3>
-              <p className="text-gray-700 leading-relaxed">Student storage at SafeStorage is the same high-quality, climate-controlled service as our standard personal storage, but with specific adaptations for student needs. These include semester-aligned pricing packages (3-month and 5-month plans at better-than-monthly rates), group storage options with split billing, pickup service specifically calibrated for student accommodation buildings and dorm access restrictions, and flexible end-of-semester timing that accommodates varying university exam and term-end schedules. The fundamental service — secure, climate-controlled storage with hassle-free pickup and flexible monthly contracts — is identical to our standard offering. Student packages simply present this service in formats that align with the academic calendar and the practical realities of university life in Dubai.</p>
+              <p className="text-gray-700 leading-relaxed">Student storage at SafeStorage is the same high-quality, secure service as our standard personal storage, but with specific adaptations for student needs. These include semester-aligned pricing packages (3-month and 5-month plans at better-than-monthly rates), group storage options with split billing, pickup service specifically calibrated for student accommodation buildings and dorm access restrictions, and flexible end-of-semester timing that accommodates varying university exam and term-end schedules. The fundamental service — secure storage with hassle-free pickup and flexible monthly contracts — is identical to our standard offering. Student packages simply present this service in formats that align with the academic calendar and the practical realities of university life in Dubai.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How far in advance should I schedule my return delivery for the new semester?</h3>
@@ -550,9 +551,9 @@ export default function StudentStoragePage() {
         <div className="container px-4 max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-dubai-navy mb-6">About Student Storage at SafeStorage Dubai</h2>
           <p className="text-gray-700 leading-relaxed mb-6">SafeStorage Dubai has developed a specialist student storage service designed around the unique rhythm of university life in Dubai. Dubai&apos;s growing higher education sector — hosting more than 30 international universities and colleges serving students from over 100 countries — creates predictable, recurring storage demand at the end of each semester. Students returning to home countries for summer, heading abroad for exchange programs, transitioning between academic years, or managing the post-graduation period all face the same practical challenge: what to do with the belongings accumulated during a Dubai student life. SafeStorage provides the most practical and cost-effective answer through affordable monthly storage plans with hassle-free pickup from university accommodation areas across the city.</p>
-          <p className="text-gray-700 leading-relaxed mb-6">The economics of student storage make a compelling case. A student paying AED 2,000–3,000 per month for accommodation faces a choice at semester end: maintain the lease through the break (costing AED 6,000–9,000 for a 3-month summer), ship belongings home (expensive and impractical for most items), leave belongings with friends (risky and inconvenient for all parties), or store with SafeStorage starting from 12.65 AED / sqft (VAT-inclusive). The storage option saves most students AED 5,000–8,000 per academic year — enough to fund meaningful travel, academic materials, or simply reduce the overall cost of studying in Dubai. For international students whose home countries are far from the UAE, storage is often the only genuinely practical option.</p>
+          <p className="text-gray-700 leading-relaxed mb-6">The economics of student storage make a compelling case. A student paying AED 2,000–3,000 per month for accommodation faces a choice at semester end: maintain the lease through the break (costing AED 6,000–9,000 for a 3-month summer), ship belongings home (expensive and impractical for most items), leave belongings with friends (risky and inconvenient for all parties), or store with SafeStorage starting from 12.60 AED / sqft (VAT-inclusive). The storage option saves most students AED 5,000–8,000 per academic year — enough to fund meaningful travel, academic materials, or simply reduce the overall cost of studying in Dubai. For international students whose home countries are far from the UAE, storage is often the only genuinely practical option.</p>
           <p className="text-gray-700 leading-relaxed mb-6">Group storage, where 2–4 students share a unit with individually labelled items, offers even greater value. Students who organise group storage through their university residence or friend network can reduce individual storage costs by 40–50% while maintaining the same service quality and individual retrieval flexibility. SafeStorage handles the logistics of group access and billing, making coordinated student group storage straightforward to arrange. Student accommodation buildings in Dubai Silicon Oasis, Knowledge Park, Academic City, and JVC — the areas closest to most of Dubai&apos;s universities — are all within our standard hassle-free pickup coverage area.</p>
-          <p className="text-gray-700 leading-relaxed">SafeStorage&apos;s climate-controlled storage standard is particularly important for students. Dubai&apos;s summer temperatures make non-climate-controlled storage genuinely damaging to electronics, textbooks, clothing, and most personal items. A laptop stored in a non-air-conditioned space during a Dubai summer can sustain battery and screen damage that is not immediately apparent but reduces its lifespan significantly. At SafeStorage&apos;s consistent 20–22°C, student electronics, books, clothing, and furniture remain in the same condition throughout the storage period as when they were deposited. When the new semester starts, students receive their belongings back in perfect condition — ready for another year of study without the cost or stress of replacement purchases.</p>
+          <p className="text-gray-700 leading-relaxed">SafeStorage&apos;s secure storage standard is particularly important for students. Each student&apos;s belongings are stored in clean, individual, dedicated units, professionally wrapped and protected from dust, with 24/7 CCTV monitoring and biometric access control. Electronics, books, clothing, and furniture are handled carefully and stored so they remain in the same condition throughout the storage period as when they were deposited. When the new semester starts, students receive their belongings back in the condition they left them — ready for another year of study without the cost or stress of replacement purchases.</p>
         </div>
       </section>
 
@@ -573,7 +574,7 @@ export default function StudentStoragePage() {
                 Returning home for the summer or heading overseas for a semester abroad means you need
                 somewhere safe to store your belongings in Dubai without paying rent for an empty apartment.
                 SafeStorage student storage plans offer the most affordable rates in Dubai —
-                starting from 12.65 AED / sqft (VAT-inclusive) for a small unit that holds a student room&apos;s worth of belongings.
+                starting from 12.60 AED / sqft (VAT-inclusive) for a small unit that holds a student room&apos;s worth of belongings.
               </p>
               <p className="text-gray-700">
                 Our hassle-free pickup service means you do not need to rent a car or hire movers. We come to
@@ -597,11 +598,11 @@ export default function StudentStoragePage() {
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-xl font-bold text-[#0A2463] mb-3">Student Storage Pricing &amp; Discounts</h3>
             <p className="text-gray-700">
-              Student storage plans start from 12.65 AED / sqft (VAT-inclusive) with hassle-free pickup and delivery. We offer special
+              Student storage plans start from 12.60 AED / sqft (VAT-inclusive) with hassle-free pickup and delivery. We offer special
               student discounts — ask about our semester rates when booking. Storage for a typical student
               room (20–30 boxes plus small furniture) fits in our small unit (25–50 sq ft). All items are
-              stored in climate-controlled security — your laptop, electronics, and clothing are safe from
-              Dubai&apos;s heat. Bring your student ID for eligibility. No minimum contract required.
+              stored in secure, dedicated units — your laptop, electronics, and clothing are kept safe.
+              Bring your student ID for eligibility. No minimum contract required.
             </p>
           </div>
         </div>

@@ -48,8 +48,8 @@ const features = [
   },
   {
     icon: Building2,
-    title: "Climate Controlled",
-    description: "Temperature-regulated units to protect sensitive items",
+    title: "Secure Enclosed Units",
+    description: "Clean, dust-protected indoor units to keep your assets safe",
   },
   {
     icon: Headphones,
@@ -68,7 +68,7 @@ const businessStorageSchemas = [
     url: 'https://safestorage.ae/business-storage',
     areaServed: { '@type': 'City', name: 'Dubai' },
     serviceType: 'Business Storage',
-    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.65' },
+    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.60' },
   },
   {
     '@context': 'https://schema.org',
@@ -226,7 +226,7 @@ export default function BusinessStoragePage() {
                 When businesses in Dubai downsize, relocate, or renovate their offices, they need a fast and
                 reliable solution for surplus furniture, equipment, and fixtures. SafeStorage provides
                 same-day office clearance pickups, with our team handling all the dismantling, packing, and
-                transportation. Items are stored in climate-controlled units and can be retrieved when
+                transportation. Items are stored in secure, dust-protected units and can be retrieved when
                 the new office is ready.
               </p>
               <p className="text-gray-700">
@@ -253,7 +253,7 @@ export default function BusinessStoragePage() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Business Storage Plans &amp; Pricing</h3>
             <p className="text-gray-700 mb-4">
-              Business storage plans at SafeStorage start from 12.65 AED / sqft (VAT-inclusive). Medium units (50–100 sq ft)
+              Business storage plans at SafeStorage start from 12.60 AED / sqft (VAT-inclusive). Medium units (50–100 sq ft)
               suit a small office clearance or modest inventory, while larger units (100–300+ sq ft) are
               available for full office contents, warehouse overflow, or bulk retail stock.
             </p>
@@ -304,7 +304,7 @@ export default function BusinessStoragePage() {
                 Office renovation is one of the most common triggers for business storage in Dubai. Companies upgrading or refurbishing their offices in Business Bay, DIFC, Downtown Dubai, or JLT face the challenge of temporarily relocating furniture, IT equipment, filing cabinets, and office supplies while contractors work on the space. Storing these items at a serviced offsite facility is far more practical and cost-effective than renting temporary alternative office space.
               </p>
               <p className="text-gray-700">
-                SafeStorage offers same-day or next-day office clearance services. Our team arrives at your office with the appropriate packing materials, dismantles and wraps furniture, loads everything into climate-controlled vehicles, and transports it to our facility. When your renovation is complete — whether in 2 weeks or 6 months — we return everything to your new office on a scheduled basis. Delivery can be coordinated to arrive floor by floor or room by room to match your office fit-out schedule.
+                SafeStorage offers same-day or next-day office clearance services. Our team arrives at your office with the appropriate packing materials, dismantles and wraps furniture, loads everything into our vehicles, and transports it to our facility. When your renovation is complete — whether in 2 weeks or 6 months — we return everything to your new office on a scheduled basis. Delivery can be coordinated to arrive floor by floor or room by room to match your office fit-out schedule.
               </p>
             </div>
             <div>
@@ -324,7 +324,7 @@ export default function BusinessStoragePage() {
               Retail businesses in Dubai face a structural challenge: prime retail locations in malls and high streets command very high rents, so every square metre of floor space must generate revenue. Storing seasonal stock, display fixtures, or overflow inventory in expensive retail floor space is not a viable option. Backroom storage space in Dubai retail units is typically minimal.
             </p>
             <p className="text-gray-700 mb-4">
-              SafeStorage provides Dubai retailers with a practical alternative. Seasonal collections, promotional display materials, trade show stands, excess packaging, and slow-moving stock are stored at our climate-controlled facility. When you need items — for a promotional campaign, seasonal changeover, or stock replenishment — our team delivers to your store or mall loading bay on the same day or next day. This model is used by fashion retailers, home décor brands, electronics sellers, and luxury goods companies across Dubai.
+              SafeStorage provides Dubai retailers with a practical alternative. Seasonal collections, promotional display materials, trade show stands, excess packaging, and slow-moving stock are stored at our secure indoor facility. When you need items — for a promotional campaign, seasonal changeover, or stock replenishment — our team delivers to your store or mall loading bay on the same day or next day. This model is used by fashion retailers, home décor brands, electronics sellers, and luxury goods companies across Dubai.
             </p>
             <p className="text-gray-700">
               For retailers with multiple Dubai locations, SafeStorage can serve as a central distribution point, consolidating stock delivery from suppliers and dispatching to individual store locations as needed. This reduces direct-to-store delivery costs and gives head office teams better visibility and control over stock allocation.
@@ -365,8 +365,8 @@ export default function BusinessStoragePage() {
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. Is climate control important for business inventory storage?</h3>
-              <p className="text-gray-700">For many product categories, climate control is essential rather than optional. Electronics and IT equipment can suffer permanent damage when stored above 35°C. Cosmetics and health supplements can degrade, separate, or lose efficacy in heat. Fashion items can develop mould in humid conditions. Paper and cardboard packaging can warp and become unusable. Rubber and silicone components can crack. SafeStorage&apos;s 18–22°C climate-controlled units protect your inventory investment from Dubai&apos;s extreme summer heat and ensure products remain in sellable condition.</p>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. How is business inventory kept in good condition in storage?</h3>
+              <p className="text-gray-700">Your inventory is stored in clean, enclosed indoor units that keep stock dust-protected and away from the rain, direct sun, and outdoor elements that can damage products and packaging. Boxes and pallets are kept off the floor and organised so stock stays orderly and easy to pick. Combined with 24/7 CCTV monitoring, biometric access control, and individually secured units, this ensures your inventory investment is protected and products remain in sellable condition throughout their time with us.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -376,7 +376,7 @@ export default function BusinessStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. How is business storage priced in Dubai?</h3>
-              <p className="text-gray-700">Business storage at SafeStorage starts from 12.65 AED / sqft (VAT-inclusive), based on the unit size required. Medium units (50–100 sq ft) are suitable for small office clearances, modest inventory, or document archives. Large units (100–200 sq ft) accommodate full office contents or substantial inventory volumes. Extra-large units (200–400+ sq ft) suit larger commercial storage needs. All plans include hassle-free pickup and delivery across Dubai, climate control, 24/7 security, and a dedicated account manager.</p>
+              <p className="text-gray-700">Business storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), based on the unit size required. Medium units (50–100 sq ft) are suitable for small office clearances, modest inventory, or document archives. Large units (100–200 sq ft) accommodate full office contents or substantial inventory volumes. Extra-large units (200–400+ sq ft) suit larger commercial storage needs. All plans include hassle-free pickup and delivery across Dubai, clean and secure indoor units, 24/7 security, and a dedicated account manager.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -386,7 +386,7 @@ export default function BusinessStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. Do you offer storage for pharmaceutical and healthcare businesses?</h3>
-              <p className="text-gray-700">Yes. Healthcare and pharmaceutical businesses in Dubai have specific storage requirements including temperature control, cleanliness, access security, and regulatory compliance. SafeStorage&apos;s climate-controlled units (18–22°C) are suitable for pharmaceutical samples, medical devices, healthcare marketing materials, and general healthcare consumables. For cold-chain pharmaceutical products requiring refrigeration (2–8°C), please contact us to discuss options — requirements vary by product category and Dubai Health Authority classification.</p>
+              <p className="text-gray-700">Yes. Healthcare and pharmaceutical businesses in Dubai have specific storage requirements including cleanliness, access security, and regulatory compliance. SafeStorage&apos;s clean, secure indoor units are suitable for medical devices, healthcare marketing materials, and general healthcare consumables. For pharmaceutical products or samples with specific temperature or cold-chain (2–8°C) requirements, please contact us to discuss options — requirements vary by product category and Dubai Health Authority classification.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -401,7 +401,7 @@ export default function BusinessStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. Is there a minimum contract period for business storage in Dubai?</h3>
-              <p className="text-gray-700">No. SafeStorage offers month-to-month business storage contracts with no minimum commitment. You can store for as short as 1 month or as long as you need. Cancel with 30 days&apos; written notice (via email or WhatsApp). Businesses that commit to longer periods (3, 6, or 12 months in advance) qualify for discounts of 10–20%. There are no setup fees, no exit fees, and no penalties for adjusting your storage size during the contract period.</p>
+              <p className="text-gray-700">No. SafeStorage offers month-to-month business storage contracts with no minimum commitment. You can store for as short as 1 month or as long as you need. Cancel with 30 days&apos; written notice (via email or WhatsApp). Businesses that commit to longer prepaid periods qualify for a wide range of discounts — the longer you store, the more you save. There are no setup fees, no exit fees, and no penalties for adjusting your storage size during the contract period.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -416,7 +416,7 @@ export default function BusinessStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">14. Do you provide storage for media and production companies in Dubai?</h3>
-              <p className="text-gray-700">Yes. Dubai&apos;s growing media and production industry — including film production, advertising agencies, photography studios, and content creation companies — generates substantial volumes of equipment and props that need secure, climate-controlled storage between productions. Camera equipment, lighting gear, production props, costumes, and set dressings can be stored at SafeStorage and retrieved when the next production begins. Our climate control is particularly important for protecting sensitive optics, electronic equipment, and perishable props from Dubai&apos;s heat.</p>
+              <p className="text-gray-700">Yes. Dubai&apos;s growing media and production industry — including film production, advertising agencies, photography studios, and content creation companies — generates substantial volumes of equipment and props that need secure storage between productions. Camera equipment, lighting gear, production props, costumes, and set dressings can be stored at SafeStorage and retrieved when the next production begins. Our clean, secure indoor units keep sensitive optics, electronic equipment, and props dust-protected and safe between shoots.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

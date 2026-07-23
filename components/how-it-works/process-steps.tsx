@@ -24,7 +24,7 @@ const steps = [
   {
     number: "03",
     title: "Secure Storage",
-    description: "Your items are stored safely in our climate-controlled facility.",
+    description: "Your items are stored safely in our secure, CCTV-monitored facility.",
     icon: Warehouse,
     color: "bg-orange-500",
   },

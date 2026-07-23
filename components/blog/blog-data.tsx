@@ -38,11 +38,10 @@ export const blogPosts = [
   },
   {
     id: 3,
-    title: "Is Climate-Controlled Storage Worth It?",
+    title: "How to Protect Your Belongings in Storage",
     excerpt:
-      "Discover the benefits of climate-controlled storage in Dubai's extreme weather conditions and why it might be essential for your valuables.",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DALL%C2%B7E%202025-03-12%2012.14.43%20-%20An%20informative%20image%20comparing%20climate-controlled%20storage%20vs.%20standard%20storage.%20It%20includes%20visuals%20of%20temperature-sensitive%20items%20like%20electronics%2C%20w-tadml38qRWyCz8Q4enz0R8XKcdI56l.webp",
+      "Discover practical tips to keep your valuables safe, clean, and well-organized in secure storage throughout your time in Dubai.",
+    image: "/placeholder.svg?height=400&width=600",
     date: "August 10, 2023",
     author: {
       name: "Mohammed Al Farsi",

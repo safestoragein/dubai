@@ -6,11 +6,11 @@ import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Summer Storage Dubai — What to Do with Your Belongings When You Leave | SafeStorage",
-  description: "Leaving Dubai for summer? Complete guide to storing your belongings, protecting your apartment, and saving money during the summer break. From 12.65 AED / sqft.",
+  description: "Leaving Dubai for summer? Complete guide to storing your belongings, protecting your apartment, and saving money during the summer break. From 12.60 AED / sqft.",
   keywords: "summer storage dubai, leaving dubai for summer, storage during summer holidays dubai, what to do with belongings summer dubai, expat summer dubai storage",
   openGraph: {
     title: "Summer Storage Dubai — Complete Guide for Expats Leaving for Summer",
-    description: "Everything Dubai expats need to know about storing belongings when leaving for summer. Save money, protect your stuff, come back to nothing damaged.",
+    description: "Everything Dubai expats need to know about storing belongings when leaving for summer. Save money, free up your apartment, and travel with peace of mind.",
     url: "https://safestorage.ae/blog/summer-storage-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -24,7 +24,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: "Summer Storage Dubai — What to Do with Your Belongings When You Leave for Summer",
-    description: "Complete guide for Dubai expats leaving for summer: storage options, what to store, and how to protect your belongings from Dubai's extreme summer heat.",
+    description: "Complete guide for Dubai expats leaving for summer: storage options, what to store, and how to save money while you travel.",
     url: "https://safestorage.ae/blog/summer-storage-dubai",
     datePublished: "2025-03-01",
     dateModified: "2025-04-01",
@@ -59,19 +59,19 @@ export default function SummerStorageDubaiPage() {
 
         <article className="py-12">
           <div className="container px-4 max-w-4xl mx-auto prose prose-lg max-w-none text-gray-700">
-            <p className="text-xl leading-relaxed mb-8">Dubai's summer — June through September — sees temperatures regularly hitting 45-48°C. Tens of thousands of expat families leave Dubai each year for school summer holidays, returning to their home countries or cooler climates. If you're one of them, you face a recurring question: <strong>what do you do with your belongings?</strong></p>
+            <p className="text-xl leading-relaxed mb-8">Dubai's summer runs from June through September, and tens of thousands of expat families leave the city each year for the school summer holidays, returning to their home countries or heading somewhere cooler. If you're one of them, you face a recurring question: <strong>what do you do with your belongings?</strong></p>
 
-            <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">The Problem: Dubai Summer is Brutal on Your Belongings</h2>
-            <p className="mb-6">Most Dubai apartments are cooled by central AC or window units. When you leave for 2-3 months with the AC off (or on a minimal setting to save electricity), temperatures inside your apartment can reach <strong>40-50°C</strong>. That's damaging to:</p>
+            <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">The Problem: A Full Apartment Sitting Empty for Months</h2>
+            <p className="mb-6">Leaving Dubai for 2-3 months means your apartment sits empty while rent keeps running — and your valuables are left unattended with no one keeping an eye on them. A break-in, a burst pipe, or an AC failure can affect anything left behind. Many residents prefer to move their valuables into secure storage rather than leave them in an empty flat, especially:</p>
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               {[
                 "Electronics (laptops, TVs, gaming consoles)",
                 "Leather furniture and upholstery",
-                "Wooden furniture (warps and cracks)",
-                "Cosmetics, perfumes and skincare",
+                "Wooden furniture",
+                "Artwork and framed pictures",
                 "Wine and spirits collections",
                 "Musical instruments",
-                "Candles and wax items (literally melt)",
+                "Jewellery boxes and keepsakes",
                 "Photographs and printed materials",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-2 text-gray-700">
@@ -84,8 +84,8 @@ export default function SummerStorageDubaiPage() {
             <div className="space-y-6 mb-8">
               {[
                 { option: "Option 1: Keep the apartment running (AC on)", cost: "AED 500–1,500/month in electricity, plus full rent", pros: ["Nothing gets damaged", "Return to ready home"], cons: ["Expensive — paying for empty apartment", "Risk of AC failure while you're away", "No security for valuables"] },
-                { option: "Option 2: Leave everything and hope for the best", cost: "AED 0", pros: ["No effort"], cons: ["High risk of heat/humidity damage", "Security concerns in empty property", "Returns to an apartment that may need deep clean", "Electronics and valuables at risk"] },
-                { option: "Option 3: Store with SafeStorage Dubai", cost: "from 12.65 AED / sqft (you only pay for the space you use)", pros: ["Climate-controlled protection", "Hassle-free pickup", "Security monitored 24/7", "Pay only for what you store", "Peace of mind abroad"], cons: ["Requires move-out and move-in effort", "Monthly storage cost"] },
+                { option: "Option 2: Leave everything and hope for the best", cost: "AED 0", pros: ["No effort"], cons: ["Valuables left unattended for months", "Security concerns in empty property", "Returns to an apartment that may need deep clean", "Electronics and valuables at risk"] },
+                { option: "Option 3: Store with SafeStorage Dubai", cost: "from 12.60 AED / sqft (you only pay for the space you use)", pros: ["Clean, secure, indoor units", "Hassle-free pickup", "Security monitored 24/7", "Pay only for what you store", "Peace of mind abroad"], cons: ["Requires move-out and move-in effort", "Monthly storage cost"] },
               ].map((opt) => (
                 <div key={opt.option} className="border border-gray-200 rounded-xl p-6">
                   <h3 className="font-bold text-dubai-navy text-lg mb-1">{opt.option}</h3>
@@ -131,12 +131,11 @@ export default function SummerStorageDubaiPage() {
             <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
               <div className="space-y-3">
                 {[
-                  { item: "Medium storage unit", cost: "From 12.65 AED / sqft" },
+                  { item: "Medium storage unit", cost: "From 12.60 AED / sqft" },
                   { item: "Hassle-free pickup + delivery (SafeStorage)", cost: "AED 0" },
-                  { item: "Total storage cost", cost: "From 12.65 AED / sqft" },
+                  { item: "Total storage cost", cost: "From 12.60 AED / sqft" },
                   { item: "", cost: "" },
                   { item: "Alternative: Keep AC running (electricity only)", cost: "AED 1,500–4,500" },
-                  { item: "Alternative: Replace heat-damaged electronics", cost: "AED 3,000–15,000+" },
                 ].map((row) => row.item ? (
                   <div key={row.item} className={`flex justify-between py-1 ${row.item === "Total storage cost" ? "border-t border-dubai-gold pt-2 font-bold text-dubai-navy" : "text-gray-700"}`}>
                     <span>{row.item}</span>
@@ -146,13 +145,13 @@ export default function SummerStorageDubaiPage() {
               </div>
             </div>
 
-            <p className="mb-4">For most families, summer storage pays for itself if it prevents even one piece of electronics from heat damage. For 3 months away, it's also often cheaper than the electricity cost of keeping AC running.</p>
+            <p className="mb-4">For most families, summer storage is often cheaper than the electricity cost of keeping the AC running in an empty apartment for three months — and it frees up your home and keeps your valuables secure while you're away.</p>
 
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">What Dubai Expats Are Saying</h2>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               {[
-                { name: "Nadia O.", location: "Dubai Marina", text: "Third year using SafeStorage for summer. First year I left my laptop at home — came back to a dead battery and cracked screen from the heat. Now I store everything valuable. Not worth the risk." },
-                { name: "Vikram S.", location: "JVC", text: "Leaving for 3 months, didn't want to keep paying AED 1,500 electricity for an empty flat. Storage worked out to just 12.65 AED / sqft and I switched off the AC entirely. Came back to a working home and AED 2,700 saved on electricity alone." },
+                { name: "Nadia O.", location: "Dubai Marina", text: "Third year using SafeStorage for summer. I travel for nearly three months and don't want my valuables sitting in an empty flat. They pick everything up, keep it secure, and deliver it back before I land. Total peace of mind." },
+                { name: "Vikram S.", location: "JVC", text: "Leaving for 3 months, didn't want to keep paying AED 1,500 electricity for an empty flat. Storage worked out to just 12.60 AED / sqft and I switched off the AC entirely. Came back to a working home and AED 2,700 saved on electricity alone." },
               ].map((t) => (
                 <div key={t.name} className="bg-slate-50 rounded-xl p-5 border border-gray-200">
                   <p className="text-gray-700 italic mb-3">"{t.text}"</p>

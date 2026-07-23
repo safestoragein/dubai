@@ -110,7 +110,7 @@ export const blogPosts: BlogPost[] = [
       <h2>10. Store Strategically</h2>
       <p>Place items you might need to access more frequently near the front of the unit. Use shelving to maximize vertical space and keep items off the floor.</p>
       
-      <p>At SafeStorage Dubai, we offer climate-controlled units that provide additional protection for your valuable items during long-term storage.</p>
+      <p>At SafeStorage Dubai, we offer secure, clean, dust-protected units that provide additional protection for your valuable items during long-term storage.</p>
     `,
     coverImage: "/organized-storage-boxes.png",
     date: "2023-07-22",
@@ -144,7 +144,7 @@ export const blogPosts: BlogPost[] = [
       <p>Different business needs require different storage solutions:</p>
       
       <h3>Document Storage</h3>
-      <p>Secure, climate-controlled units for important business documents and records. These units protect paper from humidity, dust, and pests while maintaining organization.</p>
+      <p>Secure, clean units for important business documents and records. These units protect paper from dust and pests while maintaining organization.</p>
       
       <h3>Inventory Storage</h3>
       <p>Flexible space for managing product inventory, with options for short-term or long-term storage. Ideal for e-commerce businesses or retailers with fluctuating inventory needs.</p>

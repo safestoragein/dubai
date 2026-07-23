@@ -6,7 +6,7 @@ import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Seasonal & Ramadan Storage Dubai — What to Store & When | SafeStorage",
-  description: "Guide to seasonal storage in Dubai including Ramadan storage, Eid clearouts, summer storage, and managing seasonal items in Dubai's unique calendar. From 12.65 AED / sqft.",
+  description: "Guide to seasonal storage in Dubai including Ramadan storage, Eid clearouts, summer storage, and managing seasonal items in Dubai's unique calendar. From 12.60 AED / sqft.",
   keywords: "seasonal storage dubai, ramadan storage dubai, eid storage dubai, seasonal items storage dubai, holiday storage dubai, furniture storage ramadan",
   openGraph: {
     title: "Seasonal & Ramadan Storage Dubai — Managing Seasonal Items",
@@ -59,7 +59,7 @@ export default function SeasonalRamadanStoragePage() {
 
         <article className="py-12">
           <div className="container px-4 max-w-4xl mx-auto prose prose-lg max-w-none text-gray-700">
-            <p className="text-xl leading-relaxed mb-8">Dubai has a unique seasonal calendar that creates distinct storage patterns throughout the year. Unlike Western countries, Dubai's seasons are driven by the Islamic calendar, school terms, and the dramatic shift between 48°C summers and pleasant 20-25°C winters. Understanding these patterns helps you plan seasonal storage proactively rather than reactively.</p>
+            <p className="text-xl leading-relaxed mb-8">Dubai has a unique seasonal calendar that creates distinct storage patterns throughout the year. Unlike Western countries, Dubai's seasons are driven by the Islamic calendar, school terms, and the dramatic shift between scorching summers and pleasant, mild winters. Understanding these patterns helps you plan seasonal storage proactively rather than reactively.</p>
 
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Dubai's Seasonal Storage Calendar</h2>
             <div className="space-y-6 mb-8">
@@ -133,7 +133,7 @@ export default function SeasonalRamadanStoragePage() {
             </div>
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
-              <h2 className="text-2xl font-bold mb-3">Seasonal Storage from 12.65 AED / sqft</h2>
+              <h2 className="text-2xl font-bold mb-3">Seasonal Storage from 12.60 AED / sqft</h2>
               <p className="text-white/80 mb-6">Store seasonal items between uses. No minimum contract — 1 month is fine. Hassle-free pickup across Dubai.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">

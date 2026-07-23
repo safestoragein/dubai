@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { getAllBlogs } from "@/lib/blog-db"
 
 // Helper function to generate slug from title (matches blog page logic)
 function generateSlug(title: string): string {
@@ -274,12 +275,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/self-storage-dubai/climate-controlled`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
       url: `${baseUrl}/self-storage-dubai/how-it-works`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -435,12 +430,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.75,
     },
     {
-      url: `${baseUrl}/blog/climate-controlled-storage-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/blog/declutter-guide-dubai`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -478,12 +467,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let blogRoutes: MetadataRoute.Sitemap = []
 
   try {
-    const response = await fetch('https://safestorage.in/get_blog_content', {
-      cache: 'no-store'
-    })
-    const data = await response.json()
-
-    const blogs = Array.isArray(data) ? data : []
+    const blogs = await getAllBlogs()
 
     // Generate blog routes from actual blog posts
     blogRoutes = blogs.map((post: any) => {

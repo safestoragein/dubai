@@ -52,7 +52,7 @@ export default function LocationSection() {
             className="text-xl text-muted-foreground max-w-[800px]"
           >
             SafeStorage Dubai provides premium self-storage services across Dubai, Al Barsha, Deira, Business Bay, JLT,
-            Dubai Marina, and more. No matter where you are in the city, our secure and climate-controlled storage units
+            Dubai Marina, and more. No matter where you are in the city, our secure and clean storage units
             are easily accessible.
           </m.p>
         </div>

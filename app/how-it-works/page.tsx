@@ -105,11 +105,11 @@ export default function HowItWorks() {
               <div className="flex items-start gap-4">
                 <div className="text-4xl font-bold text-[#D8315B] min-w-[3rem]">3</div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#0A2463] mb-3">Secure Climate-Controlled Storage</h3>
+                  <h3 className="text-xl font-bold text-[#0A2463] mb-3">Secure Indoor Storage</h3>
                   <p className="text-gray-700 mb-3">
-                    Your items are transported to our climate-controlled storage facility and placed in your
-                    dedicated unit. The unit maintains 20–25°C temperature and 45–55% humidity year-round —
-                    essential protection against Dubai&apos;s extreme summer heat that can reach 45°C+ outdoors.
+                    Your items are transported to our secure storage facility and placed in your
+                    dedicated unit. Every unit is a clean, dust-protected indoor space, with items stored on
+                    raised platforms and away from external walls for added protection.
                   </p>
                   <p className="text-gray-700">
                     Your unit is secured with a biometric lock — only you (or authorised persons) can access it.
@@ -187,10 +187,6 @@ export default function HowItWorks() {
                 <p>Yes. Upon collection, our team creates a detailed inventory list of everything loaded. For customers who prefer a photo inventory — particularly useful for insurance purposes or businesses storing multiple SKUs — we offer a photo documentation service at no extra charge. The inventory is shared with you via WhatsApp or email on the same day as pickup so you have a complete record of what is in storage.</p>
               </div>
               <div>
-                <p className="font-semibold mb-2">What temperature is maintained inside the storage units?</p>
-                <p>SafeStorage Dubai maintains all units at 18–22°C year-round, regardless of outdoor temperatures. Humidity is controlled at 45–55%. This range is optimal for protecting wood (prevents warping and cracking), electronics (prevents heat damage and battery swelling), fabrics and clothing (prevents yellowing and mildew), leather (prevents drying and cracking), documents and photographs (prevents brittleness and discolouration), and artwork (prevents paint degradation). Our facility uses industrial-grade HVAC systems that run continuously throughout the year.</p>
-              </div>
-              <div>
                 <p className="font-semibold mb-2">How long can I keep items in storage?</p>
                 <p>There is no maximum storage period. Some of our customers have been storing with us for several years, including expats who left Dubai temporarily and businesses with long-term archival needs. As long as you continue your monthly plan, your items remain in secure storage indefinitely. We notify you in advance of any plan renewals and you can adjust, downsize, or cancel at any time with appropriate notice.</p>
               </div>
@@ -208,7 +204,7 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-2">What payment methods does SafeStorage Dubai accept?</p>
-                <p>SafeStorage Dubai accepts credit and debit cards (Visa, Mastercard, and American Express), bank transfers, cash payments at our facility, post-dated cheques for advance payments, Apple Pay, and Google Pay. Monthly, quarterly, and annual payment options are available. Annual plans offer the best per-month rate and save you approximately 15–20% compared to month-by-month billing. All invoices are provided digitally and can be used for business expense reporting.</p>
+                <p>SafeStorage Dubai accepts credit and debit cards (Visa, Mastercard, and American Express), bank transfers, cash payments at our facility, post-dated cheques for advance payments, Apple Pay, and Google Pay. Monthly, quarterly, and annual payment options are available. Longer prepaid cycles unlock a wide range of discounts, with annual plans offering the best per-month rate compared to month-by-month billing. All invoices are provided digitally and can be used for business expense reporting.</p>
               </div>
             </div>
           </div>

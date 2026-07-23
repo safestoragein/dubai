@@ -8,12 +8,12 @@ import Testimonials from "@/components/testimonials"
 export const metadata: Metadata = {
   title: "Vehicle Storage Dubai — Secure Car & Motorcycle Storage",
   description:
-    "Secure vehicle storage in Dubai for cars, motorcycles, and classic vehicles. Climate-controlled, 24/7 security with CCTV monitoring. Call +971505773388 for quote.",
+    "Secure vehicle storage in Dubai for cars, motorcycles, and classic vehicles. Indoor covered parking, 24/7 security with CCTV monitoring. Call +971505773388 for quote.",
   keywords:
     "vehicle storage dubai, car storage dubai, motorcycle storage, classic car storage, secure vehicle storage dubai, indoor car storage",
   openGraph: {
     title: "Vehicle Storage Dubai | SafeStorage",
-    description: "Secure vehicle storage with climate control and 24/7 security. Perfect for cars, motorcycles, and classic vehicles.",
+    description: "Secure indoor vehicle storage with 24/7 security. Perfect for cars, motorcycles, and classic vehicles.",
     url: "https://safestorage.ae/storage-dubai/vehicle-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -28,7 +28,7 @@ const features = [
   {
     icon: Lock,
     title: "Indoor Secure Parking",
-    description: "Fully enclosed climate-controlled facility protecting from Dubai heat",
+    description: "Fully enclosed indoor facility protecting from dust and sun",
   },
   {
     icon: ShieldCheck,
@@ -89,8 +89,8 @@ export default function VehicleStoragePage() {
               Vehicle Storage <span className="text-dubai-gold">Dubai</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8">
-              Secure, climate-controlled indoor storage for your cars, motorcycles, and classic vehicles.
-              Protect your investment from Dubai's extreme weather.
+              Secure indoor storage for your cars, motorcycles, and classic vehicles.
+              Protect your investment from dust, sun, and the elements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -210,17 +210,17 @@ export default function VehicleStoragePage() {
       {/* Static rich-text content for SEO */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Vehicle Storage Dubai — Indoor, Climate-Controlled &amp; Secure</h2>
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Vehicle Storage Dubai — Indoor, Covered &amp; Secure</h2>
           <p className="text-lg text-gray-700 mb-6">
-            SafeStorage Dubai provides indoor, climate-controlled vehicle storage bays for cars, motorcycles,
-            classic vehicles, boats, jet skis, and caravans. Our facility protects your vehicle from Dubai&apos;s
-            extreme heat, dust storms, and humidity — conditions that can cause significant damage to paint,
+            SafeStorage Dubai provides indoor, covered vehicle storage bays for cars, motorcycles,
+            classic vehicles, boats, jet skis, and caravans. Our facility protects your vehicle from
+            dust storms, sun, and the elements — conditions that can cause significant damage to paint,
             tyres, rubber seals, and electrical systems when a vehicle is left parked outdoors for extended periods.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-10">
             <div>
-              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Why Dubai&apos;s Climate Demands Indoor Vehicle Storage</h3>
+              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Why Indoor Vehicle Storage Matters in Dubai</h3>
               <p className="text-gray-700 mb-3">
                 Dubai summer temperatures regularly exceed 45°C, with direct sunlight pushing surface
                 temperatures even higher. Prolonged exposure to this heat causes paint oxidation and fading,
@@ -229,8 +229,8 @@ export default function VehicleStoragePage() {
                 convertible roof materials.
               </p>
               <p className="text-gray-700">
-                Our indoor vehicle storage bays maintain a controlled environment at 20–25°C year-round.
-                Your vehicle stays clean, cool, and protected from the elements at all times.
+                Our indoor vehicle storage bays keep your vehicle out of the sun and shielded from dust.
+                Your vehicle stays clean and protected from the elements at all times.
               </p>
             </div>
             <div>
@@ -240,7 +240,7 @@ export default function VehicleStoragePage() {
               </p>
               <ul className="space-y-2 text-gray-700">
                 <li>• <strong>Expatriates</strong> returning to their home country temporarily who need to store a car in Dubai</li>
-                <li>• <strong>Classic car collectors</strong> who require secure, climate-controlled preservation</li>
+                <li>• <strong>Classic car collectors</strong> who require secure, covered preservation</li>
                 <li>• <strong>Seasonal vehicle owners</strong> storing motorcycles or sports cars during summer</li>
                 <li>• <strong>Boat and jet ski owners</strong> storing watercraft between seasons</li>
                 <li>• <strong>Businesses</strong> managing fleet vehicles not in current use</li>
@@ -267,13 +267,13 @@ export default function VehicleStoragePage() {
           <div className="bg-white rounded-xl p-8 border border-gray-200">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Vehicle Storage Rates</h3>
             <p className="text-gray-700 mb-3">
-              Vehicle storage at SafeStorage Dubai starts from <strong>12.65 AED / sqft</strong> (VAT-inclusive)
+              Vehicle storage at SafeStorage Dubai starts from <strong>12.60 AED / sqft</strong> (VAT-inclusive)
               for standard cars and motorcycles, larger vehicles (SUVs, caravans, boats), and classic or
               high-value vehicles stored in premium enclosed bays with additional security features.
             </p>
             <p className="text-gray-700">
-              All vehicle storage plans include 24/7 CCTV monitoring, indoor covered parking, climate
-              control, and basic insurance coverage. Long-term storage (3+ months) qualifies for
+              All vehicle storage plans include 24/7 CCTV monitoring, indoor covered parking,
+              and basic insurance coverage. Long-term storage (3+ months) qualifies for
               preferential rates. Contact us for a personalised quote based on your vehicle type and
               storage duration.
             </p>
@@ -286,26 +286,26 @@ export default function VehicleStoragePage() {
         <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold text-[#0A2463] mb-4">Vehicle &amp; Car Storage Dubai — Complete Guide</h2>
           <p className="text-lg text-gray-700 mb-8">
-            Dubai&apos;s extreme climate, high vehicle ownership rates, and large expat population create a consistent and growing demand for professional vehicle storage. Whether you own a classic car that needs year-round protection, a motorcycle you only ride in winter, or a daily driver you need to store during an extended trip abroad, SafeStorage provides secure, climate-controlled indoor vehicle storage bays tailored to every situation.
+            Dubai&apos;s harsh outdoor conditions, high vehicle ownership rates, and large expat population create a consistent and growing demand for professional vehicle storage. Whether you own a classic car that needs year-round protection, a motorcycle you only ride in winter, or a daily driver you need to store during an extended trip abroad, SafeStorage provides secure, indoor covered vehicle storage bays tailored to every situation.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-10">
             <div>
               <h3 className="text-xl font-semibold text-[#0A2463] mb-3">The Impact of Dubai&apos;s Summer Heat on Parked Vehicles</h3>
               <p className="text-gray-700 mb-4">
-                Dubai&apos;s summer climate is hostile to parked vehicles in ways that many owners underestimate. Between May and September, outdoor temperatures regularly exceed 45°C, with direct sunlight pushing surface temperatures on exposed metal and glass to 70–80°C. Even underground car parks reach temperatures of 35–40°C during peak summer months.
+                Dubai&apos;s summer weather is hostile to parked vehicles in ways that many owners underestimate. Between May and September, outdoor temperatures regularly exceed 45°C, with direct sunlight pushing surface temperatures on exposed metal and glass to 70–80°C. Even underground car parks reach temperatures of 35–40°C during peak summer months.
               </p>
               <p className="text-gray-700">
-                The cumulative effects of this heat exposure on a vehicle stored without climate control include paint oxidation and fading (particularly on dark-coloured vehicles), tyre sidewall cracking and degradation, battery discharge and permanent capacity loss, dashboard plastics warping and cracking, rubber door seals and window gaskets drying out and splitting, leather interior fading and cracking, and adhesive failures on window tints and exterior trims. SafeStorage&apos;s indoor bays maintain 18–22°C year-round, completely eliminating these risks.
+                The cumulative effects of this exposure on a vehicle left parked in the open include paint oxidation and fading (particularly on dark-coloured vehicles), tyre sidewall cracking and degradation, battery discharge, dashboard plastics warping and cracking, rubber door seals and window gaskets drying out and splitting, leather interior fading and cracking, and adhesive failures on window tints and exterior trims. SafeStorage&apos;s indoor bays keep your vehicle out of the sun and shielded from dust, greatly reducing these risks.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Expat Vehicle Storage — Storing a Car While Abroad</h3>
               <p className="text-gray-700 mb-4">
-                Dubai has a large and highly mobile expat population. Many residents own vehicles registered in the UAE and face the challenge of what to do with their car when returning home for an extended period — whether for a summer holiday, home leave, maternity/paternity leave, or a temporary relocation assignment. Leaving a car parked at an apartment building or in a street parking bay for several months exposes it to all the climate risks described above, as well as the risk of fines for overstaying parking limits or unregistered vehicles.
+                Dubai has a large and highly mobile expat population. Many residents own vehicles registered in the UAE and face the challenge of what to do with their car when returning home for an extended period — whether for a summer holiday, home leave, maternity/paternity leave, or a temporary relocation assignment. Leaving a car parked at an apartment building or in a street parking bay for several months exposes it to all the outdoor risks described above, as well as the risk of fines for overstaying parking limits or unregistered vehicles.
               </p>
               <p className="text-gray-700">
-                SafeStorage provides expats with a simple, affordable solution. Before departing Dubai, you drive or arrange transport of your vehicle to our facility. We store it in a climate-controlled indoor bay, maintain the battery with our trickle charger service, and periodically check tyre pressure. When you return to Dubai, your vehicle is ready to drive, in the same condition as when you left it. Many expat customers also ask us to carry out a basic health check (fluid levels, tyre condition) before collection so they can drive away with confidence.
+                SafeStorage provides expats with a simple, affordable solution. Before departing Dubai, you drive or arrange transport of your vehicle to our facility. We store it in a secure indoor bay, maintain the battery with our trickle charger service, and periodically check tyre pressure. When you return to Dubai, your vehicle is ready to drive, in the same condition as when you left it. Many expat customers also ask us to carry out a basic health check (fluid levels, tyre condition) before collection so they can drive away with confidence.
               </p>
             </div>
           </div>
@@ -363,7 +363,7 @@ export default function VehicleStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. Can I store my motorcycle at SafeStorage during summer in Dubai?</h3>
-              <p className="text-gray-700">Absolutely. Motorcycle storage during Dubai summer is one of our most popular services. The intense heat and UV exposure of Dubai summer can cause rubber components (tyres, fork seals, gaskets) to crack and degrade rapidly when a bike is stored outdoors or in a non-climate-controlled space. Our climate-controlled motorcycle bays maintain 18–22°C and protect your bike from heat, dust, and moisture damage. Motorcycles are stored on stands (if available) or with front and rear paddock stands provided by us. We also offer battery maintenance and periodic tyre pressure checks throughout the summer storage period.</p>
+              <p className="text-gray-700">Absolutely. Motorcycle storage during Dubai summer is one of our most popular services. The intense sun and UV exposure of Dubai summer can cause rubber components (tyres, fork seals, gaskets) to crack and degrade rapidly when a bike is stored outdoors. Our indoor motorcycle bays keep your bike out of the sun and protect it from dust and the elements. Motorcycles are stored on stands (if available) or with front and rear paddock stands provided by us. We also offer battery maintenance and periodic tyre pressure checks throughout the summer storage period.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -377,8 +377,8 @@ export default function VehicleStoragePage() {
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. How does indoor climate-controlled storage compare to a covered car park?</h3>
-              <p className="text-gray-700">A covered car park provides shade from direct sunlight but does not control temperature or humidity. Car parks in Dubai buildings typically reach 35–42°C during summer even when covered, which is still damaging to vehicle components over extended periods. SafeStorage&apos;s indoor vehicle storage bays are fully enclosed within an air-conditioned building that maintains 18–22°C year-round. This is the equivalent of parking your car in a continuously air-conditioned room — a standard that no covered car park can match. For vehicles being stored for more than 2–3 months during summer, the difference in condition upon retrieval is significant.</p>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. How does indoor storage compare to a covered car park?</h3>
+              <p className="text-gray-700">A covered car park provides shade but is open to dust, sand, and passing traffic, and offers no security for a stored vehicle. SafeStorage&apos;s indoor vehicle storage bays are fully enclosed within a secure building, keeping your vehicle clean and protected from dust storms, bird droppings, and accidental knocks. Access is restricted and the facility is monitored by 24/7 CCTV. For vehicles being stored for more than 2–3 months, the difference in condition and security upon retrieval is significant.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -388,7 +388,7 @@ export default function VehicleStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. How much does vehicle storage in Dubai cost?</h3>
-              <p className="text-gray-700">Vehicle storage at SafeStorage starts from 12.65 AED / sqft (VAT-inclusive) — whether you are storing standard cars and motorcycles in our climate-controlled indoor bays, SUVs and larger vehicles, or classic vehicles requiring premium enclosed bay storage with additional security features. Boats, jet skis, and caravans are priced individually based on dimensions. All plans include 24/7 CCTV monitoring, climate control, and basic insurance. Long-term plans (3+ months) qualify for preferential rates. Call +971505773388 or get a quote online for precise pricing.</p>
+              <p className="text-gray-700">Vehicle storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive) — whether you are storing standard cars and motorcycles in our indoor bays, SUVs and larger vehicles, or classic vehicles requiring premium enclosed bay storage with additional security features. Boats, jet skis, and caravans are priced individually based on dimensions. All plans include 24/7 CCTV monitoring, indoor covered parking, and basic insurance. Long-term plans (3+ months) qualify for preferential rates. Call +971505773388 or get a quote online for precise pricing.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

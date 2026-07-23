@@ -77,7 +77,7 @@ export default function JumeirahPage() {
       <div className="container mx-auto px-4 max-w-5xl">
         <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Storage for Jumeirah Residents &amp; Expats</h2>
         <p className="text-lg text-gray-700 mb-6">
-          SafeStorage provides trusted, climate-controlled storage for villa owners, families, and expatriates
+          SafeStorage provides trusted, secure storage for villa owners, families, and expatriates
           across Jumeirah 1, 2, 3, Umm Suqeim, Al Safa, and Al Wasl. Whether you are renovating your Jumeirah
           villa, preparing to move back home, or simply need extra space, our hassle-free pickup and delivery service
           makes storing easy from anywhere in Jumeirah.
@@ -103,8 +103,8 @@ export default function JumeirahPage() {
             <p className="text-gray-700 mb-3">
               Jumeirah villas are frequently renovated, and managing furniture during a major renovation can be
               chaotic. SafeStorage provides comprehensive villa storage — we collect all your furniture,
-              appliances, and personal items from your Jumeirah property, store them in climate-controlled
-              security, and return everything once your renovation is complete.
+              appliances, and personal items from your Jumeirah property, store them in secure
+              conditions, and return everything once your renovation is complete.
             </p>
             <p className="text-gray-700">
               Our team is experienced with high-value furniture and can wrap, protect, and store antiques,
@@ -180,7 +180,7 @@ export default function JumeirahPage() {
           Jumeirah is Dubai&apos;s most prestigious villa district — a coastal strip of low-rise villas, beachfront properties, and family communities stretching from Jumeirah 1 near the creek all the way to Umm Suqeim and beyond. Residents of Jumeirah have very different storage needs compared to high-rise apartment dwellers in Marina or Downtown. Villa owners typically need to store larger volumes — full rooms of furniture during renovations, excess from multiple-bedroom homes, or the accumulated belongings of families who have lived in Dubai for a decade or more.
         </p>
         <p className="text-lg text-gray-700 mb-8">
-          SafeStorage is the most trusted storage provider among Jumeirah villa owners and expat families precisely because we handle the scale and complexity of villa storage without any hassle. Our teams are equipped to clear large villas efficiently, wrap and protect high-value furniture and antiques, and store everything in properly secured, climate-controlled units. We have served hundreds of Jumeirah families over the years, and many are repeat customers who use SafeStorage every time they renovate, relocate, or need to clear space.
+          SafeStorage is the most trusted storage provider among Jumeirah villa owners and expat families precisely because we handle the scale and complexity of villa storage without any hassle. Our teams are equipped to clear large villas efficiently, wrap and protect high-value furniture and antiques, and store everything in properly secured units. We have served hundreds of Jumeirah families over the years, and many are repeat customers who use SafeStorage every time they renovate, relocate, or need to clear space.
         </p>
         <div className="grid md:grid-cols-2 gap-8 mb-10">
           <div>
@@ -203,7 +203,7 @@ export default function JumeirahPage() {
               <ul className="space-y-1 text-sm">
                 <li>• We collect all items from your Jumeirah villa or apartment</li>
                 <li>• Everything is photographed and inventoried digitally</li>
-                <li>• Items are stored in climate-controlled, secure units</li>
+                <li>• Items are stored in secure units</li>
                 <li>• You pay month-to-month — no long-term commitment</li>
                 <li>• Access your inventory online anytime from abroad</li>
               </ul>
@@ -235,7 +235,7 @@ export default function JumeirahPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can SafeStorage store high-value antiques and luxury furniture from Jumeirah villas?</h3>
-            <p className="text-gray-700">Yes, SafeStorage regularly stores high-value antiques, custom furniture, luxury pieces, and collectibles for Jumeirah villa residents. Our specialist packing team uses museum-grade materials for fragile and valuable items including acid-free tissue paper, custom crating for fragile pieces, and climate-controlled units with precise temperature and humidity control. We recommend declaring high-value items at booking so we can advise on extended insurance coverage. Our facility security — 24/7 CCTV, biometric access, individual unit alarms — provides the highest standard of protection for luxury items.</p>
+            <p className="text-gray-700">Yes, SafeStorage regularly stores high-value antiques, custom furniture, luxury pieces, and collectibles for Jumeirah villa residents. Our specialist packing team uses museum-grade materials for fragile and valuable items including acid-free tissue paper, custom crating for fragile pieces, and individually secured units. We recommend declaring high-value items at booking so we can advise on extended insurance coverage. Our facility security — 24/7 CCTV, biometric access, individual unit alarms — provides the highest standard of protection for luxury items.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What storage options are available for expats leaving Dubai from Jumeirah?</h3>
@@ -243,7 +243,7 @@ export default function JumeirahPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Does SafeStorage cover the Madinat Jumeirah residential area?</h3>
-            <p className="text-gray-700">Yes, the Madinat Jumeirah area including residential properties nearby is fully within our Jumeirah service zone. We cover the Umm Suqeim area, Al Safa, and the communities adjacent to Madinat Jumeirah. Residents in this prestigious part of Dubai benefit from the same hassle-free pickup, climate-controlled storage, and flexible monthly plans as all other Jumeirah customers. The nearby Al Wasl Road corridor, City Walk developments, and the surrounding villa communities are all within our coverage area.</p>
+            <p className="text-gray-700">Yes, the Madinat Jumeirah area including residential properties nearby is fully within our Jumeirah service zone. We cover the Umm Suqeim area, Al Safa, and the communities adjacent to Madinat Jumeirah. Residents in this prestigious part of Dubai benefit from the same hassle-free pickup, secure storage, and flexible monthly plans as all other Jumeirah customers. The nearby Al Wasl Road corridor, City Walk developments, and the surrounding villa communities are all within our coverage area.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How long does a typical Jumeirah villa storage pickup take?</h3>
@@ -255,11 +255,11 @@ export default function JumeirahPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can I store children&apos;s furniture and baby items between uses?</h3>
-            <p className="text-gray-700">Absolutely. Storing children&apos;s furniture between growth stages is one of the most practical uses of SafeStorage for Jumeirah families. Cots, prams, high chairs, baby bouncers, toddler beds, and large play equipment can all be stored safely in our climate-controlled units. Items are kept clean and protected, ready to be returned when needed for a younger sibling or when you would like to sell or donate them. Families also store board games, toys, educational materials, and sports equipment that are not needed in the current season, keeping their homes organised without permanently discarding useful items.</p>
+            <p className="text-gray-700">Absolutely. Storing children&apos;s furniture between growth stages is one of the most practical uses of SafeStorage for Jumeirah families. Cots, prams, high chairs, baby bouncers, toddler beds, and large play equipment can all be stored safely in our secure units. Items are kept clean and protected, ready to be returned when needed for a younger sibling or when you would like to sell or donate them. Families also store board games, toys, educational materials, and sports equipment that are not needed in the current season, keeping their homes organised without permanently discarding useful items.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What are the storage options for residents of Satwa?</h3>
-            <p className="text-gray-700">Satwa is fully within our Jumeirah service zone and we regularly serve Satwa&apos;s dense residential community. Satwa&apos;s residents include long-term Dubai families, working professionals, and a significant business community. We offer the full range of personal, household, and commercial storage options for Satwa customers with the same hassle-free pickup, climate-controlled security, and flexible monthly plans. Satwa residents appreciate our affordable pricing starting from 12.65 AED / sqft (VAT-inclusive), making SafeStorage accessible to residents across all income levels.</p>
+            <p className="text-gray-700">Satwa is fully within our Jumeirah service zone and we regularly serve Satwa&apos;s dense residential community. Satwa&apos;s residents include long-term Dubai families, working professionals, and a significant business community. We offer the full range of personal, household, and commercial storage options for Satwa customers with the same hassle-free pickup, secure storage, and flexible monthly plans. Satwa residents appreciate our affordable pricing starting from 12.60 AED / sqft (VAT-inclusive), making SafeStorage accessible to residents across all income levels.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you offer short-term storage for Jumeirah residents who are travelling for a few weeks?</h3>
@@ -267,15 +267,15 @@ export default function JumeirahPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Does SafeStorage store bicycles and outdoor sports equipment?</h3>
-            <p className="text-gray-700">Yes, bicycles, electric bikes, road bikes, mountain bikes, and outdoor sports equipment are among the most commonly stored items in our Jumeirah service zone. We provide proper bicycle hanging or standing storage to prevent tyre flat spots and frame damage. Other outdoor equipment we store regularly includes golf clubs and bags, tennis and squash equipment, camping gear, hiking equipment, and water sports accessories. All sports equipment is stored in our climate-controlled facility, which prevents heat damage to components like carbon fibre frames, rubber seals, and electronic components on e-bikes.</p>
+            <p className="text-gray-700">Yes, bicycles, electric bikes, road bikes, mountain bikes, and outdoor sports equipment are among the most commonly stored items in our Jumeirah service zone. We provide proper bicycle hanging or standing storage to prevent tyre flat spots and frame damage. Other outdoor equipment we store regularly includes golf clubs and bags, tennis and squash equipment, camping gear, hiking equipment, and water sports accessories. All sports equipment is stored in our secure, indoor facility.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I get started with SafeStorage from my Jumeirah home?</h3>
-            <p className="text-gray-700">Getting started is quick and easy. Simply WhatsApp or call us on +971505773388 and describe what you need to store — you can share photos via WhatsApp to make the quote process even faster. We will provide a transparent, itemised quote within minutes. Once you confirm, we schedule a pickup at your preferred time (same-day, next-day, or a date of your choice). Our professional team arrives, handles all the packing, wrapping, and loading, and your items are stored in our climate-controlled facility within hours. Most customers complete the entire booking process in under 10 minutes. There is no paperwork to fill in — everything is handled digitally.</p>
+            <p className="text-gray-700">Getting started is quick and easy. Simply WhatsApp or call us on +971505773388 and describe what you need to store — you can share photos via WhatsApp to make the quote process even faster. We will provide a transparent, itemised quote within minutes. Once you confirm, we schedule a pickup at your preferred time (same-day, next-day, or a date of your choice). Our professional team arrives, handles all the packing, wrapping, and loading, and your items are stored in our secure facility within hours. Most customers complete the entire booking process in under 10 minutes. There is no paperwork to fill in — everything is handled digitally.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can I store garden furniture and outdoor items from my Jumeirah villa?</h3>
-            <p className="text-gray-700">Yes, garden and outdoor furniture including sun loungers, patio tables and chairs, garden parasols, barbecues, planters, and outdoor rugs can all be stored with SafeStorage. Outdoor furniture benefits particularly from climate-controlled storage during Dubai&apos;s extremely hot summers, when exposure to 45°C+ temperatures, UV radiation, and sandstorms can rapidly degrade fabrics, metals, and plastics. Storing outdoor furniture indoors during summer and retrieving it when the cool season returns can significantly extend its lifespan. We wrap all outdoor furniture to prevent scratches and transport damage.</p>
+            <p className="text-gray-700">Yes, garden and outdoor furniture including sun loungers, patio tables and chairs, garden parasols, barbecues, planters, and outdoor rugs can all be stored with SafeStorage. Outdoor furniture benefits particularly from being stored indoors during Dubai&apos;s extremely hot summers, out of the UV radiation and sandstorms that can rapidly degrade fabrics, metals, and plastics. Storing outdoor furniture indoors during summer and retrieving it when the cool season returns can significantly extend its lifespan. We wrap all outdoor furniture to prevent scratches and transport damage.</p>
           </div>
         </div>
       </div>

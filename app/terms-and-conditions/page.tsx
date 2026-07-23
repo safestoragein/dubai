@@ -64,9 +64,13 @@ export default function TermsAndConditionsPage() {
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Prohibited Items - Customer shall NOT store:</strong>
             <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
+              <li>Food, grocery, and perishable goods</li>
+              <li>Masala or spice items</li>
+              <li>Liquids, detergents, and gases</li>
+              <li>Cosmetics</li>
+              <li>Medicines</li>
+              <li>Ornaments and jewellery</li>
               <li>Narcotics, arms, ammunition</li>
-              <li>Food and perishable goods</li>
-              <li>Liquids and gases</li>
               <li>Living or dead plants or animals</li>
               <li>Waste materials</li>
               <li>Flammable, explosive, or toxic materials</li>
@@ -81,7 +85,7 @@ export default function TermsAndConditionsPage() {
             <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
               <li>Negotiable instruments</li>
               <li>Cash</li>
-              <li>Jewelry and precious metals</li>
+              <li>Precious metals and bullion</li>
               <li>Antiques or items with high intrinsic market value (beyond insured amount)</li>
             </ol>
           </li>
@@ -157,7 +161,7 @@ export default function TermsAndConditionsPage() {
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Additional Item Charges:</strong>
             <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
-              <li>Storage charges start from 12.65 AED / sqft (VAT-inclusive). You pay only for the space your items actually occupy.</li>
+              <li>Storage charges start from 12.60 AED / sqft (VAT-inclusive). You pay only for the space your items actually occupy.</li>
               <li>Applicable packing and transport charges are confirmed in your quotation based on the items being collected.</li>
               <li>Extra-large or unusual items to be discussed with the SafeStorage team for an accurate quote.</li>
             </ol>
@@ -259,7 +263,7 @@ export default function TermsAndConditionsPage() {
             </ol>
           </li>
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>I authorize SafeStorage Dubai to send me information/alerts/SMS/WhatsApp messages/calls regarding my storage, promotional offers, and service updates.</li>
-          <li style={{ marginBottom: '15px', fontSize: '16px' }}>I understand I can opt-out of communications by emailing <a href="mailto:safestoragedubai@gmail.com" style={{ color: '#2563eb', textDecoration: 'underline' }}>safestoragedubai@gmail.com</a> or calling <a href="tel:+971505773388" style={{ color: '#2563eb', textDecoration: 'underline' }}>+971 50 577 3388</a>.</li>
+          <li style={{ marginBottom: '15px', fontSize: '16px' }}>I understand I can opt-out of communications by emailing <a href="mailto:support@safestorage.ae" style={{ color: '#2563eb', textDecoration: 'underline' }}>support@safestorage.ae</a> or calling <a href="tel:+971505773388" style={{ color: '#2563eb', textDecoration: 'underline' }}>+971 50 577 3388</a>.</li>
         </ol>
       </section>
 
@@ -307,13 +311,13 @@ export default function TermsAndConditionsPage() {
           📞 Call: <a href="tel:+971505773388" style={{ color: 'white', textDecoration: 'underline' }}>+971 50 577 3388</a>
         </p>
         <p style={{ fontSize: '20px', fontWeight: '600', marginBottom: '10px' }}>
-          📧 Email: <a href="mailto:safestoragedubai@gmail.com" style={{ color: 'white', textDecoration: 'underline' }}>safestoragedubai@gmail.com</a>
+          📧 Email: <a href="mailto:support@safestorage.ae" style={{ color: 'white', textDecoration: 'underline' }}>support@safestorage.ae</a>
         </p>
         <p style={{ fontSize: '20px', fontWeight: '600', marginBottom: '10px' }}>
           🌐 Website: <a href="https://safestorage.ae" style={{ color: 'white', textDecoration: 'underline' }}>safestorage.ae</a>
         </p>
         <p style={{ fontSize: '18px', marginTop: '25px', opacity: '0.9' }}>
-          📍 Address: 402- B Wing, Emarat Atrium Bldg, Dubai Investment Park, Dubai, UAE
+          📍 Address: Building 23, Warehouse 5, DIP-1, Dubai, UAE
         </p>
       </div>
 
@@ -332,7 +336,7 @@ export default function TermsAndConditionsPage() {
         </p>
 
         <p style={{ fontSize: '16px', color: '#374151', lineHeight: '1.8', marginBottom: '20px' }}>
-          <strong>Your responsibilities as a customer:</strong> You must provide accurate personal information (Emirates ID or passport) when booking. You are responsible for ensuring that everything you store with SafeStorage is legally owned by you and is not prohibited under UAE law. You must not store narcotics, weapons, food, liquids, flammable materials, live or dead animals, or items that are illegal or hazardous. You are responsible for preparing appliances correctly before pickup &mdash; switching off refrigerators and washing machines at least 24 hours before collection and ensuring they are completely dry. Failure to prepare appliances properly is the customer&apos;s responsibility, not SafeStorage&apos;s.
+          <strong>Your responsibilities as a customer:</strong> You must provide accurate personal information (Emirates ID or passport) when booking. You are responsible for ensuring that everything you store with SafeStorage is legally owned by you and is not prohibited under UAE law. You must not store food or grocery items, masala or spice items, liquids, detergents, cosmetics, medicines, ornaments or jewellery, narcotics, weapons, flammable materials, live or dead animals, or items that are illegal or hazardous. You are responsible for preparing appliances correctly before pickup &mdash; switching off refrigerators and washing machines at least 24 hours before collection and ensuring they are completely dry. Failure to prepare appliances properly is the customer&apos;s responsibility, not SafeStorage&apos;s.
         </p>
 
         <p style={{ fontSize: '16px', color: '#374151', lineHeight: '1.8', marginBottom: '20px' }}>
@@ -357,9 +361,9 @@ export default function TermsAndConditionsPage() {
             { q: "What is the cancellation policy at SafeStorage Dubai?", a: "You can cancel or reschedule a booked pickup at any time without charge, provided you give more than 48 hours' notice before the scheduled pickup time. If you cancel or significantly modify your booking within 48 hours of the scheduled pickup, a cancellation fee of AED 500 plus VAT applies. To end an active storage arrangement, give 7 days' written notice via email and we will arrange return delivery of your items. There are no penalties or administrative fees for ending storage — you simply give notice, receive your items back, and billing stops. Any prepaid full months remaining after your final item is returned are refunded." },
             { q: "What happens if I miss a payment?", a: "If payment is not received within 15 days of the invoice date, late payment charges of 2% per month are applied to the outstanding balance. SafeStorage will contact you by email, SMS, and WhatsApp to notify you of the overdue payment and request settlement. If storage charges remain unpaid for 90 days, SafeStorage is entitled under these terms to: withhold delivery of your stored items, terminate the storage agreement, and ultimately sell, auction, or dispose of stored goods in accordance with UAE law to recover the outstanding amount. We strongly recommend setting up auto-pay to avoid accidental missed payments." },
             { q: "What insurance is included with storage?", a: "Every SafeStorage Dubai plan includes free general insurance coverage for stored items against fire damage, theft, and natural calamities. The maximum payout under the included insurance is AED 5,000 per customer account. To ensure accurate insurance coverage, you must declare the true value of all items when completing the inventory at pickup. The insurance does not cover: gradual deterioration, pre-existing damage, transport scratches, corrosion from wetness within the items, electrical or mechanical breakdown, or damage from atmospheric conditions. Additional comprehensive insurance is available for high-value items at an extra cost — ask our team when booking." },
-            { q: "What items are prohibited from storage?", a: "The following items cannot be stored with SafeStorage Dubai under any circumstances: narcotics, controlled substances, arms, and ammunition; food, perishable goods, and organic materials; liquids including household chemicals; flammable, explosive, or toxic materials; living or dead animals and plants; waste materials and contaminated substances; radioactive materials; and any items that are illegal under UAE law. High-value items including cash, jewellery above the insured amount, negotiable instruments, and antiques with high intrinsic value beyond the insurance coverage are strongly discouraged without enhanced insurance. SafeStorage reserves the right to inspect and refuse any items." },
+            { q: "What items are prohibited from storage?", a: "The following items cannot be stored with SafeStorage Dubai under any circumstances: food, grocery, and perishable goods; masala or spice items; liquids, detergents, and household chemicals; cosmetics; medicines; ornaments and jewellery; narcotics, controlled substances, arms, and ammunition; flammable, explosive, or toxic materials; living or dead animals and plants; waste materials and contaminated substances; radioactive materials; and any items that are illegal under UAE law. High-value items including cash, negotiable instruments, and antiques with high intrinsic value beyond the insurance coverage are strongly discouraged. SafeStorage reserves the right to inspect and refuse any items." },
             { q: "What happens if my stored items are damaged?", a: "If your items are damaged while in SafeStorage's care due to a failure of reasonable care on SafeStorage's part, their liability is limited to the lower of: one month's storage charges for the damaged items, or the declared value of the damaged items at the time of pickup. Claims must be made in writing promptly upon discovery of damage. SafeStorage is not liable for gradual deterioration, pre-existing damage, scratches during transport, rust or corrosion caused by moisture within the items themselves, or damage from extreme weather events beyond their control. The photographic inventory taken at pickup provides the baseline for any damage assessment." },
-            { q: "How are disputes with SafeStorage resolved?", a: "Any disputes arising from the SafeStorage Dubai storage agreement are subject to the laws of the United Arab Emirates and the Emirate of Dubai. The parties agree that the courts of Dubai, UAE have exclusive jurisdiction for resolving any legal disputes arising from these terms. SafeStorage encourages customers to first contact the customer service team at safestoragedubai@gmail.com or +971505773388 to resolve any issue informally before pursuing formal legal action. In most cases, concerns about billing, service quality, or item condition can be resolved quickly through direct communication with our customer experience team." },
+            { q: "How are disputes with SafeStorage resolved?", a: "Any disputes arising from the SafeStorage Dubai storage agreement are subject to the laws of the United Arab Emirates and the Emirate of Dubai. The parties agree that the courts of Dubai, UAE have exclusive jurisdiction for resolving any legal disputes arising from these terms. SafeStorage encourages customers to first contact the customer service team at support@safestorage.ae or +971505773388 to resolve any issue informally before pursuing formal legal action. In most cases, concerns about billing, service quality, or item condition can be resolved quickly through direct communication with our customer experience team." },
             { q: "What law governs the storage agreement?", a: "The SafeStorage Dubai storage agreement is governed exclusively by the laws of the United Arab Emirates and, specifically, the laws of the Emirate of Dubai. Any translation of these terms into Arabic or other languages is for customer convenience only — in the event of any conflict between the English version and a translated version, the English version takes precedence. By using SafeStorage Dubai's services, you confirm that you accept and agree to these terms and to the exclusive jurisdiction of Dubai courts for any legal matters arising from the storage agreement." },
           ].map((faq, i) => (
             <div key={i} style={{ backgroundColor: 'white', borderRadius: '12px', padding: '24px', boxShadow: '0 1px 6px rgba(0,0,0,0.06)', border: '1px solid #e5e7eb' }}>

@@ -592,7 +592,7 @@ export default function ShortTermStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">What does 1-month moving storage typically cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">Moving storage at SafeStorage starts from 12.65 AED / sqft (VAT-inclusive), whether you need a small unit for a studio apartment or room contents, a medium unit for a 1–2 bedroom apartment&apos;s complete contents, or a large unit for 3-bedroom apartments or villas — with hassle-free pickup included. The price includes climate control, 24/7 security, insurance up to AED 5,000, and hassle-free delivery back to your new address at the end of the storage period. When compared to the cost of renting a removal van, booking a hotel for an extra week, or paying lease overlap, professional storage with hassle-free pickup and delivery often represents the most economical solution overall.</p>
+              <p className="text-gray-700 leading-relaxed">Moving storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit for a studio apartment or room contents, a medium unit for a 1–2 bedroom apartment&apos;s complete contents, or a large unit for 3-bedroom apartments or villas — with hassle-free pickup included. The price includes 24/7 security, insurance up to AED 5,000, and hassle-free delivery back to your new address at the end of the storage period. When compared to the cost of renting a removal van, booking a hotel for an extra week, or paying lease overlap, professional storage with hassle-free pickup and delivery often represents the most economical solution overall.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How does renovation storage work in practice?</h3>
@@ -636,7 +636,7 @@ export default function ShortTermStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How is pricing calculated for short-term storage?</h3>
-              <p className="text-gray-700 leading-relaxed">Short-term storage at SafeStorage is priced on a monthly unit-size basis. You select or we recommend a unit size based on your inventory volume, and you pay a flat monthly rate for that unit regardless of how many or how few items are in the unit. There are no per-item charges, no per-visit access fees, and no administrative charges. The monthly rate includes pickup (for initial collection), climate control, 24/7 security, basic insurance, and final delivery to your new address. If your volume exceeds the initial unit size, an upgrade to the next size tier is processed at the difference in price. For very short durations (under 1 month), daily rates can sometimes be accommodated on request — discuss this with our team when your specific situation involves less than 30 days.</p>
+              <p className="text-gray-700 leading-relaxed">Short-term storage at SafeStorage is priced on a monthly unit-size basis. You select or we recommend a unit size based on your inventory volume, and you pay a flat monthly rate for that unit regardless of how many or how few items are in the unit. There are no per-item charges, no per-visit access fees, and no administrative charges. The monthly rate includes pickup (for initial collection), 24/7 security, basic insurance, and final delivery to your new address. If your volume exceeds the initial unit size, an upgrade to the next size tier is processed at the difference in price. For very short durations (under 1 month), daily rates can sometimes be accommodated on request — discuss this with our team when your specific situation involves less than 30 days.</p>
             </div>
           </div>
         </div>
@@ -677,7 +677,7 @@ export default function ShortTermStoragePage() {
               </p>
               <p className="text-gray-700">
                 SafeStorage&apos;s renovation storage service provides a complete solution — we clear your
-                property before work begins, store everything safely in climate-controlled units,
+                property before work begins, store everything safely in secure units,
                 and return it all when the renovation is complete. We can phase deliveries room by room
                 as each area is finished, making the move-back process manageable.
               </p>
@@ -687,7 +687,7 @@ export default function ShortTermStoragePage() {
             <h3 className="text-xl font-bold text-[#0A2463] mb-3">Short-Term Storage Rates</h3>
             <p className="text-gray-700">
               Short-term storage is priced on monthly plans with no minimum contract, starting from
-              12.65 AED / sqft (VAT-inclusive). A typical 1–2 bedroom apartment contents fits in a medium unit.
+              12.60 AED / sqft (VAT-inclusive). A typical 1–2 bedroom apartment contents fits in a medium unit.
               Hassle-free pickup and delivery are included. For renovations lasting 1–3 months, we offer a
               renovation storage package with preferential rates. Same-day pickup is available for bookings
               before 12 PM. Call +971 50 577 3388 to book or get an instant quote.

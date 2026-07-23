@@ -6,11 +6,11 @@ import { FileText, CheckCircle2, Star, Phone, ArrowRight, Shield, Lock, Clock } 
 
 export const metadata: Metadata = {
   title: "Document Storage Dubai — Secure Records",
-  description: "Secure document and records storage in Dubai. Store business files, legal documents, contracts and personal records safely. Fire-resistant, climate-controlled. From 12.65 AED / sqft. Call +971505773388.",
+  description: "Secure document and records storage in Dubai. Store business files, legal documents, contracts and personal records safely. Fire-resistant, access-controlled. From 12.60 AED / sqft. Call +971505773388.",
   keywords: "document storage dubai, records storage dubai, file storage dubai, business document storage dubai, legal document storage dubai, archive storage dubai, confidential document storage dubai",
   openGraph: {
     title: "Document Storage Dubai — Secure Records & Archive Storage | SafeStorage",
-    description: "Secure document storage in Dubai for businesses and individuals. Fire-resistant, climate-controlled, access-controlled. From 12.65 AED / sqft.",
+    description: "Secure document storage in Dubai for businesses and individuals. Fire-resistant, access-controlled, confidential. From 12.60 AED / sqft.",
     url: "https://safestorage.ae/document-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -24,7 +24,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Document & Records Storage Dubai",
-    description: "Secure, climate-controlled document and records storage in Dubai. Fire-resistant archive storage for business and personal documents, legal files, and confidential records.",
+    description: "Secure document and records storage in Dubai. Fire-resistant archive storage for business and personal documents, legal files, and confidential records.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/document-storage",
     areaServed: { "@type": "City", name: "Dubai" },
@@ -70,7 +70,7 @@ export default function DocumentStoragePage() {
                 <FileText className="w-4 h-4" /> Document & Records Storage
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Document Storage Dubai — Secure Archive & Records Management</h1>
-              <p className="text-xl text-white/85 mb-8">Free up prime office space and comply with UAE retention requirements — without destroying documents you're legally required to keep. SafeStorage Dubai provides secure, climate-controlled document and archive storage for businesses and individuals from 12.65 AED / sqft.</p>
+              <p className="text-xl text-white/85 mb-8">Free up prime office space and comply with UAE retention requirements — without destroying documents you're legally required to keep. SafeStorage Dubai provides secure, access-controlled document and archive storage for businesses and individuals from 12.60 AED / sqft.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Quote</Button>
@@ -89,7 +89,7 @@ export default function DocumentStoragePage() {
           <div className="container px-4 max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
-                { stat: "12.65 AED", label: "Starting price / sqft" },
+                { stat: "12.60 AED", label: "Starting price / sqft" },
                 { stat: "5+ Years", label: "UAE retention requirements" },
                 { stat: "24/7", label: "Security monitoring" },
                 { stat: "Door-to-Door", label: "Initial collection" },
@@ -127,7 +127,7 @@ export default function DocumentStoragePage() {
             </div>
             <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6">
               <p className="text-dubai-navy font-medium">
-                <strong>Cost comparison:</strong> Storing business records with SafeStorage starts from 12.65 AED / sqft (VAT-inclusive). Renting the equivalent office floor space in Business Bay costs AED 800–1,500/month. Offsite document storage saves 80% vs using prime office space for archive boxes.
+                <strong>Cost comparison:</strong> Storing business records with SafeStorage starts from 12.60 AED / sqft (VAT-inclusive). Renting the equivalent office floor space in Business Bay costs AED 800–1,500/month. Offsite document storage saves 80% vs using prime office space for archive boxes.
               </p>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function DocumentStoragePage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { icon: Lock, title: "Biometric Access Control", desc: "Only authorised personnel can enter document storage areas. Biometric entry log maintained — complete record of who accessed your documents and when." },
-                { icon: Shield, title: "Climate-Controlled Environment", desc: "Documents stored at 18-24°C with 45-55% humidity. Paper degrades faster in heat and humidity — our climate control prevents yellowing, brittleness and mould." },
+                { icon: Shield, title: "Clean, Secure Environment", desc: "Documents held in a clean, enclosed indoor area — kept dust-protected and away from the rain, direct sun, and outdoor elements that damage paper records." },
                 { icon: FileText, title: "Individual Labelling & Inventory", desc: "Your boxes are labelled with your reference system. We maintain an outer inventory record so specific boxes can be retrieved without searching through everything." },
                 { icon: Clock, title: "Timed Destruction Service", desc: "We can schedule document destruction at the end of your required retention period — certified shredding with a destruction certificate issued for your compliance records." },
                 { icon: CheckCircle2, title: "Confidentiality Assured", desc: "Staff are bound by confidentiality agreements. Your documents are stored in a sealed, individually assigned area — not accessible by other customers or general staff." },
@@ -186,7 +186,7 @@ export default function DocumentStoragePage() {
               {[
                 { name: "Ibrahim S.", location: "DIFC", role: "Law Firm Partner", text: "We store 5 years of closed client files with SafeStorage. Retrieval when we need a reference takes 2 hours. We freed up an entire storage room in our DIFC office that now accommodates a meeting room. Cost savings plus more usable space — an obvious decision.", rating: 5 },
                 { name: "Laleh K.", location: "Business Bay", role: "Finance Director", text: "VAT audit required records from 2018–2022. Everything was with SafeStorage — labelled by year and category. The retrieval was smooth and everything was in exactly the condition it was stored. The auditors were satisfied. Could not have managed the same compliance with in-office storage.", rating: 5 },
-                { name: "Dr. Mahesh R.", location: "Al Quoz", role: "Clinic Owner", text: "Patient records from our first 4 years of operation are stored with SafeStorage. DHA requires us to retain for 25 years for some records. Having them offsite in a climate-controlled, access-controlled environment gives me confidence in our compliance posture.", rating: 5 },
+                { name: "Dr. Mahesh R.", location: "Al Quoz", role: "Clinic Owner", text: "Patient records from our first 4 years of operation are stored with SafeStorage. DHA requires us to retain for 25 years for some records. Having them offsite in a secure, access-controlled environment gives me confidence in our compliance posture.", rating: 5 },
               ].map((t) => (
                 <div key={t.name} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                   <div className="flex mb-3">{[...Array(t.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-dubai-gold text-dubai-gold" />)}</div>
@@ -242,8 +242,8 @@ export default function DocumentStoragePage() {
           <div className="container px-4 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our Document Storage Service in Dubai</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
-              <p>SafeStorage Dubai provides secure, climate-controlled document and records storage for businesses and individuals across the emirate. Every box stored with us is held in a dedicated, access-controlled area maintained at 18&ndash;24&deg;C with 45&ndash;55% relative humidity &mdash; conditions that prevent paper degradation, yellowing, brittleness, and mould growth that occur in ambient UAE temperatures. Documents stored in prime office space or in uncontrolled environments deteriorate significantly faster, and in Dubai&apos;s humid summer months, paper files stored without climate control can develop mould within weeks. Our facility offers the physical security and environmental conditions that confidential, legally required, and irreplaceable documents demand.</p>
-              <p>UAE businesses are legally required to retain a wide range of documents for minimum statutory periods &mdash; from 2 years for employee records under UAE Labour Law to 10 years for real estate transactions under Dubai Land Department regulations. Failing to retain documents for the required period, or failing to produce them during an audit or legal proceeding, can result in regulatory penalties and significant legal exposure. SafeStorage Dubai provides an affordable, reliable solution that allows businesses to maintain full compliance with retention requirements without using expensive prime office floor space for archive boxes. Our pricing starts from 12.65 AED / sqft (VAT-inclusive), representing a fraction of the cost of equivalent office storage space in Dubai&apos;s commercial districts.</p>
+              <p>SafeStorage Dubai provides secure, access-controlled document and records storage for businesses and individuals across the emirate. Every box stored with us is held in a dedicated, access-controlled area &mdash; a clean, enclosed indoor space that keeps paper records dust-protected and away from the rain, direct sun, and outdoor elements. Our facility offers the physical security and confidentiality that legally required and irreplaceable documents demand, with a complete audit trail of every access event.</p>
+              <p>UAE businesses are legally required to retain a wide range of documents for minimum statutory periods &mdash; from 2 years for employee records under UAE Labour Law to 10 years for real estate transactions under Dubai Land Department regulations. Failing to retain documents for the required period, or failing to produce them during an audit or legal proceeding, can result in regulatory penalties and significant legal exposure. SafeStorage Dubai provides an affordable, reliable solution that allows businesses to maintain full compliance with retention requirements without using expensive prime office floor space for archive boxes. Our pricing starts from 12.60 AED / sqft (VAT-inclusive), representing a fraction of the cost of equivalent office storage space in Dubai&apos;s commercial districts.</p>
               <p>Every business customer receives an outer inventory record for their stored boxes, and specific boxes can be retrieved within 2 business hours on request. We also offer a certified document destruction service for records that have reached the end of their required retention period, with a destruction certificate issued for your compliance records. Access to your stored documents is logged biometrically, creating a complete audit trail of every access event. We serve law firms, accounting practices, medical clinics, real estate agencies, HR departments, government contractors, and private individuals with sensitive personal documents to protect. Call us at +971505773388 to discuss your document storage requirements.</p>
             </div>
 
@@ -300,8 +300,8 @@ export default function DocumentStoragePage() {
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What about humidity-sensitive documents such as maps, photos, and original artwork?</h3>
-                <p className="text-gray-700 leading-relaxed">Documents that are particularly sensitive to humidity &mdash; including historical maps, original photographs, engineering drawings, architectural plans, legal originals on parchment or fine paper, and watercolour artworks &mdash; benefit significantly from our climate-controlled environment. Our 45&ndash;55% relative humidity range is the internationally recommended standard for paper-based archive preservation. High humidity causes paper to absorb moisture, leading to warping, adhesion failure, and mould growth; low humidity causes brittleness and cracking. If you have particularly important humidity-sensitive documents, notify us at intake and we will ensure they are stored in our most stable climate zone and, if necessary, in archival-grade storage materials such as acid-free boxes and interleaving tissue.</p>
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How are delicate documents such as maps, photos, and original artwork protected?</h3>
+                <p className="text-gray-700 leading-relaxed">Delicate documents &mdash; including historical maps, original photographs, engineering drawings, architectural plans, legal originals on parchment or fine paper, and watercolour artworks &mdash; are stored in our clean, enclosed indoor units, kept dust-protected and away from the rain, direct sun, and outdoor elements. If you have particularly important or fragile documents, notify us at intake and we will store them in archival-grade materials such as acid-free boxes and interleaving tissue, and flat where appropriate to prevent creasing. For the most valuable originals, we also recommend keeping certified digital copies stored separately as a backup.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

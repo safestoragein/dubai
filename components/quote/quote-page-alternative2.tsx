@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { useNavigationGuard } from "@/components/providers/navigation-guard"
 import { m, AnimatePresence } from "framer-motion"
@@ -286,7 +286,7 @@ const getItemIcon = (itemName: string) => {
   if (name.includes('barbeque') || name.includes('barbecue') || name.includes('bbq')) return ChefHat
   if (name.includes('grill')) return ChefHat
   
-  // Climate control
+  // Cooling & heating appliances
   if (name.includes('air purifier') || name.includes('purifier')) return Wind
   if (name.includes('ac') || name.includes('air condition') || name.includes('split ac')) return Wind
   if (name.includes('cooler') || name.includes('fan')) return Wind
@@ -454,6 +454,71 @@ export default function QuotePage() {
       .then((d) => { if (d && d.status && Array.isArray(d.data)) setApiEmirates(d.data) })
       .catch(() => {})
   }, [])
+
+  // ── Partial / abandoned-lead capture ──────────────────────────────────────
+  // If a visitor fills ANY one of name / phone / email and then leaves the page
+  // (closes the tab, backgrounds the app, navigates away) before completing the
+  // quote, capture what they typed so the sales team can follow up. Mirrors the
+  // India front-end's save_frontend_leads_contact() behaviour.
+  const formDataRef = useRef(formData)
+  formDataRef.current = formData
+  const lastPartialSigRef = useRef<string>("")
+
+  const sendPartialLead = React.useCallback(() => {
+    const fd = formDataRef.current
+    const name = (fd.fullName || "").trim()
+    const phone = (fd.phone || "").trim()
+    const email = (fd.email || "").trim()
+
+    // Nothing worth saving.
+    if (!name && !phone && !email) return
+
+    // Already saved as a full lead (customer created on step 2 → 3) — skip.
+    if (fd.customerId) return
+
+    // Don't beacon the same data twice.
+    const sig = `${name}|${phone}|${email}`
+    if (sig === lastPartialSigRef.current) return
+    lastPartialSigRef.current = sig
+
+    const payload = JSON.stringify({
+      customer_name: name,
+      customer_contact1: phone,
+      customer_email: email,
+      storage_type: fd.storageType === "business" ? "business" : "household",
+    })
+
+    // sendBeacon survives page unload; fall back to keepalive fetch.
+    try {
+      if (navigator.sendBeacon) {
+        const blob = new Blob([payload], { type: "application/json" })
+        navigator.sendBeacon("/api/save-partial-lead", blob)
+        return
+      }
+    } catch {
+      /* fall through to fetch */
+    }
+    fetch("/api/save-partial-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+      keepalive: true,
+    }).catch(() => {})
+  }, [])
+
+  useEffect(() => {
+    const onHide = () => {
+      if (document.visibilityState === "hidden") sendPartialLead()
+    }
+    // pagehide is the most reliable unload signal on mobile/Safari.
+    const onPageHide = () => sendPartialLead()
+    document.addEventListener("visibilitychange", onHide)
+    window.addEventListener("pagehide", onPageHide)
+    return () => {
+      document.removeEventListener("visibilitychange", onHide)
+      window.removeEventListener("pagehide", onPageHide)
+    }
+  }, [sendPartialLead])
   
   const { setNavigationGuard, setFormData: setGuardFormData, setCurrentStep: setGuardCurrentStep } = useNavigationGuard()
 
@@ -1116,13 +1181,13 @@ export default function QuotePage() {
                       />
 
                       <div className="space-y-2">
-                        <Label className="text-sm font-semibold text-slate-700">Area *</Label>
+                        <Label className="text-sm font-semibold text-slate-700">Emirate *</Label>
                         <Select
                           value={formData.emirate}
                           onValueChange={(value) => setFormData({ ...formData, emirate: value })}
                         >
                           <SelectTrigger className="h-12 border-2 border-slate-200 focus:border-blue-500 rounded-lg">
-                            <SelectValue placeholder="Select area" />
+                            <SelectValue placeholder="Select emirate" />
                           </SelectTrigger>
                           <SelectContent>
                             {apiEmirates.map((em) => (
@@ -1761,7 +1826,7 @@ export default function QuotePage() {
                             {[
                               "Shared Warehouse",
                               "Scheduled Access",
-                              "Climate Controlled",
+                              "Secure Indoor Storage",
                               "Professional Care",
                               "Basic Insurance"
                             ].map((feature, index) => (
@@ -1822,7 +1887,7 @@ export default function QuotePage() {
                       {[
                         { icon: Truck, label: "Hassle-Free Pickup" },
                         { icon: Shield, label: "Secure" },
-                        { icon: Wind, label: "Climate Control" },
+                        { icon: Wind, label: "Dust-Protected" },
                         { icon: Clock, label: "Flexible" },
                         { icon: Phone, label: "24/7 Support" }
                       ].map((feature, index) => {

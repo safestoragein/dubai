@@ -1,7 +1,7 @@
 "use client"
 
 import { m } from "framer-motion"
-import { Shield, Thermometer, Clock, Truck, HeadphonesIcon, DollarSign, Package, Users, Percent } from "lucide-react"
+import { Shield, Clock, Truck, HeadphonesIcon, DollarSign, Package, Users, Percent } from "lucide-react"
 
 export default function USPSection() {
   const features = [
@@ -11,9 +11,9 @@ export default function USPSection() {
       description: "24/7 surveillance, secure access control, and real-time monitoring.",
     },
     {
-      icon: Thermometer,
-      title: "Climate-Controlled Storage",
-      description: "Protects valuables from heat, humidity, and dust.",
+      icon: Shield,
+      title: "Clean, Dust-Protected Units",
+      description: "Sealed, regularly cleaned units keep your belongings protected from dust.",
     },
     {
       icon: Clock,

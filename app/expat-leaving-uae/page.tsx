@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   keywords: "expat leaving uae storage, leaving dubai storage, storage for expats dubai, moving out dubai storage, expat storage dubai long term, leaving dubai checklist, repatriation storage dubai",
   openGraph: {
     title: "Expat Leaving UAE? Complete Storage Checklist | SafeStorage Dubai",
-    description: "Trusted by 500+ expats leaving Dubai. Store belongings safely from 12.65 AED / sqft — flexible terms, hassle-free pickup. Don't ship everything when you can store affordably.",
+    description: "Trusted by 500+ expats leaving Dubai. Store belongings safely from 12.60 AED / sqft — flexible terms, hassle-free pickup. Don't ship everything when you can store affordably.",
     url: "https://safestorage.ae/expat-leaving-uae",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -91,7 +91,7 @@ export default function ExpatLeavingUAEPage() {
                 { value: "80,000+", label: "Expats leave UAE annually" },
                 { value: "88%", label: "Of Dubai residents are expats" },
                 { value: "4-7 yrs", label: "Average expat stay in Dubai" },
-                { value: "12.65 AED", label: "Storage from / sqft" },
+                { value: "12.60 AED", label: "Storage from / sqft" },
               ].map((s) => (
                 <div key={s.label}><div className="text-2xl font-bold text-dubai-navy">{s.value}</div><div className="text-sm text-gray-500">{s.label}</div></div>
               ))}
@@ -106,7 +106,7 @@ export default function ExpatLeavingUAEPage() {
               {[
                 { title: "🚢 Ship to Europe/UK", cost: "AED 8,000–25,000", timeframe: "4–8 weeks transit", pros: ["Items arrive at destination", "One-time cost"], cons: ["Huge upfront cost", "Long wait time", "Risk of damage in transit", "No flexibility if you return"] },
                 { title: "✈️ Ship by Air", cost: "AED 15–35 per kg", timeframe: "3–7 days", pros: ["Fast delivery", "Good for valuables"], cons: ["Extremely expensive for furniture", "Not viable for large volumes"] },
-                { title: "🏢 Store in Dubai", cost: "from 12.65 AED / sqft", timeframe: "Month-to-month flexibility", pros: ["Fraction of shipping cost", "Items ready if you return", "No customs hassle", "Climate-controlled protection"], cons: ["Ongoing monthly cost"] },
+                { title: "🏢 Store in Dubai", cost: "from 12.60 AED / sqft", timeframe: "Month-to-month flexibility", pros: ["Fraction of shipping cost", "Items ready if you return", "No customs hassle", "Clean, secure protection"], cons: ["Ongoing monthly cost"] },
               ].map((opt) => (
                 <div key={opt.title} className="border border-gray-200 rounded-xl p-6">
                   <h3 className="text-xl font-bold text-dubai-navy mb-2">{opt.title}</h3>
@@ -123,7 +123,7 @@ export default function ExpatLeavingUAEPage() {
             </div>
             <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6">
               <p className="text-dubai-navy font-medium text-lg">
-                <strong>Real example:</strong> A 2-bedroom apartment's furniture shipped to the UK costs AED 18,000–22,000 in sea freight. The same items stored at SafeStorage Dubai cost from 12.65 AED / sqft (VAT-inclusive). Even if you store for 2 full years, you're still ahead — and you have the flexibility to return or sell locally.
+                <strong>Real example:</strong> A 2-bedroom apartment's furniture shipped to the UK costs AED 18,000–22,000 in sea freight. The same items stored at SafeStorage Dubai cost from 12.60 AED / sqft (VAT-inclusive). Even if you store for 2 full years, you're still ahead — and you have the flexibility to return or sell locally.
               </p>
             </div>
           </div>
@@ -176,17 +176,17 @@ export default function ExpatLeavingUAEPage() {
                 <h3 className="text-2xl font-bold mb-6">Long-Term Storage Discounts</h3>
                 <div className="space-y-4">
                   {[
-                    { period: "3-Month Prepaid", discount: "10% off", saving: "Save 10% on your total" },
-                    { period: "6-Month Prepaid", discount: "15% off", saving: "Save 15% on your total" },
-                    { period: "12-Month Prepaid", discount: "20% off", saving: "Save 20% on your total" },
+                    { period: "Prepaid Plans", saving: "Save more when you pay upfront" },
+                    { period: "Long-Term Storage", saving: "The longer you store, the more you save" },
+                    { period: "Business & Bulk", saving: "Custom rates for larger or ongoing needs" },
                   ].map((d) => (
                     <div key={d.period} className="flex justify-between items-center border-b border-white/20 pb-4">
                       <div><div className="font-semibold">{d.period}</div><div className="text-white/70 text-sm">{d.saving}</div></div>
-                      <span className="bg-dubai-gold text-white px-3 py-1 rounded-full font-bold">{d.discount}</span>
+                      <span className="bg-dubai-gold text-white px-3 py-1 rounded-full font-bold">Discount</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-white/70 text-sm mt-6">Pricing starts from 12.65 AED / sqft (VAT-inclusive). Discounts applied to prepaid amount at time of booking.</p>
+                <p className="text-white/70 text-sm mt-6">Pricing starts from 12.60 AED / sqft (VAT-inclusive). We offer a wide range of discounts on long-term and prepaid plans — contact us for the best available rate.</p>
               </div>
             </div>
           </div>
@@ -197,7 +197,7 @@ export default function ExpatLeavingUAEPage() {
             <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">Expat Stories</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { name: "Emma T.", location: "Dubai Marina → London", text: "Moved back to London after 6 years in Dubai. Rather than shipping everything and paying AED 20,000, I stored my furniture with SafeStorage from 12.65 AED / sqft. When my assignment fell through 8 months later and I came back to Dubai, everything was there. Best decision I made.", rating: 5 },
+                { name: "Emma T.", location: "Dubai Marina → London", text: "Moved back to London after 6 years in Dubai. Rather than shipping everything and paying AED 20,000, I stored my furniture with SafeStorage from 12.60 AED / sqft. When my assignment fell through 8 months later and I came back to Dubai, everything was there. Best decision I made.", rating: 5 },
                 { name: "Rajesh M.", location: "JLT → Bangalore", text: "Left Dubai temporarily for a family matter — wasn't sure if I'd be back. SafeStorage gave me the flexibility I needed. The auto-payment meant I didn't have to worry about losing my belongings. Returned after 5 months and everything was exactly as I'd left it.", rating: 5 },
                 { name: "Steph & Mark B.", location: "Jumeirah → Brisbane", text: "As a couple with 8 years of Dubai life accumulated, we had too much to ship but too much to lose. We stored everything valuable and sold the rest. The inventory photos SafeStorage sent every quarter were incredibly reassuring. Will use them again when we eventually return.", rating: 5 },
               ].map((t) => (
@@ -240,7 +240,7 @@ export default function ExpatLeavingUAEPage() {
             <div className="space-y-6">
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does long-term expat storage cost in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Long-term expat storage at SafeStorage Dubai starts from 12.65 AED / sqft (VAT-inclusive). You pay only for the space your belongings actually occupy, so the cost scales naturally with your volume — from a few boxes to the full contents of a 1–2 bedroom apartment including furniture. If you prepay 6 or 12 months upfront, you receive a 15–20% discount, making long-term storage even more economical compared to international shipping costs.</p>
+                <p className="text-gray-700 leading-relaxed">Long-term expat storage at SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive). You pay only for the space your belongings actually occupy, so the cost scales naturally with your volume — from a few boxes to the full contents of a 1–2 bedroom apartment including furniture. If you prepay several months upfront, you receive a wide range of discounts, making long-term storage even more economical compared to international shipping costs.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I retrieve my items after leaving the UAE?</h3>
@@ -259,12 +259,12 @@ export default function ExpatLeavingUAEPage() {
                 <p className="text-gray-700 leading-relaxed">Yes. You can add any number of authorised persons to your storage account. Authorised access requires presenting the written authorisation letter you provide at sign-up, along with their valid Emirates ID or passport. This means a spouse, sibling, parent, or trusted friend in Dubai can visit your unit, retrieve specific items, add new items, or simply check on the condition of your belongings on your behalf. We keep a record of all access visits, and you can request an access log at any time for complete peace of mind.</p>
               </div>
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">Is there a discount for 6 or 12-month expat storage plans?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage offers structured prepaid discounts for expats who know they will be abroad for an extended period. Prepaying 3 months in advance earns 10% off, a 6-month prepayment earns 15% off, and a full 12-month prepayment earns 20% off the standard rate. With pricing from 12.65 AED / sqft (VAT-inclusive), a 12-month prepayment saves you a full 20% compared to paying month-to-month. For expats planning to be abroad for a year or more, prepaying annually is the most cost-effective option and eliminates the need for monthly transaction management.</p>
+                <h3 className="text-xl font-bold text-dubai-navy mb-2">Is there a discount for long-term expat storage plans?</h3>
+                <p className="text-gray-700 leading-relaxed">SafeStorage offers a wide range of prepaid discounts for expats who know they will be abroad for an extended period — the longer you prepay, the more you save off the standard rate. With pricing from 12.60 AED / sqft (VAT-inclusive), prepaying for a longer term is the most cost-effective option and eliminates the need for monthly transaction management. Contact us for the best available rate for your storage duration.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How do I compare storage costs versus international shipping?</h3>
-                <p className="text-gray-700 leading-relaxed">The comparison almost always favours storage for expats who are uncertain about their plans. International sea freight from Dubai to the UK or Europe for a 2–3 bedroom apartment typically costs AED 12,000–25,000 for a full container, with transit times of 4–8 weeks and no recourse if circumstances change. Air freight is even more expensive. By contrast, storing the same volume at SafeStorage costs from 12.65 AED / sqft (VAT-inclusive). Even after two full years of storage, you have spent less than most one-way shipping costs — and you retain the option to return to Dubai, sell items locally, or decide what to ship once you have settled abroad and know exactly what you need.</p>
+                <p className="text-gray-700 leading-relaxed">The comparison almost always favours storage for expats who are uncertain about their plans. International sea freight from Dubai to the UK or Europe for a 2–3 bedroom apartment typically costs AED 12,000–25,000 for a full container, with transit times of 4–8 weeks and no recourse if circumstances change. Air freight is even more expensive. By contrast, storing the same volume at SafeStorage costs from 12.60 AED / sqft (VAT-inclusive). Even after two full years of storage, you have spent less than most one-way shipping costs — and you retain the option to return to Dubai, sell items locally, or decide what to ship once you have settled abroad and know exactly what you need.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">What documents do I need to cancel my storage contract?</h3>
@@ -272,11 +272,11 @@ export default function ExpatLeavingUAEPage() {
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store my car while I am living abroad?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage can accommodate vehicle storage for cars, motorcycles, and other personal vehicles. Vehicle storage requires a separate arrangement and booking, as unit sizes and access requirements differ from household storage. Before storing a vehicle, we recommend ensuring the battery is maintained or disconnected, the fuel level is reduced, and the tyres are inflated correctly to prevent flat spots from long-term stationary storage. Please contact us directly to discuss vehicle storage requirements, as pricing and availability depend on the vehicle type and storage duration. Climate-controlled vehicle storage is strongly recommended given Dubai&apos;s extreme summer temperatures.</p>
+                <p className="text-gray-700 leading-relaxed">SafeStorage can accommodate vehicle storage for cars, motorcycles, and other personal vehicles. Vehicle storage requires a separate arrangement and booking, as unit sizes and access requirements differ from household storage. Before storing a vehicle, we recommend ensuring the battery is maintained or disconnected, the fuel level is reduced, and the tyres are inflated correctly to prevent flat spots from long-term stationary storage. Please contact us directly to discuss vehicle storage requirements, as pricing and availability depend on the vehicle type and storage duration. Secure indoor vehicle storage is strongly recommended given Dubai&apos;s extreme summer conditions.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How are my items protected over 12+ months of storage?</h3>
-                <p className="text-gray-700 leading-relaxed">All SafeStorage facilities are climate-controlled, maintaining temperatures of 18–24°C and humidity of 45–55% year-round. This is essential for protecting furniture, electronics, clothing, leather, wood, and other common household items from Dubai&apos;s extreme summer heat and humidity. Your items are stored on pallets or shelving where appropriate, wrapped in protective materials at intake, and stored in a clean, dry, pest-controlled environment. For long-term storage beyond 12 months, we recommend requesting a periodic condition check, which our team can conduct and photograph for your records upon request.</p>
+                <p className="text-gray-700 leading-relaxed">All SafeStorage facilities offer clean, dedicated indoor units that keep furniture, electronics, clothing, leather, wood, and other common household items dust-protected and secure. Your items are stored on pallets or shelving where appropriate, wrapped in protective materials at intake, and kept in a clean, pest-controlled environment. For long-term storage beyond 12 months, we recommend requesting a periodic condition check, which our team can conduct and photograph for your records upon request.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">Can SafeStorage forward specific items internationally on my behalf?</h3>
@@ -305,7 +305,7 @@ export default function ExpatLeavingUAEPage() {
         <section className="py-16 bg-white">
           <div className="container px-4 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-dubai-navy mb-6">About Expat Storage at SafeStorage Dubai</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">Dubai is home to one of the world&apos;s most internationally mobile populations, with over 88% of residents being expatriates from more than 200 countries. For the majority of the city&apos;s residents, the question of what to do with accumulated belongings when the time comes to leave is a significant practical challenge. Shipping costs for a full apartment to Europe, India, the USA, or Australia run into tens of thousands of dirhams, while selling furniture at short notice rarely returns fair value. SafeStorage Dubai was built specifically to serve this need — providing a safe, climate-controlled bridge for expats who are leaving Dubai but not ready to commit to the irreversible expense of international shipping.</p>
+            <p className="text-gray-700 leading-relaxed mb-6">Dubai is home to one of the world&apos;s most internationally mobile populations, with over 88% of residents being expatriates from more than 200 countries. For the majority of the city&apos;s residents, the question of what to do with accumulated belongings when the time comes to leave is a significant practical challenge. Shipping costs for a full apartment to Europe, India, the USA, or Australia run into tens of thousands of dirhams, while selling furniture at short notice rarely returns fair value. SafeStorage Dubai was built specifically to serve this need — providing a safe, secure bridge for expats who are leaving Dubai but not ready to commit to the irreversible expense of international shipping.</p>
             <p className="text-gray-700 leading-relaxed mb-6">The concept of &apos;store first, decide later&apos; has proven to be the most financially sensible approach for hundreds of SafeStorage customers over the years. Expats who choose storage rather than rushed shipping almost universally report making better decisions about their belongings once they have settled in their new country. With no pressure to make permanent decisions in the chaos of departure, you can ship what you genuinely need, sell items you no longer want, and return for belongings if your Dubai life resumes. The storage cost for two years is typically less than a one-way sea freight container — making storage not just a flexible choice, but a financially superior one in most scenarios.</p>
             <p className="text-gray-700 leading-relaxed mb-6">SafeStorage offers expat-specific features designed for customers managing everything remotely. Authorised access for a trusted person in Dubai, automated monthly billing from any international bank card, remote account management via WhatsApp and email, periodic inventory photography on request, and international shipping coordination from your storage unit — all of these services were developed in direct response to the needs of expat customers who found themselves managing Dubai obligations from thousands of miles away. Our team has helped expats in London, Bangalore, Sydney, Toronto, and dozens of other cities maintain a seamless Dubai storage relationship without any need to return.</p>
             <p className="text-gray-700 leading-relaxed">If you are preparing to leave Dubai and are unsure whether storage makes sense for your situation, we encourage you to call or WhatsApp +971505773388 for an honest assessment. Our team will review your inventory list, provide a clear monthly cost, and compare it to your shipping quotes so you can make a fully informed decision. Most expats are surprised to find that 12 months of storage costs less than the cheapest shipping option for the same volume — giving you a full year to settle abroad and make permanent decisions with confidence rather than under departure pressure.</p>

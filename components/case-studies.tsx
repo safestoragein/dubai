@@ -11,7 +11,7 @@ const caseStudies = [
   {
     title: "IT Professional Relocating Abroad",
     quote:
-      "I needed to store my furniture and electronics while relocating. SafeStorage provided a secure, climate-controlled space with easy access. The process was seamless!",
+      "I needed to store my furniture and electronics while relocating. SafeStorage provided a secure, clean space with easy access. The process was seamless!",
     author: "Ahmed K.",
     location: "Dubai Marina",
     icon: User,
@@ -33,7 +33,7 @@ const caseStudies = [
   {
     title: "Family Moving Between Homes",
     quote:
-      "During our home renovation, we needed temporary storage for our belongings. SafeStorage's climate-controlled units kept everything in perfect condition.",
+      "During our home renovation, we needed temporary storage for our belongings. SafeStorage's clean, secure units kept everything in perfect condition.",
     author: "Mohammed A.",
     location: "Al Barsha",
     icon: User,

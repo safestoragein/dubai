@@ -20,7 +20,7 @@ const contactSchemas = [
     '@type': 'ContactPage',
     '@id': 'https://safestorage.ae/contact#webpage',
     name: 'Contact SafeStorage Dubai',
-    description: 'Contact SafeStorage Dubai for storage solutions. Call +971505773388, email safestoragedubai@gmail.com, or get a free quote online.',
+    description: 'Contact SafeStorage Dubai for storage solutions. Call +971505773388, email support@safestorage.ae, or get a free quote online.',
     url: 'https://safestorage.ae/contact',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     mainEntity: { '@id': 'https://safestorage.ae/#organization' },
@@ -171,72 +171,67 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">2. What is the minimum storage period at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">Our minimum storage period is one month. We do not impose long-term contracts — you can store for a single month and cancel at any time with prior notice. Many customers start with a one-month plan and extend as their circumstances evolve. For those committing to 3, 6, or 12 months upfront, we offer attractive discounts of 10%, 15%, and 20% respectively on the total cost.</p>
+              <p className="text-gray-700">Our minimum storage period is one month. We do not impose long-term contracts — you can store for a single month and cancel at any time with prior notice. Many customers start with a one-month plan and extend as their circumstances evolve. For those committing to longer prepaid plans, we offer a wide range of discounts on the total cost — the longer you store, the more you save.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">3. How much does storage cost in Dubai?</h3>
-              <p className="text-gray-700">SafeStorage Dubai offers some of the most competitive storage rates in the UAE. Our pricing starts from <strong>12.65 AED / sqft</strong> (VAT-inclusive). All plans include climate control, 24/7 security, and free insurance up to AED 5,000. There are no setup fees or admin fees, and the price quoted is the price charged — period.</p>
+              <p className="text-gray-700">SafeStorage Dubai offers some of the most competitive storage rates in the UAE. Our pricing starts from <strong>12.60 AED / sqft</strong> (VAT-inclusive). All plans include secure storage, 24/7 security, and free insurance up to AED 5,000. There are no setup fees or admin fees, and the price quoted is the price charged — period.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">4. Is climate-controlled storage really necessary in Dubai?</h3>
-              <p className="text-gray-700">Absolutely. Dubai&apos;s outdoor temperatures routinely exceed 45°C in summer, and the interior of a non-climate-controlled storage container can reach 55–60°C. These extreme temperatures cause wood to warp and crack, leather to dry out and peel, electronics to fail, photographs and documents to deteriorate, and fabrics to yellow. SafeStorage maintains all units at a consistent 18–22°C with 45–55% relative humidity year-round, protecting your belongings regardless of the season.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. Do you offer door-to-door pickup and delivery in Dubai?</h3>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">4. Do you offer door-to-door pickup and delivery in Dubai?</h3>
               <p className="text-gray-700">Yes. Our door-to-door service is one of the key reasons customers choose SafeStorage over traditional self-storage. Our professional team arrives at your home, office, or any Dubai address, wraps and packs your belongings with care, and transports them to our secure facility. When you need your items back, simply call or WhatsApp us and we deliver them back to your door — usually within 24 to 48 hours. We cover all of Dubai door-to-door; for locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, which we confirm before you book.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">6. What security measures protect my stored items?</h3>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. What security measures protect my stored items?</h3>
               <p className="text-gray-700">Security at SafeStorage Dubai is multi-layered and never compromised. Our facility uses 24/7 HD CCTV surveillance covering every corridor and storage bay, biometric access control ensuring only authorised individuals can enter, individual unit alarms on every storage bay, fire detection and suppression systems throughout the building, a secure perimeter fence with controlled entry points, and on-site security personnel during all operating hours. Your belongings are as safe as they would be in a bank vault.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">7. Is insurance included in the storage price?</h3>
-              <p className="text-gray-700">Yes. Every SafeStorage Dubai plan includes free insurance coverage of up to AED 5,000 at no additional cost. This covers loss or damage due to fire, flood, theft, or accidental damage while your items are in our care. For customers with higher-value belongings — such as artwork, antiques, jewellery, or electronics — we offer additional premium insurance at competitive rates. Our team can help you select the right coverage when you book.</p>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">6. Is insurance included in the storage price?</h3>
+              <p className="text-gray-700">Yes. Every SafeStorage Dubai plan includes free insurance coverage of up to AED 5,000 at no additional cost. This covers loss or damage due to fire, flood, theft, or accidental damage while your items are in our care. For customers with higher-value belongings — such as artwork, antiques, or electronics — we offer additional premium insurance at competitive rates. Our team can help you select the right coverage when you book.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. Can I store my vehicle at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">Yes. SafeStorage offers covered vehicle storage bays for cars, motorcycles, boats, jet skis, and caravans. Vehicle storage starts from 12.65 AED / sqft (VAT-inclusive) and includes 24/7 CCTV monitoring, covered shelter from Dubai&apos;s sun and sandstorms, and optional battery maintenance and tire pressure checks for long-term vehicle storage. Our facility is popular among expats leaving Dubai temporarily, classic car collectors, and owners of seasonal recreational vehicles.</p>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">7. Can I store my vehicle at SafeStorage Dubai?</h3>
+              <p className="text-gray-700">Yes. SafeStorage offers covered vehicle storage bays for cars, motorcycles, boats, jet skis, and caravans. Vehicle storage starts from 12.60 AED / sqft (VAT-inclusive) and includes 24/7 CCTV monitoring, covered shelter from Dubai&apos;s sun and sandstorms, and optional battery maintenance and tire pressure checks for long-term vehicle storage. Our facility is popular among expats leaving Dubai temporarily, classic car collectors, and owners of seasonal recreational vehicles.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">9. What areas of Dubai do you serve?</h3>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. What areas of Dubai do you serve?</h3>
               <p className="text-gray-700">We provide hassle-free pickup and delivery coverage across all of Dubai — from Palm Jumeirah and Dubai Marina in the west, to Deira and Rashidiya in the east, to Dubai Investment Park and Sports City in the south. Areas we regularly serve include Dubai Marina, JBR, JLT, Media City, Business Bay, DIFC, Downtown Dubai, Jumeirah 1-3, Al Quoz, Palm Jumeirah, Mirdif, Motor City, Arabian Ranches, Dubai South, and all other communities. If you are unsure whether we cover your area, call +971505773388 and we will confirm immediately.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">10. Can I access my items after they are in storage?</h3>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">9. Can I access my items after they are in storage?</h3>
               <p className="text-gray-700">Yes. You can request access to your stored items at any time during operating hours. For customers with dedicated private units, you can visit the facility personally on Monday–Saturday 8 AM to 8 PM and Sunday 10 AM to 6 PM. Alternatively, simply call or WhatsApp us to arrange delivery of specific items back to your address. For business customers requiring frequent access, we offer extended access arrangements including 24/7 access packages.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">11. What items are not allowed in storage?</h3>
-              <p className="text-gray-700">For safety and compliance reasons, certain items cannot be stored at SafeStorage Dubai. These include hazardous materials and chemicals, flammable liquids or gases, perishable food and beverages, live plants and animals, illegal or stolen goods, weapons and ammunition, and items with strong odours. If you are unsure whether a specific item is permitted, contact our team before booking and we will advise you promptly.</p>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">10. What items are not allowed in storage?</h3>
+              <p className="text-gray-700">For safety and compliance reasons, certain items cannot be stored at SafeStorage Dubai. Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. We also cannot accept hazardous materials and chemicals, flammable liquids or gases, perishable food and beverages, live plants and animals, illegal or stolen goods, weapons and ammunition, and items with strong odours. If you are unsure whether a specific item is permitted, contact our team before booking and we will advise you promptly.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">12. How quickly can you pick up my items?</h3>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">11. How quickly can you pick up my items?</h3>
               <p className="text-gray-700">For requests made before 12 PM on any day, we offer same-day pickup subject to availability. Standard pickup slots are available within 24 to 48 hours of booking. For urgent or emergency pickups — such as evictions, last-minute relocations, or flooded properties — call us directly on +971505773388 and we will do our best to arrange immediate assistance. Our team is flexible and responsive to your schedule.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">13. Do you provide packing materials and packing help?</h3>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">12. Do you provide packing materials and packing help?</h3>
               <p className="text-gray-700">Yes. SafeStorage provides a complete range of packing materials including cardboard boxes of various sizes, bubble wrap, packing paper, tape, furniture covers, mattress bags, and wardrobe boxes. We also offer a professional packing service where our trained team carefully wraps, boxes, and labels all your belongings before transportation. This service is particularly popular for delicate antiques, electronics, fine art, and china. Ask us about packing service pricing when you book.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">14. What payment methods does SafeStorage accept?</h3>
-              <p className="text-gray-700">We accept all major payment methods for your convenience. These include Visa and Mastercard credit and debit cards, bank transfers, cash payments at the facility, and cheques. We also support monthly, quarterly, and annual billing cycles. Customers who prepay for 3, 6, or 12 months in advance receive discounts of 10%, 15%, and 20% respectively. Our accounts team can set up automatic monthly billing linked to your card for complete convenience.</p>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">13. What payment methods does SafeStorage accept?</h3>
+              <p className="text-gray-700">We accept all major payment methods for your convenience. These include Visa and Mastercard credit and debit cards, bank transfers, cash payments at the facility, and cheques. We also support monthly, quarterly, and annual billing cycles. Customers who prepay in advance receive a wide range of discounts — the longer the cycle you prepay, the more you save. Our accounts team can set up automatic monthly billing linked to your card for complete convenience.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. Do you provide storage for businesses in Dubai?</h3>
-              <p className="text-gray-700">Yes. SafeStorage Dubai is an excellent solution for businesses of all sizes. We cater to e-commerce companies needing stock storage and fulfilment support, retail businesses requiring overflow inventory space, offices undergoing refurbishment or downsizing, hospitality businesses storing seasonal equipment, and construction firms needing equipment storage. We offer custom corporate rates, dedicated account managers, and flexible access arrangements for business customers. Email safestoragedubai@gmail.com or call +971505773388 to discuss your business storage requirements.</p>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">14. Do you provide storage for businesses in Dubai?</h3>
+              <p className="text-gray-700">Yes. SafeStorage Dubai is an excellent solution for businesses of all sizes. We cater to e-commerce companies needing stock storage and fulfilment support, retail businesses requiring overflow inventory space, offices undergoing refurbishment or downsizing, hospitality businesses storing seasonal equipment, and construction firms needing equipment storage. We offer custom corporate rates, dedicated account managers, and flexible access arrangements for business customers. Email support@safestorage.ae or call +971505773388 to discuss your business storage requirements.</p>
             </div>
 
           </div>
@@ -250,8 +245,8 @@ export default function Contact() {
                 <p className="text-white/90 leading-relaxed">SafeStorage Dubai has been serving residents and businesses across the UAE for over a decade. With more than 10,000 satisfied customers and a track record of reliability, we have become the go-to storage provider for expats, families, and businesses across Dubai. Our commitment to transparency, exceptional service, and competitive pricing has earned us a 4.8-star average rating across all review platforms. When you store with SafeStorage, you are not just renting space — you are gaining a trusted partner who takes responsibility for your belongings as if they were our own.</p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-yellow-300">World-Class Climate Control</h3>
-                <p className="text-white/90 leading-relaxed">Dubai&apos;s extreme climate demands world-class storage facilities. Our purpose-built storage centre features industrial-grade HVAC systems maintaining a consistent 18–22°C temperature and 45–55% relative humidity in every unit, every day of the year. This level of climate control protects wood furniture from warping, electronics from heat damage, fabrics from mould and mildew, and sensitive documents from deterioration. It is the same standard used by museums and art galleries to preserve priceless collections — and it comes included in every SafeStorage plan at no extra charge.</p>
+                <h3 className="text-xl font-semibold mb-3 text-yellow-300">Clean, Secure Facilities</h3>
+                <p className="text-white/90 leading-relaxed">Dubai&apos;s demanding conditions call for well-run storage facilities. Our purpose-built storage centre keeps every unit clean, dust-protected, and secure. Items are carefully wrapped on collection, stored on raised platforms, and kept away from external walls to help protect wood furniture, electronics, fabrics, and sensitive documents. Every plan includes this same standard of secure indoor storage at no extra charge — with 24/7 CCTV, biometric access, and free insurance up to AED 5,000.</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-yellow-300">Uncompromising Security</h3>
@@ -283,7 +278,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="font-semibold mb-1">Email</p>
-                <p className="text-[#0A2463] font-semibold">safestoragedubai@gmail.com</p>
+                <p className="text-[#0A2463] font-semibold">support@safestorage.ae</p>
                 <p className="text-sm text-gray-500 mt-1">We respond within 2 hours during business hours</p>
               </div>
             </div>

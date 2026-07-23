@@ -6,11 +6,11 @@ import { ShoppingBag, CheckCircle2, Star, Phone, ArrowRight, Package, Truck, Bar
 
 export const metadata: Metadata = {
   title: "E-Commerce Storage Dubai — Inventory",
-  description: "Flexible e-commerce and inventory storage in Dubai. Cheaper than warehouse rental, no 3-year leases, scale up or down as needed. From 12.65 AED / sqft. Hassle-free pickup. Call +971505773388.",
+  description: "Flexible e-commerce and inventory storage in Dubai. Cheaper than warehouse rental, no 3-year leases, scale up or down as needed. From 12.60 AED / sqft. Hassle-free pickup. Call +971505773388.",
   keywords: "ecommerce storage dubai, inventory storage dubai, online seller storage dubai, fulfilment storage dubai, amazon fba storage dubai, product storage dubai, business inventory storage dubai",
   openGraph: {
     title: "E-Commerce Storage Dubai — Flexible Inventory & Fulfilment",
-    description: "Scale your Dubai e-commerce business without warehouse commitments. Flexible monthly storage from 12.65 AED / sqft. Store, pick and ship your inventory affordably.",
+    description: "Scale your Dubai e-commerce business without warehouse commitments. Flexible monthly storage from 12.60 AED / sqft. Store, pick and ship your inventory affordably.",
     url: "https://safestorage.ae/ecommerce-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -51,12 +51,11 @@ const schemas = [
 
 const comparison = [
   { aspect: "Minimum commitment", storage: "1 month", warehouse: "2-3 year lease" },
-  { aspect: "Monthly cost", storage: "From 12.65 AED / sqft", warehouse: "AED 5,000–15,000+" },
+  { aspect: "Monthly cost", storage: "From 12.60 AED / sqft", warehouse: "AED 5,000–15,000+" },
   { aspect: "Setup time", storage: "Same week", warehouse: "2-3 months" },
   { aspect: "Scaling up", storage: "Next day", warehouse: "New lease or negotiation" },
   { aspect: "Scaling down", storage: "30 days notice", warehouse: "Lease break fees" },
   { aspect: "Access", storage: "Business hours + scheduled", warehouse: "24/7 typically" },
-  { aspect: "Climate control", storage: "Included", warehouse: "Often extra cost" },
   { aspect: "Security", storage: "Biometric + CCTV", warehouse: "Varies widely" },
 ]
 
@@ -72,7 +71,7 @@ export default function EcommerceStoragePage() {
                 <ShoppingBag className="w-4 h-4" /> E-Commerce Inventory Storage
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">E-Commerce Storage Dubai — Flexible Inventory Storage Without Warehouse Leases</h1>
-              <p className="text-xl text-white/85 mb-8">Growing your Dubai e-commerce business shouldn't mean committing to a 3-year warehouse lease. SafeStorage Dubai provides flexible monthly inventory storage — scale up or down as your business demands. From 12.65 AED / sqft with no long-term commitment.</p>
+              <p className="text-xl text-white/85 mb-8">Growing your Dubai e-commerce business shouldn't mean committing to a 3-year warehouse lease. SafeStorage Dubai provides flexible monthly inventory storage — scale up or down as your business demands. From 12.60 AED / sqft with no long-term commitment.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Business Quote</Button>
@@ -92,7 +91,7 @@ export default function EcommerceStoragePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
                 { stat: "1 Month", label: "Minimum contract" },
-                { stat: "12.65 AED", label: "Starting price / sqft" },
+                { stat: "12.60 AED", label: "Starting price / sqft" },
                 { stat: "24hrs", label: "Scale up time" },
                 { stat: "Door-to-Door", label: "Initial inventory pickup" },
               ].map((s) => (
@@ -185,8 +184,8 @@ export default function EcommerceStoragePage() {
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 { name: "Lina M.", location: "Al Barsha", business: "Online Fashion Retailer", text: "I started with a medium unit and within 3 months needed to upgrade to large. SafeStorage made it seamless — same building, same access system, just a bigger space. For a small business without the capital to commit to a warehouse lease, this is the only sensible solution.", rating: 5 },
-                { name: "Khaled R.", location: "DIP", business: "Electronics Reseller", text: "I store and ship electronics for Amazon UAE and noon.com. SafeStorage's climate-controlled units are essential — electronics degrade fast in non-climate-controlled storage in Dubai. The access hours work perfectly for my pick-and-pack schedule.", rating: 5 },
-                { name: "Nour H.", location: "Business Bay", business: "Home Décor Brand", text: "Tried 2 traditional storage facilities before SafeStorage. Both were non-climate-controlled, cramped and access was a battle. SafeStorage is what a business storage solution should look like. Professional, accessible, climate-controlled. My product photography is even done in the parking area before items go in.", rating: 5 },
+                { name: "Khaled R.", location: "DIP", business: "Electronics Reseller", text: "I store and ship electronics for Amazon UAE and noon.com. SafeStorage's clean, secure units keep my stock dust-protected and in sellable condition, and the access hours work perfectly for my pick-and-pack schedule.", rating: 5 },
+                { name: "Nour H.", location: "Business Bay", business: "Home Décor Brand", text: "Tried 2 traditional storage facilities before SafeStorage. Both were cramped and access was a battle. SafeStorage is what a business storage solution should look like. Professional, accessible, clean and secure. My product photography is even done in the parking area before items go in.", rating: 5 },
               ].map((t) => (
                 <div key={t.name} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                   <div className="flex mb-3">{[...Array(t.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-dubai-gold text-dubai-gold" />)}</div>
@@ -207,7 +206,7 @@ export default function EcommerceStoragePage() {
                 { q: "Can I access my unit daily for order fulfilment?", a: "Yes. Our standard access hours are 8 AM–8 PM, 7 days a week. For sellers needing very high-frequency access (daily or multiple times per day), we can arrange dedicated access schedules to accommodate your fulfilment workflow. Call us to discuss your specific needs." },
                 { q: "Do you offer pick, pack and ship services?", a: "SafeStorage is primarily a storage facility — we don't operate a full 3PL (third-party logistics) service. However, you can use your unit as your pack station. You access the unit, pick orders, pack on-site, and arrange collection by your courier. Many of our e-commerce customers use DHL, Aramex or FedEx to collect directly from our facility." },
                 { q: "What if my inventory grows quickly and I need more space?", a: "Contact us and we can typically upgrade your unit within 24-48 hours. We aim to have units available in the next size up. If you grow beyond our largest unit, we can discuss partitioned sections or multiple units in the same facility for easy access management." },
-                { q: "Is my inventory insured against theft or damage?", a: "Basic coverage is included in all storage plans. For high-value inventory (electronics, luxury goods, jewellery), we recommend declaring full replacement value and arranging extended coverage through our insurance partners. Coverage is based on declared value — please do not undervalue inventory at intake." },
+                { q: "Is my inventory insured against theft or damage?", a: "Basic coverage is included in all storage plans. For high-value inventory (electronics, luxury goods), we recommend declaring full replacement value and arranging extended coverage through our insurance partners. Coverage is based on declared value — please do not undervalue inventory at intake." },
                 { q: "Can I have parcels delivered directly to my SafeStorage unit?", a: "This depends on your access arrangement. We can accept deliveries during business hours by arrangement — the delivery must be addressed correctly and a staff member can receive and place in your unit. Contact us to set up a delivery arrangement before your first incoming delivery." },
                 { q: "Do you store hazardous or flammable products?", a: "We cannot store flammable, explosive, corrosive or Class 1-9 dangerous goods as defined by IATA/UAE transport regulations. Most standard consumer goods (cosmetics, electronics, clothing, food supplements) are fine. If unsure about a specific product, contact us before booking and we will advise." },
               ].map((faq) => (
@@ -244,8 +243,8 @@ export default function EcommerceStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our E-Commerce Storage Service in Dubai</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
               <p>SafeStorage Dubai&apos;s e-commerce storage service is designed specifically for online sellers, D2C brands, and growing businesses that need flexible inventory space without the financial and legal commitments of a traditional warehouse lease. Unlike warehouse rentals that require 2&ndash;3 year minimum commitments, deposits equivalent to 3&ndash;6 months&apos; rent, and significant fit-out costs, our storage units are available on a month-to-month basis with no setup fees and no penalty for scaling up or down. This model is particularly valuable in Dubai&apos;s e-commerce market, where rapid growth, seasonal demand peaks, and category pivots are common, and where locking into a large warehouse before your business is ready creates financial risk that can threaten the entire venture.</p>
-              <p>Our climate-controlled units maintain 20&ndash;24&deg;C year-round, which is essential for inventory categories including electronics, cosmetics, health &amp; beauty products, food supplements, candles, and anything with a heat-sensitive formulation or packaging. Dubai&apos;s summer heat regularly causes product degradation, label damage, and packaging deformation in non-climate-controlled storage &mdash; resulting in unsaleable stock, customer complaints, and increased return rates. Our units are secured with biometric access control and 24/7 CCTV, so your inventory is protected at all times. You can access your unit during business hours to pick orders, receive incoming stock, conduct inventory counts, and manage your fulfilment operations exactly as you would in a private warehouse unit.</p>
-              <p>We serve a wide range of Dubai e-commerce businesses including Amazon UAE and noon.com sellers, Instagram and TikTok shop operators, direct-to-consumer brands, importers and distributors, subscription box companies, and businesses selling across multiple platforms simultaneously. Our units range from small (suitable for high-value, low-volume categories like jewellery or luxury goods) to large (suitable for high-volume fashion, electronics, or home goods sellers). Scaling from one unit size to the next can happen within 24&ndash;48 hours, giving you a responsive infrastructure that matches your business growth. Call us at +971505773388 to discuss your specific inventory needs and get a same-day business quote.</p>
+              <p>Our clean, enclosed indoor units keep your stock dust-protected and away from the rain, direct sun, and outdoor elements &mdash; important for inventory categories including electronics, cosmetics, health &amp; beauty products, food supplements, candles, and anything with delicate packaging. Boxes and pallets are kept off the floor and organised so stock stays orderly and easy to pick. Our units are secured with biometric access control and 24/7 CCTV, so your inventory is protected at all times. You can access your unit during business hours to pick orders, receive incoming stock, conduct inventory counts, and manage your fulfilment operations exactly as you would in a private warehouse unit.</p>
+              <p>We serve a wide range of Dubai e-commerce businesses including Amazon UAE and noon.com sellers, Instagram and TikTok shop operators, direct-to-consumer brands, importers and distributors, subscription box companies, and businesses selling across multiple platforms simultaneously. Our units range from small (suitable for high-value, low-volume categories like electronics or luxury goods) to large (suitable for high-volume fashion, electronics, or home goods sellers). Scaling from one unit size to the next can happen within 24&ndash;48 hours, giving you a responsive infrastructure that matches your business growth. Call us at +971505773388 to discuss your specific inventory needs and get a same-day business quote.</p>
             </div>
 
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive E-Commerce Storage FAQs</h2>
@@ -287,17 +286,17 @@ export default function EcommerceStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">How does this compare to warehouse rental in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Traditional warehouse rental in Dubai typically requires a 2&ndash;3 year minimum lease, a deposit equivalent to 3&ndash;6 months of rent, legal costs for the lease agreement, fit-out costs for racking and infrastructure, and a minimum space commitment far larger than most growing businesses actually need. Monthly costs for a modest 1,000 sq ft warehouse in Al Quoz, DIP, or Jebel Ali typically range from AED 5,000 to AED 15,000+. SafeStorage provides an equivalent effective storage area from 12.65 AED / sqft (VAT-inclusive) on a month-to-month basis, with no setup costs, no deposit beyond the first month, and the ability to scale up or down in 24 hours. For businesses with annual revenue below AED 5 million, warehouse rental is almost never the right solution.</p>
+                <p className="text-gray-700 leading-relaxed">Traditional warehouse rental in Dubai typically requires a 2&ndash;3 year minimum lease, a deposit equivalent to 3&ndash;6 months of rent, legal costs for the lease agreement, fit-out costs for racking and infrastructure, and a minimum space commitment far larger than most growing businesses actually need. Monthly costs for a modest 1,000 sq ft warehouse in Al Quoz, DIP, or Jebel Ali typically range from AED 5,000 to AED 15,000+. SafeStorage provides an equivalent effective storage area from 12.60 AED / sqft (VAT-inclusive) on a month-to-month basis, with no setup costs, no deposit beyond the first month, and the ability to scale up or down in 24 hours. For businesses with annual revenue below AED 5 million, warehouse rental is almost never the right solution.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Is climate control available for temperature-sensitive products?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes. All SafeStorage Dubai units are climate-controlled at 20&ndash;24&deg;C year-round, which protects temperature-sensitive products including cosmetics (which can separate or melt above 30&deg;C), health and beauty items, nutritional supplements (which degrade in heat), candles, chocolate and confectionery, certain pharmaceutical products, electronics (which suffer heat damage above 35&deg;C), and any products with heat-sensitive adhesives or packaging. We do not offer cold-chain refrigerated storage for perishable food items requiring below-ambient temperatures. However, our climate-controlled units are suitable for the vast majority of e-commerce product categories that benefit from protection from Dubai&apos;s extreme ambient heat.</p>
+                <h3 className="text-lg font-bold text-dubai-navy mb-3">How are products kept in good condition in storage?</h3>
+                <p className="text-gray-700 leading-relaxed">All SafeStorage Dubai units are clean, enclosed indoor spaces that keep your stock dust-protected and away from the rain, direct sun, and outdoor elements. Boxes and pallets are kept off the floor and organised so products stay orderly and in sellable condition. We do not offer cold-chain refrigerated storage for perishable food items requiring below-ambient temperatures &mdash; if your products have specific temperature requirements, contact us to discuss suitability before booking. For the vast majority of e-commerce product categories, our secure indoor units provide the clean, protected environment your inventory needs.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I use SafeStorage for Amazon UAE or noon.com fulfilment?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes, many of our e-commerce customers use SafeStorage as their primary inventory location for Amazon UAE (Fulfillment by Merchant, or FBM orders) and noon.com seller operations. You store your inventory with us, visit the unit to pick and pack orders as they come in, and arrange courier collection for dispatch to buyers or for periodic replenishment of Amazon FBA warehouses. Our climate-controlled units are particularly important for Amazon electronics sellers, where maintaining product condition to meet Amazon&apos;s standards is critical. We can discuss storage and access arrangements that specifically support Amazon or noon seller workflows &mdash; including regular replenishment runs and return stock management.</p>
+                <p className="text-gray-700 leading-relaxed">Yes, many of our e-commerce customers use SafeStorage as their primary inventory location for Amazon UAE (Fulfillment by Merchant, or FBM orders) and noon.com seller operations. You store your inventory with us, visit the unit to pick and pack orders as they come in, and arrange courier collection for dispatch to buyers or for periodic replenishment of Amazon FBA warehouses. Our clean, secure units help sellers keep products dust-protected and in the condition needed to meet Amazon&apos;s standards. We can discuss storage and access arrangements that specifically support Amazon or noon seller workflows &mdash; including regular replenishment runs and return stock management.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

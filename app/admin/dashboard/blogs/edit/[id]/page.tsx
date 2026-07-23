@@ -13,6 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Checkbox } from "@/components/ui/checkbox"
 import EditorWrapper from "@/components/admin/editor-wrapper"
 import ImageUpload from "@/components/admin/image-upload"
+import { blogImageUrl } from "@/lib/blog-image"
 
 export default function EditBlogPost() {
   const router = useRouter()
@@ -52,64 +53,35 @@ export default function EditBlogPost() {
       setIsFetching(true)
       console.log('Fetching blog data for ID:', blogId)
       
-      // Fetch all blogs and find the specific one by ID
-      const response = await fetch('https://safestorage.in/back/app/get_blog_content')
+      // Fetch all blogs from the local EC2 DB and find this one by post_id.
+      const response = await fetch('/api/blogs')
       const data = await response.json()
-      
-      console.log('All blogs response:', data)
-      
-      let blog = null
-      
-      // Handle direct array response
-      if (Array.isArray(data)) {
-        blog = data.find((item: any) => item.blog_id === blogId || item.id === blogId)
-      } else if (data.status === 'success' && data.data) {
-        // Handle wrapped response
-        const allBlogs = data.data.all_content || data.data.posts || data.data
-        if (Array.isArray(allBlogs)) {
-          blog = allBlogs.find((item: any) => item.blog_id === blogId || item.id === blogId)
-        }
-      }
-      
-      console.log('Found blog:', blog)
-      
+      const allBlogs: any[] = Array.isArray(data) ? data : (Array.isArray(data?.data) ? data.data : [])
+      const blog = allBlogs.find((item: any) => String(item.post_id) === String(blogId))
+
       if (blog) {
-        // Parse extra_data if it's a JSON string
-        let extraData = {}
-        if (blog.extra_data) {
-          try {
-            extraData = typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data
-          } catch (e) {
-            console.warn('Could not parse extra_data:', e)
-          }
+        // The featured image (post_images) is the single stored image.
+        if (blog.post_images) {
+          setExistingImages([blog.post_images])
         }
-        
-        console.log('Extra data:', extraData)
-        console.log('Blog data:', blog)
-        
-        // Check if blog has uploaded images (backend stores in 'images' field)
-        if (blog.images) {
-          const imageList = blog.images.split(',').filter((img: string) => img.trim())
-          setExistingImages(imageList)
-        }
-        
+
         setFormData({
-          title: (extraData as any).page_title || blog.meta_title || blog.title || "",
-          metaTitle: blog.meta_title || "",
-          metaDescription: blog.meta_description || "",
-          excerpt: (extraData as any).excerpt || blog.meta_description || "",
-          content: blog.content || "",
-          author: (extraData as any).author || "SafeStorage Team",
-          category: (extraData as any).category || "Storage Tips",
-          image: (extraData as any).featured_image || "",
-          readTime: (extraData as any).read_time ? `${(extraData as any).read_time}`.replace(' min read', '') : "5",
-          slug: blog.slug || "",
+          title: blog.title || blog.seo_title || "",
+          metaTitle: blog.seo_title || "",
+          metaDescription: blog.seo_desc || "",
+          excerpt: blog.seo_desc || "",
+          content: blog.description || "",
+          author: "SafeStorage Team",
+          category: blog.post_category || "Storage Tips",
+          image: blog.post_images || "",
+          readTime: "5",
+          slug: "",
           tags: Array.isArray(blog.tags) ? blog.tags.join(", ") : (blog.tags || ""),
-          status: blog.status || "active",
-          is_published: (extraData as any).is_published !== false,
-          is_featured: (extraData as any).is_featured || false,
-          views: (extraData as any).views || 0,
-          likes: (extraData as any).likes || 0,
+          status: blog.status || "1",
+          is_published: true,
+          is_featured: false,
+          views: 0,
+          likes: 0,
         })
       } else {
         console.log('Blog not found with ID:', blogId)
@@ -150,6 +122,7 @@ export default function EditBlogPost() {
       
       const updateData = new FormData()
       updateData.append('id', blogId)
+      updateData.append('title', formData.title || '')
       updateData.append('content', formData.content || '')
       updateData.append('meta_title', formData.metaTitle || formData.title || '')
       updateData.append('meta_description', formData.metaDescription || '')
@@ -177,7 +150,7 @@ export default function EditBlogPost() {
         updateData.append('existing_images', existingImages.join(','))
       }
 
-      const response = await fetch('https://safestorage.in/back/app/update_blog_content', {
+      const response = await fetch('/api/blogs/update', {
         method: 'POST',
         body: updateData,
       })
@@ -414,7 +387,7 @@ export default function EditBlogPost() {
                           {existingImages.map((image, index) => (
                             <div key={`existing-${index}`} className="relative">
                               <img
-                                src={`https://safestorage.in/upload/blog_images/${image}`}
+                                src={blogImageUrl(image) || "/blog-placeholder.jpg"}
                                 alt={`Existing ${index + 1}`}
                                 className="w-full h-24 object-cover rounded border"
                               />

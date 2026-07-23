@@ -159,7 +159,7 @@ const getItemIcon = (itemName: string) => {
   if (name.includes('scooty') || name.includes('scooter') || name.includes('motorcycle')) return Bike
   if (name.includes('cycle') && !name.includes('motor') && !name.includes('exercise')) return Bike
   
-  // CLIMATE CONTROL
+  // COOLING & HEATING APPLIANCES
   if (name.includes('ac') || name.includes('air condition')) return Wind
   if (name.includes('fan') || name.includes('cooler')) return Wind
   if (name.includes('air purifier') || name.includes('humidifier')) return Wind

@@ -33,7 +33,7 @@ const features = [
   {
     icon: ShieldCheck,
     title: "24/7 Security",
-    description: "Round-the-clock surveillance and climate-controlled environment",
+    description: "Round-the-clock surveillance and secure biometric access",
   },
   {
     icon: Truck,
@@ -60,7 +60,7 @@ const features = [
 const benefits = [
   "No upfront warehouse investment required",
   "Pay only for the space you use",
-  "Climate-controlled storage protects inventory",
+  "Secure, dedicated storage protects inventory",
   "Hassle-free pickup for order fulfilment",
   "Perfect for Amazon, Noon, and other marketplace sellers",
   "Flexible terms - scale up or down anytime",
@@ -228,8 +228,7 @@ export default function EcommerceFulfilmentPage() {
                 scale up during Ramadan, back-to-school, or Black Friday sales periods, and reduce again in quieter months.
               </p>
               <p className="text-gray-700">
-                Our facility is climate-controlled year-round at 20–25°C, protecting electronics, cosmetics,
-                food supplements, clothing, and other temperature-sensitive products from Dubai&apos;s extreme heat.
+                Your inventory is kept in clean, dedicated units and handled with care.
                 All inventory is stored in secure, individual units with 24/7 CCTV monitoring and biometric access.
               </p>
             </div>
@@ -306,7 +305,7 @@ export default function EcommerceFulfilmentPage() {
                 E-commerce sellers use SafeStorage in several different ways depending on their business model. Amazon.ae and Noon sellers often use our facility as their primary inventory holding location, receiving stock from manufacturers or importers at our warehouse, then dispatching orders through their preferred courier partners. This avoids the cost and complexity of maintaining a separate warehouse or running a business from a residential apartment.
               </p>
               <p className="text-gray-700">
-                Instagram and social media sellers — particularly in fashion, beauty, and home décor categories — use SafeStorage as a flexible overflow solution. During peak promotional periods or influencer campaigns when order volumes spike unexpectedly, having a climate-controlled storage unit with same-day access ensures they can fulfil orders without delays. The ability to scale storage space up or down on a monthly basis makes SafeStorage significantly more cost-effective than committing to a fixed warehouse lease.
+                Instagram and social media sellers — particularly in fashion, beauty, and home décor categories — use SafeStorage as a flexible overflow solution. During peak promotional periods or influencer campaigns when order volumes spike unexpectedly, having a secure storage unit with same-day access ensures they can fulfil orders without delays. The ability to scale storage space up or down on a monthly basis makes SafeStorage significantly more cost-effective than committing to a fixed warehouse lease.
               </p>
             </div>
             <div>
@@ -339,7 +338,7 @@ export default function EcommerceFulfilmentPage() {
               One of the most important advantages of SafeStorage over traditional warehousing is our transparent monthly billing model. There are no setup fees, no minimum commitment periods, and no surprise charges. You receive a single monthly invoice covering your storage space, any pick-and-pack orders processed, and any additional services used.
             </p>
             <p className="text-gray-700">
-              Storage for e-commerce sellers starts from 12.65 AED / sqft (VAT-inclusive), whether you are a small seller (fewer than 500 SKUs, low-volume orders) using a medium storage unit or a high-volume seller with an extensive SKU catalogue and multiple daily orders. All pricing is fixed monthly — no per-pick charges or variable rates that make cost forecasting difficult. Contact our team at +971505773388 for a quote based on your specific product mix and order volume.
+              Storage for e-commerce sellers starts from 12.60 AED / sqft (VAT-inclusive), whether you are a small seller (fewer than 500 SKUs, low-volume orders) using a medium storage unit or a high-volume seller with an extensive SKU catalogue and multiple daily orders. All pricing is fixed monthly — no per-pick charges or variable rates that make cost forecasting difficult. Contact our team at +971505773388 for a quote based on your specific product mix and order volume.
             </p>
           </div>
         </div>
@@ -362,67 +361,62 @@ export default function EcommerceFulfilmentPage() {
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">3. How does climate control protect my e-commerce inventory?</h3>
-              <p className="text-gray-700">Dubai&apos;s summer temperatures regularly exceed 45°C, and even climate-controlled buildings can experience temperature spikes if cooling systems are inadequate. SafeStorage maintains a consistent 18–22°C year-round with controlled humidity between 45–55%. This is critical for electronics (which can suffer permanent damage above 35°C), cosmetics and health supplements (which can degrade or separate in heat), and fashion items (which can develop mould in high humidity). Our climate control is independently monitored and logged.</p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. What access hours do I have to my inventory?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">3. What access hours do I have to my inventory?</h3>
               <p className="text-gray-700">Standard access hours are Monday to Saturday, 8 AM to 8 PM, and Sunday 10 AM to 6 PM. E-commerce business account holders can arrange extended or 24-hour access packages for additional flexibility. Our pick-and-pack team processes orders during working hours. For urgent same-day orders received before 12 PM, we can ensure same-day dispatch. Contact your account manager to discuss access requirements specific to your business.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. Can SafeStorage receive stock deliveries from my suppliers directly?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. Can SafeStorage receive stock deliveries from my suppliers directly?</h3>
               <p className="text-gray-700">Yes. We accept inbound stock deliveries from any supplier, importer, or freight forwarder. Simply give your suppliers our facility address and notify our team of the expected delivery. We receive and verify the stock against your purchase order, photograph any discrepancies or damage, and update your inventory record. This service is particularly useful for sellers who source products from China, India, or Turkey via air or sea freight.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. How does the UAE e-commerce market compare to other regions?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. How does the UAE e-commerce market compare to other regions?</h3>
               <p className="text-gray-700">The UAE has one of the highest e-commerce penetration rates in the Middle East and North Africa region. Dubai is home to a large, affluent, tech-savvy population with very high smartphone penetration and strong preference for fast delivery. Average order values are significantly higher than in South Asian or Southeast Asian markets. This makes Dubai an attractive market for premium and mid-range product categories, and it explains why so many international brands use Dubai as their regional e-commerce base for Gulf expansion.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. How do I track my inventory levels?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. How do I track my inventory levels?</h3>
               <p className="text-gray-700">SafeStorage provides an online inventory portal where you can view real-time stock levels, see recent inbound and outbound activity, and request retrievals or additional storage space. You can also request regular stock reports via email or WhatsApp. For sellers using Shopify, WooCommerce, or other e-commerce platforms, our team can discuss integration options to keep your online stock count automatically in sync with physical inventory.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. What happens during peak sales periods like Ramadan or White Friday?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. What happens during peak sales periods like Ramadan or White Friday?</h3>
               <p className="text-gray-700">Peak sales periods such as Ramadan, White Friday (Black Friday in the UAE), Dubai Shopping Festival, and back-to-school season can multiply order volumes 3–5 times above normal. SafeStorage supports sellers through these periods by allowing temporary storage capacity increases, extending team working hours for pick-and-pack operations, and prioritising dispatch of high-volume accounts. We recommend notifying your account manager at least 2 weeks before expected peak periods to ensure adequate space and staffing.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. Can SafeStorage handle returns processing for my e-commerce business?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. Can SafeStorage handle returns processing for my e-commerce business?</h3>
               <p className="text-gray-700">Yes. Returns management is an important part of any e-commerce operation, and poor handling of returns is a common cause of marketplace account penalties. SafeStorage can receive returned items, inspect them against your quality standards, photograph any damage, segregate resalable and non-resalable stock, and restock approved returns back into your available inventory. We maintain a detailed returns log that you can access through your account portal.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. Is my e-commerce inventory insured while stored at SafeStorage?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. Is my e-commerce inventory insured while stored at SafeStorage?</h3>
               <p className="text-gray-700">All stored inventory is covered by complimentary insurance up to AED 5,000 against fire, theft, and natural disasters. For e-commerce sellers with high-value inventory, we recommend additional coverage. Extended insurance plans covering up to AED 100,000 in inventory value are available at a modest additional monthly cost. We will provide documentation of your insurance coverage which you can submit to your accountant or marketplace compliance team.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. How quickly can I get started with e-commerce storage?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. How quickly can I get started with e-commerce storage?</h3>
               <p className="text-gray-700">Most new e-commerce customers are operational within 24–48 hours of contacting us. The onboarding process involves a brief consultation to understand your product mix and order volumes, followed by signing a simple month-to-month storage agreement. Once signed, you can deliver your first inventory batch to our facility or request a pickup from your current location. Your dedicated account manager will be reachable via phone and WhatsApp from day one.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">12. Do you support cross-border e-commerce shipping from Dubai?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. Do you support cross-border e-commerce shipping from Dubai?</h3>
               <p className="text-gray-700">Dubai is an ideal hub for cross-border e-commerce across the GCC region. We work with sellers who ship to Saudi Arabia, Kuwait, Bahrain, Qatar, Oman, Jordan, and beyond. Our logistics partners include DHL, Aramex, FedEx, and specialist GCC couriers. We can prepare shipments with the correct commercial invoices and packing lists required for customs clearance in each destination country. Contact us to discuss your cross-border fulfilment requirements.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">13. What types of packaging can SafeStorage use for my orders?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">12. What types of packaging can SafeStorage use for my orders?</h3>
               <p className="text-gray-700">We stock a range of standard packaging materials including poly mailers, corrugated boxes in various sizes, bubble wrap, tissue paper, and void fill. For sellers with branded packaging requirements, we can use your custom boxes, branded tape, thank-you cards, stickers, and inserts. Simply provide your packaging materials along with your initial inventory delivery and brief our team on your packing standards. We maintain a photo guide of your packing requirements for consistency across all orders.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">14. How is e-commerce storage priced compared to renting a warehouse in Dubai?</h3>
-              <p className="text-gray-700">Warehousing in Dubai typically requires a minimum 1-year lease, upfront rental deposits, and rents ranging from AED 25–60 per square foot per year in logistics zones like DIP, JAFZA, and Al Quoz. A modest 1,000 sq ft warehouse would cost AED 25,000–60,000 annually, plus fit-out costs, DEWA deposits, and staffing. SafeStorage e-commerce storage starts from 12.65 AED / sqft (VAT-inclusive) with no deposit, no fit-out, no minimum term, and staff included. For most small and medium e-commerce businesses, this represents a saving of AED 15,000–40,000 per year.</p>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">13. How is e-commerce storage priced compared to renting a warehouse in Dubai?</h3>
+              <p className="text-gray-700">Warehousing in Dubai typically requires a minimum 1-year lease, upfront rental deposits, and rents ranging from AED 25–60 per square foot per year in logistics zones like DIP, JAFZA, and Al Quoz. A modest 1,000 sq ft warehouse would cost AED 25,000–60,000 annually, plus fit-out costs, DEWA deposits, and staffing. SafeStorage e-commerce storage starts from 12.60 AED / sqft (VAT-inclusive) with no deposit, no fit-out, no minimum term, and staff included. For most small and medium e-commerce businesses, this represents a saving of AED 15,000–40,000 per year.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">15. Can multiple team members from my business access the storage unit?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">14. Can multiple team members from my business access the storage unit?</h3>
               <p className="text-gray-700">Yes. You can authorise multiple team members to access your storage unit or liaise with our fulfilment team. Each authorised person is registered in our access control system. For businesses using our pick-and-pack service, access to the physical unit is managed by our team, and you can assign multiple contacts who can submit orders, request inventory reports, or coordinate deliveries via phone, WhatsApp, or our online portal.</p>
             </div>
           </div>

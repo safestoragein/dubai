@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Deira & Bur Dubai Storage — Hassle-Free Pickup",
   description:
-    "Storage in Deira, Bur Dubai, Karama & Oud Metha. Hassle-free pickup from your home or office. Climate-controlled units from 12.65 AED / sqft. Old Dubai area specialists. Call +971505773388.",
+    "Storage in Deira, Bur Dubai, Karama & Oud Metha. Hassle-free pickup from your home or office. Secure units from 12.60 AED / sqft. Old Dubai area specialists. Call +971505773388.",
   keywords:
     "deira storage dubai, bur dubai storage, karama storage, storage deira, self storage bur dubai, oud metha storage, old dubai storage units",
   openGraph: {
     title: "Deira & Bur Dubai Storage — Hassle-Free Pickup | SafeStorage",
-    description: "Climate-controlled storage for Deira, Bur Dubai, Karama & Oud Metha. Hassle-free pickup from your door. Call +971505773388.",
+    description: "Secure storage for Deira, Bur Dubai, Karama & Oud Metha. Hassle-free pickup from your door. Call +971505773388.",
     url: "https://safestorage.ae/locations/deira",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const deiraSchemas = [
     "@type": "Service",
     name: "Storage in Deira, Bur Dubai & Old Dubai",
     description:
-      "Climate-controlled storage for Deira, Bur Dubai, Karama, Oud Metha, and all old Dubai areas. Hassle-free door-to-door pickup. Flexible plans from 12.65 AED / sqft.",
+      "Secure storage for Deira, Bur Dubai, Karama, Oud Metha, and all old Dubai areas. Hassle-free door-to-door pickup. Flexible plans from 12.60 AED / sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/deira",
     areaServed: [
@@ -51,7 +51,7 @@ const deiraSchemas = [
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/deira#webpage",
     name: "Deira & Bur Dubai Storage — Hassle-Free Pickup | SafeStorage",
-    description: "Climate-controlled storage for Deira, Bur Dubai, Karama & Oud Metha. Hassle-free pickup from your door.",
+    description: "Secure storage for Deira, Bur Dubai, Karama & Oud Metha. Hassle-free pickup from your door.",
     url: "https://safestorage.ae/locations/deira",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -115,7 +115,7 @@ export default function DeiraPage() {
               </p>
               <p className="text-gray-700">
                 SafeStorage&apos;s volume-based pricing is ideal for Deira and Bur Dubai residents who want to store
-                specific items rather than pay for an entire storage unit. Starting from 12.65 AED / sqft (VAT-inclusive),
+                specific items rather than pay for an entire storage unit. Starting from 12.60 AED / sqft (VAT-inclusive),
                 residents can store just what they need and pay only for that — no wasted space, no fixed unit costs.
               </p>
             </div>
@@ -209,7 +209,7 @@ export default function DeiraPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can Deira and Bur Dubai residents store items temporarily while visiting family abroad?</h3>
-              <p className="text-gray-700">Yes. This is one of the most common use cases in Deira and Bur Dubai, where many long-term expat residents travel to their home countries for extended visits. SafeStorage provides flexible month-to-month storage with no minimum period. We can pick up your apartment contents before you leave, store everything securely in climate-controlled conditions during your absence, and return everything when you come back. Many Deira and Karama residents use this service annually, and we offer recurring annual storage arrangements with preferential rates for regular customers.</p>
+              <p className="text-gray-700">Yes. This is one of the most common use cases in Deira and Bur Dubai, where many long-term expat residents travel to their home countries for extended visits. SafeStorage provides flexible month-to-month storage with no minimum period. We can pick up your apartment contents before you leave, store everything securely during your absence, and return everything when you come back. Many Deira and Karama residents use this service annually, and we offer recurring annual storage arrangements with preferential rates for regular customers.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What business storage services are available for Deira trading companies?</h3>
@@ -221,11 +221,11 @@ export default function DeiraPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage handle shared room or flatshare storage in Deira?</h3>
-              <p className="text-gray-700">Yes. Many Deira residents live in shared accommodation where they have personal belongings but limited private space. SafeStorage can store an individual&apos;s personal items — clothes, electronics, personal boxes — under a single account even from a shared living situation. For small volumes, our pricing from 12.65 AED / sqft (VAT-inclusive) makes storage accessible for individuals rather than requiring a full apartment clearance. Simply list or photograph your specific items and we will store them separately from any shared household contents.</p>
+              <p className="text-gray-700">Yes. Many Deira residents live in shared accommodation where they have personal belongings but limited private space. SafeStorage can store an individual&apos;s personal items — clothes, electronics, personal boxes — under a single account even from a shared living situation. For small volumes, our pricing from 12.60 AED / sqft (VAT-inclusive) makes storage accessible for individuals rather than requiring a full apartment clearance. Simply list or photograph your specific items and we will store them separately from any shared household contents.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a Karama or Bur Dubai apartment?</h3>
-              <p className="text-gray-700">SafeStorage pricing is the same across all Dubai areas — including Karama and Bur Dubai — and starts from 12.65 AED / sqft (VAT-inclusive). Whether you are storing a Karama 1-bedroom apartment's contents, a Bur Dubai 2-bedroom apartment, or just a few boxes, a sofa, and seasonal items, you pay only for the volume you use. All prices include hassle-free pickup, climate-controlled storage, insurance, and on-demand delivery. Get an accurate quote by calling +971505773388 or submitting our online form.</p>
+              <p className="text-gray-700">SafeStorage pricing is the same across all Dubai areas — including Karama and Bur Dubai — and starts from 12.60 AED / sqft (VAT-inclusive). Whether you are storing a Karama 1-bedroom apartment's contents, a Bur Dubai 2-bedroom apartment, or just a few boxes, a sofa, and seasonal items, you pay only for the volume you use. All prices include hassle-free pickup, secure storage, insurance, and on-demand delivery. Get an accurate quote by calling +971505773388 or submitting our online form.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage serve the Oud Metha and Al Jaddaf areas?</h3>

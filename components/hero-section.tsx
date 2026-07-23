@@ -39,7 +39,7 @@ export default function HeroSection() {
               Secure, Affordable & Hassle-Free Storage in Dubai
             </h1>
             <p className="text-lg text-white/90">
-              Flexible self-storage solutions for homes & businesses. Safe, climate-controlled, and accessible 24/7.
+              Flexible self-storage solutions for homes & businesses. Safe, secure, and accessible 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>

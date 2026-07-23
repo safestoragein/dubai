@@ -11,7 +11,7 @@ import { ArrowRight } from "lucide-react"
 const testimonials = [
   {
     content:
-      "Stored my entire villa furniture for 6 months during renovation. Everything came back in perfect condition thanks to the climate control. The pickup and delivery service was a lifesaver!",
+      "Stored my entire villa furniture for 6 months during renovation. Everything came back in perfect condition thanks to their careful handling and clean units. The pickup and delivery service was a lifesaver!",
     author: "Ahmed Hassan",
     role: "Villa Owner, Dubai Marina",
     rating: 5,
@@ -19,7 +19,7 @@ const testimonials = [
     verified: true,
   },
   {
-    content: "As a business owner, I needed reliable document storage. SafeStorage provides secure, climate-controlled units with 24/7 access. Their dedicated consultant understood our compliance needs perfectly.",
+    content: "As a business owner, I needed reliable document storage. SafeStorage provides secure, clean units with 24/7 access. Their dedicated consultant understood our compliance needs perfectly.",
     author: "Sarah Mitchell",
     role: "Managing Director, Consulting Firm",
     rating: 5,
@@ -43,7 +43,7 @@ const testimonials = [
     verified: true,
   },
   {
-    content: "Was worried about storing my classic car during summer. The climate-controlled vehicle storage kept it protected from Dubai's extreme heat. Staff are knowledgeable and trustworthy.",
+    content: "Was worried about storing my classic car during summer. The secure indoor vehicle storage kept it protected from Dubai's dust and the elements. Staff are knowledgeable and trustworthy.",
     author: "Khalid Rahman",
     role: "Car Enthusiast",
     rating: 5,

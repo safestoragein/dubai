@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Downtown Dubai Storage — Hassle-Free Pickup",
   description:
-    "Storage in Downtown Dubai, DIFC & Burj Khalifa District. Climate-controlled units, hassle-free pickup from your tower, same-day service. Trusted by 500+ Downtown residents. Call +971505773388.",
+    "Storage in Downtown Dubai, DIFC & Burj Khalifa District. Secure units, hassle-free pickup from your tower, same-day service. Trusted by 500+ Downtown residents. Call +971505773388.",
   keywords:
     "storage downtown dubai, storage near burj khalifa, DIFC storage dubai, downtown dubai self storage, storage units downtown dubai, burj khalifa district storage",
   openGraph: {
     title: "Downtown Dubai & DIFC Storage — Hassle-Free Pickup | SafeStorage",
-    description: "Climate-controlled storage for Downtown Dubai, DIFC & Burj Khalifa District. Hassle-free pickup. Same-day available. Call +971505773388.",
+    description: "Secure storage for Downtown Dubai, DIFC & Burj Khalifa District. Hassle-free pickup. Same-day available. Call +971505773388.",
     url: "https://safestorage.ae/locations/downtown-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const downtownSchemas = [
     "@type": "Service",
     name: "Storage Near Downtown Dubai & DIFC",
     description:
-      "Climate-controlled storage for Downtown Dubai, DIFC, Burj Khalifa District and Business Bay residents and businesses. Hassle-free pickup, same-day service, flexible plans.",
+      "Secure storage for Downtown Dubai, DIFC, Burj Khalifa District and Business Bay residents and businesses. Hassle-free pickup, same-day service, flexible plans.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/downtown-dubai",
     areaServed: [
@@ -42,7 +42,7 @@ const downtownSchemas = [
       "@type": "OfferCatalog",
       name: "Downtown Dubai Storage Plans",
       itemListElement: [
-        { "@type": "Offer", name: "Storage", price: "12.65", priceCurrency: "AED", description: "Starts from 12.65 AED / sqft (VAT-inclusive)" },
+        { "@type": "Offer", name: "Storage", price: "12.60", priceCurrency: "AED", description: "Starts from 12.60 AED / sqft (VAT-inclusive)" },
       ],
     },
     aggregateRating: {
@@ -58,7 +58,7 @@ const downtownSchemas = [
     "@id": "https://safestorage.ae/locations/downtown-dubai#webpage",
     name: "Downtown Dubai Storage — Hassle-Free Pickup | SafeStorage",
     description:
-      "Climate-controlled storage for Downtown Dubai, DIFC & Burj Khalifa District. Hassle-free pickup from your tower. Same-day available.",
+      "Secure storage for Downtown Dubai, DIFC & Burj Khalifa District. Hassle-free pickup from your tower. Same-day available.",
     url: "https://safestorage.ae/locations/downtown-dubai",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -114,7 +114,7 @@ export default function DowntownDubaiPage() {
                 Downtown Dubai apartments are among the most premium residential spaces in the UAE — and among the
                 most space-constrained. With square-metre prices regularly exceeding AED 2,500, dedicating floor
                 space to rarely-used items is simply not practical. SafeStorage solves this by giving Downtown
-                residents a secure, climate-controlled extension of their apartment — accessible on demand.
+                residents a secure extension of their apartment — accessible on demand.
               </p>
               <p className="text-gray-700">
                 We regularly serve residents of Burj Khalifa Residences, The Address Downtown, Vida Downtown, Blvd
@@ -185,8 +185,8 @@ export default function DowntownDubaiPage() {
                 <p><strong>Same-day service:</strong> For requests before 12 PM, we can collect from any Downtown address the same day. This is critical when lease dates or renovation timelines are tight.</p>
               </div>
               <div className="space-y-3">
-                <p><strong>Climate control as standard:</strong> All items are stored at 18–22°C with humidity control. In Downtown Dubai, where apartments often contain premium furniture and electronics, proper climate protection is essential.</p>
-                <p><strong>Transparent pricing, no surprises:</strong> Downtown residents pay the same rates as all Dubai customers — from 12.65 AED / sqft (VAT-inclusive). No location premiums, no high-rise access fees, no surprises at billing.</p>
+                <p><strong>Secure indoor storage:</strong> All items are kept in our clean, indoor facility under 24/7 CCTV monitoring. In Downtown Dubai, where apartments often contain premium furniture and electronics, keeping belongings safe and dust-protected is essential.</p>
+                <p><strong>Transparent pricing, no surprises:</strong> Downtown residents pay the same rates as all Dubai customers — from 12.60 AED / sqft (VAT-inclusive). No location premiums, no high-rise access fees, no surprises at billing.</p>
                 <p><strong>Free insurance included:</strong> All stored items are covered by complimentary insurance against theft, fire, and accidental damage — standard on every plan with no additional paperwork.</p>
               </div>
             </div>
@@ -211,7 +211,7 @@ export default function DowntownDubaiPage() {
             <p className="text-gray-700 mb-4">SafeStorage pricing is identical across all Dubai locations — no location premiums for Downtown or DIFC:</p>
             <div className="max-w-xl mx-auto">
               <div className="bg-white rounded-lg p-8 border-2 border-[#0A2463] text-center">
-                <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12.65 AED / sqft</p>
+                <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12.60 AED / sqft</p>
                 <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · hassle-free pickup &amp; delivery included</p>
               </div>
             </div>
@@ -246,7 +246,7 @@ export default function DowntownDubaiPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What storage is available for Downtown Dubai apartment renovation?</h3>
-              <p className="text-gray-700">Renovation storage is one of our most common Downtown Dubai requests. The process: we arrive at your apartment, professionally wrap and remove all furniture, transport it to our climate-controlled facility, and store it securely while your contractor works. When your renovation is complete, we deliver everything back and our team places items in the rooms you specify. Renovation storage plans start from one week with no minimum contract, and pricing starts from 12.65 AED / sqft (VAT-inclusive). Call us early to book your renovation pickup date, as Downtown slots fill quickly.</p>
+              <p className="text-gray-700">Renovation storage is one of our most common Downtown Dubai requests. The process: we arrive at your apartment, professionally wrap and remove all furniture, transport it to our secure facility, and store it safely while your contractor works. When your renovation is complete, we deliver everything back and our team places items in the rooms you specify. Renovation storage plans start from one week with no minimum contract, and pricing starts from 12.60 AED / sqft (VAT-inclusive). Call us early to book your renovation pickup date, as Downtown slots fill quickly.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I store items from my Sheikh Zayed Road office during relocation?</h3>
@@ -258,11 +258,11 @@ export default function DowntownDubaiPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost to store a full Downtown Dubai apartment?</h3>
-              <p className="text-gray-700">SafeStorage pricing is volume-based and transparent, starting from 12.65 AED / sqft (VAT-inclusive). Whether you are storing a Downtown studio apartment (furniture, boxes, appliances), a 1-bedroom, or a 2-bedroom apartment with a full set of furniture and personal items, you pay only for the space you use. These prices include hassle-free pickup, climate-controlled storage, insurance, and one hassle-free delivery per month. Get an accurate personalised quote by calling +971505773388 or submitting the online quote form with a brief description or photos of what you need to store.</p>
+              <p className="text-gray-700">SafeStorage pricing is volume-based and transparent, starting from 12.60 AED / sqft (VAT-inclusive). Whether you are storing a Downtown studio apartment (furniture, boxes, appliances), a 1-bedroom, or a 2-bedroom apartment with a full set of furniture and personal items, you pay only for the space you use. These prices include hassle-free pickup, secure storage, insurance, and one hassle-free delivery per month. Get an accurate personalised quote by calling +971505773388 or submitting the online quote form with a brief description or photos of what you need to store.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store artwork, antiques, or high-value items from Downtown properties?</h3>
-              <p className="text-gray-700">Yes. SafeStorage stores high-value items including original artwork, antique furniture, luxury carpets, sculptures, and collectibles. For valuable items, we recommend our enhanced storage option, which includes individual unit assignment (items not mixed with others), additional climate monitoring, and extended insurance coverage above the standard complimentary threshold. Our team uses specialist packing materials including custom crating, acid-free wrapping, and museum-grade protection for fragile or irreplaceable pieces. Let us know during the quote process if you have high-value items so we can recommend the right protection level.</p>
+              <p className="text-gray-700">Yes. SafeStorage stores high-value items including original artwork, antique furniture, luxury carpets, sculptures, and collectibles. For valuable items, we recommend our enhanced storage option, which includes individual unit assignment (items not mixed with others) and extended insurance coverage above the standard complimentary threshold. Our team uses specialist packing materials including custom crating, acid-free wrapping, and museum-grade protection for fragile or irreplaceable pieces. Let us know during the quote process if you have high-value items so we can recommend the right protection level.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is there storage for expats leaving Dubai from the Downtown area?</h3>

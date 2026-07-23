@@ -11,7 +11,7 @@ Create a `.env.local` file in your project root with the following variables:
 \`\`\`env
 # Contact Information
 NEXT_PUBLIC_CONTACT_NUMBER=+971 0505773388
-NEXT_PUBLIC_EMAIL=info@safestorage.ae
+NEXT_PUBLIC_EMAIL=support@safestorage.ae
 NEXT_PUBLIC_WHATSAPP_NUMBER=971505773388
 \`\`\`
 

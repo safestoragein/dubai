@@ -159,7 +159,7 @@ export default function ContactPage() {
             >
               <div className="rounded-xl overflow-hidden h-[300px] shadow-md border border-dubai-gold/10">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178510021958!2d55.27210000000001!3d25.2048!2m3!1f0!2f3!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sBusiness%20Bay%2C%20Dubai!5e0!3m2!1sen!2sae!4v1712229999999!5m2!1sen!2sae"
+                  src="https://www.google.com/maps?q=24.9903469,55.1539764&z=16&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -177,7 +177,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-dubai-navy">Office Address</h3>
-                    <p className="text-dubai-navy/70">402- B Wing, Emarat Atrium Bldg - Dubai - United Arab Emirates</p>
+                    <p className="text-dubai-navy/70">Building 23, Warehouse 5, DIP-1, Dubai, United Arab Emirates</p>
                   </div>
                 </div>
 

@@ -8,12 +8,12 @@ import Testimonials from "@/components/testimonials"
 export const metadata: Metadata = {
   title: "Document Archival & Records Storage Dubai",
   description:
-    "Professional document archival for law firms, medical clinics, and businesses in Dubai. Fireproof, climate-controlled records storage with indexed retrieval in 24 hrs. Compliant with UAE data laws. Call +971505773388.",
+    "Professional document archival for law firms, medical clinics, and businesses in Dubai. Fireproof, secure records storage with indexed retrieval in 24 hrs. Compliant with UAE data laws. Call +971505773388.",
   keywords:
     "document archival service dubai, business records storage dubai, legal document archival UAE, medical records storage dubai, fireproof document storage, indexed records retrieval dubai, compliance document storage UAE",
   openGraph: {
     title: "Document Archival & Records Storage Dubai | Legal, Medical & Business Files | SafeStorage",
-    description: "Fireproof, climate-controlled document archival in Dubai. Indexed retrieval within 24 hrs. Compliant with UAE laws. Call +971505773388.",
+    description: "Fireproof, secure document archival in Dubai. Indexed retrieval within 24 hrs. Compliant with UAE laws. Call +971505773388.",
     url: "https://safestorage.ae/storage-dubai/records-archival",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -28,7 +28,7 @@ const features = [
   {
     icon: FolderLock,
     title: "Secure Storage",
-    description: "Fireproof, climate-controlled facilities with restricted access",
+    description: "Fireproof, secure facilities with restricted access",
   },
   {
     icon: ShieldCheck,
@@ -89,7 +89,7 @@ export default function RecordsArchivalPage() {
               Document Storage & <span className="text-dubai-gold">Records Archival</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8">
-              Professional document storage and archival solutions in Dubai. Secure, climate-controlled
+              Professional document storage and archival solutions in Dubai. Secure
               storage for your business records, legal documents, and sensitive files.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -213,7 +213,7 @@ export default function RecordsArchivalPage() {
           <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Document Archival &amp; Records Storage Dubai</h2>
           <p className="text-lg text-gray-700 mb-6">
             SafeStorage provides professional document archival and records storage services for businesses
-            across Dubai and the UAE. Our fireproof, climate-controlled document storage facility meets UAE
+            across Dubai and the UAE. Our fireproof, secure document storage facility meets UAE
             regulatory requirements for record retention and offers indexed retrieval within 24 hours for
             any stored document or file box.
           </p>
@@ -396,12 +396,12 @@ export default function RecordsArchivalPage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. Do you provide document storage for medical clinics and hospitals in Dubai?</h3>
-              <p className="text-gray-700">Yes. Medical records storage is one of our specialist services. Patient records, lab reports, imaging records, clinical notes, and consent forms must be retained for 10 years under Dubai Health Authority regulations (longer for paediatric records). We provide fireproof, climate-controlled storage that protects paper records from degradation. Our access control and confidentiality protocols meet healthcare sector requirements. We sign healthcare-specific confidentiality agreements and can work with your compliance team to design a retention and retrieval workflow.</p>
+              <p className="text-gray-700">Yes. Medical records storage is one of our specialist services. Patient records, lab reports, imaging records, clinical notes, and consent forms must be retained for 10 years under Dubai Health Authority regulations (longer for paediatric records). We provide fireproof, secure storage that protects paper records from degradation. Our access control and confidentiality protocols meet healthcare sector requirements. We sign healthcare-specific confidentiality agreements and can work with your compliance team to design a retention and retrieval workflow.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. How much does document archival storage cost in Dubai?</h3>
-              <p className="text-gray-700">Document archival storage at SafeStorage starts from 12.65 AED / sqft (VAT-inclusive), whether you are storing a small collection or a large archive of boxes. Retrieval fees apply for physical delivery of boxes to your office, while digital scanning services are charged per page for urgent scan requests. There are no setup fees or minimum contract periods. Contact us at +971505773388 for a quote based on your document volume.</p>
+              <p className="text-gray-700">Document archival storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you are storing a small collection or a large archive of boxes. Retrieval fees apply for physical delivery of boxes to your office, while digital scanning services are charged per page for urgent scan requests. There are no setup fees or minimum contract periods. Contact us at +971505773388 for a quote based on your document volume.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -426,7 +426,7 @@ export default function RecordsArchivalPage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">13. Can we store digital backups (hard drives, tapes) alongside paper records?</h3>
-              <p className="text-gray-700">Yes. SafeStorage stores physical digital media including LTO backup tapes, hard disk drives, USB drives, and legacy media formats (DAT, DLT). Digital media is particularly sensitive to temperature and magnetic fields, and our climate-controlled, shielded storage environment is appropriate for long-term media preservation. For disaster recovery purposes, many businesses store physical media backups off-site at SafeStorage as part of their business continuity planning. We maintain a separate inventory and chain-of-custody record for all media items.</p>
+              <p className="text-gray-700">Yes. SafeStorage stores physical digital media including LTO backup tapes, hard disk drives, USB drives, and legacy media formats (DAT, DLT). Digital media should be protected from magnetic fields, and our secure, shielded storage environment is appropriate for long-term media preservation. For disaster recovery purposes, many businesses store physical media backups off-site at SafeStorage as part of their business continuity planning. We maintain a separate inventory and chain-of-custody record for all media items.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -436,7 +436,7 @@ export default function RecordsArchivalPage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">15. Are there items that cannot be stored in document archival storage?</h3>
-              <p className="text-gray-700">Document archival storage is specifically designed for paper records, files, folders, and physical media. Items that cannot be stored in the document archival section include physical exhibits or evidence items, items containing hazardous materials, perishable goods, and items requiring special environmental conditions beyond standard climate control. If you have non-document items to store alongside your records (such as original artwork, product samples, or specialty items), we can accommodate these in appropriate standard storage units and manage them under the same account.</p>
+              <p className="text-gray-700">Document archival storage is specifically designed for paper records, files, folders, and physical media. Items that cannot be stored in the document archival section include physical exhibits or evidence items, items containing hazardous materials, perishable goods, and items requiring special environmental conditions. If you have non-document items to store alongside your records (such as original artwork, product samples, or specialty items), we can accommodate these in appropriate standard storage units and manage them under the same account.</p>
             </div>
           </div>
         </div>

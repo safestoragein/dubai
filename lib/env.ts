@@ -1,7 +1,7 @@
 // Environment configuration with validation
 const requiredEnvVars = {
   CONTACT_NUMBER: process.env.NEXT_PUBLIC_CONTACT_NUMBER || "+971505773388",
-  EMAIL: process.env.NEXT_PUBLIC_EMAIL || "safestoragedubai@gmail.com",
+  EMAIL: process.env.NEXT_PUBLIC_EMAIL || "support@safestorage.ae",
 } as const
 
 // Derived values
