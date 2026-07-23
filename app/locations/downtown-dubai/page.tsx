@@ -212,7 +212,7 @@ export default function DowntownDubaiPage() {
             <div className="max-w-xl mx-auto">
               <div className="bg-white rounded-lg p-8 border-2 border-[#0A2463] text-center">
                 <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12.60 AED / sqft</p>
-                <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included</p>
+                <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · door-to-door service included</p>
               </div>
             </div>
           </div>

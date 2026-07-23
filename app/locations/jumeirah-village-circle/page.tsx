@@ -219,7 +219,7 @@ export default function JumeirahVillageCirclePage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can Dubai Sports City and Motor City residents use JVC-area SafeStorage?</h3>
-              <p className="text-gray-700">Yes. Dubai Sports City and Motor City are both within our JVC service zone and are fully covered by SafeStorage. Dubai Sports City residents in the various residential towers and Motor City residents in the apartment and townhouse communities all receive the same door-to-door pickup and delivery service as JVC. Typical pickup times from Dubai Sports City and Motor City are 15–20 minutes. Many Sports City residents use SafeStorage for sports equipment storage, which is a perfect fit given the area&apos;s active lifestyle community.</p>
+              <p className="text-gray-700">Yes. Dubai Sports City and Motor City are both within our JVC service zone and are fully covered by SafeStorage. Dubai Sports City residents in the various residential towers and Motor City residents in the apartment and townhouse communities all receive the same door-to-door service as JVC. Typical pickup times from Dubai Sports City and Motor City are 15–20 minutes. Many Sports City residents use SafeStorage for sports equipment storage, which is a perfect fit given the area&apos;s active lifestyle community.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What storage is available for JVC residents between lease periods?</h3>

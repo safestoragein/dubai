@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   keywords: "all in one storage dubai, personal and business storage dubai, vehicle furniture storage dubai, storage provider dubai, full service storage dubai, pickup and delivery storage dubai, 4.9 rated storage dubai",
   openGraph: {
     title: "Storage Dubai | #1 Rated Storage Facility | From 12.60 AED / sqft",
-    description: "Best storage in Dubai from 12.60 AED / sqft. Secure units, 24/7 access, Door-to-Door pickup & delivery. 4.9★ rated by 500+ customers.",
+    description: "Best storage in Dubai from 12.60 AED / sqft. Secure units, 24/7 access, Door-to-Door service. 4.9★ rated by 500+ customers.",
     url: "https://safestorage.ae/storage-dubai",
     siteName: "SafeStorage Dubai",
     images: [
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 const whyChooseUs = [
   {
     icon: Truck,
-    title: "Door-to-door Pickup & Delivery",
+    title: "Door-to-door Service",
     description: "We collect from your location and deliver back when needed - door-to-door, with no van rental or heavy lifting required on your part.",
     highlight: "Door-to-Door Service",
   },
@@ -255,7 +255,7 @@ const testimonials = [
 const faqs = [
   {
     question: "How much does storage cost in Dubai?",
-    answer: "Storage in Dubai at SafeStorage starts from just 12.60 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include security, and door-to-door pickup & delivery. Contact us at 050-577-3388 for a personalized quote.",
+    answer: "Storage in Dubai at SafeStorage starts from just 12.60 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include security, and door-to-door service. Contact us at 050-577-3388 for a personalized quote.",
   },
   {
     question: "Do you pick up items from my location?",
@@ -390,7 +390,7 @@ export default function StorageDubaiPage() {
 
               {/* Subheadline */}
               <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-                Door-to-Door pickup & delivery • From 12.60 AED / sqft • 24/7 access • Secure units
+                Door-to-Door service • From 12.60 AED / sqft • 24/7 access • Secure units
               </p>
 
               {/* CTAs */}
@@ -528,7 +528,7 @@ export default function StorageDubaiPage() {
                   Pricing starts from 12.60 AED / sqft
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  VAT-inclusive · all unit sizes · door-to-door pickup & delivery included
+                  VAT-inclusive · all unit sizes · door-to-door service included
                 </p>
                 <Button
                   className="bg-dubai-gold hover:bg-dubai-darkgold text-white"
@@ -625,7 +625,7 @@ export default function StorageDubaiPage() {
                 Storage Pickup in All Dubai Areas
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Door-to-Door pickup & delivery from these locations (and anywhere else in Dubai!)
+                Door-to-Door service from these locations (and anywhere else in Dubai!)
               </p>
             </div>
 
@@ -774,7 +774,7 @@ export default function StorageDubaiPage() {
               <div className="flex flex-wrap justify-center gap-6 text-sm text-white/70">
                 <span className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-400" />
-                  Door-to-door Pickup & Delivery
+                  Door-to-door Service
                 </span>
                 <span className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-400" />
@@ -836,7 +836,7 @@ export default function StorageDubaiPage() {
                 </p>
                 <p className="text-gray-700">
                   All SafeStorage plans include 24/7 security, free insurance up to AED 5,000,
-                  and door-to-door pickup and delivery. There are no setup fees, no admin charges, and no hidden costs.
+                  and door-to-door service. There are no setup fees, no admin charges, and no hidden costs.
                   Long-term customers benefit from a wide range of discounts — the longer you store, the more
                   you save. Contact us for a personalised quote based on exactly what you need to store.
                 </p>
@@ -845,7 +845,7 @@ export default function StorageDubaiPage() {
             <div className="bg-white rounded-xl p-8 border border-gray-200">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Storage Areas Covered by SafeStorage Dubai</h3>
               <p className="text-gray-700 mb-4">
-                Our door-to-door pickup and delivery service covers every area of Dubai. Key service zones include:
+                Our door-to-door service covers every area of Dubai. Key service zones include:
               </p>
               <div className="grid md:grid-cols-4 gap-2 text-gray-700 text-sm">
                 <ul className="space-y-1"><li>• Dubai Marina</li><li>• JBR</li><li>• Palm Jumeirah</li><li>• JLT</li><li>• Media City</li></ul>
@@ -899,10 +899,10 @@ export default function StorageDubaiPage() {
             <div className="bg-gray-50 rounded-xl p-8 mb-10">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Storage Pricing Guide — Dubai 2025</h3>
               <p className="text-gray-700 mb-4">
-                Storage prices in Dubai vary significantly depending on the provider, unit size, location, and included services. As a reference point for the Dubai market: basic self-service storage (no pickup) ranges from AED 150–400/month for small units. Full-service storage with door-to-door pickup and delivery — the SafeStorage model — starts from 12.60 AED / sqft (VAT-inclusive), whether for small personal units, large commercial units, or vehicle storage.
+                Storage prices in Dubai vary significantly depending on the provider, unit size, location, and included services. As a reference point for the Dubai market: basic self-service storage (no pickup) ranges from AED 150–400/month for small units. Full-service storage with door-to-door service — the SafeStorage model — starts from 12.60 AED / sqft (VAT-inclusive), whether for small personal units, large commercial units, or vehicle storage.
               </p>
               <p className="text-gray-700">
-                When comparing storage prices in Dubai, always check what is included. Many providers advertise low base rates but charge separately for access, pickup, delivery, insurance, and administration. SafeStorage&apos;s pricing is fully inclusive — the monthly rate covers 24/7 security, free insurance up to AED 5,000, and door-to-door pickup and delivery. There are no hidden charges. Call +971505773388 for a personalised quote based on your specific requirements.
+                When comparing storage prices in Dubai, always check what is included. Many providers advertise low base rates but charge separately for access, pickup, delivery, insurance, and administration. SafeStorage&apos;s pricing is fully inclusive — the monthly rate covers 24/7 security, free insurance up to AED 5,000, and door-to-door service. There are no hidden charges. Call +971505773388 for a personalised quote based on your specific requirements.
               </p>
             </div>
 
@@ -936,7 +936,7 @@ export default function StorageDubaiPage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <h3 className="text-lg font-semibold text-[#0A2463] mb-3">Does SafeStorage serve all areas of Dubai?</h3>
-                <p className="text-gray-700">Yes. Our door-to-door pickup and delivery service covers all Dubai areas including Dubai Marina, JBR, Palm Jumeirah, JLT, Business Bay, Downtown Dubai, DIFC, Jumeirah, Al Barsha, Al Quoz, JVC, Arabian Ranches, Dubai Hills, Mirdif, Deira, Bur Dubai, Dubai Silicon Oasis, Sports City, Motor City, Dubai Investment Park, Al Furjan, Damac Hills, Tilal Al Ghaf, Dubai South, and all other communities. If you are unsure about coverage in your specific area, call us at +971505773388 and we will confirm within minutes.</p>
+                <p className="text-gray-700">Yes. Our door-to-door service covers all Dubai areas including Dubai Marina, JBR, Palm Jumeirah, JLT, Business Bay, Downtown Dubai, DIFC, Jumeirah, Al Barsha, Al Quoz, JVC, Arabian Ranches, Dubai Hills, Mirdif, Deira, Bur Dubai, Dubai Silicon Oasis, Sports City, Motor City, Dubai Investment Park, Al Furjan, Damac Hills, Tilal Al Ghaf, Dubai South, and all other communities. If you are unsure about coverage in your specific area, call us at +971505773388 and we will confirm within minutes.</p>
               </div>
             </div>
           </div>

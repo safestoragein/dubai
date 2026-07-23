@@ -11,9 +11,9 @@ const faqs = [
       "SafeStorage Dubai offers secure storage starting from 12.60 AED / sqft (VAT-inclusive). The final price depends on the unit size, rental duration, and any additional services. Importantly, our pricing is fully transparent — what we quote is what you pay, with no admin fees, hidden charges, or deposit surprises. We also offer a price-match guarantee: show us a lower quote and we'll beat it.",
   },
   {
-    question: "Do you offer door-to-door pickup and delivery across Dubai?",
+    question: "Do you offer door-to-door service across Dubai?",
     answer:
-      "Yes — door-to-door pickup and delivery is included with every SafeStorage plan. Our professional team will come to your home or office anywhere in Dubai, bring packing materials, carefully load your items, and transport them to our secure facility. When you need anything back, we deliver it to your door. No truck rental and no heavy lifting needed on your part. Same-day pickup is available for bookings confirmed before 12 PM.",
+      "Yes — door-to-door service is included with every SafeStorage plan. Our professional team will come to your home or office anywhere in Dubai, bring packing materials, carefully load your items, and transport them to our secure facility. When you need anything back, we deliver it to your door. No truck rental and no heavy lifting needed on your part. Same-day pickup is available for bookings confirmed before 12 PM.",
   },
   {
     question: "What size storage unit do I need?",

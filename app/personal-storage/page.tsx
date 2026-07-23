@@ -33,7 +33,7 @@ const features = [
   },
   {
     icon: Truck,
-    title: "Door-to-door Pickup & Delivery",
+    title: "Door-to-door Service",
     description: "We collect and deliver your items door-to-door - completely hassle-free",
   },
   {
@@ -142,7 +142,7 @@ export default function PersonalStoragePage() {
               Starting from just <span className="text-dubai-gold font-bold">12.60 AED / sqft</span> (VAT-inclusive).
             </p>
             <p className="text-base md:text-lg text-gray-400 mb-8">
-              Door-to-Door pickup & delivery | No hidden fees | Cancel anytime
+              Door-to-Door service | No hidden fees | Cancel anytime
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -283,7 +283,7 @@ export default function PersonalStoragePage() {
               Starting from Just 12.60 AED / sqft
             </h2>
             <p className="text-white/90 mb-8 text-lg">
-              No setup fees • Door-to-Door pickup & delivery • Cancel anytime
+              No setup fees • Door-to-Door service • Cancel anytime
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
               <div className="grid sm:grid-cols-3 gap-6 text-center">

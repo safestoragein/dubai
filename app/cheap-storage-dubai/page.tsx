@@ -161,7 +161,7 @@ export default function CheapStorageDubai() {
       cost: "Moving/Pickup Service",
       typical: "AED 300-800",
       ourPrice: "Door-to-door Pickup",
-      avoid: "Look for door-to-door pickup and delivery services",
+      avoid: "Look for door-to-door services",
     },
     {
       icon: AlertCircle,
@@ -339,7 +339,7 @@ export default function CheapStorageDubai() {
                 Pricing starts from 12.60 AED / sqft
               </h3>
               <p className="mb-6 text-gray-600">
-                VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included
+                VAT-inclusive · all unit sizes · door-to-door service included
               </p>
               <Button asChild className="bg-[#D8315B] hover:bg-[#c02a50]">
                 <Link href="/contact">Get This Size</Link>

@@ -187,7 +187,7 @@ export default function TestimonialsPage() {
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Transparent Pricing That Customers Praise</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                One of the most consistent themes in our customer reviews is the relief customers feel when they discover our pricing is genuinely transparent. In an industry often criticised for hidden fees, lock-in contracts, and confusing pricing structures, SafeStorage has built its reputation on the opposite: the price quoted is the price charged, every time. Storage pricing starts from 12.60 AED / sqft (VAT-inclusive), with door-to-door pickup and delivery included.
+                One of the most consistent themes in our customer reviews is the relief customers feel when they discover our pricing is genuinely transparent. In an industry often criticised for hidden fees, lock-in contracts, and confusing pricing structures, SafeStorage has built its reputation on the opposite: the price quoted is the price charged, every time. Storage pricing starts from 12.60 AED / sqft (VAT-inclusive), with door-to-door service included.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 We offer flexible monthly contracts with no long-term commitments, making SafeStorage suitable for customers at every stage — from those storing during a two-week renovation to businesses needing multi-year storage solutions. Long-term customers benefit from a wide range of discounts on prepaid plans — the longer you store, the more you save. We are proud that our Net Promoter Score consistently exceeds industry benchmarks because our customers know exactly what they are paying for and feel they are receiving excellent value. Call +971505773388 today for a personalised quote with no obligation.
@@ -227,7 +227,7 @@ export default function TestimonialsPage() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">6. Do customers find the pricing competitive compared to other Dubai storage companies?</h3>
-              <p className="text-gray-700">Customers consistently tell us that SafeStorage offers excellent value when they consider everything that is included. While the headline price may appear similar to some competitors, what distinguishes SafeStorage is that our service includes free insurance at no extra charge, door-to-door pickup and delivery, and dedicated customer support. Many customers who previously used basic storage facilities in Dubai report that they were paying separately for each of these services, making SafeStorage significantly better value overall.</p>
+              <p className="text-gray-700">Customers consistently tell us that SafeStorage offers excellent value when they consider everything that is included. While the headline price may appear similar to some competitors, what distinguishes SafeStorage is that our service includes free insurance at no extra charge, door-to-door service, and dedicated customer support. Many customers who previously used basic storage facilities in Dubai report that they were paying separately for each of these services, making SafeStorage significantly better value overall.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

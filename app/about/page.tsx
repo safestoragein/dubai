@@ -11,12 +11,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "About Us — Dubai's Most Trusted Storage Partner",
   description:
-    "Learn about SafeStorage Dubai - serving Dubai since 2015 with secure storage, 24/7 security, and door-to-door pickup & delivery. 500+ happy customers trust us.",
+    "Learn about SafeStorage Dubai - serving Dubai since 2015 with secure storage, 24/7 security, and door-to-door service. 500+ happy customers trust us.",
   keywords:
     "about safestorage dubai, storage company dubai, trusted storage dubai, secure storage facility",
   openGraph: {
     title: "About SafeStorage Dubai - Your Trusted Storage Partner",
-    description: "Serving Dubai since 2015 with premium storage solutions. Secure units, 24/7 security, door-to-door pickup & delivery.",
+    description: "Serving Dubai since 2015 with premium storage solutions. Secure units, 24/7 security, door-to-door service.",
     url: "https://safestorage.ae/about",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -33,7 +33,7 @@ const aboutSchemas = [
     '@type': 'AboutPage',
     '@id': 'https://safestorage.ae/about#webpage',
     name: 'About SafeStorage Dubai — Dubai\'s Most Trusted Storage Partner',
-    description: 'Learn about SafeStorage Dubai — serving Dubai since 2015 with secure storage, 24/7 security, and door-to-door pickup & delivery. 500+ happy customers trust us.',
+    description: 'Learn about SafeStorage Dubai — serving Dubai since 2015 with secure storage, 24/7 security, and door-to-door service. 500+ happy customers trust us.',
     url: 'https://safestorage.ae/about',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     mainEntity: { '@id': 'https://safestorage.ae/#organization' },
@@ -461,7 +461,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">What makes SafeStorage different from other Dubai storage companies?</h3>
-              <p className="text-gray-700">SafeStorage differs from traditional Dubai storage providers in several fundamental ways. First, we are a full-service provider: our team handles collection, packing, transport, storage, and delivery — customers never need to do any physical work or visit our facility. Traditional self-storage companies require customers to do everything themselves. Second, every SafeStorage unit is secure, clean, and dust-protected as standard. Third, we use a volume-based pricing model, so customers pay only for the space their items actually occupy rather than a fixed unit size. Fourth, door-to-door pickup and delivery is included in every plan. Fifth, our ISO 9001:2015 certification and global scale provide a service quality standard that most local Dubai storage providers cannot match.</p>
+              <p className="text-gray-700">SafeStorage differs from traditional Dubai storage providers in several fundamental ways. First, we are a full-service provider: our team handles collection, packing, transport, storage, and delivery — customers never need to do any physical work or visit our facility. Traditional self-storage companies require customers to do everything themselves. Second, every SafeStorage unit is secure, clean, and dust-protected as standard. Third, we use a volume-based pricing model, so customers pay only for the space their items actually occupy rather than a fixed unit size. Fourth, door-to-door service is included in every plan. Fifth, our ISO 9001:2015 certification and global scale provide a service quality standard that most local Dubai storage providers cannot match.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">How much total storage space does SafeStorage manage globally?</h3>
@@ -469,7 +469,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Does SafeStorage operate only in Dubai within the UAE?</h3>
-              <p className="text-gray-700">SafeStorage&apos;s UAE operations at safestorage.ae primarily serve the Dubai emirate with the full door-to-door pickup and delivery service. Within Dubai, we cover every community and area. For customers in Sharjah, Ajman, and the Northern Emirates, pickup may be available with a small additional transport fee — contact us to confirm for your specific location. SafeStorage also operates in India across multiple cities under the safestorage.in domain. The UAE and India operations share the same quality standards, technology platform, and service philosophy but operate independently with local teams and facilities.</p>
+              <p className="text-gray-700">SafeStorage&apos;s UAE operations at safestorage.ae primarily serve the Dubai emirate with the full door-to-door service. Within Dubai, we cover every community and area. For customers in Sharjah, Ajman, and the Northern Emirates, pickup may be available with a small additional transport fee — contact us to confirm for your specific location. SafeStorage also operates in India across multiple cities under the safestorage.in domain. The UAE and India operations share the same quality standards, technology platform, and service philosophy but operate independently with local teams and facilities.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">How does SafeStorage handle customer data and privacy?</h3>

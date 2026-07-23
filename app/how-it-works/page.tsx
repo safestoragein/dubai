@@ -6,7 +6,7 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "How It Works | SafeStorage Dubai Process",
   description:
-    "Learn how SafeStorage Dubai's simple 3-step process works: Book online, we collect your items, and access them anytime. Door-to-Door pickup and delivery in Dubai.",
+    "Learn how SafeStorage Dubai's simple 3-step process works: Book online, we collect your items, and access them anytime. Door-to-Door service in Dubai.",
   keywords:
     "how storage works dubai, storage process, pickup delivery dubai, storage booking, self storage process dubai",
   alternates: {

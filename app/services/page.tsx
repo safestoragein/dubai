@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SafeStorage Services Dubai | +971505773388",
-    description: "Personal, business & vehicle storage solutions with door-to-door pickup & delivery.",
+    description: "Personal, business & vehicle storage solutions with door-to-door service.",
     images: ["/twitter-services.jpg"],
   },
   alternates: {
@@ -143,7 +143,7 @@ export default function Services() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h2 className="text-2xl font-bold text-[#0A2463] mb-4">Why Choose SafeStorage Dubai?</h2>
             <ul className="space-y-3 text-gray-700">
-              <li><strong>Door-to-door Pickup &amp; Delivery:</strong> We collect from anywhere in Dubai and return your items on demand — no truck rental needed.</li>
+              <li><strong>Door-to-door Service:</strong> We collect from anywhere in Dubai and return your items on demand — no truck rental needed.</li>
               <li><strong>Flexible Plans:</strong> Monthly contracts with no long-term commitment required. Scale up or down at any time.</li>
               <li><strong>Free Insurance:</strong> Every unit comes with complimentary insurance coverage up to AED 5,000, with optional extended coverage available.</li>
               <li><strong>Transparent Pricing:</strong> No hidden fees, no surprise charges. Prices include storage, security, and basic insurance.</li>

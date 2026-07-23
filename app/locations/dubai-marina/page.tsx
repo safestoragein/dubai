@@ -79,7 +79,7 @@ export default function DubaiMarinaPage() {
         <p className="text-lg text-gray-700 mb-6">
           SafeStorage provides premium, secure storage for residents of Dubai Marina, Jumeirah Beach
           Residence (JBR), Marina Walk, and Bluewaters Island. Our facility is easily accessible from Sheikh Zayed
-          Road, with door-to-door pickup and delivery service direct to your doorstep across the Marina area.
+          Road, with door-to-door service direct to your doorstep across the Marina area.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 mb-10">
@@ -202,7 +202,7 @@ export default function DubaiMarinaPage() {
           <div className="max-w-xl mx-auto">
             <div className="bg-white rounded-lg p-8 border-2 border-[#0A2463] text-center">
               <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12.60 AED / sqft</p>
-              <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included</p>
+              <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · door-to-door service included</p>
             </div>
           </div>
         </div>

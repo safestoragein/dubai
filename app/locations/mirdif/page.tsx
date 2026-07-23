@@ -200,7 +200,7 @@ export default function MirdifPage() {
           <div className="space-y-5">
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage cover all parts of Mirdif including the newer Uptown Mirdif area?</h3>
-              <p className="text-gray-700">Yes. SafeStorage covers all Mirdif areas — the original Mirdif villa communities (Phases 1, 2, and 3), Uptown Mirdif townhouses, Mirdif Hills, and the Shorooq community. All Mirdif addresses qualify for our door-to-door pickup and delivery service. Call +971505773388 with your specific street or community name if you want to confirm coverage, though all Mirdif addresses are within our service zone.</p>
+              <p className="text-gray-700">Yes. SafeStorage covers all Mirdif areas — the original Mirdif villa communities (Phases 1, 2, and 3), Uptown Mirdif townhouses, Mirdif Hills, and the Shorooq community. All Mirdif addresses qualify for our door-to-door service. Call +971505773388 with your specific street or community name if you want to confirm coverage, though all Mirdif addresses are within our service zone.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store a full Mirdif villa during summer vacation?</h3>
@@ -211,7 +211,7 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Rashidiya covered by SafeStorage?</h3>
-              <p className="text-gray-700">Yes. Rashidiya — located adjacent to Mirdif near Dubai International Airport — is fully within our east Dubai service zone. Rashidiya&apos;s mix of villas and apartments is served with the same door-to-door pickup and delivery as Mirdif. Rashidiya residents use SafeStorage primarily for villa renovation storage, summer holiday storage, and between-tenancy storage. Typical pickup times from Rashidiya are 20–25 minutes from confirmation.</p>
+              <p className="text-gray-700">Yes. Rashidiya — located adjacent to Mirdif near Dubai International Airport — is fully within our east Dubai service zone. Rashidiya&apos;s mix of villas and apartments is served with the same door-to-door service as Mirdif. Rashidiya residents use SafeStorage primarily for villa renovation storage, summer holiday storage, and between-tenancy storage. Typical pickup times from Rashidiya are 20–25 minutes from confirmation.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Mirdif villa&apos;s contents?</h3>
@@ -231,7 +231,7 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is there storage available near Dubai Festival City from Mirdif?</h3>
-              <p className="text-gray-700">Yes. Dubai Festival City (Garhoud area), Al Jaddaf, and the Festival City Mall area are all within our east Dubai service zone, accessible from Mirdif via the Airport Road. Residents in the Festival City residential towers, the serviced apartments at Festival City, and the surrounding Garhoud community all receive our standard door-to-door pickup and delivery service. Festival City is approximately 10–15 minutes from central Mirdif, making it easy for our team to serve both areas in a single trip.</p>
+              <p className="text-gray-700">Yes. Dubai Festival City (Garhoud area), Al Jaddaf, and the Festival City Mall area are all within our east Dubai service zone, accessible from Mirdif via the Airport Road. Residents in the Festival City residential towers, the serviced apartments at Festival City, and the surrounding Garhoud community all receive our standard door-to-door service. Festival City is approximately 10–15 minutes from central Mirdif, making it easy for our team to serve both areas in a single trip.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I get a same-day pickup from Mirdif?</h3>
@@ -239,7 +239,7 @@ export default function MirdifPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What east Dubai areas besides Mirdif does SafeStorage cover?</h3>
-              <p className="text-gray-700">SafeStorage&apos;s east Dubai coverage extends beyond Mirdif to include Rashidiya, Muhaisnah (1–4), Al Warqa (1–5), Nad Al Sheba, Al Mizhar, Garhoud, Al Twar, Al Qusais, and Al Nahda (Dubai side). All these communities receive door-to-door pickup and delivery with the same pricing and service standards as our primary zones. East Dubai is a large and diverse area with significant residential density and we have dedicated team capacity to serve it reliably.</p>
+              <p className="text-gray-700">SafeStorage&apos;s east Dubai coverage extends beyond Mirdif to include Rashidiya, Muhaisnah (1–4), Al Warqa (1–5), Nad Al Sheba, Al Mizhar, Garhoud, Al Twar, Al Qusais, and Al Nahda (Dubai side). All these communities receive door-to-door service with the same pricing and service standards as our primary zones. East Dubai is a large and diverse area with significant residential density and we have dedicated team capacity to serve it reliably.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is there a minimum storage period for Mirdif customers?</h3>

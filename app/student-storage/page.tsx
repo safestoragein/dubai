@@ -123,7 +123,7 @@ export default function StudentStoragePage() {
             <div className="max-w-xl mx-auto">
               <div className="bg-white rounded-2xl p-10 border-2 border-dubai-gold shadow-lg text-center">
                 <h3 className="text-2xl md:text-3xl font-bold text-dubai-navy mb-3">Pricing starts from 12.60 AED / sqft</h3>
-                <p className="text-gray-600">VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included</p>
+                <p className="text-gray-600">VAT-inclusive · all unit sizes · door-to-door service included</p>
               </div>
             </div>
             <p className="text-center text-sm text-gray-500 mt-6">* Not sure what size you need? Call us and we'll advise based on your inventory.</p>

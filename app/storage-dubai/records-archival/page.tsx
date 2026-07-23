@@ -32,7 +32,7 @@ const features = [
   },
   {
     icon: Truck,
-    title: "Door-to-door Pickup & Delivery",
+    title: "Door-to-door Service",
     description: "We collect and deliver documents at your convenience",
   },
   {

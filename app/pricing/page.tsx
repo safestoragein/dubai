@@ -6,12 +6,12 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Storage Pricing Dubai — From 12.60 AED / sqft",
   description:
-    "Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door pickup & delivery included. Call +971505773388 for best rates.",
+    "Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door service included. Call +971505773388 for best rates.",
   keywords:
     "storage pricing dubai, cheap storage dubai, storage costs, affordable storage, storage rates dubai, self storage prices, monthly storage cost, storage unit prices",
   openGraph: {
     title: "SafeStorage Pricing - Storage from 12.60 AED / sqft",
-    description: "Competitive storage rates in Dubai. All sizes available with door-to-door pickup & delivery. Call +971505773388.",
+    description: "Competitive storage rates in Dubai. All sizes available with door-to-door service. Call +971505773388.",
     url: "https://safestorage.ae/pricing",
     siteName: "SafeStorage Dubai",
     images: [
@@ -42,7 +42,7 @@ const pricingSchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/pricing#webpage',
     name: 'Storage Pricing Dubai | From 12.60 AED / sqft',
-    description: 'Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door pickup & delivery included.',
+    description: 'Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door service included.',
     url: 'https://safestorage.ae/pricing',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -51,7 +51,7 @@ const pricingSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Storage Units Dubai — Transparent Pricing',
-    description: 'Transparent storage pricing in Dubai. Door-to-Door pickup & delivery included. Call +971505773388 for best rates.',
+    description: 'Transparent storage pricing in Dubai. Door-to-Door service included. Call +971505773388 for best rates.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/pricing',
     areaServed: { '@type': 'City', name: 'Dubai' },
@@ -87,7 +87,7 @@ export default function Pricing() {
           <div className="flex justify-center mb-12">
             <div className="bg-white rounded-2xl p-10 border-2 border-[#0A2463] text-center max-w-xl w-full">
               <p className="text-2xl md:text-3xl font-bold text-[#0A2463]">Pricing starts from 12.60 AED / sqft</p>
-              <p className="text-sm text-gray-500 mt-3">VAT-inclusive · secure indoor storage · door-to-door pickup &amp; delivery included</p>
+              <p className="text-sm text-gray-500 mt-3">VAT-inclusive · secure indoor storage · door-to-door service included</p>
             </div>
           </div>
 
@@ -141,7 +141,7 @@ export default function Pricing() {
               </div>
               <div>
                 <p className="font-semibold mb-1">How does pickup and delivery work?</p>
-                <p>Door-to-door pickup and delivery across Dubai is part of our hassle-free service — our team handles collection and return so you never need to hire a van. For locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, confirmed before you book.</p>
+                <p>Door-to-door service across Dubai is part of our hassle-free service — our team handles collection and return so you never need to hire a van. For locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, confirmed before you book.</p>
               </div>
               <div>
                 <p className="font-semibold mb-1">What payment methods are accepted?</p>

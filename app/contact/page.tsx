@@ -180,7 +180,7 @@ export default function Contact() {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">4. Do you offer door-to-door pickup and delivery in Dubai?</h3>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">4. Do you offer door-to-door service in Dubai?</h3>
               <p className="text-gray-700">Yes. Our door-to-door service is one of the key reasons customers choose SafeStorage over traditional self-storage. Our professional team arrives at your home, office, or any Dubai address, wraps and packs your belongings with care, and transports them to our secure facility. When you need your items back, simply call or WhatsApp us and we deliver them back to your door — usually within 24 to 48 hours. We cover all of Dubai door-to-door; for locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, which we confirm before you book.</p>
             </div>
 
@@ -200,7 +200,7 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. What areas of Dubai do you serve?</h3>
-              <p className="text-gray-700">We provide door-to-door pickup and delivery coverage across all of Dubai — from Palm Jumeirah and Dubai Marina in the west, to Deira and Rashidiya in the east, to Dubai Investment Park and Sports City in the south. Areas we regularly serve include Dubai Marina, JBR, JLT, Media City, Business Bay, DIFC, Downtown Dubai, Jumeirah 1-3, Al Quoz, Palm Jumeirah, Mirdif, Motor City, Arabian Ranches, Dubai South, and all other communities. If you are unsure whether we cover your area, call +971505773388 and we will confirm immediately.</p>
+              <p className="text-gray-700">We provide door-to-door service coverage across all of Dubai — from Palm Jumeirah and Dubai Marina in the west, to Deira and Rashidiya in the east, to Dubai Investment Park and Sports City in the south. Areas we regularly serve include Dubai Marina, JBR, JLT, Media City, Business Bay, DIFC, Downtown Dubai, Jumeirah 1-3, Al Quoz, Palm Jumeirah, Mirdif, Motor City, Arabian Ranches, Dubai South, and all other communities. If you are unsure whether we cover your area, call +971505773388 and we will confirm immediately.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

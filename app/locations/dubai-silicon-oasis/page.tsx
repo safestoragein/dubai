@@ -219,7 +219,7 @@ export default function DubaiSiliconOasisPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Dubailand near DSO covered by SafeStorage?</h3>
-              <p className="text-gray-700">Yes. Dubailand and its residential sub-communities — including Wadi Al Safa, Remraam, Layan, Villanova, Mudon, and other Dubailand developments — are within our extended east Dubai service zone. Dubailand is a large area with ongoing development, and many new communities in Dubailand receive door-to-door pickup and delivery from SafeStorage. Call +971505773388 with your specific Dubailand community name to confirm coverage and estimated pickup times.</p>
+              <p className="text-gray-700">Yes. Dubailand and its residential sub-communities — including Wadi Al Safa, Remraam, Layan, Villanova, Mudon, and other Dubailand developments — are within our extended east Dubai service zone. Dubailand is a large area with ongoing development, and many new communities in Dubailand receive door-to-door service from SafeStorage. Call +971505773388 with your specific Dubailand community name to confirm coverage and estimated pickup times.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store document archives for DSO-registered companies?</h3>

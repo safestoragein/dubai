@@ -24,12 +24,12 @@ const BlogSection      = dynamic(() => import("@/components/blog-section"))
 export const metadata: Metadata = {
   title: { absolute: "SafeStorage Dubai — #1 Rated Storage with Door-to-door Pickup" },
   description:
-    "SafeStorage Dubai: secure self-storage units with door-to-door pickup and delivery. Personal, business, vehicle & document storage from 12.60 AED / sqft. 500+ Dubai customers. Get a free quote in 2 minutes.",
+    "SafeStorage Dubai: secure self-storage units with door-to-door service. Personal, business, vehicle & document storage from 12.60 AED / sqft. 500+ Dubai customers. Get a free quote in 2 minutes.",
   keywords:
     "safestorage dubai, door-to-door pickup storage dubai, secure storage dubai, affordable storage dubai, storage facility dubai, self storage dubai, personal storage dubai, business storage dubai, furniture storage dubai, vehicle storage dubai, document storage dubai, storage units dubai, dubai storage solutions, storage with pickup and delivery dubai",
   openGraph: {
     title: "SafeStorage Dubai - Secure Storage Solutions | Door-to-door Pickup",
-    description: "Premium secure storage units in Dubai. 24/7 security, door-to-door pickup & delivery. Call +971505773388.",
+    description: "Premium secure storage units in Dubai. 24/7 security, door-to-door service. Call +971505773388.",
     url: "https://safestorage.ae",
     siteName: "SafeStorage Dubai",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SafeStorage Dubai - Secure Storage Solutions",
-    description: "Premium storage units in Dubai with door-to-door pickup & delivery. Call +971505773388.",
+    description: "Premium storage units in Dubai with door-to-door service. Call +971505773388.",
     images: ["/twitter-home.jpg"],
   },
   alternates: {
@@ -100,11 +100,11 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How much does storage cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">Storage at SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive) — one simple, transparent price for everything from individual items to full household or furniture storage. All plans include door-to-door pickup and delivery, secure indoor storage, 24/7 security monitoring, and free insurance coverage up to AED 5,000. There are no setup fees, no registration costs, and no penalties for cancelling early. A wide range of discounts is available on long-term and prepaid plans &mdash; the longer you store, the more you save.</p>
+              <p className="text-gray-700 leading-relaxed">Storage at SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive) — one simple, transparent price for everything from individual items to full household or furniture storage. All plans include door-to-door service, secure indoor storage, 24/7 security monitoring, and free insurance coverage up to AED 5,000. There are no setup fees, no registration costs, and no penalties for cancelling early. A wide range of discounts is available on long-term and prepaid plans &mdash; the longer you store, the more you save.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How does pickup and delivery work?</h3>
-              <p className="text-gray-700 leading-relaxed">Door-to-door pickup and delivery is part of our hassle-free service at SafeStorage Dubai. Our trained team will come to your home or office anywhere in Dubai, carefully wrap and collect your items, and transport them to our secure warehouse facility. When you need your items, we deliver them back to your address &mdash; so you never need to hire a van or do any heavy lifting. For locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, which our team confirms before you book, so there are never any surprises.</p>
+              <p className="text-gray-700 leading-relaxed">Door-to-door service is part of our hassle-free service at SafeStorage Dubai. Our trained team will come to your home or office anywhere in Dubai, carefully wrap and collect your items, and transport them to our secure warehouse facility. When you need your items, we deliver them back to your address &mdash; so you never need to hire a van or do any heavy lifting. For locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, which our team confirms before you book, so there are never any surprises.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How secure is SafeStorage Dubai?</h3>
@@ -127,7 +127,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What areas of Dubai are covered?</h3>
-              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai covers every area of Dubai for door-to-door pickup and delivery. Our primary service zones include Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, Al Quoz, Dubai Investment Park, Motor City, Sports City, Deira, Bur Dubai, Mirdif, Arabian Ranches, The Springs, The Meadows, and all other Dubai communities. We also serve Sharjah and other UAE emirates through our extended coverage network. If you are unsure whether your location is covered, simply call us and we will confirm.</p>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai covers every area of Dubai for door-to-door service. Our primary service zones include Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, Al Quoz, Dubai Investment Park, Motor City, Sports City, Deira, Bur Dubai, Mirdif, Arabian Ranches, The Springs, The Meadows, and all other Dubai communities. We also serve Sharjah and other UAE emirates through our extended coverage network. If you are unsure whether your location is covered, simply call us and we will confirm.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">Do you offer same-day pickup?</h3>
@@ -166,7 +166,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What makes SafeStorage different from other storage companies in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai combines every advantage of premium storage into one transparent, affordable package. Unlike traditional self-storage companies, we come to you &mdash; door-to-door pickup and delivery means you never need to hire a van or visit a warehouse. Every unit is secure, clean, and dust-protected. Free insurance up to AED 5,000 is included as standard. Our digital inventory system lets you track every item and request individual retrievals. With over 2,400 verified reviews and a 4.9/5 rating, SafeStorage is Dubai&apos;s highest-rated storage provider.</p>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai combines every advantage of premium storage into one transparent, affordable package. Unlike traditional self-storage companies, we come to you &mdash; door-to-door service means you never need to hire a van or visit a warehouse. Every unit is secure, clean, and dust-protected. Free insurance up to AED 5,000 is included as standard. Our digital inventory system lets you track every item and request individual retrievals. With over 2,400 verified reviews and a 4.9/5 rating, SafeStorage is Dubai&apos;s highest-rated storage provider.</p>
             </div>
           </div>
         </div>
@@ -178,7 +178,7 @@ export default function LandingPage() {
           <h2 className="text-3xl font-bold text-[#0A2463] mb-6">SafeStorage Dubai — Secure Self Storage</h2>
           <p className="text-lg text-gray-700 mb-6">
             SafeStorage Dubai is the UAE&apos;s leading provider of secure self storage with
-            door-to-door pickup and delivery. Whether you need to store furniture during a renovation,
+            door-to-door service. Whether you need to store furniture during a renovation,
             keep business inventory safe, or find a long-term solution for your household items, SafeStorage
             offers flexible monthly plans with no long-term contracts.
           </p>
@@ -213,7 +213,7 @@ export default function LandingPage() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Why SafeStorage is Dubai&apos;s #1 Rated Storage Provider</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
-              <p>✓ <strong>Door-to-door Pickup &amp; Delivery</strong> — No truck rental, no heavy lifting</p>
+              <p>✓ <strong>Door-to-door Service</strong> — No truck rental, no heavy lifting</p>
               <p>✓ <strong>Secure &amp; Clean Units</strong> — Indoor, dust-protected storage</p>
               <p>✓ <strong>Free Insurance</strong> — AED 5,000 coverage included with every unit</p>
               <p>✓ <strong>No Lock-In</strong> — Monthly contracts, cancel anytime</p>
@@ -227,7 +227,7 @@ export default function LandingPage() {
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="font-bold text-[#0A2463] mb-3">Storage Across All Dubai Areas</h3>
               <p className="text-gray-700 text-sm mb-3">
-                SafeStorage serves every area of Dubai with door-to-door pickup and delivery. Our main service zones
+                SafeStorage serves every area of Dubai with door-to-door service. Our main service zones
                 cover Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah,
                 JLT, Al Quoz, Dubai Investment Park, Motor City, Sports City, Deira, and Bur Dubai.
               </p>

@@ -80,7 +80,7 @@ const pageSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Self Storage Dubai',
-    description: 'Flexible self storage in Dubai with door-to-door pickup and delivery. Secure units from 12.60 AED / sqft with 24/7 security.',
+    description: 'Flexible self storage in Dubai with door-to-door service. Secure units from 12.60 AED / sqft with 24/7 security.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     areaServed: { '@type': 'City', name: 'Dubai' },
     url: 'https://safestorage.ae/self-storage-dubai',
@@ -479,7 +479,7 @@ export default function SelfStorageDubaiPage() {
                 Areas We Serve Across Dubai
               </h2>
               <p className="text-center text-gray-600 mb-8">
-                We cover popular neighborhoods across Dubai with door-to-door pickup and delivery services.
+                We cover popular neighborhoods across Dubai with door-to-door services.
               </p>
               
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -647,12 +647,12 @@ export default function SelfStorageDubaiPage() {
                 <p className="text-gray-700 mb-3">
                   Dubai&apos;s geography and demographics create unique self storage requirements.
                   The city&apos;s size and traffic means customers value
-                  providers with door-to-door pickup and delivery. And Dubai&apos;s large expat population means flexible
+                  providers with door-to-door service. And Dubai&apos;s large expat population means flexible
                   month-to-month contracts — without long-term lock-ins — are highly valued.
                 </p>
                 <p className="text-gray-700">
                   SafeStorage addresses all of these factors. Every unit is secure and dedicated to you.
-                  Door-to-Door pickup and delivery is included in every plan. Contracts are month-to-month with no
+                  Door-to-Door service is included in every plan. Contracts are month-to-month with no
                   cancellation penalties. And pricing is transparent — what you see is what you pay.
                 </p>
               </div>
@@ -676,7 +676,7 @@ export default function SelfStorageDubaiPage() {
               <div className="space-y-4 text-gray-700">
                 <div>
                   <p className="font-semibold mb-1">Is self storage in Dubai expensive?</p>
-                  <p>Self storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage, which is competitive with traditional facility-based storage in the city. Our price includes security, insurance, and door-to-door pickup and delivery — items that are often charged separately by other providers.</p>
+                  <p>Self storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage, which is competitive with traditional facility-based storage in the city. Our price includes security, insurance, and door-to-door service — items that are often charged separately by other providers.</p>
                 </div>
                 <div>
                   <p className="font-semibold mb-1">Can I get same-day storage in Dubai?</p>
@@ -744,7 +744,7 @@ export default function SelfStorageDubaiPage() {
                   <li><strong>Vehicle storage:</strong> starts from 12.60 AED / sqft</li>
                 </ul>
                 <ul className="space-y-2">
-                  <li><strong>Included in all plans:</strong> 24/7 security, free insurance up to AED 5,000, door-to-door pickup and delivery</li>
+                  <li><strong>Included in all plans:</strong> 24/7 security, free insurance up to AED 5,000, door-to-door service</li>
                   <li><strong>Long-term discount:</strong> a wide range of discounts on prepaid plans — the longer you store, the more you save</li>
                   <li><strong>No hidden fees:</strong> No admin charges, no deposit, no access fees</li>
                   <li><strong>Payment:</strong> Card, bank transfer, cash, Apple Pay, Google Pay</li>
@@ -757,7 +757,7 @@ export default function SelfStorageDubaiPage() {
             <div className="space-y-5">
               {[
                 { q: "What is self storage and how does it work in Dubai?", a: "Self storage is a service where individuals or businesses rent a secure, dedicated storage unit to keep their belongings. In Dubai, the most convenient model is door-to-door storage, offered by SafeStorage Dubai, where a team collects your items from your location, stores them in a secure facility, and delivers them back when needed. You pay a monthly fee based on the unit size you use. There are no long-term contracts, no lorry hire, and no heavy lifting required." },
-                { q: "How much does self storage cost per month in Dubai?", a: "SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit, a medium unit for a one-to-two bedroom apartment, or a large unit for a full villa. The price includes 24/7 security, free insurance up to AED 5,000, and door-to-door pickup and delivery. There are no setup fees, deposits, or hidden charges." },
+                { q: "How much does self storage cost per month in Dubai?", a: "SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit, a medium unit for a one-to-two bedroom apartment, or a large unit for a full villa. The price includes 24/7 security, free insurance up to AED 5,000, and door-to-door service. There are no setup fees, deposits, or hidden charges." },
                 { q: "Do I need to transport my items to the storage facility myself?", a: "No. SafeStorage Dubai provides a complete door-to-door service. Our team comes to your home, office, or any Dubai location, loads your items, transports them to our secure facility, and delivers them back when you need them. This service is included as standard in every monthly plan. You do not need to hire a lorry, arrange your own movers, or make multiple trips to the facility." },
                 { q: "How long can I store my items at SafeStorage Dubai?", a: "There is no maximum storage period. Customers store for as little as one week (for renovation or moving scenarios) or for several years. Many of our long-term customers are expats who left Dubai temporarily or businesses with ongoing archival needs. Month-to-month billing continues indefinitely with no lock-in, and you can cancel at any time with 30 days&apos; notice and no early termination penalty." },
                 { q: "What types of items can I store at SafeStorage Dubai?", a: "SafeStorage accepts all furniture, household appliances, electronics, clothing and textiles, sports equipment (bicycles, golf clubs, surfboards), business inventory, documents and archive files, seasonal decorations, and vehicles in dedicated bays. Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items, as well as flammable liquids, hazardous chemicals, live animals, perishable food, and illegal goods. Call +971505773388 to check any specific item." },
@@ -770,7 +770,7 @@ export default function SelfStorageDubaiPage() {
                 { q: "Can I upgrade my storage unit size?", a: "Yes. Upgrading to a larger unit is straightforward — contact your consultant, request the upgrade, and we arrange to move your items to the larger unit within 2–3 business days. There is no penalty for upgrading and no admin fee. Pricing adjusts from the date of the move. Many customers upgrade as their circumstances change, for example as e-commerce inventory grows or as additional family items need to be stored during renovation." },
                 { q: "How do I book self storage at SafeStorage Dubai?", a: "Booking takes under five minutes. Get a quote online at safestorage.ae, call +971505773388, or WhatsApp with details about what you need to store. Our consultant recommends the right size, provides a clear price, and schedules a pickup at a time that suits you. Slots are typically available within 24–48 hours. Same-day pickup is available for bookings placed before 12 PM. You sign the storage agreement on pickup day — no paperwork needed in advance." },
                 { q: "Does SafeStorage Dubai store vehicles?", a: "Yes. SafeStorage Dubai offers dedicated indoor vehicle storage bays for cars, SUVs, motorcycles, and classic vehicles. Car storage starts from 12.60 AED / sqft (VAT-inclusive). This is ideal for expats leaving Dubai for extended periods, classic car owners wanting their vehicles stored properly over summer, and individuals with a second vehicle they do not use regularly. All vehicle bays include 24/7 CCTV monitoring and a complimentary wash before return." },
-                { q: "What makes SafeStorage Dubai different from competitors?", a: "SafeStorage differentiates through door-to-door service (door-to-door pickup and delivery included), secure dedicated units at every price point, transparent pricing with no hidden fees, complimentary insurance up to AED 5,000, a 4.9-star Google rating from 487+ reviews, and dedicated consultant support. Most competitors charge separately for pickup or insurance. SafeStorage bundles everything into one transparent monthly price." },
+                { q: "What makes SafeStorage Dubai different from competitors?", a: "SafeStorage differentiates through door-to-door service (door-to-door service included), secure dedicated units at every price point, transparent pricing with no hidden fees, complimentary insurance up to AED 5,000, a 4.9-star Google rating from 487+ reviews, and dedicated consultant support. Most competitors charge separately for pickup or insurance. SafeStorage bundles everything into one transparent monthly price." },
                 { q: "Is free insurance included with self storage?", a: "Yes. All SafeStorage Dubai plans include complimentary storage insurance covering items up to AED 5,000. This covers theft, fire, and water damage from facility systems. Customers with higher-value items — art, antiques, or electronics collections — can arrange additional coverage up to AED 100,000. We recommend photographing and documenting high-value items before storage to facilitate any potential claims." },
                 { q: "Does SafeStorage Dubai offer packing services?", a: "Yes. SafeStorage offers both a DIY packing option and a full professional packing service. For DIY, we provide double-walled boxes, bubble wrap, packing paper, stretch film, furniture covers, and mattress bags for purchase. For the full service, our trained team wraps and boxes every item professionally, creates an inventory list, and loads everything. Professional packing is popular for fragile or high-value items and customers who prefer to leave the heavy lifting to someone else." },
                 { q: "What payment methods does SafeStorage Dubai accept?", a: "SafeStorage Dubai accepts credit and debit cards (Visa, Mastercard, American Express), bank transfers, cash at the facility, post-dated cheques for advance payment plans, Apple Pay, and Google Pay. Monthly, quarterly, and annual payment options are available. Longer prepaid cycles unlock a wide range of discounts, with annual plans offering the best per-month rate compared to month-by-month billing. All invoices are provided digitally and can be used for business expense reporting." }

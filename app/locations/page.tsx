@@ -7,12 +7,12 @@ import { MapPin, Phone, ArrowRight, CheckCircle2 } from "lucide-react"
 export const metadata: Metadata = {
   title: "Storage Locations in Dubai",
   description:
-    "Find SafeStorage locations across Dubai. We serve Business Bay, Dubai Marina, Jumeirah, Dubai Investment Park & more. Door-to-Door pickup & delivery. Call +971505773388.",
+    "Find SafeStorage locations across Dubai. We serve Business Bay, Dubai Marina, Jumeirah, Dubai Investment Park & more. Door-to-Door service. Call +971505773388.",
   keywords:
     "storage locations dubai, storage near me, self storage dubai locations, storage facilities dubai, dubai storage centers",
   openGraph: {
     title: "Storage Locations Dubai - SafeStorage",
-    description: "Premium storage locations across Dubai with door-to-door pickup & delivery service. Find a location near you.",
+    description: "Premium storage locations across Dubai with door-to-door service. Find a location near you.",
     url: "https://safestorage.ae/locations",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -109,7 +109,7 @@ export default function LocationsPage() {
               Storage Locations Across Dubai
             </h1>
             <p className="text-xl mb-8">
-              We serve multiple areas in Dubai with door-to-door pickup & delivery service from your doorstep
+              We serve multiple areas in Dubai with door-to-door service from your doorstep
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>
@@ -181,7 +181,7 @@ export default function LocationsPage() {
               We Cover All of Dubai
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Even if your area isn't listed above, we still serve you! Our door-to-door pickup & delivery service
+              Even if your area isn't listed above, we still serve you! Our door-to-door service
               covers all areas across Dubai. We'll come to your location to pick up your items and deliver them
               back whenever you need.
             </p>
@@ -290,7 +290,7 @@ export default function LocationsPage() {
           <div className="space-y-6">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Which areas of Dubai does SafeStorage serve?</h3>
-              <p className="text-gray-700">SafeStorage serves every area of Dubai with our door-to-door pickup and delivery service. Our four primary service zones cover Business Bay (central Dubai), Dubai Marina (western Dubai), Jumeirah (villa communities), and Dubai Investment Park (southern Dubai). Beyond these core zones, we also serve Deira, Bur Dubai, Karama, Mirdif, Arabian Ranches, Dubai Silicon Oasis, Academic City, International City, Al Barsha, Tecom, and all other Dubai communities. If you are unsure whether your area is covered, simply call or WhatsApp us on +971505773388 and we will confirm immediately.</p>
+              <p className="text-gray-700">SafeStorage serves every area of Dubai with our door-to-door service. Our four primary service zones cover Business Bay (central Dubai), Dubai Marina (western Dubai), Jumeirah (villa communities), and Dubai Investment Park (southern Dubai). Beyond these core zones, we also serve Deira, Bur Dubai, Karama, Mirdif, Arabian Ranches, Dubai Silicon Oasis, Academic City, International City, Al Barsha, Tecom, and all other Dubai communities. If you are unsure whether your area is covered, simply call or WhatsApp us on +971505773388 and we will confirm immediately.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How quickly can SafeStorage pick up from my location in Dubai?</h3>
@@ -330,7 +330,7 @@ export default function LocationsPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you serve areas outside Dubai such as Abu Dhabi, Sharjah, or Ajman?</h3>
-              <p className="text-gray-700">SafeStorage Dubai&apos;s primary service area is within Dubai emirate, where we offer our full door-to-door pickup and delivery service. For customers in Sharjah, Ajman, and other Northern Emirates, we can often arrange pickup at a small additional transport fee — please call us to discuss your specific location. For Abu Dhabi customers, SafeStorage operates a separate service at safestorage.ae covering the Abu Dhabi emirate with the same standards of quality and service.</p>
+              <p className="text-gray-700">SafeStorage Dubai&apos;s primary service area is within Dubai emirate, where we offer our full door-to-door service. For customers in Sharjah, Ajman, and other Northern Emirates, we can often arrange pickup at a small additional transport fee — please call us to discuss your specific location. For Abu Dhabi customers, SafeStorage operates a separate service at safestorage.ae covering the Abu Dhabi emirate with the same standards of quality and service.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I find out exactly which zone covers my Dubai address?</h3>
@@ -365,7 +365,7 @@ export default function LocationsPage() {
                 Dubai is a large, geographically diverse city. Choosing a storage provider with coverage near your
                 home or business reduces pickup time, lowers delivery lead times, and makes it easier to retrieve
                 items when you need them. SafeStorage&apos;s multi-zone model ensures every Dubai resident and
-                business is within our door-to-door pickup and delivery coverage area.
+                business is within our door-to-door service coverage area.
               </p>
               <p className="text-gray-700">
                 Our service zones are centred around four key hubs — Business Bay (serving central and downtown

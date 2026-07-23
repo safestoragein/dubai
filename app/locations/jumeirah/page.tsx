@@ -79,7 +79,7 @@ export default function JumeirahPage() {
         <p className="text-lg text-gray-700 mb-6">
           SafeStorage provides trusted, secure storage for villa owners, families, and expatriates
           across Jumeirah 1, 2, 3, Umm Suqeim, Al Safa, and Al Wasl. Whether you are renovating your Jumeirah
-          villa, preparing to move back home, or simply need extra space, our door-to-door pickup and delivery service
+          villa, preparing to move back home, or simply need extra space, our door-to-door service
           makes storing easy from anywhere in Jumeirah.
         </p>
 

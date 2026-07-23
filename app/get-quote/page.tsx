@@ -61,7 +61,7 @@ export default function GetQuote() {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Get Your Free Storage Quote in Dubai</h1>
           <p className="text-lg text-white/90 mb-2">
             Tell us what you need to store and we&apos;ll give you a transparent, no-obligation quote in minutes.
-            Storage units start from 12.60 AED / sqft with door-to-door pickup and delivery across Dubai.
+            Storage units start from 12.60 AED / sqft with door-to-door service across Dubai.
           </p>
         </div>
       </section>
@@ -104,7 +104,7 @@ export default function GetQuote() {
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Why SafeStorage Dubai?</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <p>✓ Storage units from 12.60 AED / sqft — no setup fees</p>
-              <p>✓ Door-to-Door pickup and delivery anywhere in Dubai</p>
+              <p>✓ Door-to-Door service anywhere in Dubai</p>
               <p>✓ Secure, clean, dust-protected indoor units</p>
               <p>✓ No long-term contracts — cancel anytime</p>
               <p>✓ Free insurance up to AED 5,000 included</p>
@@ -223,7 +223,7 @@ export default function GetQuote() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. How does pickup and delivery work?</h3>
-              <p className="text-gray-700">Door-to-door pickup and delivery is part of our hassle-free service across Dubai — our team handles collection and return so you never need to hire a van. If you are located outside Dubai (for example, Sharjah, Ajman, or Abu Dhabi), we charge a modest fixed transport fee. Our team will inform you of any such charges before you confirm the booking, so there are never any surprises.</p>
+              <p className="text-gray-700">Door-to-door service is part of our hassle-free service across Dubai — our team handles collection and return so you never need to hire a van. If you are located outside Dubai (for example, Sharjah, Ajman, or Abu Dhabi), we charge a modest fixed transport fee. Our team will inform you of any such charges before you confirm the booking, so there are never any surprises.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

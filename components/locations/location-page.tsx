@@ -23,7 +23,7 @@ export default function LocationPage({ location, areas, distance, benefits }: Lo
               Storage Solutions in {location}
             </h1>
             <p className="text-xl mb-8">
-              Premium, secure storage units with door-to-door pickup & delivery service for all {location} residents
+              Premium, secure storage units with door-to-door service for all {location} residents
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>
@@ -104,7 +104,7 @@ export default function LocationPage({ location, areas, distance, benefits }: Lo
               <Card>
                 <CardContent className="pt-6 text-center">
                   <Truck className="mx-auto h-12 w-12 text-[#D8315B] mb-4" />
-                  <h3 className="font-semibold mb-2">Door-to-door Pickup & Delivery</h3>
+                  <h3 className="font-semibold mb-2">Door-to-door Service</h3>
                   <p className="text-sm text-gray-600">We collect from {location} and deliver back when needed</p>
                 </CardContent>
               </Card>

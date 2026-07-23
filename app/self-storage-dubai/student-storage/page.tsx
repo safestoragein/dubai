@@ -597,7 +597,7 @@ export default function StudentStoragePage() {
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-xl font-bold text-[#0A2463] mb-3">Student Storage Pricing &amp; Discounts</h3>
             <p className="text-gray-700">
-              Student storage plans start from 12.60 AED / sqft (VAT-inclusive) with door-to-door pickup and delivery. We offer special
+              Student storage plans start from 12.60 AED / sqft (VAT-inclusive) with door-to-door service. We offer special
               student discounts — ask about our semester rates when booking. Storage for a typical student
               room (20–30 boxes plus small furniture) fits in our small unit (25–50 sq ft). All items are
               stored in secure, dedicated units — your laptop, electronics, and clothing are kept safe.

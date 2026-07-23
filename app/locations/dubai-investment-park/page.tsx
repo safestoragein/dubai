@@ -232,7 +232,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is Discovery Gardens covered for pickup and delivery?</h3>
-            <p className="text-gray-700">Yes, Discovery Gardens is fully within our Dubai Investment Park service zone. We serve all clusters in Discovery Gardens — Mediterranean, Zen, Contemporary, Mogul, and Mesoamerican — with the same door-to-door pickup and delivery service available across all Dubai. Discovery Gardens residents frequently use our service for personal storage, seasonal items, renovation clearance, and between-lease storage. Typical pickup time from Discovery Gardens is 15–20 minutes. WhatsApp us on +971505773388 to check availability for your specific cluster and building.</p>
+            <p className="text-gray-700">Yes, Discovery Gardens is fully within our Dubai Investment Park service zone. We serve all clusters in Discovery Gardens — Mediterranean, Zen, Contemporary, Mogul, and Mesoamerican — with the same door-to-door service available across all Dubai. Discovery Gardens residents frequently use our service for personal storage, seasonal items, renovation clearance, and between-lease storage. Typical pickup time from Discovery Gardens is 15–20 minutes. WhatsApp us on +971505773388 to check availability for your specific cluster and building.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How does SafeStorage handle document retrieval for DIP businesses?</h3>

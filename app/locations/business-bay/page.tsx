@@ -78,7 +78,7 @@ export default function BusinessBayPage() {
         <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Storage Near Business Bay, DIFC &amp; Downtown Dubai</h2>
         <p className="text-lg text-gray-700 mb-6">
           SafeStorage serves residents and businesses in Business Bay, Downtown Dubai, DIFC, and Sheikh Zayed Road
-          with premium secure storage units, door-to-door pickup and delivery, and flexible monthly plans.
+          with premium secure storage units, door-to-door service, and flexible monthly plans.
           Whether you are a high-rise apartment resident or a DIFC-registered company, we have the right storage
           solution for you.
         </p>

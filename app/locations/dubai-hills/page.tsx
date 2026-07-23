@@ -218,7 +218,7 @@ export default function DubaiHillsPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Mohammed Bin Rashid City (MBR City) near Dubai Hills covered?</h3>
-              <p className="text-gray-700">Yes. Mohammed Bin Rashid City (MBR City) — including District One, Meydan, and the various MBR City residential sub-developments — is within our Dubai Hills service zone. MBR City residents have access to the same door-to-door pickup and delivery service as Dubai Hills. Meydan Racecourse area and the various Meydan residential developments are also covered. Pickup times from MBR City are typically 15–25 minutes depending on the specific community within the large MBR City development.</p>
+              <p className="text-gray-700">Yes. Mohammed Bin Rashid City (MBR City) — including District One, Meydan, and the various MBR City residential sub-developments — is within our Dubai Hills service zone. MBR City residents have access to the same door-to-door service as Dubai Hills. Meydan Racecourse area and the various Meydan residential developments are also covered. Pickup times from MBR City are typically 15–25 minutes depending on the specific community within the large MBR City development.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Dubai Hills 4-bedroom villa?</h3>
@@ -230,7 +230,7 @@ export default function DubaiHillsPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Are Nad Al Sheba residents covered by Dubai Hills SafeStorage?</h3>
-              <p className="text-gray-700">Yes. Nad Al Sheba — all four sections (1, 2, 3, 4) — is within our Dubai Hills service zone. Nad Al Sheba has both older villa communities and newer developments and all receive door-to-door pickup and delivery from SafeStorage. Nad Al Sheba 3 and 4, being newer Emaar-developed communities, are particularly active for our renovation and new-handover storage services. Pickup times from Nad Al Sheba are typically 15–20 minutes.</p>
+              <p className="text-gray-700">Yes. Nad Al Sheba — all four sections (1, 2, 3, 4) — is within our Dubai Hills service zone. Nad Al Sheba has both older villa communities and newer developments and all receive door-to-door service from SafeStorage. Nad Al Sheba 3 and 4, being newer Emaar-developed communities, are particularly active for our renovation and new-handover storage services. Pickup times from Nad Al Sheba are typically 15–20 minutes.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I access or retrieve specific items stored from my Dubai Hills villa?</h3>

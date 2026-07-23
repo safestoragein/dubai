@@ -194,7 +194,7 @@ export default function AlBarshaPage() {
           <div className="space-y-5">
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage cover all Al Barsha sub-communities?</h3>
-              <p className="text-gray-700">Yes. SafeStorage covers every Al Barsha sub-community including Al Barsha 1, Al Barsha 2, Al Barsha 3, Al Barsha South 1, 2, and 3, Barsha Heights (IMPZ), Tecom, and Arjan. All addresses within these communities qualify for door-to-door pickup and delivery. If your address is in or around the Mall of the Emirates area, Al Quoz, or JVT, please call us on +971505773388 and we will confirm coverage instantly — we serve all of these areas too.</p>
+              <p className="text-gray-700">Yes. SafeStorage covers every Al Barsha sub-community including Al Barsha 1, Al Barsha 2, Al Barsha 3, Al Barsha South 1, 2, and 3, Barsha Heights (IMPZ), Tecom, and Arjan. All addresses within these communities qualify for door-to-door service. If your address is in or around the Mall of the Emirates area, Al Quoz, or JVT, please call us on +971505773388 and we will confirm coverage instantly — we serve all of these areas too.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How quickly can SafeStorage pick up from Al Barsha 1 or Al Barsha 2?</h3>

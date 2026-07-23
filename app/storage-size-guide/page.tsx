@@ -148,7 +148,7 @@ export default function StorageSizeGuidePage() {
                   Pricing starts from 12.60 AED / sqft
                 </h3>
                 <p className="text-gray-600">
-                  VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included
+                  VAT-inclusive · all unit sizes · door-to-door service included
                 </p>
               </div>
             </div>
@@ -457,7 +457,7 @@ export default function StorageSizeGuidePage() {
               },
               {
                 q: "What is the cheapest unit size available at SafeStorage Dubai?",
-                a: "The smallest and most affordable unit size is our 25 sq ft mini unit, starting from 12.60 AED / sqft (VAT-inclusive). This unit is suitable for documents, seasonal items, boxes, suitcases, and small equipment. It is popular with students, solo residents, and businesses with limited archival needs. Even at this entry-level price, the unit includes 24/7 CCTV security, insurance coverage, and the option to add door-to-door pickup and delivery."
+                a: "The smallest and most affordable unit size is our 25 sq ft mini unit, starting from 12.60 AED / sqft (VAT-inclusive). This unit is suitable for documents, seasonal items, boxes, suitcases, and small equipment. It is popular with students, solo residents, and businesses with limited archival needs. Even at this entry-level price, the unit includes 24/7 CCTV security, insurance coverage, and the option to add door-to-door service."
               },
               {
                 q: "How many boxes fit in a 100 sq ft storage unit?",

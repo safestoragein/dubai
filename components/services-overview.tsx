@@ -42,7 +42,7 @@ export default function ServicesOverview() {
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Whether you&apos;re a family, a freelancer, or a fast-growing business — SafeStorage has the right unit size,
-            security level, and plan to match your needs. Serving all Dubai areas with door-to-door pickup and delivery.
+            security level, and plan to match your needs. Serving all Dubai areas with door-to-door service.
           </p>
         </div>
 

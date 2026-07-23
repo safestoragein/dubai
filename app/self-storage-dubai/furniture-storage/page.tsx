@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, cheap furniture storage dubai, furniture storage al quoz, furniture storage units dubai, affordable furniture storage",
   openGraph: {
     title: "Furniture Storage Dubai – Secure Units from 12.60 AED / sqft",
-    description: "Store furniture safely in Dubai with 24/7 access and professional handling. Door-to-Door pickup & delivery available.",
+    description: "Store furniture safely in Dubai with 24/7 access and professional handling. Door-to-Door service available.",
     url: "https://safestorage.ae/self-storage-dubai/furniture-storage",
   },
   alternates: {
@@ -124,7 +124,7 @@ export default function FurnitureStoragePage() {
                     Pricing starts from 12.60 AED / sqft
                   </h3>
                   <p className="text-gray-600">
-                    VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included
+                    VAT-inclusive · all unit sizes · door-to-door service included
                   </p>
                 </CardContent>
               </Card>
@@ -797,7 +797,7 @@ export default function FurnitureStoragePage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Do you provide door-to-door pickup and delivery for furniture?</CardTitle>
+                  <CardTitle className="text-lg">Do you provide door-to-door service for furniture?</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">

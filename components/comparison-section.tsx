@@ -15,7 +15,7 @@ const features = [
     others: "no",
   },
   {
-    name: "Door-to-door Pickup & Delivery",
+    name: "Door-to-door Service",
     safestorage: "yes",
     others: "no",
   },

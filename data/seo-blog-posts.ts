@@ -67,7 +67,7 @@ export const seoBlogPosts = [
       <h3>Why Choose SafeStorage Dubai?</h3>
       <p>SafeStorage offers premium storage solutions with:</p>
       <ul>
-        <li>Door-to-Door pickup and delivery across Dubai</li>
+        <li>Door-to-Door service across Dubai</li>
         <li>Secure, clean indoor units</li>
         <li>Flexible contracts from 1 month</li>
         <li>Transparent pricing with no hidden fees</li>
@@ -316,7 +316,7 @@ export const seoBlogPosts = [
         <li>Dedicated account managers</li>
         <li>Bulk storage discounts</li>
         <li>Flexible access arrangements</li>
-        <li>Door-to-Door pickup and delivery service</li>
+        <li>Door-to-Door service</li>
         <li>Secure, clean indoor environment</li>
         <li>Customizable unit configurations</li>
       </ul>

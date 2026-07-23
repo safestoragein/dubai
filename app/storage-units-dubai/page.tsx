@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   keywords: "storage units dubai, self storage dubai, storage dubai price, storage units near me, cheap storage dubai, secure storage dubai, furniture storage dubai, storage facility dubai, storage space dubai, storage rental dubai",
   openGraph: {
     title: "Storage Units in Dubai - From 12.60 AED / sqft | Door-to-door Pickup",
-    description: "Secure, clean storage units in Dubai. Door-to-Door pickup & delivery, 24/7 access, transparent pricing. Trusted by 500+ customers.",
+    description: "Secure, clean storage units in Dubai. Door-to-Door service, 24/7 access, transparent pricing. Trusted by 500+ customers.",
     url: "https://safestorage.ae/storage-units-dubai",
     siteName: "SafeStorage Dubai",
     images: [
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 const features = [
   {
     icon: Truck,
-    title: "Door-to-door Pickup & Delivery",
+    title: "Door-to-door Service",
     description: "We collect from your location and deliver back when needed — no van rental or heavy lifting required on your part.",
     highlight: "Save AED 300+",
   },
@@ -240,11 +240,11 @@ const testimonials = [
 const faqs = [
   {
     question: "How much do storage units cost in Dubai?",
-    answer: "Storage units at SafeStorage Dubai start from just 12.60 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific storage needs. All prices include clean, secure units, and door-to-door pickup & delivery. No hidden fees! Contact us at 050-577-3388 for a personalized quote.",
+    answer: "Storage units at SafeStorage Dubai start from just 12.60 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific storage needs. All prices include clean, secure units, and door-to-door service. No hidden fees! Contact us at 050-577-3388 for a personalized quote.",
   },
   {
-    question: "Do you offer door-to-door pickup and delivery?",
-    answer: "Yes! SafeStorage Dubai provides completely door-to-door pickup and delivery anywhere in Dubai. Our professional team will come to your home, office, or any location to collect your items. When you need them back, we deliver at your convenience. This saves you the hassle and cost of hiring movers separately.",
+    question: "Do you offer door-to-door service?",
+    answer: "Yes! SafeStorage Dubai provides completely door-to-door service anywhere in Dubai. Our professional team will come to your home, office, or any location to collect your items. When you need them back, we deliver at your convenience. This saves you the hassle and cost of hiring movers separately.",
   },
   {
     question: "What size storage unit do I need?",
@@ -339,7 +339,7 @@ export default function StorageUnitsDubaiPage() {
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Door-to-Door pickup & delivery • 24/7 access • Clean & secure • No hidden fees
+              Door-to-Door service • 24/7 access • Clean & secure • No hidden fees
             </p>
 
             {/* CTAs */}
@@ -423,7 +423,7 @@ export default function StorageUnitsDubaiPage() {
               <div className="bg-dubai-sand/30 border-l-4 border-dubai-gold p-6 rounded-r-lg my-8">
                 <p className="text-lg font-medium text-dubai-navy mb-2">What makes us different?</p>
                 <p className="text-muted-foreground">
-                  Unlike other storage companies, we offer <strong>door-to-door pickup and delivery</strong> anywhere in Dubai. You don&apos;t need to hire movers or rent a van - we handle everything. Plus, every unit includes <strong>free insurance up to AED 5,000</strong> and transparent pricing with <strong>no hidden fees</strong>.
+                  Unlike other storage companies, we offer <strong>door-to-door service</strong> anywhere in Dubai. You don&apos;t need to hire movers or rent a van - we handle everything. Plus, every unit includes <strong>free insurance up to AED 5,000</strong> and transparent pricing with <strong>no hidden fees</strong>.
                 </p>
               </div>
             </div>
@@ -439,7 +439,7 @@ export default function StorageUnitsDubaiPage() {
               Storage Unit Prices in Dubai
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Prices start from 12.60 AED / sqft. All units are clean and secure and include door-to-door pickup & delivery.
+              Prices start from 12.60 AED / sqft. All units are clean and secure and include door-to-door service.
             </p>
           </div>
 
@@ -449,7 +449,7 @@ export default function StorageUnitsDubaiPage() {
                 Pricing starts from 12.60 AED / sqft
               </h3>
               <p className="text-muted-foreground mb-6">
-                VAT-inclusive · all unit sizes · door-to-door pickup & delivery included
+                VAT-inclusive · all unit sizes · door-to-door service included
               </p>
               <Button
                 className="bg-dubai-gold hover:bg-dubai-darkgold text-white"
@@ -599,7 +599,7 @@ export default function StorageUnitsDubaiPage() {
               Storage Unit Pickup in All Dubai Areas
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Door-to-Door pickup & delivery from these locations (and anywhere else in Dubai!)
+              Door-to-Door service from these locations (and anywhere else in Dubai!)
             </p>
           </div>
 
@@ -775,7 +775,7 @@ export default function StorageUnitsDubaiPage() {
             <div className="flex flex-wrap justify-center gap-6 text-sm text-white/70">
               <span className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-400" />
-                Door-to-door Pickup & Delivery
+                Door-to-door Service
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-400" />
@@ -874,7 +874,7 @@ export default function StorageUnitsDubaiPage() {
               <div>
                 <p className="font-semibold mb-2">Value-Added Features</p>
                 <ul className="space-y-1 text-sm">
-                  <li>• <strong>Door-to-Door pickup &amp; delivery:</strong> Saves time and cost vs renting a lorry</li>
+                  <li>• <strong>Door-to-Door service:</strong> Saves time and cost vs renting a lorry</li>
                   <li>• <strong>Flexible contracts:</strong> Month-to-month vs long-term lock-ins</li>
                   <li>• <strong>Transparent pricing:</strong> No hidden fees, clear invoicing</li>
                   <li>• <strong>Customer support:</strong> Dedicated consultant vs call centre-only service</li>
@@ -890,8 +890,8 @@ export default function StorageUnitsDubaiPage() {
           <h3 className="text-2xl font-bold text-dubai-navy mb-6">Storage Units Dubai — Detailed FAQ</h3>
           <div className="space-y-5">
             {[
-              { q: "How much do storage units cost in Dubai per month?", a: "Storage unit prices at SafeStorage Dubai start from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit, a medium unit (75–100 sq ft), or a large unit for a full villa. The price includes clean, dedicated indoor units, 24/7 CCTV security, free insurance up to AED 5,000, and door-to-door pickup and delivery. There are no setup fees, no deposits, and no hidden administration charges." },
-              { q: "Do storage units in Dubai include door-to-door pickup and delivery?", a: "Yes. SafeStorage Dubai includes door-to-door pickup and delivery in every monthly plan. Our professional team collects your items from your home, office, or any Dubai location, transports them to our secure facility, and delivers them back whenever you need them. This saves customers the cost and hassle of hiring a lorry or arranging separate movers — typically AED 300–800 in savings compared to traditional self-storage facilities." },
+              { q: "How much do storage units cost in Dubai per month?", a: "Storage unit prices at SafeStorage Dubai start from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit, a medium unit (75–100 sq ft), or a large unit for a full villa. The price includes clean, dedicated indoor units, 24/7 CCTV security, free insurance up to AED 5,000, and door-to-door service. There are no setup fees, no deposits, and no hidden administration charges." },
+              { q: "Do storage units in Dubai include door-to-door service?", a: "Yes. SafeStorage Dubai includes door-to-door service in every monthly plan. Our professional team collects your items from your home, office, or any Dubai location, transports them to our secure facility, and delivers them back whenever you need them. This saves customers the cost and hassle of hiring a lorry or arranging separate movers — typically AED 300–800 in savings compared to traditional self-storage facilities." },
               { q: "What size storage unit do I need in Dubai?", a: "Unit size depends on what you are storing. A small unit (25–50 sq ft) suits a studio apartment, documents, or 10–20 boxes. A medium unit (75–120 sq ft) accommodates a one-to-two bedroom apartment. A large unit (150–300 sq ft) handles a three-bedroom villa or business inventory. The most accurate way to choose is to contact SafeStorage Dubai on +971505773388 — our consultant will assess your needs and recommend the exact size, preventing you from overpaying for space you don&apos;t need." },
               { q: "What is the minimum rental period for a storage unit in Dubai?", a: "SafeStorage Dubai offers flexible month-to-month contracts with no long-term commitment required. The effective minimum period is one month. We also offer weekly arrangements for urgent short-term needs such as renovation projects, moving between apartments, or property handovers. Cancellation requires just 30 days&apos; notice — there is no early termination penalty. Longer-term prepaid plans are available with a wide range of discounts — the longer you store, the more you save." },
               { q: "Do Dubai storage units include free insurance?", a: "Yes. Every SafeStorage Dubai unit includes complimentary insurance coverage up to AED 5,000 at no extra charge. This covers fire, theft, water ingress from facility systems, and structural damage. For customers with higher-value stored items — art, antiques, electronics collections, or high-end furniture — we offer additional coverage up to AED 100,000. We recommend photographing and documenting any high-value items before storage to facilitate rapid claims processing if ever needed." },
@@ -902,7 +902,7 @@ export default function StorageUnitsDubaiPage() {
               { q: "How quickly can I get a storage unit in Dubai?", a: "Very quickly. For same-day pickup, book before 12 PM and our team will collect your items the same day. Standard pickups are typically available within 24–48 hours based on your preferred time slot. Getting a quote takes under two minutes online at safestorage.ae or via a quick call to +971505773388. There is no paperwork to complete before your pickup — our team brings all necessary documents on the day." },
               { q: "Where is the SafeStorage Dubai facility located?", a: "SafeStorage Dubai&apos;s main facility is in Dubai Investment Park 2, with easy access from Sheikh Mohammed Bin Zayed Road. However, for most customers, the facility location is irrelevant because our door-to-door model means we collect from and deliver to your address — wherever in Dubai you are. You never need to visit the facility unless you specifically want to access your unit directly or are curious to see where your belongings are kept." },
               { q: "Does SafeStorage Dubai serve business customers?", a: "Yes. SafeStorage Dubai is used extensively by businesses including e-commerce sellers needing flexible inventory storage, law firms and consultancies archiving documents for the UAE&apos;s mandatory 5-year retention period, event management companies storing displays and equipment, retail businesses managing seasonal stock, and office relocations requiring short-term furniture and equipment storage. Commercial plans include dedicated consultant support, flexible access arrangements, and the ability to scale unit size up or down with 30 days&apos; notice." },
-              { q: "How is SafeStorage Dubai different from other storage companies?", a: "SafeStorage Dubai stands out through its door-to-door model (door-to-door pickup and delivery included in every plan), clean, dedicated indoor units at every price point, transparent all-inclusive pricing with no hidden fees, free insurance up to AED 5,000 as standard, a 4.9-star Google rating from 487+ verified reviews, and personalised dedicated consultant service rather than a generic call centre. We believe storage should be completely hassle-free — and every element of our service is designed with that goal in mind." }
+              { q: "How is SafeStorage Dubai different from other storage companies?", a: "SafeStorage Dubai stands out through its door-to-door model (door-to-door service included in every plan), clean, dedicated indoor units at every price point, transparent all-inclusive pricing with no hidden fees, free insurance up to AED 5,000 as standard, a 4.9-star Google rating from 487+ verified reviews, and personalised dedicated consultant service rather than a generic call centre. We believe storage should be completely hassle-free — and every element of our service is designed with that goal in mind." }
             ].map((faq, i) => (
               <div key={i} className="bg-white rounded-xl p-6 border border-gray-200">
                 <h4 className="font-bold text-dubai-navy mb-2">{faq.q}</h4>

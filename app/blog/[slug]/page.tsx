@@ -403,7 +403,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>How much does storage cost in Dubai per month?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Storage prices in Dubai vary widely depending on unit size and whether pickup and delivery are included. At SafeStorage Dubai, pricing starts from 12.60 AED / sqft (VAT-inclusive), and you only pay for the space you actually use. All SafeStorage plans include 24/7 security, insurance, and door-to-door pickup and delivery — which often saves customers AED 300–800 compared to hiring movers separately.
+              Storage prices in Dubai vary widely depending on unit size and whether pickup and delivery are included. At SafeStorage Dubai, pricing starts from 12.60 AED / sqft (VAT-inclusive), and you only pay for the space you actually use. All SafeStorage plans include 24/7 security, insurance, and door-to-door service — which often saves customers AED 300–800 compared to hiring movers separately.
             </p>
           </div>
 
@@ -477,7 +477,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>What neighbourhoods in Dubai does SafeStorage serve?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              SafeStorage Dubai provides door-to-door pickup and delivery across all Dubai neighbourhoods. Our coverage includes Business Bay, Downtown Dubai, Dubai Marina, JBR, Jumeirah 1, 2, and 3, Palm Jumeirah, JLT, JVC, Al Barsha, Motor City, Sports City, Dubai Hills, Arabian Ranches, Mirdif, Deira, Bur Dubai, Al Quoz, Dubai Investment Park, Dubai Silicon Oasis, Nad Al Sheba, Al Warqa, International City, and Al Nahda. If you are in a neighbourhood not listed here, contact us — we cover virtually all of Dubai and the surrounding emirate areas including Sharjah and parts of Abu Dhabi for long-term storage customers.
+              SafeStorage Dubai provides door-to-door service across all Dubai neighbourhoods. Our coverage includes Business Bay, Downtown Dubai, Dubai Marina, JBR, Jumeirah 1, 2, and 3, Palm Jumeirah, JLT, JVC, Al Barsha, Motor City, Sports City, Dubai Hills, Arabian Ranches, Mirdif, Deira, Bur Dubai, Al Quoz, Dubai Investment Park, Dubai Silicon Oasis, Nad Al Sheba, Al Warqa, International City, and Al Nahda. If you are in a neighbourhood not listed here, contact us — we cover virtually all of Dubai and the surrounding emirate areas including Sharjah and parts of Abu Dhabi for long-term storage customers.
             </p>
           </div>
 
