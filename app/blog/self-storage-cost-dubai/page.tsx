@@ -60,7 +60,7 @@ export default function SelfStorageCostDubaiPage() {
         <article className="py-12">
           <div className="container px-4 max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-gray-700">
-              <p className="text-xl leading-relaxed mb-8">Storage costs in Dubai range from <strong>AED 99/month</strong> for a small locker to <strong>AED 2,500/month</strong> for a large unit suitable for a full villa. The exact price depends on unit size and what's included in the monthly rate. This guide breaks down exactly what you should expect to pay — and the hidden fees some facilities charge that you should watch out for.</p>
+              <p className="text-xl leading-relaxed mb-8">Storage costs in Dubai start from <strong>AED 12.65 per sq. ft. per month</strong>. The exact price depends on unit size and what's included in the monthly rate. This guide breaks down exactly what you should expect to pay — and the hidden fees some facilities charge that you should watch out for.</p>
 
               <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">What's Typically Included in Dubai Storage Prices</h2>
               <p className="mb-4">With established Dubai storage providers, these are typically included in the monthly rate:</p>
