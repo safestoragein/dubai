@@ -7,12 +7,12 @@ import { MapPin, Phone, ArrowRight, CheckCircle2 } from "lucide-react"
 export const metadata: Metadata = {
   title: "Storage Locations in Dubai",
   description:
-    "Find SafeStorage locations across Dubai. We serve Business Bay, Dubai Marina, Jumeirah, Dubai Investment Park & more. Hassle-free pickup & delivery. Call +971505773388.",
+    "Find SafeStorage locations across Dubai. We serve Business Bay, Dubai Marina, Jumeirah, Dubai Investment Park & more. Door-to-Door pickup & delivery. Call +971505773388.",
   keywords:
     "storage locations dubai, storage near me, self storage dubai locations, storage facilities dubai, dubai storage centers",
   openGraph: {
     title: "Storage Locations Dubai - SafeStorage",
-    description: "Premium storage locations across Dubai with hassle-free pickup & delivery service. Find a location near you.",
+    description: "Premium storage locations across Dubai with door-to-door pickup & delivery service. Find a location near you.",
     url: "https://safestorage.ae/locations",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -109,7 +109,7 @@ export default function LocationsPage() {
               Storage Locations Across Dubai
             </h1>
             <p className="text-xl mb-8">
-              We serve multiple areas in Dubai with hassle-free pickup & delivery service from your doorstep
+              We serve multiple areas in Dubai with door-to-door pickup & delivery service from your doorstep
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>
@@ -181,7 +181,7 @@ export default function LocationsPage() {
               We Cover All of Dubai
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Even if your area isn't listed above, we still serve you! Our hassle-free pickup & delivery service
+              Even if your area isn't listed above, we still serve you! Our door-to-door pickup & delivery service
               covers all areas across Dubai. We'll come to your location to pick up your items and deliver them
               back whenever you need.
             </p>
@@ -262,7 +262,7 @@ export default function LocationsPage() {
               <div>
                 <h4 className="text-lg font-semibold text-[#0A2463] mb-3">What Is Included in Every Plan</h4>
                 <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Hassle-free door-to-door pickup anywhere in Dubai</span></li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Door-to-Door pickup anywhere in Dubai</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Secure, indoor storage</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Complimentary insurance on all stored items</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Digital photo inventory of every item stored</span></li>
@@ -318,7 +318,7 @@ export default function LocationsPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How does SafeStorage pricing work — is it the same across all Dubai locations?</h3>
-              <p className="text-gray-700">Yes, SafeStorage pricing is uniform across all Dubai locations. We do not charge more for pickup from certain areas or premium residential communities. Pricing is based solely on the volume of items you store and starts from 12.60 AED / sqft (VAT-inclusive), whether you store a small amount of boxes or full villa contents. All quotes include hassle-free pickup, secure storage, insurance, and on-demand delivery. There are no hidden charges, fuel surcharges, or location premiums. Get an instant quote by calling +971505773388 or using our online quote tool.</p>
+              <p className="text-gray-700">Yes, SafeStorage pricing is uniform across all Dubai locations. We do not charge more for pickup from certain areas or premium residential communities. Pricing is based solely on the volume of items you store and starts from 12.60 AED / sqft (VAT-inclusive), whether you store a small amount of boxes or full villa contents. All quotes include door-to-door pickup, secure storage, insurance, and on-demand delivery. There are no hidden charges, fuel surcharges, or location premiums. Get an instant quote by calling +971505773388 or using our online quote tool.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can businesses in Dubai&apos;s free zones use SafeStorage?</h3>
@@ -330,7 +330,7 @@ export default function LocationsPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you serve areas outside Dubai such as Abu Dhabi, Sharjah, or Ajman?</h3>
-              <p className="text-gray-700">SafeStorage Dubai&apos;s primary service area is within Dubai emirate, where we offer our full hassle-free pickup and delivery service. For customers in Sharjah, Ajman, and other Northern Emirates, we can often arrange pickup at a small additional transport fee — please call us to discuss your specific location. For Abu Dhabi customers, SafeStorage operates a separate service at safestorage.ae covering the Abu Dhabi emirate with the same standards of quality and service.</p>
+              <p className="text-gray-700">SafeStorage Dubai&apos;s primary service area is within Dubai emirate, where we offer our full door-to-door pickup and delivery service. For customers in Sharjah, Ajman, and other Northern Emirates, we can often arrange pickup at a small additional transport fee — please call us to discuss your specific location. For Abu Dhabi customers, SafeStorage operates a separate service at safestorage.ae covering the Abu Dhabi emirate with the same standards of quality and service.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I find out exactly which zone covers my Dubai address?</h3>
@@ -365,7 +365,7 @@ export default function LocationsPage() {
                 Dubai is a large, geographically diverse city. Choosing a storage provider with coverage near your
                 home or business reduces pickup time, lowers delivery lead times, and makes it easier to retrieve
                 items when you need them. SafeStorage&apos;s multi-zone model ensures every Dubai resident and
-                business is within our hassle-free pickup and delivery coverage area.
+                business is within our door-to-door pickup and delivery coverage area.
               </p>
               <p className="text-gray-700">
                 Our service zones are centred around four key hubs — Business Bay (serving central and downtown
@@ -442,7 +442,7 @@ export default function LocationsPage() {
               storage services with identical pricing, service quality, and customer care standards:
             </p>
             <div className="grid md:grid-cols-2 gap-3 text-gray-700">
-              <p>• Household &amp; personal storage with hassle-free pickup</p>
+              <p>• Household &amp; personal storage with door-to-door pickup</p>
               <p>• Furniture storage with professional wrapping</p>
               <p>• Business &amp; commercial storage solutions</p>
               <p>• Document archiving and records management</p>

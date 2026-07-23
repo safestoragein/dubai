@@ -4,7 +4,7 @@ export default function ComparisonTable() {
   const features = [
     { name: "24/7 Security & CCTV Monitoring", safestorage: "yes", others: "limited" },
     { name: "Flexible Payment Plans", safestorage: "yes", others: "no" },
-    { name: "Hassle-Free Pickup & Delivery", safestorage: "yes", others: "no" },
+    { name: "Door-to-door Pickup & Delivery", safestorage: "yes", others: "no" },
     { name: "Online Booking & Instant Quote", safestorage: "yes", others: "no" },
     { name: "Customer Support 24/7", safestorage: "yes", others: "no" },
     { name: "No Hidden Fees", safestorage: "yes", others: "limited" },

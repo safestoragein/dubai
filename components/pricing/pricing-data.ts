@@ -4,7 +4,7 @@ export const pricingPlans = [
     price: "12.60 AED / sqft",
     description: "One simple, transparent price for all your storage needs",
     space: "Flexible space — small, medium or large",
-    features: ["24/7 Security", "Secure Indoor Storage", "Hassle-Free Pickup", "Insurance", "Flexible Monthly Billing"],
+    features: ["24/7 Security", "Secure Indoor Storage", "Door-to-door Pickup", "Insurance", "Flexible Monthly Billing"],
     popular: true,
   },
 ]

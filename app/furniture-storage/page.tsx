@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 import { Sofa, CheckCircle2, Star, Phone, ArrowRight, Shield, Package } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Furniture Storage Dubai — Hassle-Free Pickup",
-  description: "Furniture storage in Dubai with hassle-free pickup and professional wrapping. Safe storage for sofas, beds, wardrobes, dining sets and full apartment contents. From 12.60 AED / sqft. Call +971505773388.",
+  title: "Furniture Storage Dubai — Door-to-door Pickup",
+  description: "Furniture storage in Dubai with door-to-door pickup and professional wrapping. Safe storage for sofas, beds, wardrobes, dining sets and full apartment contents. From 12.60 AED / sqft. Call +971505773388.",
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, wardrobe storage dubai, dining table storage dubai, moving furniture storage dubai, apartment furniture storage dubai, villa furniture storage",
   openGraph: {
-    title: "Furniture Storage Dubai — Secure Storage with Hassle-Free Pickup | SafeStorage",
-    description: "Store your furniture safely in Dubai. Secure covered units, professional wrapping, hassle-free pickup, flexible monthly contracts. From 12.60 AED / sqft for single items to full villa contents.",
+    title: "Furniture Storage Dubai — Secure Storage with Door-to-door Pickup | SafeStorage",
+    description: "Store your furniture safely in Dubai. Secure covered units, professional wrapping, door-to-door pickup, flexible monthly contracts. From 12.60 AED / sqft for single items to full villa contents.",
     url: "https://safestorage.ae/furniture-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -24,7 +24,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Furniture Storage Dubai",
-    description: "Safe, secure furniture storage in Dubai with hassle-free pickup and professional wrapping. Store sofas, beds, wardrobes and full apartment or villa contents. Flexible monthly contracts.",
+    description: "Safe, secure furniture storage in Dubai with door-to-door pickup and professional wrapping. Store sofas, beds, wardrobes and full apartment or villa contents. Flexible monthly contracts.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/furniture-storage",
     areaServed: { "@type": "City", name: "Dubai" },
@@ -72,7 +72,7 @@ export default function FurnitureStoragePage() {
                 <Sofa className="w-4 h-4" /> Furniture Storage Dubai
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Furniture Storage Dubai — Safe, Secure and Professionally Wrapped</h1>
-              <p className="text-xl text-white/85 mb-8">Moving, renovating, or between leases? SafeStorage Dubai provides professional furniture storage with hassle-free pickup across Dubai. Clean, covered indoor units and professional wrapping protect your furniture from dust, damage, and the elements — from a single sofa to a full villa's contents.</p>
+              <p className="text-xl text-white/85 mb-8">Moving, renovating, or between leases? SafeStorage Dubai provides professional furniture storage with door-to-door pickup across Dubai. Clean, covered indoor units and professional wrapping protect your furniture from dust, damage, and the elements — from a single sofa to a full villa's contents.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Free Quote</Button>
@@ -271,7 +271,7 @@ export default function FurnitureStoragePage() {
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">What is the typical cost for furniture storage in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Furniture storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you are storing a single large item like a sofa, wardrobe, or bed in a small unit, a full 1–2 bedroom apartment&apos;s furniture in a medium unit, or a full 3-bedroom apartment or large villa in a large unit. The price includes professional wrapping, free insurance up to AED 5,000, and 24/7 security monitoring. Hassle-free pickup is included for most Dubai locations. For very large volumes such as commercial furniture or multi-villa clearances, custom pricing is available.</p>
+                <p className="text-gray-700 leading-relaxed">Furniture storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you are storing a single large item like a sofa, wardrobe, or bed in a small unit, a full 1–2 bedroom apartment&apos;s furniture in a medium unit, or a full 3-bedroom apartment or large villa in a large unit. The price includes professional wrapping, free insurance up to AED 5,000, and 24/7 security monitoring. Door-to-Door pickup is included for most Dubai locations. For very large volumes such as commercial furniture or multi-villa clearances, custom pricing is available.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How long can furniture safely remain in storage?</h3>
@@ -305,7 +305,7 @@ export default function FurnitureStoragePage() {
 
         <section className="py-16 bg-dubai-gold text-white text-center">
           <div className="container px-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Store Your Furniture Safely — Hassle-Free Pickup Included</h2>
+            <h2 className="text-3xl font-bold mb-4">Store Your Furniture Safely — Door-to-door Pickup Included</h2>
             <p className="text-xl text-white/90 mb-8">Get a free quote for furniture storage across Dubai. Our team wraps, loads and stores — you don't lift a finger.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="https://safestorage.ae/get-quote">

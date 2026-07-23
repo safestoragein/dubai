@@ -1885,7 +1885,7 @@ export default function QuotePage() {
                     <h3 className="font-semibold text-slate-800 mb-3 text-center text-sm">What's Included</h3>
                     <div className="flex flex-wrap justify-center gap-2">
                       {[
-                        { icon: Truck, label: "Hassle-Free Pickup" },
+                        { icon: Truck, label: "Door-to-door Pickup" },
                         { icon: Shield, label: "Secure" },
                         { icon: Wind, label: "Dust-Protected" },
                         { icon: Clock, label: "Flexible" },

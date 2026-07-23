@@ -6,11 +6,11 @@ import { Globe, CheckCircle2, Star, Phone, ArrowRight, Package, ShieldCheck, Clo
 
 export const metadata: Metadata = {
   title: "International Relocation Storage Dubai",
-  description: "Moving internationally from Dubai? Store your belongings affordably while you settle abroad. Avoid costly international shipping. From 12.60 AED / sqft. Hassle-free pickup. Call +971505773388.",
+  description: "Moving internationally from Dubai? Store your belongings affordably while you settle abroad. Avoid costly international shipping. From 12.60 AED / sqft. Door-to-Door pickup. Call +971505773388.",
   keywords: "international relocation storage dubai, moving abroad from dubai storage, dubai international moving storage, shipping vs storage dubai, expat relocation dubai, moving overseas dubai storage",
   openGraph: {
     title: "International Relocation Storage Dubai — Moving Abroad?",
-    description: "Moving abroad from Dubai? Store instead of shipping — save thousands of dirhams and keep your options open. Hassle-free pickup, clean and secure, from 12.60 AED / sqft.",
+    description: "Moving abroad from Dubai? Store instead of shipping — save thousands of dirhams and keep your options open. Door-to-Door pickup, clean and secure, from 12.60 AED / sqft.",
     url: "https://safestorage.ae/international-relocation",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

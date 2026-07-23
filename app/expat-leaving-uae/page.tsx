@@ -6,11 +6,11 @@ import { Plane, CheckCircle2, Star, Phone, ArrowRight, Package, ShieldCheck, Clo
 
 export const metadata: Metadata = {
   title: "Expat Leaving UAE? Storage Solutions",
-  description: "Moving back home from Dubai? SafeStorage offers expat-friendly long-term storage — keep belongings safely stored while you decide what to ship. Hassle-free pickup, flexible terms. Call +971505773388.",
+  description: "Moving back home from Dubai? SafeStorage offers expat-friendly long-term storage — keep belongings safely stored while you decide what to ship. Door-to-Door pickup, flexible terms. Call +971505773388.",
   keywords: "expat leaving uae storage, leaving dubai storage, storage for expats dubai, moving out dubai storage, expat storage dubai long term, leaving dubai checklist, repatriation storage dubai",
   openGraph: {
     title: "Expat Leaving UAE? Complete Storage Checklist | SafeStorage Dubai",
-    description: "Trusted by 500+ expats leaving Dubai. Store belongings safely from 12.60 AED / sqft — flexible terms, hassle-free pickup. Don't ship everything when you can store affordably.",
+    description: "Trusted by 500+ expats leaving Dubai. Store belongings safely from 12.60 AED / sqft — flexible terms, door-to-door pickup. Don't ship everything when you can store affordably.",
     url: "https://safestorage.ae/expat-leaving-uae",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -24,7 +24,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Expat Leaving UAE — Long-Term Storage Dubai",
-    description: "Long-term storage solutions for expats leaving the UAE. Flexible month-to-month terms, hassle-free pickup, and remote management while you're abroad.",
+    description: "Long-term storage solutions for expats leaving the UAE. Flexible month-to-month terms, door-to-door pickup, and remote management while you're abroad.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/expat-leaving-uae",
     areaServed: { "@type": "City", name: "Dubai" },

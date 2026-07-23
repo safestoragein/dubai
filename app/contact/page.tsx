@@ -166,7 +166,7 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">1. How do I get started with SafeStorage Dubai?</h3>
-              <p className="text-gray-700">Getting started is simple. Call us on <strong>+971505773388</strong>, send a WhatsApp message, or fill in the quote form on our website. A dedicated storage consultant will contact you within 15 minutes to understand your requirements, recommend the right unit size, and provide a transparent quote with no hidden charges. Once you confirm, we schedule a hassle-free pickup at a time that suits you — usually within 24 hours.</p>
+              <p className="text-gray-700">Getting started is simple. Call us on <strong>+971505773388</strong>, send a WhatsApp message, or fill in the quote form on our website. A dedicated storage consultant will contact you within 15 minutes to understand your requirements, recommend the right unit size, and provide a transparent quote with no hidden charges. Once you confirm, we schedule a door-to-door pickup at a time that suits you — usually within 24 hours.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -200,7 +200,7 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. What areas of Dubai do you serve?</h3>
-              <p className="text-gray-700">We provide hassle-free pickup and delivery coverage across all of Dubai — from Palm Jumeirah and Dubai Marina in the west, to Deira and Rashidiya in the east, to Dubai Investment Park and Sports City in the south. Areas we regularly serve include Dubai Marina, JBR, JLT, Media City, Business Bay, DIFC, Downtown Dubai, Jumeirah 1-3, Al Quoz, Palm Jumeirah, Mirdif, Motor City, Arabian Ranches, Dubai South, and all other communities. If you are unsure whether we cover your area, call +971505773388 and we will confirm immediately.</p>
+              <p className="text-gray-700">We provide door-to-door pickup and delivery coverage across all of Dubai — from Palm Jumeirah and Dubai Marina in the west, to Deira and Rashidiya in the east, to Dubai Investment Park and Sports City in the south. Areas we regularly serve include Dubai Marina, JBR, JLT, Media City, Business Bay, DIFC, Downtown Dubai, Jumeirah 1-3, Al Quoz, Palm Jumeirah, Mirdif, Motor City, Arabian Ranches, Dubai South, and all other communities. If you are unsure whether we cover your area, call +971505773388 and we will confirm immediately.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

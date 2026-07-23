@@ -63,7 +63,7 @@ const faqCategories = [
     faqs: [
       {
         question: "Do you offer pickup and delivery services?",
-        answer: "Yes! We provide hassle-free pickup and delivery services across Dubai. Our professional team will collect your items from your location (home, office, or anywhere in Dubai), transport them safely to our secure facility, and return them whenever you need them back. This hassle-free service is what sets us apart!"
+        answer: "Yes! We provide door-to-door pickup and delivery services across Dubai. Our professional team will collect your items from your location (home, office, or anywhere in Dubai), transport them safely to our secure facility, and return them whenever you need them back. This hassle-free service is what sets us apart!"
       },
       {
         question: "How quickly can you pick up my items?",
@@ -169,7 +169,7 @@ const faqCategories = [
       },
       {
         question: "How do I cancel my storage plan?",
-        answer: "Cancelling with SafeStorage is straightforward and penalty-free. Simply provide 7 days&apos; written or verbal notice to your dedicated storage consultant or contact us via email or WhatsApp. We will schedule hassle-free door-to-door delivery of all your stored items back to your Dubai address within your notice period. If you have prepaid for a longer term and cancel early, we will refund the unused months minus a small administrative processing fee. There are no cancellation penalties, no lock-in clauses, and no obstacles to ending your storage — we want you to stay because you love the service, not because you feel trapped."
+        answer: "Cancelling with SafeStorage is straightforward and penalty-free. Simply provide 7 days&apos; written or verbal notice to your dedicated storage consultant or contact us via email or WhatsApp. We will schedule door-to-door delivery of all your stored items back to your Dubai address within your notice period. If you have prepaid for a longer term and cancel early, we will refund the unused months minus a small administrative processing fee. There are no cancellation penalties, no lock-in clauses, and no obstacles to ending your storage — we want you to stay because you love the service, not because you feel trapped."
       },
       {
         question: "What happens if I miss a monthly payment?",
@@ -464,7 +464,7 @@ export default function FAQPage() {
             <h3 className="text-xl font-bold text-dubai-navy mb-4">SafeStorage Dubai — Key Facts</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <p>• Storage from 12.60 AED / sqft (VAT-inclusive) — no setup fees</p>
-              <p>• Hassle-free pickup and delivery anywhere in Dubai</p>
+              <p>• Door-to-Door pickup and delivery anywhere in Dubai</p>
               <p>• Secure, clean, dust-protected indoor units</p>
               <p>• Free insurance up to AED 5,000 included</p>
               <p>• Month-to-month contracts — no long-term lock-in</p>

@@ -7,12 +7,12 @@ import { Home, Truck, Clock, Package, ArrowRight, CheckCircle2, Calendar, Shield
 export const metadata: Metadata = {
   title: "Short-Term Storage Dubai — Moving & Renovation",
   description:
-    "Need storage between apartment leases, during a renovation, or while moving in Dubai? Book from 1 week — hassle-free pickup, flexible month-to-month plans. Perfect for lease gap storage & renovation projects. Call +971505773388.",
+    "Need storage between apartment leases, during a renovation, or while moving in Dubai? Book from 1 week — door-to-door pickup, flexible month-to-month plans. Perfect for lease gap storage & renovation projects. Call +971505773388.",
   keywords:
     "short term storage between leases dubai, lease gap storage dubai, storage during apartment renovation dubai, temporary storage moving house dubai, storage between moves dubai, 1 month storage dubai, weekly storage rental dubai",
   openGraph: {
     title: "Short-Term Storage Between Leases Dubai | Moving & Renovation | SafeStorage",
-    description: "Storage between leases, during renovation or while moving in Dubai. From 1 week, hassle-free pickup. Call +971505773388.",
+    description: "Storage between leases, during renovation or while moving in Dubai. From 1 week, door-to-door pickup. Call +971505773388.",
     url: "https://safestorage.ae/self-storage-dubai/short-term-moving-renovation",
   },
   alternates: {
@@ -592,7 +592,7 @@ export default function ShortTermStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">What does 1-month moving storage typically cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">Moving storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit for a studio apartment or room contents, a medium unit for a 1–2 bedroom apartment&apos;s complete contents, or a large unit for 3-bedroom apartments or villas — with hassle-free pickup included. The price includes 24/7 security, insurance up to AED 5,000, and hassle-free delivery back to your new address at the end of the storage period. When compared to the cost of renting a removal van, booking a hotel for an extra week, or paying lease overlap, professional storage with hassle-free pickup and delivery often represents the most economical solution overall.</p>
+              <p className="text-gray-700 leading-relaxed">Moving storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small unit for a studio apartment or room contents, a medium unit for a 1–2 bedroom apartment&apos;s complete contents, or a large unit for 3-bedroom apartments or villas — with door-to-door pickup included. The price includes 24/7 security, insurance up to AED 5,000, and doorstep delivery back to your new address at the end of the storage period. When compared to the cost of renting a removal van, booking a hotel for an extra week, or paying lease overlap, professional storage with door-to-door pickup and delivery often represents the most economical solution overall.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How does renovation storage work in practice?</h3>
@@ -649,7 +649,7 @@ export default function ShortTermStoragePage() {
           <p className="text-lg text-gray-700 mb-6">
             Short-term storage is one of the most practical solutions for Dubai residents navigating apartment
             moves, villa renovations, and the gap between lease end and new tenancy start. SafeStorage offers
-            flexible short-term storage plans from as little as one week, with hassle-free pickup and delivery,
+            flexible short-term storage plans from as little as one week, with door-to-door pickup and delivery,
             no minimum contract, and transparent daily or monthly pricing.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -688,7 +688,7 @@ export default function ShortTermStoragePage() {
             <p className="text-gray-700">
               Short-term storage is priced on monthly plans with no minimum contract, starting from
               12.60 AED / sqft (VAT-inclusive). A typical 1–2 bedroom apartment contents fits in a medium unit.
-              Hassle-free pickup and delivery are included. For renovations lasting 1–3 months, we offer a
+              Door-to-Door pickup and delivery are included. For renovations lasting 1–3 months, we offer a
               renovation storage package with preferential rates. Same-day pickup is available for bookings
               before 12 PM. Call +971 50 577 3388 to book or get an instant quote.
             </p>

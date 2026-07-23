@@ -3,14 +3,14 @@ import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Dubai Hills Estate Storage — Hassle-Free Pickup",
+  title: "Dubai Hills Estate Storage — Door-to-door Pickup",
   description:
-    "Storage for Dubai Hills Estate villas and apartments. Hassle-free pickup service, secure units, flexible plans from 12.60 AED / sqft. Al Quoz also covered. Call +971505773388.",
+    "Storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup service, secure units, flexible plans from 12.60 AED / sqft. Al Quoz also covered. Call +971505773388.",
   keywords:
     "dubai hills estate storage, storage dubai hills, storage near dubai hills mall, al quoz storage, dubai hills villa storage, storage emaar dubai hills",
   openGraph: {
-    title: "Dubai Hills Estate Storage — Hassle-Free Pickup | SafeStorage",
-    description: "Hassle-free pickup storage for Dubai Hills villas and apartments. Secure units. Al Quoz & Umm Suqeim also covered. Call +971505773388.",
+    title: "Dubai Hills Estate Storage — Door-to-door Pickup | SafeStorage",
+    description: "Door-to-Door pickup storage for Dubai Hills villas and apartments. Secure units. Al Quoz & Umm Suqeim also covered. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-hills",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const dubaiHillsSchemas = [
     "@type": "Service",
     name: "Storage in Dubai Hills Estate",
     description:
-      "Premium secure storage for Dubai Hills Estate villas and apartments. Hassle-free pickup from all Dubai Hills communities. Al Quoz and Umm Suqeim also covered.",
+      "Premium secure storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup from all Dubai Hills communities. Al Quoz and Umm Suqeim also covered.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/dubai-hills",
     areaServed: [
@@ -48,8 +48,8 @@ const dubaiHillsSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/dubai-hills#webpage",
-    name: "Dubai Hills Estate Storage — Hassle-Free Pickup | SafeStorage",
-    description: "Premium secure storage for Dubai Hills Estate. Hassle-free pickup from all Dubai Hills communities.",
+    name: "Dubai Hills Estate Storage — Door-to-door Pickup | SafeStorage",
+    description: "Premium secure storage for Dubai Hills Estate. Door-to-Door pickup from all Dubai Hills communities.",
     url: "https://safestorage.ae/locations/dubai-hills",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -76,7 +76,7 @@ export default function DubaiHillsPage() {
         distance="15-20 minutes"
         benefits={[
           "Expert care for premium Dubai Hills villa contents",
-          "Hassle-free pickup from all Dubai Hills sub-communities",
+          "Door-to-Door pickup from all Dubai Hills sub-communities",
           "Ideal for new residents awaiting villa completion",
           "Al Quoz warehousing and business storage also covered",
         ]}
@@ -180,7 +180,7 @@ export default function DubaiHillsPage() {
           </div>
 
           <div className="text-center">
-            <p className="text-lg text-gray-700 mb-4">Hassle-free pickup storage for Dubai Hills villas and apartments — get your quote today.</p>
+            <p className="text-lg text-gray-700 mb-4">Door-to-Door pickup storage for Dubai Hills villas and apartments — get your quote today.</p>
             <a href="/get-quote" className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c02a50] transition-colors">
               Get a Free Quote
             </a>
@@ -194,7 +194,7 @@ export default function DubaiHillsPage() {
           <div className="space-y-5">
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage cover all Dubai Hills Estate sub-communities?</h3>
-              <p className="text-gray-700">Yes. SafeStorage covers all Dubai Hills Estate sub-communities including Golf Place I and II, Fairway Vistas, Maple 1/2/3, Park Heights I and II, Park Ridge, Acacia, Golfville, Sidra I/II/III, Elysian Mansions, and all apartment towers within Dubai Hills. We also cover the Address Dubai Hills hotel residences and all buildings in the Dubai Hills Mall area. If your community isn&apos;t listed, call +971505773388 — all Dubai Hills addresses qualify for our hassle-free pickup service.</p>
+              <p className="text-gray-700">Yes. SafeStorage covers all Dubai Hills Estate sub-communities including Golf Place I and II, Fairway Vistas, Maple 1/2/3, Park Heights I and II, Park Ridge, Acacia, Golfville, Sidra I/II/III, Elysian Mansions, and all apartment towers within Dubai Hills. We also cover the Address Dubai Hills hotel residences and all buildings in the Dubai Hills Mall area. If your community isn&apos;t listed, call +971505773388 — all Dubai Hills addresses qualify for our door-to-door pickup service.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store villa contents while waiting for a Dubai Hills handover?</h3>
@@ -218,11 +218,11 @@ export default function DubaiHillsPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Mohammed Bin Rashid City (MBR City) near Dubai Hills covered?</h3>
-              <p className="text-gray-700">Yes. Mohammed Bin Rashid City (MBR City) — including District One, Meydan, and the various MBR City residential sub-developments — is within our Dubai Hills service zone. MBR City residents have access to the same hassle-free pickup and delivery service as Dubai Hills. Meydan Racecourse area and the various Meydan residential developments are also covered. Pickup times from MBR City are typically 15–25 minutes depending on the specific community within the large MBR City development.</p>
+              <p className="text-gray-700">Yes. Mohammed Bin Rashid City (MBR City) — including District One, Meydan, and the various MBR City residential sub-developments — is within our Dubai Hills service zone. MBR City residents have access to the same door-to-door pickup and delivery service as Dubai Hills. Meydan Racecourse area and the various Meydan residential developments are also covered. Pickup times from MBR City are typically 15–25 minutes depending on the specific community within the large MBR City development.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Dubai Hills 4-bedroom villa?</h3>
-              <p className="text-gray-700">Storing a Dubai Hills 4-bedroom villa (Maple, Sidra, or Golf Place) with full furniture and personal contents starts from 12.60 AED / sqft (VAT-inclusive). This includes hassle-free pickup, secure storage, insurance, and on-demand delivery. For villas with premium furniture, artwork, or high-value electronics, extended insurance is available at a small additional cost. For the most accurate quote, share a video walkthrough of your villa via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
+              <p className="text-gray-700">Storing a Dubai Hills 4-bedroom villa (Maple, Sidra, or Golf Place) with full furniture and personal contents starts from 12.60 AED / sqft (VAT-inclusive). This includes door-to-door pickup, secure storage, insurance, and on-demand delivery. For villas with premium furniture, artwork, or high-value electronics, extended insurance is available at a small additional cost. For the most accurate quote, share a video walkthrough of your villa via WhatsApp (+971505773388) and we will provide a confirmed price within a few hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage handle golf equipment storage for Dubai Hills Golf Club members?</h3>
@@ -230,7 +230,7 @@ export default function DubaiHillsPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Are Nad Al Sheba residents covered by Dubai Hills SafeStorage?</h3>
-              <p className="text-gray-700">Yes. Nad Al Sheba — all four sections (1, 2, 3, 4) — is within our Dubai Hills service zone. Nad Al Sheba has both older villa communities and newer developments and all receive hassle-free pickup and delivery from SafeStorage. Nad Al Sheba 3 and 4, being newer Emaar-developed communities, are particularly active for our renovation and new-handover storage services. Pickup times from Nad Al Sheba are typically 15–20 minutes.</p>
+              <p className="text-gray-700">Yes. Nad Al Sheba — all four sections (1, 2, 3, 4) — is within our Dubai Hills service zone. Nad Al Sheba has both older villa communities and newer developments and all receive door-to-door pickup and delivery from SafeStorage. Nad Al Sheba 3 and 4, being newer Emaar-developed communities, are particularly active for our renovation and new-handover storage services. Pickup times from Nad Al Sheba are typically 15–20 minutes.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I access or retrieve specific items stored from my Dubai Hills villa?</h3>

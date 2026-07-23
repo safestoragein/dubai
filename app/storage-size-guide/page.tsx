@@ -148,7 +148,7 @@ export default function StorageSizeGuidePage() {
                   Pricing starts from 12.60 AED / sqft
                 </h3>
                 <p className="text-gray-600">
-                  VAT-inclusive · all unit sizes · hassle-free pickup &amp; delivery included
+                  VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included
                 </p>
               </div>
             </div>

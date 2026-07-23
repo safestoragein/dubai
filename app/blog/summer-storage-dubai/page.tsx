@@ -85,7 +85,7 @@ export default function SummerStorageDubaiPage() {
               {[
                 { option: "Option 1: Keep the apartment running (AC on)", cost: "AED 500–1,500/month in electricity, plus full rent", pros: ["Nothing gets damaged", "Return to ready home"], cons: ["Expensive — paying for empty apartment", "Risk of AC failure while you're away", "No security for valuables"] },
                 { option: "Option 2: Leave everything and hope for the best", cost: "AED 0", pros: ["No effort"], cons: ["Valuables left unattended for months", "Security concerns in empty property", "Returns to an apartment that may need deep clean", "Electronics and valuables at risk"] },
-                { option: "Option 3: Store with SafeStorage Dubai", cost: "from 12.60 AED / sqft (you only pay for the space you use)", pros: ["Clean, secure, indoor units", "Hassle-free pickup", "Security monitored 24/7", "Pay only for what you store", "Peace of mind abroad"], cons: ["Requires move-out and move-in effort", "Monthly storage cost"] },
+                { option: "Option 3: Store with SafeStorage Dubai", cost: "from 12.60 AED / sqft (you only pay for the space you use)", pros: ["Clean, secure, indoor units", "Door-to-Door pickup", "Security monitored 24/7", "Pay only for what you store", "Peace of mind abroad"], cons: ["Requires move-out and move-in effort", "Monthly storage cost"] },
               ].map((opt) => (
                 <div key={opt.option} className="border border-gray-200 rounded-xl p-6">
                   <h3 className="font-bold text-dubai-navy text-lg mb-1">{opt.option}</h3>
@@ -132,7 +132,7 @@ export default function SummerStorageDubaiPage() {
               <div className="space-y-3">
                 {[
                   { item: "Medium storage unit", cost: "From 12.60 AED / sqft" },
-                  { item: "Hassle-free pickup + delivery (SafeStorage)", cost: "AED 0" },
+                  { item: "Door-to-Door pickup + delivery (SafeStorage)", cost: "AED 0" },
                   { item: "Total storage cost", cost: "From 12.60 AED / sqft" },
                   { item: "", cost: "" },
                   { item: "Alternative: Keep AC running (electricity only)", cost: "AED 1,500–4,500" },

@@ -3,14 +3,14 @@ import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Deira & Bur Dubai Storage — Hassle-Free Pickup",
+  title: "Deira & Bur Dubai Storage — Door-to-door Pickup",
   description:
-    "Storage in Deira, Bur Dubai, Karama & Oud Metha. Hassle-free pickup from your home or office. Secure units from 12.60 AED / sqft. Old Dubai area specialists. Call +971505773388.",
+    "Storage in Deira, Bur Dubai, Karama & Oud Metha. Door-to-Door pickup from your home or office. Secure units from 12.60 AED / sqft. Old Dubai area specialists. Call +971505773388.",
   keywords:
     "deira storage dubai, bur dubai storage, karama storage, storage deira, self storage bur dubai, oud metha storage, old dubai storage units",
   openGraph: {
-    title: "Deira & Bur Dubai Storage — Hassle-Free Pickup | SafeStorage",
-    description: "Secure storage for Deira, Bur Dubai, Karama & Oud Metha. Hassle-free pickup from your door. Call +971505773388.",
+    title: "Deira & Bur Dubai Storage — Door-to-door Pickup | SafeStorage",
+    description: "Secure storage for Deira, Bur Dubai, Karama & Oud Metha. Door-to-Door pickup from your door. Call +971505773388.",
     url: "https://safestorage.ae/locations/deira",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const deiraSchemas = [
     "@type": "Service",
     name: "Storage in Deira, Bur Dubai & Old Dubai",
     description:
-      "Secure storage for Deira, Bur Dubai, Karama, Oud Metha, and all old Dubai areas. Hassle-free door-to-door pickup. Flexible plans from 12.60 AED / sqft.",
+      "Secure storage for Deira, Bur Dubai, Karama, Oud Metha, and all old Dubai areas. Door-to-Door pickup. Flexible plans from 12.60 AED / sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/deira",
     areaServed: [
@@ -50,8 +50,8 @@ const deiraSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/deira#webpage",
-    name: "Deira & Bur Dubai Storage — Hassle-Free Pickup | SafeStorage",
-    description: "Secure storage for Deira, Bur Dubai, Karama & Oud Metha. Hassle-free pickup from your door.",
+    name: "Deira & Bur Dubai Storage — Door-to-door Pickup | SafeStorage",
+    description: "Secure storage for Deira, Bur Dubai, Karama & Oud Metha. Door-to-Door pickup from your door.",
     url: "https://safestorage.ae/locations/deira",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -77,7 +77,7 @@ export default function DeiraPage() {
         areas={["Deira", "Bur Dubai", "Karama", "Oud Metha", "Al Rigga", "Al Garhoud", "Al Mankhool", "Al Qusais"]}
         distance="20-25 minutes"
         benefits={[
-          "Hassle-free pickup from apartments and flats across old Dubai",
+          "Door-to-Door pickup from apartments and flats across old Dubai",
           "Ideal for traders and businesses storing inventory",
           "Affordable rates that suit old Dubai&apos;s diverse community",
           "Experienced team familiar with old Dubai building access",
@@ -94,7 +94,7 @@ export default function DeiraPage() {
             Deira and Bur Dubai are the historical heart of Dubai — a vibrant, densely populated mosaic of
             residential apartments, trading businesses, souks, and commercial zones. With some of the highest
             population densities in the emirate, these areas have significant demand for affordable, accessible
-            storage. SafeStorage serves all of old Dubai with the same hassle-free door-to-door pickup and flexible
+            storage. SafeStorage serves all of old Dubai with the same door-to-door pickup and flexible
             monthly pricing available elsewhere in the city.
           </p>
           <p className="text-lg text-gray-700 mb-8">
@@ -225,11 +225,11 @@ export default function DeiraPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a Karama or Bur Dubai apartment?</h3>
-              <p className="text-gray-700">SafeStorage pricing is the same across all Dubai areas — including Karama and Bur Dubai — and starts from 12.60 AED / sqft (VAT-inclusive). Whether you are storing a Karama 1-bedroom apartment's contents, a Bur Dubai 2-bedroom apartment, or just a few boxes, a sofa, and seasonal items, you pay only for the volume you use. All prices include hassle-free pickup, secure storage, insurance, and on-demand delivery. Get an accurate quote by calling +971505773388 or submitting our online form.</p>
+              <p className="text-gray-700">SafeStorage pricing is the same across all Dubai areas — including Karama and Bur Dubai — and starts from 12.60 AED / sqft (VAT-inclusive). Whether you are storing a Karama 1-bedroom apartment's contents, a Bur Dubai 2-bedroom apartment, or just a few boxes, a sofa, and seasonal items, you pay only for the volume you use. All prices include door-to-door pickup, secure storage, insurance, and on-demand delivery. Get an accurate quote by calling +971505773388 or submitting our online form.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage serve the Oud Metha and Al Jaddaf areas?</h3>
-              <p className="text-gray-700">Yes. Oud Metha and Al Jaddaf are both within our Deira and Bur Dubai service zone. Oud Metha&apos;s mix of hospitals, schools, residential blocks, and the Oud Metha metro area are all covered. Al Jaddaf — a rapidly developing area with a mix of older and newer residential buildings adjacent to the Dubai Creek — is also fully covered. Residents in both areas receive hassle-free pickup and the full range of SafeStorage services. Typical pickup times from Oud Metha and Al Jaddaf are 20 minutes.</p>
+              <p className="text-gray-700">Yes. Oud Metha and Al Jaddaf are both within our Deira and Bur Dubai service zone. Oud Metha&apos;s mix of hospitals, schools, residential blocks, and the Oud Metha metro area are all covered. Al Jaddaf — a rapidly developing area with a mix of older and newer residential buildings adjacent to the Dubai Creek — is also fully covered. Residents in both areas receive door-to-door pickup and the full range of SafeStorage services. Typical pickup times from Oud Metha and Al Jaddaf are 20 minutes.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is there storage available near Deira City Centre mall?</h3>

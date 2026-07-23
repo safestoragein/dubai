@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Furniture Storage — Dubai Marina & JBR Renovation",
   description:
-    "Renovating your Dubai Marina or JBR apartment? Store furniture safely during renovation — from 1 week. Short-term storage between leases also available. Hassle-free pickup from Marina & JBR. Call +971505773388.",
+    "Renovating your Dubai Marina or JBR apartment? Store furniture safely during renovation — from 1 week. Short-term storage between leases also available. Door-to-Door pickup from Marina & JBR. Call +971505773388.",
   keywords:
     "furniture storage during renovation dubai marina, short term storage between leases JBR dubai, storage JBR dubai, storage during renovation marina, temporary furniture storage marina, lease gap storage dubai marina",
   openGraph: {
     title: "Furniture Storage During Renovation Dubai Marina & JBR | SafeStorage",
-    description: "Short-term storage during renovations or between leases in Dubai Marina & JBR. Hassle-free pickup. Call +971505773388.",
+    description: "Short-term storage during renovations or between leases in Dubai Marina & JBR. Door-to-Door pickup. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-marina",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -26,7 +26,7 @@ const dubaiMarinaSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Storage Near Dubai Marina & JBR',
-    description: 'Furniture storage during renovation in Dubai Marina & JBR. Short-term storage between leases. Hassle-free pickup from Marina & JBR.',
+    description: 'Furniture storage during renovation in Dubai Marina & JBR. Short-term storage between leases. Door-to-Door pickup from Marina & JBR.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/locations/dubai-marina',
     areaServed: [
@@ -41,7 +41,7 @@ const dubaiMarinaSchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/locations/dubai-marina#webpage',
     name: 'Furniture Storage During Renovation Dubai Marina & JBR',
-    description: 'Renovating your Dubai Marina apartment? Store furniture safely during renovation. Hassle-free pickup from Marina & JBR.',
+    description: 'Renovating your Dubai Marina apartment? Store furniture safely during renovation. Door-to-Door pickup from Marina & JBR.',
     url: 'https://safestorage.ae/locations/dubai-marina',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -66,7 +66,7 @@ export default function DubaiMarinaPage() {
       areas={["Dubai Marina", "JBR", "Marina Walk", "Dubai Marina Mall area", "Bluewaters"]}
       distance="15-20 minutes"
       benefits={[
-        "Hassle-free pickup from your Marina apartment",
+        "Door-to-Door pickup from your Marina apartment",
         "Quick access via Sheikh Zayed Road",
         "Ideal for Marina residents downsizing",
         "Perfect for storing beach and water sports equipment"
@@ -79,7 +79,7 @@ export default function DubaiMarinaPage() {
         <p className="text-lg text-gray-700 mb-6">
           SafeStorage provides premium, secure storage for residents of Dubai Marina, Jumeirah Beach
           Residence (JBR), Marina Walk, and Bluewaters Island. Our facility is easily accessible from Sheikh Zayed
-          Road, with hassle-free pickup and delivery service direct to your doorstep across the Marina area.
+          Road, with door-to-door pickup and delivery service direct to your doorstep across the Marina area.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 mb-10">
@@ -187,7 +187,7 @@ export default function DubaiMarinaPage() {
         <div className="grid md:grid-cols-2 gap-8 mb-10">
           <div>
             <h3 className="text-xl font-semibold text-[#0A2463] mb-3">JLT (Jumeirah Lake Towers) Storage</h3>
-            <p className="text-gray-700 mb-3">Jumeirah Lake Towers is a major mixed-use community adjacent to Dubai Marina, home to both residential towers and significant office space. JLT residents benefit from SafeStorage&apos;s same standards of hassle-free pickup, secure storage, and flexible monthly plans. JLT is also a hub for small and medium businesses, many of which use SafeStorage for document archiving and commercial storage.</p>
+            <p className="text-gray-700 mb-3">Jumeirah Lake Towers is a major mixed-use community adjacent to Dubai Marina, home to both residential towers and significant office space. JLT residents benefit from SafeStorage&apos;s same standards of door-to-door pickup, secure storage, and flexible monthly plans. JLT is also a hub for small and medium businesses, many of which use SafeStorage for document archiving and commercial storage.</p>
             <p className="text-gray-700">The proximity of JLT to the DMCC Free Zone makes it a key area for businesses with document archiving needs. SafeStorage collects directly from JLT offices and provides on-demand retrieval, helping DMCC-registered companies manage their compliance records efficiently without using expensive office space for dead files.</p>
           </div>
           <div>
@@ -202,7 +202,7 @@ export default function DubaiMarinaPage() {
           <div className="max-w-xl mx-auto">
             <div className="bg-white rounded-lg p-8 border-2 border-[#0A2463] text-center">
               <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12.60 AED / sqft</p>
-              <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · hassle-free pickup &amp; delivery included</p>
+              <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included</p>
             </div>
           </div>
         </div>
@@ -253,7 +253,7 @@ export default function DubaiMarinaPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I get a quote for storing my entire Marina apartment during a long trip abroad?</h3>
-            <p className="text-gray-700">For whole-apartment storage during an extended trip, the quickest way to get a quote is to share a short video walkthrough of your apartment via WhatsApp (+971505773388). This allows our team to assess the volume of items and give you an accurate quote within a few hours. Alternatively, you can call us and answer a few questions about your apartment size and the items you want to store. Whole-apartment storage for a 1-bedroom Dubai Marina apartment starts from 12.60 AED / sqft (VAT-inclusive), and includes free collection, secure storage, insurance, and one hassle-free delivery when you return.</p>
+            <p className="text-gray-700">For whole-apartment storage during an extended trip, the quickest way to get a quote is to share a short video walkthrough of your apartment via WhatsApp (+971505773388). This allows our team to assess the volume of items and give you an accurate quote within a few hours. Alternatively, you can call us and answer a few questions about your apartment size and the items you want to store. Whole-apartment storage for a 1-bedroom Dubai Marina apartment starts from 12.60 AED / sqft (VAT-inclusive), and includes door-to-door collection, secure storage, insurance, and one doorstep delivery when you return.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there parking available when SafeStorage collects from my JBR apartment?</h3>

@@ -80,7 +80,7 @@ export default function LongTermStorageExpatsPage() {
             </div>
 
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Long-Term Storage Cost: Full Breakdown</h2>
-            <p className="mb-4">SafeStorage Dubai keeps pricing simple: a single rate that starts from <strong>12.60 AED / sqft</strong> (VAT-inclusive), including hassle-free pickup, insurance, and 24/7 security. You only pay for the space you actually use, so your cost scales with the size of your unit — not the length of your contract.</p>
+            <p className="mb-4">SafeStorage Dubai keeps pricing simple: a single rate that starts from <strong>12.60 AED / sqft</strong> (VAT-inclusive), including door-to-door pickup, insurance, and 24/7 security. You only pay for the space you actually use, so your cost scales with the size of your unit — not the length of your contract.</p>
             <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6 mb-6">
               <p className="text-dubai-navy font-medium">Long-term storage starts from <strong>12.60 AED / sqft</strong> (VAT-inclusive). Whether you store for 3 months over summer or 2 years on secondment, you pay the same straightforward per-square-foot rate for the space you reserve.</p>
             </div>

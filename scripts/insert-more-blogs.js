@@ -43,7 +43,7 @@ const additionalBlogs = [
       <ul>
         <li>NO admin fees</li>
         <li>NO security deposit</li>
-        <li>Hassle-free pickup and delivery</li>
+        <li>Door-to-Door pickup and delivery</li>
         <li>Insurance optional</li>
         <li>Lock included free</li>
       </ul>
@@ -110,14 +110,14 @@ const additionalBlogs = [
       
       <h3>Why Location Matters Less with SafeStorage</h3>
       <ul>
-        <li>Hassle-free pickup from anywhere in Dubai</li>
-        <li>FREE delivery when you need items back</li>
+        <li>Door-to-Door pickup from anywhere in Dubai</li>
+        <li>Doorstep delivery when you need items back</li>
         <li>No need to visit facility regularly</li>
         <li>Online inventory management</li>
         <li>We handle the transportation</li>
       </ul>
       
-      <p>Location doesn't matter when we come to you! Call <strong>+971505773388</strong> for hassle-free pickup from your area.</p>
+      <p>Location doesn't matter when we come to you! Call <strong>+971505773388</strong> for door-to-door pickup from your area.</p>
     `,
     extra_data: JSON.stringify({
       author: "SafeStorage Team",

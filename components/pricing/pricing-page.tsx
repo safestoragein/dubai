@@ -46,7 +46,7 @@ export default function PricingPage() {
               {[
                 { icon: Shield, text: "No Hidden Fees" },
                 { icon: Lock, text: "Secure Storage" },
-                { icon: Truck, text: "Hassle-Free Pickup" },
+                { icon: Truck, text: "Door-to-door Pickup" },
                 { icon: Clock, text: "Easy Returns" },
               ].map((item, index) => (
                 <div key={index} className="flex flex-col items-center space-y-2 p-4 rounded-lg bg-white shadow-sm">
@@ -78,7 +78,7 @@ export default function PricingPage() {
           <div className="flex justify-center">
             <div className="bg-blue-50 rounded-2xl p-10 border-2 border-primary text-center max-w-xl w-full">
               <p className="text-2xl md:text-3xl font-bold text-primary">Pricing starts from 12.60 AED / sqft</p>
-              <p className="text-sm text-muted-foreground mt-3">VAT-inclusive · secure indoor storage · hassle-free pickup &amp; delivery included</p>
+              <p className="text-sm text-muted-foreground mt-3">VAT-inclusive · secure indoor storage · door-to-door pickup &amp; delivery included</p>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function PricingPage() {
                 icon: Lock,
               },
               {
-                title: "Hassle-Free Pickup & Delivery",
+                title: "Door-to-door Pickup & Delivery",
                 description: "We handle the logistics so you don't have to.",
                 icon: Truck,
               },

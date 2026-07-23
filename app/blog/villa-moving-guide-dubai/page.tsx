@@ -6,7 +6,7 @@ import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Villa Moving Guide Dubai — Complete Checklist for Moving a Dubai Villa | SafeStorage",
-  description: "Complete guide to moving a Dubai villa. 8-week checklist, what to store, how to manage the logistics, and how to avoid the most expensive mistakes. Hassle-free pickup available.",
+  description: "Complete guide to moving a Dubai villa. 8-week checklist, what to store, how to manage the logistics, and how to avoid the most expensive mistakes. Door-to-Door pickup available.",
   keywords: "villa moving dubai, moving out of villa dubai, dubai villa move checklist, how to move villa dubai, moving large house dubai, villa relocation dubai",
   openGraph: {
     title: "Villa Moving Guide Dubai — Complete 8-Week Checklist",
@@ -172,8 +172,8 @@ export default function VillaMovingGuideDubaiPage() {
             </div>
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
-              <h2 className="text-2xl font-bold mb-3">Hassle-Free Villa Storage Pickup Across Dubai</h2>
-              <p className="text-white/80 mb-6">Storing during your villa move? SafeStorage provides hassle-free pickup for villa contents. Large and extra-large units available for full villa storage.</p>
+              <h2 className="text-2xl font-bold mb-3">Villa Storage Pickup Across Dubai</h2>
+              <p className="text-white/80 mb-6">Storing during your villa move? SafeStorage provides door-to-door pickup for villa contents. Large and extra-large units available for full villa storage.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Villa Storage Quote</Button>

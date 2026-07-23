@@ -39,7 +39,7 @@ export default function LandingQuoteSection() {
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               {[
-                { icon: Truck, text: "Hassle hassle-free Pickup & Delivery" },
+                { icon: Truck, text: "Hassle door-to-door Pickup & Delivery" },
                 { icon: Building, text: "Clean Indoor Units" },
                 { icon: Box, text: "Flexible Storage Terms" },
                 { icon: Package, text: "Secure Facilities" },

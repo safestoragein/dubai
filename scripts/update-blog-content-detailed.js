@@ -128,7 +128,7 @@ const blogContents = [
 
 <h3>Our Unique Advantages</h3>
 
-<p>What sets SafeStorage Dubai apart is our commitment to customer convenience and satisfaction. We offer hassle-free pickup and delivery services, eliminating the hassle of transportation. Our transparent pricing model means no hidden fees or surprises. With 24/7 access to your belongings and a user-friendly online management system, managing your storage has never been easier.</p>
+<p>What sets SafeStorage Dubai apart is our commitment to customer convenience and satisfaction. We offer door-to-door pickup and delivery services, eliminating the hassle of transportation. Our transparent pricing model means no hidden fees or surprises. With 24/7 access to your belongings and a user-friendly online management system, managing your storage has never been easier.</p>
 
 <h3>Comprehensive Services</h3>
 
@@ -146,7 +146,7 @@ const blogContents = [
 
 <h3>Step 3: Transportation</h3>
 
-<p>Our hassle-free pickup service means you don't worry about transportation. Our trained team carefully loads your items and transports them to our secure facility.</p>
+<p>Our door-to-door pickup service means you don't worry about transportation. Our trained team carefully loads your items and transports them to our secure facility.</p>
 
 <h3>Step 4: Storage and Management</h3>
 
@@ -337,7 +337,7 @@ const blogContents = [
 <h3>Comprehensive Business Services</h3>
 
 <p>We provide more than just storage space. Our business solutions include:
-- Hassle-free pickup and delivery services to minimize disruption
+- Door-to-Door pickup and delivery services to minimize disruption
 - Flexible contract terms from daily to annual agreements
 - Inventory management systems with online access
 - Document storage with retrieval services

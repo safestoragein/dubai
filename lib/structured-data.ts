@@ -18,7 +18,7 @@ export const organizationSchema = {
     height: 60
   },
   image: "https://safestorage.ae/images/storage-facility-background.png",
-  description: "Dubai's most trusted storage partner since 2018. Secure indoor units, 24/7 security, hassle-free pickup & delivery, and free insurance up to AED 5000.",
+  description: "Dubai's most trusted storage partner since 2018. Secure indoor units, 24/7 security, door-to-door pickup & delivery, and free insurance up to AED 5000.",
   foundingDate: "2018",
   founders: [
     {
@@ -88,7 +88,7 @@ export const localBusinessSchema = {
   "@id": "https://safestorage.ae/#business",
   name: "SafeStorage Dubai - Premium Storage Solutions",
   alternateName: "SafeStorage Dubai",
-  description: "Dubai's most trusted storage partner since 2018. Secure indoor units, 24/7 security, hassle-free pickup & delivery, and free insurance up to AED 5000. Serving Dubai Marina, Business Bay, JLT, Downtown, and all areas.",
+  description: "Dubai's most trusted storage partner since 2018. Secure indoor units, 24/7 security, door-to-door pickup & delivery, and free insurance up to AED 5000. Serving Dubai Marina, Business Bay, JLT, Downtown, and all areas.",
   image: [
     "https://safestorage.ae/images/storage-facility-background.png",
     "https://safestorage.ae/expansive-storage.png",
@@ -163,7 +163,7 @@ export const localBusinessSchema = {
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       author: { "@type": "Person", name: "Ahmed Hassan" },
       datePublished: "2024-11-15",
-      reviewBody: "Excellent storage facility with top-notch security and spotlessly clean units. The hassle-free pickup service made everything so convenient!"
+      reviewBody: "Excellent storage facility with top-notch security and spotlessly clean units. The door-to-door pickup service made everything so convenient!"
     },
     {
       "@type": "Review",
@@ -177,7 +177,7 @@ export const localBusinessSchema = {
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       author: { "@type": "Person", name: "Fatima Al-Rashid" },
       datePublished: "2024-10-25",
-      reviewBody: "Used their service for villa renovation storage. Their secure, dust-protected units kept all my furniture in perfect condition. Hassle-free pickup was a huge bonus!"
+      reviewBody: "Used their service for villa renovation storage. Their secure, dust-protected units kept all my furniture in perfect condition. Door-to-Door pickup was a huge bonus!"
     },
     {
       "@type": "Review",
@@ -190,7 +190,7 @@ export const localBusinessSchema = {
   amenityFeature: [
     { "@type": "LocationFeatureSpecification", name: "24/7 CCTV Security", value: true },
     { "@type": "LocationFeatureSpecification", name: "Secure Indoor Units", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Hassle-Free Pickup & Delivery", value: true },
+    { "@type": "LocationFeatureSpecification", name: "Door-to-door Pickup & Delivery", value: true },
     { "@type": "LocationFeatureSpecification", name: "Free Insurance (up to AED 5000)", value: true },
     { "@type": "LocationFeatureSpecification", name: "Fire Detection & Suppression", value: true },
     { "@type": "LocationFeatureSpecification", name: "Individual Unit Alarms", value: true },
@@ -218,7 +218,7 @@ export const webSiteSchema = {
   name: "SafeStorage Dubai",
   alternateName: "SafeStorage AE",
   url: "https://safestorage.ae",
-  description: "Dubai's most trusted storage partner. Secure self storage units with hassle-free pickup & delivery.",
+  description: "Dubai's most trusted storage partner. Secure self storage units with door-to-door pickup & delivery.",
   publisher: { "@id": "https://safestorage.ae/#organization" },
   inLanguage: "en-AE",
   potentialAction: {
@@ -243,7 +243,7 @@ export const faqSchema = {
       name: "How much does storage cost in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units are secure, clean, 24/7 CCTV-monitored, and include hassle-free pickup & delivery within Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
+        text: "Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units are secure, clean, 24/7 CCTV-monitored, and include door-to-door pickup & delivery within Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
       }
     },
     {
@@ -251,7 +251,7 @@ export const faqSchema = {
       name: "What is the cheapest storage option in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with hassle-free pickup & delivery, secure clean units, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
+        text: "Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. This is ideal for boxes, seasonal items, or small furniture. We offer the best value with door-to-door pickup & delivery, secure clean units, 24/7 security, and free insurance up to AED 5000 - all included in the price with no hidden fees."
       }
     },
     {
@@ -259,7 +259,7 @@ export const faqSchema = {
       name: "Are there any hidden fees for storage in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "At SafeStorage Dubai, there are absolutely no hidden fees. The quoted price includes: secure indoor storage, 24/7 security with CCTV, basic insurance up to AED 5000, and access during operating hours. Pickup and delivery within Dubai is FREE. Optional extras like premium insurance or packing materials are transparently priced."
+        text: "At SafeStorage Dubai, there are absolutely no hidden fees. The quoted price includes: secure indoor storage, 24/7 security with CCTV, basic insurance up to AED 5000, and access during operating hours. Pickup and delivery within Dubai is door-to-door. Optional extras like premium insurance or packing materials are transparently priced."
       }
     },
     {
@@ -311,10 +311,10 @@ export const faqSchema = {
     // PICKUP & DELIVERY
     {
       "@type": "Question",
-      name: "Do you offer hassle-free pickup and delivery for storage in Dubai?",
+      name: "Do you offer door-to-door pickup and delivery for storage in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! SafeStorage Dubai provides Hassle-free pickup and delivery anywhere in Dubai. Our professional team will collect your items from your home, office, or any location, transport them safely to our secure facility, and return them whenever you need. This hassle-free service sets us apart from other storage providers."
+        text: "Yes! SafeStorage Dubai provides Door-to-Door pickup and delivery anywhere in Dubai. Our professional team will collect your items from your home, office, or any location, transport them safely to our secure facility, and return them whenever you need. This hassle-free service sets us apart from other storage providers."
       }
     },
     {
@@ -385,7 +385,7 @@ export const faqSchema = {
       name: "Can I store my car or vehicle in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! SafeStorage Dubai offers secure, indoor vehicle storage starting from 12.60 AED / sqft (VAT-inclusive). We store cars, motorcycles, classic cars, boats, jet skis, and RVs. All vehicles are kept in our secure indoor facility with 24/7 CCTV surveillance. Hassle-free pickup and delivery available for vehicles too."
+        text: "Yes! SafeStorage Dubai offers secure, indoor vehicle storage starting from 12.60 AED / sqft (VAT-inclusive). We store cars, motorcycles, classic cars, boats, jet skis, and RVs. All vehicles are kept in our secure indoor facility with 24/7 CCTV surveillance. Door-to-Door pickup and delivery available for vehicles too."
       }
     },
     // BUSINESS STORAGE
@@ -411,7 +411,7 @@ export const faqSchema = {
       name: "Why should I choose SafeStorage Dubai over other storage companies?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai stands out with: Hassle-free pickup and delivery (others charge AED 200-500), ALL units secure and clean with 24/7 CCTV, FREE insurance up to AED 5000 included, dedicated personal storage consultant, no hidden fees or admin charges, flexible month-to-month contracts, 4.9/5 rating from 487+ Google reviews, and 7+ years serving Dubai. We're trusted by 500+ happy customers."
+        text: "SafeStorage Dubai stands out with: Door-to-Door pickup and delivery (others charge AED 200-500), ALL units secure and clean with 24/7 CCTV, FREE insurance up to AED 5000 included, dedicated personal storage consultant, no hidden fees or admin charges, flexible month-to-month contracts, 4.9/5 rating from 487+ Google reviews, and 7+ years serving Dubai. We're trusted by 500+ happy customers."
       }
     },
     {
@@ -427,7 +427,7 @@ export const faqSchema = {
       name: "What do customers say about SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai has a 4.9/5 rating on Google with 487+ verified reviews. Customers praise our: hassle-free pickup & delivery service, secure and clean units that keep belongings well protected, transparent pricing with no hidden fees, responsive customer service (15-minute average response), and professional, friendly staff. Read our reviews at our Google Business listing."
+        text: "SafeStorage Dubai has a 4.9/5 rating on Google with 487+ verified reviews. Customers praise our: door-to-door pickup & delivery service, secure and clean units that keep belongings well protected, transparent pricing with no hidden fees, responsive customer service (15-minute average response), and professional, friendly staff. Read our reviews at our Google Business listing."
       }
     },
     // PRACTICAL QUESTIONS
@@ -469,7 +469,7 @@ export const faqSchema = {
       name: "What is the best storage company in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai is rated as one of the best storage companies in Dubai with a 4.9/5 Google rating from 487+ reviews. Key advantages: Hassle-free pickup & delivery, ALL units secure with 24/7 CCTV, FREE insurance up to AED 5000, no hidden fees, and 7+ years experience. Trusted by 500+ customers. Call +971505773388 for a free quote."
+        text: "SafeStorage Dubai is rated as one of the best storage companies in Dubai with a 4.9/5 Google rating from 487+ reviews. Key advantages: Door-to-Door pickup & delivery, ALL units secure with 24/7 CCTV, FREE insurance up to AED 5000, no hidden fees, and 7+ years experience. Trusted by 500+ customers. Call +971505773388 for a free quote."
       }
     },
     {
@@ -477,7 +477,7 @@ export const faqSchema = {
       name: "Where can I store my furniture during renovation in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai is ideal for renovation storage. We offer: Hassle-free pickup from your home, secure indoor units (keeping furniture clean and dust-protected), flexible month-to-month terms perfect for renovation timelines, hassle-free delivery back when you're ready, and FREE insurance up to AED 5000. Many customers have stored villa and apartment contents during renovations. Call +971505773388."
+        text: "SafeStorage Dubai is ideal for renovation storage. We offer: Door-to-Door pickup from your home, secure indoor units (keeping furniture clean and dust-protected), flexible month-to-month terms perfect for renovation timelines, doorstep delivery back when you're ready, and FREE insurance up to AED 5000. Many customers have stored villa and apartment contents during renovations. Call +971505773388."
       }
     },
     {
@@ -485,7 +485,7 @@ export const faqSchema = {
       name: "How much does it cost to store a car in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Car storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. This includes: secure indoor facility, 24/7 CCTV security, Hassle-free pickup and delivery, insurance coverage, and regular inspections. Ideal for classic cars, second vehicles, or when traveling. Call +971505773388 for vehicle storage quote."
+        text: "Car storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. This includes: secure indoor facility, 24/7 CCTV security, Door-to-Door pickup and delivery, insurance coverage, and regular inspections. Ideal for classic cars, second vehicles, or when traveling. Call +971505773388 for vehicle storage quote."
       }
     }
   ]
@@ -498,7 +498,7 @@ export const serviceSchema = {
   "@id": "https://safestorage.ae/#service",
   serviceType: "Self Storage Service",
   name: "Premium Storage Solutions Dubai",
-  description: "Secure, clean indoor storage units with hassle-free pickup and delivery across Dubai. Personal storage, business storage, vehicle storage, and document archiving.",
+  description: "Secure, clean indoor storage units with door-to-door pickup and delivery across Dubai. Personal storage, business storage, vehicle storage, and document archiving.",
   provider: {
     "@id": "https://safestorage.ae/#organization"
   },
@@ -548,8 +548,8 @@ export const serviceSchema = {
         "@type": "OfferCatalog",
         name: "Pickup & Delivery",
         itemListElement: [
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hassle-Free Pickup", description: "Complimentary collection from your location" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hassle-Free Delivery", description: "Hassle-free return delivery when needed" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Door-to-Door Pickup", description: "Collection from your location" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Doorstep Delivery", description: "return delivery when needed" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Packing Service", description: "Professional packing assistance" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Same-Day Service", description: "Urgent pickup/delivery available" } }
         ]
@@ -574,7 +574,7 @@ export const productSchema = {
   "@type": "Product",
   "@id": "https://safestorage.ae/#product",
   name: "Self Storage Units Dubai",
-  description: "Premium secure indoor storage units in Dubai with hassle-free pickup and delivery. Personal, business, and vehicle storage from 12.60 AED / sqft (VAT-inclusive).",
+  description: "Premium secure indoor storage units in Dubai with door-to-door pickup and delivery. Personal, business, and vehicle storage from 12.60 AED / sqft (VAT-inclusive).",
   brand: {
     "@type": "Brand",
     name: "SafeStorage Dubai"
@@ -665,7 +665,7 @@ export const howToSchema = {
   "@type": "HowTo",
   "@id": "https://safestorage.ae/#howto",
   name: "How to Rent Storage in Dubai - SafeStorage Dubai",
-  description: "Simple 4-step process to rent secure indoor storage in Dubai with hassle-free pickup and delivery.",
+  description: "Simple 4-step process to rent secure indoor storage in Dubai with door-to-door pickup and delivery.",
   totalTime: "PT10M",
   estimatedCost: {
     "@type": "MonetaryAmount",
@@ -682,8 +682,8 @@ export const howToSchema = {
     },
     {
       "@type": "HowToStep",
-      name: "Schedule Hassle-Free Pickup",
-      text: "Choose your preferred pickup date and time. Our professional team will come to your home, office, or any Dubai location to collect your items. Pickup is FREE.",
+      name: "Schedule Door-to-door Pickup",
+      text: "Choose your preferred pickup date and time. Our professional team will come to your home, office, or any Dubai location to collect your items. We collect from your door.",
       image: "https://safestorage.ae/expansive-storage.png"
     },
     {
@@ -695,7 +695,7 @@ export const howToSchema = {
     {
       "@type": "HowToStep",
       name: "Retrieve Anytime",
-      text: "Access your items during operating hours, or request hassle-free delivery back to your location. We'll bring your belongings to you whenever you need them.",
+      text: "Access your items during operating hours, or request doorstep delivery back to your location. We'll bring your belongings to you whenever you need them.",
       image: "https://safestorage.ae/organized-warehouse-space.png"
     }
   ]
@@ -785,7 +785,7 @@ export const offerSchema = {
   "@type": "Offer",
   "@id": "https://safestorage.ae/#offer",
   name: "New Customer Offer - SafeStorage Dubai",
-  description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes hassle-free pickup and delivery, secure indoor units, and insurance up to AED 5000.",
+  description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes door-to-door pickup and delivery, secure indoor units, and insurance up to AED 5000.",
   priceSpecification: { "@type": "UnitPriceSpecification", price: "12.60", priceCurrency: "AED", unitText: "per sq ft" },
   priceValidUntil: "2026-12-31",
   availability: "https://schema.org/InStock",
@@ -836,7 +836,7 @@ export const aboutPageSchema = {
   "@type": "AboutPage",
   "@id": "https://safestorage.ae/about#webpage",
   name: "About SafeStorage Dubai - Dubai's Trusted Storage Partner Since 2018",
-  description: "Learn about SafeStorage Dubai - serving Dubai since 2018 with secure indoor storage, 24/7 security, and hassle-free pickup & delivery. 500+ happy customers.",
+  description: "Learn about SafeStorage Dubai - serving Dubai since 2018 with secure indoor storage, 24/7 security, and door-to-door pickup & delivery. 500+ happy customers.",
   url: "https://safestorage.ae/about",
   mainEntity: {
     "@id": "https://safestorage.ae/#organization"

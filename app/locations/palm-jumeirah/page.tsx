@@ -5,12 +5,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Palm Jumeirah Storage — Villa & Apartment",
   description:
-    "Storage for Palm Jumeirah villas and apartments. Hassle-free pickup from all Fronds, Trunk & Crescent. Secure, 24/7 monitored, free insurance. Same-day available. Call +971505773388.",
+    "Storage for Palm Jumeirah villas and apartments. Door-to-Door pickup from all Fronds, Trunk & Crescent. Secure, 24/7 monitored, free insurance. Same-day available. Call +971505773388.",
   keywords:
     "palm jumeirah storage, storage palm jumeirah dubai, villa storage palm jumeirah, furniture storage palm fronds, palm jumeirah self storage, storage near palm jumeirah",
   openGraph: {
     title: "Palm Jumeirah Storage — Villa & Apartment Pickup | SafeStorage",
-    description: "Hassle-free pickup from all Palm Jumeirah Fronds, Trunk & Crescent. Secure villa & apartment storage. Call +971505773388.",
+    description: "Door-to-Door pickup from all Palm Jumeirah Fronds, Trunk & Crescent. Secure villa & apartment storage. Call +971505773388.",
     url: "https://safestorage.ae/locations/palm-jumeirah",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const palmJumeirahSchemas = [
     "@type": "Service",
     name: "Storage Services for Palm Jumeirah",
     description:
-      "Premium villa and apartment storage for Palm Jumeirah residents. Hassle-free pickup from all Fronds, Trunk, and Crescent. Secure, fully insured, flexible monthly plans.",
+      "Premium villa and apartment storage for Palm Jumeirah residents. Door-to-Door pickup from all Fronds, Trunk, and Crescent. Secure, fully insured, flexible monthly plans.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/palm-jumeirah",
     areaServed: [
@@ -50,7 +50,7 @@ const palmJumeirahSchemas = [
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/palm-jumeirah#webpage",
     name: "Palm Jumeirah Storage — Villa & Apartment Pickup | SafeStorage",
-    description: "Hassle-free pickup from all Palm Jumeirah Fronds, Trunk & Crescent. Secure villa and apartment storage.",
+    description: "Door-to-Door pickup from all Palm Jumeirah Fronds, Trunk & Crescent. Secure villa and apartment storage.",
     url: "https://safestorage.ae/locations/palm-jumeirah",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -190,7 +190,7 @@ export default function PalmJumeirahPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a full Palm villa during renovation?</h3>
-              <p className="text-gray-700">Full-villa storage pricing starts from 12.60 AED / sqft (VAT-inclusive) and depends on the volume of items. Whether you are storing a 4-bedroom Signature Villa or a larger 5–6 bedroom villa, you pay only for the space your furniture and personal items occupy — including hassle-free pickup, secure storage, insurance, and on-demand delivery. For the most accurate quote, we carry out a brief assessment of your specific villa contents. Send us photos via WhatsApp (+971505773388) or a video walkthrough and we will provide a confirmed price within a few hours.</p>
+              <p className="text-gray-700">Full-villa storage pricing starts from 12.60 AED / sqft (VAT-inclusive) and depends on the volume of items. Whether you are storing a 4-bedroom Signature Villa or a larger 5–6 bedroom villa, you pay only for the space your furniture and personal items occupy — including door-to-door pickup, secure storage, insurance, and on-demand delivery. For the most accurate quote, we carry out a brief assessment of your specific villa contents. Send us photos via WhatsApp (+971505773388) or a video walkthrough and we will provide a confirmed price within a few hours.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can you store a jet ski or personal watercraft from Palm Jumeirah?</h3>

@@ -47,7 +47,7 @@ const places = [
       "VR Park and Dubai Ice Rink"
     ],
     bestTime: "Sunset (6-7 PM) for stunning views",
-    storageConnection: "Moving to Downtown Dubai? Store your extra furniture and belongings with us while you settle into your new high-rise apartment. We offer hassle-free pickup from all Downtown areas.",
+    storageConnection: "Moving to Downtown Dubai? Store your extra furniture and belongings with us while you settle into your new high-rise apartment. We offer door-to-door pickup from all Downtown areas.",
     image: "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=1200&h=800&fit=crop"
   },
   {
@@ -355,7 +355,7 @@ export default function TopPlacesDubai2026() {
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                 <Package className="h-10 w-10 text-[#D8315B] mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Hassle-Free Pickup</h3>
+                <h3 className="font-semibold mb-2">Door-to-door Pickup</h3>
                 <p className="text-sm text-gray-200">We collect from anywhere in Dubai</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">

@@ -32,7 +32,7 @@ const features = [
   },
   {
     icon: Truck,
-    title: "Hassle-Free Pickup & Delivery",
+    title: "Door-to-door Pickup & Delivery",
     description: "We collect and deliver documents at your convenience",
   },
   {
@@ -176,7 +176,7 @@ export default function RecordsArchivalPage() {
               Ready to Secure Your Business Documents?
             </h2>
             <p className="text-white/80 mb-8">
-              Get professional document storage with complete security and compliance. Hassle-free pickup available.
+              Get professional document storage with complete security and compliance. Door-to-Door pickup available.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button

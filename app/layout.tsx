@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     default: "SafeStorage Dubai - Premium Self Storage Solutions | Call +971505773388",
     template: "%s | SafeStorage Dubai"
   },
-  description: "Dubai's most trusted self storage facility offering secure units, 24/7 security, and hassle-free pickup & delivery. Call +971505773388 for instant quote.",
+  description: "Dubai's most trusted self storage facility offering secure units, 24/7 security, and door-to-door pickup & delivery. Call +971505773388 for instant quote.",
   keywords: "self storage dubai, storage units dubai, secure storage dubai, business storage, personal storage, vehicle storage, document storage, storage facility dubai, dubai storage solutions, furniture storage dubai, moving storage dubai",
   authors: [{ name: "SafeStorage Dubai" }],
   creator: "SafeStorage Dubai",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "SafeStorage Dubai - Premium Self Storage Solutions | +971505773388",
-    description: "Dubai's most trusted self storage facility with secure units, 24/7 security, and hassle-free pickup & delivery service. Call now!",
+    description: "Dubai's most trusted self storage facility with secure units, 24/7 security, and door-to-door pickup & delivery service. Call now!",
     url: "https://safestorage.ae",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SafeStorage Dubai - Premium Self Storage | +971505773388",
-    description: "Dubai's most trusted self storage facility with secure units and hassle-free pickup & delivery.",
+    description: "Dubai's most trusted self storage facility with secure units and door-to-door pickup & delivery.",
     images: ["/twitter-image.jpg"],
     creator: "@safestoragedubai"
   },

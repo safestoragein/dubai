@@ -44,7 +44,7 @@ export const seoBlogPosts = [
         <li><strong>Cleanliness:</strong> Look for well-maintained, dust-protected units</li>
         <li><strong>Accessibility:</strong> Check operating hours and ease of access</li>
         <li><strong>Location:</strong> Choose a facility near your home or office</li>
-        <li><strong>Services:</strong> Hassle-free pickup/delivery, packing supplies, insurance options</li>
+        <li><strong>Services:</strong> Door-to-Door pickup/delivery, packing supplies, insurance options</li>
       </ol>
       
       <h3>Top Storage Locations in Dubai</h3>
@@ -67,7 +67,7 @@ export const seoBlogPosts = [
       <h3>Why Choose SafeStorage Dubai?</h3>
       <p>SafeStorage offers premium storage solutions with:</p>
       <ul>
-        <li>Hassle-free pickup and delivery across Dubai</li>
+        <li>Door-to-Door pickup and delivery across Dubai</li>
         <li>Secure, clean indoor units</li>
         <li>Flexible contracts from 1 month</li>
         <li>Transparent pricing with no hidden fees</li>
@@ -159,14 +159,14 @@ export const seoBlogPosts = [
       <ul>
         <li><strong>Secure, Clean Units Matter:</strong> Dust and pests can damage electronics and furniture if items aren't well protected</li>
         <li><strong>Location Matters:</strong> Choose storage near your new area to save time</li>
-        <li><strong>Free Services:</strong> Look for facilities offering hassle-free pickup - traffic can be challenging</li>
+        <li><strong>Free Services:</strong> Look for facilities offering door-to-door pickup - traffic can be challenging</li>
         <li><strong>Flexible Contracts:</strong> Opt for month-to-month initially until settled</li>
       </ul>
       
       <h3>SafeStorage: Your Moving Partner</h3>
       <p>We understand the challenges of moving to Dubai. That's why we offer:</p>
       <ul>
-        <li>Hassle-free pickup from anywhere in Dubai</li>
+        <li>Door-to-Door pickup from anywhere in Dubai</li>
         <li>Flexible contracts from just 1 month</li>
         <li>Secure, clean indoor units for peace of mind</li>
         <li>Bilingual staff (English/Arabic) to assist expats</li>
@@ -316,7 +316,7 @@ export const seoBlogPosts = [
         <li>Dedicated account managers</li>
         <li>Bulk storage discounts</li>
         <li>Flexible access arrangements</li>
-        <li>Hassle-free pickup and delivery service</li>
+        <li>Door-to-Door pickup and delivery service</li>
         <li>Secure, clean indoor environment</li>
         <li>Customizable unit configurations</li>
       </ul>

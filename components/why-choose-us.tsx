@@ -10,7 +10,7 @@ export default function WhyChooseUs() {
   const features = [
     {
       icon: Truck,
-      title: "Hassle-Free Pickup & Delivery",
+      title: "Door-to-door Pickup & Delivery",
       description:
         "We come to you — anywhere in Dubai. Our team brings packing materials, carefully loads your items, and transports them safely to our facility — so there is no van rental or heavy lifting needed on your part. When you need items back, we deliver to your door.",
       highlight: "Anywhere Dubai",

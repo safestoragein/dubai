@@ -9,12 +9,12 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Personal Storage Dubai — Furniture & Boxes from 12.60 AED / sqft",
   description:
-    "Store household furniture, seasonal items, and moving boxes in Dubai with hassle-free pickup from your door. Personal storage from 12.60 AED / sqft — no lorry, no hassle. Trusted by 500+ Dubai residents. Call +971505773388.",
+    "Store household furniture, seasonal items, and moving boxes in Dubai with door-to-door pickup from your door. Personal storage from 12.60 AED / sqft — no lorry, no hassle. Trusted by 500+ Dubai residents. Call +971505773388.",
   keywords:
     "personal household storage dubai, furniture storage home move dubai, moving boxes storage dubai, declutter home storage dubai, seasonal items storage dubai, apartment storage dubai, storage pickup from home dubai",
   openGraph: {
     title: "Personal Household Storage Dubai | Furniture & Boxes | SafeStorage",
-    description: "Store household furniture and moving boxes with hassle-free pickup from your Dubai home. From 12.60 AED / sqft. Call +971505773388.",
+    description: "Store household furniture and moving boxes with door-to-door pickup from your Dubai home. From 12.60 AED / sqft. Call +971505773388.",
     url: "https://safestorage.ae/personal-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -33,7 +33,7 @@ const features = [
   },
   {
     icon: Truck,
-    title: "Hassle-Free Pickup & Delivery",
+    title: "Door-to-door Pickup & Delivery",
     description: "We collect and deliver your items door-to-door - completely hassle-free",
   },
   {
@@ -86,7 +86,7 @@ const personalStorageSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Personal Household Storage Dubai',
-    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with hassle-free pickup from your door. Personal storage from 12.60 AED / sqft.',
+    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with door-to-door pickup from your door. Personal storage from 12.60 AED / sqft.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/personal-storage',
     areaServed: { '@type': 'City', name: 'Dubai' },
@@ -98,7 +98,7 @@ const personalStorageSchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/personal-storage#webpage',
     name: 'Personal Household Storage Dubai | Furniture & Boxes from 12.60 AED / sqft',
-    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with hassle-free pickup. Personal storage from 12.60 AED / sqft.',
+    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with door-to-door pickup. Personal storage from 12.60 AED / sqft.',
     url: 'https://safestorage.ae/personal-storage',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -142,7 +142,7 @@ export default function PersonalStoragePage() {
               Starting from just <span className="text-dubai-gold font-bold">12.60 AED / sqft</span> (VAT-inclusive).
             </p>
             <p className="text-base md:text-lg text-gray-400 mb-8">
-              Hassle-free pickup & delivery | No hidden fees | Cancel anytime
+              Door-to-Door pickup & delivery | No hidden fees | Cancel anytime
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -254,7 +254,7 @@ export default function PersonalStoragePage() {
                 <div className="w-16 h-16 bg-dubai-gold rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                   2
                 </div>
-                <h3 className="text-xl font-semibold text-dubai-navy mb-2">Hassle-Free Pickup</h3>
+                <h3 className="text-xl font-semibold text-dubai-navy mb-2">Door-to-door Pickup</h3>
                 <p className="text-gray-600">
                   We'll collect your items from your doorstep at a time that suits you
                 </p>
@@ -283,7 +283,7 @@ export default function PersonalStoragePage() {
               Starting from Just 12.60 AED / sqft
             </h2>
             <p className="text-white/90 mb-8 text-lg">
-              No setup fees • Hassle-free pickup & delivery • Cancel anytime
+              No setup fees • Door-to-Door pickup & delivery • Cancel anytime
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
               <div className="grid sm:grid-cols-3 gap-6 text-center">
@@ -364,7 +364,7 @@ export default function PersonalStoragePage() {
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does personal storage cost in Dubai?</h3>
-              <p className="text-gray-700 leading-relaxed">Personal storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small locker for a student room or boxes, a medium unit for a 1–2 bedroom apartment&apos;s complete contents, or a large unit for a 3-bedroom apartment or villa. The price includes 24/7 security monitoring and basic insurance coverage up to AED 5,000. Hassle-free pickup is included for addresses across Dubai. There are no setup fees, no hidden admin charges, and no long-term contracts required. You simply pay monthly and cancel with 30 days&apos; notice.</p>
+              <p className="text-gray-700 leading-relaxed">Personal storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), whether you need a small locker for a student room or boxes, a medium unit for a 1–2 bedroom apartment&apos;s complete contents, or a large unit for a 3-bedroom apartment or villa. The price includes 24/7 security monitoring and basic insurance coverage up to AED 5,000. Door-to-Door pickup is included for addresses across Dubai. There are no setup fees, no hidden admin charges, and no long-term contracts required. You simply pay monthly and cancel with 30 days&apos; notice.</p>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store seasonal clothing and winter wear in Dubai?</h3>
@@ -499,7 +499,7 @@ export default function PersonalStoragePage() {
             </p>
             <p className="text-gray-700">
               All personal storage plans include 24/7 security, free insurance up to AED 5,000,
-              hassle-free pickup from your Dubai address, and delivery back to you on demand. No long-term contracts —
+              door-to-door pickup from your Dubai address, and delivery back to you on demand. No long-term contracts —
               pay monthly and cancel whenever you are ready.
             </p>
           </div>

@@ -6,12 +6,12 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Storage Pricing Dubai — From 12.60 AED / sqft",
   description:
-    "Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Hassle-free pickup & delivery included. Call +971505773388 for best rates.",
+    "Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door pickup & delivery included. Call +971505773388 for best rates.",
   keywords:
     "storage pricing dubai, cheap storage dubai, storage costs, affordable storage, storage rates dubai, self storage prices, monthly storage cost, storage unit prices",
   openGraph: {
     title: "SafeStorage Pricing - Storage from 12.60 AED / sqft",
-    description: "Competitive storage rates in Dubai. All sizes available with hassle-free pickup & delivery. Call +971505773388.",
+    description: "Competitive storage rates in Dubai. All sizes available with door-to-door pickup & delivery. Call +971505773388.",
     url: "https://safestorage.ae/pricing",
     siteName: "SafeStorage Dubai",
     images: [
@@ -42,7 +42,7 @@ const pricingSchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/pricing#webpage',
     name: 'Storage Pricing Dubai | From 12.60 AED / sqft',
-    description: 'Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Hassle-free pickup & delivery included.',
+    description: 'Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door pickup & delivery included.',
     url: 'https://safestorage.ae/pricing',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -51,7 +51,7 @@ const pricingSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Storage Units Dubai — Transparent Pricing',
-    description: 'Transparent storage pricing in Dubai. Hassle-free pickup & delivery included. Call +971505773388 for best rates.',
+    description: 'Transparent storage pricing in Dubai. Door-to-Door pickup & delivery included. Call +971505773388 for best rates.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/pricing',
     areaServed: { '@type': 'City', name: 'Dubai' },
@@ -87,7 +87,7 @@ export default function Pricing() {
           <div className="flex justify-center mb-12">
             <div className="bg-white rounded-2xl p-10 border-2 border-[#0A2463] text-center max-w-xl w-full">
               <p className="text-2xl md:text-3xl font-bold text-[#0A2463]">Pricing starts from 12.60 AED / sqft</p>
-              <p className="text-sm text-gray-500 mt-3">VAT-inclusive · secure indoor storage · hassle-free pickup &amp; delivery included</p>
+              <p className="text-sm text-gray-500 mt-3">VAT-inclusive · secure indoor storage · door-to-door pickup &amp; delivery included</p>
             </div>
           </div>
 
@@ -101,7 +101,7 @@ export default function Pricing() {
               </div>
               <div>
                 <p className="mb-2">✓ <strong>Free insurance</strong> — up to AED 5,000 coverage included</p>
-                <p className="mb-2">✓ <strong>Pickup &amp; delivery</strong> — hassle-free door-to-door across Dubai</p>
+                <p className="mb-2">✓ <strong>Pickup &amp; delivery</strong> — door-to-door across Dubai</p>
                 <p className="mb-2">✓ <strong>No hidden fees</strong> — price quoted is price charged</p>
                 <p className="mb-2">✓ <strong>Flexible terms</strong> — cancel anytime, no penalties</p>
               </div>
@@ -209,11 +209,11 @@ export default function Pricing() {
                   <p className="text-sm">Every unit is a clean, dust-protected indoor space. Items are carefully wrapped, stored on raised platforms, and kept away from external walls to help protect furniture, electronics, documents, clothing, and artwork. This is not an upgrade — it is standard.</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-[#0A2463]">Hassle-Free Door-to-Door Pickup in Dubai</p>
+                  <p className="font-semibold text-[#0A2463]">Door-to-door Pickup in Dubai</p>
                   <p className="text-sm">Our professional team collects your belongings from any Dubai address at your chosen time. They bring all necessary equipment, wrap furniture, and handle all heavy lifting — so there is no van rental or heavy lifting needed on your part.</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-[#0A2463]">Hassle-Free Return Delivery in Dubai</p>
+                  <p className="font-semibold text-[#0A2463]">Return Delivery in Dubai</p>
                   <p className="text-sm">When you need items back, we deliver them to your door within 24–48 hours. Same-day delivery is available for urgent requests. Partial retrieval — getting some but not all items back — is fully supported.</p>
                 </div>
               </div>
@@ -287,7 +287,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. What is the best value storage option for someone moving apartments in Dubai?</h3>
-              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — storage is priced simply at 12.60 AED / sqft (VAT-inclusive), so a one to two-bedroom apartment is straightforward and economical to store. This includes hassle-free pickup from your old apartment, secure storage for the duration between leases, and hassle-free delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
+              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — storage is priced simply at 12.60 AED / sqft (VAT-inclusive), so a one to two-bedroom apartment is straightforward and economical to store. This includes door-to-door pickup from your old apartment, secure storage for the duration between leases, and doorstep delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -312,7 +312,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">13. Is same-day pickup available?</h3>
-              <p className="text-gray-700">Yes. Same-day pickup is available for requests made before 12 PM on any day, as part of the standard hassle-free pickup service that comes with every storage plan. Subject to availability, our team will arrive at your address the same day, typically within 4 to 6 hours of booking confirmation. For very last-minute requests where same-day pickup is needed urgently (for example, a sudden eviction or emergency relocation), call +971505773388 directly and our dispatch team will confirm availability immediately.</p>
+              <p className="text-gray-700">Yes. Same-day pickup is available for requests made before 12 PM on any day, as part of the standard door-to-door pickup service that comes with every storage plan. Subject to availability, our team will arrive at your address the same day, typically within 4 to 6 hours of booking confirmation. For very last-minute requests where same-day pickup is needed urgently (for example, a sudden eviction or emergency relocation), call +971505773388 directly and our dispatch team will confirm availability immediately.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -322,7 +322,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. What is the price for storing a full villa worth of furniture in Dubai?</h3>
-              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, storage is priced simply at 12.60 AED / sqft (VAT-inclusive) — you pay only for the space your belongings occupy. This includes hassle-free pickup from your villa, secure storage, 24/7 security, free insurance, and hassle-free delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
+              <p className="text-gray-700">For a typical 4–5 bedroom villa with full furniture, appliances, and personal belongings, storage is priced simply at 12.60 AED / sqft (VAT-inclusive) — you pay only for the space your belongings occupy. This includes door-to-door pickup from your villa, secure storage, 24/7 security, free insurance, and doorstep delivery back whenever required. For very large villas or homes with significant volumes of items, we recommend requesting a free volume assessment — our consultant will visit your property to measure and advise on the exact unit size needed, ensuring you do not pay for more space than necessary.</p>
             </div>
 
           </div>

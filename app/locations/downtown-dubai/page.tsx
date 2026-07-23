@@ -3,14 +3,14 @@ import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Downtown Dubai Storage — Hassle-Free Pickup",
+  title: "Downtown Dubai Storage — Door-to-door Pickup",
   description:
-    "Storage in Downtown Dubai, DIFC & Burj Khalifa District. Secure units, hassle-free pickup from your tower, same-day service. Trusted by 500+ Downtown residents. Call +971505773388.",
+    "Storage in Downtown Dubai, DIFC & Burj Khalifa District. Secure units, door-to-door pickup from your tower, same-day service. Trusted by 500+ Downtown residents. Call +971505773388.",
   keywords:
     "storage downtown dubai, storage near burj khalifa, DIFC storage dubai, downtown dubai self storage, storage units downtown dubai, burj khalifa district storage",
   openGraph: {
-    title: "Downtown Dubai & DIFC Storage — Hassle-Free Pickup | SafeStorage",
-    description: "Secure storage for Downtown Dubai, DIFC & Burj Khalifa District. Hassle-free pickup. Same-day available. Call +971505773388.",
+    title: "Downtown Dubai & DIFC Storage — Door-to-door Pickup | SafeStorage",
+    description: "Secure storage for Downtown Dubai, DIFC & Burj Khalifa District. Door-to-Door pickup. Same-day available. Call +971505773388.",
     url: "https://safestorage.ae/locations/downtown-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const downtownSchemas = [
     "@type": "Service",
     name: "Storage Near Downtown Dubai & DIFC",
     description:
-      "Secure storage for Downtown Dubai, DIFC, Burj Khalifa District and Business Bay residents and businesses. Hassle-free pickup, same-day service, flexible plans.",
+      "Secure storage for Downtown Dubai, DIFC, Burj Khalifa District and Business Bay residents and businesses. Door-to-Door pickup, same-day service, flexible plans.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/downtown-dubai",
     areaServed: [
@@ -56,9 +56,9 @@ const downtownSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/downtown-dubai#webpage",
-    name: "Downtown Dubai Storage — Hassle-Free Pickup | SafeStorage",
+    name: "Downtown Dubai Storage — Door-to-door Pickup | SafeStorage",
     description:
-      "Secure storage for Downtown Dubai, DIFC & Burj Khalifa District. Hassle-free pickup from your tower. Same-day available.",
+      "Secure storage for Downtown Dubai, DIFC & Burj Khalifa District. Door-to-Door pickup from your tower. Same-day available.",
     url: "https://safestorage.ae/locations/downtown-dubai",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -212,7 +212,7 @@ export default function DowntownDubaiPage() {
             <div className="max-w-xl mx-auto">
               <div className="bg-white rounded-lg p-8 border-2 border-[#0A2463] text-center">
                 <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12.60 AED / sqft</p>
-                <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · hassle-free pickup &amp; delivery included</p>
+                <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included</p>
               </div>
             </div>
           </div>
@@ -258,7 +258,7 @@ export default function DowntownDubaiPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost to store a full Downtown Dubai apartment?</h3>
-              <p className="text-gray-700">SafeStorage pricing is volume-based and transparent, starting from 12.60 AED / sqft (VAT-inclusive). Whether you are storing a Downtown studio apartment (furniture, boxes, appliances), a 1-bedroom, or a 2-bedroom apartment with a full set of furniture and personal items, you pay only for the space you use. These prices include hassle-free pickup, secure storage, insurance, and one hassle-free delivery per month. Get an accurate personalised quote by calling +971505773388 or submitting the online quote form with a brief description or photos of what you need to store.</p>
+              <p className="text-gray-700">SafeStorage pricing is volume-based and transparent, starting from 12.60 AED / sqft (VAT-inclusive). Whether you are storing a Downtown studio apartment (furniture, boxes, appliances), a 1-bedroom, or a 2-bedroom apartment with a full set of furniture and personal items, you pay only for the space you use. These prices include door-to-door pickup, secure storage, insurance, and one doorstep delivery per month. Get an accurate personalised quote by calling +971505773388 or submitting the online quote form with a brief description or photos of what you need to store.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store artwork, antiques, or high-value items from Downtown properties?</h3>

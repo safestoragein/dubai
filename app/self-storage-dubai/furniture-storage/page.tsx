@@ -6,11 +6,11 @@ import { Sofa, Shield, Package, ArrowRight, CheckCircle2, AlertCircle, Truck } f
 
 export const metadata: Metadata = {
   title: "Furniture Storage Dubai — From 12.60 AED / sqft",
-  description: "Dubai's most affordable furniture storage starting from 12.60 AED / sqft. Secure units protect sofas, beds & dining sets. Hassle-free pickup available. 24/7 access, CCTV security.",
+  description: "Dubai's most affordable furniture storage starting from 12.60 AED / sqft. Secure units protect sofas, beds & dining sets. Door-to-Door pickup available. 24/7 access, CCTV security.",
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, cheap furniture storage dubai, furniture storage al quoz, furniture storage units dubai, affordable furniture storage",
   openGraph: {
     title: "Furniture Storage Dubai – Secure Units from 12.60 AED / sqft",
-    description: "Store furniture safely in Dubai with 24/7 access and professional handling. Hassle-free pickup & delivery available.",
+    description: "Store furniture safely in Dubai with 24/7 access and professional handling. Door-to-Door pickup & delivery available.",
     url: "https://safestorage.ae/self-storage-dubai/furniture-storage",
   },
   alternates: {
@@ -124,7 +124,7 @@ export default function FurnitureStoragePage() {
                     Pricing starts from 12.60 AED / sqft
                   </h3>
                   <p className="text-gray-600">
-                    VAT-inclusive · all unit sizes · hassle-free pickup &amp; delivery included
+                    VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included
                   </p>
                 </CardContent>
               </Card>
@@ -528,7 +528,7 @@ export default function FurnitureStoragePage() {
                   </p>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li>• Professional packing</li>
-                    <li>• Hassle-free transport</li>
+                    <li>• Door-to-door transport</li>
                     <li>• Inventory management</li>
                     <li>• Scheduled returns</li>
                   </ul>
@@ -659,7 +659,7 @@ export default function FurnitureStoragePage() {
                     <td className="border p-4 text-center text-gray-400">Limited hours</td>
                   </tr>
                   <tr>
-                    <td className="border p-4 font-semibold">Hassle-Free Pickup Service</td>
+                    <td className="border p-4 font-semibold">Door-to-door Pickup Service</td>
                     <td className="border p-4 text-center bg-dubai-gold/10">
                       <CheckCircle2 className="h-6 w-6 text-green-600 mx-auto" />
                     </td>
@@ -732,7 +732,7 @@ export default function FurnitureStoragePage() {
                     ))}
                   </div>
                   <p className="text-gray-600 mb-4 italic">
-                    "Best prices in Dubai! Saved over 40% compared to other storage companies. Hassle-free pickup was a huge bonus. Highly recommend for furniture storage."
+                    "Best prices in Dubai! Saved over 40% compared to other storage companies. Door-to-Door pickup was a huge bonus. Highly recommend for furniture storage."
                   </p>
                   <p className="font-semibold text-dubai-navy">- Sarah M., Jumeirah</p>
                 </CardContent>
@@ -797,11 +797,11 @@ export default function FurnitureStoragePage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Do you provide hassle-free pickup and delivery for furniture?</CardTitle>
+                  <CardTitle className="text-lg">Do you provide door-to-door pickup and delivery for furniture?</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Yes! We offer hassle-free pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our secure facility. Delivery is also available when you're ready to retrieve your items. Call +971 50 577 3388 or email support@safestorage.ae to schedule your pickup.
+                    Yes! We offer door-to-door pickup service for furniture storage bookings. Our professional team will come to your location with proper equipment (dollies, blankets, straps), carefully wrap and protect your furniture, and transport it to our secure facility. Delivery is also available when you're ready to retrieve your items. Call +971 50 577 3388 or email support@safestorage.ae to schedule your pickup.
                   </p>
                 </CardContent>
               </Card>
@@ -868,7 +868,7 @@ export default function FurnitureStoragePage() {
                 <CardContent>
                   <p className="text-gray-600">
                     <strong>DIY Storage:</strong> You transport furniture yourself, we provide trolleys and drive-up access. Best for those with a van/truck.<br/><br/>
-                    <strong>Full Service (Most Popular):</strong> We handle everything - professional packing, hassle-free pickup, transport, storage, and scheduled return delivery. Perfect for busy professionals or those without transport.<br/><br/>
+                    <strong>Full Service (Most Popular):</strong> We handle everything - professional packing, door-to-door pickup, transport, storage, and scheduled return delivery. Perfect for busy professionals or those without transport.<br/><br/>
                     <strong>Premium Care:</strong> White-glove service for antique/valuable pieces with art-quality wrapping, dedicated storage space, and monthly inspections.
                   </p>
                 </CardContent>
@@ -1081,7 +1081,7 @@ export default function FurnitureStoragePage() {
             <p className="text-gray-700">
               Furniture storage starts from 12.60 AED / sqft (VAT-inclusive) — whether you are storing a small
               collection, a full 1-bedroom apartment&apos;s furniture in a medium unit (50–100 sq ft), or a full
-              villa clearance in a large unit (100–200 sq ft). All plans include hassle-free pickup,
+              villa clearance in a large unit (100–200 sq ft). All plans include door-to-door pickup,
               24/7 security, and free insurance up to AED 5,000. No minimum contract — store
               for a week or several years.
             </p>

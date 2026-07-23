@@ -6,11 +6,11 @@ import { Cpu, CheckCircle2, Star, Phone, ArrowRight, Shield, Package, Lock, Aler
 
 export const metadata: Metadata = {
   title: "Electronics Storage Dubai — Safe Tech",
-  description: "Safe, secure electronics storage in Dubai. Protect laptops, TVs, gaming gear, servers and tech equipment in clean, dust-protected indoor units. From 12.60 AED / sqft. Hassle-free pickup.",
+  description: "Safe, secure electronics storage in Dubai. Protect laptops, TVs, gaming gear, servers and tech equipment in clean, dust-protected indoor units. From 12.60 AED / sqft. Door-to-Door pickup.",
   keywords: "electronics storage dubai, laptop storage dubai, TV storage dubai, tech storage dubai, gadget storage dubai, server storage dubai, secure electronics storage, gaming equipment storage dubai",
   openGraph: {
     title: "Electronics Storage Dubai — Secure Storage for Your Tech | SafeStorage",
-    description: "Protect your electronics in clean, dust-protected indoor storage from 12.60 AED / sqft. Laptops, TVs, servers & gaming gear. Hassle-free pickup included.",
+    description: "Protect your electronics in clean, dust-protected indoor storage from 12.60 AED / sqft. Laptops, TVs, servers & gaming gear. Door-to-Door pickup included.",
     url: "https://safestorage.ae/electronics-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -249,7 +249,7 @@ export default function ElectronicsStoragePage() {
         <section className="py-16 bg-dubai-navy text-white text-center">
           <div className="container px-4 max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">Store Your Electronics Safely</h2>
-            <p className="text-xl text-white/85 mb-8">Get a free quote for secure, dust-protected electronics storage. Hassle-free pickup available across Dubai — available 7 days a week.</p>
+            <p className="text-xl text-white/85 mb-8">Get a free quote for secure, dust-protected electronics storage. Door-to-Door pickup available across Dubai — available 7 days a week.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="https://safestorage.ae/get-quote">
                 <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Free Quote</Button>
@@ -268,7 +268,7 @@ export default function ElectronicsStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our Electronics Storage Service in Dubai</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
               <p>SafeStorage Dubai&apos;s electronics storage service addresses a specific and serious problem in the UAE: valuable tech is too often stored in open, dusty warehouse bays with no careful handling and no access control. Fine desert dust settles inside vents, fans, ports, and circuit boards; devices are stacked and knocked without proper padding; exposed boards are handled without static protection; and high-value equipment sits unsecured. These are not theoretical risks &mdash; they are the everyday causes of electronics failing or going missing in inadequate storage.</p>
-              <p>We serve expats storing their tech setups before leaving Dubai temporarily, businesses relocating offices who need interim IT equipment storage, renovation homeowners protecting electronics from construction dust, seasonal residents leaving expensive equipment during summer months, IT asset managers handling surplus equipment, and e-commerce sellers storing electronics inventory. Electronics storage starts from 12.60 AED / sqft (VAT-inclusive), with hassle-free pickup across Dubai. Our team can assist with basic de-installation of monitors, desktop setups, and rack-mounted equipment, and we stock anti-static bags, foam padding, and protective cartons for equipment that does not have original packaging. Call +971505773388 for a free quote and advice on preparing your electronics for safe long-term storage.</p>
+              <p>We serve expats storing their tech setups before leaving Dubai temporarily, businesses relocating offices who need interim IT equipment storage, renovation homeowners protecting electronics from construction dust, seasonal residents leaving expensive equipment during summer months, IT asset managers handling surplus equipment, and e-commerce sellers storing electronics inventory. Electronics storage starts from 12.60 AED / sqft (VAT-inclusive), with door-to-door pickup across Dubai. Our team can assist with basic de-installation of monitors, desktop setups, and rack-mounted equipment, and we stock anti-static bags, foam padding, and protective cartons for equipment that does not have original packaging. Call +971505773388 for a free quote and advice on preparing your electronics for safe long-term storage.</p>
             </div>
 
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Electronics Storage FAQs</h2>

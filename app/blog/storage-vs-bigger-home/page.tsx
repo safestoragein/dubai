@@ -110,7 +110,7 @@ export default function StorageVsBiggerHomePage() {
                   <div className="font-bold text-green-800 mb-2">Option B: Storage unit + stay in 1BR</div>
                   <div className="space-y-1 text-sm">
                     <div className="flex justify-between"><span>Medium storage unit</span><span className="font-bold">From 12.60 AED / sqft</span></div>
-                    <div className="flex justify-between"><span>Hassle-free pickup + delivery</span><span className="font-bold">AED 0</span></div>
+                    <div className="flex justify-between"><span>Door-to-Door pickup + delivery</span><span className="font-bold">AED 0</span></div>
                     <div className="flex justify-between border-t pt-2 font-bold text-green-700"><span>Year 1 total extra cost</span><span>From 12.60 AED / sqft</span></div>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ export default function StorageVsBiggerHomePage() {
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
               <h2 className="text-2xl font-bold mb-3">Solve Your Space Problem from 12.60 AED / sqft</h2>
-              <p className="text-white/80 mb-6">Before committing to a more expensive flat, try storage. Hassle-free pickup, secure units, flexible monthly contracts.</p>
+              <p className="text-white/80 mb-6">Before committing to a more expensive flat, try storage. Door-to-Door pickup, secure units, flexible monthly contracts.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Storage Quote</Button>

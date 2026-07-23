@@ -3,14 +3,14 @@ import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Al Barsha Storage Dubai — Hassle-Free Home Pickup",
+  title: "Al Barsha Storage Dubai — Home Pickup",
   description:
-    "Storage in Al Barsha 1, 2, 3 & 4 Dubai. Hassle-free pickup from your home or office. Secure units from 12.60 AED / sqft. Barsha Heights & Tecom also covered. Call +971505773388.",
+    "Storage in Al Barsha 1, 2, 3 & 4 Dubai. Door-to-Door pickup from your home or office. Secure units from 12.60 AED / sqft. Barsha Heights & Tecom also covered. Call +971505773388.",
   keywords:
     "al barsha storage dubai, storage al barsha 1, storage al barsha 2, storage near mall of the emirates, barsha heights storage, tecom storage dubai, al barsha self storage",
   openGraph: {
-    title: "Al Barsha Storage Dubai — Hassle-Free Pickup | SafeStorage",
-    description: "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights & Tecom. Hassle-free home pickup. From 12.60 AED / sqft. Call +971505773388.",
+    title: "Al Barsha Storage Dubai — Door-to-door Pickup | SafeStorage",
+    description: "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights & Tecom. home pickup. From 12.60 AED / sqft. Call +971505773388.",
     url: "https://safestorage.ae/locations/al-barsha",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,7 +27,7 @@ const alBarshaSchemas = [
     "@type": "Service",
     name: "Storage in Al Barsha Dubai",
     description:
-      "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Hassle-free pickup from your home or office. Flexible plans from 12.60 AED / sqft.",
+      "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Door-to-Door pickup from your home or office. Flexible plans from 12.60 AED / sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/al-barsha",
     areaServed: [
@@ -50,8 +50,8 @@ const alBarshaSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/al-barsha#webpage",
-    name: "Al Barsha Storage Dubai — Hassle-Free Pickup | SafeStorage",
-    description: "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Hassle-free home pickup.",
+    name: "Al Barsha Storage Dubai — Door-to-door Pickup | SafeStorage",
+    description: "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. home pickup.",
     url: "https://safestorage.ae/locations/al-barsha",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -77,7 +77,7 @@ export default function AlBarshaPage() {
         areas={["Al Barsha 1", "Al Barsha 2", "Al Barsha 3", "Al Barsha South", "Barsha Heights (IMPZ)", "Tecom"]}
         distance="15-20 minutes"
         benefits={[
-          "Hassle-free pickup from all Al Barsha sub-communities",
+          "Door-to-Door pickup from all Al Barsha sub-communities",
           "Ideal for families downsizing or renovating",
           "Business storage for Tecom and IMPZ offices",
           "Convenient mid-Dubai location — near Mall of the Emirates",
@@ -95,7 +95,7 @@ export default function AlBarshaPage() {
             Al Barsha 1, 2, 3, Al Barsha South, Barsha Heights (IMPZ), and Tecom. The area attracts a wide mix of
             Dubai residents — young professionals in Barsha Heights apartments, families in Al Barsha 1 and 2 villas
             and townhouses, and businesses across the Tecom and IMPZ commercial zones. SafeStorage serves every
-            part of Al Barsha with the same hassle-free door-to-door pickup service and flexible plans.
+            part of Al Barsha with the same door-to-door pickup service and flexible plans.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-10">
@@ -107,7 +107,7 @@ export default function AlBarshaPage() {
                 families storing furniture during home renovation to residents downsizing from a villa to an apartment.
               </p>
               <p className="text-gray-700">
-                SafeStorage provides hassle-free pickup from all Al Barsha 1 and 2 addresses with no parking or access
+                SafeStorage provides door-to-door pickup from all Al Barsha 1 and 2 addresses with no parking or access
                 challenges in this relatively low-density area. Our team is experienced with villa storage in
                 Al Barsha, including garden furniture, swimming pool equipment, and the larger volume of contents
                 that villa properties generate.
@@ -194,7 +194,7 @@ export default function AlBarshaPage() {
           <div className="space-y-5">
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage cover all Al Barsha sub-communities?</h3>
-              <p className="text-gray-700">Yes. SafeStorage covers every Al Barsha sub-community including Al Barsha 1, Al Barsha 2, Al Barsha 3, Al Barsha South 1, 2, and 3, Barsha Heights (IMPZ), Tecom, and Arjan. All addresses within these communities qualify for hassle-free pickup and delivery. If your address is in or around the Mall of the Emirates area, Al Quoz, or JVT, please call us on +971505773388 and we will confirm coverage instantly — we serve all of these areas too.</p>
+              <p className="text-gray-700">Yes. SafeStorage covers every Al Barsha sub-community including Al Barsha 1, Al Barsha 2, Al Barsha 3, Al Barsha South 1, 2, and 3, Barsha Heights (IMPZ), Tecom, and Arjan. All addresses within these communities qualify for door-to-door pickup and delivery. If your address is in or around the Mall of the Emirates area, Al Quoz, or JVT, please call us on +971505773388 and we will confirm coverage instantly — we serve all of these areas too.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How quickly can SafeStorage pick up from Al Barsha 1 or Al Barsha 2?</h3>
@@ -226,7 +226,7 @@ export default function AlBarshaPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How does SafeStorage pricing work for Al Barsha residents?</h3>
-              <p className="text-gray-700">SafeStorage pricing is volume-based and identical across all Dubai areas including Al Barsha, starting from 12.60 AED / sqft (VAT-inclusive). You pay only for the actual volume you store — not a fixed unit size — whether you are storing a 1-bedroom apartment or a 3-bedroom villa's contents. All prices include hassle-free pickup, secure storage, insurance, and on-demand delivery. There are no additional charges based on location or building type.</p>
+              <p className="text-gray-700">SafeStorage pricing is volume-based and identical across all Dubai areas including Al Barsha, starting from 12.60 AED / sqft (VAT-inclusive). You pay only for the actual volume you store — not a fixed unit size — whether you are storing a 1-bedroom apartment or a 3-bedroom villa's contents. All prices include door-to-door pickup, secure storage, insurance, and on-demand delivery. There are no additional charges based on location or building type.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store large appliances like washing machines and fridges from Al Barsha apartments?</h3>

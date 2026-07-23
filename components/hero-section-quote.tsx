@@ -224,7 +224,7 @@ export default function HeroSectionQuote() {
               <span className="hidden md:inline text-white/50">•</span>
               <span className="flex items-center gap-1.5">
                 <Truck className="h-4 w-4 md:h-5 md:w-5 text-dubai-gold" aria-hidden="true" />
-                Hassle-Free Pickup
+                Door-to-door Pickup
               </span>
             </div>
 
@@ -246,7 +246,7 @@ export default function HeroSectionQuote() {
 
             {/* Descriptive paragraph — keyword-rich, fully SSR'd for Google */}
             <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto mb-5 leading-relaxed">
-              SafeStorage provides secure, clean self-storage units across Dubai with hassle-free doorstep pickup and delivery.
+              SafeStorage provides secure, clean self-storage units across Dubai with doorstep pickup and delivery.
               Whether you&apos;re renovating your villa, relocating between apartments, or need business inventory storage —
               we handle everything from your door to our facility. No truck rental needed. Flexible monthly plans from 12.60 AED / sqft.
             </p>

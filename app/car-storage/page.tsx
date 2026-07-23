@@ -6,11 +6,11 @@ import { Car, ShieldCheck, Clock, Star, CheckCircle2, Phone, Bike, Ship, Trophy,
 
 export const metadata: Metadata = {
   title: "Car Storage Dubai — Vehicle Storage",
-  description: "Store your car, motorcycle, boat or classic vehicle safely in Dubai. Secure covered indoor bays, 24/7 CCTV, free insurance up to AED 5,000. Vehicle storage from 12.60 AED / sqft. Hassle-free pickup. Call +971505773388.",
+  description: "Store your car, motorcycle, boat or classic vehicle safely in Dubai. Secure covered indoor bays, 24/7 CCTV, free insurance up to AED 5,000. Vehicle storage from 12.60 AED / sqft. Door-to-Door pickup. Call +971505773388.",
   keywords: "car storage dubai, vehicle storage dubai, motorcycle storage dubai, classic car storage dubai, boat storage dubai, covered car storage, indoor vehicle storage dubai, summer car storage dubai, car storage near me dubai",
   openGraph: {
     title: "Car Storage Dubai — Secure Indoor Vehicle Storage | SafeStorage",
-    description: "Protect your car, motorcycle, or classic vehicle from Dubai's harsh outdoor conditions. Secure covered indoor storage from 12.60 AED / sqft with hassle-free pickup.",
+    description: "Protect your car, motorcycle, or classic vehicle from Dubai's harsh outdoor conditions. Secure covered indoor storage from 12.60 AED / sqft with door-to-door pickup.",
     url: "https://safestorage.ae/car-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

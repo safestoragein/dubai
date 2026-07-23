@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
   title: "Cheap Storage Dubai 2026 — From 12.60 AED / sqft",
-  description: "Find the cheapest storage in Dubai! Transparent pricing starts from 12.60 AED / sqft. Compare costs, save money, and get flexible storage solutions. No hidden fees. Hassle-Free Pickup included.",
+  description: "Find the cheapest storage in Dubai! Transparent pricing starts from 12.60 AED / sqft. Compare costs, save money, and get flexible storage solutions. No hidden fees. Door-to-door Pickup included.",
   keywords: "cheap storage dubai, affordable storage dubai, storage prices dubai, budget storage uae, cheapest storage dubai, low cost storage, storage deals dubai, student storage dubai, small business storage",
   openGraph: {
     title: "Cheap Storage Dubai 2026: Best Affordable Options - Starts from 12.60 AED / sqft",
@@ -160,8 +160,8 @@ export default function CheapStorageDubai() {
       icon: AlertCircle,
       cost: "Moving/Pickup Service",
       typical: "AED 300-800",
-      ourPrice: "Hassle-Free Pickup",
-      avoid: "Look for hassle-free pickup and delivery services",
+      ourPrice: "Door-to-door Pickup",
+      avoid: "Look for door-to-door pickup and delivery services",
     },
     {
       icon: AlertCircle,
@@ -264,7 +264,7 @@ export default function CheapStorageDubai() {
             <div className="mb-8 grid gap-4 md:grid-cols-3">
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
                 <CheckCircle2 className="mx-auto mb-2 h-8 w-8" />
-                <p className="font-bold">Hassle-Free Pickup</p>
+                <p className="font-bold">Door-to-door Pickup</p>
                 <p className="text-sm">Save AED 300-800</p>
               </div>
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
@@ -339,7 +339,7 @@ export default function CheapStorageDubai() {
                 Pricing starts from 12.60 AED / sqft
               </h3>
               <p className="mb-6 text-gray-600">
-                VAT-inclusive · all unit sizes · hassle-free pickup &amp; delivery included
+                VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included
               </p>
               <Button asChild className="bg-[#D8315B] hover:bg-[#c02a50]">
                 <Link href="/contact">Get This Size</Link>
@@ -349,7 +349,7 @@ export default function CheapStorageDubai() {
 
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-700">
-              <strong>All prices include:</strong> Hassle-Free Pickup, Hassle-free delivery, 24/7 access, clean secure units, security monitoring
+              <strong>All prices include:</strong> Door-to-door Pickup, Doorstep delivery, 24/7 access, clean secure units, security monitoring
             </p>
           </div>
         </div>
@@ -595,7 +595,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "Are there really no hidden fees?",
-                a: "Absolutely! Our price includes Hassle-Free Pickup, Hassle-free delivery, 24/7 access, and security. No setup fees, no access fees, no lock deposit. What you see is what you pay.",
+                a: "Absolutely! Our price includes Door-to-door Pickup, Doorstep delivery, 24/7 access, and security. No setup fees, no access fees, no lock deposit. What you see is what you pay.",
               },
               {
                 q: "Can I pay monthly or do I need to commit long-term?",
@@ -623,7 +623,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "What's included in the monthly price?",
-                a: "Everything! Clean secure units, 24/7 security, Hassle-Free Pickup, Hassle-free delivery, unlimited access, and your own lock. The only optional extra is additional insurance (if you want coverage above the basic amount).",
+                a: "Everything! Clean secure units, 24/7 security, Door-to-door Pickup, Doorstep delivery, unlimited access, and your own lock. The only optional extra is additional insurance (if you want coverage above the basic amount).",
               },
               {
                 q: "Can I share a unit with friends to save money?",
@@ -668,7 +668,7 @@ export default function CheapStorageDubai() {
               Start Saving Money Today!
             </h2>
             <p className="mb-8 text-xl">
-              Starts from 12.60 AED / sqft. No hidden fees. Hassle-Free Pickup. 24/7 access. Clean & secure. Cancel anytime.
+              Starts from 12.60 AED / sqft. No hidden fees. Door-to-door Pickup. 24/7 access. Clean & secure. Cancel anytime.
             </p>
             <div className="mb-8 grid gap-4 md:grid-cols-3">
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur">

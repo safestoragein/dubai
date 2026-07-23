@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "storage services dubai, personal storage, business storage, document storage, vehicle storage, self storage dubai, secure storage dubai, furniture storage, moving storage",
   openGraph: {
     title: "SafeStorage Services - Personal, Business & Vehicle Storage",
-    description: "Complete storage solutions in Dubai. Secure units, 24/7 security, hassle-free pickup. Call +971505773388.",
+    description: "Complete storage solutions in Dubai. Secure units, 24/7 security, door-to-door pickup. Call +971505773388.",
     url: "https://safestorage.ae/services",
     siteName: "SafeStorage Dubai",
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SafeStorage Services Dubai | +971505773388",
-    description: "Personal, business & vehicle storage solutions with hassle-free pickup & delivery.",
+    description: "Personal, business & vehicle storage solutions with door-to-door pickup & delivery.",
     images: ["/twitter-services.jpg"],
   },
   alternates: {
@@ -83,7 +83,7 @@ export default function Services() {
                 25 sq ft up to 300+ sq ft, so you only pay for the space you actually need.
               </p>
               <p className="text-gray-700">
-                Our hassle-free pickup service means you never need to rent a truck or struggle with heavy lifting.
+                Our door-to-door pickup service means you never need to rent a truck or struggle with heavy lifting.
                 Our trained team collects your items from your home, packs them securely if needed, and returns them
                 to you whenever you call. Most Dubai areas are covered with same-day or next-day pickup options.
               </p>
@@ -143,7 +143,7 @@ export default function Services() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h2 className="text-2xl font-bold text-[#0A2463] mb-4">Why Choose SafeStorage Dubai?</h2>
             <ul className="space-y-3 text-gray-700">
-              <li><strong>Hassle-Free Pickup &amp; Delivery:</strong> We collect from anywhere in Dubai and return your items on demand — no truck rental needed.</li>
+              <li><strong>Door-to-door Pickup &amp; Delivery:</strong> We collect from anywhere in Dubai and return your items on demand — no truck rental needed.</li>
               <li><strong>Flexible Plans:</strong> Monthly contracts with no long-term commitment required. Scale up or down at any time.</li>
               <li><strong>Free Insurance:</strong> Every unit comes with complimentary insurance coverage up to AED 5,000, with optional extended coverage available.</li>
               <li><strong>Transparent Pricing:</strong> No hidden fees, no surprise charges. Prices include storage, security, and basic insurance.</li>
@@ -208,7 +208,7 @@ export default function Services() {
                 Personal storage customers typically store seasonal clothing, sports equipment, holiday decorations, extra bedding, books, electronics not in current use, suitcases, and items inherited or gifted that they are not ready to part with. In Dubai, where apartments tend to be compact relative to the average household&apos;s belongings, personal storage is an increasingly popular alternative to cramming everything into already-full wardrobes and store rooms.
               </p>
               <p className="text-gray-700">
-                Plans start from 12.60 AED / sqft (VAT-inclusive), scaling with the volume you store. Hassle-free pickup from your home address, digital photo inventory, secure storage, and insurance are included in every personal storage plan. On-demand delivery back to your address is available within 24–48 hours.
+                Plans start from 12.60 AED / sqft (VAT-inclusive), scaling with the volume you store. Door-to-Door pickup from your home address, digital photo inventory, secure storage, and insurance are included in every personal storage plan. On-demand delivery back to your address is available within 24–48 hours.
               </p>
             </div>
 

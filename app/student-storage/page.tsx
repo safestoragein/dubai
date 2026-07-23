@@ -6,11 +6,11 @@ import { GraduationCap, CheckCircle2, Star, Phone, ArrowRight, Package, Shield, 
 
 export const metadata: Metadata = {
   title: "Student Storage Dubai — Budget Plans",
-  description: "Cheap, safe student storage in Dubai. Store your belongings between semesters, summer holidays or graduation. From 12.60 AED / sqft. Hassle-free pickup near major universities. Call +971505773388.",
+  description: "Cheap, safe student storage in Dubai. Store your belongings between semesters, summer holidays or graduation. From 12.60 AED / sqft. Door-to-Door pickup near major universities. Call +971505773388.",
   keywords: "student storage dubai, university storage dubai, semester storage dubai, summer student storage dubai, student accommodation storage, UAEU student storage, AUD student storage",
   openGraph: {
     title: "Student Storage Dubai — Affordable Between-Semester Storage | SafeStorage",
-    description: "Student storage in Dubai from 12.60 AED / sqft. Store between semesters, summer breaks or after graduation. Hassle-free pickup near major universities.",
+    description: "Student storage in Dubai from 12.60 AED / sqft. Store between semesters, summer breaks or after graduation. Door-to-Door pickup near major universities.",
     url: "https://safestorage.ae/student-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -24,7 +24,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Student Storage Dubai",
-    description: "Affordable student storage in Dubai for semester breaks, summer holidays and graduation. Small units from 12.60 AED / sqft with hassle-free pickup near universities.",
+    description: "Affordable student storage in Dubai for semester breaks, summer holidays and graduation. Small units from 12.60 AED / sqft with door-to-door pickup near universities.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/student-storage",
     areaServed: { "@type": "City", name: "Dubai" },
@@ -61,7 +61,7 @@ export default function StudentStoragePage() {
                 <GraduationCap className="w-4 h-4" /> Student Storage Specialists
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Student Storage Dubai — Affordable Storage Between Semesters</h1>
-              <p className="text-xl text-white/85 mb-8">Going home for summer or between semesters in Dubai? Don't haul everything back and forth or pay for an empty room. SafeStorage Dubai offers affordable student storage from 12.60 AED / sqft — hassle-free pickup near your university, flexible contracts, and easy access when you return.</p>
+              <p className="text-xl text-white/85 mb-8">Going home for summer or between semesters in Dubai? Don't haul everything back and forth or pay for an empty room. SafeStorage Dubai offers affordable student storage from 12.60 AED / sqft — door-to-door pickup near your university, flexible contracts, and easy access when you return.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Student Quote</Button>
@@ -123,7 +123,7 @@ export default function StudentStoragePage() {
             <div className="max-w-xl mx-auto">
               <div className="bg-white rounded-2xl p-10 border-2 border-dubai-gold shadow-lg text-center">
                 <h3 className="text-2xl md:text-3xl font-bold text-dubai-navy mb-3">Pricing starts from 12.60 AED / sqft</h3>
-                <p className="text-gray-600">VAT-inclusive · all unit sizes · hassle-free pickup &amp; delivery included</p>
+                <p className="text-gray-600">VAT-inclusive · all unit sizes · door-to-door pickup &amp; delivery included</p>
               </div>
             </div>
             <p className="text-center text-sm text-gray-500 mt-6">* Not sure what size you need? Call us and we'll advise based on your inventory.</p>
@@ -215,7 +215,7 @@ export default function StudentStoragePage() {
             <div className="space-y-6">
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does student storage cost in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Student storage at SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive). A locker or mini unit holds 10–15 boxes, suitcases, bags, and bedding. A small unit accommodates a full student room including a single bed, desk, chair, wardrobe, and 20–30 boxes of personal belongings — the most popular option for students storing between semesters. For students sharing a larger apartment or storing a bicycle and additional equipment, a medium unit provides more space. The price includes 24/7 security and hassle-free pickup from your accommodation. There are no hidden charges and no long-term contracts required.</p>
+                <p className="text-gray-700 leading-relaxed">Student storage at SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive). A locker or mini unit holds 10–15 boxes, suitcases, bags, and bedding. A small unit accommodates a full student room including a single bed, desk, chair, wardrobe, and 20–30 boxes of personal belongings — the most popular option for students storing between semesters. For students sharing a larger apartment or storing a bicycle and additional equipment, a medium unit provides more space. The price includes 24/7 security and door-to-door pickup from your accommodation. There are no hidden charges and no long-term contracts required.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">What is the minimum storage period for students?</h3>
@@ -223,7 +223,7 @@ export default function StudentStoragePage() {
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">Which universities near SafeStorage facilities does the service cover?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai provides hassle-free pickup from student accommodation near all major Dubai universities and higher education institutions. This includes American University in Dubai (AUD) in Media City, University of Wollongong Dubai and Heriot-Watt University Dubai in Dubai Knowledge Park, Middlesex University Dubai in Knowledge Village, Zayed University in Academic City, Canadian University Dubai in Bur Dubai, British University in Dubai in Oud Metha, SP Jain School of Global Management, BITS Pilani Dubai Campus, and Manipal Academy of Higher Education Dubai. We cover all Dubai areas including Dubai Silicon Oasis, Academic City, Knowledge Park, DIFC, JVC, Al Barsha, and all surrounding student residential areas.</p>
+                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai provides door-to-door pickup from student accommodation near all major Dubai universities and higher education institutions. This includes American University in Dubai (AUD) in Media City, University of Wollongong Dubai and Heriot-Watt University Dubai in Dubai Knowledge Park, Middlesex University Dubai in Knowledge Village, Zayed University in Academic City, Canadian University Dubai in Bur Dubai, British University in Dubai in Oud Metha, SP Jain School of Global Management, BITS Pilani Dubai Campus, and Manipal Academy of Higher Education Dubai. We cover all Dubai areas including Dubai Silicon Oasis, Academic City, Knowledge Park, DIFC, JVC, Al Barsha, and all surrounding student residential areas.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store my belongings during the summer holiday period?</h3>
@@ -280,7 +280,7 @@ export default function StudentStoragePage() {
         <section className="py-16 bg-white">
           <div className="container px-4 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-dubai-navy mb-6">About Student Storage at SafeStorage Dubai</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">Dubai has grown into a significant higher education hub in the Middle East, home to over 30 international universities and higher education institutions serving tens of thousands of students from more than 150 countries. The academic calendar creates predictable storage demand at the end of each semester — particularly the summer break from May to September, when most students return to their home countries and face the practical problem of what to do with their Dubai belongings. SafeStorage has developed a specific student storage service that addresses this need with affordable monthly pricing, hassle-free pickup from university accommodation areas, and flexible contracts designed around semester timing rather than standard commercial storage contracts.</p>
+            <p className="text-gray-700 leading-relaxed mb-6">Dubai has grown into a significant higher education hub in the Middle East, home to over 30 international universities and higher education institutions serving tens of thousands of students from more than 150 countries. The academic calendar creates predictable storage demand at the end of each semester — particularly the summer break from May to September, when most students return to their home countries and face the practical problem of what to do with their Dubai belongings. SafeStorage has developed a specific student storage service that addresses this need with affordable monthly pricing, door-to-door pickup from university accommodation areas, and flexible contracts designed around semester timing rather than standard commercial storage contracts.</p>
             <p className="text-gray-700 leading-relaxed mb-6">The financial case for student storage is compelling. A student paying AED 2,500 per month for accommodation faces a choice between maintaining their lease through a 3-month summer (costing AED 7,500) or storing their belongings and sublet or vacating. With SafeStorage, the same student can store a full room&apos;s contents from 12.60 AED / sqft, saving AED 6,000–7,000 over the summer period. For students completing a semester abroad or spending more than one month away from Dubai, the cost saving is substantial enough to fund a significant portion of the travel or living costs abroad. Most students who use storage for the first summer continue the practice every year of their studies.</p>
             <p className="text-gray-700 leading-relaxed mb-6">Shared student storage offers even better value. Two students sharing a medium unit can store both rooms&apos; worth of belongings from 12.60 AED / sqft, split between them. With individual item labelling and the option for independent retrieval, each student maintains full control of their belongings without being dependent on their storage partner&apos;s return timeline. SafeStorage manages the logistics of split access, and billing can be divided between the students independently. Roommates, friends in the same year group, or even students in the same building who organise collectively can all benefit from this arrangement.</p>
             <p className="text-gray-700 leading-relaxed">For students approaching graduation, storage provides a particularly valuable transitional service. Graduation in Dubai often leaves students in a period of uncertainty — waiting for employment visa approvals, job offers, or visa changes. Having belongings safely stored at a low monthly cost removes the urgency of deciding immediately whether to ship, sell, or carry belongings home. Many graduates keep items in storage for 2–4 months post-graduation while their professional situation clarifies, then retrieve everything to a new Dubai apartment, arrange international shipping for items they will need abroad, or sell items they no longer need. This flexibility is impossible if you are hauling everything home the day after graduation or paying for empty accommodation to store things on-site.</p>

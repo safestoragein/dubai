@@ -61,7 +61,7 @@ export default function GetQuote() {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Get Your Free Storage Quote in Dubai</h1>
           <p className="text-lg text-white/90 mb-2">
             Tell us what you need to store and we&apos;ll give you a transparent, no-obligation quote in minutes.
-            Storage units start from 12.60 AED / sqft with hassle-free pickup and delivery across Dubai.
+            Storage units start from 12.60 AED / sqft with door-to-door pickup and delivery across Dubai.
           </p>
         </div>
       </section>
@@ -91,9 +91,9 @@ export default function GetQuote() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="text-3xl font-bold text-[#D8315B] mb-3">3</div>
-              <h3 className="font-bold text-[#0A2463] mb-2">Schedule Your Hassle-Free Pickup</h3>
+              <h3 className="font-bold text-[#0A2463] mb-2">Schedule Your Door-to-door Pickup</h3>
               <p className="text-gray-700 text-sm">
-                Once you&apos;re happy with the quote, we schedule a hassle-free pickup from your home or office at a time
+                Once you&apos;re happy with the quote, we schedule a door-to-door pickup from your home or office at a time
                 that suits you. Our team handles all the heavy lifting and transports your items safely to our
                 secure facility.
               </p>
@@ -104,7 +104,7 @@ export default function GetQuote() {
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Why SafeStorage Dubai?</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <p>✓ Storage units from 12.60 AED / sqft — no setup fees</p>
-              <p>✓ Hassle-free pickup and delivery anywhere in Dubai</p>
+              <p>✓ Door-to-Door pickup and delivery anywhere in Dubai</p>
               <p>✓ Secure, clean, dust-protected indoor units</p>
               <p>✓ No long-term contracts — cancel anytime</p>
               <p>✓ Free insurance up to AED 5,000 included</p>
@@ -170,7 +170,7 @@ export default function GetQuote() {
                   <li>• Extra Large (200+ sq ft)</li>
                   <li>• Vehicle bay (car/motorcycle)</li>
                 </ul>
-                <p className="text-xs text-gray-500 mt-3">All units are from 12.60 AED / sqft, secure and clean, and include hassle-free pickup, security, and insurance.</p>
+                <p className="text-xs text-gray-500 mt-3">All units are from 12.60 AED / sqft, secure and clean, and include door-to-door pickup, security, and insurance.</p>
               </div>
             </div>
           </div>
@@ -181,12 +181,12 @@ export default function GetQuote() {
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <div className="space-y-3">
                 <p><strong>Secure indoor storage:</strong> All storage is in clean, dust-protected indoor units, keeping your belongings safe. This is not an upgrade — it is standard on every plan.</p>
-                <p><strong>Hassle-free door-to-door pickup:</strong> Our team collects your items from any Dubai address at your chosen time. No van rental, no heavy lifting for you. We cover all Dubai locations door-to-door; for areas outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies.</p>
+                <p><strong>Door-to-Door pickup:</strong> Our team collects your items from any Dubai address at your chosen time. No van rental, no heavy lifting for you. We cover all Dubai locations door-to-door; for areas outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies.</p>
                 <p><strong>24/7 HD CCTV security:</strong> Every unit and corridor is monitored continuously by high-definition cameras. Footage is retained and available if any issue arises.</p>
               </div>
               <div className="space-y-3">
                 <p><strong>Free insurance up to AED 5,000:</strong> Every plan includes complimentary insurance covering fire, theft, flood, and accidental damage. No paperwork to fill — it is automatic from day one.</p>
-                <p><strong>Hassle-free delivery back to your door:</strong> When you need items returned, we deliver them back to any Dubai address. Standard delivery within 24–48 hours. Urgent same-day delivery available on request.</p>
+                <p><strong>Doorstep delivery back to your door:</strong> When you need items returned, we deliver them back to any Dubai address. Standard delivery within 24–48 hours. Urgent same-day delivery available on request.</p>
                 <p><strong>Dedicated storage consultant:</strong> Every customer is assigned a personal consultant who manages your account, answers questions, and coordinates pickups and deliveries on your behalf.</p>
               </div>
             </div>
@@ -243,7 +243,7 @@ export default function GetQuote() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">9. What happens if I need to cancel my storage before the contract ends?</h3>
-              <p className="text-gray-700">SafeStorage operates on flexible monthly terms with no long-term lock-in. To cancel, simply provide 7 days&apos; notice and we will arrange hassle-free door-to-door delivery of all your items back to your address. If you have prepaid for 3, 6, or 12 months and cancel early, we will refund the unused months minus a small administrative fee. There are no cancellation penalties and no hidden exit costs. We believe customers should stay because they love the service, not because they are contractually trapped.</p>
+              <p className="text-gray-700">SafeStorage operates on flexible monthly terms with no long-term lock-in. To cancel, simply provide 7 days&apos; notice and we will arrange door-to-door delivery of all your items back to your address. If you have prepaid for 3, 6, or 12 months and cancel early, we will refund the unused months minus a small administrative fee. There are no cancellation penalties and no hidden exit costs. We believe customers should stay because they love the service, not because they are contractually trapped.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
