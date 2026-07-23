@@ -1,5 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { getAllBlogs, updateBlog, deleteBlog } from '@/lib/blog-db'
+
+// Drop the cached blog pages so an edit shows up immediately instead of
+// waiting out the 600s ISR window on /blog and /blog/[slug].
+function revalidateBlogPages() {
+  revalidatePath('/blog')
+  revalidatePath('/blog/[slug]', 'page')
+  revalidatePath('/sitemap.xml')
+}
 
 export const revalidate = 300
 
@@ -91,7 +100,8 @@ export async function PUT(
       status: body.status,
     })
 
-    return NextResponse.json({ status: ok ? 'success' : 'error' })
+    if (ok) revalidateBlogPages()
+    return NextResponse.json({ status: ok ? 'success' : 'error', revalidated: ok })
   } catch (error) {
     console.error('Error updating blog:', error)
     return NextResponse.json(
@@ -114,7 +124,8 @@ export async function DELETE(
       return NextResponse.json({ status: 'error', message: 'Invalid blog id' }, { status: 400 })
     }
     const ok = await deleteBlog(postId)
-    return NextResponse.json({ status: ok ? 'success' : 'error' })
+    if (ok) revalidateBlogPages()
+    return NextResponse.json({ status: ok ? 'success' : 'error', revalidated: ok })
   } catch (error) {
     console.error('Error deleting blog:', error)
     return NextResponse.json(

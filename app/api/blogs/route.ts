@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { getAllBlogs, insertBlog } from '@/lib/blog-db'
 import { saveBlogImage } from '@/lib/blog-upload'
 
@@ -44,10 +45,17 @@ export async function POST(request: NextRequest) {
       status: '1',
     })
 
+    // Without this the new post sits in the DB while /blog and /blog/[slug] keep
+    // serving their cached HTML until the 600s ISR window lapses.
+    revalidatePath('/blog')
+    revalidatePath('/blog/[slug]', 'page')
+    revalidatePath('/sitemap.xml')
+
     return NextResponse.json({
       status: 'success',
       message: 'Blog post created successfully',
       post_id: postId,
+      revalidated: true,
     })
   } catch (error) {
     console.error('Error creating blog:', error)

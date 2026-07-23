@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { updateBlog } from '@/lib/blog-db'
 import { saveBlogImage } from '@/lib/blog-upload'
 
@@ -32,9 +33,19 @@ export async function POST(request: NextRequest) {
     }
 
     const ok = await updateBlog(postId, fields)
+
+    // Without this the edit sits in the DB while /blog and /blog/[slug] keep
+    // serving their cached HTML until the 600s ISR window lapses.
+    if (ok) {
+      revalidatePath('/blog')
+      revalidatePath('/blog/[slug]', 'page')
+      revalidatePath('/sitemap.xml')
+    }
+
     return NextResponse.json({
       status: ok ? 'success' : 'error',
       message: ok ? 'Blog post updated' : 'No changes applied',
+      revalidated: ok,
     })
   } catch (error) {
     console.error('Error updating blog:', error)
