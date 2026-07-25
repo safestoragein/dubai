@@ -460,8 +460,6 @@ export default function QuotePage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [isLoadingItems, setIsLoadingItems] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState("all")
-  const [showGuide, setShowGuide] = useState(false)
-  const [guideStep, setGuideStep] = useState(1)
   const [showPickupDateModal, setShowPickupDateModal] = useState(false)
   const [selectedPickupDate, setSelectedPickupDate] = useState("")
   const [selectedStorageOption, setSelectedStorageOption] = useState<"closed" | "shared" | null>(null)
@@ -844,11 +842,6 @@ export default function QuotePage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  // Debug effect to track showGuide changes
-  useEffect(() => {
-    console.log('showGuide state changed to:', showGuide)
-  }, [showGuide])
-
   // Auto-save form data to localStorage (steps 1 and 2 only)
   useEffect(() => {
     if (currentStep < 3) {
@@ -877,39 +870,9 @@ export default function QuotePage() {
   }, [formData, currentStep, setNavigationGuard, setGuardFormData, setGuardCurrentStep])
 
 
-  // Show guide when entering step 2 and scroll to top
+  // Scroll to top when the step changes
   useEffect(() => {
-    // Scroll to top when step changes
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    
-    if (currentStep === 2) {
-      // Check if guide has been shown before (using localStorage)
-      const guideShown = localStorage.getItem('itemSelectionGuideShown')
-      console.log('Step 2 reached, guide shown before:', guideShown) // Debug log
-      console.log('Current showGuide state:', showGuide) // Debug log
-      
-      // Only show guide if it hasn't been shown before
-      if (!guideShown || guideShown !== 'true') {
-        console.log('Guide should be shown, setting timeout...') // Debug log
-        // Show guide after a short delay to ensure page has loaded
-        const timer = setTimeout(() => {
-          console.log('Timeout fired, setting showGuide to true') // Debug log
-          setShowGuide(true)
-          setGuideStep(1)
-          console.log('Guide state updated') // Debug log
-        }, 1200) // Increased delay to ensure page render
-        
-        // Cleanup timer on unmount
-        return () => clearTimeout(timer)
-      } else {
-        console.log('Guide already shown (value: ' + guideShown + '), skipping') // Debug log
-      }
-    } else {
-      console.log('Not on step 2, hiding guide') // Debug log
-      // Hide guide when leaving step 2
-      setShowGuide(false)
-      setGuideStep(1) // Reset to step 1 for next time
-    }
   }, [currentStep])
 
   const handlePrevious = () => {
@@ -1355,175 +1318,6 @@ export default function QuotePage() {
                 exit={{ opacity: 0, y: -20 }}
                 className="p-4 sm:p-6 md:p-8 relative"
               >
-                {/* Onboarding Guide Overlay */}
-                {showGuide && (
-                  <div className="fixed inset-0 bg-black/60" style={{ zIndex: 9999 }}>
-                    {/* Guide Tooltip Container - positioned relative to highlighted elements */}
-                    <div className="relative w-full h-full">
-                      {guideStep === 1 && (
-                        <m.div
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="absolute top-32 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl p-6 w-80" style={{ zIndex: 10001 }}
-                        >
-                          <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
-                            <div>
-                              <h4 className="font-semibold text-slate-800 mb-1">Search for Items</h4>
-                              <p className="text-sm text-slate-600">Use the search bar to quickly find specific items you want to store.</p>
-                            </div>
-                          </div>
-                          <div className="flex justify-between items-center mt-4">
-                            <button
-                              onClick={() => {
-                                setShowGuide(false)
-                                localStorage.setItem('itemSelectionGuideShown', 'true')
-                              }}
-                              className="text-sm text-slate-500 hover:text-slate-700"
-                            >
-                              Skip tour
-                            </button>
-                            <button
-                              onClick={() => setGuideStep(2)}
-                              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-sm font-medium"
-                            >
-                              Next
-                            </button>
-                          </div>
-                        </m.div>
-                      )}
-                      
-                      {guideStep === 2 && (
-                        <m.div
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="absolute top-48 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl p-6 w-80" style={{ zIndex: 10001 }}
-                        >
-                          <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
-                            <div>
-                              <h4 className="font-semibold text-slate-800 mb-1">Filter by Category</h4>
-                              <p className="text-sm text-slate-600">Click on category tabs to filter items by type like Furniture, Electronics, etc.</p>
-                            </div>
-                          </div>
-                          <div className="flex justify-between items-center mt-4">
-                            <button
-                              onClick={() => setGuideStep(1)}
-                              className="text-sm text-slate-500 hover:text-slate-700"
-                            >
-                              Back
-                            </button>
-                            <button
-                              onClick={() => setGuideStep(3)}
-                              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-sm font-medium"
-                            >
-                              Next
-                            </button>
-                          </div>
-                        </m.div>
-                      )}
-                      
-                      {guideStep === 3 && (
-                        <m.div
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="absolute top-80 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl p-6 w-80" style={{ zIndex: 10001 }}
-                        >
-                          <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
-                            <div>
-                              <h4 className="font-semibold text-slate-800 mb-1">Browse & Select Items</h4>
-                              <p className="text-sm text-slate-600">Scroll through items and click to select. The scrollable area shows 8 items at a time.</p>
-                            </div>
-                          </div>
-                          <div className="flex justify-between items-center mt-4">
-                            <button
-                              onClick={() => setGuideStep(2)}
-                              className="text-sm text-slate-500 hover:text-slate-700"
-                            >
-                              Back
-                            </button>
-                            <button
-                              onClick={() => setGuideStep(4)}
-                              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-sm font-medium"
-                            >
-                              Next
-                            </button>
-                          </div>
-                        </m.div>
-                      )}
-                      
-                      {guideStep === 4 && (
-                        <m.div
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="absolute top-80 right-10 bg-white rounded-lg shadow-2xl p-6 w-80" style={{ zIndex: 10001 }}
-                        >
-                          <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
-                            <div>
-                              <h4 className="font-semibold text-slate-800 mb-1">Adjust Quantities</h4>
-                              <p className="text-sm text-slate-600">After selecting an item, use +/- buttons to adjust quantity. Selected items appear in the sidebar.</p>
-                            </div>
-                          </div>
-                          <div className="flex justify-between items-center mt-4">
-                            <button
-                              onClick={() => setGuideStep(3)}
-                              className="text-sm text-slate-500 hover:text-slate-700"
-                            >
-                              Back
-                            </button>
-                            <button
-                              onClick={() => setGuideStep(5)}
-                              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-sm font-medium"
-                            >
-                              Next
-                            </button>
-                          </div>
-                        </m.div>
-                      )}
-                      
-                      {guideStep === 5 && (
-                        <m.div
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-2xl p-6 w-80" style={{ zIndex: 10001 }}
-                        >
-                          <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">✓</div>
-                            <div>
-                              <h4 className="font-semibold text-slate-800 mb-1">You're Ready!</h4>
-                              <p className="text-sm text-slate-600">Click Continue when you've selected all items. You can always come back to modify your selection.</p>
-                            </div>
-                          </div>
-                          <div className="flex justify-end items-center mt-4">
-                            <button
-                              onClick={() => {
-                                setShowGuide(false)
-                                localStorage.setItem('itemSelectionGuideShown', 'true')
-                              }}
-                              className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 text-sm font-medium"
-                            >
-                              Start Selecting
-                            </button>
-                          </div>
-                        </m.div>
-                      )}
-                    </div>
-                  </div>
-                )}
-                
-                {/* Help Button */}
-                <button
-                  onClick={() => {
-                    setShowGuide(true)
-                    setGuideStep(1)
-                  }}
-                  className="absolute top-2 right-2 w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center hover:bg-blue-600 transition-colors z-10"
-                  title="Show guide"
-                >
-                  <span className="text-sm font-bold">?</span>
-                </button>
                 <div className="mb-4 sm:mb-6">
                   <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-2">Select Your Items</h2>
                   <p className="text-sm sm:text-base text-slate-600">Choose the items you want to store. You can adjust quantities after selection.</p>
@@ -1531,7 +1325,7 @@ export default function QuotePage() {
 
                 {/* Search and Filter Bar */}
                 <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <div className={`flex-1 relative ${showGuide && guideStep === 1 ? 'ring-4 ring-blue-500 ring-offset-2 rounded-lg' : ''}`}>
+                  <div className="flex-1 relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 sm:w-5 sm:h-5" />
                     <Input
                       type="text"
@@ -1578,7 +1372,7 @@ export default function QuotePage() {
                 )}
 
                 {/* Category Tabs */}
-                <div className={`relative ${showGuide && guideStep === 2 ? 'ring-4 ring-blue-500 ring-offset-2 rounded-lg p-2' : ''}`}>
+                <div className="relative">
                   {searchTerm && (
                     <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                       <div className="bg-white px-4 py-2 rounded-lg shadow-lg border-2 border-amber-400">
@@ -1628,7 +1422,7 @@ export default function QuotePage() {
                 <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
                   {/* Main Items Area */}
                   <div className="flex-1">
-                    <div className={`bg-slate-50 rounded-lg sm:rounded-xl p-3 sm:p-4 ${showGuide && guideStep === 3 ? 'ring-4 ring-blue-500 ring-offset-2' : ''}`}>
+                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-3 sm:p-4">
                       {isLoadingItems ? (
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                           {[...Array(8)].map((_, i) => (
@@ -1747,7 +1541,7 @@ export default function QuotePage() {
                   {/* Selected Items Sidebar - Desktop */}
                   {formData.selectedItems.length > 0 && (
                     <div className="w-80 hidden lg:block">
-                      <div className={`bg-white rounded-xl border-2 border-slate-200 p-4 sticky top-4 ${showGuide && guideStep === 4 ? 'ring-4 ring-blue-500 ring-offset-2' : ''}`}>
+                      <div className="bg-white rounded-xl border-2 border-slate-200 p-4 sticky top-4">
                         <h3 className="font-semibold text-slate-800 mb-4">Selected Items</h3>
 
                         <ScrollArea className="h-[400px] pr-2">
