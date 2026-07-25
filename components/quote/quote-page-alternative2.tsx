@@ -482,6 +482,9 @@ export default function QuotePage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [showPickupDateModal, setShowPickupDateModal] = useState(false)
   const [selectedPickupDate, setSelectedPickupDate] = useState("")
+  // The slot radios were uncontrolled, so the customer's choice was never
+  // captured. It now rides along to the booking.
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState("")
   const [selectedStorageOption, setSelectedStorageOption] = useState<"closed" | "shared" | null>(null)
   // How goods reach the warehouse: we collect, or the customer drops off.
   const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>("transport")
@@ -1072,9 +1075,52 @@ export default function QuotePage() {
         pickup_distance_km: formData.distanceKm,
         pickup_lat: formData.pickupLat,
         pickup_lng: formData.pickupLng,
-        selected_items: formData.selectedItems,
+        selected_items: {
+          items: formData.selectedItems,
+          pickup_date: selectedPickupDate,
+          pickup_time_slot: selectedTimeSlot,
+        },
       })
       
+      // Hand off to Stripe. The order is only confirmed by the signed webhook
+      // once payment actually succeeds, so an abandoned checkout books nothing.
+      const pallets = calculatePallets(calculateTotalPoints(formData.selectedItems))
+      try {
+        const checkoutRes = await fetch('/api/checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            pallets,
+            deliveryMode,
+            distanceKm: formData.distanceKm,
+            quotationId: formData.quotationId,
+            customerId: formData.customerId,
+            customerName: formData.fullName,
+            customerEmail: formData.email,
+            customerPhone: formData.phone,
+            pickupDate: selectedPickupDate,
+            pickupTimeSlot: selectedTimeSlot,
+          }),
+        })
+        const checkout = await checkoutRes.json()
+
+        if (checkout?.status && checkout.url) {
+          window.location.href = checkout.url
+          return
+        }
+
+        // Nothing to collect (out of area) or payments not switched on yet —
+        // fall through to the existing confirmation rather than dead-ending.
+        if (checkout?.reason === 'custom_quote_required') {
+          toast.success('Request received — our team will contact you with a transport quote.')
+        } else if (checkout?.reason && checkout.reason !== 'stripe_not_configured') {
+          console.error('[checkout] could not start payment:', checkout.reason)
+          toast.error('Could not start payment. Our team will contact you shortly.')
+        }
+      } catch (e) {
+        console.error('[checkout] request failed:', e)
+      }
+
       // Save complete form data to localStorage
       const completeFormData = {
         ...formData,
@@ -2065,25 +2111,59 @@ export default function QuotePage() {
                   </p>
                 </div>
 
-                {/* Storage Option Info */}
-                <div className="bg-slate-50 rounded-xl p-4 mb-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-slate-600">Selected Storage</p>
-                      <p className="font-semibold text-slate-800 capitalize">
-                        {selectedStorageOption} Storage
+                {/* Storage + transport summary, and what is collected now */}
+                {(() => {
+                  const pallets = calculatePallets(calculateTotalPoints(formData.selectedItems))
+                  const transport = calculateTransportPrice(pallets)
+                  const monthly = selectedStorageOption === 'closed'
+                    ? calculateClosedSpacePricing(formData.selectedItems).totalCost
+                    : calculateSharedSpacePricing(formData.selectedItems).totalCost
+                  const selfDrop = deliveryMode === 'self_drop'
+                  const outOfRange =
+                    !selfDrop &&
+                    formData.distanceKm !== null &&
+                    formData.distanceKm > SERVICE_RADIUS_KM
+
+                  const payNow = selfDrop ? SELF_DROP_TOKEN_AED : transport.totalAed
+
+                  return (
+                    <div className="bg-slate-50 rounded-xl p-4 mb-6 space-y-2.5">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-slate-600">
+                          {selectedStorageOption === 'closed' ? 'Closed' : 'Shared'} Storage
+                        </span>
+                        <span className="font-semibold text-slate-800">
+                          AED {monthly.toLocaleString()}
+                          <span className="text-slate-500 font-normal"> / month</span>
+                        </span>
+                      </div>
+
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-slate-600">
+                          {selfDrop ? 'Self Drop booking token' : 'Door-to-door transport'}
+                        </span>
+                        <span className="font-semibold text-slate-800">
+                          {outOfRange ? 'Custom quote' : `AED ${payNow.toLocaleString()}`}
+                        </span>
+                      </div>
+
+                      <div className="border-t border-slate-200 pt-2.5 flex items-center justify-between">
+                        <span className="font-semibold text-slate-800">Pay now</span>
+                        <span className="text-lg font-bold text-blue-600">
+                          {outOfRange ? '—' : `AED ${payNow.toLocaleString()}`}
+                        </span>
+                      </div>
+
+                      <p className="text-[11px] text-slate-500 leading-snug">
+                        {outOfRange
+                          ? 'Your address is outside our standard pickup area, so our team will price the transport and contact you. No payment is taken now.'
+                          : selfDrop
+                            ? 'The booking token is adjusted against your storage bill. Monthly storage is billed separately.'
+                            : 'One-time transport charge. Monthly storage is billed separately.'}
                       </p>
                     </div>
-                    <div className="text-right">
-                      <p className="text-sm text-slate-600">Monthly Rate</p>
-                      <p className="font-semibold text-blue-600">
-                        AED {selectedStorageOption === 'closed' 
-                          ? calculateClosedSpacePricing(formData.selectedItems).totalCost.toLocaleString()
-                          : calculateSharedSpacePricing(formData.selectedItems).totalCost.toLocaleString()}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                  )
+                })()}
 
                 {/* Date Selection */}
                 <div className="space-y-4 mb-6">
@@ -2123,6 +2203,8 @@ export default function QuotePage() {
                             type="radio"
                             name="timeSlot"
                             value={slot.value}
+                            checked={selectedTimeSlot === slot.value}
+                            onChange={() => setSelectedTimeSlot(slot.value)}
                             className="peer absolute opacity-0"
                           />
                           <div className="border-2 border-slate-200 rounded-lg p-3 peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-slate-300 transition-all">
