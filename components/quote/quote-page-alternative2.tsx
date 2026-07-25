@@ -2050,17 +2050,35 @@ export default function QuotePage() {
                     )}
                   </m.button>
                 ) : (
-                  <m.button
-                    onClick={() => handleStorageSelection('shared')}
-                    disabled={isSubmitting}
-                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                    className="flex items-center gap-2 px-3 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold shadow-lg shadow-emerald-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <Check className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="hidden sm:inline">Confirm Shared Storage</span>
-                    <span className="sm:hidden">Confirm</span>
-                  </m.button>
+                  // Beyond the service radius there is no transport price, so
+                  // there is nothing to confirm or collect — the team prices the
+                  // run and follows up. Self drop is unaffected: that customer
+                  // drives to us, so our vehicle range does not apply.
+                  deliveryMode === 'transport' &&
+                  formData.distanceKm !== null &&
+                  formData.distanceKm > SERVICE_RADIUS_KM ? (
+                    <div className="text-right max-w-sm">
+                      <p className="text-sm font-semibold text-slate-800">
+                        Our team will contact you
+                      </p>
+                      <p className="text-xs text-slate-500 mt-0.5">
+                        We&apos;ll be in touch shortly with a customised transport quote for
+                        your address.
+                      </p>
+                    </div>
+                  ) : (
+                    <m.button
+                      onClick={() => handleStorageSelection('shared')}
+                      disabled={isSubmitting}
+                      whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                      whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                      className="flex items-center gap-2 px-3 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold shadow-lg shadow-emerald-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="hidden sm:inline">Confirm Shared Storage</span>
+                      <span className="sm:hidden">Confirm</span>
+                    </m.button>
+                  )
                 )}
               </div>
             </div>
