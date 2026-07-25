@@ -14,6 +14,9 @@ import {
   calculateTransportPrice,
   distanceFromWarehouseKm,
   SERVICE_RADIUS_KM,
+  TRANSPORT_TOKEN_AED,
+  WAREHOUSE_ARRIVAL_TOKEN_AED,
+  type DeliveryMode,
 } from "@/lib/transport-pricing"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Progress } from "@/components/ui/progress"
@@ -463,6 +466,8 @@ export default function QuotePage() {
   const [showPickupDateModal, setShowPickupDateModal] = useState(false)
   const [selectedPickupDate, setSelectedPickupDate] = useState("")
   const [selectedStorageOption, setSelectedStorageOption] = useState<"closed" | "shared" | null>(null)
+  // How goods reach the warehouse: we collect, or the customer drops off.
+  const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>("transport")
   const [showMobileItemsModal, setShowMobileItemsModal] = useState(false)
 
   // Auto-select shared storage when reaching step 3
@@ -969,7 +974,15 @@ export default function QuotePage() {
           total_sqft: formData.totalsqft!.toString(),
           total_points: formData.totalPoints!.toString(),
           total_pallets: formData.totalPallets!.toString(),
-          transport_price: (formData.transportPrice ?? 0).toString(),
+          // Warehouse arrival means no pickup, so no transport is charged —
+          // only the booking token, which is later set against the bill.
+          transport_price:
+            deliveryMode === 'warehouse' ? '0' : (formData.transportPrice ?? 0).toString(),
+          delivery_mode: deliveryMode,
+          token_amount: (deliveryMode === 'warehouse'
+            ? WAREHOUSE_ARRIVAL_TOKEN_AED
+            : TRANSPORT_TOKEN_AED
+          ).toString(),
           pickup_distance_km:
             formData.distanceKm !== null ? formData.distanceKm.toFixed(1) : '',
         }),
@@ -1651,47 +1664,97 @@ export default function QuotePage() {
                   </div>
 
 
-                  {/* Quote cards — transport and storage side by side, cheaper first */}
+                  {/* Delivery mode toggle — we collect, or the customer drops off */}
+                  <div className="flex justify-center mb-6">
+                    <div className="inline-flex bg-slate-100 rounded-xl p-1 gap-1">
+                      {([
+                        { mode: "transport" as DeliveryMode, label: "SafeStorage Transport" },
+                        { mode: "warehouse" as DeliveryMode, label: "Warehouse Arrival" },
+                      ]).map(({ mode, label }) => (
+                        <button
+                          key={mode}
+                          type="button"
+                          onClick={() => setDeliveryMode(mode)}
+                          className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors ${
+                            deliveryMode === mode
+                              ? "bg-white text-slate-800 shadow-sm"
+                              : "text-slate-500 hover:text-slate-700"
+                          }`}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Quote cards — storage plus the chosen delivery method */}
                   {(() => {
                     const pallets = calculatePallets(calculateTotalPoints(formData.selectedItems))
                     const transport = calculateTransportPrice(pallets)
                     const shared = calculateSharedSpacePricing(formData.selectedItems)
 
-                    const cards = [
-                      {
-                        key: "storage",
-                        title: "Shared Storage",
-                        subtitle: "Cost-effective shared space",
-                        price: shared.totalCost,
-                        period: "per month",
-                        Icon: Users,
-                        accent: "emerald",
-                        features: [
-                          "Shared Warehouse",
-                          "Scheduled Access",
-                          "Secure Indoor Storage",
-                          "Professional Care",
-                        ],
-                      },
-                      {
-                        key: "transport",
-                        title: "Door-to-Door Transport",
-                        subtitle: "Collection from your address",
-                        price: transport.totalAed,
-                        period: "one-time",
-                        Icon: Truck,
-                        accent: "blue",
-                        features: [
-                          "Pickup From Your Door",
-                          "Loading & Unloading",
-                          "Professional Handling",
-                          "Fully Equipped Vehicle",
-                        ],
-                      },
-                    ].filter((c) => c.price > 0)
+                    const storageCard = {
+                      key: "storage",
+                      title: "Shared Storage",
+                      subtitle: "Cost-effective shared space",
+                      price: shared.totalCost,
+                      period: "per month",
+                      note: "",
+                      Icon: Users,
+                      accent: "emerald" as const,
+                      features: [
+                        "Shared Warehouse",
+                        "Scheduled Access",
+                        "Secure Indoor Storage",
+                        "Professional Care",
+                      ],
+                    }
 
-                    // Cheapest first, as requested.
-                    cards.sort((a, b) => a.price - b.price)
+                    const transportCard = {
+                      key: "transport",
+                      title: "Door-to-Door Transport",
+                      subtitle: "Collection from your address",
+                      price: transport.totalAed,
+                      period: "one-time",
+                      note: `AED ${TRANSPORT_TOKEN_AED} to book — adjusted against this amount`,
+                      Icon: Truck,
+                      accent: "blue" as const,
+                      features: [
+                        "Pickup From Your Door",
+                        "Loading & Unloading",
+                        "Professional Handling",
+                        "Fully Equipped Vehicle",
+                      ],
+                    }
+
+                    const warehouseCard = {
+                      key: "warehouse",
+                      title: "Warehouse Arrival",
+                      subtitle: "You drop off at our warehouse",
+                      price: WAREHOUSE_ARRIVAL_TOKEN_AED,
+                      period: "token to book",
+                      note: "Adjusted against your transport bill",
+                      Icon: Warehouse,
+                      accent: "blue" as const,
+                      features: [
+                        "Drop Off At Your Convenience",
+                        "No Pickup Charge",
+                        "Unloading Assistance",
+                        "Same Secure Storage",
+                      ],
+                    }
+
+                    let cards
+                    if (deliveryMode === "warehouse") {
+                      // The token is not a service price, so it does not compete
+                      // with the monthly rate for the leading position.
+                      cards = [storageCard, warehouseCard]
+                    } else {
+                      // Two real prices — cheaper one leads the row.
+                      cards = [storageCard, transportCard]
+                        .filter((c) => c.price > 0)
+                        .sort((a, b) => a.price - b.price)
+                    }
 
                     const accents = {
                       emerald: {
@@ -1709,9 +1772,9 @@ export default function QuotePage() {
                     } as const
 
                     return (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6 max-w-3xl mx-auto">
-                        {cards.map(({ key, title, subtitle, price, period, Icon, accent, features }) => {
-                          const c = accents[accent as keyof typeof accents]
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6 max-w-3xl mx-auto items-stretch">
+                        {cards.map(({ key, title, subtitle, price, period, note, Icon, accent, features }) => {
+                          const c = accents[accent]
                           return (
                             <div
                               key={key}
@@ -1725,7 +1788,7 @@ export default function QuotePage() {
                                 <p className="text-slate-500 text-xs mt-0.5">{subtitle}</p>
                               </div>
 
-                              <div className={`${c.band} rounded-xl py-4 px-3 text-center mb-4`}>
+                              <div className={`${c.band} rounded-xl py-4 px-3 text-center`}>
                                 <div className="text-3xl font-bold text-white leading-none">
                                   AED {price.toLocaleString()}
                                 </div>
@@ -1734,7 +1797,13 @@ export default function QuotePage() {
                                 </div>
                               </div>
 
-                              <div className="space-y-2">
+                              {note ? (
+                                <p className="text-[11px] text-slate-500 text-center mt-2.5 leading-snug">
+                                  {note}
+                                </p>
+                              ) : null}
+
+                              <div className="space-y-2 mt-4">
                                 {features.map((feature) => (
                                   <div key={feature} className="flex items-center gap-2">
                                     <div className={`w-4 h-4 ${c.tick} rounded-full flex items-center justify-center flex-shrink-0`}>
@@ -1750,7 +1819,6 @@ export default function QuotePage() {
                       </div>
                     )
                   })()}
-
                   {/* Summary Info - Compact */}
                   <div className="bg-slate-50 rounded-xl p-4 max-w-4xl mx-auto">
                     <h3 className="font-semibold text-slate-800 mb-3 text-center text-sm">Your Selection Summary</h3>

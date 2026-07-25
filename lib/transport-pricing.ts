@@ -26,6 +26,16 @@ export const TRANSPORT_SURCHARGE_AED = 60
 /** Per-pallet rate once the load exceeds the largest vehicle. */
 export const OVERSIZE_RATE_PER_PALLET_AED = 218
 
+/**
+ * Booking tokens. Taken up front to confirm the slot and knocked off the
+ * transport bill afterwards — they are not an extra charge.
+ */
+export const TRANSPORT_TOKEN_AED = 50
+export const WAREHOUSE_ARRIVAL_TOKEN_AED = 20
+
+/** How the goods reach the warehouse. */
+export type DeliveryMode = "transport" | "warehouse"
+
 /** Vehicle tiers, smallest first. `maxPallets` is inclusive. */
 export const TRANSPORT_TIERS = [
   { maxPallets: 1, flatAed: 500, label: "Up to 1 pallet" },
