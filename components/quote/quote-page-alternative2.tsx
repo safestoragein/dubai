@@ -15,7 +15,7 @@ import {
   distanceFromWarehouseKm,
   SERVICE_RADIUS_KM,
   TRANSPORT_TOKEN_AED,
-  WAREHOUSE_ARRIVAL_TOKEN_AED,
+  SELF_DROP_TOKEN_AED,
   type DeliveryMode,
 } from "@/lib/transport-pricing"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
@@ -978,14 +978,14 @@ export default function QuotePage() {
           // Warehouse arrival means no pickup, so no transport is charged —
           // only the booking token, which is later set against the bill.
           transport_price:
-            deliveryMode === 'warehouse' || finalOutOfRange
+            deliveryMode === 'self_drop' || finalOutOfRange
               ? '0'
               : (formData.transportPrice ?? 0).toString(),
           transport_custom_quote:
             deliveryMode === 'transport' && finalOutOfRange ? '1' : '0',
           delivery_mode: deliveryMode,
-          token_amount: (deliveryMode === 'warehouse'
-            ? WAREHOUSE_ARRIVAL_TOKEN_AED
+          token_amount: (deliveryMode === 'self_drop'
+            ? SELF_DROP_TOKEN_AED
             : TRANSPORT_TOKEN_AED
           ).toString(),
           pickup_distance_km:
@@ -1664,7 +1664,7 @@ export default function QuotePage() {
                     <div className="inline-flex bg-slate-100 rounded-xl p-1 gap-1">
                       {([
                         { mode: "transport" as DeliveryMode, label: "SafeStorage Transport" },
-                        { mode: "warehouse" as DeliveryMode, label: "Warehouse Arrival" },
+                        { mode: "self_drop" as DeliveryMode, label: "Self Drop" },
                       ]).map(({ mode, label }) => (
                         <button
                           key={mode}
@@ -1730,11 +1730,11 @@ export default function QuotePage() {
                       ],
                     }
 
-                    const warehouseCard = {
-                      key: "warehouse",
-                      title: "Warehouse Arrival",
+                    const selfDropCard = {
+                      key: "self_drop",
+                      title: "Self Drop",
                       subtitle: "You drop off at our warehouse",
-                      price: WAREHOUSE_ARRIVAL_TOKEN_AED,
+                      price: SELF_DROP_TOKEN_AED,
                       period: "token to book",
                       note: "Adjusted against your transport bill",
                       customQuote: false,
@@ -1749,10 +1749,10 @@ export default function QuotePage() {
                     }
 
                     let cards
-                    if (deliveryMode === "warehouse") {
+                    if (deliveryMode === "self_drop") {
                       // The token is not a service price, so it does not compete
                       // with the monthly rate for the leading position.
-                      cards = [storageCard, warehouseCard]
+                      cards = [storageCard, selfDropCard]
                     } else {
                       // Two real prices — cheaper one leads the row.
                       cards = transportNeedsCustomQuote

@@ -31,10 +31,10 @@ export const OVERSIZE_RATE_PER_PALLET_AED = 218
  * transport bill afterwards — they are not an extra charge.
  */
 export const TRANSPORT_TOKEN_AED = 50
-export const WAREHOUSE_ARRIVAL_TOKEN_AED = 20
+export const SELF_DROP_TOKEN_AED = 20
 
-/** How the goods reach the warehouse. */
-export type DeliveryMode = "transport" | "warehouse"
+/** How the goods reach the warehouse: we collect, or the customer drops off. */
+export type DeliveryMode = "transport" | "self_drop"
 
 /** Vehicle tiers, smallest first. `maxPallets` is inclusive. */
 export const TRANSPORT_TIERS = [
