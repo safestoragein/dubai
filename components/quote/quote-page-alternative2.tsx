@@ -1733,7 +1733,7 @@ export default function QuotePage() {
                     const selfDropCard = {
                       key: "self_drop",
                       title: "Self Drop",
-                      subtitle: "You drop off at our warehouse",
+                      subtitle: "",
                       price: SELF_DROP_TOKEN_AED,
                       period: "token to book",
                       note: "Adjusted against your transport bill",
@@ -1791,7 +1791,9 @@ export default function QuotePage() {
                                   <Icon className={`w-6 h-6 ${c.iconFg}`} />
                                 </div>
                                 <h3 className="text-base font-bold text-slate-800">{title}</h3>
-                                <p className="text-slate-500 text-xs mt-0.5">{subtitle}</p>
+                                {subtitle ? (
+                                  <p className="text-slate-500 text-xs mt-0.5">{subtitle}</p>
+                                ) : null}
                               </div>
 
                               {customQuote ? (
