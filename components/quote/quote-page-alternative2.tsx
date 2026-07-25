@@ -1249,30 +1249,17 @@ export default function QuotePage() {
                           }))
                         }}
                       />
-                      {formData.distanceKm !== null && (
-                        <div
-                          className={`rounded-lg px-4 py-3 text-sm ${
-                            formData.distanceKm > SERVICE_RADIUS_KM
-                              ? "bg-red-50 border border-red-200 text-red-800"
-                              : "bg-emerald-50 border border-emerald-200 text-emerald-800"
-                          }`}
-                        >
-                          {formData.distanceKm > SERVICE_RADIUS_KM ? (
-                            <>
-                              <strong>Outside our service area.</strong> This address is{" "}
-                              {Math.round(formData.distanceKm)} km from our warehouse — we cover a{" "}
-                              {SERVICE_RADIUS_KM} km radius. Call{" "}
-                              <a href="tel:+971505773388" className="underline font-semibold">
-                                +971 50 577 3388
-                              </a>{" "}
-                              for a custom transport quote.
-                            </>
-                          ) : (
-                            <>
-                              <strong>Within our service area</strong> — approximately{" "}
-                              {Math.round(formData.distanceKm)} km from our warehouse.
-                            </>
-                          )}
+                      {/* Only surfaced when out of area — an in-range confirmation
+                          just raises questions the customer did not ask. */}
+                      {formData.distanceKm !== null && formData.distanceKm > SERVICE_RADIUS_KM && (
+                        <div className="rounded-lg px-4 py-3 text-sm bg-red-50 border border-red-200 text-red-800">
+                          <strong>Outside our service area.</strong> This address is{" "}
+                          {Math.round(formData.distanceKm)} km from our warehouse — we cover a{" "}
+                          {SERVICE_RADIUS_KM} km radius. Call{" "}
+                          <a href="tel:+971505773388" className="underline font-semibold">
+                            +971 50 577 3388
+                          </a>{" "}
+                          for a custom transport quote.
                         </div>
                       )}
 
@@ -1993,11 +1980,8 @@ export default function QuotePage() {
                         </div>
 
                         <p className="text-xs text-slate-500 mt-3">
-                          Based on {pallets} pallet{pallets === 1 ? "" : "s"}
-                          {formData.distanceKm !== null
-                            ? ` · ${Math.round(formData.distanceKm)} km from our warehouse`
-                            : ""}
-                          . Charged once at pickup — your monthly storage of AED{" "}
+                          Based on {pallets} pallet{pallets === 1 ? "" : "s"}. Charged once at
+                          pickup — your monthly storage of AED{" "}
                           {sharedMonthly.toLocaleString()} is separate.
                         </p>
                       </div>
