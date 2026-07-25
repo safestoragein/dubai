@@ -1736,7 +1736,7 @@ export default function QuotePage() {
                       subtitle: "",
                       price: SELF_DROP_TOKEN_AED,
                       period: "token to book",
-                      note: "Adjusted against your transport bill",
+                      note: "Adjusted against your storage bill",
                       customQuote: false,
                       Icon: Warehouse,
                       accent: "blue" as const,
