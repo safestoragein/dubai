@@ -10,6 +10,11 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import WorkingPlacesAutocomplete from "@/components/ui/working-places-autocomplete"
+import {
+  calculateTransportPrice,
+  distanceFromWarehouseKm,
+  SERVICE_RADIUS_KM,
+} from "@/lib/transport-pricing"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Progress } from "@/components/ui/progress"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -102,6 +107,11 @@ interface FormData {
   email: string
   phone: string
   address: string
+  /** Coordinates of the picked address; null when typed by hand. */
+  pickupLat: number | null
+  pickupLng: number | null
+  /** Straight-line km from the warehouse; null until an address is picked. */
+  distanceKm: number | null
   emirate: string
   floor: string
   liftAvailable: string
@@ -117,6 +127,8 @@ interface FormData {
   totalsqft?: number
   closedPrice?: number
   sharedPrice?: number
+  /** One-time door-to-door transport charge, incl. the flat surcharge. */
+  transportPrice?: number
 }
 
 // Storage calculation functions
@@ -192,6 +204,9 @@ const initialFormData: FormData = {
   email: "",
   phone: "",
   address: "",
+  pickupLat: null,
+  pickupLng: null,
+  distanceKm: null,
   emirate: "",
   floor: "",
   liftAvailable: "",
@@ -678,6 +693,8 @@ export default function QuotePage() {
         const totalsqft = calculateSquareFeet(totalPallets)
         const closedPrice = calculateClosedSpacePricing(formData.selectedItems).totalCost
         const sharedPrice = calculateSharedSpacePricing(formData.selectedItems).totalCost
+        // One-time door-to-door transport, priced off the same pallet count.
+        const transport = calculateTransportPrice(totalPallets)
 
         // Step 1: Insert/Check Customer
         console.log('💾 Step 1: Inserting customer...')
@@ -727,6 +744,13 @@ export default function QuotePage() {
             total_sqft: totalsqft.toString(),
             total_points: totalPoints.toString(),
             total_pallets: totalPallets.toString(),
+            transport_price: transport.totalAed.toString(),
+            transport_base_price: transport.baseAed.toString(),
+            transport_surcharge: transport.surchargeAed.toString(),
+            pickup_distance_km:
+              formData.distanceKm !== null ? formData.distanceKm.toFixed(1) : '',
+            pickup_lat: formData.pickupLat !== null ? formData.pickupLat.toString() : '',
+            pickup_lng: formData.pickupLng !== null ? formData.pickupLng.toString() : '',
           }),
         })
 
@@ -786,7 +810,8 @@ export default function QuotePage() {
           totalPallets,
           totalsqft,
           closedPrice,
-          sharedPrice
+          sharedPrice,
+          transportPrice: transport.totalAed
         }))
 
         console.log('🎉 All data saved successfully!')
@@ -890,6 +915,15 @@ export default function QuotePage() {
       toast.error("Please enter a valid email address")
       return false
     }
+    // Out-of-area pickups can't be auto-priced — send them to the team instead.
+    // A hand-typed address has no coordinates, so it is allowed through here and
+    // the team confirms the distance when they follow up.
+    if (formData.distanceKm !== null && formData.distanceKm > SERVICE_RADIUS_KM) {
+      toast.error(
+        `This address is ${Math.round(formData.distanceKm)} km from our warehouse, outside our ${SERVICE_RADIUS_KM} km service area. Please call +971 50 577 3388 for a custom quote.`
+      )
+      return false
+    }
     return true
   }
 
@@ -960,6 +994,9 @@ export default function QuotePage() {
           total_sqft: formData.totalsqft!.toString(),
           total_points: formData.totalPoints!.toString(),
           total_pallets: formData.totalPallets!.toString(),
+          transport_price: (formData.transportPrice ?? 0).toString(),
+          pickup_distance_km:
+            formData.distanceKm !== null ? formData.distanceKm.toFixed(1) : '',
         }),
       })
       
@@ -1176,9 +1213,56 @@ export default function QuotePage() {
                           const matched = apiEmirates
                             .filter((em) => lower.includes(em.city_name.toLowerCase()))
                             .sort((a, b) => b.city_name.length - a.city_name.length)[0]
-                          setFormData({ ...formData, address: value, emirate: matched ? matched.city_slug : formData.emirate })
+                          // Functional update: onPlaceSelect fires in the same tick
+                          // when a suggestion is picked, and would otherwise clobber
+                          // whichever of the two handlers wrote last.
+                          setFormData((prev) => ({
+                            ...prev,
+                            address: value,
+                            emirate: matched ? matched.city_slug : prev.emirate,
+                          }))
+                        }}
+                        onPlaceSelect={(place) => {
+                          // Only a picked suggestion carries coordinates. Typing by
+                          // hand leaves them null, which reads as "distance unknown"
+                          // rather than "in range".
+                          setFormData((prev) => ({
+                            ...prev,
+                            pickupLat: place.lat,
+                            pickupLng: place.lng,
+                            distanceKm:
+                              place.lat !== null && place.lng !== null
+                                ? distanceFromWarehouseKm(place.lat, place.lng)
+                                : null,
+                          }))
                         }}
                       />
+                      {formData.distanceKm !== null && (
+                        <div
+                          className={`rounded-lg px-4 py-3 text-sm ${
+                            formData.distanceKm > SERVICE_RADIUS_KM
+                              ? "bg-red-50 border border-red-200 text-red-800"
+                              : "bg-emerald-50 border border-emerald-200 text-emerald-800"
+                          }`}
+                        >
+                          {formData.distanceKm > SERVICE_RADIUS_KM ? (
+                            <>
+                              <strong>Outside our service area.</strong> This address is{" "}
+                              {Math.round(formData.distanceKm)} km from our warehouse — we cover a{" "}
+                              {SERVICE_RADIUS_KM} km radius. Call{" "}
+                              <a href="tel:+971505773388" className="underline font-semibold">
+                                +971 50 577 3388
+                              </a>{" "}
+                              for a custom transport quote.
+                            </>
+                          ) : (
+                            <>
+                              <strong>Within our service area</strong> — approximately{" "}
+                              {Math.round(formData.distanceKm)} km from our warehouse.
+                            </>
+                          )}
+                        </div>
+                      )}
 
                       <div className="space-y-2">
                         <Label className="text-sm font-semibold text-slate-700">Emirate *</Label>
@@ -1851,6 +1935,55 @@ export default function QuotePage() {
                       </div>
                     </m.div>
                   </div>
+
+                  {/* One-time transport charge — separate from the monthly rate */}
+                  {(() => {
+                    const pallets = calculatePallets(calculateTotalPoints(formData.selectedItems))
+                    const transport = calculateTransportPrice(pallets)
+                    const sharedMonthly = calculateSharedSpacePricing(formData.selectedItems).totalCost
+
+                    if (transport.totalAed === 0) return null
+
+                    return (
+                      <div className="max-w-md mx-auto mb-6 bg-white rounded-xl border-2 border-slate-200 p-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Truck className="w-5 h-5 text-blue-600" />
+                          <h3 className="font-bold text-slate-800 text-sm">
+                            Door-to-Door Transport
+                          </h3>
+                          <span className="ml-auto text-[10px] uppercase tracking-wide bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-semibold">
+                            One-time
+                          </span>
+                        </div>
+
+                        <div className="space-y-1.5 text-sm">
+                          <div className="flex justify-between text-slate-600">
+                            <span>
+                              Vehicle ({transport.tierLabel})
+                            </span>
+                            <span>AED {transport.baseAed.toLocaleString()}</span>
+                          </div>
+                          <div className="flex justify-between text-slate-600">
+                            <span>Handling</span>
+                            <span>AED {transport.surchargeAed}</span>
+                          </div>
+                          <div className="flex justify-between font-bold text-slate-800 pt-2 border-t border-slate-200">
+                            <span>Transport total</span>
+                            <span>AED {transport.totalAed.toLocaleString()}</span>
+                          </div>
+                        </div>
+
+                        <p className="text-xs text-slate-500 mt-3">
+                          Based on {pallets} pallet{pallets === 1 ? "" : "s"}
+                          {formData.distanceKm !== null
+                            ? ` · ${Math.round(formData.distanceKm)} km from our warehouse`
+                            : ""}
+                          . Charged once at pickup — your monthly storage of AED{" "}
+                          {sharedMonthly.toLocaleString()} is separate.
+                        </p>
+                      </div>
+                    )
+                  })()}
 
                   {/* Summary Info - Compact */}
                   <div className="bg-slate-50 rounded-xl p-4 max-w-4xl mx-auto">

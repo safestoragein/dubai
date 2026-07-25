@@ -5,9 +5,18 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { loadGoogleMapsScript } from "@/lib/google-maps-loader"
 
+export interface SelectedPlace {
+  address: string
+  /** Null when the user typed an address instead of picking a suggestion. */
+  lat: number | null
+  lng: number | null
+}
+
 interface WorkingPlacesAutocompleteProps {
   value: string
   onChange: (value: string) => void
+  /** Fires only when a suggestion is picked, carrying its coordinates. */
+  onPlaceSelect?: (place: SelectedPlace) => void
   placeholder?: string
   className?: string
   label?: string
@@ -16,6 +25,7 @@ interface WorkingPlacesAutocompleteProps {
 export default function WorkingPlacesAutocomplete({
   value,
   onChange,
+  onPlaceSelect,
   placeholder = "Enter your complete address in Dubai",
   className = "",
   label
@@ -23,6 +33,16 @@ export default function WorkingPlacesAutocomplete({
   const inputRef = useRef<HTMLInputElement>(null)
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading')
+
+  // Callers pass inline arrows, so these identities change every render. Holding
+  // them in refs keeps the init effect off their identity — otherwise it would
+  // tear down and rebuild the Autocomplete instance on every parent render.
+  const onChangeRef = useRef(onChange)
+  const onPlaceSelectRef = useRef(onPlaceSelect)
+  useEffect(() => {
+    onChangeRef.current = onChange
+    onPlaceSelectRef.current = onPlaceSelect
+  })
 
   useEffect(() => {
     console.log('🚀 [WorkingPlacesAutocomplete] Component mounted')
@@ -68,11 +88,17 @@ export default function WorkingPlacesAutocomplete({
           const place = autocomplete.getPlace()
           console.log('📍 [WorkingPlacesAutocomplete] Place selected:', place)
 
-          if (place.formatted_address) {
-            onChange(place.formatted_address)
-          } else if (place.name) {
-            onChange(place.name)
+          const address = place.formatted_address || place.name || ''
+          if (address) {
+            onChangeRef.current(address)
           }
+
+          const location = place.geometry?.location
+          onPlaceSelectRef.current?.({
+            address,
+            lat: location ? location.lat() : null,
+            lng: location ? location.lng() : null,
+          })
         })
 
         console.log('✅ [WorkingPlacesAutocomplete] Ready! Autocomplete is now active.')
@@ -96,7 +122,7 @@ export default function WorkingPlacesAutocomplete({
         autocompleteRef.current = null
       }
     }
-  }, [status, onChange])
+  }, [status])
 
   const getHelpText = () => {
     if (status === 'loading') return "⏳ Loading address suggestions..."
