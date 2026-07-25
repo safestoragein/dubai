@@ -1646,138 +1646,107 @@ export default function QuotePage() {
                     </m.div>
                     <h2 className="text-3xl font-bold text-slate-800 mb-2">Your Storage Quote</h2>
                     <p className="text-slate-600 max-w-2xl mx-auto">
-                      Cost-effective shared storage solution for your items
+                      Your monthly storage and one-time transport, based on the items you selected
                     </p>
                   </div>
 
 
-                  {/* Storage Options Cards - Only Shared Storage */}
-                  <div className="grid grid-cols-1 gap-6 mb-6 max-w-md mx-auto">
-                    {/* Closed Storage Card - HIDDEN */}
-                    {/* Closed storage option has been removed as per requirements */}
-
-                    {/* Shared Storage Card - Compact */}
-                    <m.div
-                      whileHover={{ scale: 1.02 }}
-                      className="relative bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-1"
-                    >
-                      <div className="bg-white rounded-xl p-4 h-full flex flex-col">
-                        {/* Budget Badge */}
-                        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                          <span className="bg-gradient-to-r from-emerald-500 to-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                            BEST VALUE
-                          </span>
-                        </div>
-
-                        <div className="pt-3 flex flex-col flex-grow">
-                          {/* Storage Type Header */}
-                          <div className="text-center mb-4">
-                            <div className="w-12 h-12 bg-gradient-to-r from-emerald-100 to-green-200 rounded-xl flex items-center justify-center mx-auto mb-3">
-                              <Users className="w-6 h-6 text-emerald-600" />
-                            </div>
-                            <h3 className="text-lg font-bold text-slate-800 mb-1">Shared Storage</h3>
-                            <p className="text-slate-600 text-xs">Cost-effective shared space</p>
-                          </div>
-
-                          {/* Price Display */}
-                          {(() => {
-                            const sharedPricing = calculateSharedSpacePricing(formData.selectedItems)
-                            return (
-                              <div className="bg-gradient-to-r from-emerald-500 to-green-600 rounded-lg p-4 text-center mb-4">
-                                <div className="text-emerald-50 text-xs uppercase tracking-wide mb-1">Monthly Rate</div>
-                                <div className="text-2xl font-bold text-white mb-1">
-                                  AED {sharedPricing.totalCost.toLocaleString()}
-                                </div>
-                                <div className="text-emerald-100 text-[11px]">
-                                  {sharedPricing.chargeablesqft} sqft x AED{" "}
-                                  {sharedPricing.pricePersqft} + {sharedPricing.vatRate * 100}% VAT
-                                </div>
-                                <div className="text-emerald-100 text-[11px]">
-                                  (AED {sharedPricing.pricePersqftInclVat.toFixed(2)} / sqft incl. VAT)
-                                </div>
-                                {sharedPricing.isMinimumApplied && (
-                                  <div className="text-emerald-200 text-xs mt-1">
-                                    *Minimum 30 sqft applied
-                                  </div>
-                                )}
-                              </div>
-                            )
-                          })()}
-
-
-                          {/* Features */}
-                          <div className="space-y-2 mb-4 flex-grow">
-                            {[
-                              "Shared Warehouse",
-                              "Scheduled Access",
-                              "Secure Indoor Storage",
-                              "Professional Care",
-                            ].map((feature, index) => (
-                              <div key={index} className="flex items-center gap-2">
-                                <div className="w-4 h-4 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                  <Check className="w-2.5 h-2.5 text-emerald-600" />
-                                </div>
-                                <span className="text-slate-700 text-xs">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Select Button - HIDDEN */}
-                          {/* 
-                          <button
-                            onClick={() => handleStorageSelection('shared')}
-                            className="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white py-3.5 rounded-xl font-semibold hover:from-emerald-600 hover:to-green-700 transition-all shadow-lg"
-                          >
-                            Select Shared Storage
-                          </button>
-                          */}
-                        </div>
-                      </div>
-                    </m.div>
-                  </div>
-
-                  {/* One-time transport charge — separate from the monthly rate */}
+                  {/* Quote cards — transport and storage side by side, cheaper first */}
                   {(() => {
                     const pallets = calculatePallets(calculateTotalPoints(formData.selectedItems))
                     const transport = calculateTransportPrice(pallets)
-                    const sharedMonthly = calculateSharedSpacePricing(formData.selectedItems).totalCost
+                    const shared = calculateSharedSpacePricing(formData.selectedItems)
 
-                    if (transport.totalAed === 0) return null
+                    const cards = [
+                      {
+                        key: "storage",
+                        title: "Shared Storage",
+                        subtitle: "Cost-effective shared space",
+                        price: shared.totalCost,
+                        period: "per month",
+                        Icon: Users,
+                        accent: "emerald",
+                        features: [
+                          "Shared Warehouse",
+                          "Scheduled Access",
+                          "Secure Indoor Storage",
+                          "Professional Care",
+                        ],
+                      },
+                      {
+                        key: "transport",
+                        title: "Door-to-Door Transport",
+                        subtitle: "Collection from your address",
+                        price: transport.totalAed,
+                        period: "one-time",
+                        Icon: Truck,
+                        accent: "blue",
+                        features: [
+                          "Pickup From Your Door",
+                          "Loading & Unloading",
+                          "Professional Handling",
+                          "Fully Equipped Vehicle",
+                        ],
+                      },
+                    ].filter((c) => c.price > 0)
+
+                    // Cheapest first, as requested.
+                    cards.sort((a, b) => a.price - b.price)
+
+                    const accents = {
+                      emerald: {
+                        band: "bg-gradient-to-r from-emerald-500 to-green-600",
+                        iconBg: "bg-emerald-100",
+                        iconFg: "text-emerald-600",
+                        tick: "bg-emerald-100 text-emerald-600",
+                      },
+                      blue: {
+                        band: "bg-gradient-to-r from-blue-500 to-indigo-600",
+                        iconBg: "bg-blue-100",
+                        iconFg: "text-blue-600",
+                        tick: "bg-blue-100 text-blue-600",
+                      },
+                    } as const
 
                     return (
-                      <div className="max-w-md mx-auto mb-6 bg-white rounded-xl border-2 border-slate-200 p-4">
-                        <div className="flex items-center gap-2 mb-3">
-                          <Truck className="w-5 h-5 text-blue-600" />
-                          <h3 className="font-bold text-slate-800 text-sm">
-                            Door-to-Door Transport
-                          </h3>
-                          <span className="ml-auto text-[10px] uppercase tracking-wide bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-semibold">
-                            One-time
-                          </span>
-                        </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6 max-w-3xl mx-auto">
+                        {cards.map(({ key, title, subtitle, price, period, Icon, accent, features }) => {
+                          const c = accents[accent as keyof typeof accents]
+                          return (
+                            <div
+                              key={key}
+                              className="bg-white rounded-2xl border border-slate-200 p-5 flex flex-col shadow-sm"
+                            >
+                              <div className="text-center mb-4">
+                                <div className={`w-12 h-12 ${c.iconBg} rounded-xl flex items-center justify-center mx-auto mb-3`}>
+                                  <Icon className={`w-6 h-6 ${c.iconFg}`} />
+                                </div>
+                                <h3 className="text-base font-bold text-slate-800">{title}</h3>
+                                <p className="text-slate-500 text-xs mt-0.5">{subtitle}</p>
+                              </div>
 
-                        <div className="space-y-1.5 text-sm">
-                          <div className="flex justify-between text-slate-600">
-                            <span>
-                              Vehicle ({transport.tierLabel})
-                            </span>
-                            <span>AED {transport.baseAed.toLocaleString()}</span>
-                          </div>
-                          <div className="flex justify-between text-slate-600">
-                            <span>Handling</span>
-                            <span>AED {transport.surchargeAed}</span>
-                          </div>
-                          <div className="flex justify-between font-bold text-slate-800 pt-2 border-t border-slate-200">
-                            <span>Transport total</span>
-                            <span>AED {transport.totalAed.toLocaleString()}</span>
-                          </div>
-                        </div>
+                              <div className={`${c.band} rounded-xl py-4 px-3 text-center mb-4`}>
+                                <div className="text-3xl font-bold text-white leading-none">
+                                  AED {price.toLocaleString()}
+                                </div>
+                                <div className="text-white/80 text-[11px] uppercase tracking-wide mt-1.5">
+                                  {period}
+                                </div>
+                              </div>
 
-                        <p className="text-xs text-slate-500 mt-3">
-                          Based on {pallets} pallet{pallets === 1 ? "" : "s"}. Charged once at
-                          pickup — your monthly storage of AED{" "}
-                          {sharedMonthly.toLocaleString()} is separate.
-                        </p>
+                              <div className="space-y-2">
+                                {features.map((feature) => (
+                                  <div key={feature} className="flex items-center gap-2">
+                                    <div className={`w-4 h-4 ${c.tick} rounded-full flex items-center justify-center flex-shrink-0`}>
+                                      <Check className="w-2.5 h-2.5" />
+                                    </div>
+                                    <span className="text-slate-700 text-xs">{feature}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )
+                        })}
                       </div>
                     )
                   })()}
