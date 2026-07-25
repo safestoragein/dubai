@@ -134,6 +134,23 @@ interface FormData {
   transportPrice?: number
 }
 
+// Mirror every quote into our own database. The safestorage.in PHP backend
+// drops POST fields it has no column for, so this is the copy that is
+// guaranteed complete. Fire-and-forget: a capture failure must never affect
+// the customer's quote.
+const captureQuotation = (data: Record<string, unknown>) => {
+  try {
+    fetch('/api/quotations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      keepalive: true,
+    }).catch((e) => console.error('[capture] request failed:', e))
+  } catch (e) {
+    console.error('[capture] could not send:', e)
+  }
+}
+
 // Storage calculation functions
 const calculateTotalPoints = (selectedItems: SelectedItem[]): number => {
   return selectedItems.reduce((total, item) => {
@@ -821,6 +838,36 @@ export default function QuotePage() {
           throw new Error(itemsResult.message || "Failed to save items data")
         }
 
+        captureQuotation({
+          stage: 'step2',
+          php_customer_id: finalCustomerId,
+          php_quotation_id: quotationId,
+          customer_name: formData.fullName,
+          customer_email: formData.email,
+          customer_phone: formData.phone,
+          pickup_address: formData.address,
+          emirate: formData.emirate,
+          floor: formData.floor,
+          lift_available: formData.liftAvailable,
+          bedrooms: formData.bedrooms,
+          storage_type: formData.storageType,
+          total_points: totalPoints,
+          total_pallets: totalPallets,
+          total_sqft: totalsqft,
+          shared_storage_price: sharedPrice,
+          closed_storage_price: closedPrice,
+          delivery_mode: deliveryMode,
+          transport_price: outOfRange ? 0 : transport.totalAed,
+          transport_base_price: transport.baseAed,
+          transport_surcharge: transport.surchargeAed,
+          token_amount: deliveryMode === 'self_drop' ? SELF_DROP_TOKEN_AED : TRANSPORT_TOKEN_AED,
+          transport_custom_quote: outOfRange,
+          pickup_distance_km: formData.distanceKm,
+          pickup_lat: formData.pickupLat,
+          pickup_lng: formData.pickupLng,
+          selected_items: formData.selectedItems,
+        })
+
         // Save IDs to state for later use
         setFormData(prev => ({
           ...prev,
@@ -995,6 +1042,38 @@ export default function QuotePage() {
       
       const updateResult = await updateResponse.json()
       console.log('✅ Price update response:', updateResult)
+
+      captureQuotation({
+        stage: 'final',
+        php_customer_id: formData.customerId,
+        php_quotation_id: formData.quotationId,
+        customer_name: formData.fullName,
+        customer_email: formData.email,
+        customer_phone: formData.phone,
+        pickup_address: formData.address,
+        emirate: formData.emirate,
+        floor: formData.floor,
+        lift_available: formData.liftAvailable,
+        bedrooms: formData.bedrooms,
+        storage_type: formData.storageType,
+        selected_storage_type: selectedStorageOption,
+        total_points: formData.totalPoints,
+        total_pallets: formData.totalPallets,
+        total_sqft: formData.totalsqft,
+        shared_storage_price: formData.sharedPrice,
+        closed_storage_price: formData.closedPrice,
+        storage_price: finalPrice,
+        delivery_mode: deliveryMode,
+        transport_price:
+          deliveryMode === 'self_drop' || finalOutOfRange ? 0 : formData.transportPrice,
+        token_amount:
+          deliveryMode === 'self_drop' ? SELF_DROP_TOKEN_AED : TRANSPORT_TOKEN_AED,
+        transport_custom_quote: deliveryMode === 'transport' && finalOutOfRange,
+        pickup_distance_km: formData.distanceKm,
+        pickup_lat: formData.pickupLat,
+        pickup_lng: formData.pickupLng,
+        selected_items: formData.selectedItems,
+      })
       
       // Save complete form data to localStorage
       const completeFormData = {
