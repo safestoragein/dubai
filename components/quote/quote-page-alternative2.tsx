@@ -482,9 +482,6 @@ export default function QuotePage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [showPickupDateModal, setShowPickupDateModal] = useState(false)
   const [selectedPickupDate, setSelectedPickupDate] = useState("")
-  // The slot radios were uncontrolled, so the customer's choice was never
-  // captured. It now rides along to the booking.
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState("")
   const [selectedStorageOption, setSelectedStorageOption] = useState<"closed" | "shared" | null>(null)
   // How goods reach the warehouse: we collect, or the customer drops off.
   const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>("transport")
@@ -1078,7 +1075,6 @@ export default function QuotePage() {
         selected_items: {
           items: formData.selectedItems,
           pickup_date: selectedPickupDate,
-          pickup_time_slot: selectedTimeSlot,
         },
       })
       
@@ -1099,7 +1095,6 @@ export default function QuotePage() {
             customerEmail: formData.email,
             customerPhone: formData.phone,
             pickupDate: selectedPickupDate,
-            pickupTimeSlot: selectedTimeSlot,
           }),
         })
         const checkout = await checkoutRes.json()
@@ -2183,38 +2178,6 @@ export default function QuotePage() {
                     </div>
                   </label>
 
-                  {/* Time Slot Selection */}
-                  <div>
-                    <span className="text-sm font-medium text-slate-700 mb-2 block">
-                      Preferred Time Slot
-                    </span>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { value: "morning", label: "Morning", time: "9 AM - 12 PM" },
-                        { value: "afternoon", label: "Afternoon", time: "12 PM - 3 PM" },
-                        { value: "evening", label: "Evening", time: "3 PM - 6 PM" },
-                        { value: "late", label: "Late Evening", time: "6 PM - 9 PM" }
-                      ].map((slot) => (
-                        <label
-                          key={slot.value}
-                          className="relative cursor-pointer"
-                        >
-                          <input
-                            type="radio"
-                            name="timeSlot"
-                            value={slot.value}
-                            checked={selectedTimeSlot === slot.value}
-                            onChange={() => setSelectedTimeSlot(slot.value)}
-                            className="peer absolute opacity-0"
-                          />
-                          <div className="border-2 border-slate-200 rounded-lg p-3 peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-slate-300 transition-all">
-                            <p className="font-medium text-slate-800 text-sm">{slot.label}</p>
-                            <p className="text-xs text-slate-600">{slot.time}</p>
-                          </div>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
                 </div>
 
                 {/* Action Buttons */}

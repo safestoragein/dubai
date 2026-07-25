@@ -70,7 +70,6 @@ export async function POST(request: Request) {
         stripe_payment_intent: session.payment_intent,
         amount_paid_aed: amountAed,
         pickup_date: m.pickup_date,
-        pickup_time_slot: m.pickup_time_slot,
       },
     })
 

@@ -26,7 +26,6 @@ interface CheckoutRequest {
   customerEmail?: string | null
   customerPhone?: string | null
   pickupDate?: string | null
-  pickupTimeSlot?: string | null
 }
 
 export async function POST(request: Request) {
@@ -114,7 +113,6 @@ export async function POST(request: Request) {
         pallets: String(pallets),
         amount_aed: String(amountAed),
         pickup_date: String(body.pickupDate ?? ""),
-        pickup_time_slot: String(body.pickupTimeSlot ?? ""),
         distance_km: distanceKm === null ? "" : String(distanceKm),
       },
     })
@@ -137,7 +135,6 @@ export async function POST(request: Request) {
       selected_items: {
         stripe_session_id: session.id,
         pickup_date: body.pickupDate,
-        pickup_time_slot: body.pickupTimeSlot,
       },
     })
 
