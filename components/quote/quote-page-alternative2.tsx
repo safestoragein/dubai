@@ -710,6 +710,8 @@ export default function QuotePage() {
         const sharedPrice = calculateSharedSpacePricing(formData.selectedItems).totalCost
         // One-time door-to-door transport, priced off the same pallet count.
         const transport = calculateTransportPrice(totalPallets)
+        const outOfRange =
+          formData.distanceKm !== null && formData.distanceKm > SERVICE_RADIUS_KM
 
         // Step 1: Insert/Check Customer
         console.log('💾 Step 1: Inserting customer...')
@@ -759,7 +761,10 @@ export default function QuotePage() {
             total_sqft: totalsqft.toString(),
             total_points: totalPoints.toString(),
             total_pallets: totalPallets.toString(),
-            transport_price: transport.totalAed.toString(),
+            // Out of area: the tier price does not apply, so send 0 and flag it
+            // for the team to price by hand.
+            transport_price: outOfRange ? '0' : transport.totalAed.toString(),
+            transport_custom_quote: outOfRange ? '1' : '0',
             transport_base_price: transport.baseAed.toString(),
             transport_surcharge: transport.surchargeAed.toString(),
             pickup_distance_km:
@@ -895,15 +900,8 @@ export default function QuotePage() {
       toast.error("Please enter a valid email address")
       return false
     }
-    // Out-of-area pickups can't be auto-priced — send them to the team instead.
-    // A hand-typed address has no coordinates, so it is allowed through here and
-    // the team confirms the distance when they follow up.
-    if (formData.distanceKm !== null && formData.distanceKm > SERVICE_RADIUS_KM) {
-      toast.error(
-        `This address is ${Math.round(formData.distanceKm)} km from our warehouse, outside our ${SERVICE_RADIUS_KM} km service area. Please call +971 50 577 3388 for a custom quote.`
-      )
-      return false
-    }
+    // Out-of-area pickups are not blocked. They cannot be auto-priced, so the
+    // transport card offers a custom quote and the lead is flagged for the team.
     return true
   }
 
@@ -950,9 +948,12 @@ export default function QuotePage() {
     
     try {
       // Get the final price based on selected storage option
-      const finalPrice = selectedStorageOption === 'closed' 
+      const finalPrice = selectedStorageOption === 'closed'
         ? formData.closedPrice
         : formData.sharedPrice
+
+      const finalOutOfRange =
+        formData.distanceKm !== null && formData.distanceKm > SERVICE_RADIUS_KM
 
       console.log('💰 Final price for', selectedStorageOption, 'storage:', finalPrice)
       
@@ -977,7 +978,11 @@ export default function QuotePage() {
           // Warehouse arrival means no pickup, so no transport is charged —
           // only the booking token, which is later set against the bill.
           transport_price:
-            deliveryMode === 'warehouse' ? '0' : (formData.transportPrice ?? 0).toString(),
+            deliveryMode === 'warehouse' || finalOutOfRange
+              ? '0'
+              : (formData.transportPrice ?? 0).toString(),
+          transport_custom_quote:
+            deliveryMode === 'transport' && finalOutOfRange ? '1' : '0',
           delivery_mode: deliveryMode,
           token_amount: (deliveryMode === 'warehouse'
             ? WAREHOUSE_ARRIVAL_TOKEN_AED
@@ -1225,19 +1230,9 @@ export default function QuotePage() {
                           }))
                         }}
                       />
-                      {/* Only surfaced when out of area — an in-range confirmation
-                          just raises questions the customer did not ask. */}
-                      {formData.distanceKm !== null && formData.distanceKm > SERVICE_RADIUS_KM && (
-                        <div className="rounded-lg px-4 py-3 text-sm bg-red-50 border border-red-200 text-red-800">
-                          <strong>Outside our service area.</strong> This address is{" "}
-                          {Math.round(formData.distanceKm)} km from our warehouse — we cover a{" "}
-                          {SERVICE_RADIUS_KM} km radius. Call{" "}
-                          <a href="tel:+971505773388" className="underline font-semibold">
-                            +971 50 577 3388
-                          </a>{" "}
-                          for a custom transport quote.
-                        </div>
-                      )}
+                      {/* Distance is recorded silently. An out-of-area address is
+                          not called out here — it surfaces as a custom-quote note
+                          on the transport card instead. */}
 
                       <div className="space-y-2">
                         <Label className="text-sm font-semibold text-slate-700">Emirate *</Label>
@@ -1692,6 +1687,10 @@ export default function QuotePage() {
                     const pallets = calculatePallets(calculateTotalPoints(formData.selectedItems))
                     const transport = calculateTransportPrice(pallets)
                     const shared = calculateSharedSpacePricing(formData.selectedItems)
+                    // Beyond the service radius we cannot price the run from the
+                    // tiers, so the card offers a callback instead of a figure.
+                    const transportNeedsCustomQuote =
+                      formData.distanceKm !== null && formData.distanceKm > SERVICE_RADIUS_KM
 
                     const storageCard = {
                       key: "storage",
@@ -1700,6 +1699,7 @@ export default function QuotePage() {
                       price: shared.totalCost,
                       period: "per month",
                       note: "",
+                      customQuote: false,
                       Icon: Users,
                       accent: "emerald" as const,
                       features: [
@@ -1716,7 +1716,10 @@ export default function QuotePage() {
                       subtitle: "Collection from your address",
                       price: transport.totalAed,
                       period: "one-time",
-                      note: `AED ${TRANSPORT_TOKEN_AED} to book — adjusted against this amount`,
+                      note: transportNeedsCustomQuote
+                        ? ""
+                        : `AED ${TRANSPORT_TOKEN_AED} to book — adjusted against this amount`,
+                      customQuote: transportNeedsCustomQuote,
                       Icon: Truck,
                       accent: "blue" as const,
                       features: [
@@ -1734,6 +1737,7 @@ export default function QuotePage() {
                       price: WAREHOUSE_ARRIVAL_TOKEN_AED,
                       period: "token to book",
                       note: "Adjusted against your transport bill",
+                      customQuote: false,
                       Icon: Warehouse,
                       accent: "blue" as const,
                       features: [
@@ -1751,9 +1755,11 @@ export default function QuotePage() {
                       cards = [storageCard, warehouseCard]
                     } else {
                       // Two real prices — cheaper one leads the row.
-                      cards = [storageCard, transportCard]
-                        .filter((c) => c.price > 0)
-                        .sort((a, b) => a.price - b.price)
+                      cards = transportNeedsCustomQuote
+                        ? [storageCard, transportCard]
+                        : [storageCard, transportCard]
+                            .filter((c) => c.price > 0)
+                            .sort((a, b) => a.price - b.price)
                     }
 
                     const accents = {
@@ -1773,7 +1779,7 @@ export default function QuotePage() {
 
                     return (
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6 max-w-3xl mx-auto items-stretch">
-                        {cards.map(({ key, title, subtitle, price, period, note, Icon, accent, features }) => {
+                        {cards.map(({ key, title, subtitle, price, period, note, customQuote, Icon, accent, features }) => {
                           const c = accents[accent]
                           return (
                             <div
@@ -1788,14 +1794,22 @@ export default function QuotePage() {
                                 <p className="text-slate-500 text-xs mt-0.5">{subtitle}</p>
                               </div>
 
-                              <div className={`${c.band} rounded-xl py-4 px-3 text-center`}>
-                                <div className="text-3xl font-bold text-white leading-none">
-                                  AED {price.toLocaleString()}
+                              {customQuote ? (
+                                <div className={`${c.band} rounded-xl py-4 px-4 text-center`}>
+                                  <div className="text-sm font-semibold text-white leading-snug">
+                                    Our team will get back to you regarding a customised quote
+                                  </div>
                                 </div>
-                                <div className="text-white/80 text-[11px] uppercase tracking-wide mt-1.5">
-                                  {period}
+                              ) : (
+                                <div className={`${c.band} rounded-xl py-4 px-3 text-center`}>
+                                  <div className="text-3xl font-bold text-white leading-none">
+                                    AED {price.toLocaleString()}
+                                  </div>
+                                  <div className="text-white/80 text-[11px] uppercase tracking-wide mt-1.5">
+                                    {period}
+                                  </div>
                                 </div>
-                              </div>
+                              )}
 
                               {note ? (
                                 <p className="text-[11px] text-slate-500 text-center mt-2.5 leading-snug">
