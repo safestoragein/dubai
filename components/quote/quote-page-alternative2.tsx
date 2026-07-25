@@ -148,23 +148,35 @@ const calculateSquareFeet = (pallets: number): number => {
   return pallets * 16
 }
 
+/** Shared-storage rate per sqft, before VAT. */
+const SHARED_RATE_PER_SQFT_AED = 12
+/** UAE VAT. Quoted prices are VAT-inclusive, matching the rest of the site. */
+const VAT_RATE = 0.05
+
 // Shared space pricing functions
 const calculateSharedSpacePricing = (selectedItems: SelectedItem[]) => {
   const totalPoints = calculateTotalPoints(selectedItems)
   const pallets = calculatePallets(totalPoints)
   const calculatedsqft = calculateSquareFeet(pallets)
-  
+
   // Minimum 30 sqft for shared space
   const chargeablesqft = Math.max(calculatedsqft, 30)
 
-  // 10 AED per sqft
-  const pricePersqft = 10
-  const totalCost = chargeablesqft * pricePersqft
-  
+  // 12 AED per sqft + 5% VAT = 12.60 AED per sqft inclusive
+  const pricePersqft = SHARED_RATE_PER_SQFT_AED
+  const pricePersqftInclVat = pricePersqft * (1 + VAT_RATE)
+  const subtotal = chargeablesqft * pricePersqft
+  const vatAmount = subtotal * VAT_RATE
+  const totalCost = Math.round(subtotal + vatAmount)
+
   return {
     calculatedsqft,
     chargeablesqft,
     pricePersqft,
+    pricePersqftInclVat,
+    subtotal,
+    vatRate: VAT_RATE,
+    vatAmount,
     totalCost,
     isMinimumApplied: calculatedsqft < 30
   }
@@ -1894,6 +1906,13 @@ export default function QuotePage() {
                                 <div className="text-emerald-50 text-xs uppercase tracking-wide mb-1">Monthly Rate</div>
                                 <div className="text-2xl font-bold text-white mb-1">
                                   AED {sharedPricing.totalCost.toLocaleString()}
+                                </div>
+                                <div className="text-emerald-100 text-[11px]">
+                                  {sharedPricing.chargeablesqft} sqft x AED{" "}
+                                  {sharedPricing.pricePersqft} + {sharedPricing.vatRate * 100}% VAT
+                                </div>
+                                <div className="text-emerald-100 text-[11px]">
+                                  (AED {sharedPricing.pricePersqftInclVat.toFixed(2)} / sqft incl. VAT)
                                 </div>
                                 {sharedPricing.isMinimumApplied && (
                                   <div className="text-emerald-200 text-xs mt-1">
