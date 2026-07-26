@@ -36,10 +36,17 @@ export const SELF_DROP_TOKEN_AED = 20
 /** How the goods reach the warehouse: we collect, or the customer drops off. */
 export type DeliveryMode = "transport" | "self_drop"
 
-/** Vehicle tiers, smallest first. `maxPallets` is inclusive. */
+/**
+ * Pricing bands, smallest first. `maxPallets` is inclusive.
+ *
+ * Most bands are a flat vehicle rate — the load pays for the vehicle it fits
+ * in. The 3.6–5.4 band is charged per pallet instead, so mid-size loads are
+ * not billed the full six-pallet vehicle.
+ */
 export const TRANSPORT_TIERS = [
   { maxPallets: 1, flatAed: 500, label: "Up to 1 pallet" },
   { maxPallets: 3.5, flatAed: 900, label: "Up to 3.5 pallets" },
+  { maxPallets: 5.4, perPalletAed: 235, label: "3.6 to 5.4 pallets" },
   { maxPallets: 6, flatAed: 1308, label: "Up to 6 pallets" },
 ] as const
 
@@ -116,11 +123,15 @@ export function calculateTransportPrice(pallets: number): TransportPrice {
   const isOversize = !tier
 
   const baseAed = tier
-    ? tier.flatAed
+    ? "flatAed" in tier
+      ? tier.flatAed
+      : Math.round(pallets * tier.perPalletAed)
     : Math.round(pallets * OVERSIZE_RATE_PER_PALLET_AED)
 
   const tierLabel = tier
-    ? tier.label
+    ? "flatAed" in tier
+      ? tier.label
+      : `${pallets} pallets x AED ${tier.perPalletAed}`
     : `${pallets} pallets x AED ${OVERSIZE_RATE_PER_PALLET_AED}`
 
   return {
