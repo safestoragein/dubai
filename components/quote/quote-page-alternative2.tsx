@@ -1090,6 +1090,11 @@ export default function QuotePage() {
             customerEmail: formData.email,
             customerPhone: formData.phone,
             pickupDate: selectedPickupDate,
+            pickupAddress: formData.address,
+            emirate: formData.emirate,
+            storagePrice: finalPrice,
+            sourcePage: typeof window !== 'undefined' ? window.location.pathname : null,
+            referrer: typeof document !== 'undefined' ? document.referrer : null,
             finalizeParams,
           }),
         })

@@ -12,6 +12,7 @@ import {
   SERVICE_RADIUS_KM,
 } from "@/lib/transport-pricing"
 import { saveQuotationCapture } from "@/lib/quotation-db"
+import { savePaymentAttempt, deviceFromUserAgent } from "@/lib/payment-attempt-db"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -28,6 +29,12 @@ interface CheckoutRequest {
   pickupDate?: string | null
   /** Exact params for insert_quotation_dubai, replayed after payment. */
   finalizeParams?: Record<string, string>
+  // Context about where the attempt came from
+  sourcePage?: string | null
+  referrer?: string | null
+  pickupAddress?: string | null
+  emirate?: string | null
+  storagePrice?: number | null
 }
 
 export async function POST(request: Request) {
@@ -141,6 +148,34 @@ export async function POST(request: Request) {
       stripe_session_id: session.id,
       // Held until the webhook confirms payment; the order is placed then.
       finalize_params: body.finalizeParams ?? null,
+    })
+
+    const ua = request.headers.get("user-agent")
+    const fwd = request.headers.get("x-forwarded-for")
+    await savePaymentAttempt({
+      status: "initiated",
+      event_type: "frontend",
+      stripe_session_id: session.id,
+      amount_aed: amountAed,
+      currency: CURRENCY,
+      customer_name: body.customerName ?? null,
+      customer_email: body.customerEmail ?? null,
+      customer_phone: body.customerPhone ?? null,
+      php_customer_id: body.customerId ?? null,
+      php_quotation_id: body.quotationId ?? null,
+      delivery_mode: selfDrop ? "self_drop" : "transport",
+      total_pallets: pallets,
+      storage_price: body.storagePrice ?? null,
+      transport_price: selfDrop ? 0 : transport.totalAed,
+      pickup_date: body.pickupDate ?? null,
+      pickup_address: body.pickupAddress ?? null,
+      emirate: body.emirate ?? null,
+      pickup_distance_km: distanceKm,
+      source_page: body.sourcePage ?? null,
+      referrer: body.referrer ?? request.headers.get("referer"),
+      user_agent: ua,
+      device_type: deviceFromUserAgent(ua),
+      ip_address: fwd ? fwd.split(",")[0].trim() : null,
     })
 
     return NextResponse.json({ status: true, url: session.url, id: session.id })
