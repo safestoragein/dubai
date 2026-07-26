@@ -837,6 +837,24 @@ export default function QuotePage() {
           throw new Error(itemsResult.message || "Failed to save items data")
         }
 
+        // Quotation email. Fire-and-forget: the customer's quote must not depend
+        // on an email provider being reachable.
+        fetch('/api/emails/quotation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: formData.email,
+            fullName: formData.fullName,
+            quotationId,
+            items: formData.selectedItems.map((i) => ({ name: i.name, quantity: i.quantity })),
+            totalSqft: totalsqft,
+            totalPallets,
+            monthlyStorageAed: sharedPrice,
+            pickupAddress: formData.address,
+            distanceKm: formData.distanceKm,
+          }),
+        }).catch((e) => console.error('[quotation-email] failed:', e))
+
         captureQuotation({
           stage: 'step2',
           php_customer_id: finalCustomerId,
