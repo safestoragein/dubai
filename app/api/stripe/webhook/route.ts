@@ -127,6 +127,38 @@ export async function POST(request: Request) {
         )
         orderResult = (await res.text()).slice(0, 500)
         orderOk = res.ok && !/\"status\"\s*:\s*false/.test(orderResult)
+
+        // Finalising the quotation is not the booking. The booking lives in
+        // ss_order, which is what the operations team dispatches from — so
+        // create it here too, once payment is confirmed.
+        if (orderOk) {
+          const pickupType =
+            m.delivery_mode === "self_drop" ? "warehouse_arrival" : "pickup"
+          try {
+            const orderRes = await fetch(
+              "https://safestorage.in/back/app/create_order_dubai",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams({
+                  quotation_id: String(finalize.quotation_id ?? m.quotation_id ?? ""),
+                  customer_id: String(finalize.customer_id ?? m.customer_id ?? ""),
+                  pickup_date: String(m.pickup_date ?? ""),
+                  // The website does not collect a slot; the team sets it when
+                  // they call. An invented slot would be worse than none.
+                  pickup_timeslot: "",
+                  pickup_type: pickupType,
+                  payment_type: "monthly",
+                  order_note: `Booked online · paid AED ${amountAed} via Stripe · ${session.id}`,
+                }),
+              }
+            )
+            orderResult += " | ORDER: " + (await orderRes.text()).slice(0, 300)
+          } catch (error) {
+            orderResult += " | ORDER FAILED: " + String(error).slice(0, 200)
+            orderOk = false
+          }
+        }
       } catch (error) {
         // The payment succeeded, so never fail the webhook here — that would
         // make Stripe retry a charge we have already taken.
