@@ -11,6 +11,7 @@ import {
   type QuotationEmailData,
 } from "@/lib/email/quotation-template"
 import { quoteResumeUrl } from "@/lib/quote-resume"
+import { saveQuotationCapture, getResumableQuote } from "@/lib/quotation-db"
 import {
   calculateTransportPrice,
   SELF_DROP_TOKEN_AED,
@@ -30,6 +31,14 @@ interface Body {
   monthlyStorageAed?: number
   pickupAddress?: string | null
   distanceKm?: number | null
+  /** 'crm' when the CRM raised the quote, so the capture row is distinguishable. */
+  source?: string | null
+  customerId?: string | number | null
+  phone?: string | null
+  emirate?: string | null
+  floor?: string | null
+  liftAvailable?: string | null
+  bedrooms?: string | null
 }
 
 /** "Aisha Khan" -> "Aisha". A full name in a greeting reads like a form letter. */
@@ -97,6 +106,35 @@ export async function POST(request: Request) {
       : `${origin}/get-quote`,
     supportPhone: process.env.NEXT_PUBLIC_CONTACT_NUMBER || "+971 50 577 3388",
     supportEmail: process.env.NEXT_PUBLIC_EMAIL || "support@safestorage.ae",
+  }
+
+  // A quote raised in the CRM has never touched our capture table, so the
+  // resume link in the email would 404. Capture it here — one call from the
+  // CRM then both records the quote and sends the mail.
+  const existing = await getResumableQuote(String(body.quotationId ?? ""))
+  if (!existing) {
+    await saveQuotationCapture({
+      stage: body.source === "crm" ? "crm_quote" : "step2",
+      php_quotation_id: body.quotationId ?? null,
+      php_customer_id: body.customerId ?? null,
+      customer_name: body.fullName ?? null,
+      customer_email: to,
+      customer_phone: body.phone ?? null,
+      pickup_address: body.pickupAddress ?? null,
+      emirate: body.emirate ?? null,
+      floor: body.floor ?? null,
+      lift_available: body.liftAvailable ?? null,
+      bedrooms: body.bedrooms ?? null,
+      total_sqft: body.totalSqft ?? null,
+      total_pallets: pallets,
+      shared_storage_price: monthly,
+      transport_price: transport.totalAed,
+      transport_base_price: transport.baseAed,
+      transport_surcharge: transport.surchargeAed,
+      transport_custom_quote: outOfRange,
+      pickup_distance_km: distanceKm,
+      selected_items: items,
+    })
   }
 
   const result = await sendEmail({
