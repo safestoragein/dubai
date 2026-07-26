@@ -153,7 +153,7 @@ export function renderQuotationEmail(d: QuotationEmailData): string {
           <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:${ORANGE};font-weight:700;">Monthly storage</div>
           <div style="padding-top:10px;"><span style="font-size:16px;color:#ffffff;font-weight:700;vertical-align:top;line-height:1;">AED </span><span class="price" style="font-size:46px;color:#ffffff;font-weight:800;line-height:1;">${money(d.monthlyStorageAed)}</span></div>
           <div style="padding-top:4px;font-size:13px;color:${MUTED_BLUE};">per month</div>
-          <div style="font-size:12px;line-height:1.5;color:${CARD_MUTED};border-top:1px solid ${NAVY_LINE};margin-top:12px;padding-top:12px;">${d.totalSqft} sq ft at AED 12.60 / sq ft &middot; VAT included. Billed monthly, cancel anytime.</div>
+          <div style="font-size:12px;line-height:1.5;color:${CARD_MUTED};border-top:1px solid ${NAVY_LINE};margin-top:12px;padding-top:12px;">Estimated ${d.totalSqft} sq ft at AED 12.60 / sq ft &middot; VAT included. Billed monthly, cancel anytime.</div>
         </td></tr></table>
       </td>
       <td class="stack" width="50%" valign="top" style="padding-left:8px;">
@@ -191,7 +191,7 @@ export function renderQuotationEmail(d: QuotationEmailData): string {
       <tr><td style="padding:0 24px 20px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           ${detailRow("Quote reference", "SS-" + String(d.quotationId))}
-          ${detailRow("Space required", `${d.totalSqft} sq ft &middot; ${d.totalPallets} pallet${d.totalPallets === 1 ? "" : "s"}`)}
+          ${detailRow("Estimated space", `${d.totalSqft} sq ft \u00b7 ${d.totalPallets} pallet${d.totalPallets === 1 ? "" : "s"}`)}
           ${detailRow("Storage type", "Shared warehouse")}
           ${d.pickupAddress ? detailRow("Pickup address", d.pickupAddress) : ""}
         </table>
@@ -300,12 +300,12 @@ export function renderQuotationText(d: QuotationEmailData): string {
   return `${d.firstName}, your storage quotation is ready.
 
 Quote SS-${d.quotationId}
-${d.itemCount} item${d.itemCount === 1 ? "" : "s"} · ${d.totalSqft} sq ft of secure shared warehouse.
+${d.itemCount} item${d.itemCount === 1 ? "" : "s"} · an estimated ${d.totalSqft} sq ft of secure shared warehouse.
 Nothing is booked yet, and no payment is needed to hold this price.
 
 MONTHLY STORAGE
 AED ${money(d.monthlyStorageAed)} / month
-${d.totalSqft} sq ft at AED 12.60 per sq ft, VAT included. Billed monthly, cancel anytime.
+Estimated ${d.totalSqft} sq ft at AED 12.60 per sq ft, VAT included. Billed monthly, cancel anytime.
 
 ${transport}
 Or drop off yourself: AED ${money(d.selfDropTokenAed)} token, which comes off your storage bill.
@@ -318,7 +318,7 @@ ${items}
 
 QUOTE DETAILS
   Quote reference: SS-${d.quotationId}
-  Space required : ${d.totalSqft} sq ft, ${d.totalPallets} pallet${d.totalPallets === 1 ? "" : "s"}
+  Estimated space: ${d.totalSqft} sq ft, ${d.totalPallets} pallet${d.totalPallets === 1 ? "" : "s"}
   Storage type   : Shared warehouse${d.pickupAddress ? `\n  Pickup address : ${d.pickupAddress}` : ""}
 
 PAYMENT TERMS
