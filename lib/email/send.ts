@@ -19,6 +19,14 @@ export function isEmailEnabled(): boolean {
   return Boolean(process.env.RESEND_API_KEY)
 }
 
+/** Internal copy of every customer email. Comma-separated, blank to disable. */
+export function ccAddresses(): string[] {
+  return (process.env.RESEND_CC || "safestoragedubai@gmail.com")
+    .split(",")
+    .map((a) => a.trim())
+    .filter(Boolean)
+}
+
 /** Must be on a domain verified in Resend, or delivery fails. */
 export function fromAddress(): string {
   return process.env.RESEND_FROM || "SafeStorage Dubai <support@safestorage.ae>"
@@ -36,6 +44,7 @@ export async function sendEmail(opts: {
   html: string
   text: string
   replyTo?: string
+  cc?: string[]
 }): Promise<SendResult> {
   const resend = getResend()
   if (!resend) return { sent: false, error: "resend_not_configured" }
@@ -48,6 +57,8 @@ export async function sendEmail(opts: {
       html: opts.html,
       text: opts.text,
       replyTo: opts.replyTo,
+      // Undefined rather than an empty array — Resend rejects [].
+      cc: opts.cc && opts.cc.length ? opts.cc : undefined,
     })
 
     if (error) {

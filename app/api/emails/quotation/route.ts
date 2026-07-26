@@ -4,7 +4,7 @@
 // the request, so the figures in the customer's inbox always match what the
 // quote engine says — a stale or tampered client cannot email a wrong price.
 import { NextResponse } from "next/server"
-import { sendEmail, isEmailEnabled } from "@/lib/email/send"
+import { sendEmail, isEmailEnabled, ccAddresses } from "@/lib/email/send"
 import {
   renderQuotationEmail,
   renderQuotationText,
@@ -143,6 +143,7 @@ export async function POST(request: Request) {
     html: renderQuotationEmail(data),
     text: renderQuotationText(data),
     replyTo: data.supportEmail,
+    cc: ccAddresses(),
   })
 
   return NextResponse.json({ status: result.sent, id: result.id, error: result.error })
