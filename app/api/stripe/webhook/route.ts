@@ -156,7 +156,10 @@ export async function POST(request: Request) {
                   paid_amount: String(amountAed),
                   transaction_order_id:
                     typeof session.payment_intent === "string" ? session.payment_intent : "",
-                  transaction_note: `Stripe ${pickupType === "pickup" ? "transport" : "self drop"} payment · session ${session.id}`,
+                  // Two references, as India stores TXNID and ORDERID separately:
+                  // the intent goes to transaction_order_id, the session here.
+                  transaction_id: session.id,
+                  transaction_note: `SafeStorage ${pickupType === "pickup" ? "Transport" : "Warehouse arrival"} charges paid through Stripe`,
                 }),
               }
             )
