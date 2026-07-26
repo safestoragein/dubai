@@ -150,6 +150,13 @@ export async function POST(request: Request) {
                   pickup_type: pickupType,
                   payment_type: "monthly",
                   order_note: `Booked online · paid AED ${amountAed} via Stripe · ${session.id}`,
+                  // Recorded in ss_customer_transaction. The payment_intent is
+                  // globally unique, so it doubles as the idempotency key on
+                  // transaction_order_id's UNIQUE index.
+                  paid_amount: String(amountAed),
+                  transaction_order_id:
+                    typeof session.payment_intent === "string" ? session.payment_intent : "",
+                  transaction_note: `Stripe ${pickupType === "pickup" ? "transport" : "self drop"} payment · session ${session.id}`,
                 }),
               }
             )
