@@ -87,7 +87,7 @@ export async function POST(request: Request) {
       ? "paid_duplicate"
       : orderOk
         ? "paid"
-        : "ORDER_FAILED_AFTER_PAYMENT"
+        : "order_failed"
 
     await saveQuotationCapture({
       stage,
