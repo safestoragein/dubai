@@ -1004,14 +1004,13 @@ export default function QuotePage() {
 
       console.log('💰 Final price for', selectedStorageOption, 'storage:', finalPrice)
       
-      // Update the quotation with final selected price and storage type
-      console.log('📝 Updating quotation with selected storage type...')
-      const updateResponse = await fetch("https://safestorage.in/back/app/insert_quotation_dubai", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
+      // Params that finalize the quotation into an order. They are NOT sent
+      // yet: an order must not exist until payment succeeds, so they are
+      // handed to /api/checkout and replayed by the webhook once Stripe
+      // confirms. If payments are switched off, they are posted inline below.
+      const finalizeParams: Record<string, string> = {
           customer_id: formData.customerId!.toString(),
-          quotation_id: formData.quotationId!.toString(), // finalize the existing quote (upsert), no duplicate row
+          quotation_id: formData.quotationId!.toString(),
           storage_price: finalPrice!.toString(),
           closed_storage_price: formData.closedPrice!.toString(),
           shared_storage_price: formData.sharedPrice!.toString(),
@@ -1037,14 +1036,10 @@ export default function QuotePage() {
           ).toString(),
           pickup_distance_km:
             formData.distanceKm !== null ? formData.distanceKm.toFixed(1) : '',
-        }),
-      })
-      
-      const updateResult = await updateResponse.json()
-      console.log('✅ Price update response:', updateResult)
+      }
 
       captureQuotation({
-        stage: 'final',
+        stage: 'confirm_intent',
         php_customer_id: formData.customerId,
         php_quotation_id: formData.quotationId,
         customer_name: formData.fullName,
@@ -1095,6 +1090,7 @@ export default function QuotePage() {
             customerEmail: formData.email,
             customerPhone: formData.phone,
             pickupDate: selectedPickupDate,
+            finalizeParams,
           }),
         })
         const checkout = await checkoutRes.json()
@@ -1106,7 +1102,14 @@ export default function QuotePage() {
 
         // Nothing to collect (out of area) or payments not switched on yet —
         // fall through to the existing confirmation rather than dead-ending.
-        if (checkout?.reason === 'custom_quote_required') {
+        if (checkout?.reason === 'stripe_not_configured') {
+          // Payments disabled — finalize immediately, as before Stripe existed.
+          await fetch('https://safestorage.in/back/app/insert_quotation_dubai', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(finalizeParams),
+          }).catch((e) => console.error('[finalize] failed:', e))
+        } else if (checkout?.reason === 'custom_quote_required') {
           toast.success('Request received — our team will contact you with a transport quote.')
         } else if (checkout?.reason && checkout.reason !== 'stripe_not_configured') {
           console.error('[checkout] could not start payment:', checkout.reason)

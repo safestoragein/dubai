@@ -26,6 +26,8 @@ interface CheckoutRequest {
   customerEmail?: string | null
   customerPhone?: string | null
   pickupDate?: string | null
+  /** Exact params for insert_quotation_dubai, replayed after payment. */
+  finalizeParams?: Record<string, string>
 }
 
 export async function POST(request: Request) {
@@ -136,6 +138,9 @@ export async function POST(request: Request) {
         stripe_session_id: session.id,
         pickup_date: body.pickupDate,
       },
+      stripe_session_id: session.id,
+      // Held until the webhook confirms payment; the order is placed then.
+      finalize_params: body.finalizeParams ?? null,
     })
 
     return NextResponse.json({ status: true, url: session.url, id: session.id })

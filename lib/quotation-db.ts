@@ -68,6 +68,10 @@ export interface QuotationCapture {
   pickup_lng?: number | string | null
 
   selected_items?: unknown
+  stripe_session_id?: string | null
+  /** The exact params to POST to insert_quotation_dubai once payment lands. */
+  finalize_params?: unknown
+  order_created?: number | boolean | null
 }
 
 /** Empty string -> null, so blank form fields do not become "" in the DB. */
@@ -118,6 +122,9 @@ const COLUMNS = [
   "pickup_lat",
   "pickup_lng",
   "selected_items",
+  "stripe_session_id",
+  "finalize_params",
+  "order_created",
   "raw_payload",
 ] as const
 
@@ -168,6 +175,13 @@ export async function saveQuotationCapture(
       num(data.pickup_lat),
       num(data.pickup_lng),
       items,
+      str(data.stripe_session_id),
+      data.finalize_params === undefined || data.finalize_params === null
+        ? null
+        : typeof data.finalize_params === "string"
+          ? data.finalize_params
+          : JSON.stringify(data.finalize_params),
+      bool(data.order_created),
       // Whole payload verbatim — the recovery path if a column is ever missed.
       JSON.stringify(data),
     ]
@@ -181,6 +195,41 @@ export async function saveQuotationCapture(
   } catch (error) {
     console.error("[quotation-capture] FAILED to save quotation:", error)
     console.error("[quotation-capture] payload was:", JSON.stringify(data))
+    return null
+  }
+}
+
+/**
+ * The finalize params stashed when the Checkout Session was created.
+ *
+ * The webhook uses these to place the order only after Stripe confirms
+ * payment — the browser is never trusted to say a payment succeeded.
+ * Returns null if the session is unknown or already turned into an order,
+ * which also makes the webhook idempotent against Stripe's retries.
+ */
+export async function claimFinalizeParams(
+  sessionId: string
+): Promise<Record<string, string> | null> {
+  try {
+    const [rows] = await getPool().execute(
+      `SELECT id, finalize_params FROM quotation_dubai
+       WHERE stripe_session_id = ? AND order_created = 0 AND finalize_params IS NOT NULL
+       ORDER BY id DESC LIMIT 1`,
+      [sessionId]
+    )
+    const list = rows as Array<{ id: number; finalize_params: string }>
+    if (!list.length) return null
+
+    // Claim it first: a duplicate webhook delivery then finds nothing to do.
+    const [res] = await getPool().execute(
+      `UPDATE quotation_dubai SET order_created = 1 WHERE id = ? AND order_created = 0`,
+      [list[0].id]
+    )
+    if ((res as mysql.ResultSetHeader).affectedRows !== 1) return null
+
+    return JSON.parse(list[0].finalize_params) as Record<string, string>
+  } catch (error) {
+    console.error("[quotation-capture] claimFinalizeParams failed:", error)
     return null
   }
 }

@@ -5,7 +5,7 @@
 // webhook is the authority, so the order is confirmed here and nowhere else.
 import { NextResponse } from "next/server"
 import { getStripe } from "@/lib/stripe"
-import { saveQuotationCapture } from "@/lib/quotation-db"
+import { saveQuotationCapture, claimFinalizeParams } from "@/lib/quotation-db"
 import type Stripe from "stripe"
 
 export const runtime = "nodejs"
@@ -53,6 +53,35 @@ export async function POST(request: Request) {
 
     const amountAed = (session.amount_total ?? 0) / 100
 
+    // Payment is confirmed — NOW place the order. Doing it here rather than
+    // before the redirect is what makes "no payment, no order" true: an
+    // abandoned checkout never reaches this point. claimFinalizeParams also
+    // guards against Stripe's retries creating the order twice.
+    const finalize = await claimFinalizeParams(session.id)
+    if (finalize) {
+      try {
+        const res = await fetch(
+          "https://safestorage.in/back/app/insert_quotation_dubai",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(finalize),
+          }
+        )
+        const text = await res.text()
+        console.log(`[stripe-webhook] order placed for ${session.id}: ${text.slice(0, 200)}`)
+      } catch (error) {
+        // The payment succeeded, so never fail the webhook here — that would
+        // make Stripe retry a charge we have already taken. Loud log instead.
+        console.error(
+          `[stripe-webhook] ORDER CREATION FAILED after payment for ${session.id}:`,
+          error
+        )
+      }
+    } else {
+      console.warn(`[stripe-webhook] no unclaimed finalize params for ${session.id}`)
+    }
+
     await saveQuotationCapture({
       stage: "paid",
       php_quotation_id: m.quotation_id || null,
@@ -65,6 +94,8 @@ export async function POST(request: Request) {
       token_amount: amountAed,
       transport_price: m.delivery_mode === "self_drop" ? 0 : amountAed,
       pickup_distance_km: m.distance_km || null,
+      stripe_session_id: session.id,
+      order_created: finalize ? 1 : 0,
       selected_items: {
         stripe_session_id: session.id,
         stripe_payment_intent: session.payment_intent,
