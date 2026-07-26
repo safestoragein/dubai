@@ -471,6 +471,8 @@ const getCategoryColors = (color: string, isSelected: boolean = false) => {
 export default function QuotePage() {
   const router = useRouter()
   const [currentStep, setCurrentStep] = useState(1)
+  // Set when the page was opened from a quotation-email resume link.
+  const [resumedQuote, setResumedQuote] = useState<{ name: string; booked: boolean } | null>(null)
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [apiItems, setApiItems] = useState<ApiItem[]>([])
@@ -949,6 +951,67 @@ export default function QuotePage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [currentStep])
+
+  // Resume from a quotation-email link: ?id=<quotation>&code=<signed>.
+  // Restores the saved quote and drops the customer straight on the pricing
+  // step, so the email's "Choose a pickup date" button books rather than
+  // dumping them on an empty form.
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const params = new URLSearchParams(window.location.search)
+    const id = params.get('id')
+    const code = params.get('code')
+    if (!id || !code) return
+
+    let cancelled = false
+    ;(async () => {
+      try {
+        const res = await fetch(`/api/quote/resume?id=${encodeURIComponent(id)}&code=${encodeURIComponent(code)}`)
+        const data = await res.json()
+        if (cancelled || !data?.status || !data.quote) {
+          if (!cancelled) toast.error('That quote link is no longer valid. Please start a new quote.')
+          return
+        }
+        const q = data.quote
+
+        setFormData((prev) => ({
+          ...prev,
+          fullName: q.fullName ?? prev.fullName,
+          email: q.email ?? prev.email,
+          phone: q.phone ?? prev.phone,
+          address: q.address ?? prev.address,
+          emirate: q.emirate ?? prev.emirate,
+          floor: q.floor ?? prev.floor,
+          liftAvailable: q.liftAvailable ?? prev.liftAvailable,
+          bedrooms: q.bedrooms ?? prev.bedrooms,
+          storageType: (q.storageType as FormData['storageType']) ?? prev.storageType,
+          selectedItems: Array.isArray(q.items) && q.items.length ? q.items : prev.selectedItems,
+          customerId: q.customerId ? Number(q.customerId) : prev.customerId,
+          quotationId: q.quotationId ? Number(q.quotationId) : prev.quotationId,
+          totalPoints: q.totalPoints ?? prev.totalPoints,
+          totalPallets: q.totalPallets ?? prev.totalPallets,
+          totalsqft: q.totalSqft ?? prev.totalsqft,
+          sharedPrice: q.sharedPrice ?? prev.sharedPrice,
+          closedPrice: q.closedPrice ?? prev.closedPrice,
+          transportPrice: q.transportPrice ?? prev.transportPrice,
+          distanceKm: q.distanceKm ?? prev.distanceKm,
+          pickupLat: q.pickupLat ?? prev.pickupLat,
+          pickupLng: q.pickupLng ?? prev.pickupLng,
+        }))
+
+        setResumedQuote({
+          name: (q.fullName || '').split(/\s+/)[0] || '',
+          booked: Boolean(q.alreadyBooked),
+        })
+        // Straight to pricing — they already gave us everything else.
+        setCurrentStep(3)
+      } catch (e) {
+        console.error('[resume] failed to load quote:', e)
+      }
+    })()
+
+    return () => { cancelled = true }
+  }, [])
 
   const handlePrevious = () => {
     setCurrentStep(currentStep - 1)
@@ -1806,6 +1869,27 @@ export default function QuotePage() {
                     </p>
                   </div>
 
+
+                  {resumedQuote && (
+                    <div className={`max-w-3xl mx-auto mb-6 rounded-xl px-5 py-4 border ${
+                      resumedQuote.booked
+                        ? 'bg-emerald-50 border-emerald-200'
+                        : 'bg-blue-50 border-blue-200'
+                    }`}>
+                      {resumedQuote.booked ? (
+                        <p className="text-sm text-emerald-800">
+                          <strong>This pickup is already booked.</strong> Nothing more to pay —
+                          our team will be in touch before your collection date.
+                        </p>
+                      ) : (
+                        <p className="text-sm text-blue-800">
+                          <strong>Welcome back{resumedQuote.name ? `, ${resumedQuote.name}` : ''}.</strong>{' '}
+                          We&apos;ve loaded your saved quote. Choose how you&apos;d like your items
+                          collected, then pick a pickup date.
+                        </p>
+                      )}
+                    </div>
+                  )}
 
                   {/* Delivery mode toggle — we collect, or the customer drops off */}
                   <div className="flex justify-center mb-6">

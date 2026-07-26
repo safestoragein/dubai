@@ -233,3 +233,109 @@ export async function claimFinalizeParams(
     return null
   }
 }
+
+export interface ResumableQuote {
+  quotationId: string | null
+  customerId: string | null
+  fullName: string | null
+  email: string | null
+  phone: string | null
+  address: string | null
+  emirate: string | null
+  floor: string | null
+  liftAvailable: string | null
+  bedrooms: string | null
+  storageType: string | null
+  totalPoints: number | null
+  totalPallets: number | null
+  totalSqft: number | null
+  sharedPrice: number | null
+  closedPrice: number | null
+  transportPrice: number | null
+  distanceKm: number | null
+  pickupLat: number | null
+  pickupLng: number | null
+  items: Array<{ name: string; quantity: number; price: number; storagePoints: number }>
+  /** True once paid, so the page can say so instead of asking for payment again. */
+  alreadyBooked: boolean
+}
+
+/**
+ * The saved quote behind a resume link.
+ *
+ * Reads the richest capture row for the quotation — the step-2 save carries the
+ * items and customer details — and separately checks whether any row reached
+ * "paid", so a customer following an old email after booking is not asked to
+ * pay twice.
+ */
+export async function getResumableQuote(
+  quotationId: string
+): Promise<ResumableQuote | null> {
+  try {
+    const [rows] = await getPool().execute(
+      `SELECT * FROM quotation_dubai
+        WHERE php_quotation_id = ? AND selected_items IS NOT NULL
+        ORDER BY id ASC LIMIT 1`,
+      [quotationId]
+    )
+    const list = rows as Array<Record<string, unknown>>
+    if (!list.length) return null
+    const r = list[0]
+
+    const [paidRows] = await getPool().execute(
+      `SELECT id FROM quotation_dubai WHERE php_quotation_id = ? AND stage = 'paid' LIMIT 1`,
+      [quotationId]
+    )
+
+    // selected_items has been written in two shapes over time: a bare array, and
+    // an object wrapping the array alongside the pickup date.
+    let items: ResumableQuote["items"] = []
+    try {
+      const parsed = JSON.parse(String(r.selected_items ?? "[]"))
+      const arr = Array.isArray(parsed) ? parsed : parsed?.items
+      if (Array.isArray(arr)) {
+        items = arr
+          .filter((i) => i && i.name)
+          .map((i) => ({
+            name: String(i.name),
+            quantity: Number(i.quantity) || 1,
+            price: Number(i.price) || 0,
+            storagePoints: Number(i.storagePoints) || 0,
+          }))
+      }
+    } catch {
+      items = []
+    }
+
+    const n = (v: unknown) => (v === null || v === undefined ? null : Number(v))
+    const t = (v: unknown) => (v === null || v === undefined ? null : String(v))
+
+    return {
+      quotationId: t(r.php_quotation_id),
+      customerId: t(r.php_customer_id),
+      fullName: t(r.customer_name),
+      email: t(r.customer_email),
+      phone: t(r.customer_phone),
+      address: t(r.pickup_address),
+      emirate: t(r.emirate),
+      floor: t(r.floor),
+      liftAvailable: t(r.lift_available),
+      bedrooms: t(r.bedrooms),
+      storageType: t(r.storage_type),
+      totalPoints: n(r.total_points),
+      totalPallets: n(r.total_pallets),
+      totalSqft: n(r.total_sqft),
+      sharedPrice: n(r.shared_storage_price),
+      closedPrice: n(r.closed_storage_price),
+      transportPrice: n(r.transport_price),
+      distanceKm: n(r.pickup_distance_km),
+      pickupLat: n(r.pickup_lat),
+      pickupLng: n(r.pickup_lng),
+      items,
+      alreadyBooked: (paidRows as unknown[]).length > 0,
+    }
+  } catch (error) {
+    console.error("[quotation-capture] getResumableQuote failed:", error)
+    return null
+  }
+}

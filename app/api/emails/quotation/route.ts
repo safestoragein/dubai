@@ -10,6 +10,7 @@ import {
   renderQuotationText,
   type QuotationEmailData,
 } from "@/lib/email/quotation-template"
+import { quoteResumeUrl } from "@/lib/quote-resume"
 import {
   calculateTransportPrice,
   SELF_DROP_TOKEN_AED,
@@ -89,7 +90,11 @@ export async function POST(request: Request) {
     selfDropTokenAed: SELF_DROP_TOKEN_AED,
     pickupAddress: body.pickupAddress ?? null,
     transportCustomQuote: outOfRange,
-    bookingUrl: `${origin}/get-quote`,
+    // Signed resume link, so the CTA lands on their actual quote at the
+    // booking step rather than an empty form.
+    bookingUrl: body.quotationId
+      ? quoteResumeUrl(origin, body.quotationId)
+      : `${origin}/get-quote`,
     supportPhone: process.env.NEXT_PUBLIC_CONTACT_NUMBER || "+971 50 577 3388",
     supportEmail: process.env.NEXT_PUBLIC_EMAIL || "support@safestorage.ae",
   }
