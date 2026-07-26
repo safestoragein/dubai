@@ -58,6 +58,9 @@ export async function POST(request: Request) {
     // abandoned checkout never reaches this point. claimFinalizeParams also
     // guards against Stripe's retries creating the order twice.
     const finalize = await claimFinalizeParams(session.id)
+    let orderResult = "not_attempted"
+    let orderOk = false
+
     if (finalize) {
       try {
         const res = await fetch(
@@ -68,22 +71,26 @@ export async function POST(request: Request) {
             body: new URLSearchParams(finalize),
           }
         )
-        const text = await res.text()
-        console.log(`[stripe-webhook] order placed for ${session.id}: ${text.slice(0, 200)}`)
+        orderResult = (await res.text()).slice(0, 500)
+        orderOk = res.ok && !/\"status\"\s*:\s*false/.test(orderResult)
       } catch (error) {
         // The payment succeeded, so never fail the webhook here — that would
-        // make Stripe retry a charge we have already taken. Loud log instead.
-        console.error(
-          `[stripe-webhook] ORDER CREATION FAILED after payment for ${session.id}:`,
-          error
-        )
+        // make Stripe retry a charge we have already taken.
+        orderResult = `EXCEPTION: ${String(error).slice(0, 400)}`
       }
-    } else {
-      console.warn(`[stripe-webhook] no unclaimed finalize params for ${session.id}`)
     }
 
+    // Route-handler console output does not reach journald on this setup, so
+    // the outcome is written to the database instead — a paid-but-unordered
+    // booking must never be invisible.
+    const stage = !finalize
+      ? "paid_duplicate"
+      : orderOk
+        ? "paid"
+        : "ORDER_FAILED_AFTER_PAYMENT"
+
     await saveQuotationCapture({
-      stage: "paid",
+      stage,
       php_quotation_id: m.quotation_id || null,
       php_customer_id: m.customer_id || null,
       customer_name: m.customer_name || null,
@@ -101,12 +108,10 @@ export async function POST(request: Request) {
         stripe_payment_intent: session.payment_intent,
         amount_paid_aed: amountAed,
         pickup_date: m.pickup_date,
+        order_result: orderResult,
       },
     })
 
-    console.log(
-      `[stripe-webhook] PAID ${amountAed} AED — quotation ${m.quotation_id || "?"} session ${session.id}`
-    )
   }
 
   return NextResponse.json({ received: true })
