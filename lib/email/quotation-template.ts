@@ -44,6 +44,13 @@ const HAIR = "#f0f1f4"
 const PANEL = "#f5f7fa"
 const PAGE = "#eef1f6"
 
+// Absolute URL — email clients cannot resolve relative paths. Served straight
+// from /images rather than through /_next/image: the optimiser URL carries
+// query params that some clients mangle, and it can 404 after a redeploy
+// changes the build. The logo is dark navy on transparent, so it sits on a
+// white band; on the navy header it would be all but invisible.
+const LOGO_URL = "https://safestorage.ae/images/design-mode/logo.png"
+
 const F = "Arial,Helvetica,sans-serif"
 const PX = "padding-left:40px;padding-right:40px;"
 
@@ -120,12 +127,16 @@ export function renderQuotationEmail(d: QuotationEmailData): string {
 
 <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,0.08);">
 
-  <tr><td style="background:${NAVY};padding:24px 40px;font-family:${F};" class="px">
+  <tr><td style="background:#ffffff;padding:22px 40px 18px;font-family:${F};" class="px">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-      <td style="vertical-align:middle;"><span style="font-size:22px;font-weight:800;letter-spacing:-0.4px;color:#ffffff;">Safe<span style="color:${ORANGE};">Storage</span></span></td>
-      <td align="right" style="vertical-align:middle;"><span style="font-size:12px;color:${MUTED_BLUE};">Dubai &middot; Since 2015</span></td>
+      <td style="vertical-align:middle;">
+        <img src="${LOGO_URL}" width="150" height="56" alt="SafeStorage"
+             style="display:block;border:0;outline:none;text-decoration:none;width:150px;height:auto;max-width:150px;">
+      </td>
+      <td align="right" style="vertical-align:middle;"><span style="font-size:12px;color:${FAINT};">Dubai &middot; Since 2015 globally</span></td>
     </tr></table>
   </td></tr>
+  <tr><td style="height:3px;background:${ORANGE};font-size:0;line-height:0;">&nbsp;</td></tr>
 
   <tr><td class="px" style="padding:32px 40px 6px;font-family:${F};">
     <div style="font-size:22px;font-weight:700;color:${NAVY};">${esc(d.firstName)}, your storage quotation is ready.</div>
