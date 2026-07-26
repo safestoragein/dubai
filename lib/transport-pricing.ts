@@ -27,10 +27,10 @@ export const TRANSPORT_SURCHARGE_AED = 60
 export const OVERSIZE_RATE_PER_PALLET_AED = 218
 
 /**
- * Booking tokens. Taken up front to confirm the slot and knocked off the
- * transport bill afterwards — they are not an extra charge.
+ * Self drop takes a booking token up front, set against the storage bill —
+ * it is not an extra charge. Door-to-door transport takes no token: the full
+ * transport charge is collected at checkout instead.
  */
-export const TRANSPORT_TOKEN_AED = 50
 export const SELF_DROP_TOKEN_AED = 20
 
 /** How the goods reach the warehouse: we collect, or the customer drops off. */

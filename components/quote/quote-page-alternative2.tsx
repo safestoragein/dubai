@@ -14,7 +14,6 @@ import {
   calculateTransportPrice,
   distanceFromWarehouseKm,
   SERVICE_RADIUS_KM,
-  TRANSPORT_TOKEN_AED,
   SELF_DROP_TOKEN_AED,
   type DeliveryMode,
 } from "@/lib/transport-pricing"
@@ -860,7 +859,8 @@ export default function QuotePage() {
           transport_price: outOfRange ? 0 : transport.totalAed,
           transport_base_price: transport.baseAed,
           transport_surcharge: transport.surchargeAed,
-          token_amount: deliveryMode === 'self_drop' ? SELF_DROP_TOKEN_AED : TRANSPORT_TOKEN_AED,
+          // What we actually collect: the whole transport charge, or the self-drop token.
+          token_amount: deliveryMode === 'self_drop' ? SELF_DROP_TOKEN_AED : transport.totalAed,
           transport_custom_quote: outOfRange,
           pickup_distance_km: formData.distanceKm,
           pickup_lat: formData.pickupLat,
@@ -1032,7 +1032,7 @@ export default function QuotePage() {
           delivery_mode: deliveryMode,
           token_amount: (deliveryMode === 'self_drop'
             ? SELF_DROP_TOKEN_AED
-            : TRANSPORT_TOKEN_AED
+            : (formData.transportPrice ?? 0)
           ).toString(),
           pickup_distance_km:
             formData.distanceKm !== null ? formData.distanceKm.toFixed(1) : '',
@@ -1062,7 +1062,9 @@ export default function QuotePage() {
         transport_price:
           deliveryMode === 'self_drop' || finalOutOfRange ? 0 : formData.transportPrice,
         token_amount:
-          deliveryMode === 'self_drop' ? SELF_DROP_TOKEN_AED : TRANSPORT_TOKEN_AED,
+          deliveryMode === 'self_drop'
+            ? SELF_DROP_TOKEN_AED
+            : (formData.transportPrice ?? 0),
         transport_custom_quote: deliveryMode === 'transport' && finalOutOfRange,
         pickup_distance_km: formData.distanceKm,
         pickup_lat: formData.pickupLat,
@@ -1844,9 +1846,7 @@ export default function QuotePage() {
                       subtitle: "Collection from your address",
                       price: transport.totalAed,
                       period: "one-time",
-                      note: transportNeedsCustomQuote
-                        ? ""
-                        : `AED ${TRANSPORT_TOKEN_AED} to book — adjusted against this amount`,
+                      note: "",
                       customQuote: transportNeedsCustomQuote,
                       Icon: Truck,
                       accent: "blue" as const,
@@ -2197,7 +2197,17 @@ export default function QuotePage() {
                         type="date"
                         value={selectedPickupDate}
                         onChange={(e) => setSelectedPickupDate(e.target.value)}
-                        min={new Date(Date.now() + 86400000).toISOString().split('T')[0]} // Tomorrow minimum
+                        min={(() => {
+                          // Today and tomorrow are not bookable, so the earliest
+                          // pickup is two days out. Built from local parts because
+                          // toISOString() is UTC and would shift the date back a
+                          // day for anyone booking in the Dubai evening.
+                          const d = new Date()
+                          d.setDate(d.getDate() + 2)
+                          const m = String(d.getMonth() + 1).padStart(2, '0')
+                          const day = String(d.getDate()).padStart(2, '0')
+                          return `${d.getFullYear()}-${m}-${day}`
+                        })()}
                         className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors text-slate-800"
                       />
                       <Calendar className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" />
