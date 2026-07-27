@@ -270,7 +270,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             Door-to-door Pickup Across Dubai
           </h3>
           <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "16px" }}>
-            One of our most popular features is our door-to-door pickup service. You do not need to rent a lorry, hire movers separately, or make multiple trips. Our team comes to your door, carefully loads your belongings, transports them to our secure facility, and delivers them back when you need them — all included in your monthly plan. We serve every neighbourhood in Dubai including Business Bay, Dubai Marina, Jumeirah, JBR, DIFC, Downtown, Deira, Bur Dubai, Al Barsha, Dubai Investment Park, Motor City, and beyond.
+            One of our most popular features is our door-to-door pickup service. You do not need to rent a lorry, hire movers separately, or make multiple trips. Our team comes to your door, carefully loads your belongings, transports them to our secure facility, and delivers them back when you need them. We serve every neighbourhood in Dubai including Business Bay, Dubai Marina, Jumeirah, JBR, DIFC, Downtown, Deira, Bur Dubai, Al Barsha, Dubai Investment Park, Motor City, and beyond.
           </p>
 
           <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#111827", marginBottom: "12px", marginTop: "24px" }}>

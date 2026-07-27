@@ -72,7 +72,7 @@ export default function SelfStorageCostDubaiPage() {
               <div className="space-y-4 mb-8">
                 {[
                   { fee: "Admin / registration fee", detail: "Some facilities charge AED 100–300 one-time registration fee on top of the first month. Ask if this applies." },
-                  { fee: "Pickup / delivery charges", detail: "Door-to-Door pickup is offered by premium providers like SafeStorage. Others charge AED 200–500 per pickup trip — significant for large moves." },
+                  { fee: "Pickup / delivery charges", detail: "Door-to-Door pickup is offered by premium providers like SafeStorage. Pickup is charged separately by most providers — ask for the cost upfront, as it is significant for large moves." },
                   { fee: "Late payment penalty", detail: "Can be 5-15% of monthly rent. Know the late payment window before committing — some facilities lock access the day after payment is due." },
                   { fee: "Move-out notice period", detail: "Most require 30 days written notice. Not knowing this means paying an extra month when you want to leave." },
                 ].map((f) => (

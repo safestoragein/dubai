@@ -147,7 +147,7 @@ export default function WhyChooseUs() {
                 <div className="px-6 pb-6">
                   <div className="flex items-center gap-2 text-sm text-green-600">
                     <CheckCircle2 className="h-4 w-4" />
-                    <span>Included with every plan</span>
+                    <span>Available with SafeStorage</span>
                   </div>
                 </div>
               </m.div>

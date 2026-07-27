@@ -260,7 +260,7 @@ export default function LocationsPage() {
                 </ol>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-[#0A2463] mb-3">What Is Included in Every Plan</h4>
+                <h4 className="text-lg font-semibold text-[#0A2463] mb-3">What You Get with SafeStorage</h4>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Door-to-Door pickup anywhere in Dubai</span></li>
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>Secure, indoor storage</span></li>
