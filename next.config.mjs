@@ -121,7 +121,7 @@ const nextConfig = {
       // Missing /services/* pages → correct existing service pages
       {
         source: '/services/climate-controlled',
-        destination: '/self-storage-dubai/climate-controlled',
+        destination: '/self-storage-dubai',
         permanent: true,
       },
       {
