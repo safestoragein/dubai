@@ -252,9 +252,9 @@ ${rmBlock}
 
   <tr><td style="padding:28px 40px 30px;font-family:${F};">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top:1px solid ${HAIR};padding-top:18px;">
-      <div style="font-size:13px;font-weight:700;color:${INK};">SafeStorage&reg; UAE</div>
+      <div style="font-size:13px;font-weight:700;color:${INK};">SAFE STORAGE&trade; UAE</div>
       <div style="font-size:12.5px;color:${FAINT};padding-top:5px;line-height:1.65;">
-        We store anything you care about.<br>
+        We store anything you care!<br>
         <a href="tel:${esc(d.supportPhone.replace(/\s/g, ""))}" style="color:${GREY};text-decoration:none;">${esc(d.supportPhone)}</a> &nbsp;&middot;&nbsp;
         <a href="mailto:${esc(d.supportEmail)}" style="color:${GREY};text-decoration:none;">${esc(d.supportEmail)}</a> &nbsp;&middot;&nbsp;
         <a href="https://safestorage.ae" style="color:${GREY};text-decoration:none;">safestorage.ae</a>
@@ -339,7 +339,7 @@ export function renderPickupConfirmationText(d: PickupConfirmationData): string 
     ``,
     `Not getting the help you need? Escalate to ${d.supportEmail}`,
     ``,
-    `SafeStorage(R) UAE — We store anything you care about.`,
+    `SAFE STORAGE(TM) UAE — We store anything you care!`,
     `${d.supportPhone} — ${d.supportEmail} — safestorage.ae`
   )
 
