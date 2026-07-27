@@ -611,7 +611,7 @@ export default function HouseholdStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">13. Can SafeStorage deliver my stored items to a new Dubai address or a different emirate?</h3>
-              <p className="text-gray-700">Yes. Delivery of stored household items is not restricted to the original pickup address. If you have moved to a new apartment in Dubai, a new community, or even a different emirate such as Abu Dhabi, Sharjah, or Ras Al Khaimah, we can deliver your stored items to the new address. Out-of-emirate delivery charges apply for destinations outside Dubai. If you are relocating internationally, we can work with international freight partners to arrange container shipping from our facility to your destination country.</p>
+              <p className="text-gray-700">Yes. Delivery of stored household items is not restricted to the original pickup address. If you have moved to a new apartment in Dubai, a new community, or even a different emirate such as Abu Dhabi, Sharjah, or Ras Al Khaimah, we can deliver your stored items to the new address. Delivery charges are confirmed before the delivery is scheduled. If you are relocating internationally, we can work with international freight partners to arrange container shipping from our facility to your destination country.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

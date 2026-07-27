@@ -103,7 +103,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How does pickup and delivery work?</h3>
-              <p className="text-gray-700 leading-relaxed">Door-to-door service is part of our service at SafeStorage Dubai. Our trained team will come to your home or office anywhere in Dubai, carefully wrap and collect your items, and transport them to our secure warehouse facility. When you need your items, we deliver them back to your address &mdash; so you never need to hire a van or do any heavy lifting. For locations outside Dubai (Sharjah, Ajman, Abu Dhabi) a modest fixed transport fee applies, which our team confirms before you book, so there are never any surprises.</p>
+              <p className="text-gray-700 leading-relaxed">Door-to-door service is available at SafeStorage Dubai. Our trained team will come to your home or office anywhere in Dubai, carefully wrap and collect your items, and transport them to our secure warehouse facility. When you need your items, we deliver them back to your address &mdash; so you never need to hire a van or do any heavy lifting. We also cover Sharjah, Ajman and Abu Dhabi. Transport is confirmed by our team before you book, so there are never any surprises.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How secure is SafeStorage Dubai?</h3>
