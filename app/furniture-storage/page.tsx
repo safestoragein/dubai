@@ -270,9 +270,6 @@ export default function FurnitureStoragePage() {
                 <p className="text-gray-700 leading-relaxed">Retrieving a specific item from your stored furniture is straightforward. Contact our team via WhatsApp or phone, specify the item you need (by description or using the intake inventory photos), and we will schedule delivery to your Dubai address. For urgent retrievals, same-day or next-day delivery is available for requests made before 12 PM. The delivery cost is charged separately from your monthly storage fee and depends on the item size and delivery distance. Alternatively, if you prefer to collect in person, you can visit the facility during business hours and our team will help locate your specific item within the unit.</p>
               </div>
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">What is the typical cost for furniture storage in Dubai?</h3>
-              </div>
-              <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How long can furniture safely remain in storage?</h3>
                 <p className="text-gray-700 leading-relaxed">In SafeStorage&apos;s clean, covered indoor units, furniture can remain safely stored indefinitely — there is no upper time limit. Our oldest expat customers have stored furniture for 4–5 years while living abroad, and when they collected their items, the furniture was in the same condition as when it was stored. The keys to safe long-term storage are professional wrapping, correct positioning, and keeping items dust-protected, off the floor, and out of the sun and rain. With that care in place, quality furniture will maintain its condition across months and years. For items of very high value, we recommend requesting a periodic photographic condition check, which our team can conduct on request.</p>
               </div>

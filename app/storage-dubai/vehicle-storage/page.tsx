@@ -335,64 +335,52 @@ export default function VehicleStoragePage() {
             <div className="bg-white rounded-xl p-6 border border-gray-200">
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">3. Do I need to deregister my vehicle in Dubai before storing it long-term?</h3>
-            </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. How do I prepare my vehicle for long-term storage?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">2. How do I prepare my vehicle for long-term storage?</h3>
               <p className="text-gray-700">Proper preparation significantly reduces the risk of damage during storage. We recommend a full service before storage (oil change, fluid checks), filling the fuel tank to prevent moisture condensation in the tank, cleaning the exterior and interior thoroughly to prevent paint damage from dust and bird droppings, pumping tyres to the maximum recommended pressure to slow deflation, and applying a good quality wax to the paintwork. Disconnect the negative battery terminal if not using our trickle charger service. Do not apply the handbrake for long periods on older vehicles — use wheel chocks instead. Our team can run through a pre-storage checklist with you at drop-off.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. Can I store my motorcycle at SafeStorage during summer in Dubai?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">3. Can I store my motorcycle at SafeStorage during summer in Dubai?</h3>
               <p className="text-gray-700">Absolutely. Motorcycle storage during Dubai summer is one of our most popular services. The intense sun and UV exposure of Dubai summer can cause rubber components (tyres, fork seals, gaskets) to crack and degrade rapidly when a bike is stored outdoors. Our indoor motorcycle bays keep your bike out of the sun and protect it from dust and the elements. Motorcycles are stored on stands (if available) or with front and rear paddock stands provided by us. We also offer battery maintenance and periodic tyre pressure checks throughout the summer storage period.</p>
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. Can I access my stored vehicle at any time?</h3>
-            </div>
+
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. What security measures protect stored vehicles?</h3>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. How does indoor storage compare to a covered car park?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. How does indoor storage compare to a covered car park?</h3>
               <p className="text-gray-700">A covered car park provides shade but is open to dust, sand, and passing traffic, and offers no security for a stored vehicle. SafeStorage&apos;s indoor vehicle storage bays are fully enclosed within a secure building, keeping your vehicle clean and protected from dust storms, bird droppings, and accidental knocks. Access is restricted and the facility is monitored by 24/7 CCTV. For vehicles being stored for more than 2–3 months, the difference in condition and security upon retrieval is significant.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. Can SafeStorage arrange transport of my vehicle to and from the facility?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. Can SafeStorage arrange transport of my vehicle to and from the facility?</h3>
               <p className="text-gray-700">Yes. Through our logistics partners, we can arrange professional vehicle transport (flatbed transport for sports and low-profile cars, enclosed transport for classic vehicles) to collect your vehicle from any Dubai location and deliver it to our facility. On retrieval, we can arrange transport back to your address or any UAE location. Enclosed transport is recommended for all classic, vintage, and high-value vehicles to prevent road debris damage during transit. Contact us for transport pricing based on your vehicle type and collection location.</p>
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. How much does vehicle storage in Dubai cost?</h3>
-            </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. Can I perform maintenance on my vehicle while it is in storage?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. Can I perform maintenance on my vehicle while it is in storage?</h3>
               <p className="text-gray-700">For basic maintenance that does not involve fluids, chemicals, or power tools, we can accommodate limited work in the vehicle bay by appointment. For more extensive maintenance, the vehicle would need to be removed to a workshop. SafeStorage can recommend trusted specialist mechanics in Dubai for different vehicle categories (classic cars, European luxury vehicles, American muscle cars, motorcycles). We can also coordinate with your preferred mechanic to arrange collection and return of the vehicle to our facility.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">12. What is the minimum storage period for vehicles?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. What is the minimum storage period for vehicles?</h3>
               <p className="text-gray-700">SafeStorage offers month-to-month vehicle storage with a 1-month minimum. There is no long-term commitment required. You can store for 1 month, 1 year, or anything in between — and cancel with 30 days&apos; notice. For seasonal motorcycle storage (typically April to September), a 6-month plan provides better value and our team can coordinate a convenient drop-off before summer and collection at the start of riding season.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">13. Can I store a fleet of company vehicles at SafeStorage?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. Can I store a fleet of company vehicles at SafeStorage?</h3>
               <p className="text-gray-700">Yes. We work with several companies in Dubai that need temporary storage for fleet vehicles that are not currently in active use — either due to seasonal demand fluctuations, contract gaps, vehicle replacement cycles, or business restructuring. Fleet storage accounts receive dedicated bay allocations, consolidated monthly billing, and a designated account manager. Volume discounts apply for fleets of 5 or more vehicles. We can also manage fleet vehicle checks (tyre pressure, battery condition) on a scheduled basis throughout the storage period.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">14. How do I know my vehicle&apos;s condition is being maintained during storage?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. How do I know my vehicle&apos;s condition is being maintained during storage?</h3>
               <p className="text-gray-700">SafeStorage conducts monthly condition checks on all stored vehicles and sends a brief report to the account holder. The check covers exterior condition (paint, glass, tyres), interior condition (no moisture ingress, no pest activity), battery status (if on trickle charge service), and tyre pressure. Photographs are taken at each check and stored in your account file. If any concerns are noted, your account manager will contact you immediately to discuss options. This monitoring service gives vehicle owners confidence that their asset is being actively looked after, not simply parked and forgotten.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">15. Is vehicle storage in Dubai a good option for expats returning to their home country?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. Is vehicle storage in Dubai a good option for expats returning to their home country?</h3>
               <p className="text-gray-700">Vehicle storage is one of the most popular services among Dubai expats who need to leave the city for an extended period. The alternatives — selling the vehicle and repurchasing on return, gifting it to a friend or colleague, or leaving it in a residential car park — all carry risks or costs. SafeStorage provides a secure, professionally managed solution at a predictable monthly cost. Many expat customers have used our service repeatedly over several years for summer trips home, secondments, and temporary relocations. We make the whole process easy, from vehicle drop-off coordination to condition reporting while you are away.</p>
             </div>
           </div>

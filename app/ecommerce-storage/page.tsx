@@ -256,9 +256,6 @@ export default function EcommerceStoragePage() {
                 <p className="text-gray-700 leading-relaxed">SafeStorage Dubai is primarily a storage facility rather than a full 3PL (third-party logistics) operator. Pick-and-pack means you access your storage unit yourself, select the products for individual orders, pack them in your shipping materials, label them with your shipping labels, and then arrange collection by your courier partner (DHL, Aramex, FedEx, Emirates Post, or any other). Many of our e-commerce customers bring their packing materials to the unit, conduct packing runs daily or several times per week, and coordinate courier collection from our facility&apos;s loading area. This gives you full control over your order quality while avoiding the cost of a full 3PL service fee on every order. Our access hours of 8 AM&ndash;8 PM, Monday to Saturday, support most fulfilment workflows.</p>
               </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can my team access the unit for order fulfilment?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">What are the access hours for e-commerce customers?</h3>

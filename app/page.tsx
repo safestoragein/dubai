@@ -99,14 +99,8 @@ export default function LandingPage() {
               <p className="text-gray-700 leading-relaxed">Self-storage is a service where individuals and businesses rent a secure unit or dedicated space to store their belongings outside their home or office. At SafeStorage Dubai, we operate a valet model — our team picks up your items from your door, stores them in our secure, clean facilities, and delivers everything back whenever you need it. You never have to visit a warehouse or hire a truck. The process is entirely managed by our team from start to finish.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-dubai-navy mb-2">How much does storage cost in Dubai?</h3>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How does pickup and delivery work?</h3>
               <p className="text-gray-700 leading-relaxed">Door-to-door service is available at SafeStorage Dubai. Our trained team will come to your home or office anywhere in Dubai, carefully wrap and collect your items, and transport them to our secure warehouse facility. When you need your items, we deliver them back to your address &mdash; so you never need to hire a van or do any heavy lifting. We also cover Sharjah, Ajman and Abu Dhabi. Transport is confirmed by our team before you book, so there are never any surprises.</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-dubai-navy mb-2">How secure is SafeStorage Dubai?</h3>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What is the minimum rental period?</h3>
@@ -151,18 +145,12 @@ export default function LandingPage() {
               <p className="text-gray-700 leading-relaxed">A typical residential pickup at SafeStorage Dubai takes 2&ndash;4 hours depending on the volume of items being collected. Our team arrives with all necessary packing materials including furniture blankets, bubble wrap, stretch film, and corner protectors. They will carefully wrap, photograph, and inventory each item before loading. For large villa clearances or business pickups, additional time may be needed &mdash; we recommend scheduling these in the morning to allow sufficient time. Our team will give you an accurate time estimate when you book your pickup.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-dubai-navy mb-2">What is included in the monthly storage price?</h3>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">Is VAT included in the price?</h3>
               <p className="text-gray-700 leading-relaxed">All prices quoted by SafeStorage Dubai are exclusive of UAE VAT (5%). VAT will be applied to your invoice in accordance with UAE Federal Tax Authority regulations. For VAT-registered businesses, please provide your Tax Registration Number (TRN) before your first invoice is generated so that your invoices are correctly issued for VAT reclaim purposes. Individuals and non-VAT-registered customers will simply pay the quoted rate plus 5% VAT. All invoices are sent digitally via email and are compliant with UAE VAT requirements.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">How do I pay for storage?</h3>
               <p className="text-gray-700 leading-relaxed">SafeStorage Dubai accepts multiple payment methods for your convenience. You can pay by credit or debit card (Visa, Mastercard), bank transfer, online payment through the website, or cheque made in favour of SafeStorage Dubai. Payments are made monthly in advance. For long-term plans, you can prepay several months upfront to benefit from a wide range of discounts. Auto-pay can be set up so you never miss a payment. Monthly invoices and payment reminders are sent by email, SMS, and WhatsApp.</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-dubai-navy mb-2">What makes SafeStorage different from other storage companies in Dubai?</h3>
             </div>
           </div>
         </div>

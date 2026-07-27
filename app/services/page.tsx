@@ -305,9 +305,6 @@ export default function Services() {
               <p className="text-gray-700">When SafeStorage collects your items, our team photographs every individual item and box, creating a complete digital inventory that is accessible through your online account or provided as a document. Each photo is tagged with a description, location in the facility, and date of storage. When you want to retrieve specific items, you can browse your digital inventory and request exactly what you need — without having to retrieve everything. This is particularly useful for customers who store many boxes of similar-looking items and want to identify exactly what they need before requesting delivery.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-3">What security measures protect items stored at SafeStorage Dubai?</h3>
-            </div>
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How quickly can I get my items back from SafeStorage?</h3>
@@ -336,9 +333,6 @@ export default function Services() {
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Does SafeStorage offer e-commerce fulfilment or inventory management services?</h3>
               <p className="text-gray-700">SafeStorage offers e-commerce storage solutions for businesses that need flexible inventory storage without the commitment of a warehouse lease. We store your inventory in our secure facility and can arrange delivery of specific items to your specified address or fulfilment partner on request. While we do not currently offer direct-to-consumer order picking and packing, our e-commerce storage service is ideal for businesses that fulfil orders through a 3PL partner but need flexible, cost-effective inventory overflow storage. Contact our commercial team at +971505773388 to discuss your specific e-commerce storage needs.</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-3">What should I do to prepare my items for SafeStorage pickup?</h3>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is SafeStorage available on weekends for pickup and delivery?</h3>

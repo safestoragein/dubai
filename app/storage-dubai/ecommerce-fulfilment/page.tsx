@@ -385,27 +385,27 @@ export default function EcommerceFulfilmentPage() {
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. How quickly can I get started with e-commerce storage?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. How quickly can I get started with e-commerce storage?</h3>
               <p className="text-gray-700">Most new e-commerce customers are operational within 24–48 hours of contacting us. The onboarding process involves a brief consultation to understand your product mix and order volumes, followed by signing a simple month-to-month storage agreement. Once signed, you can deliver your first inventory batch to our facility or request a pickup from your current location. Your dedicated account manager will be reachable via phone and WhatsApp from day one.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. Do you support cross-border e-commerce shipping from Dubai?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. Do you support cross-border e-commerce shipping from Dubai?</h3>
               <p className="text-gray-700">Dubai is an ideal hub for cross-border e-commerce across the GCC region. We work with sellers who ship to Saudi Arabia, Kuwait, Bahrain, Qatar, Oman, Jordan, and beyond. Our logistics partners include DHL, Aramex, FedEx, and specialist GCC couriers. We can prepare shipments with the correct commercial invoices and packing lists required for customs clearance in each destination country. Contact us to discuss your cross-border fulfilment requirements.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">12. What types of packaging can SafeStorage use for my orders?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. What types of packaging can SafeStorage use for my orders?</h3>
               <p className="text-gray-700">We stock a range of standard packaging materials including poly mailers, corrugated boxes in various sizes, bubble wrap, tissue paper, and void fill. For sellers with branded packaging requirements, we can use your custom boxes, branded tape, thank-you cards, stickers, and inserts. Simply provide your packaging materials along with your initial inventory delivery and brief our team on your packing standards. We maintain a photo guide of your packing requirements for consistency across all orders.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">13. How is e-commerce storage priced compared to renting a warehouse in Dubai?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">12. How is e-commerce storage priced compared to renting a warehouse in Dubai?</h3>
               <p className="text-gray-700">Warehousing in Dubai typically requires a minimum 1-year lease, upfront rental deposits, and rents ranging from AED 25–60 per square foot per year in logistics zones like DIP, JAFZA, and Al Quoz. A modest 1,000 sq ft warehouse would cost AED 25,000–60,000 annually, plus fit-out costs, DEWA deposits, and staffing. SafeStorage e-commerce storage starts from 12.60 AED / sqft (VAT-inclusive) with no deposit, no fit-out, no minimum term, and staff included. For most small and medium e-commerce businesses, this represents a saving of AED 15,000–40,000 per year.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">14. Can multiple team members from my business access the storage unit?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">13. Can multiple team members from my business access the storage unit?</h3>
               <p className="text-gray-700">Yes. You can authorise multiple team members to access your storage unit or liaise with our fulfilment team. Each authorised person is registered in our access control system. For businesses using our pick-and-pack service, access to the physical unit is managed by our team, and you can assign multiple contacts who can submit orders, request inventory reports, or coordinate deliveries via phone, WhatsApp, or our online portal.</p>
             </div>
           </div>

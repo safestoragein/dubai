@@ -224,9 +224,6 @@ export default function DeiraPage() {
               <p className="text-gray-700">Yes. Many Deira residents live in shared accommodation where they have personal belongings but limited private space. SafeStorage can store an individual&apos;s personal items — clothes, electronics, personal boxes — under a single account even from a shared living situation. For small volumes, our pricing from 12.60 AED / sqft (VAT-inclusive) makes storage accessible for individuals rather than requiring a full apartment clearance. Simply list or photograph your specific items and we will store them separately from any shared household contents.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a Karama or Bur Dubai apartment?</h3>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage serve the Oud Metha and Al Jaddaf areas?</h3>
               <p className="text-gray-700">Yes. Oud Metha and Al Jaddaf are both within our Deira and Bur Dubai service zone. Oud Metha&apos;s mix of hospitals, schools, residential blocks, and the Oud Metha metro area are all covered. Al Jaddaf — a rapidly developing area with a mix of older and newer residential buildings adjacent to the Dubai Creek — is also fully covered. Residents in both areas receive door-to-door pickup and the full range of SafeStorage services. Typical pickup times from Oud Metha and Al Jaddaf are 20 minutes.</p>
             </div>

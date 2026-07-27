@@ -188,14 +188,8 @@ export default function PalmJumeirahPage() {
               <p className="text-gray-700">Yes, our team is fully experienced with Palm Frond access and vehicle logistics. Each Frond has designated access roads and residential driveways. We use appropriately sized vehicles for each Frond — smaller vehicles for tighter Frond ends and larger vehicles for Frond-side access where space permits. Our team contacts you before the pickup to confirm the best access approach for your specific Frond and villa location. We have never had a logistics issue on the Palm that prevented a successful pickup.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a full Palm villa during renovation?</h3>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can you store a jet ski or personal watercraft from Palm Jumeirah?</h3>
               <p className="text-gray-700">Yes. SafeStorage stores jet skis, personal watercraft, RIBs, and small boats in our vehicle storage bays. For jet skis on the Palm, we coordinate collection from private jetties, marinas, or home driveways. The jet ski is secured on its trailer or we can arrange trailer hire if needed. All watercraft are stored in covered, secure bays rather than outdoor spaces. Water sports equipment including kayaks, paddleboards, and inflatable watercraft can also be stored and are available for same-week retrieval when the season begins.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you provide specialist packing for valuable art and antiques from Palm villas?</h3>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What happens to my belongings while the Palm villa is on the market for sale?</h3>

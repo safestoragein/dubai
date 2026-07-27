@@ -364,60 +364,51 @@ export default function BusinessStoragePage() {
               <p className="text-gray-700">Business clients with inventory storage can arrange same-day delivery for orders received before 12 PM. Standard retrieval and delivery is available next business day for orders placed by 5 PM. For businesses with high-frequency retrieval needs (such as e-commerce sellers requiring daily dispatches), we can set up a scheduled daily collection arrangement. Your dedicated account manager coordinates all retrieval requests and ensures items are ready at the agreed time.</p>
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. How is business inventory kept in good condition in storage?</h3>
-            </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. Can SafeStorage store trade show and exhibition materials?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. Can SafeStorage store trade show and exhibition materials?</h3>
               <p className="text-gray-700">Yes. Dubai hosts numerous major trade shows and exhibitions year-round at DWTC, Dubai Exhibition Centre, and other venues. Managing trade show materials — custom display stands, banner systems, demo units, branded fixtures, promotional products — between events is a common challenge for exhibiting companies. SafeStorage provides a convenient storage solution for these materials. We can store complete exhibition setups and deliver to the venue loading bay on the day before your event, then collect and return to storage after the show closes.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. How is business storage priced in Dubai?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. How is business storage priced in Dubai?</h3>
               <p className="text-gray-700">Business storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), based on the unit size required. Medium units (50–100 sq ft) are suitable for small office clearances, modest inventory, or document archives. Large units (100–200 sq ft) accommodate full office contents or substantial inventory volumes. Extra-large units (200–400+ sq ft) suit larger commercial storage needs. All plans include clean and secure indoor units, 24/7 security, and a dedicated account manager, with door-to-door service available across Dubai.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. Can SafeStorage help with document archiving as part of a business storage plan?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. Can SafeStorage help with document archiving as part of a business storage plan?</h3>
               <p className="text-gray-700">Yes. Many business storage clients add document archiving services to their account alongside physical inventory storage. Business documents — financial records, contracts, HR files, legal correspondence — are stored in our dedicated document archival section with barcoded box tracking, indexed retrieval, and compliance-appropriate security controls. This add-on service integrates seamlessly with your business storage account under a single monthly invoice and single account manager.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. Do you offer storage for pharmaceutical and healthcare businesses?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. Do you offer storage for pharmaceutical and healthcare businesses?</h3>
               <p className="text-gray-700">Yes. Healthcare and pharmaceutical businesses in Dubai have specific storage requirements including cleanliness, access security, and regulatory compliance. SafeStorage&apos;s clean, secure indoor units are suitable for medical devices, healthcare marketing materials, and general healthcare consumables. For pharmaceutical products or samples with specific temperature or cold-chain (2–8°C) requirements, please contact us to discuss options — requirements vary by product category and Dubai Health Authority classification.</p>
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. How secure is business storage at SafeStorage?</h3>
-            </div>
+
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. Can multiple employees from our company access our storage unit?</h3>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. Is there a minimum contract period for business storage in Dubai?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. Is there a minimum contract period for business storage in Dubai?</h3>
               <p className="text-gray-700">No. SafeStorage offers month-to-month business storage contracts with no minimum commitment. You can store for as short as 1 month or as long as you need. Cancel with 30 days&apos; written notice (via email or WhatsApp). Businesses that commit to longer prepaid periods qualify for a wide range of discounts — the longer you store, the more you save. There are no setup fees, no exit fees, and no penalties for adjusting your storage size during the contract period.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">12. Can I store event management equipment at SafeStorage between events?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. Can I store event management equipment at SafeStorage between events?</h3>
               <p className="text-gray-700">Yes. Event management companies are frequent users of SafeStorage. Between events, companies need to store staging equipment, audio-visual gear, lighting rigs, furniture, props, branded materials, and event logistics supplies. These items are often bulky, expensive, and not needed on a continuous basis — making dedicated storage far more cost-effective than keeping them in an office. SafeStorage can handle collection from event venues after events conclude, store items securely, and deliver to the next event venue as required.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">13. How do construction and engineering companies use business storage in Dubai?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. How do construction and engineering companies use business storage in Dubai?</h3>
               <p className="text-gray-700">Construction and engineering businesses use SafeStorage for a range of purposes including storing project documentation and drawings, securing tools and equipment between project sites, holding construction samples and materials not yet required on site, storing office furniture and equipment during project-site relocations, and archiving completed project records. Some businesses also use our facility to stage equipment and materials before mobilising to project sites in remote UAE locations or neighbouring GCC countries.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">14. Do you provide storage for media and production companies in Dubai?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. Do you provide storage for media and production companies in Dubai?</h3>
               <p className="text-gray-700">Yes. Dubai&apos;s growing media and production industry — including film production, advertising agencies, photography studios, and content creation companies — generates substantial volumes of equipment and props that need secure storage between productions. Camera equipment, lighting gear, production props, costumes, and set dressings can be stored at SafeStorage and retrieved when the next production begins. Our clean, secure indoor units keep sensitive optics, electronic equipment, and props dust-protected and safe between shoots.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">15. What payment options are available for business storage accounts?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">12. What payment options are available for business storage accounts?</h3>
               <p className="text-gray-700">SafeStorage accepts all major payment methods for business accounts including bank transfers, credit and debit cards (Visa, Mastercard, Amex), cheque payments, and cash. Corporate accounts can be set up with monthly invoicing against purchase orders, which is the preferred payment arrangement for larger companies with formal procurement processes. We issue VAT-compliant tax invoices for all business storage services, which can be used for input VAT recovery where applicable. Invoices are provided electronically on the billing date each month.</p>
             </div>
           </div>

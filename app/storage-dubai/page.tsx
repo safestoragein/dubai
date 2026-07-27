@@ -884,13 +884,7 @@ export default function StorageDubaiPage() {
           <div className="container mx-auto px-4 max-w-4xl">
             <h2 className="text-3xl font-bold text-[#0A2463] mb-8">More Storage Dubai Questions Answered</h2>
             <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h3 className="text-lg font-semibold text-[#0A2463] mb-3">How does SafeStorage compare to other storage companies in Dubai?</h3>
-              </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h3 className="text-lg font-semibold text-[#0A2463] mb-3">Can I store furniture in Dubai storage units long-term?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <h3 className="text-lg font-semibold text-[#0A2463] mb-3">How do I get a quote for storage in Dubai?</h3>

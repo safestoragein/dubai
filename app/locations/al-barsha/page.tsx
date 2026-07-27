@@ -225,9 +225,6 @@ export default function AlBarshaPage() {
               <p className="text-gray-700">SafeStorage operates on a door-to-door model, meaning you never need to visit a storage facility — we come to you and store your items at our secure facility. Our facility is centrally located in the Dubai Investment Park area, which is approximately 20–25 minutes from most Al Barsha addresses. However, this distance is irrelevant to you as a customer because you never need to visit. We collect from your door and deliver back to your door. All account management is done remotely by phone, WhatsApp, or our online portal.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">How does SafeStorage pricing work for Al Barsha residents?</h3>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store large appliances like washing machines and fridges from Al Barsha apartments?</h3>
               <p className="text-gray-700">Yes. SafeStorage stores all types of household appliances including washing machines, dryers, refrigerators, dishwashers, air conditioning units, and other large appliances. For appliances, we recommend basic preparation (draining water from washing machines, defrosting fridges) before collection, or our team can assist with this during pickup for a small additional charge. All appliances are wrapped and stored upright where required (washing machines, fridges) to prevent damage. Every appliance is kept in our clean, secure indoor facility and protected from dust while in storage.</p>
             </div>

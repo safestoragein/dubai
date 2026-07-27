@@ -363,14 +363,8 @@ export default function PersonalStoragePage() {
               <p className="text-gray-700 leading-relaxed">The smallest personal storage option at SafeStorage is a locker or mini unit, which is approximately 25 sq ft — about the size of a large wardrobe. This is suitable for 10–15 boxes, a suitcase collection, bedding and soft items, or a small collection of personal belongings. It is ideal for students, individuals between homes for a short period, or anyone who simply needs to declutter a single room. If you are unsure which size is right for your belongings, call us on +971505773388 and we will advise based on your inventory list. Getting the size right from the start prevents unnecessary upgrades or wasted space.</p>
             </div>
             <div className="mb-6">
-              <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does personal storage cost in Dubai?</h3>
-            </div>
-            <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store seasonal clothing and winter wear in Dubai?</h3>
               <p className="text-gray-700 leading-relaxed">Storing seasonal clothing is one of the most common uses of personal storage in Dubai. Dubai apartments are often space-limited, and keeping out-of-season clothes, winter coats, ski wear, holiday decorations, and occasional-use items takes up valuable wardrobe and cupboard space. SafeStorage&apos;s clean, secure units are well suited to long-term clothing storage, and we recommend packing clothing in breathable garment bags or clean boxes rather than airtight plastic containers, to allow the fabric to maintain its natural condition.</p>
-            </div>
-            <div className="mb-6">
-              <h3 className="text-xl font-bold text-dubai-navy mb-2">How are valuables protected in personal storage?</h3>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store hobby equipment like bicycles and kayaks?</h3>
@@ -383,12 +377,6 @@ export default function PersonalStoragePage() {
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I book short-term personal storage for a few weeks?</h3>
               <p className="text-gray-700 leading-relaxed">Yes. SafeStorage&apos;s minimum storage period is one month, and we offer month-to-month contracts with no long-term commitment. For very short-term needs (a few weeks during a move or renovation), monthly billing is the most flexible option — you pay for the first month, and if you are done within the month, you can retrieve your items and close the account at any time. Many customers find that their short-term storage need extends naturally to 2–3 months, and the month-to-month structure accommodates this without any penalty or administrative complexity. For storage needs shorter than one week, call us to discuss daily storage options for very specific situations.</p>
-            </div>
-            <div className="mb-6">
-              <h3 className="text-xl font-bold text-dubai-navy mb-2">How secure are personal storage units at SafeStorage?</h3>
-            </div>
-            <div className="mb-6">
-              <h3 className="text-xl font-bold text-dubai-navy mb-2">What about vintage or collectible items — are they safe?</h3>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Do you store sports equipment such as bikes and gym gear?</h3>

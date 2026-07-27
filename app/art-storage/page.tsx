@@ -239,13 +239,7 @@ export default function ArtStoragePage() {
                 <p className="text-gray-700 leading-relaxed">SafeStorage Dubai&apos;s art storage service accommodates a wide range of artworks and valuables including original oil paintings, acrylic and watercolour works, limited edition prints and photographs, sculptures in bronze, marble, ceramic, resin and wood, antique furniture and decorative objects, Persian and Oriental rugs, wine collections, designer furniture pieces, musical instruments including pianos and string instruments, numismatic and philatelic collections, sports memorabilia, and high-value collectibles of all kinds. We handle each category with specific packing and positioning standards tailored to the material and fragility of the items. If you are unsure whether a specific item qualifies, call us at +971505773388 and we will advise on suitability and handling requirements before your visit.</p>
               </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">How is art protected while it is in storage?</h3>
-              </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What packing and racking standards are used in the art vault?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
               </div>
@@ -270,9 +264,6 @@ export default function ArtStoragePage() {
                 <p className="text-gray-700 leading-relaxed">White-glove handling is a professional standard for the movement and care of high-value, fragile, or irreplaceable items. The term comes from the cotton gloves worn during handling to prevent skin oils, moisture, and particulates from transferring to artworks &mdash; oil from fingerprints alone can cause permanent damage to unvarnished canvases, photographs, and paper-based works over time. At SafeStorage Dubai, white-glove handling means our team uses appropriate gloves for each material, moves larger pieces with at least two trained personnel, uses padded dollies and lifting equipment rather than manual carry wherever possible, and never stacks artworks without adequate protective separation. This standard of care is what distinguishes specialist art storage from general storage facilities.</p>
               </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I add items to my art storage after the initial intake?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">How do I retrieve a specific piece from my stored collection?</h3>
@@ -290,9 +281,6 @@ export default function ArtStoragePage() {
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
               </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What happens if damage occurs to my artwork while in storage?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">How long can I store artwork at SafeStorage Dubai?</h3>

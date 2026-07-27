@@ -300,23 +300,20 @@ export default function Pricing() {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">12. Are document storage rates different from regular storage?</h3>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">11. Are document storage rates different from regular storage?</h3>
               <p className="text-gray-700">Document and archive storage follows a separate pricing structure designed for businesses and individuals needing to store large volumes of paper records. Our document storage service includes indexed cataloguing of all boxes for easy retrieval, fireproof storage areas with enhanced fire suppression systems, clean and dust-protected archival shelving that keeps records in good condition, and a same-day retrieval service for urgent document access. Document storage starts from 12.60 AED / sqft (VAT-inclusive). Call +971505773388 for a detailed document storage quotation.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">13. Is same-day pickup available?</h3>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">12. Is same-day pickup available?</h3>
               <p className="text-gray-700">Yes. Same-day pickup is available for requests made before 12 PM on any day, as part of our standard door-to-door pickup service. Subject to availability, our team will arrive at your address the same day, typically within 4 to 6 hours of booking confirmation. For very last-minute requests where same-day pickup is needed urgently (for example, a sudden eviction or emergency relocation), call +971505773388 directly and our dispatch team will confirm availability immediately.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">14. Can I see a full cost breakdown before committing?</h3>
+              <h3 className="text-lg font-bold text-[#0A2463] mb-2">13. Can I see a full cost breakdown before committing?</h3>
               <p className="text-gray-700">Absolutely. Before you confirm any storage plan, SafeStorage provides a detailed written quote showing the monthly storage fee, what is included, any optional add-ons you have requested, and the VAT breakdown. You will never be asked to pay or sign anything without seeing a full cost breakdown first. Our quotes are valid for 14 days, giving you time to compare options and make a decision without pressure. To receive your personalised quote, call +971505773388 or fill in the online quote form on this website.</p>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">15. What is the price for storing a full villa worth of furniture in Dubai?</h3>
-            </div>
 
           </div>
 

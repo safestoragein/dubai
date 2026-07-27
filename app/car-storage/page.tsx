@@ -319,13 +319,7 @@ export default function CarStoragePage() {
                 <p className="text-gray-700 leading-relaxed">Yes, you can access your stored vehicle during our business hours: Monday to Saturday 8 AM to 8 PM, Sunday 10 AM to 6 PM. We request approximately 2 hours&apos; advance notice so our team can prepare your vehicle and have it ready at the access point when you arrive. For business customers with regular or frequent access needs, we can arrange a dedicated access schedule to accommodate your workflow. If you need to retrieve your vehicle outside standard hours due to an emergency or urgent travel, please call us directly at +971505773388 and we will do our best to accommodate. Your vehicle is always your property and accessible to you at reasonable notice.</p>
               </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the price for luxury cars versus motorcycles?</h3>
-              </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">How is security maintained at the vehicle storage facility?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I store a boat or jet ski at SafeStorage Dubai?</h3>

@@ -233,9 +233,6 @@ export default function JumeirahPage() {
             <p className="text-gray-700">For large Jumeirah villa clearances — typically required during renovations, property sales, or expatriate departures — SafeStorage deploys a dedicated team with appropriate vehicles and packing materials. We begin with a site assessment (either in-person or via WhatsApp video walkthrough) to estimate the volume and number of team members required. Entire villa clearances, including furniture, appliances, personal items, and garden equipment, are typically completed in a single day. Everything is professionally wrapped, inventoried, and transported to our facility. Prices for full villa storage are provided after assessment with no hidden charges.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can SafeStorage store high-value antiques and luxury furniture from Jumeirah villas?</h3>
-          </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What storage options are available for expats leaving Dubai from Jumeirah?</h3>
             <p className="text-gray-700">SafeStorage offers several options for expats leaving Dubai. The most popular is our flexible month-to-month storage plan with no lock-in: we collect your belongings from your Jumeirah home, store them securely, and you can request delivery back to a Dubai address or arrange international shipping when you are ready. Alternatively, if you are permanently relocating, we can coordinate with international shipping partners to deliver your stored items to your new home country. Our expat storage plans are designed with the realities of international relocation in mind — flexible, transparent, and managed with minimal effort required from you.</p>
           </div>

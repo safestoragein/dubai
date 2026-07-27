@@ -316,9 +316,6 @@ export default function LocationsPage() {
               <p className="text-gray-700">SafeStorage has no minimum storage period across any Dubai location. You can store items for as short as one week and as long as several years on the same flexible monthly plan. There are no lock-in contracts, no penalties for cancelling, and no requirement to commit to a long-term storage period. Billing is monthly and you can end your storage plan at any time with 14 days&apos; notice. This makes SafeStorage ideal for short-term needs like apartment renovations, lease gaps, and business inventory clearances.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-3">How does SafeStorage pricing work — is it the same across all Dubai locations?</h3>
-            </div>
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can businesses in Dubai&apos;s free zones use SafeStorage?</h3>
               <p className="text-gray-700">Yes, SafeStorage works with businesses in all Dubai free zones including DIFC, JAFZA, DMCC (JLT), Dubai Media City, Dubai Internet City, Dubai Silicon Oasis, and Dubai Airport Free Zone. We provide commercial storage solutions for free zone companies including document archiving, office furniture storage, inventory management, and equipment storage. Free zone companies benefit particularly from our document archiving service, which meets UAE regulatory retention requirements and provides barcode-indexed retrieval for specific files and boxes.</p>
             </div>

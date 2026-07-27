@@ -249,9 +249,6 @@ export default function StudentStoragePage() {
                 <p className="text-gray-700 leading-relaxed">Yes. Shared storage units for 2–4 students are a popular and cost-effective option at SafeStorage. Each student&apos;s items are labelled separately at intake, giving each individual a clear record of their belongings. Billing can be split, with each student receiving their own invoice for their share. Access authorisation is set up for all participating students. When it is time to retrieve items, each student can request their own belongings independently — we locate and prepare the specific labelled items for each individual, which means students returning at different times do not need to be present at the same time. Shared units reduce per-student cost by 40–50% compared to individual units.</p>
               </div>
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">How safe and secure is student storage?</h3>
-              </div>
-              <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store my bicycle in student storage?</h3>
                 <p className="text-gray-700 leading-relaxed">Yes. Bicycles are stored regularly by students at SafeStorage Dubai. We recommend a basic clean before storage and slightly deflating the tyres to prevent stress on the tubes during long-term storage. Bicycles are stored securely in your unit and do not require special handling beyond standard care. For students with expensive road or mountain bikes, our clean, secure indoor units provide better protection than leaving the bicycle outdoors or in an exposed space during Dubai&apos;s summer, keeping it dust-protected and away from the elements over a 3-month period. If you are storing a bicycle alongside other student belongings, ensure your unit size accounts for the bicycle&apos;s floor footprint.</p>
               </div>

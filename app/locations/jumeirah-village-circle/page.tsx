@@ -230,9 +230,6 @@ export default function JumeirahVillageCirclePage() {
               <p className="text-gray-700">Yes. SafeStorage stores garden furniture, outdoor equipment, barbecue sets, tools, bicycles, children&apos;s outdoor play equipment, and other garden and garage items from JVC townhouses. Outdoor items should ideally be cleaned and dried before collection to prevent mould during storage. Our team provides standard furniture blanket wrapping for outdoor furniture. For seasonal garden storage (e.g., storing garden furniture during Dubai summer), we offer annual plans that can be automatically renewed each year for convenience.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">How much does it cost to store a full JVC 1-bedroom apartment?</h3>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the average pickup time from JVC to SafeStorage facility?</h3>
               <p className="text-gray name text-gray-700">Our SafeStorage facility is located in the Dubai Investment Park area, which is approximately 15–20 minutes from most JVC addresses via Al Khail Road. However, the transit time is managed entirely by our team — you never need to know or care about the route. We collect from your JVC door and transport your items safely to the facility. For full-villa or large-apartment moves, multiple trips may be made on the same day to ensure everything is moved efficiently.</p>
             </div>

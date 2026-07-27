@@ -271,22 +271,13 @@ export default function ElectronicsStoragePage() {
 
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Electronics Storage FAQs</h2>
             <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Why does the right storage matter so much for electronics in Dubai?</h3>
-              </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">How should electronics be packed and stored to stay protected?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">What electronics can be stored at SafeStorage Dubai?</h3>
                 <p className="text-gray-700 leading-relaxed">We store all categories of consumer and professional electronics including laptops, desktop computers, gaming PCs, monitors and displays of all sizes, televisions (including large 65&ndash;85 inch screens), gaming consoles (PlayStation, Xbox, Nintendo), home theatre systems, tablets, smartphones, cameras and photography equipment, drones, smart home devices, audio equipment, DJ gear, home cinema projectors, servers, NAS units, network switches and routers, UPS systems, printers, scanners, point-of-sale systems, medical diagnostic equipment, lab instruments, industrial control units, broadcast equipment, CCTV systems, and scientific instruments. If you have equipment not listed here, call us at +971505773388 and we will confirm suitability and any special handling requirements.</p>
               </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I store servers and networking equipment at SafeStorage?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">How are devices protected from dust and moisture during storage?</h3>
@@ -331,9 +322,6 @@ export default function ElectronicsStoragePage() {
                 <p className="text-gray-700 leading-relaxed">Lithium-ion and lithium-polymer batteries require particular attention for long-term storage. The optimal storage charge level for lithium batteries is 40&ndash;60% &mdash; storing at 100% charge accelerates degradation of the cathode, while storing at near-zero charge risks the battery entering an unrecoverable deep discharge state. We recommend that before storing any lithium battery device for more than 2 months, you discharge it to approximately 50% charge. For devices where the battery is accessible and removable, removing the battery and storing it separately at 50% charge is best practice for storage periods over 6 months. Keeping devices sealed and dust-protected in our clean indoor units also keeps battery terminals and contacts clean and free of the dust and corrosion that can shorten battery life.</p>
               </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I add items to my electronics storage after the initial intake?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">What preparation should I do before storing my electronics?</h3>

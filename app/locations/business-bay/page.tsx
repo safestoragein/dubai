@@ -224,9 +224,6 @@ export default function BusinessBayPage() {
             <p className="text-gray-700">Yes, SafeStorage is widely used by DIFC-registered companies for document archiving and records management. We provide fireproof storage, individual box labelling with barcode indexing, and on-demand retrieval of specific files or boxes within 24–48 hours. Our document storage service helps DIFC companies meet UAE regulatory requirements for financial and legal record retention. All document handling follows strict confidentiality protocols. We serve law firms, financial institutions, fund managers, and corporate headquarters throughout the DIFC and the broader Downtown area.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the best storage option for Downtown Dubai apartment residents?</h3>
-          </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there storage available near the Burj Khalifa?</h3>
             <p className="text-gray-700">Yes, the entire Burj Khalifa District falls within our Business Bay service zone, which is one of our fastest and most active zones. Residents of the Burj Khalifa Residences, Address Sky View, The Address Boulevard, and other Burj Khalifa area towers regularly use SafeStorage. Our team can reach most Burj Khalifa area addresses within 10–15 minutes of confirmation. The Burj Khalifa area is also one of our primary zones for corporate office storage, serving businesses in the towers surrounding Dubai Mall and the Opera District.</p>
           </div>
@@ -249,9 +246,6 @@ export default function BusinessBayPage() {
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there a minimum storage period for Business Bay customers?</h3>
             <p className="text-gray-700">No, there is no minimum storage period for Business Bay or any other area. SafeStorage plans are completely flexible — you can store for as short as one week and as long as several years. Monthly billing means you only pay for the time you actually need. You can cancel with 14 days&apos; notice at any time. This makes SafeStorage ideal for Business Bay residents who need storage during a short apartment renovation, a brief trip abroad, or while waiting for a new lease to begin.</p>
-          </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">What security measures does SafeStorage use?</h3>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
           </div>

@@ -551,75 +551,66 @@ export default function HouseholdStoragePage() {
           <h2 className="text-3xl font-bold text-[#0A2463] mb-8">Frequently Asked Questions — Household Storage Dubai</h2>
 
           <div className="space-y-6">
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">1. How much does household storage cost in Dubai?</h3>
-            </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">2. Do you pack my household items, or do I need to pack myself?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">1. Do you pack my household items, or do I need to pack myself?</h3>
               <p className="text-gray-700">Our team handles everything. When our crew arrives at your home, they bring all necessary packing materials including boxes, bubble wrap, furniture covers, mattress bags, wardrobe boxes, and tape. Furniture is dismantled where appropriate, wrapped in protective padding, and secured for transit. Fragile items receive extra care with bubble wrap and foam padding. You do not need to do any packing yourself unless you prefer to pack your own personal items (which is fine — we will collect packed boxes as-is). Everything is photographed before loading for your records.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">3. How long can I keep my household items in storage?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">2. How long can I keep my household items in storage?</h3>
               <p className="text-gray-700">There is no maximum storage period. SafeStorage customers store for as short as 1 month and as long as several years. We have expat customers who have kept their Dubai household belongings in storage for 2–3 years between assignments. The minimum rental period is 1 month, and you can extend month by month with no penalty. To end your storage arrangement, simply give 30 days&apos; written notice via email or WhatsApp and we will arrange the return delivery of your items.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. Can I add or retrieve individual items from storage without returning everything?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">3. Can I add or retrieve individual items from storage without returning everything?</h3>
               <p className="text-gray-700">Yes. Partial retrievals are one of the most valued aspects of SafeStorage&apos;s service. If you need your winter wardrobe before the rest of your belongings come back, or if you stored children&apos;s items and need the baby cot when a new baby arrives, or if you want to retrieve specific boxes from your archive, simply contact your account manager. We will locate the requested items in your unit and deliver them to you separately. The remaining items stay in storage until you need them.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. Is household storage suitable for a Dubai apartment renovation?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">4. Is household storage suitable for a Dubai apartment renovation?</h3>
               <p className="text-gray-700">Absolutely — apartment renovation is one of our most common use cases. The ideal workflow is to completely clear your apartment before contractors start, store everything at SafeStorage, complete the renovation in an empty space (which actually speeds up the work), then have everything delivered back to the newly renovated apartment. Our team can time the delivery to arrive room by room as each area is completed. This approach protects your belongings from dust and damage and gives your contractors unrestricted access to every corner of your home.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. What household items cannot be stored?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. What household items cannot be stored?</h3>
               <p className="text-gray-700">Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items. For safety reasons, SafeStorage also cannot store perishable food, live plants, animals, hazardous materials (petrol, paint, aerosols, cleaning chemicals), flammable liquids, firearms and ammunition, explosives, and illegal items. Items containing liquids (aquariums, water features, fuel tanks) must be completely drained before storage. All other common household items — furniture, electronics, clothing, kitchenware, books, toys, appliances, artwork, sports equipment, musical instruments — are welcome. If you are unsure about a specific item, ask your account manager before pickup.</p>
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. How do I know my household items are safe in storage?</h3>
-            </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. Can you store a complete villa&apos;s contents during a long renovation?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">6. Can you store a complete villa&apos;s contents during a long renovation?</h3>
               <p className="text-gray-700">Yes. We regularly handle full villa clearances for customers undergoing major renovation projects. A typical 3–4 bedroom villa clearance involves 1–2 full-day pickups with multiple vehicles and a team of 4–6 trained movers. All furniture is dismantled, wrapped, and carefully loaded. The entire contents are stored in one or more large secure units. For very large villas with extensive furniture and belongings, a site survey can be arranged in advance to ensure we allocate the right team size and storage capacity.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. How do you handle fragile or valuable household items?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">7. How do you handle fragile or valuable household items?</h3>
               <p className="text-gray-700">Fragile and high-value items receive special attention throughout the pickup, transit, and storage process. Glassware and ceramics are individually wrapped in bubble wrap and packed in double-walled boxes with foam cushioning. Artwork, mirrors, and framed pictures are packed in custom picture boxes with corner protectors. Antiques and collectibles are photographed extensively, wrapped in acid-free materials where appropriate, and stored upright or flat as required. Musical instruments are stored in their cases. Please notify your account manager of any particularly fragile or valuable items so we can arrange appropriate handling.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. What happens if I need my items back urgently?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">8. What happens if I need my items back urgently?</h3>
               <p className="text-gray-700">SafeStorage understands that household circumstances can change unexpectedly — a lease falls through, a renovation finishes early, or you need specific items immediately. For urgent same-day retrievals requested before 12 PM, we will do our best to accommodate same-day delivery subject to vehicle and team availability. Standard retrieval requests submitted by 5 PM are delivered the following business day. If you have an emergency situation, call us directly at +971505773388 and our team will find the fastest available solution for you.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. Is household storage in Dubai a good option for expats leaving temporarily?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">9. Is household storage in Dubai a good option for expats leaving temporarily?</h3>
               <p className="text-gray-700">Household storage is one of the most popular services among Dubai expats who need to leave the city for an extended period without giving up their belongings. Rather than selling furniture at a loss before leaving and repurchasing everything on return — a common but expensive cycle — SafeStorage customers store their entire household at a fraction of the replacement cost. Many expat customers have used our service for summer breaks, parental leave in their home country, extended medical needs, or temporary assignments abroad. We handle everything before departure and on return.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">12. How are my household items inventoried so I know what is in storage?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">10. How are my household items inventoried so I know what is in storage?</h3>
               <p className="text-gray-700">At pickup, our team creates a detailed packing list documenting all items collected — box by box and furniture piece by piece. Each item or box is labelled and photographed. You receive a copy of the complete packing list and photo record via WhatsApp or email. This inventory is maintained in your account profile and can be accessed by your account manager at any time. If you want to know what is in a specific box or need to locate a particular item, simply ask your account manager and they will check your inventory record for you.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">13. Can SafeStorage deliver my stored items to a new Dubai address or a different emirate?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">11. Can SafeStorage deliver my stored items to a new Dubai address or a different emirate?</h3>
               <p className="text-gray-700">Yes. Delivery of stored household items is not restricted to the original pickup address. If you have moved to a new apartment in Dubai, a new community, or even a different emirate such as Abu Dhabi, Sharjah, or Ras Al Khaimah, we can deliver your stored items to the new address. Delivery charges are confirmed before the delivery is scheduled. If you are relocating internationally, we can work with international freight partners to arrange container shipping from our facility to your destination country.</p>
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">14. Can two people access the same household storage unit?</h3>
-            </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">15. What is the booking process for household storage in Dubai?</h3>
+              <h3 className="text-lg font-semibold text-[#0A2463] mb-3">12. What is the booking process for household storage in Dubai?</h3>
               <p className="text-gray-700">Booking household storage with SafeStorage takes just a few minutes. Call or WhatsApp +971505773388, or use the online quote form at safestorage.ae. Tell us what you need to store, your Dubai location, and your preferred pickup date. We will provide a transparent monthly quote within a few hours. Once you confirm, we send a simple digital storage agreement for signature. Your pickup is scheduled at a time convenient for you — many customers book same-week pickups. There is no deposit required and no minimum commitment, so you can get started immediately with complete peace of mind.</p>
             </div>
           </div>

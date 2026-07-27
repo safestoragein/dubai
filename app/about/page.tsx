@@ -476,9 +476,6 @@ export default function AboutPage() {
               <p className="text-gray-700">SafeStorage takes customer data privacy seriously and complies with UAE data protection regulations. Customer personal information including name, contact details, address, and inventory details is stored securely on encrypted servers and used only for the purposes of providing the storage service. Payment card data is processed through PCI-compliant payment processors and is never stored on SafeStorage&apos;s systems in unencrypted form. Customer storage contents are photographed and inventoried exclusively for the customer&apos;s use — this information is not shared with third parties. Customers can request deletion of their data when their storage account is closed.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the starting price for storage at SafeStorage Dubai?</h3>
-            </div>
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I speak to a real person at SafeStorage, or is everything automated?</h3>
               <p className="text-gray-700">Every SafeStorage customer has access to a real, dedicated storage consultant — a named individual who manages their account and is reachable by phone, WhatsApp, and email. While we do use technology to make the process efficient (online quotes, digital inventory, automated billing), we strongly believe that human customer service is irreplaceable, especially for the often stressful circumstances that lead people to need storage (renovations, relocations, lease gaps, expat departures). Your storage consultant will guide you through the entire process, answer questions, resolve any issues, and be your single point of contact throughout your time as a SafeStorage customer.</p>
             </div>
@@ -493,9 +490,6 @@ export default function AboutPage() {
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Has SafeStorage won any awards or received notable recognition?</h3>
               <p className="text-gray-700">SafeStorage has received recognition through its customer reviews and ratings platform performance. With a consistent 4.9 out of 5 rating across thousands of verified customer reviews, SafeStorage regularly appears as a top-rated storage provider in Dubai on Google, Trustpilot, and other review platforms. The ISO 9001:2015 certification is itself a recognised mark of quality management excellence. SafeStorage&apos;s growth from a startup in 2015 to a 1 lakh+ customer business managing 1.2 million square feet globally in under a decade is widely regarded as one of the most successful scaling stories in the Indian and UAE storage industry.</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-bold text-dubai-navy mb-3">Is SafeStorage a good option for long-term storage (1–5 years)?</h3>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">How does SafeStorage ensure the safety of its staff and customers during pickups?</h3>

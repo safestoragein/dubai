@@ -256,17 +256,8 @@ export default function DowntownDubaiPage() {
               <p className="text-gray-700">Yes. City Walk, Al Wasl Road, and the surrounding Jumeirah and Al Safa communities are covered within our Downtown/Jumeirah service area. City Walk residents and businesses use SafeStorage for the same range of services as Downtown apartment dwellers — personal household storage, renovation storage, lease gap storage, and business document archiving. Al Wasl Road is a key artery in our service network, and pickups from addresses along Al Wasl are typically within 15–20 minutes of confirmation.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost to store a full Downtown Dubai apartment?</h3>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store artwork, antiques, or high-value items from Downtown properties?</h3>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is there storage for expats leaving Dubai from the Downtown area?</h3>
               <p className="text-gray-700">Absolutely. Many Downtown Dubai expatriates use SafeStorage when relocating internationally. Rather than rushing to ship or sell everything before a departure, many expats store their belongings with SafeStorage on a flexible monthly plan and decide what to ship, sell, or donate over the following months from their home country. SafeStorage can manage your account entirely remotely — you never need to return to Dubai to manage your storage. When you are ready, we can arrange international shipping of stored items or return them to any Dubai address if you decide to come back.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">How is security handled for high-value Downtown Dubai storage?</h3>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can my Downtown Dubai building concierge coordinate with SafeStorage directly?</h3>

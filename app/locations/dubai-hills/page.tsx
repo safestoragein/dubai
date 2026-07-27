@@ -213,14 +213,8 @@ export default function DubaiHillsPage() {
               <p className="text-gray-700">Our team typically reaches Dubai Hills Estate addresses within 20–25 minutes of confirmation, depending on daily traffic on Al Khail Road. For large-volume villa pickups, we allocate a multi-person team with the appropriate vehicle and typically complete the pickup within 3–6 hours depending on the villa size. For same-day service, please confirm your request before 12 PM. For large villa clearances, we recommend booking 2–3 days in advance to ensure the right crew size is available for your specific volume.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store a Dubai Hills villa for 6–12 months during an international assignment?</h3>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Mohammed Bin Rashid City (MBR City) near Dubai Hills covered?</h3>
               <p className="text-gray-700">Yes. Mohammed Bin Rashid City (MBR City) — including District One, Meydan, and the various MBR City residential sub-developments — is within our Dubai Hills service zone. MBR City residents have access to the same door-to-door service as Dubai Hills. Meydan Racecourse area and the various Meydan residential developments are also covered. Pickup times from MBR City are typically 15–25 minutes depending on the specific community within the large MBR City development.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Dubai Hills 4-bedroom villa?</h3>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage handle golf equipment storage for Dubai Hills Golf Club members?</h3>

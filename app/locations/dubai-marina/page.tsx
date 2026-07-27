@@ -250,9 +250,6 @@ export default function DubaiMarinaPage() {
           <div className="bg-white rounded-xl p-6 border border-gray-200">
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I get a quote for storing my entire Marina apartment during a long trip abroad?</h3>
-          </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there parking available when SafeStorage collects from my JBR apartment?</h3>
             <p className="text-gray-700">Our experienced Dubai Marina team knows JBR&apos;s parking and access procedures well. For JBR pickups, we typically use designated loading bays available in each cluster, and our team coordinates with building management as required. In busy areas like JBR where parking is limited, we plan pickup times to minimise disruption and use the most appropriate vehicle size for efficient access. You do not need to arrange parking for our team — just let us know your cluster and building number when booking and we will handle the logistics.</p>
           </div>

@@ -369,21 +369,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           <div style={{ marginBottom: "16px" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>8. Store Heavy Items at the Bottom, Light at the Top</h3>
+            <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>7. Store Heavy Items at the Bottom, Light at the Top</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
               This fundamental packing rule protects both your belongings and yourself. Boxes of books, kitchen appliances, and tools should go at floor level. Fragile items like glassware, lamps, and electronics should be cushioned on top of sturdy lower layers, never at the bottom where they could be crushed. When stacking within a box, place heavier items at the base and lighter items on top. If you are using shelving inside your unit, place the heaviest items on the lowest shelf. This keeps the unit stable and prevents the kind of cascading collapses that can damage an entire unit&apos;s worth of belongings.
             </p>
           </div>
 
           <div style={{ marginBottom: "16px" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>9. Empty and Clean Appliances Before Storing</h3>
+            <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>8. Empty and Clean Appliances Before Storing</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
               Fridges, freezers, washing machines, and dishwashers must be thoroughly cleaned and completely dried before going into storage. Any residual moisture inside a sealed appliance will generate mould and odours within days. Defrost the freezer fully, wipe every surface dry, and leave the door slightly ajar during storage to allow air circulation. Washing machines should have the drum and rubber seal wiped clean and dried. Ovens and microwaves need grease and food residue removed. Taking 30 minutes to prepare appliances properly ensures they are ready to use immediately when you retrieve them — with no unpleasant surprises.
             </p>
           </div>
 
           <div style={{ marginBottom: "32px" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>10. Review Your Unit Contents Every Six Months</h3>
+            <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>9. Review Your Unit Contents Every Six Months</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
               Long-term storage has a way of accumulating items that are no longer needed. Every six months, take 20 minutes to review your inventory list and ask honestly: do I still need this? Many people find that after a year in storage, a significant portion of their items could be sold, donated, or disposed of — freeing them to downsize to a smaller unit and reduce their monthly costs. SafeStorage Dubai makes this easy: simply schedule a partial retrieval, go through your items, remove what you no longer need, and return the rest. Many of our customers have reduced their unit size after a review and saved hundreds of dirhams per year.
             </p>
@@ -393,9 +393,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             Frequently Asked Questions — Storage in Dubai
           </h2>
 
-          <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
-            <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>How much does storage cost in Dubai per month?</h3>
-          </div>
 
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Do storage companies in Dubai offer door-to-door pickup?</h3>
@@ -411,9 +408,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </p>
           </div>
 
-          <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
-            <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>How secure is storage in Dubai?</h3>
-          </div>
 
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>What items can I NOT store in a Dubai storage unit?</h3>

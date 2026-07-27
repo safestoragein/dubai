@@ -590,9 +590,6 @@ export default function ShortTermStoragePage() {
               <p className="text-gray-700 leading-relaxed">For a standard 1–2 bedroom apartment move, we can typically arrange pickup within 3–5 business days of booking. For smaller pickups — a few items or a partial room — same-day or next-day pickup is often available for requests made before 12 PM. For urgent same-day pickup of larger volumes, call us directly as availability depends on our current schedule. We offer evening pickup slots for customers who cannot be available during standard business hours. To ensure we have the right team size and vehicle for your move, please provide a reasonable inventory list when booking — even an approximate description of the apartment size and main furniture items is sufficient.</p>
             </div>
             <div className="mb-6">
-              <h3 className="text-xl font-bold text-dubai-navy mb-2">What does 1-month moving storage typically cost in Dubai?</h3>
-            </div>
-            <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">How does renovation storage work in practice?</h3>
               <p className="text-gray-700 leading-relaxed">Renovation storage works by completely clearing your property before work begins, storing everything at our facility during the renovation period, and returning it room by room as each area is completed. You call us to arrange a pickup date before your contractors arrive. Our team arrives with the appropriate vehicle and wraps and loads all furniture, appliances, and personal items. Your property is cleared for contractors who can work freely without furniture protection requirements or access restrictions. As rooms complete, you can request phased delivery — for example, receiving bedroom furniture first, then living room, then kitchen appliances — so you move back in progressively as the renovation finishes rather than waiting for the entire project to complete before getting any of your belongings back.</p>
             </div>
@@ -607,9 +604,6 @@ export default function ShortTermStoragePage() {
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I retrieve specific items during my renovation storage period?</h3>
               <p className="text-gray-700 leading-relaxed">Yes. Retrieving individual items during your renovation storage is straightforward. Contact us and specify the items you need — by description or using the intake inventory photos we provide — and we will arrange delivery or prepare them for collection at the facility. Partial retrievals are commonly used during renovation storage when, for example, you need specific clothing from stored suitcases, want to retrieve a specific kitchen appliance as the kitchen renovation completes, or need access to documents or electronics. Delivery fees apply for home delivery of retrieved items, and vary based on item size and your address. You can also visit the facility in person during business hours to access your unit and retrieve items directly.</p>
-            </div>
-            <div className="mb-6">
-              <h3 className="text-xl font-bold text-dubai-navy mb-2">How are fragile items packed during moving storage?</h3>
             </div>
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">Is moving storage cheaper than hiring a full removal company?</h3>
@@ -630,9 +624,6 @@ export default function ShortTermStoragePage() {
             <div className="mb-6">
               <h3 className="text-xl font-bold text-dubai-navy mb-2">What if I need same-day pickup for an urgent storage situation?</h3>
               <p className="text-gray-700 leading-relaxed">Same-day pickup is available for urgent situations — requests must be made before 12 PM for same-day service. Availability depends on our current schedule and the volume of items involved. For a small urgent pickup (a few boxes, small items, or a single room), same-day service is more reliably available. For a full apartment or villa requiring a large team and truck, next-day service (within 24 hours) is more realistic for guaranteed availability. If you have an emergency — for example, a water leak requiring immediate clearance of belongings, or a sudden eviction requiring immediate storage — call us directly on +971505773388 and we will do everything possible to assist promptly.</p>
-            </div>
-            <div className="mb-6">
-              <h3 className="text-xl font-bold text-dubai-navy mb-2">How is pricing calculated for short-term storage?</h3>
             </div>
           </div>
         </div>

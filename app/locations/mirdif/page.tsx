@@ -202,14 +202,8 @@ export default function MirdifPage() {
               <p className="text-gray-700">Yes. Summer villa storage is one of our most popular services in Mirdif. Many Mirdif families — particularly UAE nationals and South Asian expats — travel abroad for extended periods during summer (May–September). SafeStorage stores your villa contents safely and securely during your absence, keeping furniture, electronics, and personal items protected while you are away. You return to find everything exactly as you left it. Annual plans (with a wide range of discounts) are popular with families who store regularly every summer.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">How does SafeStorage handle privacy and security for Mirdif villa contents?</h3>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Rashidiya covered by SafeStorage?</h3>
               <p className="text-gray-700">Yes. Rashidiya — located adjacent to Mirdif near Dubai International Airport — is fully within our east Dubai service zone. Rashidiya&apos;s mix of villas and apartments is served with the same door-to-door service as Mirdif. Rashidiya residents use SafeStorage primarily for villa renovation storage, summer holiday storage, and between-tenancy storage. Typical pickup times from Rashidiya are 20–25 minutes from confirmation.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cost of storing a Mirdif villa&apos;s contents?</h3>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage move items from Mirdif to a new address in another part of Dubai?</h3>

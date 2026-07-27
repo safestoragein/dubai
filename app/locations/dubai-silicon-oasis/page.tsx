@@ -210,9 +210,6 @@ export default function DubaiSiliconOasisPage() {
               <p className="text-gray-700">Yes. SafeStorage provides secure storage suitable for electronic equipment including servers, networking equipment, computers, testing equipment, and prototypes. Electronic items are individually inventoried and stored in secured units. For very sensitive or valuable equipment, we can provide additional handling protocols on request. Please inform us in advance if you are storing server hardware or sensitive electronics so we allocate appropriate handling resources.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">How affordable is storage for International City residents?</h3>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store bicycles and sports equipment from DSO apartments?</h3>
               <p className="text-gray-700">Yes. Bicycles, electric scooters, skateboards, sports gear, and fitness equipment are all storable with SafeStorage. DSO and Academic City have active cycling and outdoor activity communities, and storing bikes in small apartments is a common challenge. Our volume-based pricing starts from 12.60 AED / sqft (VAT-inclusive), so a bicycle can be stored for just the small amount of space it takes up. We wrap bicycles carefully to prevent scratches and damage during storage. Electric bikes and scooters are also accepted — please inform us at booking if you are storing battery-powered vehicles as we have specific handling protocols for lithium batteries.</p>
             </div>

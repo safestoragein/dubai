@@ -244,9 +244,6 @@ export default function DocumentStoragePage() {
 
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Document Storage FAQs</h2>
             <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What types of documents can be stored at SafeStorage Dubai?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">How long do UAE businesses need to retain documents?</h3>
@@ -273,13 +270,7 @@ export default function DocumentStoragePage() {
                 <p className="text-gray-700 leading-relaxed">Our document storage facility is built and operated to commercial fire safety standards required by Dubai Civil Defence. The facility is equipped with automatic fire detection systems (smoke and heat detectors throughout), fire sprinklers in storage areas, and gas suppression systems in document archive zones where water damage from sprinklers is a secondary concern. Fire extinguishers are placed at regular intervals and are maintained on a quarterly service schedule. The building construction includes fire-rated walls and doors that compartmentalise the facility. However, no storage facility can guarantee absolute protection from catastrophic fire events, and we strongly advise clients with irreplaceable original documents to also maintain certified digital backups stored separately.</p>
               </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Are access logs maintained for document retrieval?</h3>
-              </div>
 
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can multiple staff members from my company retrieve documents?</h3>
-              </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">What physical document formats are accepted for storage?</h3>
