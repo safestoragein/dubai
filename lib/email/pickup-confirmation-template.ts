@@ -172,16 +172,11 @@ export function renderPickupConfirmationEmail(d: PickupConfirmationData): string
   </td></tr>`
     : ""
 
-  // Credentials only exist on a first booking. On a repeat booking we point at
-  // the sign-in page instead of resending a password the customer already has.
-  const accountBlock = d.username && d.password
-    ? `
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-          ${row("Username", esc(d.username))}
-          <tr><td style="padding:4px 0;color:${GREY};">Password</td><td align="right" style="padding:4px 0;color:${INK};font-weight:700;font-family:monospace;">${esc(d.password)}</td></tr>
-        </table>
-        <div style="padding-top:12px;"><a href="${esc(d.loginUrl)}" style="color:${NAVY};font-weight:700;text-decoration:underline;">Sign in to your account &rsaquo;</a></div>`
-    : `<div><a href="${esc(d.loginUrl)}" style="color:${NAVY};font-weight:700;text-decoration:underline;">Sign in to your account &rsaquo;</a></div>`
+  // The customer portal section is switched OFF for now — no sign-in link, and
+  // therefore no credentials either, since a username and password with nowhere
+  // to use them is worse than showing nothing. The caller still sends username
+  // and password and PickupConfirmationData still carries them, so restoring
+  // this is a matter of putting the block back below and in the text part.
 
   return `<!-- pickup confirmation -->
 <div style="background:#eef1f6;padding:24px 0;font-family:${F};">
@@ -228,14 +223,6 @@ ${rmBlock}
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${ORANGE};border-radius:10px;"><tr>
       <td align="center" style="padding:0;"><a href="${esc(d.kycUrl)}" style="display:block;padding:15px 24px;font-family:${F};font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;">Complete your KYC</a></td>
     </tr></table>
-  </td></tr>
-
-  <tr><td style="padding:28px 40px 0;font-family:${F};">
-    ${label("Your account")}
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${PANEL};border-radius:12px;margin-top:11px;">
-      <tr><td style="padding:16px 18px;font-family:${F};font-size:13.5px;">${accountBlock}</td></tr>
-    </table>
-    <div style="font-size:12.5px;color:${FAINT};padding-top:9px;">After pickup, add an estimated value for each item in your online inventory.</div>
   </td></tr>
 
   <tr><td style="padding:28px 40px 0;font-family:${F};">
@@ -332,17 +319,12 @@ export function renderPickupConfirmationText(d: PickupConfirmationData): string 
     `- Alternative contact number`,
     `- Location pin for the pickup address`,
     `Complete your KYC: ${d.kycUrl}`,
-    ``,
-    `YOUR ACCOUNT`
+    ``
   )
 
-  if (d.username && d.password) {
-    lines.push(`Username: ${d.username}`, `Password: ${d.password}`)
-  }
+  // Customer portal section switched off — see the note in the HTML renderer.
+
   lines.push(
-    `Sign in: ${d.loginUrl}`,
-    `After pickup, add an estimated value for each item in your online inventory.`,
-    ``,
     `WAREHOUSE`,
     `SafeStorage Dubai warehouse — ${d.warehouseMapUrl}`,
     ``,
