@@ -41,6 +41,9 @@ interface Body {
   rmName?: string | null
   username?: string | null
   password?: string | null
+  /** Built by PHP: back/auth/upload_kyc?id=..&code=.. — it needs the customer's
+   *  payment_security_code, which only the backend has. */
+  kycUrl?: string | null
 }
 
 /** "Aisha Khan" -> "Aisha". A full name in a greeting reads like a form letter. */
@@ -111,7 +114,10 @@ export async function POST(request: Request) {
     password: body.password ?? null,
 
     loginUrl: `${origin}/login`,
-    kycUrl: `${origin}/kyc`,
+    // The KYC page lives on the shared PHP backend, not on this site: it writes
+    // straight to ss_customer and is the same page India uses. Falls back to a
+    // local path only if a caller omits it.
+    kycUrl: (body.kycUrl ?? "").trim() || `${origin}/kyc`,
     warehouseMapUrl: process.env.NEXT_PUBLIC_WAREHOUSE_MAP_URL || `${origin}/contact`,
     prohibitedUrl: `${origin}/prohibited-items`,
     supportPhone: env.CONTACT_NUMBER,
