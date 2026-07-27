@@ -19,7 +19,9 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Prohibited Items — What You Cannot Store | SafeStorage Dubai",
+  // The root layout appends "| SafeStorage Dubai" through its title template,
+  // so this must not repeat it. (openGraph.title below is not templated.)
+  title: "Prohibited Items — What You Cannot Store",
   description:
     "What SafeStorage Dubai cannot accept into storage: flammables, gas cylinders, food, liquids, cash and jewellery. Check before your pickup. Call +971505773388.",
   keywords:
