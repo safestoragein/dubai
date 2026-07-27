@@ -101,6 +101,44 @@ export async function POST(request: Request) {
 
     const amountAed = (session.amount_total ?? 0) / 100
 
+    // ---- Due payment (UAE customer paying storage dues from the CRM link) ----
+    // A different kind of session entirely: there is no quotation to finalise and no
+    // order to create, only existing ss_customer_payment rows to mark Paid. Handled
+    // and returned here so none of the booking logic below runs.
+    if (session.metadata?.purpose === "due_payment") {
+      const paymentRef =
+        typeof session.payment_intent === "string" ? session.payment_intent : session.id
+
+      let settleResult = "not_attempted"
+      try {
+        const res = await fetch("https://safestorage.in/customer/stripe_due_settle", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            secret: process.env.AE_PAY_SECRET,
+            customerId: session.metadata.customer_id,
+            paymentIds: session.metadata.payment_ids,
+            amountAed,
+            paymentRef,
+          }),
+        })
+        settleResult = (await res.text()).slice(0, 300)
+      } catch (error) {
+        // Never throw: Stripe would retry a charge we have already taken. The
+        // payment is recorded on Stripe's side and can be settled by hand.
+        settleResult = `EXCEPTION: ${String(error).slice(0, 200)}`
+      }
+
+      await updateAttemptStatus(session.id, "succeeded", {
+        event_type: event.type,
+        stripe_payment_intent: paymentRef,
+        failure_message: `due_payment settle -> ${settleResult}`,
+      })
+
+      console.log("[webhook] due_payment settled:", settleResult)
+      return NextResponse.json({ received: true, purpose: "due_payment" })
+    }
+
     // Payment is confirmed — NOW place the order. Doing it here rather than
     // before the redirect is what makes "no payment, no order" true: an
     // abandoned checkout never reaches this point. claimFinalizeParams also
