@@ -20,6 +20,9 @@ export const WAREHOUSE = {
 /** Pickups beyond this straight-line distance from the warehouse are out of area. */
 export const SERVICE_RADIUS_KM = 60
 
+/** Storage points in one pallet — the conversion every quote is built on. */
+export const POINTS_PER_PALLET = 16
+
 /** Flat amount added to every non-zero transport quote. */
 export const TRANSPORT_SURCHARGE_AED = 60
 

@@ -25,13 +25,20 @@ interface Body {
   email?: string
   fullName?: string
   quotationId?: string | number
-  items?: Array<{ name?: string; quantity?: number }>
+  items?: Array<{
+    name?: string
+    quantity?: number
+    /** Points per unit. Only the quote form sends these; the CRM does not. */
+    storagePoints?: number
+    price?: number
+  }>
   totalSqft?: number
   totalPallets?: number
   monthlyStorageAed?: number
   pickupAddress?: string | null
   distanceKm?: number | null
-  /** 'crm' when the CRM raised the quote, so the capture row is distinguishable. */
+  /** 'crm' when the CRM raised the quote, so the capture row is distinguishable.
+   *  'website' means the quote form captured the quote itself. */
   source?: string | null
   customerId?: string | number | null
   phone?: string | null
@@ -84,6 +91,18 @@ export async function POST(request: Request) {
     .filter((i) => i?.name)
     .map((i) => ({ name: String(i.name), quantity: Number(i.quantity) || 1 }))
 
+  // What gets stored, as opposed to what gets listed in the email. Storage
+  // points are kept when the caller has them: the resume link reprices the
+  // quote from these items, and points-less items reprice to zero.
+  const captureItems = (body.items ?? [])
+    .filter((i) => i?.name)
+    .map((i) => ({
+      name: String(i.name),
+      quantity: Number(i.quantity) || 1,
+      price: Number(i.price) || 0,
+      storagePoints: Number(i.storagePoints) || 0,
+    }))
+
   const origin =
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://safestorage.ae"
 
@@ -111,7 +130,14 @@ export async function POST(request: Request) {
   // A quote raised in the CRM has never touched our capture table, so the
   // resume link in the email would 404. Capture it here — one call from the
   // CRM then both records the quote and sends the mail.
-  const existing = await getResumableQuote(String(body.quotationId ?? ""))
+  //
+  // Not for the quote form: it captures its own quote, with the storage points
+  // and customer id this payload does not carry. Both writes used to race, and
+  // whichever landed first was the one the resume link read back.
+  const fromWebsite = body.source === "website"
+  const existing = fromWebsite
+    ? true
+    : await getResumableQuote(String(body.quotationId ?? ""))
   if (!existing) {
     await saveQuotationCapture({
       stage: body.source === "crm" ? "crm_quote" : "step2",
@@ -133,7 +159,7 @@ export async function POST(request: Request) {
       transport_surcharge: transport.surchargeAed,
       transport_custom_quote: outOfRange,
       pickup_distance_km: distanceKm,
-      selected_items: items,
+      selected_items: captureItems,
     })
   }
 

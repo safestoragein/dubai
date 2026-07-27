@@ -13,6 +13,7 @@ import WorkingPlacesAutocomplete from "@/components/ui/working-places-autocomple
 import {
   calculateTransportPrice,
   distanceFromWarehouseKm,
+  POINTS_PER_PALLET,
   SERVICE_RADIUS_KM,
   SELF_DROP_TOKEN_AED,
   type DeliveryMode,
@@ -150,6 +151,9 @@ const captureQuotation = (data: Record<string, unknown>) => {
   }
 }
 
+/** Points restored from a resume link can be fractional — display them tidily. */
+const roundPoints = (points: number): number => Math.round(points * 10) / 10
+
 // Storage calculation functions
 const calculateTotalPoints = (selectedItems: SelectedItem[]): number => {
   return selectedItems.reduce((total, item) => {
@@ -158,8 +162,10 @@ const calculateTotalPoints = (selectedItems: SelectedItem[]): number => {
 }
 
 const calculatePallets = (totalPoints: number): number => {
-  // 16 points = 1 pallet
-  return Math.ceil(totalPoints / 16)
+  // 16 points = 1 pallet. The epsilon keeps a whole pallet whole: points
+  // restored from a resume link are spread back over the items by division,
+  // and 16.000000000000004 points must not round up to two pallets.
+  return Math.ceil(totalPoints / POINTS_PER_PALLET - 1e-9)
 }
 
 const calculateSquareFeet = (pallets: number): number => {
@@ -845,10 +851,16 @@ export default function QuotePage() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
+            source: 'website',
             email: formData.email,
             fullName: formData.fullName,
             quotationId,
-            items: formData.selectedItems.map((i) => ({ name: i.name, quantity: i.quantity })),
+            items: formData.selectedItems.map((i) => ({
+              name: i.name,
+              quantity: i.quantity,
+              price: i.price,
+              storagePoints: i.storagePoints,
+            })),
             totalSqft: totalsqft,
             totalPallets,
             monthlyStorageAed: sharedPrice,
@@ -974,6 +986,16 @@ export default function QuotePage() {
         }
         const q = data.quote
 
+        // Reprice from the restored items rather than carrying the saved
+        // figures through. Every card on the pricing step recalculates from
+        // the items anyway, so the stored totals would only be shadow values
+        // that disagree with what the customer sees — and the booking step
+        // needs all of them, so a null from an older capture row would break
+        // it. Saved figures are the fallback if the items ever come back empty.
+        const items = Array.isArray(q.items) && q.items.length ? q.items : []
+        const points = calculateTotalPoints(items)
+        const pallets = calculatePallets(points)
+
         setFormData((prev) => ({
           ...prev,
           fullName: q.fullName ?? prev.fullName,
@@ -985,15 +1007,25 @@ export default function QuotePage() {
           liftAvailable: q.liftAvailable ?? prev.liftAvailable,
           bedrooms: q.bedrooms ?? prev.bedrooms,
           storageType: (q.storageType as FormData['storageType']) ?? prev.storageType,
-          selectedItems: Array.isArray(q.items) && q.items.length ? q.items : prev.selectedItems,
+          selectedItems: items.length ? items : prev.selectedItems,
           customerId: q.customerId ? Number(q.customerId) : prev.customerId,
           quotationId: q.quotationId ? Number(q.quotationId) : prev.quotationId,
-          totalPoints: q.totalPoints ?? prev.totalPoints,
-          totalPallets: q.totalPallets ?? prev.totalPallets,
-          totalsqft: q.totalSqft ?? prev.totalsqft,
-          sharedPrice: q.sharedPrice ?? prev.sharedPrice,
-          closedPrice: q.closedPrice ?? prev.closedPrice,
-          transportPrice: q.transportPrice ?? prev.transportPrice,
+          totalPoints: pallets > 0 ? points : (q.totalPoints ?? prev.totalPoints),
+          totalPallets: pallets > 0 ? pallets : (q.totalPallets ?? prev.totalPallets),
+          totalsqft:
+            pallets > 0 ? calculateSquareFeet(pallets) : (q.totalSqft ?? prev.totalsqft),
+          sharedPrice:
+            pallets > 0
+              ? calculateSharedSpacePricing(items).totalCost
+              : (q.sharedPrice ?? prev.sharedPrice),
+          closedPrice:
+            pallets > 0
+              ? calculateClosedSpacePricing(items).totalCost
+              : (q.closedPrice ?? prev.closedPrice),
+          transportPrice:
+            pallets > 0
+              ? calculateTransportPrice(pallets).totalAed
+              : (q.transportPrice ?? prev.transportPrice),
           distanceKm: q.distanceKm ?? prev.distanceKm,
           pickupLat: q.pickupLat ?? prev.pickupLat,
           pickupLng: q.pickupLng ?? prev.pickupLng,
@@ -1071,6 +1103,16 @@ export default function QuotePage() {
       return
     }
 
+    // The order is placed from these params after payment, and the backend
+    // rejects one without a customer. Stop before Stripe rather than take the
+    // money and fail to book — a resumed quote whose capture rows never
+    // carried a customer id lands here.
+    if (!formData.customerId) {
+      console.error('❌ No customer ID on this quote — cannot finalize the booking')
+      toast.error("We couldn't link this quote to your account. Please call us and we'll book it for you.")
+      return
+    }
+
     console.log('✅ All validation passed. Updating final quote price...')
     setIsSubmitting(true)
     
@@ -1090,18 +1132,18 @@ export default function QuotePage() {
       // handed to /api/checkout and replayed by the webhook once Stripe
       // confirms. If payments are switched off, they are posted inline below.
       const finalizeParams: Record<string, string> = {
-          customer_id: formData.customerId!.toString(),
-          quotation_id: formData.quotationId!.toString(),
-          storage_price: finalPrice!.toString(),
-          closed_storage_price: formData.closedPrice!.toString(),
-          shared_storage_price: formData.sharedPrice!.toString(),
+          customer_id: String(formData.customerId),
+          quotation_id: String(formData.quotationId),
+          storage_price: String(finalPrice ?? ''),
+          closed_storage_price: String(formData.closedPrice ?? ''),
+          shared_storage_price: String(formData.sharedPrice ?? ''),
           selected_storage_type: selectedStorageOption,
           lift: formData.liftAvailable,
           floor: formData.floor,
           bedrooms: formData.bedrooms,
-          total_sqft: formData.totalsqft!.toString(),
-          total_points: formData.totalPoints!.toString(),
-          total_pallets: formData.totalPallets!.toString(),
+          total_sqft: String(formData.totalsqft ?? ''),
+          total_points: String(formData.totalPoints ?? ''),
+          total_pallets: String(formData.totalPallets ?? ''),
           // Warehouse arrival means no pickup, so no transport is charged —
           // only the booking token, which is later set against the bill.
           transport_price:
@@ -2404,7 +2446,7 @@ export default function QuotePage() {
                             <div className="text-sm font-medium text-slate-700 truncate">{item.name}</div>
                             <div className={`text-xs ${colors.text}`}>{category?.name}</div>
                             <div className="text-xs text-slate-500 mt-1">
-                              {item.storagePoints} points × {item.quantity} = {item.storagePoints * item.quantity} points
+                              {roundPoints(item.storagePoints)} points × {item.quantity} = {roundPoints(item.storagePoints * item.quantity)} points
                             </div>
                           </div>
                           <div className="flex items-center gap-2">
@@ -2445,7 +2487,7 @@ export default function QuotePage() {
                     <div className="flex items-center justify-between mb-1">
                       <span className="text-sm text-slate-600">Total Points:</span>
                       <span className="text-sm font-bold text-slate-800">
-                        {calculateTotalPoints(formData.selectedItems)}
+                        {roundPoints(calculateTotalPoints(formData.selectedItems))}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">

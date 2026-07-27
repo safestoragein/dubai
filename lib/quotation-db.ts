@@ -9,6 +9,7 @@
 // Server-only — never import this from a client component.
 import "server-only"
 import mysql from "mysql2/promise"
+import { POINTS_PER_PALLET } from "@/lib/transport-pricing"
 
 let pool: mysql.Pool | null = null
 
@@ -260,79 +261,117 @@ export interface ResumableQuote {
   alreadyBooked: boolean
 }
 
+/** Items out of one `selected_items` cell. Both shapes it has been written in
+ *  are accepted: a bare array, and an object wrapping the array alongside the
+ *  pickup date. Returns [] for anything unparseable. */
+function parseCapturedItems(raw: unknown): ResumableQuote["items"] {
+  try {
+    const parsed = JSON.parse(String(raw ?? "[]"))
+    const arr = Array.isArray(parsed) ? parsed : parsed?.items
+    if (!Array.isArray(arr)) return []
+    return arr
+      .filter((i) => i && i.name)
+      .map((i) => ({
+        name: String(i.name),
+        quantity: Number(i.quantity) || 1,
+        price: Number(i.price) || 0,
+        storagePoints: Number(i.storagePoints) || 0,
+      }))
+  } catch {
+    return []
+  }
+}
+
+const itemPoints = (items: ResumableQuote["items"]) =>
+  items.reduce((total, i) => total + i.storagePoints * i.quantity, 0)
+
 /**
  * The saved quote behind a resume link.
  *
- * Reads the richest capture row for the quotation — the step-2 save carries the
- * items and customer details — and separately checks whether any row reached
- * "paid", so a customer following an old email after booking is not asked to
- * pay twice.
+ * A single quotation has several capture rows — one per stage, plus the
+ * quotation email's own fallback capture, which races the step-2 save and can
+ * land first with a thinner payload. So this reads EVERY row for the quotation
+ * and takes the newest non-empty value per field rather than trusting one row:
+ * picking a single row meant a stripped one could shadow the complete one, and
+ * the resumed quote then priced itself off items with no storage points —
+ * zero points, zero pallets, zero transport.
  */
 export async function getResumableQuote(
   quotationId: string
 ): Promise<ResumableQuote | null> {
   try {
     const [rows] = await getPool().execute(
-      `SELECT * FROM quotation_dubai
-        WHERE php_quotation_id = ? AND selected_items IS NOT NULL
-        ORDER BY id ASC LIMIT 1`,
+      `SELECT * FROM quotation_dubai WHERE php_quotation_id = ? ORDER BY id DESC`,
       [quotationId]
     )
     const list = rows as Array<Record<string, unknown>>
     if (!list.length) return null
-    const r = list[0]
 
-    const [paidRows] = await getPool().execute(
-      `SELECT id FROM quotation_dubai WHERE php_quotation_id = ? AND stage = 'paid' LIMIT 1`,
-      [quotationId]
-    )
-
-    // selected_items has been written in two shapes over time: a bare array, and
-    // an object wrapping the array alongside the pickup date.
-    let items: ResumableQuote["items"] = []
-    try {
-      const parsed = JSON.parse(String(r.selected_items ?? "[]"))
-      const arr = Array.isArray(parsed) ? parsed : parsed?.items
-      if (Array.isArray(arr)) {
-        items = arr
-          .filter((i) => i && i.name)
-          .map((i) => ({
-            name: String(i.name),
-            quantity: Number(i.quantity) || 1,
-            price: Number(i.price) || 0,
-            storagePoints: Number(i.storagePoints) || 0,
-          }))
+    // Newest row that actually has a value for this column. 0 counts as a value
+    // (an out-of-area transport price is a real 0); "" and NULL do not.
+    const pick = (column: string): unknown => {
+      for (const row of list) {
+        const v = row[column]
+        if (v !== null && v !== undefined && v !== "") return v
       }
-    } catch {
-      items = []
+      return null
     }
+
+    // Prefer the newest item list that carries storage points — the quote is
+    // repriced from these, so a list without points is worse than useless.
+    const allItems = list.map((r) => parseCapturedItems(r.selected_items))
+    let items =
+      allItems.find((i) => i.length && itemPoints(i) > 0) ??
+      allItems.find((i) => i.length) ??
+      []
+    if (!items.length) return null
 
     const n = (v: unknown) => (v === null || v === undefined ? null : Number(v))
     const t = (v: unknown) => (v === null || v === undefined ? null : String(v))
 
+    const totalPoints = n(pick("total_points"))
+    const totalPallets = n(pick("total_pallets"))
+
+    // Every row's items were stripped of their points (the CRM sends name and
+    // quantity only). Spread the quote's own point total back over them, so
+    // repricing on resume lands on the pallet count the customer was quoted
+    // instead of zero.
+    if (itemPoints(items) === 0) {
+      const target =
+        totalPoints && totalPoints > 0
+          ? totalPoints
+          : totalPallets && totalPallets > 0
+            ? totalPallets * POINTS_PER_PALLET
+            : 0
+      const units = items.reduce((total, i) => total + i.quantity, 0)
+      if (target > 0 && units > 0) {
+        items = items.map((i) => ({ ...i, storagePoints: target / units }))
+      }
+    }
+
     return {
-      quotationId: t(r.php_quotation_id),
-      customerId: t(r.php_customer_id),
-      fullName: t(r.customer_name),
-      email: t(r.customer_email),
-      phone: t(r.customer_phone),
-      address: t(r.pickup_address),
-      emirate: t(r.emirate),
-      floor: t(r.floor),
-      liftAvailable: t(r.lift_available),
-      bedrooms: t(r.bedrooms),
-      storageType: t(r.storage_type),
-      totalPoints: n(r.total_points),
-      totalPallets: n(r.total_pallets),
-      totalSqft: n(r.total_sqft),
-      sharedPrice: n(r.shared_storage_price),
-      closedPrice: n(r.closed_storage_price),
-      transportPrice: n(r.transport_price),
-      distanceKm: n(r.pickup_distance_km),
-      pickupLat: n(r.pickup_lat),
-      pickupLng: n(r.pickup_lng),
+      quotationId: t(pick("php_quotation_id")),
+      customerId: t(pick("php_customer_id")),
+      fullName: t(pick("customer_name")),
+      email: t(pick("customer_email")),
+      phone: t(pick("customer_phone")),
+      address: t(pick("pickup_address")),
+      emirate: t(pick("emirate")),
+      floor: t(pick("floor")),
+      liftAvailable: t(pick("lift_available")),
+      bedrooms: t(pick("bedrooms")),
+      storageType: t(pick("storage_type")),
+      totalPoints,
+      totalPallets,
+      totalSqft: n(pick("total_sqft")),
+      sharedPrice: n(pick("shared_storage_price")),
+      closedPrice: n(pick("closed_storage_price")),
+      transportPrice: n(pick("transport_price")),
+      distanceKm: n(pick("pickup_distance_km")),
+      pickupLat: n(pick("pickup_lat")),
+      pickupLng: n(pick("pickup_lng")),
       items,
-      alreadyBooked: (paidRows as unknown[]).length > 0,
+      alreadyBooked: list.some((r) => String(r.stage ?? "") === "paid"),
     }
   } catch (error) {
     console.error("[quotation-capture] getResumableQuote failed:", error)
