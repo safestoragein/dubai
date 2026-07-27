@@ -304,7 +304,7 @@ export default function FurnitureStoragePage() {
 
         <section className="py-16 bg-dubai-gold text-white text-center">
           <div className="container px-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Store Your Furniture Safely — Door-to-door Pickup Included</h2>
+            <h2 className="text-3xl font-bold mb-4">Store Your Furniture Safely — Door-to-Door Pickup & Delivery</h2>
             <p className="text-xl text-white/90 mb-8">Get a free quote for furniture storage across Dubai. Our team wraps, loads and stores — you don't lift a finger.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="https://safestorage.ae/get-quote">

@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
   title: "Cheap Storage Dubai 2026 — From 12.60 AED / sqft",
-  description: "Find the cheapest storage in Dubai! Transparent pricing starts from 12.60 AED / sqft. Compare costs, save money, and get flexible storage solutions. No hidden fees. Door-to-door Pickup included.",
+  description: "Find the cheapest storage in Dubai! Transparent pricing starts from 12.60 AED / sqft. Compare costs, save money, and get flexible storage solutions. No hidden fees. Door-to-Door Pickup & Delivery.",
   keywords: "cheap storage dubai, affordable storage dubai, storage prices dubai, budget storage uae, cheapest storage dubai, low cost storage, storage deals dubai, student storage dubai, small business storage",
   openGraph: {
     title: "Cheap Storage Dubai 2026: Best Affordable Options - Starts from 12.60 AED / sqft",
@@ -332,7 +332,7 @@ export default function CheapStorageDubai() {
                 Pricing starts from 12.60 AED / sqft
               </h3>
               <p className="mb-6 text-gray-600">
-                VAT-inclusive · all unit sizes · door-to-door service included
+                VAT-inclusive · all unit sizes · door-to-door pickup & delivery
               </p>
               <Button asChild className="bg-[#D8315B] hover:bg-[#c02a50]">
                 <Link href="/contact">Get This Size</Link>
@@ -342,7 +342,7 @@ export default function CheapStorageDubai() {
 
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-700">
-              <strong>All prices include:</strong> Door-to-door Pickup, Doorstep delivery, 24/7 access, clean secure units, security monitoring
+              <strong>All prices include:</strong> 24/7 access, clean secure units, security monitoring
             </p>
           </div>
         </div>
@@ -588,7 +588,7 @@ export default function CheapStorageDubai() {
               },
               {
                 q: "Are there really no hidden fees?",
-                a: "Absolutely! Our price includes Door-to-door Pickup, Doorstep delivery, 24/7 access, and security. No setup fees, no access fees, no lock deposit. What you see is what you pay.",
+                a: "Absolutely! Our price includes 24/7 access, clean secure units, and security. No setup fees, no access fees, no lock deposit. What you see is what you pay.",
               },
               {
                 q: "Can I pay monthly or do I need to commit long-term?",

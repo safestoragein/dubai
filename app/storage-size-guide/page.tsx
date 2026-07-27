@@ -148,7 +148,7 @@ export default function StorageSizeGuidePage() {
                   Pricing starts from 12.60 AED / sqft
                 </h3>
                 <p className="text-gray-600">
-                  VAT-inclusive · all unit sizes · door-to-door service included
+                  VAT-inclusive · all unit sizes · door-to-door pickup & delivery
                 </p>
               </div>
             </div>
@@ -403,8 +403,7 @@ export default function StorageSizeGuidePage() {
                 small warehouse floor — and can be accessed with loading equipment for particularly heavy items.
               </p>
               <p className="text-gray-700 mb-4">
-                Pricing for 200+ sq ft storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive), inclusive of
-                any additional services. This is still considerably less than the cost of maintaining a
+                Pricing for 200+ sq ft storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive). This is still considerably less than the cost of maintaining a
                 warehouse or keeping a large vacant villa for storage purposes. Many large families and businesses have found
                 that using professional storage versus paying ongoing rent on an oversized space saves them AED 5,000–15,000
                 per month.

@@ -119,11 +119,11 @@ export default function StudentStoragePage() {
         <section className="py-16 bg-slate-50">
           <div className="container px-4 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-dubai-navy text-center mb-4">Student Storage Pricing</h2>
-            <p className="text-center text-gray-600 mb-10">Transparent, all-inclusive monthly pricing. No hidden fees, no admin charges, no long-term commitment.</p>
+            <p className="text-center text-gray-600 mb-10">Transparent monthly storage pricing. No hidden fees, no admin charges, no long-term commitment.</p>
             <div className="max-w-xl mx-auto">
               <div className="bg-white rounded-2xl p-10 border-2 border-dubai-gold shadow-lg text-center">
                 <h3 className="text-2xl md:text-3xl font-bold text-dubai-navy mb-3">Pricing starts from 12.60 AED / sqft</h3>
-                <p className="text-gray-600">VAT-inclusive · all unit sizes · door-to-door service included</p>
+                <p className="text-gray-600">VAT-inclusive · all unit sizes · door-to-door pickup & delivery</p>
               </div>
             </div>
             <p className="text-center text-sm text-gray-500 mt-6">* Not sure what size you need? Call us and we'll advise based on your inventory.</p>
@@ -214,7 +214,7 @@ export default function StudentStoragePage() {
             <div className="space-y-6">
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does student storage cost in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Student storage at SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive). A locker or mini unit holds 10–15 boxes, suitcases, bags, and bedding. A small unit accommodates a full student room including a single bed, desk, chair, wardrobe, and 20–30 boxes of personal belongings — the most popular option for students storing between semesters. For students sharing a larger apartment or storing a bicycle and additional equipment, a medium unit provides more space. The price includes 24/7 security and door-to-door pickup from your accommodation. There are no hidden charges and no long-term contracts required.</p>
+                <p className="text-gray-700 leading-relaxed">Student storage at SafeStorage Dubai starts from 12.60 AED / sqft (VAT-inclusive). A locker or mini unit holds 10–15 boxes, suitcases, bags, and bedding. A small unit accommodates a full student room including a single bed, desk, chair, wardrobe, and 20–30 boxes of personal belongings — the most popular option for students storing between semesters. For students sharing a larger apartment or storing a bicycle and additional equipment, a medium unit provides more space. The price includes 24/7 security. Door-to-door pickup from your accommodation is available. There are no hidden charges and no long-term contracts required.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">What is the minimum storage period for students?</h3>

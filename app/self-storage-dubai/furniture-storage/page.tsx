@@ -123,7 +123,7 @@ export default function FurnitureStoragePage() {
                     Pricing starts from 12.60 AED / sqft
                   </h3>
                   <p className="text-gray-600">
-                    VAT-inclusive · all unit sizes · door-to-door service included
+                    VAT-inclusive · all unit sizes · door-to-door pickup & delivery
                   </p>
                 </CardContent>
               </Card>

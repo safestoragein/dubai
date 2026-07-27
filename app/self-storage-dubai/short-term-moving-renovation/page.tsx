@@ -684,7 +684,7 @@ export default function ShortTermStoragePage() {
             <p className="text-gray-700">
               Short-term storage is priced on monthly plans with no minimum contract, starting from
               12.60 AED / sqft (VAT-inclusive). A typical 1–2 bedroom apartment contents fits in a medium unit.
-              Door-to-Door service is included. For renovations lasting 1–3 months, we offer a
+              Door-to-Door pickup & delivery is available. For renovations lasting 1–3 months, we offer a
               renovation storage package with preferential rates. Same-day pickup is available for bookings
               before 12 PM. Call +971 50 577 3388 to book or get an instant quote.
             </p>

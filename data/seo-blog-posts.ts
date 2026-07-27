@@ -158,7 +158,7 @@ export const seoBlogPosts = [
       <ul>
         <li><strong>Secure, Clean Units Matter:</strong> Dust and pests can damage electronics and furniture if items aren't well protected</li>
         <li><strong>Location Matters:</strong> Choose storage near your new area to save time</li>
-        <li><strong>Free Services:</strong> Look for facilities offering door-to-door pickup - traffic can be challenging</li>
+        <li><strong>Door-to-door Service:</strong> Look for facilities offering door-to-door pickup - traffic can be challenging</li>
         <li><strong>Flexible Contracts:</strong> Opt for month-to-month initially until settled</li>
       </ul>
       

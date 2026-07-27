@@ -127,7 +127,7 @@ export default function SelfStorageCostDubaiPage() {
 
             <div className="mt-12 p-8 bg-dubai-navy text-white rounded-2xl text-center">
               <h2 className="text-2xl font-bold mb-3">Get an Exact Price for Your Storage</h2>
-              <p className="text-white/80 mb-6">Tell us what you need to store and we'll give you an accurate all-in monthly price. No hidden fees, no surprises.</p>
+              <p className="text-white/80 mb-6">Tell us what you need to store and we'll give you an accurate monthly storage price. No hidden fees, no surprises.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Free Quote</Button>

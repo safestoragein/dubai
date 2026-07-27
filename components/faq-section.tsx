@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "Do you offer door-to-door service across Dubai?",
     answer:
-      "Yes — door-to-door service is included with every SafeStorage plan. Our professional team will come to your home or office anywhere in Dubai, bring packing materials, carefully load your items, and transport them to our secure facility. When you need anything back, we deliver it to your door. No truck rental and no heavy lifting needed on your part. Same-day pickup is available for bookings confirmed before 12 PM.",
+      "Yes — we offer door-to-door pickup & delivery across Dubai. Our professional team will come to your home or office anywhere in Dubai, bring packing materials, carefully load your items, and transport them to our secure facility. When you need anything back, we deliver it to your door. No truck rental and no heavy lifting needed on your part. Same-day pickup is available for bookings confirmed before 12 PM.",
   },
   {
     question: "What size storage unit do I need?",

@@ -6,7 +6,7 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Storage Pricing Dubai — From 12.60 AED / sqft",
   description:
-    "Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door service included. Call +971505773388 for best rates.",
+    "Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door Pickup & Delivery. Call +971505773388 for best rates.",
   keywords:
     "storage pricing dubai, cheap storage dubai, storage costs, affordable storage, storage rates dubai, self storage prices, monthly storage cost, storage unit prices",
   openGraph: {
@@ -42,7 +42,7 @@ const pricingSchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/pricing#webpage',
     name: 'Storage Pricing Dubai | From 12.60 AED / sqft',
-    description: 'Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door service included.',
+    description: 'Transparent storage pricing in Dubai from 12.60 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door Pickup & Delivery.',
     url: 'https://safestorage.ae/pricing',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -51,7 +51,7 @@ const pricingSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Storage Units Dubai — Transparent Pricing',
-    description: 'Transparent storage pricing in Dubai. Door-to-Door service included. Call +971505773388 for best rates.',
+    description: 'Transparent storage pricing in Dubai. Door-to-Door Pickup & Delivery. Call +971505773388 for best rates.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/pricing',
     areaServed: { '@type': 'City', name: 'Dubai' },
@@ -87,12 +87,12 @@ export default function Pricing() {
           <div className="flex justify-center mb-12">
             <div className="bg-white rounded-2xl p-10 border-2 border-[#0A2463] text-center max-w-xl w-full">
               <p className="text-2xl md:text-3xl font-bold text-[#0A2463]">Pricing starts from 12.60 AED / sqft</p>
-              <p className="text-sm text-gray-500 mt-3">VAT-inclusive · secure indoor storage · door-to-door service included</p>
+              <p className="text-sm text-gray-500 mt-3">VAT-inclusive · secure indoor storage · door-to-door pickup & delivery</p>
             </div>
           </div>
 
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
-            <h3 className="text-xl font-bold text-[#0A2463] mb-4">What's Included in Every Storage Plan</h3>
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">What You Get with SafeStorage</h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
               <div>
                 <p className="mb-2">✓ <strong>Secure indoor unit</strong> — clean, dust-protected storage</p>
@@ -199,7 +199,7 @@ export default function Pricing() {
           </div>
 
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 mb-8">
-            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Everything Included — Zero Hidden Charges</h3>
+            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Our Services — Zero Hidden Charges</h3>
             <div className="grid md:grid-cols-2 gap-6 text-gray-700">
               <div className="space-y-4">
                 <div>
@@ -283,7 +283,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. What is the best value storage option for someone moving apartments in Dubai?</h3>
-              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — storage is priced simply at 12.60 AED / sqft (VAT-inclusive), so a one to two-bedroom apartment is straightforward and economical to store. This includes door-to-door pickup from your old apartment, secure storage for the duration between leases, and doorstep delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
+              <p className="text-gray-700">For apartment moves in Dubai — where there is often a gap between your old tenancy ending and your new tenancy beginning — storage is priced simply at 12.60 AED / sqft (VAT-inclusive), so a one to two-bedroom apartment is straightforward and economical to store. We provide door-to-door pickup from your old apartment, secure storage for the duration between leases, and doorstep delivery to your new address. Compared to the cost of rush storage elsewhere or keeping a hotel room, SafeStorage is significantly more economical and completely hassle-free.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -306,7 +306,7 @@ export default function Pricing() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">13. Is same-day pickup available?</h3>
-              <p className="text-gray-700">Yes. Same-day pickup is available for requests made before 12 PM on any day, as part of the standard door-to-door pickup service that comes with every storage plan. Subject to availability, our team will arrive at your address the same day, typically within 4 to 6 hours of booking confirmation. For very last-minute requests where same-day pickup is needed urgently (for example, a sudden eviction or emergency relocation), call +971505773388 directly and our dispatch team will confirm availability immediately.</p>
+              <p className="text-gray-700">Yes. Same-day pickup is available for requests made before 12 PM on any day, as part of our standard door-to-door pickup service. Subject to availability, our team will arrive at your address the same day, typically within 4 to 6 hours of booking confirmation. For very last-minute requests where same-day pickup is needed urgently (for example, a sudden eviction or emergency relocation), call +971505773388 directly and our dispatch team will confirm availability immediately.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

@@ -1965,7 +1965,7 @@ const additionalBlogPosts = [
         <tr><td>Small Unit (25 sq ft)</td><td>AED 199</td><td>AED 250+</td></tr>
         <tr><td>Medium Unit (50 sq ft)</td><td>AED 399</td><td>AED 500+</td></tr>
         <tr><td>Large Unit (100 sq ft)</td><td>AED 899</td><td>AED 1,100+</td></tr>
-        <tr><td>Pickup Service</td><td>FREE</td><td>AED 150+</td></tr>
+        <tr><td>Pickup Service</td><td>Door-to-door service</td><td>AED 150+</td></tr>
       </table>
       
       <h3>Service Comparison</h3>

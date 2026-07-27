@@ -242,11 +242,11 @@ const testimonials = [
 const faqs = [
   {
     question: "How much does storage cost in Dubai?",
-    answer: "Storage in Dubai at SafeStorage starts from just 12.60 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include security, and door-to-door service. Contact us at 050-577-3388 for a personalized quote.",
+    answer: "Storage in Dubai at SafeStorage starts from just 12.60 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include security. Door-to-door service is available. Contact us at 050-577-3388 for a personalized quote.",
   },
   {
     question: "Do you pick up items from my location?",
-    answer: "Yes! SafeStorage provides door-to-door pickup from anywhere in Dubai - your home, office, or any location. Our professional team arrives with packing materials, carefully loads your items, and transports them to our facility. When you need them back, we deliver to your door. This service is included in our packages.",
+    answer: "Yes! SafeStorage provides door-to-door pickup from anywhere in Dubai - your home, office, or any location. Our professional team arrives with packing materials, carefully loads your items, and transports them to our facility. When you need them back, we deliver to your door. We offer this door-to-door service across Dubai.",
   },
   {
     question: "What size storage unit do I need?",
@@ -511,7 +511,7 @@ export default function StorageDubaiPage() {
                   Pricing starts from 12.60 AED / sqft
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  VAT-inclusive · all unit sizes · door-to-door service included
+                  VAT-inclusive · all unit sizes · door-to-door pickup & delivery
                 </p>
                 <Button
                   className="bg-dubai-gold hover:bg-dubai-darkgold text-white"

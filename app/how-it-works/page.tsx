@@ -169,7 +169,7 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-2">Is packing service included or is it extra?</p>
-                <p>Basic pickup and loading is included in all plans. Professional packing — where our team wraps and boxes your items using quality materials — is an optional add-on service. It is priced per hour and includes all materials such as bubble wrap, packing paper, boxes, furniture covers, and stretch film. Many customers opt for the full packing service for fragile or high-value items and handle standard boxes themselves. Your consultant will give you a clear quote for packing before your pickup appointment.</p>
+                <p>Our team handles door-to-door pickup and loading. Professional packing — where our team wraps and boxes your items using quality materials — is an optional add-on service. It is priced per hour and includes all materials such as bubble wrap, packing paper, boxes, furniture covers, and stretch film. Many customers opt for the full packing service for fragile or high-value items and handle standard boxes themselves. Your consultant will give you a clear quote for packing before your pickup appointment.</p>
               </div>
               <div>
                 <p className="font-semibold mb-2">How are my items transported?</p>
@@ -184,7 +184,7 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-2">Can I retrieve just some of my items rather than everything?</p>
-                <p>Yes, partial retrieval is one of our most commonly used features. If you need a specific box, a piece of furniture, or a set of documents, simply let your consultant know. Our team retrieves the specified items from your unit and delivers them to your address within 24–48 hours. The remaining items stay in storage unchanged. There is no extra fee for partial retrievals, and you can request as many partial retrievals as you need throughout your storage period.</p>
+                <p>Yes, partial retrieval is one of our most commonly used features. If you need a specific box, a piece of furniture, or a set of documents, simply let your consultant know. Our team retrieves the specified items from your unit and delivers them to your address within 24–48 hours. The remaining items stay in storage unchanged. You can request as many partial retrievals as you need throughout your storage period.</p>
               </div>
               <div>
                 <p className="font-semibold mb-2">Do I need to sign a contract?</p>

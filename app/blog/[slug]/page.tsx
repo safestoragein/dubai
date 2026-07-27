@@ -400,7 +400,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Do storage companies in Dubai offer door-to-door pickup?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Most traditional storage facilities in Dubai do not include pickup — customers are expected to bring their own items to the facility. SafeStorage Dubai is different: our door-to-door model means our team comes to your home or office, loads your belongings, transports them to our facility, and delivers them back when you need them — all included as standard in your monthly plan. We cover all Dubai neighbourhoods including Business Bay, Dubai Marina, JBR, Jumeirah, Downtown, Al Barsha, Deira, Bur Dubai, JVC, JLT, and Dubai Investment Park.
+              Most traditional storage facilities in Dubai do not include pickup — customers are expected to bring their own items to the facility. SafeStorage Dubai is different: our door-to-door model means our team comes to your home or office, loads your belongings, transports them to our facility, and delivers them back when you need them. We cover all Dubai neighbourhoods including Business Bay, Dubai Marina, JBR, Jumeirah, Downtown, Al Barsha, Deira, Bur Dubai, JVC, JLT, and Dubai Investment Park.
             </p>
           </div>
 
@@ -470,7 +470,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>How do I get my items back from storage?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Retrieving your items from SafeStorage Dubai is simple. Call, WhatsApp, or email your dedicated storage consultant with a list of what you need returned. You can request your entire unit contents, specific boxes or items, or a combination. We schedule delivery within 24–48 hours to any Dubai address. If you need partial retrieval — for example, retrieving a specific piece of furniture while leaving the rest in storage — there is no additional charge. Simply describe what you need and our team will retrieve exactly those items. There is no penalty or fee for early retrieval, and you can retrieve items as many times as you like during your storage period.
+              Retrieving your items from SafeStorage Dubai is simple. Call, WhatsApp, or email your dedicated storage consultant with a list of what you need returned. You can request your entire unit contents, specific boxes or items, or a combination. We schedule delivery within 24–48 hours to any Dubai address. If you need partial retrieval — for example, retrieving a specific piece of furniture while leaving the rest in storage — simply describe what you need and our team will retrieve exactly those items. There is no penalty or fee for early retrieval, and you can retrieve items as many times as you like during your storage period.
             </p>
           </div>
 

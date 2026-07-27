@@ -242,7 +242,7 @@ export const faqSchema = {
       name: "How much does storage cost in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units are secure, clean, 24/7 CCTV-monitored, and include door-to-door service within Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
+        text: "Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units are secure, clean, 24/7 CCTV-monitored, with door-to-door pickup & delivery available across Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
       }
     },
     {
@@ -603,7 +603,7 @@ export const productSchema = {
           returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
           merchantReturnDays: 30,
           returnMethod: "https://schema.org/ReturnByMail",
-          returnFees: "https://schema.org/FreeReturn"
+          returnFees: "https://schema.org/ReturnFeesCustomerResponsibility"
         }
       }
     ]
@@ -726,7 +726,7 @@ export const itemListSchema = {
             returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
             merchantReturnDays: 30,
             returnMethod: "https://schema.org/ReturnByMail",
-            returnFees: "https://schema.org/FreeReturn"
+            returnFees: "https://schema.org/ReturnFeesCustomerResponsibility"
           }
         }
       }
@@ -752,7 +752,7 @@ export const offerSchema = {
   "@type": "Offer",
   "@id": "https://safestorage.ae/#offer",
   name: "New Customer Offer - SafeStorage Dubai",
-  description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes door-to-door service and secure indoor units.",
+  description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes secure indoor units, with door-to-door service available.",
   priceSpecification: { "@type": "UnitPriceSpecification", price: "12.60", priceCurrency: "AED", unitText: "per sq ft" },
   priceValidUntil: "2026-12-31",
   availability: "https://schema.org/InStock",

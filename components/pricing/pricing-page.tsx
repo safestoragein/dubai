@@ -78,7 +78,7 @@ export default function PricingPage() {
           <div className="flex justify-center">
             <div className="bg-blue-50 rounded-2xl p-10 border-2 border-primary text-center max-w-xl w-full">
               <p className="text-2xl md:text-3xl font-bold text-primary">Pricing starts from 12.60 AED / sqft</p>
-              <p className="text-sm text-muted-foreground mt-3">VAT-inclusive · secure indoor storage · door-to-door service included</p>
+              <p className="text-sm text-muted-foreground mt-3">VAT-inclusive · secure indoor storage · door-to-door pickup & delivery</p>
             </div>
           </div>
         </div>

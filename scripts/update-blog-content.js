@@ -39,7 +39,7 @@ function generateImprovedContent(title, category) {
 <h2>Why Choose SafeStorage Dubai?</h2>
 <p>SafeStorage Dubai stands out as the premier storage solution provider in the UAE for several reasons:</p>
 <ul>
-  <li><strong>Door-to-door Pickup and Delivery:</strong> We offer complimentary transportation services for your convenience</li>
+  <li><strong>Door-to-door Pickup and Delivery:</strong> We collect from and deliver to your door across Dubai</li>
   <li><strong>Competitive Pricing:</strong> Transparent pricing with no hidden fees</li>
   <li><strong>Professional Staff:</strong> Our experienced team provides personalized assistance and expert advice</li>
 </ul>
@@ -239,7 +239,7 @@ function generateImprovedContent(title, category) {
 <ol>
   <li><strong>Contact Us:</strong> Call +971505773388 for a free consultation</li>
   <li><strong>Choose Your Unit:</strong> Select from various sizes based on your needs</li>
-  <li><strong>Door-to-door Pickup:</strong> We collect your items at no extra charge</li>
+  <li><strong>Door-to-door Pickup:</strong> We collect your items from your door</li>
   <li><strong>Secure Storage:</strong> Your belongings are stored safely in our facilities</li>
   <li><strong>Easy Access:</strong> Retrieve items whenever you need them</li>
 </ol>
@@ -248,7 +248,7 @@ function generateImprovedContent(title, category) {
 <p>SafeStorage Dubai offers competitive pricing with no hidden fees. Our transparent pricing structure includes:</p>
 <ul>
   <li>Flexible rental terms (short-term and long-term options)</li>
-  <li>Free transportation services</li>
+  <li>Door-to-door pickup and delivery</li>
   <li>No deposit required</li>
 </ul>
 
