@@ -76,6 +76,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/prohibited-items`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
     // /thank-you removed from sitemap — post-form confirmation pages should not be indexed
     {
       url: `${baseUrl}/privacy-policy`,
