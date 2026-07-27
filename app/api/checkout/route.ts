@@ -13,6 +13,7 @@ import {
 } from "@/lib/transport-pricing"
 import { saveQuotationCapture } from "@/lib/quotation-db"
 import { savePaymentAttempt, deviceFromUserAgent } from "@/lib/payment-attempt-db"
+import { testCheckoutAmountAed } from "@/lib/test-checkout"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -77,7 +78,25 @@ export async function POST(request: Request) {
   }
 
   const transport = calculateTransportPrice(pallets)
-  const amountAed = selfDrop ? SELF_DROP_TOKEN_AED : transport.totalAed
+  const realAmountAed = selfDrop ? SELF_DROP_TOKEN_AED : transport.totalAed
+
+  // Live-mode test override — applies only to emails listed in
+  // TEST_CHECKOUT_EMAILS, and is a no-op when that variable is unset.
+  const testAmount = testCheckoutAmountAed(body.customerEmail)
+  const amountAed = testAmount ?? realAmountAed
+
+  // The recorded transport price follows the override too, so the quotation,
+  // the balance in the confirmation email and the amount actually charged all
+  // agree. Otherwise a 2 AED test charge would still show a full balance due.
+  const recordedTransportAed = selfDrop ? 0 : (testAmount ?? transport.totalAed)
+
+  if (testAmount !== null) {
+    console.warn(
+      `[checkout] TEST OVERRIDE active for ${body.customerEmail}: charging AED ${amountAed} instead of ${realAmountAed}. ` +
+        `Clear TEST_CHECKOUT_EMAILS to disable.`
+    )
+  }
+
   const label = selfDrop
     ? "Self Drop booking token"
     : `Door-to-door transport (${transport.tierLabel})`
@@ -88,6 +107,15 @@ export async function POST(request: Request) {
 
   const origin =
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://safestorage.ae"
+
+  // finalizeParams is replayed verbatim into insert_quotation_dubai once payment
+  // lands, so the override has to be stamped into it as well — otherwise the
+  // quotation would keep the full transport price the browser sent.
+  const finalizeParams = body.finalizeParams
+    ? testAmount !== null
+      ? { ...body.finalizeParams, transport_price: String(testAmount), transport_surcharge: "0", transport_base_price: String(testAmount) }
+      : body.finalizeParams
+    : null
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -136,7 +164,7 @@ export async function POST(request: Request) {
       customer_phone: body.customerPhone ?? null,
       delivery_mode: selfDrop ? "self_drop" : "transport",
       total_pallets: pallets,
-      transport_price: selfDrop ? 0 : transport.totalAed,
+      transport_price: recordedTransportAed,
       transport_base_price: transport.baseAed,
       transport_surcharge: transport.surchargeAed,
       token_amount: amountAed,
@@ -147,7 +175,7 @@ export async function POST(request: Request) {
       },
       stripe_session_id: session.id,
       // Held until the webhook confirms payment; the order is placed then.
-      finalize_params: body.finalizeParams ?? null,
+      finalize_params: finalizeParams,
     })
 
     const ua = request.headers.get("user-agent")
@@ -166,7 +194,7 @@ export async function POST(request: Request) {
       delivery_mode: selfDrop ? "self_drop" : "transport",
       total_pallets: pallets,
       storage_price: body.storagePrice ?? null,
-      transport_price: selfDrop ? 0 : transport.totalAed,
+      transport_price: recordedTransportAed,
       pickup_date: body.pickupDate ?? null,
       pickup_address: body.pickupAddress ?? null,
       emirate: body.emirate ?? null,
