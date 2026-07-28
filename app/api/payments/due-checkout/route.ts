@@ -17,19 +17,6 @@ import { getStripe, isStripeEnabled, toFils, CURRENCY } from "@/lib/stripe"
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
-/**
- * Stripe Adaptive Pricing converts the amount into the viewer's local currency and
- * PRESELECTS it — a customer browsing from India sees INR chosen by default even
- * though storage is billed in AED. Turn it off so AED is the charge currency.
- *
- * Spread rather than written inline: the parameter is newer than the installed
- * SDK's type definitions (22.3.2), but the API accepts it and the SDK forwards
- * unknown fields verbatim. Written this way it keeps compiling if the SDK is
- * upgraded and the field becomes typed.
- */
-const NO_ADAPTIVE_PRICING = { adaptive_pricing: { enabled: false } } as Record<string, unknown>
-
-
 interface Body {
   secret?: string
   customerId?: number | string
@@ -88,7 +75,6 @@ export async function POST(request: Request) {
 
   try {
     const session = await stripe.checkout.sessions.create({
-      ...NO_ADAPTIVE_PRICING,
       mode: "payment",
       customer_email: body.email || undefined,
       line_items: [
