@@ -45,12 +45,6 @@ const downtownSchemas = [
         { "@type": "Offer", name: "Storage", price: "12.60", priceCurrency: "AED", description: "Starts from 12.60 AED / sqft (VAT-inclusive)" },
       ],
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "312",
-      bestRating: "5",
-    },
   },
   {
     "@context": "https://schema.org",

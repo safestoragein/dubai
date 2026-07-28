@@ -38,12 +38,6 @@ const mirdifSchemas = [
       { "@type": "Place", name: "Nad Al Sheba" },
     ],
     serviceType: "Self Storage",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "176",
-      bestRating: "5",
-    },
   },
   {
     "@context": "https://schema.org",

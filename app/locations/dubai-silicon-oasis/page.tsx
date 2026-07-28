@@ -37,12 +37,6 @@ const dsoSchemas = [
       { "@type": "Place", name: "Dubailand" },
     ],
     serviceType: "Self Storage",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "154",
-      bestRating: "5",
-    },
   },
   {
     "@context": "https://schema.org",

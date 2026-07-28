@@ -37,12 +37,6 @@ const jvcSchemas = [
       { "@type": "Place", name: "Motor City" },
     ],
     serviceType: "Self Storage",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "198",
-      bestRating: "5",
-    },
   },
   {
     "@context": "https://schema.org",

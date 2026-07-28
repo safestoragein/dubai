@@ -311,7 +311,6 @@ const storageDubaiSchemas = [
     areaServed: { '@type': 'City', name: 'Dubai' },
     serviceType: 'Self Storage',
     offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.60', description: 'Starts from 12.60 AED / sqft (VAT-inclusive)' },
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '312' },
   },
   {
     '@context': 'https://schema.org',

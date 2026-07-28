@@ -37,12 +37,6 @@ const dubaiHillsSchemas = [
       { "@type": "Place", name: "Nad Al Sheba" },
     ],
     serviceType: "Self Storage",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "167",
-      bestRating: "5",
-    },
   },
   {
     "@context": "https://schema.org",

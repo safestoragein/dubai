@@ -38,12 +38,6 @@ const palmJumeirahSchemas = [
       { "@type": "Place", name: "Shoreline Apartments" },
     ],
     serviceType: "Self Storage",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "189",
-      bestRating: "5",
-    },
   },
   {
     "@context": "https://schema.org",

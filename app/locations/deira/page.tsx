@@ -39,12 +39,6 @@ const deiraSchemas = [
       { "@type": "Place", name: "Al Garhoud" },
     ],
     serviceType: "Self Storage",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "203",
-      bestRating: "5",
-    },
   },
   {
     "@context": "https://schema.org",

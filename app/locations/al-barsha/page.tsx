@@ -39,12 +39,6 @@ const alBarshaSchemas = [
       { "@type": "Place", name: "Tecom" },
     ],
     serviceType: "Self Storage",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "241",
-      bestRating: "5",
-    },
   },
   {
     "@context": "https://schema.org",
