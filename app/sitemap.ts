@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next"
-import { getAllBlogs } from "@/lib/blog-db"
 
 // Helper function to generate slug from title (matches blog page logic)
 function generateSlug(title: string): string {
@@ -473,7 +472,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let blogRoutes: MetadataRoute.Sitemap = []
 
   try {
-    const blogs = await getAllBlogs()
+    const response = await fetch('https://safestorage.in/get_blog_content', {
+      cache: 'no-store'
+    })
+    const data = await response.json()
+
+    const blogs = Array.isArray(data) ? data : []
 
     // Generate blog routes from actual blog posts
     blogRoutes = blogs.map((post: any) => {

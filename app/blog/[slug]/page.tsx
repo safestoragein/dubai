@@ -2,13 +2,10 @@ import BlogPostDetail from "@/components/blog/blog-post-detail"
 import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 import { cache } from "react"
-import { notFound, permanentRedirect } from "next/navigation"
-import { blogImageUrl } from "@/lib/blog-image"
-import { getAllBlogs } from "@/lib/blog-db"
+import { notFound } from "next/navigation"
 
-// ISR safety net; the blog sync also triggers on-demand revalidation so edits
-// appear promptly rather than waiting for this window.
-export const revalidate = 600
+// ISR: regenerate at most once per hour
+export const revalidate = 3600
 
 // Helper function to generate slug from title
 function generateSlug(title: string): string {
@@ -20,25 +17,6 @@ function generateSlug(title: string): string {
     .replace(/^-+|-+$/g, '')
 }
 
-// Legacy climate-storage slugs were renamed when climate/temperature/humidity
-// "control" wording was stripped from blog titles (climate-controlled -> secure,
-// climate control -> secure storage, then de-duplicated). This maps an old slug
-// onto its current form using the exact same substitutions, so legacy URLs can be
-// 301-redirected to the live post instead of 404ing. Returns null if unchanged.
-function remapLegacyClimateSlug(slug: string): string | null {
-  const mapped = slug
-    // "...-controlled" phrases -> secure
-    .replace(/(climate|temperature|humidity)-controlled/g, 'secure')
-    // standalone "...-control" -> secure-storage
-    .replace(/(climate|temperature|humidity)-control(?![a-z])/g, 'secure-storage')
-    // collapse the duplicate "secure" the substitutions can produce
-    .replace(/secure-and-secure/g, 'secure')
-    .replace(/(?:secure-)+secure/g, 'secure')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '')
-  return mapped && mapped !== slug ? mapped : null
-}
-
 interface BlogPostPageProps {
   params: Promise<{
     slug: string
@@ -47,9 +25,20 @@ interface BlogPostPageProps {
 
 // cache() deduplicates this across generateMetadata + page component in a single request
 const fetchAllBlogs = cache(async () => {
-  // Blog content now lives in the local EC2 MariaDB (see lib/blog-db.ts),
-  // no longer fetched from safestorage.in at runtime.
-  return await getAllBlogs()
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 10000)
+  try {
+    const response = await fetch('https://safestorage.in/get_blog_content', {
+      next: { revalidate: 3600 },
+      signal: controller.signal,
+    })
+    clearTimeout(timeout)
+    const data = await response.json()
+    return Array.isArray(data) ? data : []
+  } catch {
+    clearTimeout(timeout)
+    return []
+  }
 })
 
 // Pre-generate all CMS blog post pages at build time so they're served
@@ -108,7 +97,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
           .slice(0, 160) ||
         `Learn about ${post.title || "storage tips"} from SafeStorage Dubai experts.`
 
-    const imageUrl = blogImageUrl(post.post_images)
+    const imageUrl = post.post_images
+      ? post.post_images.startsWith('http')
+        ? post.post_images
+        : `https://safestorage.in/post_images/${post.post_images}`
+      : null
 
     return {
       title: { absolute: metaTitle },
@@ -144,46 +137,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const canonicalUrl = `https://safestorage.ae/blog/${slug}`
 
   let post: any = null
-  // Legacy climate-storage slug to 301 to, if the requested one no longer exists.
-  let legacyRedirect: string | null = null
   try {
     const blogs = await fetchAllBlogs()
-    const matchPost = (candidate: string) =>
-      blogs.find((b: any) => {
-        const title = b.title || b.seo_title || ''
-        const postId = parseInt(b.post_id) || 0
-        const idMatch = candidate.match(/^(\d+)-/)
-        if (idMatch) return parseInt(idMatch[1]) === postId
-        return generateSlug(title) === candidate
-      })
-
-    post = matchPost(slug)
+    post = blogs.find((b: any) => {
+      const title = b.title || b.seo_title || ''
+      const postId = parseInt(b.post_id) || 0
+      const idMatch = slug.match(/^(\d+)-/)
+      if (idMatch) return parseInt(idMatch[1]) === postId
+      return generateSlug(title) === slug
+    })
 
     if (!post) {
-      // Legacy climate-storage URL? Map it to the renamed post so old
-      // Google-indexed links and backlinks 301 through instead of 404ing.
-      const remapped = remapLegacyClimateSlug(slug)
-      if (remapped && matchPost(remapped)) {
-        legacyRedirect = `/blog/${remapped}`
-      }
+      notFound()
     }
   } catch (error) {
     console.error('Error checking blog post:', error)
-    // DB failed — treat as not found to avoid soft 404
+    // API failed — treat as not found to avoid soft 404
     notFound()
   }
 
-  // Redirect/notFound live outside the try so their control-flow errors
-  // (NEXT_REDIRECT / NEXT_NOT_FOUND) are never swallowed by the catch above.
-  if (legacyRedirect) {
-    permanentRedirect(legacyRedirect)
-  }
-  if (!post) {
-    notFound()
-  }
-
-  const imageUrl = blogImageUrl(post?.post_images)
-    || 'https://safestorage.ae/images/storage-facility-background.png'
+  const imageUrl = post?.post_images
+    ? post.post_images.startsWith('http')
+      ? post.post_images
+      : `https://safestorage.in/post_images/${post.post_images}`
+    : 'https://safestorage.ae/images/storage-facility-background.png'
 
   const plainText = (post?.description || '')
     .replace(/<[^>]+>/g, ' ')
