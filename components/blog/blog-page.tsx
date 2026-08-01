@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { m } from "framer-motion"
-import { Search, ChevronRight, User, ArrowRight, MessageSquare, X } from "lucide-react"
+import { Search, ChevronLeft, ChevronRight, User, ArrowRight, MessageSquare, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -13,6 +13,7 @@ import LikeButtonMini from "./like-button-mini"
 import { Clock } from "@/components/icons"
 import { getCategoryColor } from "@/lib/blog-images"
 import { blogImageUrl } from "@/lib/blog-image"
+import { POSTS_PER_PAGE, pageHref } from "@/lib/blog-listing"
 
 // Helper function to construct image URL from endpoint data
 function constructImageUrl(postImages: string | null | undefined): string {
@@ -36,7 +37,10 @@ interface BlogPost {
   id: number
   title: string
   excerpt: string
-  content: string
+  // NOTE: no `content` here on purpose. This is a client component, so every field
+  // is serialised into the RSC payload embedded in the HTML. Carrying the article
+  // bodies put ~8.8 MB of unrendered markup into <script> tags. The cards only show
+  // `excerpt`; /blog/[slug] loads the body itself. See lib/blog-listing.ts.
   slug: string
   author: { name: string }
   categories: string[]
@@ -48,7 +52,15 @@ interface BlogPost {
   date: string
 }
 
-export default function BlogPage({ initialBlogs = [] }: { initialBlogs?: BlogPost[] }) {
+export default function BlogPage({
+  initialBlogs = [],
+  currentPage = 1,
+  totalPages = 1,
+}: {
+  initialBlogs?: BlogPost[]
+  currentPage?: number
+  totalPages?: number
+}) {
   const [searchQuery, setSearchQuery] = useState("")
   // Initialise from SSR data so crawlers see articles immediately
   const [blogs, setBlogs] = useState<BlogPost[]>(initialBlogs)
@@ -90,7 +102,6 @@ export default function BlogPage({ initialBlogs = [] }: { initialBlogs?: BlogPos
               slug: generateSlug(title),
               title,
               excerpt: blog.seo_desc || "",
-              content: blog.description || "",
               author: { name: "SafeStorage Team" },
               categories: [blog.post_category || "Storage Tips"],
               date: blog.created_at || new Date().toISOString(),
@@ -118,17 +129,28 @@ export default function BlogPage({ initialBlogs = [] }: { initialBlogs?: BlogPos
     }
   }
   
+  const isFiltering = searchQuery !== "" || selectedCategory !== "all"
+
   const filteredBlogs = blogs.filter(blog => {
     const matchesCategory = selectedCategory === "all" || blog.categories[0] === selectedCategory
-    const matchesSearch = searchQuery === "" || 
+    const matchesSearch = searchQuery === "" ||
       blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
     return matchesCategory && matchesSearch
   })
-    
+
   const popularPosts = [...blogs].sort((a, b) => b.views - a.views).slice(0, 5)
   const recommendedPosts = [...blogs].sort((a, b) => b.likes - a.likes).slice(0, 5)
-  const featuredPosts = filteredBlogs
+
+  // Search and category filtering run across every post, so they show all matches on
+  // one screen rather than paginating a filtered set (the URL doesn't carry the
+  // filter, so a /blog/page/N link couldn't reproduce it). With no filter active we
+  // render exactly the slice the server rendered for this URL — same start index, so
+  // hydration matches and the HTML stays small.
+  const pageStart = (currentPage - 1) * POSTS_PER_PAGE
+  const featuredPosts = isFiltering
+    ? filteredBlogs
+    : filteredBlogs.slice(pageStart, pageStart + POSTS_PER_PAGE)
 
   return (
     <div className="container px-4 md:px-6 py-12 md:py-16">
@@ -166,9 +188,15 @@ export default function BlogPage({ initialBlogs = [] }: { initialBlogs?: BlogPos
           {/* Featured Posts */}
           <div className="mb-12">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-dubai-navy">Featured Articles</h2>
+              <h2 className="text-2xl font-bold text-dubai-navy">
+                {isFiltering ? "Search Results" : "Featured Articles"}
+              </h2>
               <span className="text-dubai-gold flex items-center">
-                {filteredBlogs.length} {filteredBlogs.length !== blogs.length ? `of ${blogs.length} ` : ""}Articles
+                {isFiltering
+                  ? `${filteredBlogs.length} of ${blogs.length} Articles`
+                  : totalPages > 1
+                    ? `Page ${currentPage} of ${totalPages} · ${blogs.length} Articles`
+                    : `${blogs.length} Articles`}
               </span>
             </div>
 
@@ -199,6 +227,13 @@ export default function BlogPage({ initialBlogs = [] }: { initialBlogs?: BlogPos
                 </div>
               )}
             </div>
+
+            {/* Real <a href> pagination — Googlebot follows these, so every post stays
+                reachable. Hidden while filtering: the filter isn't in the URL, so a
+                page link couldn't reproduce the filtered set. */}
+            {!isFiltering && totalPages > 1 && (
+              <Pagination currentPage={currentPage} totalPages={totalPages} />
+            )}
           </div>
 
         </div>
@@ -273,6 +308,78 @@ export default function BlogPage({ initialBlogs = [] }: { initialBlogs?: BlogPos
         </div>
       </div>
     </div>
+  )
+}
+
+// Numbers to show: always first and last, plus a window around the current page.
+// Gaps become "…" so a 22-page listing doesn't render 22 links.
+function pageItems(current: number, total: number): (number | "gap")[] {
+  const wanted = new Set<number>([1, total, current, current - 1, current + 1])
+  const pages = [...wanted].filter((p) => p >= 1 && p <= total).sort((a, b) => a - b)
+
+  const items: (number | "gap")[] = []
+  pages.forEach((p, i) => {
+    if (i > 0 && p - pages[i - 1] > 1) items.push("gap")
+    items.push(p)
+  })
+  return items
+}
+
+// Pagination Component — plain links, no client-side state, so it works for
+// crawlers and with JS disabled.
+function Pagination({ currentPage, totalPages }: { currentPage: number; totalPages: number }) {
+  const linkClass =
+    "inline-flex h-10 min-w-10 items-center justify-center rounded-md border px-3 text-sm transition-colors"
+  const idle = "border-gray-200 text-dubai-navy hover:border-dubai-gold hover:text-dubai-gold"
+  const active = "border-dubai-gold bg-dubai-gold text-white pointer-events-none"
+
+  return (
+    <nav aria-label="Blog pagination" className="mt-12 flex flex-wrap items-center justify-center gap-2">
+      {currentPage > 1 ? (
+        <Link href={pageHref(currentPage - 1)} rel="prev" className={`${linkClass} ${idle}`}>
+          <ChevronLeft className="h-4 w-4 mr-1" />
+          Previous
+        </Link>
+      ) : (
+        <span className={`${linkClass} border-gray-100 text-gray-300`} aria-hidden="true">
+          <ChevronLeft className="h-4 w-4 mr-1" />
+          Previous
+        </span>
+      )}
+
+      {pageItems(currentPage, totalPages).map((item, i) =>
+        item === "gap" ? (
+          <span key={`gap-${i}`} className="px-1 text-dubai-navy/40" aria-hidden="true">
+            …
+          </span>
+        ) : item === currentPage ? (
+          <span key={item} aria-current="page" className={`${linkClass} ${active}`}>
+            {item}
+          </span>
+        ) : (
+          <Link
+            key={item}
+            href={pageHref(item)}
+            className={`${linkClass} ${idle}`}
+            aria-label={`Go to page ${item}`}
+          >
+            {item}
+          </Link>
+        )
+      )}
+
+      {currentPage < totalPages ? (
+        <Link href={pageHref(currentPage + 1)} rel="next" className={`${linkClass} ${idle}`}>
+          Next
+          <ChevronRight className="h-4 w-4 ml-1" />
+        </Link>
+      ) : (
+        <span className={`${linkClass} border-gray-100 text-gray-300`} aria-hidden="true">
+          Next
+          <ChevronRight className="h-4 w-4 ml-1" />
+        </span>
+      )}
+    </nav>
   )
 }
 

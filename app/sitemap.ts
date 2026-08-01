@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { getTotalPages } from "@/lib/blog-listing"
 
 // Helper function to generate slug from title (matches blog page logic)
 function generateSlug(title: string): string {
@@ -492,6 +493,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7,
       }
     }).filter((route: any) => route !== null)
+
+    // Paginated listing pages (/blog is already in `routes` as page 1). These carry
+    // self-referencing canonicals and are the crawl path to every post, so they
+    // belong in the sitemap.
+    const totalListingPages = getTotalPages(blogs.length)
+    for (let page = 2; page <= totalListingPages; page++) {
+      blogRoutes.push({
+        url: `${baseUrl}/blog/page/${page}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.5,
+      })
+    }
   } catch (error) {
     console.error('Error fetching blog posts for sitemap:', error)
     // Return empty blog routes if fetch fails
