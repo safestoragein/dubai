@@ -10,6 +10,8 @@
 // Kept free of "server-only" on purpose: the client listing imports POSTS_PER_PAGE
 // so the server slice and the hydrated slice can never drift apart.
 
+import { getStaticListingPosts } from "@/lib/static-blog-posts"
+
 export const POSTS_PER_PAGE = 50
 
 export interface ListingPost {
@@ -98,9 +100,16 @@ export async function fetchBlogPosts(): Promise<any[]> {
   }
 }
 
+// Feed posts plus the hand-written static routes under app/blog/<slug>/. The static
+// posts are not in the feed, so without this merge nothing on the site links to them
+// and they are orphan URLs reachable only from the sitemap.
 export async function getListingPosts(): Promise<ListingPost[]> {
   const raw = await fetchBlogPosts()
-  return sortNewestFirst(raw.map(mapListingPost))
+  const staticPosts = getStaticListingPosts()
+  const staticSlugs = new Set(staticPosts.map((p) => p.slug))
+  // A static route always wins a slug clash — Next.js serves it over /blog/[slug].
+  const feedPosts = raw.map(mapListingPost).filter((p) => !staticSlugs.has(p.slug))
+  return sortNewestFirst([...staticPosts, ...feedPosts])
 }
 
 export function getTotalPages(postCount: number): number {

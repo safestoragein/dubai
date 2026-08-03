@@ -70,6 +70,9 @@ export default function Footer() {
                 <Link href="/blog" className="hover:text-dubai-gold transition-colors">Blog</Link>
               </li>
               <li>
+                <Link href="/prohibited-items" className="hover:text-dubai-gold transition-colors">Prohibited Items</Link>
+              </li>
+              <li>
                 <Link href="/top-10-storage-companies-dubai" className="hover:text-dubai-gold transition-colors">Top Storage Companies Dubai</Link>
               </li>
               <li>

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import SchemaScript from "@/components/schema-script"
+import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -157,6 +158,8 @@ export default function RenovationStorageTipsPage() {
             </div>
           </div>
         </article>
+
+        <RelatedGuides currentSlug="renovation-storage-tips" />
       </div>
     </>
   )
