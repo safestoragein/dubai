@@ -112,14 +112,8 @@ export default function BlogPage({
               comments: [],
             }
           })
-          // Newest first by publish date — post_id is not a proxy for date.
-          .sort((a: any, b: any) => {
-            const ta = new Date(a.date).getTime()
-            const tb = new Date(b.date).getTime()
-            const va = Number.isNaN(ta) ? 0 : ta
-            const vb = Number.isNaN(tb) ? 0 : tb
-            return vb - va || b.id - a.id
-          })
+          // Highest post_id first — must match sortNewestFirst() in lib/blog-listing.ts.
+          .sort((a: any, b: any) => b.id - a.id)
         setBlogs(processedBlogs)
       }
     } catch (error) {

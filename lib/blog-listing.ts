@@ -72,17 +72,11 @@ export function mapListingPost(blog: any): ListingPost {
   }
 }
 
-// Newest first by publish date. post_id is NOT a proxy for date — rows are synced
-// from the dashboard, so ids and created_at diverge. Falls back to post_id for
-// same-day posts and for rows with an unparseable date.
+// Highest post_id first — the newest row in the dashboard leads the listing.
+// Deliberately NOT sorted by created_at: rows are synced from safestorage.in and
+// their dates are edited/backdated, so publish date does not track insertion order.
 export function sortNewestFirst(posts: ListingPost[]): ListingPost[] {
-  return [...posts].sort((a, b) => {
-    const ta = new Date(a.date).getTime()
-    const tb = new Date(b.date).getTime()
-    const va = Number.isNaN(ta) ? 0 : ta
-    const vb = Number.isNaN(tb) ? 0 : tb
-    return vb - va || b.id - a.id
-  })
+  return [...posts].sort((a, b) => b.id - a.id)
 }
 
 // Raw feed rows. Returns [] on any error so the page degrades to the client-side

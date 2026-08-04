@@ -26,8 +26,16 @@ export interface StaticPost {
   related: string[]
 }
 
-// Ids sit far above any feed post_id so React keys and the like/view helpers never collide.
-const ID_BASE = 900000
+// These posts have no row in blog_content, so they have no real post_id — but /blog
+// sorts strictly by post_id descending, so they still need one. They get NEGATIVE ids:
+// a negative id can never collide with, or outrank, a real feed post_id however far the
+// feed grows, so the static guides always sit after every API post in the listing.
+// The newest static post gets -1, keeping them newest-first among themselves.
+const staticListingId = (index: number) => index - STATIC_POSTS.length
+
+// Separate positive seed for the deterministic like/view counts — keeps those numbers
+// non-negative and unchanged now that the listing ids have moved.
+const COUNTER_SEED = 900000
 
 export const STATIC_POSTS: StaticPost[] = [
   {
@@ -194,7 +202,7 @@ export function getRelatedStaticPosts(slug: string): StaticPost[] {
 /** Shaped like a feed post so the listing can render both from one array. */
 export function getStaticListingPosts(): ListingPost[] {
   return STATIC_POSTS.map((post, index) => ({
-    id: ID_BASE + index,
+    id: staticListingId(index),
     slug: post.slug,
     title: post.title,
     excerpt: post.excerpt,
@@ -203,8 +211,8 @@ export function getStaticListingPosts(): ListingPost[] {
     date: post.date,
     image: getRandomBlogImage(post.category, index),
     readTime: post.readTime,
-    likes: ((ID_BASE + index) % 100) + 50,
-    views: ((ID_BASE + index) % 400) + 100,
+    likes: ((COUNTER_SEED + index) % 100) + 50,
+    views: ((COUNTER_SEED + index) % 400) + 100,
     comments: [],
   }))
 }
