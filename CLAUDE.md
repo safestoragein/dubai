@@ -4,14 +4,16 @@
 Discovered 2026-07-04 by inspecting DNS/headers/SSH. The live site does **not** run on
 Vercel or AWS Amplify (an Amplify app may exist but nothing points to it).
 
-- **Live site**: https://safestorage.ae → EC2 `13.207.196.124` (ap-south-1 / Mumbai)
+- **Live site**: https://safestorage.ae → EC2 `13.203.136.29` (ap-south-1 / Mumbai)
 - **Stack on box**: Ubuntu + **nginx** reverse-proxy → **Next.js** `next start -p 3000`, **Let's Encrypt** TLS
 - **App dir**: `/home/ubuntu/dubai` (working tree, checked out by the deploy hook)
 - **Deploy repo**: `/home/ubuntu/dubai.git` (bare, with a `post-receive` hook)
 - **Process mgr**: **systemd** unit `safestorage.service` (`sudo systemctl restart safestorage.service`; ubuntu has passwordless sudo)
 - **DNS**: Route 53
 - **SSH key (Windows box)**: `C:\pem\Safestoragedubaikeypair.pem` (also in `$env:DUBAI_SSH_KEY`)
-- **SSH**: `ssh -i /c/pem/Safestoragedubaikeypair.pem ubuntu@13.207.196.124`
+- **SSH key (Mac)**: `~/Downloads/Safestoragedubaikeypair.pem`
+- **SSH**: `ssh -i /c/pem/Safestoragedubaikeypair.pem ubuntu@13.203.136.29` (Windows)
+  / `ssh -i ~/Downloads/Safestoragedubaikeypair.pem ubuntu@13.203.136.29` (Mac)
 
 ### How to deploy — `git push` (set up 2026-07-23)
 ```
@@ -22,7 +24,7 @@ git push          # -> GitHub (history) AND EC2 (deploys)
 | URL | Purpose |
 |---|---|
 | `https://github.com/safestoragein/dubai.git` | code history |
-| `ssh://ubuntu@13.207.196.124/home/ubuntu/dubai.git` | triggers deploy |
+| `ssh://ubuntu@13.203.136.29/home/ubuntu/dubai.git` | triggers deploy |
 
 The bare repo's `hooks/post-receive` runs only for `refs/heads/main` and does:
 `git checkout -f main` into `/home/ubuntu/dubai` → `npm install --legacy-peer-deps` →
