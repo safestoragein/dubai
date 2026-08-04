@@ -17,7 +17,26 @@ export const WAREHOUSE = {
   plusCode: "X5Q3+XM9 Dubai - United Arab Emirates",
 } as const
 
-/** Pickups beyond this straight-line distance from the warehouse are out of area. */
+/**
+ * Per-emirate service anchors, keyed by the `city_slug` the emirate dropdown
+ * submits. The radius is measured from the anchor of the emirate the CUSTOMER
+ * SELECTED — pick Dubai and you are measured from Dubai, pick Abu Dhabi and you
+ * are measured from Abu Dhabi. We serve both, so neither is ruled out by its
+ * distance from the other (~102 km apart).
+ *
+ * Only Dubai has a warehouse — the Abu Dhabi entry is a service-area centre
+ * (Abu Dhabi city), not a second depot. Transport from it is priced on the same
+ * tiers as Dubai; the collection is simply driven further.
+ */
+export const SERVICE_ORIGINS: Record<string, Coordinates & { label: string }> = {
+  dubai: { lat: WAREHOUSE.lat, lng: WAREHOUSE.lng, label: "Dubai" },
+  abudhabi: { lat: 24.453884, lng: 54.377344, label: "Abu Dhabi" },
+}
+
+/** Used when no emirate has been chosen yet, or one we have no anchor for. */
+export const DEFAULT_SERVICE_ORIGIN_SLUG = "dubai"
+
+/** Pickups beyond this straight-line distance from their emirate's anchor are out of area. */
 export const SERVICE_RADIUS_KM = 60
 
 /** Storage points in one pallet — the conversion every quote is built on. */
@@ -94,14 +113,42 @@ export function haversineKm(from: Coordinates, to: Coordinates): number {
   return 2 * EARTH_RADIUS_KM * Math.asin(Math.sqrt(h))
 }
 
+/** The anchor a given emirate is measured from, falling back to Dubai. */
+export function serviceOriginFor(emirateSlug?: string | null) {
+  return (
+    (emirateSlug ? SERVICE_ORIGINS[emirateSlug] : undefined) ??
+    SERVICE_ORIGINS[DEFAULT_SERVICE_ORIGIN_SLUG]
+  )
+}
+
 /** Straight-line distance from the warehouse to a pickup point, in km. */
 export function distanceFromWarehouseKm(lat: number, lng: number): number {
   return haversineKm(WAREHOUSE, { lat, lng })
 }
 
-/** Whether a pickup point falls inside the serviceable radius. */
-export function isWithinServiceRadius(lat: number, lng: number): boolean {
-  return distanceFromWarehouseKm(lat, lng) <= SERVICE_RADIUS_KM + EPSILON
+/**
+ * Straight-line distance from a pickup point to the anchor of the emirate the
+ * customer selected. This — not the Dubai warehouse — is what the in/out-of-area
+ * check runs on, so an Abu Dhabi pickup is judged against Abu Dhabi.
+ */
+export function distanceFromServiceOriginKm(
+  lat: number,
+  lng: number,
+  emirateSlug?: string | null
+): number {
+  return haversineKm(serviceOriginFor(emirateSlug), { lat, lng })
+}
+
+/** Whether a pickup point falls inside its emirate's serviceable radius. */
+export function isWithinServiceRadius(
+  lat: number,
+  lng: number,
+  emirateSlug?: string | null
+): boolean {
+  return (
+    distanceFromServiceOriginKm(lat, lng, emirateSlug) <=
+    SERVICE_RADIUS_KM + EPSILON
+  )
 }
 
 /**

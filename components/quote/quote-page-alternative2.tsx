@@ -12,7 +12,7 @@ import { Textarea } from "@/components/ui/textarea"
 import WorkingPlacesAutocomplete from "@/components/ui/working-places-autocomplete"
 import {
   calculateTransportPrice,
-  distanceFromWarehouseKm,
+  distanceFromServiceOriginKm,
   POINTS_PER_PALLET,
   SERVICE_RADIUS_KM,
   SELF_DROP_TOKEN_AED,
@@ -508,6 +508,22 @@ export default function QuotePage() {
       .then((d) => { if (d && d.status && Array.isArray(d.data)) setApiEmirates(d.data) })
       .catch(() => {})
   }, [])
+
+  // distanceKm is derived, never written by a handler: it depends on BOTH the
+  // picked coordinates and the selected emirate, and those are set by different
+  // controls (the address autocomplete fires in the same tick as the emirate
+  // auto-detect, and the dropdown can be changed afterwards). Recomputing here
+  // means the out-of-area check always reflects the emirate currently selected,
+  // and a resumed quotation gets its stored distance re-measured too.
+  useEffect(() => {
+    setFormData((prev) => {
+      const next =
+        prev.pickupLat !== null && prev.pickupLng !== null
+          ? distanceFromServiceOriginKm(prev.pickupLat, prev.pickupLng, prev.emirate)
+          : null
+      return prev.distanceKm === next ? prev : { ...prev, distanceKm: next }
+    })
+  }, [formData.pickupLat, formData.pickupLng, formData.emirate])
 
   // ── Partial / abandoned-lead capture ──────────────────────────────────────
   // If a visitor fills ANY one of name / phone / email and then leaves the page
@@ -1471,15 +1487,12 @@ export default function QuotePage() {
                         onPlaceSelect={(place) => {
                           // Only a picked suggestion carries coordinates. Typing by
                           // hand leaves them null, which reads as "distance unknown"
-                          // rather than "in range".
+                          // rather than "in range". distanceKm itself is derived
+                          // from these coords plus the emirate — see the effect above.
                           setFormData((prev) => ({
                             ...prev,
                             pickupLat: place.lat,
                             pickupLng: place.lng,
-                            distanceKm:
-                              place.lat !== null && place.lng !== null
-                                ? distanceFromWarehouseKm(place.lat, place.lng)
-                                : null,
                           }))
                         }}
                       />
@@ -2128,7 +2141,10 @@ export default function QuotePage() {
                         <div className="text-xs text-slate-600">Duration</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-xl font-bold text-slate-800">Dubai</div>
+                        <div className="text-xl font-bold text-slate-800">
+                          {apiEmirates.find((em) => em.city_slug === formData.emirate)?.city_name
+                            ?? "UAE"}
+                        </div>
                         <div className="text-xs text-slate-600">Location</div>
                       </div>
                     </div>
