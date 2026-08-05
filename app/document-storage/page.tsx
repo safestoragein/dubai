@@ -5,9 +5,9 @@ import SchemaScript from "@/components/schema-script"
 import { FileText, CheckCircle2, Star, Phone, ArrowRight, Shield, Lock, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Document Storage Dubai — Secure Records",
-  description: "Secure document and records storage in Dubai. Store business files, legal documents, contracts and personal records safely. Fire-resistant, access-controlled.",
-  keywords: "document storage dubai, records storage dubai, file storage dubai, business document storage dubai, legal document storage dubai, archive storage dubai, confidential document storage dubai",
+  title: { absolute: "Document Storage & Records Archival Dubai | SafeStorage UAE" },
+  description: "Secure Commercial and document storage in Dubai. Professional archival for legal, medical, and business records.",
+  keywords: "Document storage Dubai, Business record storage, Legal document storage, Medical record storage, File storage Dubai, Confidential storage, Office document storage, Paper storage Dubai, Storage for compliance, SafeStorage archival Url Fetching issue Canonical for article url Favicon logo",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Document Storage Dubai — Secure Records & Archive Storage | SafeStorage",

@@ -5,9 +5,9 @@ import SchemaScript from "@/components/schema-script"
 import { ShoppingBag, CheckCircle2, Star, Phone, ArrowRight, Package, Truck, BarChart3 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "E-Commerce Storage Dubai — Inventory",
-  description: "Flexible e-commerce and inventory storage in Dubai. Cheaper than warehouse rental, no 3-year leases, scale up or down as needed. From 12.65 AED / sqft.",
-  keywords: "ecommerce storage dubai, inventory storage dubai, online seller storage dubai, fulfilment storage dubai, amazon fba storage dubai, product storage dubai, business inventory storage dubai",
+  title: { absolute: "E-commerce Storage & Fulfilment Dubai | SafeStorage UAE" },
+  description: "Flexible e-commerce storage in Dubai for Amazon & Noon sellers. Secure Storage units with inventory management.",
+  keywords: "E-commerce storage Dubai, Inventory management Dubai, Warehouse for rent Dubai, Small business storage, Bulk storage Dubai, Inventory tracking UAE, Scalable business storage, SafeStorage fulfilment",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "E-Commerce Storage Dubai — Flexible Inventory & Fulfilment",

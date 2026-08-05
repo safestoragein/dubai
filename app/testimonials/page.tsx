@@ -4,11 +4,11 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: { absolute: "Customer Testimonials | SafeStorage Dubai Reviews" },
+  title: { absolute: "Customer Reviews & Testimonials | SafeStorage Dubai" },
   description:
-    "Real SafeStorage Dubai customer reviews. Read how expats, families and businesses across Dubai rate our door-to-door storage service.",
+    "See why 100,000+ customers trust SafeStorage Dubai. Read real reviews about our secure safe storage.",
   keywords:
-    "storage reviews dubai, customer testimonials, storage company reviews, safestorage reviews, dubai storage feedback",
+    "SafeStorage Dubai reviews, Storage testimonials UAE, Customer stories Dubai, Trusted storage Dubai, Storage company reviews, SafeStorage feedback, Best storage Dubai reviews, Reliable storage UAE, Business storage testimonials, Household storage reviews, Secure storage ratings, Storage service feedback, Dubai storage experiences, SafeStorage customer success",
   alternates: {
     canonical: "https://safestorage.ae/testimonials",
   },

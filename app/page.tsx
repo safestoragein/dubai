@@ -22,11 +22,11 @@ const FAQSection       = dynamic(() => import("@/components/faq-section"))
 const BlogSection      = dynamic(() => import("@/components/blog-section"))
 
 export const metadata: Metadata = {
-  title: { absolute: "SafeStorage Dubai — #1 Rated Storage with Door-to-door Pickup" },
+  title: { absolute: "Best Secured Safe Storage Solution Dubai | Safe Storage UAE" },
   description:
-    "Secure self-storage in Dubai with door-to-door pickup. Personal, business, vehicle & document storage from 12.65 AED/sqft, VAT incl. Free quote in 2 minutes.",
+    "Secure Storage in Dubai & the UAE for homes, offices & businesses. Flexible plans, affordable rates & 24/7 access to monitoring.",
   keywords:
-    "safestorage dubai, door-to-door pickup storage dubai, secure storage dubai, affordable storage dubai, storage facility dubai, self storage dubai, personal storage dubai, business storage dubai, furniture storage dubai, vehicle storage dubai, document storage dubai, storage units dubai, dubai storage solutions, storage with pickup and delivery dubai",
+    "Best Self Storage in Dubai, Self Storage Company in Dubai, Personal and Business Self Storage, Storage Service in Dubai, Premium Self Storage, Self Storage Dubai, Self Storage in Dubai, Storage Dubai, Storage in Dubai, Household Storage Dubai, Safe Storage UAE",
   // og:title now matches the page title — they previously disagreed, and both
   // image paths (/og-home.jpg, /twitter-home.jpg) pointed at files that did not
   // exist in public/, so every share rendered with a broken image.

@@ -4,11 +4,11 @@ import Link from "next/link"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Storage Services Dubai — Personal, Business & Vehicle",
+  title: { absolute: "Storage Services Dubai | Personal, Business & Document Units" },
   description:
-    "Secure & hassle-free storage solutions for household, personal, business, document, and vehicle storage in Dubai. Secure units with 24/7 security.",
+    "Secure storage in Dubai. Solutions for household items, business inventory, and document archiving.",
   keywords:
-    "storage services dubai, personal storage, business storage, document storage, vehicle storage, self storage dubai, secure storage dubai, furniture storage, moving storage",
+    "Storage services Dubai, Household storage, Business storage, Document storage, Archive storage in Dubai, Furniture storage, Inventory storage, Secure storage Dubai, Office storage, Personal storage units, Self storage services, Equipment storage, Commercial storage, SafeStorage services",
   openGraph: {
     title: "SafeStorage Services - Personal, Business & Vehicle Storage",
     description: "Complete storage solutions in Dubai. Secure units, 24/7 security, door-to-door pickup. Call +971505773388.",

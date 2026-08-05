@@ -4,11 +4,11 @@ import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: "Expat Storage Dubai — Moving Back Home | Jumeirah",
+  title: { absolute: "Safe Storage Units Jumeirah | Secure Storage Dubai" },
   description:
-    "Moving back home from Jumeirah or leaving Dubai? SafeStorage offers expat-friendly storage — keep belongings safely stored while you decide what to ship.",
+    "Secure storage in Jumeirah with free villa pickup. Self Storage units for furniture, luxury items, and renovations.",
   keywords:
-    "expat storage dubai moving back home, jumeirah expat storage, leaving dubai storage, storage for expats dubai, moving out storage jumeirah, temporary storage expat dubai, repatriation storage dubai",
+    "Storage Jumeirah, Self storage Jumeirah, Jumeirah villa storage, Umm Suqeim storage, Al Safa storage, Al Wasl storage, Household storage Dubai, Furniture storage Jumeirah, Luxury item storage, Secure storage Dubai, Storage with pickup, Villa renovation storage, Personal storage units, SafeStorage Jumeirah",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Expat Storage Dubai Moving Back Home | Jumeirah | SafeStorage",

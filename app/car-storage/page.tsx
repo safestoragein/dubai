@@ -5,9 +5,9 @@ import SchemaScript from "@/components/schema-script"
 import { Car, ShieldCheck, Clock, Star, CheckCircle2, Phone, Bike, Ship, Trophy, Camera, Truck, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Car Storage Dubai — Vehicle Storage",
-  description: "Store your car, motorcycle, boat or classic vehicle safely in Dubai. Secure covered indoor bays and 24/7 CCTV. Vehicle storage from 12.65 AED / sqft.",
-  keywords: "car storage dubai, vehicle storage dubai, motorcycle storage dubai, classic car storage dubai, boat storage dubai, covered car storage, indoor vehicle storage dubai, summer car storage dubai, car storage near me dubai",
+  title: { absolute: "Motorcycle & Bike Storage Dubai | Secure Storage" },
+  description: "Secure indoor motorcycle and bike storage in Dubai. Vehicle Storage units protect from heat. 24/7 security & CCTV.",
+  keywords: "Motorcycle storage Dubai, Bike storage Dubai, Motorbike storage UAE, Secure motorcycle parking, Indoor bike storage, Motorcycle winter storage, Superbike storage Dubai, Bicycle storage Dubai, Motorcycle safety storage, Two wheeler storage, Motorbike parking Dubai, Long term bike storage, SafeStorage vehicles, Motorcycle protection Dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Car Storage Dubai — Secure Indoor Vehicle Storage | SafeStorage",

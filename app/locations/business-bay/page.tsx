@@ -4,11 +4,11 @@ import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: "Storage Units Near Business Bay Dubai | 24hr Pickup",
+  title: { absolute: "Storage Units Business Bay | Secure & Safe Storage" },
   description:
-    "Looking for storage units near Business Bay Dubai? SafeStorage offers secure units with door-to-door pickup from Business Bay, DIFC & Downtown.",
+    "Secure storage in Business Bay & Downtown Dubai. Self Storage units for office documents and household furniture.",
   keywords:
-    "storage units near business bay dubai, business bay self storage, storage near DIFC, downtown dubai storage units, business bay office storage, storage pickup business bay",
+    "Storage Business Bay, Business Bay storage, Downtown Dubai storage, DIFC storage units, Office storage Dubai, Document archiving Dubai, Personal storage units, Secure storage Dubai, Storage with pickup, Furniture storage Dubai, Commercial storage UAE, Self storage Business Bay, SafeStorage Dubai, High-rise apartment storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Storage Units Near Business Bay Dubai - Pickup in 24hrs | SafeStorage",

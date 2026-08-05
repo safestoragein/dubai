@@ -7,11 +7,11 @@ import Testimonials from "@/components/testimonials"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Business Storage Dubai — Inventory & Office Storage",
+  title: { absolute: "Business Storage Solutions in Dubai & UAE | Safe Storage" },
   description:
-    "Business storage solutions for Dubai companies — store excess inventory, office equipment, trade show materials, and retail stock.",
+    "Professional business storage in Dubai & UAE — secure units, flexible plans, secured storage & reliable service for inventory, equipment & documents.",
   keywords:
-    "business storage dubai companies, inventory storage dubai warehouse alternative, office equipment storage dubai, commercial storage dubai SME, stock storage dubai retail, trade show storage dubai, b2b storage dubai",
+    "Business Storage Facilities, Business Storage Solutions, Commercial Storage Dubai, Self Storage, Storage in Dubai, Business Storage Dubai, Office Storage Solutions Dubai, Warehouse Storage For Companies Dubai, Corporate Storage Unit Rental Dubai, Storage For Business Inventory Dubai, Affordable Business Storage Dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Business Storage Dubai — Inventory & Office Storage",

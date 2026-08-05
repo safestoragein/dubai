@@ -5,11 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, Phone, ArrowRight, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Storage Locations in Dubai",
+  title: { absolute: "Dubai Secure Storage Locations Near You | Safe Storage" },
   description:
-    "Find SafeStorage locations across Dubai. We serve Business Bay, Dubai Marina, Jumeirah, Dubai Investment Park & more. Door-to-Door service. Call +971505773388.",
+    "Find Safe Storage centers across Dubai & UAE. Secure storage units near you with flexible plans for personal and business needs.",
   keywords:
-    "storage locations dubai, storage near me, self storage dubai locations, storage facilities dubai, dubai storage centers",
+    "storage locations in Dubai, Dubai storage locations, self storage units Dubai, storage near me Dubai, safe storage Dubai, secure storage facilities Dubai, household storage locations Dubai, business storage locations UAE, personal storage near me Dubai, storage warehouses in Dubai, Safe Storage Dubai locations",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Storage Locations Dubai - SafeStorage",

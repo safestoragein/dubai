@@ -40,12 +40,19 @@ const AccordionTrigger = React.forwardRef<
 ))
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
 
+// `forceMount` keeps the answer in the DOM while the panel is collapsed. Without
+// it Radix mounts the content only on open, so every FAQ answer on the site was
+// absent from the served HTML — Googlebot does not click, so it never saw them,
+// and any FAQPage schema built from those answers described content that was not
+// on the page. Radix still sets the `hidden` attribute while closed, so the panel
+// stays visually collapsed and out of the a11y tree until the user opens it.
 const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
+    forceMount
     className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >

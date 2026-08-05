@@ -4,11 +4,11 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Storage Pricing Dubai — From 12.65 AED / sqft",
+  title: { absolute: "SafeStorage Affordable & Flexible Pricing in Dubai" },
   description:
-    "Transparent storage pricing in Dubai from 12.65 AED / sqft (VAT-inclusive). Various unit sizes with flexible plans. Door-to-Door Pickup & Delivery.",
+    "Transparent storage pricing in Dubai. No hidden fees, no deposits, and flexible plans. Get a free custom quote today!",
   keywords:
-    "storage pricing dubai, cheap storage dubai, storage costs, affordable storage, storage rates dubai, self storage prices, monthly storage cost, storage unit prices",
+    "Storage prices Dubai Self storage cost UAE, Affordable storage units, Cheap storage Dubai, Storage rental rates, Flexible storage plans, No deposit storage, Monthly storage fees, Business storage pricing, Personal storage cost, Storage discounts Dubai, Household storage rates, SafeStorage pricing, Secure storage quotes",
   openGraph: {
     title: "SafeStorage Pricing - Storage from 12.65 AED / sqft",
     description: "Competitive storage rates in Dubai. All sizes available with door-to-door service. Call +971505773388.",

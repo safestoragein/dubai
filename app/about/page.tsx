@@ -9,11 +9,11 @@ import Testimonials from "@/components/testimonials"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "About Us — Dubai's Most Trusted Storage Partner",
+  title: { absolute: "Dubai's Most Trusted Storage Partner | SafeStorage About Us" },
   description:
-    "Learn about SafeStorage Dubai - serving Dubai since 2015 with secure storage, 24/7 security, and door-to-door service. 500+ happy customers trust us.",
+    "Trusted storage in Dubai since 2015. 100% secure storage units with hassle-free pickup and 24/7 support.",
   keywords:
-    "about safestorage dubai, storage company dubai, trusted storage dubai, secure storage facility",
+    "Storage Dubai, Self storage UAE, Business storage, Personal storage, Secure storage units, Furniture storage, Document storage, Household storage, Luggage storage, SafeStorage UAE, Storage pickup delivery, Inventory storage, Short term storage, Long term storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "About SafeStorage Dubai - Your Trusted Storage Partner",

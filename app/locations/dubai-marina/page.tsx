@@ -4,11 +4,11 @@ import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: "Furniture Storage — Dubai Marina & JBR Renovation",
+  title: { absolute: "Secure SafeStorage Units Dubai Marina | Self Storage" },
   description:
-    "Renovating your Dubai Marina or JBR apartment? Store furniture safely during renovation — from 1 week. Short-term storage between leases also available.",
+    "Secure storage in Dubai Marina with free pickup. 24/7 security & secure storage for furniture, sports gear, and more.",
   keywords:
-    "furniture storage during renovation dubai marina, short term storage between leases JBR dubai, storage JBR dubai, storage during renovation marina, temporary furniture storage marina, lease gap storage dubai marina",
+    "Storage Dubai Marina, Self storage Marina, JBR storage, Marina Walk storage, Bluewaters storage, Household storage Marina, Furniture storage Dubai, Secure storage units, Storage with pickup, Personal storage Dubai, Apartment storage Marina, Short term storage, Business storage Marina, SafeStorage Marina",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Furniture Storage During Renovation Dubai Marina & JBR | SafeStorage",

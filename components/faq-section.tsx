@@ -2,7 +2,6 @@
 
 import { m } from "framer-motion"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { faqSchema } from "@/lib/structured-data"
 
 const faqs = [
   {
@@ -37,13 +36,28 @@ const faqs = [
   },
 ]
 
+// Build the FAQPage schema from the questions this section actually renders.
+// It previously imported the 30-question `faqSchema` from lib/structured-data,
+// so the homepage claimed 30 Q&As while showing 6 — Google requires FAQ markup
+// to match content visible on the page, and the surplus 24 appeared nowhere.
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://safestorage.ae/#faq",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+}
+
 export default function FAQSection() {
   return (
     <section className="w-full py-20 bg-white" id="faq">
       {/* Add FAQ Schema */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
         suppressHydrationWarning
       />
       <div className="container px-4 md:px-6">

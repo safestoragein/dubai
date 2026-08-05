@@ -2,10 +2,10 @@ import BlogListing from "@/components/blog/blog-listing"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: { absolute: "Storage Tips & Guides | SafeStorage Dubai Blog" },
+  title: { absolute: "Storage Tips & News in Dubai & UAE | Safe Storage Blog" },
   description:
-    "Expert storage tips, guides, and insights from SafeStorage Dubai. Learn how to organize, pack, and maximize your storage space in Dubai.",
-  keywords: "storage tips dubai, storage guides, packing tips, organizing storage, storage blog dubai, storage advice",
+    "Explore storage tips, guides & news for Dubai & UAE. Helpful articles on self-storage, packing, business storage & space optimization.",
+  keywords: "Self-Storage Tips, Storage Company in Dubai, Self Storage, Storage Dubai, Storage Tips Dubai, Business Storage Tips UAE, Safe Storage Best Practices Dubai, Warehouse Storage Insights Dubai, How To Store Furniture In Dubai, Dubai Storage Blog",
   alternates: {
     canonical: "https://safestorage.ae/blog",
     languages: { 'en': 'https://safestorage.ae/blog', 'x-default': 'https://safestorage.ae/blog' },

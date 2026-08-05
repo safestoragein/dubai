@@ -4,11 +4,11 @@ import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: "Document Archival — Dubai Investment Park",
+  title: { absolute: "Storage Units Dubai Investment Park | DIP | SafeStorage" },
   description:
-    "Professional document archival and records storage in Dubai Investment Park. Fireproof, secure document storage for businesses in DIP, Motor City & JAFZA.",
+    "Secure storage in Dubai Investment Park (DIP). Self Storage units with free pickup for business and personal use.",
   keywords:
-    "document archival service dubai investment park, records storage DIP dubai, document storage motor city dubai, business records archival JAFZA, secure document storage dubai investment park, file storage DIP",
+    "Storage Dubai Investment Park, Dubai Investment Park storage units, Motor City storage, Dubai Production City storage, Sports City storage, Warehouse storage DIP, Business storage Dubai, Personal storage DIP, Secure storage units, Storage with pickup, E-commerce storage DIP, Household storage DIP, SafeStorage DIP, Inventory storage Dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Document Archival Service Dubai Investment Park | SafeStorage",

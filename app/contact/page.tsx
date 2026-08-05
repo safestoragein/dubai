@@ -5,11 +5,11 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: { absolute: "Contact SafeStorage Dubai | Call, WhatsApp or Get a Quote" },
+  title: { absolute: "Contact The Self Storage Services in Dubai | Safe Storage" },
   description:
-    "Contact SafeStorage Dubai for secure storage. Call +971 50 577 3388, WhatsApp us, or send a message — we reply within 15 minutes in business hours.",
+    "Get in touch for household, business, document & box storage in Dubai & UAE. Ask about quotes, locations, plans & 24/7 support.",
   keywords:
-    "contact storage dubai, storage company dubai, storage locations dubai, storage customer service, dubai storage contact",
+    "Contact Self Storage Solutions in Dubai, Secure Storage Booking Dubai, Contact Storage Services Dubai, Business Storage Inquiries Dubai, Document Safe Storage Dubai, storage solutions Dubai, secure storage contact UAE, self storage units Dubai, storage facility enquiry, 24/7 storage support Dubai, home storage",
   alternates: {
     canonical: "https://safestorage.ae/contact",
   },

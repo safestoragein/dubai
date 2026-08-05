@@ -14,11 +14,11 @@ export async function generateMetadata({
   return {
     // `absolute` — the root layout's "%s | SafeStorage Dubai" template would
     // otherwise append a second brand to a title that already carries one.
-    title: { absolute: "Get a Free Storage Quote in Dubai | SafeStorage Dubai" },
+    title: { absolute: "Free Storage Quote & Instant Pricing | SafeStorage Dubai" },
     description:
-      "Get a free, instant quote for storage solutions in Dubai. No obligations, transparent pricing. Book your storage space with SafeStorage Dubai today.",
+      "Get an instant storage quote in Dubai. Quick 3-step estimate for personal, business, and household storage solutions.",
     keywords:
-      "free storage quote dubai, storage estimate, storage booking dubai, get storage quote, storage calculator dubai",
+      "Storage quotation Dubai, Get free Quotation, Storage price calculator, Self storage rates, Dubai storage costs, Request storage quote, Cheap storage quotation, Personal storage price, Business storage estimate, Household storage quotation, Secure storage pricing, SafeStorage Dubai quote, Furniture storage cost, Inventory storage rates",
     alternates: {
       canonical: "https://safestorage.ae/get-quote",
     },

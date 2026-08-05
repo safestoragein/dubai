@@ -13,11 +13,11 @@ import TrustBadges from "@/components/trust-badges"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "FAQs - Frequently Asked Questions",
+  title: { absolute: "Storage FAQs | Your Questions Answered | SafeStorage Dubai" },
   description:
-    "Find answers to common questions about SafeStorage Dubai. Learn about our storage units, pricing, pickup services, security, and more.",
+    "Find answers about storage sizes, security, pricing, and pickup services at SafeStorage Dubai.",
   keywords:
-    "storage faq dubai, self storage questions, storage pricing dubai, storage unit sizes, secure storage questions",
+    "Storage FAQs Dubai, Self storage questions, Storage unit sizes, SafeStorage help, Storage security Dubai, Pickup and delivery storage, Storage pricing FAQ, Packing services Dubai, 24/7 storage access, Storage facility rules, Household storage tips, Business storage help, Dubai safe storage guide",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "FAQs - SafeStorage Dubai",
@@ -81,6 +81,18 @@ const faqCategories = [
       {
         question: "Do you offer any discounts?",
         answer: "Yes! We offer a wide range of discounts: savings on prepaid plans that grow the longer you store, special rates for businesses and bulk storage, and referral discounts when you recommend us to friends. Contact us for the best available rate for your storage duration."
+      },
+      {
+        question: "What is the cheapest storage option in Dubai?",
+        answer: "The cheapest storage in Dubai is the space you actually use. We charge from 12.65 AED / sqft (VAT-inclusive) and bill only for the volume your items occupy, so storing a few boxes costs a fraction of a full unit. Longer prepaid terms reduce the rate further, and door-to-door pickup means you do not pay separately for a van or a driver. Call +971505773388 for a written quote."
+      },
+      {
+        question: "Are there any hidden fees for storage in Dubai?",
+        answer: "No. We quote one VAT-inclusive price in writing before you book, and that is what you pay. There is no admin fee, no security deposit, no lock deposit and no charge for access to your own items during operating hours. Billing is month-to-month and you can cancel with no early-termination penalty."
+      },
+      {
+        question: "How much does it cost to store a car in Dubai?",
+        answer: "Vehicle storage is charged on the same basis as everything else — 12.65 AED / sqft, VAT-inclusive, for the floor space the vehicle occupies, so the cost depends on whether you are storing a motorcycle, a saloon car or a 4x4. Vehicles are kept indoors and away from Dubai's summer heat, under CCTV, with logged access. Call +971505773388 with your vehicle's make and model for an exact written quote."
       },
     ]
   },

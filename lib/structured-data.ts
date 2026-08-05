@@ -244,10 +244,18 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "What is the cheapest storage option in Dubai?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The cheapest storage in Dubai is the space you actually use. SafeStorage Dubai charges from 12.65 AED / sqft (VAT-inclusive) and bills only for the volume your items occupy, so storing a few boxes costs a fraction of a full unit. Longer prepaid terms reduce the rate further, and door-to-door pickup means you do not pay separately for a van or a driver. Call +971505773388 for a written quote."
+      }
     },
     {
       "@type": "Question",
       name: "Are there any hidden fees for storage in Dubai?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. SafeStorage Dubai quotes one VAT-inclusive price in writing before you book, and that is what you pay. There is no admin fee, no security deposit, no lock deposit and no charge for access to your own items during operating hours. Billing is month-to-month and you can cancel with no early-termination penalty."
+      }
     },
     {
       "@type": "Question",
@@ -286,6 +294,10 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "What security measures are in place at SafeStorage Dubai?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Dubai Investment Park facility is a purpose-fitted indoor warehouse with multi-angle CCTV covering every corridor, entry point, loading area and storage zone. Entry is controlled and logged, motion-activated alarms cover all access points after hours, and fire detection and suppression systems are in place. Items are stored on raised platforms away from external walls, and every collection is inventoried and signed for before the vehicle leaves your address."
+      }
     },
     // PICKUP & DELIVERY
     {
@@ -324,6 +336,10 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "Can someone else access my storage unit on my behalf?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, provided you authorise them first. Only you and the people you name can request access or a delivery. Give your storage consultant the authorised person's name in advance — a family member, colleague or building supervisor — and every request is checked against that list and logged on entry. Access is never granted to anyone you have not named."
+      }
     },
     // MOVING & PACKING
     {
@@ -388,6 +404,10 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "Why should I choose SafeStorage Dubai over other storage companies?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "SafeStorage Dubai brings the storage to you. Our own trained team collects from your door, inventories and signs for every item, and delivers it back when you ask — nothing is subcontracted to third-party movers, so one company holds the chain of custody throughout. You pay only for the space your items occupy, from 12.65 AED / sqft VAT-inclusive, quoted in writing with no admin fee or deposit, on a month-to-month contract with no early-termination penalty."
+      }
     },
     {
       "@type": "Question",
@@ -442,14 +462,26 @@ export const faqSchema = {
     {
       "@type": "Question",
       name: "What is the best storage company in Dubai?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "SafeStorage Dubai holds a 4.9/5 rating across 6,700+ verified Google reviews and is ISO 9001:2015 certified. It operates from a registered facility at Building 23, Warehouse 5, DIP-1, Dubai, with multi-angle CCTV, logged access control and a signed inventory taken at collection. Pricing starts at 12.65 AED / sqft VAT-inclusive, quoted in writing before booking, on month-to-month contracts with no early-termination penalty. Compare on four things: door-to-door collection, a written VAT-inclusive quote, a documented inventory, and contract flexibility."
+      }
     },
     {
       "@type": "Question",
       name: "Where can I store my furniture during renovation in Dubai?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "SafeStorage Dubai stores furniture during home and villa renovations, with collection from anywhere in Dubai and delivery back once the work is finished. Our team wraps and loads the furniture at your door, inventories every piece, and stores it in a clean, dust-protected indoor unit at our Dubai Investment Park facility. Because billing is month-to-month, you are not locked in if the renovation over-runs. Storage starts at 12.65 AED / sqft, VAT-inclusive."
+      }
     },
     {
       "@type": "Question",
       name: "How much does it cost to store a car in Dubai?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Vehicle storage is charged on the same basis as everything else — 12.65 AED / sqft, VAT-inclusive, for the floor space the vehicle occupies, so the cost depends on whether you are storing a motorcycle, a saloon car or a 4x4. Vehicles are kept indoors and away from Dubai's summer heat, under CCTV, with logged access. Call +971505773388 with your vehicle's make and model for an exact written quote."
+      }
     }
   ]
 }

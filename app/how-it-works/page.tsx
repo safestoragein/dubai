@@ -4,11 +4,11 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "How Storage in Dubai Works | Pickup, Store, Deliver",
+  title: { absolute: "Dubai Secure Safe Storage Process Explained | Safe Storage" },
   description:
-    "How SafeStorage Dubai works: book online, we collect and pack your items, store them securely, and deliver them back within 24–48 hours of your request.",
+    "Learn how Safe Storage works in Dubai & UAE – easy booking, pickup, secure storage, and fast delivery for homes & businesses.",
   keywords:
-    "how storage works dubai, storage process, pickup delivery dubai, storage booking, self storage process dubai",
+    "how storage works in Dubai, storage process Dubai, self storage guide Dubai, storage solutions UAE, safe storage guide Dubai, household storage process UAE, how to use storage units Dubai, secure storage services Dubai, personal storage guide UAE, business storage process Dubai, Safe Storage Dubai guide",
   alternates: {
     canonical: "https://safestorage.ae/how-it-works",
     languages: { 'en': 'https://safestorage.ae/how-it-works', 'x-default': 'https://safestorage.ae/how-it-works' },

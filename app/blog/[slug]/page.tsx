@@ -2,7 +2,7 @@ import BlogPostDetail from "@/components/blog/blog-post-detail"
 import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 import { cache } from "react"
-import { notFound } from "next/navigation"
+import { notFound, permanentRedirect } from "next/navigation"
 import { blogImageUrl } from "@/lib/blog-image"
 import { normaliseFeedContent } from "@/lib/blog-meta"
 
@@ -67,7 +67,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params
-  const canonicalUrl = `https://safestorage.ae/blog/${slug}`
+  let canonicalUrl = `https://safestorage.ae/blog/${slug}`
 
   try {
     const blogs = await fetchAllBlogs()
@@ -88,6 +88,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         alternates: { canonical: canonicalUrl, languages: { 'en': canonicalUrl, 'x-default': canonicalUrl } },
       }
     }
+
+    // Canonicalise to the post's real slug, never to whatever was requested —
+    // the lookup above accepts any "<post-id>-<anything>" form. See the redirect
+    // in the page component below.
+    canonicalUrl = `https://safestorage.ae/blog/${generateSlug(post.title || post.seo_title || '') || slug}`
 
     // Use seo_title for browser tab / Google title, seo_desc for meta description
     // Root layout template already appends "| SafeStorage Dubai" — do NOT add it here
@@ -139,7 +144,6 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
-  const canonicalUrl = `https://safestorage.ae/blog/${slug}`
 
   let post: any = null
   try {
@@ -160,6 +164,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     // API failed — treat as not found to avoid soft 404
     notFound()
   }
+
+  // The lookup above resolves ANY "<post-id>-<anything>" slug to the same post,
+  // so /blog/147-a and /blog/147-b both returned 200 and each declared itself
+  // canonical — unlimited duplicate URLs, every one self-canonicalising. Redirect
+  // to the post's real slug instead, and always canonicalise to that.
+  const trueSlug = generateSlug(post.title || post.seo_title || '') || slug
+  if (slug !== trueSlug) {
+    permanentRedirect(`/blog/${trueSlug}`)
+  }
+
+  const canonicalUrl = `https://safestorage.ae/blog/${trueSlug}`
 
   // Serve the article image from safestorage.ae rather than hotlinking the India
   // domain — this URL is what og:image and the BlogPosting schema publish, so a

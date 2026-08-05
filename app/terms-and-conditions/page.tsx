@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms and Conditions',
-  description: 'Read SafeStorage Dubai terms and conditions for storage services in UAE. Understand our policies, liability, payment terms and customer responsibilities.',
+  title: { absolute: "Terms & Conditions for Secure Safe Storage Services in Dubai" },
+  description: "Read the Terms & Conditions for Safe Storage in Dubai & UAE. Legal info for household, business, document & box storage services you can trust.",
+  keywords:
+    "Terms and Conditions Safe Storage Dubai, Self Storage Dubai, Safe Storage Dubai terms, terms and conditions UAE storage, storage service T&Cs Dubai, UAE self storage terms and conditions, storage facility terms Dubai, household storage conditions Dubai, secure storage policy Dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: 'Terms and Conditions | SafeStorage Dubai',

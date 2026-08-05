@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: { absolute: "Privacy Policy | SafeStorage Dubai - Data Protection" },
-  description: 'Read SafeStorage Dubai privacy policy. Learn how we collect, use, protect and manage your personal information in accordance with UAE data protection laws.',
+  title: { absolute: "Dubai Secure Storage Services Privacy Policy | Safe Storage" },
+  description: "Read Safe Storage's Privacy Policy for Dubai & UAE. We protect your data for household, business, box & document storage services with full transparency.",
+  keywords:
+    "Privacy policy, Storage Dubai, Self Storage privacy policy, Storage company data protection, SafeStorage Dubai privacy, Customer data storage Dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: 'Privacy Policy | SafeStorage Dubai',
