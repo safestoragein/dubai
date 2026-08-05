@@ -114,19 +114,22 @@ export default function ContactPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative h-[300px] lg:h-[400px] w-full"
+              className="relative w-full"
             >
-              <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-lg border border-dubai-gold/10">
+              {/* This is a finished banner, not a photo, so it is shown whole and
+                  unmodified. The previous treatment was built for a stock photo:
+                  a fixed-height object-cover box (which cropped the logo and the
+                  phone number out of the artwork), a navy gradient overlay that
+                  dimmed it, and an offset gold frame that read as a stray
+                  rectangle poking out from behind the image. Matching the
+                  container to the asset's own 1658x949 ratio means no crop. */}
+              <div className="aspect-[1658/949] w-full rounded-2xl overflow-hidden shadow-lg border border-dubai-gold/10">
                 <img
                   src="/images/storage-facility-background.png"
                   alt="SafeStorage Dubai — handling your storage with care"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dubai-navy/30 to-transparent"></div>
               </div>
-
-              {/* Dubai-style decorative frame */}
-              <div className="absolute -bottom-3 -right-3 w-2/3 h-2/3 border-2 border-dubai-gold/30 rounded-2xl"></div>
             </m.div>
           </div>
         </div>
