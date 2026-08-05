@@ -170,7 +170,7 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-1">Can I access my unit directly at the facility?</p>
-                <p>Yes. Unit access is available during operating hours: Monday–Saturday 8 AM–8 PM and Sunday 10 AM–6 PM. Bring your ID and the access credentials provided at signup. Extended access hours can be arranged for business customers.</p>
+                <p>Yes. Unit access is available during operating hours: Monday–Sunday 8 AM–8 PM. Bring your ID and the access credentials provided at signup. Extended access hours can be arranged for business customers.</p>
               </div>
             </div>
           </div>

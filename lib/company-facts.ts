@@ -38,9 +38,11 @@ export const GEO = { latitude: "24.9903469", longitude: "55.1539764" } as const
  * separate, explicitly-labelled claim — do not merge the two into "24/7",
  * which is what created the original contradiction.
  */
-export const HOURS_WEEKDAY = "Monday–Saturday 8 AM–8 PM"
-export const HOURS_SUNDAY = "Sunday 10 AM–6 PM"
-export const HOURS_DISPLAY = `${HOURS_WEEKDAY}, ${HOURS_SUNDAY}`
+// Seven days a week, same hours — there is no separate Sunday schedule.
+export const HOURS_DISPLAY = "Monday–Sunday 8 AM–8 PM"
+export const HOURS_SHORT = "Mon–Sun 8 AM–8 PM"
+export const HOURS_OPEN_24H = "08:00"
+export const HOURS_CLOSE_24H = "20:00"
 export const FACILITY_ACCESS_NOTE =
   "24/7 facility access available for existing customers on request"
 

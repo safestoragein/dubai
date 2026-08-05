@@ -194,7 +194,7 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <Clock className="h-4 w-4 text-dubai-gold shrink-0 mt-0.5" />
                 <span>
-                  Mon–Sat 8 AM–8 PM · Sun 10 AM–6 PM
+                  Mon–Sun 8 AM–8 PM
                   <span className="block text-dubai-sand/60">
                     24/7 facility access for existing customers on request
                   </span>

@@ -107,7 +107,7 @@ export default function Contact() {
           <h2 className="text-2xl font-bold text-[#0A2463] mb-2 text-center">Find Our Dubai Facility</h2>
           <p className="text-gray-600 text-center mb-8">
             Building 23, Warehouse 5, DIP-1, Dubai, United Arab Emirates — open
-            Monday–Saturday 8 AM–8 PM and Sunday 10 AM–6 PM. Call ahead on{" "}
+            Monday–Sunday 8 AM–8 PM. Call ahead on{" "}
             <a href="tel:+971505773388" className="text-[#D8315B] underline">+971 50 577 3388</a>{" "}
             to arrange a visit.
           </p>
@@ -148,8 +148,7 @@ export default function Contact() {
                 Call us directly for immediate assistance, storage quotes, and booking:
               </p>
               <p className="font-semibold text-[#D8315B]">+971 50 577 3388</p>
-              <p className="text-sm text-gray-500 mt-2">Monday–Saturday: 8 AM – 8 PM</p>
-              <p className="text-sm text-gray-500">Sunday: 10 AM – 6 PM</p>
+              <p className="text-sm text-gray-500 mt-2">Monday–Sunday: 8 AM – 8 PM</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="font-bold text-[#0A2463] mb-3">WhatsApp</h3>
@@ -263,7 +262,7 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">6. Can I access my items after they are in storage?</h3>
-              <p className="text-gray-700">Yes. You can request access to your stored items at any time during operating hours. For customers with dedicated private units, you can visit the facility personally on Monday–Saturday 8 AM to 8 PM and Sunday 10 AM to 6 PM. Alternatively, simply call or WhatsApp us to arrange delivery of specific items back to your address. For business customers requiring frequent access, we offer extended access arrangements including 24/7 access packages.</p>
+              <p className="text-gray-700">Yes. You can request access to your stored items at any time during operating hours. For customers with dedicated private units, you can visit the facility personally on Monday–Sunday 8 AM to 8 PM. Alternatively, simply call or WhatsApp us to arrange delivery of specific items back to your address. For business customers requiring frequent access, we offer extended access arrangements including 24/7 access packages.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -331,7 +330,7 @@ export default function Contact() {
               <div>
                 <p className="font-semibold mb-1">Phone &amp; WhatsApp</p>
                 <p className="text-[#D8315B] text-lg font-bold">+971505773388</p>
-                <p className="text-sm text-gray-500 mt-1">Mon–Sat: 8 AM – 8 PM &nbsp;|&nbsp; Sun: 10 AM – 6 PM</p>
+                <p className="text-sm text-gray-500 mt-1">Mon–Sun: 8 AM – 8 PM</p>
               </div>
               <div>
                 <p className="font-semibold mb-1">Email</p>

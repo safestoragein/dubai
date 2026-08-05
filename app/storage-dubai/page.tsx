@@ -254,7 +254,7 @@ const faqs = [
   },
   {
     question: "Can I access my storage unit at any time?",
-    answer: "Standard access hours are Monday-Saturday 8AM-8PM and Sunday 10AM-6PM. Business customers can arrange extended hours or 24/7 access packages. You can also request delivery of specific items to your location at any time - we'll bring what you need to you.",
+    answer: "Standard access hours are Monday–Sunday 8AM–8PM. Business customers can arrange extended hours or 24/7 access packages. You can also request delivery of specific items to your location at any time - we'll bring what you need to you.",
   },
   {
     question: "What is the minimum rental period?",

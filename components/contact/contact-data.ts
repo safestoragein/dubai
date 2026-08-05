@@ -2,12 +2,12 @@ export const contactFaqs = [
   {
     question: "What are your business hours?",
     answer:
-      "Our customer support team is available Monday–Saturday 8 AM–8 PM and Sunday 10 AM–6 PM. Facility access outside these hours, including 24/7 access, can be arranged on request for customers with an active storage plan.",
+      "Our customer support team is available Monday–Sunday 8 AM–8 PM. Facility access outside these hours, including 24/7 access, can be arranged on request for customers with an active storage plan.",
   },
   {
     question: "Do you offer live chat support?",
     answer:
-      "Yes, we offer live chat support during our business hours (Monday–Saturday 8 AM–8 PM, Sunday 10 AM–6 PM). You can also reach us via WhatsApp for quick responses to your queries.",
+      "Yes, we offer live chat support during our business hours (Monday–Sunday 8 AM–8 PM). You can also reach us via WhatsApp for quick responses to your queries.",
   },
   {
     question: "How long does it take for a response?",

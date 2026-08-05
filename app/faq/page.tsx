@@ -89,7 +89,7 @@ const faqCategories = [
     faqs: [
       {
         question: "Can I access my storage unit anytime?",
-        answer: "You have access to your storage unit during our operating hours: Monday-Saturday 8:00 AM to 8:00 PM, and Sunday 10:00 AM to 6:00 PM. For business customers, we can arrange extended access hours or 24/7 access upon request with special arrangements."
+        answer: "You have access to your storage unit during our operating hours: Monday–Sunday 8:00 AM to 8:00 PM. For business customers, we can arrange extended access hours or 24/7 access upon request with special arrangements."
       },
       {
         question: "What if I need something urgently outside operating hours?",

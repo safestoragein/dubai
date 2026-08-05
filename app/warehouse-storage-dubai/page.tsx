@@ -86,7 +86,7 @@ const FAQS = [
   },
   {
     q: "Can I access my stock or send items out?",
-    a: "Yes. Tell us what you need and we retrieve and deliver it, typically within 24–48 hours, anywhere in Dubai. You can also visit the facility during business hours (Monday–Saturday 8 AM–8 PM, Sunday 10 AM–6 PM) to check or pick stock yourself. Business customers who need frequent movements can arrange extended and out-of-hours access.",
+    a: "Yes. Tell us what you need and we retrieve and deliver it, typically within 24–48 hours, anywhere in Dubai. You can also visit the facility during business hours (Monday–Sunday 8 AM–8 PM) to check or pick stock yourself. Business customers who need frequent movements can arrange extended and out-of-hours access.",
   },
   {
     q: "Is the warehouse secure and suitable for business inventory?",

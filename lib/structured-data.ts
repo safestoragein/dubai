@@ -40,22 +40,13 @@ export const organizationSchema = {
       areaServed: "AE",
       availableLanguage: ["en"],
       // Must match localBusinessSchema.openingHoursSpecification below and the
-      // hours published on /contact and in the footer. This previously said
-      // 08:00–22:00 seven days, a fourth conflicting set of opening hours.
-      hoursAvailable: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          opens: "08:00",
-          closes: "20:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: "Sunday",
-          opens: "10:00",
-          closes: "18:00"
-        }
-      ]
+      // hours published on /contact and in the footer.
+      hoursAvailable: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: "08:00",
+        closes: "20:00"
+      }
     },
     {
       "@type": "ContactPoint",
@@ -149,15 +140,9 @@ export const localBusinessSchema = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       opens: "08:00",
       closes: "20:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Sunday",
-      opens: "10:00",
-      closes: "18:00"
     }
   ],
   aggregateRating: {
@@ -333,7 +318,7 @@ export const faqSchema = {
       name: "Can I access my storage unit anytime?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can access your storage unit during operating hours: Monday-Saturday 8:00 AM to 8:00 PM, and Sunday 10:00 AM to 6:00 PM. For business customers with special requirements, we can arrange extended access hours or 24/7 access packages. Your dedicated consultant can discuss your specific access needs."
+        text: "You can access your storage unit during operating hours: Monday–Sunday 8:00 AM to 8:00 PM. For business customers with special requirements, we can arrange extended access hours or 24/7 access packages. Your dedicated consultant can discuss your specific access needs."
       }
     },
     {
@@ -450,7 +435,7 @@ export const faqSchema = {
       name: "How do I contact SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Contact SafeStorage Dubai through: Phone: +971505773388 (call or WhatsApp), Email: support@safestorage.ae, Website: safestorage.ae, Visit: Building 23, Warehouse 5, DIP-1, Dubai, United Arab Emirates. Our team responds within 15 minutes on average. Operating hours: Mon-Sat 8AM-8PM, Sun 10AM-6PM."
+        text: "Contact SafeStorage Dubai through: Phone: +971505773388 (call or WhatsApp), Email: support@safestorage.ae, Website: safestorage.ae, Visit: Building 23, Warehouse 5, DIP-1, Dubai, United Arab Emirates. Our team responds within 15 minutes on average. Operating hours: Mon–Sun 8AM–8PM."
       }
     },
     // AI-SPECIFIC QUESTIONS (Voice Search Optimized)
@@ -562,8 +547,8 @@ export const productSchema = {
       "@type": "ImageObject",
       "@id": "https://safestorage.ae/#product-image-main",
       url: "https://safestorage.ae/images/storage-facility-background.png",
-      width: 2000,
-      height: 1145,
+      width: 1658,
+      height: 949,
       caption: "SafeStorage Dubai - Premium Secure Storage Facility"
     },
     {
@@ -597,7 +582,7 @@ export const productSchema = {
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 1658, height: 949 },
         shippingDetails: {
           "@type": "OfferShippingDetails",
           shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
@@ -695,7 +680,7 @@ export const itemListSchema = {
         "@type": "Product",
         name: "Storage in Dubai",
         description: "Flexible, secure storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 2000, height: 1145 },
+        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 1658, height: 949 },
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
@@ -863,16 +848,10 @@ export const locationBusinessSchema = (area: {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       opens: "08:00",
-      closes: "20:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Sunday",
-      opens: "10:00",
-      closes: "18:00",
-    },
+      closes: "20:00"
+    }
   ],
   areaServed: [area.name, ...(area.serves ?? [])].map((name) => ({
     "@type": "Place",

@@ -87,7 +87,7 @@ export default function ContactForm() {
         <h3 className="text-xl font-bold text-[#0A2463] mb-2">Thank you — your message is with us</h3>
         <p className="text-gray-700">
           A storage consultant will get back to you within 15 minutes during business hours
-          (Mon–Sat 8 AM–8 PM, Sun 10 AM–6 PM). If it is urgent, call{" "}
+          (Mon–Sun 8 AM–8 PM). If it is urgent, call{" "}
           <a href="tel:+971505773388" className="font-semibold text-[#0A2463] underline">
             +971 50 577 3388
           </a>

@@ -95,7 +95,7 @@ export default function ContactPage() {
               </h2>
               <p className="text-xl text-dubai-navy/70 max-w-[600px]">
                 Have questions? Need assistance? Our team replies within 15 minutes during
-                business hours — Monday–Saturday 8 AM–8 PM, Sunday 10 AM–6 PM.
+                business hours — Monday–Sunday 8 AM–8 PM.
               </p>
               <div className="pt-4">
                 <Button
@@ -118,8 +118,8 @@ export default function ContactPage() {
             >
               <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-lg border border-dubai-gold/10">
                 <img
-                  src="/images/design-mode/full-shot-woman-scanning-products_23-2148943323.jpg.jpeg"
-                  alt="SafeStorage Dubai Customer Support Team"
+                  src="/images/storage-facility-background.png"
+                  alt="SafeStorage Dubai — handling your storage with care"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dubai-navy/30 to-transparent"></div>
@@ -190,7 +190,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-dubai-navy">Working Hours</h3>
-                    <p className="text-dubai-navy/70">Mon–Sat: 8 AM – 8 PM · Sun: 10 AM – 6 PM</p>
+                    <p className="text-dubai-navy/70">Mon–Sun: 8 AM – 8 PM</p>
                     <p className="text-dubai-navy/50 text-sm mt-1">
                       24/7 facility access available for existing customers on request
                     </p>
