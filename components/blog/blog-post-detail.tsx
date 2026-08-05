@@ -9,7 +9,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { formatDate } from "@/lib/utils"
 import { blogImageUrl } from "@/lib/blog-image"
-import { readTimeFromContent, resolveCategory } from "@/lib/blog-meta"
+import { normalisePrice, readTimeFromContent, resolveCategory } from "@/lib/blog-meta"
 import LikeButton from "./like-button"
 import ShareButtons from "./share-buttons"
 
@@ -288,8 +288,8 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             id: postId,
             slug: generateSlug(title),
             title: title,
-            excerpt: blog.seo_desc || '',
-            content: blog.description || '',
+            excerpt: normalisePrice(blog.seo_desc),
+            content: normalisePrice(blog.description),
             author: { name: 'SafeStorage Dubai Editorial Team' },
             categories: [resolveCategory(blog.post_category, title)],
             date: blog.created_at || new Date().toISOString(),
@@ -333,8 +333,8 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
                 id: blogPostId,
                 slug: generateSlug(blogTitle),
                 title: blogTitle,
-                excerpt: blog.seo_desc || '',
-                content: blog.description || '',
+                excerpt: normalisePrice(blog.seo_desc),
+                content: normalisePrice(blog.description),
                 author: { name: 'SafeStorage Dubai Editorial Team' },
                 categories: [resolveCategory(blog.post_category, blogTitle)],
                 date: blog.created_at || new Date().toISOString(),

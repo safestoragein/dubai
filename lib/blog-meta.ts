@@ -6,6 +6,30 @@
 // category despite seven existing. Both are obvious template placeholders to a
 // reader and give Google nothing to differentiate the posts by.
 
+import { PRICE_PER_SQFT_AED } from "@/lib/company-facts"
+
+/**
+ * Blog bodies and excerpts come from the safestorage.in feed, which is edited
+ * outside this repo. Ten posts still quote the superseded 12.60 AED/sqft rate,
+ * so the price contradiction the SEO audit flagged survives in feed content even
+ * though every file in this repo says 12.65.
+ *
+ * This is a safety net, not the fix: the rows should be corrected at source in
+ * the blog admin. It exists so a stale rate can never reach a visitor, and so
+ * future drift in the feed cannot silently reintroduce the contradiction.
+ *
+ * Deliberately narrow — it only rewrites a price immediately followed by an AED
+ * / dirham unit, so prose that happens to contain the number 12.60 for another
+ * reason is left alone.
+ */
+export function normalisePrice(text?: string | null): string {
+  if (!text) return ""
+  return text.replace(
+    /\b12\.60\b(?=\s*(?:AED|aed|dirham|Dirham|\/|per\s|<))/g,
+    PRICE_PER_SQFT_AED,
+  )
+}
+
 /**
  * Normalise a feed date into a valid ISO 8601 value for a <time dateTime="…">
  * attribute. The backend stores "2026-08-04 18:47:29" (space separator), which is

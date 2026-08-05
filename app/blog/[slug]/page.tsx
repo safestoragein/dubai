@@ -3,6 +3,8 @@ import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 import { cache } from "react"
 import { notFound } from "next/navigation"
+import { blogImageUrl } from "@/lib/blog-image"
+import { normalisePrice } from "@/lib/blog-meta"
 
 // ISR: regenerate at most once per hour
 export const revalidate = 3600
@@ -87,21 +89,19 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     const metaTitle = post.seo_title || post.title || "Blog"
 
     // Generate unique description: use seo_desc, fallback to first 160 chars of plain-text content
-    const rawDesc = post.seo_desc || ""
+    const rawDesc = normalisePrice(post.seo_desc)
     const description = rawDesc.trim()
       ? rawDesc.trim().slice(0, 160)
-      : (post.description || "")
+      : normalisePrice(post.description)
           .replace(/<[^>]+>/g, " ")   // strip HTML tags
           .replace(/\s+/g, " ")
           .trim()
           .slice(0, 160) ||
         `Learn about ${post.title || "storage tips"} from SafeStorage Dubai experts.`
 
-    const imageUrl = post.post_images
-      ? post.post_images.startsWith('http')
-        ? post.post_images
-        : `https://safestorage.in/post_images/${post.post_images}`
-      : null
+    // og:image must be a safestorage.ae URL — see the note on the page-level
+    // imageUrl below. This one feeds the OpenGraph/Twitter tags.
+    const imageUrl = blogImageUrl(post.post_images)
 
     return {
       title: { absolute: metaTitle },
@@ -156,13 +156,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  const imageUrl = post?.post_images
-    ? post.post_images.startsWith('http')
-      ? post.post_images
-      : `https://safestorage.in/post_images/${post.post_images}`
-    : 'https://safestorage.ae/images/storage-facility-background.png'
+  // Serve the article image from safestorage.ae rather than hotlinking the India
+  // domain — this URL is what og:image and the BlogPosting schema publish, so a
+  // .in URL here hands the image's SEO value to the wrong domain.
+  const imageUrl =
+    blogImageUrl(post?.post_images) ||
+    'https://safestorage.ae/images/storage-facility-background.png'
 
-  const plainText = (post?.description || '')
+  const plainText = normalisePrice(post?.description)
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
@@ -174,7 +175,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     '@id': `${canonicalUrl}#article`,
     headline: post?.seo_title || post?.title || '',
     name: post?.title || '',
-    description: post?.seo_desc?.trim() || plainText,
+    description: normalisePrice(post?.seo_desc).trim() || plainText,
     image: {
       '@type': 'ImageObject',
       url: imageUrl,

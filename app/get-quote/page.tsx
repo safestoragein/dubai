@@ -12,7 +12,9 @@ export async function generateMetadata({
   const hasParams = Object.keys(params).length > 0
 
   return {
-    title: "Get Free Storage Quote | SafeStorage Dubai",
+    // `absolute` — the root layout's "%s | SafeStorage Dubai" template would
+    // otherwise append a second brand to a title that already carries one.
+    title: { absolute: "Get a Free Storage Quote in Dubai | SafeStorage Dubai" },
     description:
       "Get a free, instant quote for storage solutions in Dubai. No obligations, transparent pricing. Book your storage space with SafeStorage Dubai today.",
     keywords:
