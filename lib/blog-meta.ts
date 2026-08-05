@@ -6,29 +6,73 @@
 // category despite seven existing. Both are obvious template placeholders to a
 // reader and give Google nothing to differentiate the posts by.
 
-import { PRICE_PER_SQFT_AED } from "@/lib/company-facts"
+import { ADDRESS_FULL, EMAIL, PRICE_PER_SQFT_AED } from "@/lib/company-facts"
 
 /**
  * Blog bodies and excerpts come from the safestorage.in feed, which is edited
- * outside this repo. Ten posts still quote the superseded 12.60 AED/sqft rate,
- * so the price contradiction the SEO audit flagged survives in feed content even
- * though every file in this repo says 12.65.
+ * outside this repo. A scan of all 269 rows found the SEO audit's factual
+ * contradictions alive and well in feed content, even though every file in this
+ * repo has been reconciled:
  *
- * This is a safety net, not the fix: the rows should be corrected at source in
- * the blog admin. It exists so a stale rate can never reach a visitor, and so
- * future drift in the feed cannot silently reintroduce the contradiction.
+ *   8 posts   superseded 12.60 AED/sqft rate
+ *   2 posts   free Gmail address as the contact
+ *   2 posts   the old "402-B Wing, Emarat Atrium Building" address
+ *   18 posts  "1 lakh" customers (Indian numbering on a .ae domain)
+ *   90 posts  links to service URLs that are now 301 redirects
  *
- * Deliberately narrow — it only rewrites a price immediately followed by an AED
- * / dirham unit, so prose that happens to contain the number 12.60 for another
- * reason is left alone.
+ * This is a safety net, not the fix — the rows should be corrected at source in
+ * the blog admin. It exists so a superseded fact can never reach a visitor, and
+ * so future drift in the feed cannot silently reintroduce a contradiction the
+ * rest of the site has resolved.
+ *
+ * Every rule is deliberately narrow: the price only matches when followed by an
+ * AED/dirham unit, and the URL rewrites only touch our own legacy paths.
  */
-export function normalisePrice(text?: string | null): string {
+const FEED_RULES: Array<[RegExp, string]> = [
+  // Price — only when immediately followed by a currency/unit, so prose that
+  // happens to contain 12.60 for another reason is untouched.
+  [/\b12\.60\b(?=\s*(?:AED|aed|dirham|Dirham|\/|per\s|<))/g, PRICE_PER_SQFT_AED],
+
+  // Contact address
+  [/safestoragedubai@gmail\.com/gi, EMAIL],
+
+  // Superseded street address, in every phrasing found in the feed.
+  [
+    /402-?B\s+Wing[,\s]*(?:at\s+the\s+)?Emarat\s+Atrium\s+(?:Building|Bldg)[,\s]*(?:located\s+in\s+)?Dubai,?\s*UAE/gi,
+    ADDRESS_FULL,
+  ],
+
+  // Indian numbering. Longest forms first so the shorter rules cannot strand a
+  // fragment such as "100,000 (1,00,000+)".
+  [/\b1\s*lakh\s*\(\s*1,00,000\+?\s*\)/gi, "100,000+"],
+  [/\b1\s*lakh\s*\+/gi, "100,000+"],
+  [/\b1\s*lakh\b/gi, "100,000"],
+
+  // Legacy service URLs. These now 301, so links still work, but pointing
+  // editorial links straight at the canonical target avoids a redirect hop on
+  // every one of them.
+  [/\/storage-dubai\/vehicle-storage/g, "/car-storage"],
+  [/\/storage-dubai\/records-archival/g, "/document-storage"],
+  [/\/storage-dubai\/ecommerce-fulfilment/g, "/ecommerce-storage"],
+  [/\/self-storage-dubai\/student-storage/g, "/student-storage"],
+  [/\/self-storage-dubai\/furniture-storage/g, "/furniture-storage"],
+  [/\/self-storage-dubai\/household-storage/g, "/personal-storage"],
+  [/\/self-storage-dubai\/how-it-works/g, "/how-it-works"],
+
+  // Upgrade our own domains to https. Third-party http links are left alone —
+  // we cannot assume they support TLS.
+  [/http:\/\/(www\.)?safestorage\.(ae|in)/gi, "https://safestorage.$2"],
+]
+
+export function normaliseFeedContent(text?: string | null): string {
   if (!text) return ""
-  return text.replace(
-    /\b12\.60\b(?=\s*(?:AED|aed|dirham|Dirham|\/|per\s|<))/g,
-    PRICE_PER_SQFT_AED,
-  )
+  let out = text
+  for (const [pattern, replacement] of FEED_RULES) out = out.replace(pattern, replacement)
+  return out
 }
+
+/** @deprecated Use normaliseFeedContent — kept so existing call sites keep working. */
+export const normalisePrice = normaliseFeedContent
 
 /**
  * Normalise a feed date into a valid ISO 8601 value for a <time dateTime="…">

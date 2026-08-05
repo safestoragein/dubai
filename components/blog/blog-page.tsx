@@ -14,7 +14,7 @@ import { Clock } from "@/components/icons"
 import { getCategoryColor } from "@/lib/blog-images"
 import { blogImageUrl } from "@/lib/blog-image"
 import { POSTS_PER_PAGE, pageHref } from "@/lib/blog-listing"
-import { BLOG_CATEGORIES, normalisePrice, readTimeFromContent, resolveCategory, toIsoDate } from "@/lib/blog-meta"
+import { BLOG_CATEGORIES, normaliseFeedContent, readTimeFromContent, resolveCategory, toIsoDate } from "@/lib/blog-meta"
 import { formatDate } from "@/lib/utils"
 
 // Helper function to construct image URL from endpoint data
@@ -105,7 +105,7 @@ export default function BlogPage({
               id: postId,
               slug: generateSlug(title),
               title,
-              excerpt: normalisePrice(blog.seo_desc),
+              excerpt: normaliseFeedContent(blog.seo_desc),
               author: { name: "SafeStorage Dubai Editorial Team" },
               categories: [resolveCategory(blog.post_category, title)],
               date: blog.created_at || new Date().toISOString(),

@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { cache } from "react"
 import { notFound } from "next/navigation"
 import { blogImageUrl } from "@/lib/blog-image"
-import { normalisePrice } from "@/lib/blog-meta"
+import { normaliseFeedContent } from "@/lib/blog-meta"
 
 // ISR: regenerate at most once per hour
 export const revalidate = 3600
@@ -28,7 +28,12 @@ interface BlogPostPageProps {
 // cache() deduplicates this across generateMetadata + page component in a single request
 const fetchAllBlogs = cache(async () => {
   const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), 10000)
+  // The feed is ~11 MB and this runs once per statically generated post. At the
+  // previous 10s the fetch could abort on a slow link, and because the catch
+  // returns [] the page component then called notFound() — baking a permanent
+  // 404 into a post that exists. Observed locally: three live posts built as 404
+  // while still being linked from every page of the listing.
+  const timeout = setTimeout(() => controller.abort(), 60000)
   try {
     const response = await fetch('https://safestorage.in/get_blog_content', {
       next: { revalidate: 3600 },
@@ -89,10 +94,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     const metaTitle = post.seo_title || post.title || "Blog"
 
     // Generate unique description: use seo_desc, fallback to first 160 chars of plain-text content
-    const rawDesc = normalisePrice(post.seo_desc)
+    const rawDesc = normaliseFeedContent(post.seo_desc)
     const description = rawDesc.trim()
       ? rawDesc.trim().slice(0, 160)
-      : normalisePrice(post.description)
+      : normaliseFeedContent(post.description)
           .replace(/<[^>]+>/g, " ")   // strip HTML tags
           .replace(/\s+/g, " ")
           .trim()
@@ -163,7 +168,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     blogImageUrl(post?.post_images) ||
     'https://safestorage.ae/images/storage-facility-background.png'
 
-  const plainText = normalisePrice(post?.description)
+  const plainText = normaliseFeedContent(post?.description)
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
@@ -175,7 +180,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     '@id': `${canonicalUrl}#article`,
     headline: post?.seo_title || post?.title || '',
     name: post?.title || '',
-    description: normalisePrice(post?.seo_desc).trim() || plainText,
+    description: normaliseFeedContent(post?.seo_desc).trim() || plainText,
     image: {
       '@type': 'ImageObject',
       url: imageUrl,

@@ -12,7 +12,7 @@
 
 import { getStaticListingPosts } from "@/lib/static-blog-posts"
 import { blogImageUrl } from "@/lib/blog-image"
-import { normalisePrice, readTimeFromContent, resolveCategory } from "@/lib/blog-meta"
+import { normaliseFeedContent, readTimeFromContent, resolveCategory } from "@/lib/blog-meta"
 
 export const POSTS_PER_PAGE = 50
 
@@ -63,7 +63,7 @@ export function mapListingPost(blog: any): ListingPost {
     id: postId,
     slug: generateSlug(title),
     title,
-    excerpt: normalisePrice(blog.seo_desc),
+    excerpt: normaliseFeedContent(blog.seo_desc),
     author: { name: "SafeStorage Dubai Editorial Team" },
     categories: [resolveCategory(blog.post_category, title)],
     // The feed row carries the body, so read time is measured here — the body
