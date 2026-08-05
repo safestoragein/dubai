@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea"
 import WorkingPlacesAutocomplete from "@/components/ui/working-places-autocomplete"
 import {
   calculateTransportPrice,
+  transportEstimateRange,
   distanceFromServiceOriginKm,
   POINTS_PER_PALLET,
   SERVICE_RADIUS_KM,
@@ -1979,6 +1980,12 @@ export default function QuotePage() {
                     const transportNeedsCustomQuote =
                       formData.distanceKm !== null && formData.distanceKm > SERVICE_RADIUS_KM
 
+                    // Transport is quoted as a RANGE: the real figure is derived
+                    // from the pallet count of the items actually received at
+                    // check-in, so a firm number here would change later.
+                    // Storage is not estimated — that rate is fixed per sqft.
+                    const transportRange = transportEstimateRange(transport.totalAed)
+
                     const storageCard = {
                       key: "storage",
                       title: "Shared Storage",
@@ -1986,6 +1993,7 @@ export default function QuotePage() {
                       price: shared.totalCost,
                       period: "per month",
                       note: "",
+                      estimate: null as { lowAed: number; highAed: number } | null,
                       customQuote: false,
                       Icon: Users,
                       accent: "emerald" as const,
@@ -2001,9 +2009,12 @@ export default function QuotePage() {
                       key: "transport",
                       title: "Door-to-Door Transport",
                       subtitle: "Collection from your address",
+                      // price stays the exact tier figure: it is what the cards
+                      // are ordered by, and what checkout actually collects.
                       price: transport.totalAed,
-                      period: "one-time",
-                      note: "",
+                      period: "one-time · estimated",
+                      note: "Our team will confirm the exact transport price based on your actual list of items.",
+                      estimate: transportRange,
                       customQuote: transportNeedsCustomQuote,
                       Icon: Truck,
                       accent: "blue" as const,
@@ -2022,6 +2033,8 @@ export default function QuotePage() {
                       price: SELF_DROP_TOKEN_AED,
                       period: "token to book",
                       note: "Adjusted against your storage bill",
+                      // A fixed token, not a tier price — nothing to estimate.
+                      estimate: null as { lowAed: number; highAed: number } | null,
                       customQuote: false,
                       Icon: Warehouse,
                       accent: "blue" as const,
@@ -2064,7 +2077,7 @@ export default function QuotePage() {
 
                     return (
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6 max-w-3xl mx-auto items-stretch">
-                        {cards.map(({ key, title, subtitle, price, period, note, customQuote, Icon, accent, features }) => {
+                        {cards.map(({ key, title, subtitle, price, period, note, estimate, customQuote, Icon, accent, features }) => {
                           const c = accents[accent]
                           return (
                             <div
@@ -2089,9 +2102,20 @@ export default function QuotePage() {
                                 </div>
                               ) : (
                                 <div className={`${c.band} rounded-xl py-4 px-3 text-center`}>
-                                  <div className="text-3xl font-bold text-white leading-none">
-                                    AED {price.toLocaleString()}
-                                  </div>
+                                  {/* An estimate is shown as a range. The band
+                                      collapses to a single figure when the low
+                                      end rounds onto the high one. */}
+                                  {estimate && estimate.lowAed !== estimate.highAed ? (
+                                    <div className="text-2xl sm:text-3xl font-bold text-white leading-none whitespace-nowrap">
+                                      AED {estimate.lowAed.toLocaleString()}
+                                      <span className="mx-1 font-normal text-white/70">–</span>
+                                      {estimate.highAed.toLocaleString()}
+                                    </div>
+                                  ) : (
+                                    <div className="text-3xl font-bold text-white leading-none">
+                                      AED {price.toLocaleString()}
+                                    </div>
+                                  )}
                                   <div className="text-white/80 text-[11px] uppercase tracking-wide mt-1.5">
                                     {period}
                                   </div>

@@ -75,9 +75,51 @@ export const TRANSPORT_TIERS = [
 /** Guards against 3.5 failing a `<= 3.5` test through float drift. */
 const EPSILON = 1e-9
 
+/**
+ * Fraction of the tier price used as the LOW end of the estimated range shown
+ * on the quote card, before rounding to `ESTIMATE_ROUNDING_AED`.
+ */
+export const ESTIMATE_LOW_FACTOR = 0.6
+/** The low end is rounded to this, so the card never shows AED 336. */
+export const ESTIMATE_ROUNDING_AED = 100
+
 export interface Coordinates {
   lat: number
   lng: number
+}
+
+export interface TransportEstimateRange {
+  lowAed: number
+  highAed: number
+}
+
+/**
+ * The transport figure the website shows is only ever an estimate: the price is
+ * re-derived from the pallet count of the items ACTUALLY received when the
+ * goods are checked in (see Dubai::save_inventory), and a customer's own item
+ * list rarely matches the load to the pallet. So the card shows a range and
+ * says the team will confirm, rather than a firm number that then changes.
+ *
+ * Low end = 60% of the tier price rounded to the nearest 100; high end is the
+ * tier price itself, which is still what checkout collects.
+ *
+ *   560  ->  300 - 560       1000  ->   600 - 1000
+ *   960  ->  600 - 960       1368  ->   800 - 1368
+ */
+export function transportEstimateRange(totalAed: number): TransportEstimateRange {
+  if (!Number.isFinite(totalAed) || totalAed <= 0) {
+    return { lowAed: 0, highAed: 0 }
+  }
+
+  const low =
+    Math.round((totalAed * ESTIMATE_LOW_FACTOR) / ESTIMATE_ROUNDING_AED) *
+    ESTIMATE_ROUNDING_AED
+
+  // A load small enough to round to zero, or one where rounding overshoots the
+  // tier price, would print a nonsense range — collapse those to a single figure.
+  return low > 0 && low < totalAed
+    ? { lowAed: low, highAed: totalAed }
+    : { lowAed: totalAed, highAed: totalAed }
 }
 
 export interface TransportPrice {
