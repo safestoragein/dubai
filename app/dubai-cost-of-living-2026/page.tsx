@@ -465,7 +465,7 @@ export default function DubaiCostOfLiving2026() {
                     {/* Warehouse Image */}
                     <div className="relative h-48 rounded-lg overflow-hidden">
                       <Image
-                        src={index % 3 === 0 ? "/organized-warehouse-space.png" : index % 3 === 1 ? "/expansive-storage.png" : "/images/storage-facility-background.png"}
+                        src={index % 3 === 0 ? "/organized-warehouse-space.png" : index % 3 === 1 ? "/expansive-storage.png" : "/varied-storage-row.png"}
                         alt="SafeStorage Facility"
                         width={500}
                         height={300}

@@ -598,7 +598,7 @@ export default function DubaiShoppingGuide2026() {
                   {/* Warehouse Image */}
                   <div className="relative h-48 rounded-lg overflow-hidden">
                     <Image
-                      src={sectionIndex % 3 === 0 ? "/organized-warehouse-space.png" : sectionIndex % 3 === 1 ? "/expansive-storage.png" : "/images/storage-facility-background.png"}
+                      src={sectionIndex % 3 === 0 ? "/organized-warehouse-space.png" : sectionIndex % 3 === 1 ? "/expansive-storage.png" : "/varied-storage-row.png"}
                       alt="SafeStorage Facility"
                       width={500}
                       height={300}
