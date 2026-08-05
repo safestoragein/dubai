@@ -54,14 +54,31 @@ export const FACILITY_ACCESS_NOTE =
 export const RATING_VALUE = "4.9"
 export const REVIEW_COUNT = "6700"
 export const REVIEW_COUNT_DISPLAY = "6,700+"
-export const REVIEWS_LABEL = `${RATING_VALUE}/5 (${REVIEW_COUNT_DISPLAY} Reviews Globally)`
+// "worldwide", not "Globally" — the site used "Globally" as a bare adverb
+// ("6700+ Reviews Globally", "customers across Globally"), which is not English
+// and read as hedging on a .ae domain. The qualifier still has to be there: this
+// is a group figure, not a UAE one.
+export const REVIEWS_LABEL = `${RATING_VALUE}/5 (${REVIEW_COUNT_DISPLAY} reviews worldwide)`
 
 /**
  * Customer count — global group figure. Written in international numbering:
  * the previous "1 Lakh+" is Indian numbering and read as a foreign operator on
  * a .ae domain targeting UAE customers.
+ *
+ * This is the ONLY customer figure. The site simultaneously published 500+,
+ * 50,000+ and 100,000+ — twice on the same page — until 2026-08-05.
  */
 export const CUSTOMERS_GLOBAL = "100,000+"
+export const CUSTOMERS_LABEL = `${CUSTOMERS_GLOBAL} customers worldwide`
+
+/**
+ * Founding year. The site published three incompatible versions of this: the
+ * footer said "since 2015", the schema declared foundingDate 2018 with "over 7
+ * years", and a hero badge said "10+ Years Serving". 2015 is the value the
+ * client's own SEO brief states, and it is the one consistent with "10+ years".
+ */
+export const FOUNDED_YEAR = "2015"
+export const YEARS_SERVING = "10+"
 
 /**
  * Security. CCTV coverage is published; the retention period deliberately is
@@ -77,6 +94,18 @@ export const CCTV_COVERAGE =
 export const RETRIEVAL_WINDOW = "24–48 hours"
 export const DOCUMENT_RETRIEVAL = "with one week's advance notice"
 export const PROCESS_STEP_COUNT = 4
+
+/**
+ * Blog byline. The visible byline read "SafeStorage Dubai Editorial Team" while
+ * the BlogPosting schema declared author "SafeStorage Dubai" — a mismatch on
+ * every post. Use this for both, so the rendered byline and the marked-up author
+ * are always the same string.
+ *
+ * This is a corporate byline, not an E-E-A-T author signal. Replacing it with
+ * named authors who have real profile pages, photos and credentials remains the
+ * higher-value fix — it needs actual people, so it cannot be done in code alone.
+ */
+export const BLOG_AUTHOR = "SafeStorage Dubai Editorial Team"
 
 /** Real social profiles. Must match the sameAs array in structured-data.ts. */
 export const SOCIAL = {
