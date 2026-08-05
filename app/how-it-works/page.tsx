@@ -4,14 +4,32 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "How It Works | SafeStorage Dubai Process",
+  title: "How Storage in Dubai Works | Pickup, Store, Deliver",
   description:
-    "Learn how SafeStorage Dubai's simple 3-step process works: Book online, we collect your items, and access them anytime. Door-to-Door service in Dubai.",
+    "How SafeStorage Dubai works: book online, we collect and pack your items, store them securely, and deliver them back within 24–48 hours of your request.",
   keywords:
     "how storage works dubai, storage process, pickup delivery dubai, storage booking, self storage process dubai",
   alternates: {
     canonical: "https://safestorage.ae/how-it-works",
     languages: { 'en': 'https://safestorage.ae/how-it-works', 'x-default': 'https://safestorage.ae/how-it-works' },
+  },
+  // See app/contact/page.tsx — omitting openGraph here made this page emit the
+  // homepage og:url and og:title, contradicting its own canonical.
+  openGraph: {
+    title: "How Storage in Dubai Works | Pickup, Store, Deliver",
+    description:
+      "Book online, we collect and pack, we store securely, and we deliver back within 24–48 hours. No lorry, no heavy lifting.",
+    url: "https://safestorage.ae/how-it-works",
+    siteName: "SafeStorage Dubai",
+    locale: "en_AE",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "How SafeStorage Dubai works" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How Storage in Dubai Works",
+    description: "Book, we collect, we store, we deliver back in 24–48 hours.",
+    images: ["/twitter-image.jpg"],
   },
 }
 
@@ -21,7 +39,7 @@ const howItWorksSchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/how-it-works#webpage',
     name: 'How It Works | SafeStorage Dubai Storage Process',
-    description: 'Learn how SafeStorage Dubai\'s simple 3-step process works: book, we collect, you access anytime.',
+    description: 'Learn how SafeStorage Dubai\'s simple 4-step process works: book, we collect, you access anytime.',
     url: 'https://safestorage.ae/how-it-works',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -45,7 +63,7 @@ export default function HowItWorks() {
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">How SafeStorage Dubai Works</h1>
           <p className="text-lg text-white/90">
-            Our simple 3-step process makes storing your belongings in Dubai completely hassle-free.
+            Our simple 4-step process makes storing your belongings in Dubai completely hassle-free.
             No truck rental, no heavy lifting — we do everything for you.
           </p>
         </div>
@@ -148,6 +166,7 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-1">What happens if my items are damaged?</p>
+                <p>Every collection is inventoried and signed for at pickup, and your items are wrapped and handled by our own trained team rather than subcontractors. In the rare event of damage while in our care, report it at delivery and note it on the inventory sheet. Our operations team investigates using the CCTV record and the condition notes taken at intake, and we resolve valid claims directly with you. Optional additional cover is available for high-value items — ask your consultant to include it in your quote before pickup.</p>
               </div>
               <div>
                 <p className="font-semibold mb-1">Can I access my unit directly at the facility?</p>
@@ -177,6 +196,7 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-2">Do I receive an inventory of my stored items?</p>
+                <p>Yes. Our team records every item and box as it is loaded, and you sign off the inventory sheet before the vehicle leaves your address. You receive a copy of that inventory, so you always know exactly what is in storage. When you request a partial retrieval, you can refer to the inventory and tell us precisely which items or boxes you need back rather than having to recall them from memory.</p>
               </div>
               <div>
                 <p className="font-semibold mb-2">How long can I keep items in storage?</p>
@@ -188,6 +208,7 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-2">Do I need to sign a contract?</p>
+                <p>You sign a simple month-to-month storage agreement that sets out your unit size, monthly rate and the inventory collected. There is no minimum term beyond the first month and no long-term lock-in. You can extend, downsize, upgrade or cancel with 30 days&apos; notice, and there is no early termination penalty. The agreement is issued digitally before pickup, so you can read it in full before anything is collected.</p>
               </div>
               <div>
                 <p className="font-semibold mb-2">Can I change my unit size after storing?</p>

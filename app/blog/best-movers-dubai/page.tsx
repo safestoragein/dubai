@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Best Movers Dubai 2025 — How to Choose & What to Look For | SafeStorage",
-  description: "Complete guide to choosing the best movers in Dubai for 2025. What to check, red flags to avoid, how to get accurate quotes, and what to do with belongings while moving.",
+  title: { absolute: "Best Movers Dubai 2025 — How to Choose & What to Look For" },
+  description: "How to choose the best movers in Dubai: what to check before booking, typical costs, red flags to avoid, and when storage beats moving twice.",
   keywords: "best movers dubai 2025, how to choose movers dubai, dubai moving company guide, professional movers dubai, moving tips dubai, trusted movers dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Best Movers Dubai 2025 — Complete Hiring Guide",
     description: "How to find and vet the best movers in Dubai. What to check, red flags, and protecting your belongings during the move.",
     url: "https://safestorage.ae/blog/best-movers-dubai",

@@ -1,14 +1,16 @@
 import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
+import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Palm Jumeirah Storage — Villa & Apartment",
   description:
-    "Storage for Palm Jumeirah villas and apartments. Door-to-Door pickup from all Fronds, Trunk & Crescent. Secure and 24/7 monitored. Same-day available. Call +971505773388.",
+    "Storage for Palm Jumeirah villas and apartments. Door-to-Door pickup from all Fronds, Trunk & Crescent. Secure and 24/7 monitored. Same-day available.",
   keywords:
     "palm jumeirah storage, storage palm jumeirah dubai, villa storage palm jumeirah, furniture storage palm fronds, palm jumeirah self storage, storage near palm jumeirah",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Palm Jumeirah Storage — Villa & Apartment Pickup | SafeStorage",
     description: "Door-to-Door pickup from all Palm Jumeirah Fronds, Trunk & Crescent. Secure villa & apartment storage. Call +971505773388.",
     url: "https://safestorage.ae/locations/palm-jumeirah",
@@ -22,6 +24,12 @@ export const metadata: Metadata = {
 }
 
 const palmJumeirahSchemas = [
+  locationBusinessSchema({
+    name: "Palm Jumeirah",
+    url: "https://safestorage.ae/locations/palm-jumeirah",
+    serves: ["Palm Fronds", "Palm Trunk", "Palm Crescent", "Shoreline Apartments"]
+  }),
+
   {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -204,8 +212,6 @@ export default function PalmJumeirahPage() {
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store garden furniture from Palm Jumeirah villas seasonally?</h3>
               <p className="text-gray-700">Yes. Garden furniture storage is a popular seasonal service for Palm Frond villa owners. During summer (May–September), when Dubai&apos;s heat peaks, high-quality garden furniture can degrade rapidly if left outdoors. SafeStorage collects outdoor furniture, planters, outdoor cushions and covers, barbecue equipment, and garden accessories at the start of summer and stores them safely indoors until October when the outdoor season resumes. Seasonal storage plans with automatic renewal are available for Palm residents who want to make this a regular annual arrangement.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
             </div>
           </div>
         </div>

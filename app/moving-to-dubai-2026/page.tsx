@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Moving to Dubai 2026: Relocation Guide",
   description:
-    "Planning to move to Dubai in 2026? Complete step-by-step guide covering visas, housing, jobs, schools, cost of living, and storage solutions. Make your Dubai move smooth and stress-free!",
+    "Planning to move to Dubai in 2026? Complete step-by-step guide covering visas, housing, jobs, schools, cost of living, and storage solutions.",
   keywords:
     "moving to dubai 2026, relocate to dubai, dubai relocation guide, moving to uae, dubai visa, living in dubai, dubai apartments, international move dubai, dubai newcomers guide",
   openGraph: {
@@ -159,7 +159,7 @@ const sections = [
       "Entertainment: Variable (beach is free!)",
       "School fees: AED 15,000-100,000/child/year"
     ],
-    storageConnection: "Save money on rent! Instead of paying for a bigger apartment, store seasonal items, sports gear, and rarely-used belongings. Storage from 12.60 AED / sqft beats paying AED 3,000+ extra rent annually for a bigger place.",
+    storageConnection: "Save money on rent! Instead of paying for a bigger apartment, store seasonal items, sports gear, and rarely-used belongings. Storage from 12.65 AED / sqft beats paying AED 3,000+ extra rent annually for a bigger place.",
     image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=800&fit=crop",
     color: "from-yellow-500 to-yellow-600"
   },

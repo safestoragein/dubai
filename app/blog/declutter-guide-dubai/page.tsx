@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Declutter Guide Dubai 2025 — Sell, Store, Donate or Dispose | SafeStorage",
-  description: "Complete Dubai declutter guide for 2025. Where to sell, donate and store items in Dubai. The step-by-step process for expats and long-term residents clearing out their homes.",
+  title: { absolute: "Declutter Guide Dubai 2025 — Sell, Store, Donate or Dispose" },
+  description: "A practical Dubai decluttering guide: room-by-room method, where to sell and donate in the UAE, and what is worth putting into storage.",
   keywords: "declutter guide dubai 2025, how to declutter dubai, sell old stuff dubai, donate items dubai, storage declutter dubai, clear out home dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Declutter Guide Dubai 2025 — Complete Step-by-Step Process",
     description: "Where to sell, donate, store and dispose of items when decluttering in Dubai. Updated 2025 guide with current platforms and charities.",
     url: "https://safestorage.ae/blog/declutter-guide-dubai",
@@ -147,11 +148,11 @@ export default function DeclutterGuideDubaiPage() {
                 </div>
               ))}
             </div>
-            <p className="mb-8">Storage solves all of these. From 12.60 AED / sqft, storing items "for now" while you decide is almost always the financially rational choice compared to disposing and regretting.</p>
+            <p className="mb-8">Storage solves all of these. From 12.65 AED / sqft, storing items "for now" while you decide is almost always the financially rational choice compared to disposing and regretting.</p>
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
               <h2 className="text-2xl font-bold mb-3">Keep Your Options Open While You Decide</h2>
-              <p className="text-white/80 mb-6">Storage from 12.60 AED / sqft. Door-to-Door pickup. No long-term commitment. Store while you declutter — decide later without pressure.</p>
+              <p className="text-white/80 mb-6">Storage from 12.65 AED / sqft. Door-to-Door pickup. No long-term commitment. Store while you declutter — decide later without pressure.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Free Quote</Button>

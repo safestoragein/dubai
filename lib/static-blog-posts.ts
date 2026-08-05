@@ -52,7 +52,7 @@ export const STATIC_POSTS: StaticPost[] = [
     slug: "self-storage-cost-dubai",
     title: "How Much Does Self Storage Cost in Dubai? 2025 Price Guide",
     excerpt:
-      "Detailed breakdown of self storage costs in Dubai by unit size. SafeStorage Dubai pricing from 12.60 AED / sqft. What's included and what to avoid.",
+      "Detailed breakdown of self storage costs in Dubai by unit size. SafeStorage Dubai pricing from 12.65 AED / sqft. What's included and what to avoid.",
     category: "Storage Tips",
     date: "2025-01-15",
     readTime: "8 min read",
@@ -206,7 +206,7 @@ export function getStaticListingPosts(): ListingPost[] {
     slug: post.slug,
     title: post.title,
     excerpt: post.excerpt,
-    author: { name: "SafeStorage Team" },
+    author: { name: "SafeStorage Dubai Editorial Team" },
     categories: [post.category],
     date: post.date,
     image: getRandomBlogImage(post.category, index),

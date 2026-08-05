@@ -6,12 +6,13 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, ArrowRight, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "How Much Does Self Storage Cost in Dubai? 2025 Price Guide | SafeStorage",
-  description: "Complete 2025 guide to self storage costs in Dubai. Unit prices by size, what's included, hidden fees to watch for, and how to get the best deal. From 12.60 AED / sqft.",
+  title: { absolute: "How Much Does Self Storage Cost in Dubai? 2025 Price Guide" },
+  description: "Complete 2025 guide to self storage costs in Dubai. Unit prices by size, what's included, hidden fees to watch for, and how to get the best deal.",
   keywords: "self storage cost dubai, storage unit price dubai, how much is storage dubai, storage unit cost per month dubai, cheap storage dubai, affordable storage dubai 2025",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "How Much Does Self Storage Cost in Dubai? 2025 Price Guide",
-    description: "Detailed breakdown of self storage costs in Dubai by unit size. SafeStorage Dubai pricing from 12.60 AED / sqft. What's included and what to avoid.",
+    description: "Detailed breakdown of self storage costs in Dubai by unit size. SafeStorage Dubai pricing from 12.65 AED / sqft. What's included and what to avoid.",
     url: "https://safestorage.ae/blog/self-storage-cost-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -108,10 +109,10 @@ export default function SelfStorageCostDubaiPage() {
               <p className="mb-4">In most common Dubai scenarios, storage saves money compared to alternatives:</p>
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 {[
-                  { vs: "vs Keeping apartment for renovation", storage: "from 12.60 AED / sqft", alternative: "AED 3,500–8,000/mo (keeping flat during renovation)" },
-                  { vs: "vs International shipping", storage: "from 12.60 AED / sqft", alternative: "AED 12,000–25,000 (one-way sea freight to UK)" },
-                  { vs: "vs Replacing items abroad", storage: "from 12.60 AED / sqft", alternative: "AED 15,000–30,000 (refurnishing abroad)" },
-                  { vs: "vs Warehouse rental for business", storage: "from 12.60 AED / sqft", alternative: "AED 5,000–15,000/mo (min. 2-3 year warehouse lease)" },
+                  { vs: "vs Keeping apartment for renovation", storage: "from 12.65 AED / sqft", alternative: "AED 3,500–8,000/mo (keeping flat during renovation)" },
+                  { vs: "vs International shipping", storage: "from 12.65 AED / sqft", alternative: "AED 12,000–25,000 (one-way sea freight to UK)" },
+                  { vs: "vs Replacing items abroad", storage: "from 12.65 AED / sqft", alternative: "AED 15,000–30,000 (refurnishing abroad)" },
+                  { vs: "vs Warehouse rental for business", storage: "from 12.65 AED / sqft", alternative: "AED 5,000–15,000/mo (min. 2-3 year warehouse lease)" },
                 ].map((c) => (
                   <div key={c.vs} className="p-4 border border-gray-200 rounded-xl">
                     <div className="font-semibold text-dubai-navy text-sm mb-2">{c.vs}</div>
@@ -123,6 +124,7 @@ export default function SelfStorageCostDubaiPage() {
 
               <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6 my-8">
                 <h3 className="font-bold text-dubai-navy mb-2">SafeStorage Dubai Pricing</h3>
+                <p className="text-gray-700">Storage starts from <strong>12.65 AED per sq. ft. per month</strong>, VAT included. That rate covers door-to-door collection and delivery anywhere in Dubai, so there is no lorry to hire and no transport fee added at the end. Billing is month-to-month with no lock-in, and longer prepaid plans reduce the effective monthly rate. You get a written cost breakdown before you commit, valid for 14 days.</p>
               </div>
             </div>
 

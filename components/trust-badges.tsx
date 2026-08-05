@@ -23,7 +23,7 @@ export default function TrustBadges() {
     },
     {
       icon: Shield,
-      value: "1 Lakh+",
+      value: "100,000+",
       label: "Happy Customers Globally",
       subtext: "Trusted by Businesses & Families",
       color: "text-blue-500",

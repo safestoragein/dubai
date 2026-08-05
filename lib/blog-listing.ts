@@ -11,6 +11,8 @@
 // so the server slice and the hydrated slice can never drift apart.
 
 import { getStaticListingPosts } from "@/lib/static-blog-posts"
+import { blogImageUrl } from "@/lib/blog-image"
+import { readTimeFromContent, resolveCategory } from "@/lib/blog-meta"
 
 export const POSTS_PER_PAGE = 50
 
@@ -38,11 +40,12 @@ export function generateSlug(title: string): string {
     .replace(/^-+|-+$/g, "")
 }
 
+// Serve blog images from safestorage.ae rather than hotlinking the safestorage.in
+// India domain. blogImageUrl() rewrites to /blog-images/<file>, which next.config
+// proxies to the origin store — the bytes are unchanged but crawlers and social
+// see .ae URLs, and the image carries SEO value for this domain.
 export function constructImageUrl(postImages: string | null | undefined): string {
-  if (!postImages) return "/blog-placeholder.jpg"
-  if (postImages.startsWith("http://") || postImages.startsWith("https://")) return postImages
-  if (postImages.startsWith("post_images/")) return `https://safestorage.in/${postImages}`
-  return `https://safestorage.in/post_images/${postImages}`
+  return blogImageUrl(postImages) || "/blog-placeholder.jpg"
 }
 
 export function getConsistentLikes(postId: number): number {
@@ -61,11 +64,13 @@ export function mapListingPost(blog: any): ListingPost {
     slug: generateSlug(title),
     title,
     excerpt: blog.seo_desc || "",
-    author: { name: "SafeStorage Team" },
-    categories: [blog.post_category || "Storage Tips"],
+    author: { name: "SafeStorage Dubai Editorial Team" },
+    categories: [resolveCategory(blog.post_category, title)],
+    // The feed row carries the body, so read time is measured here — the body
+    // itself is still not mapped onto ListingPost (see the note at the top).
     date: blog.created_at || new Date().toISOString(),
     image: constructImageUrl(blog.post_images),
-    readTime: "5 min read",
+    readTime: readTimeFromContent(blog.description),
     likes: getConsistentLikes(postId),
     views: getConsistentViews(postId),
     comments: [],

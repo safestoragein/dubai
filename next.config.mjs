@@ -64,6 +64,58 @@ const nextConfig = {
         destination: '/terms-and-conditions',
         permanent: true,
       },
+
+      // ---------------------------------------------------------------------
+      // Duplicate service pages → one canonical URL per service.
+      //
+      // Every core service used to exist at TWO live URLs. Both returned 200,
+      // both self-canonicalised, and neither pointed at the other: /services
+      // linked one set while the site-wide footer linked the other. Google saw
+      // two competing pages for the same query, split link equity and relevance
+      // between them, and ranked neither — the single biggest technical reason
+      // the site had zero top-3 rankings.
+      //
+      // The duplicates also disagreed on material facts (document retrieval
+      // "24 hours" vs "2 business hours", student reach "100 countries" vs
+      // "150", e-commerce "full pick-and-pack" vs "not a 3PL"), so keeping both
+      // was worse than plain duplication. The surviving page is the one linked
+      // from /services; the route files for the others have been removed.
+      // ---------------------------------------------------------------------
+      {
+        source: '/storage-dubai/vehicle-storage',
+        destination: '/car-storage',
+        permanent: true,
+      },
+      {
+        source: '/storage-dubai/records-archival',
+        destination: '/document-storage',
+        permanent: true,
+      },
+      {
+        source: '/storage-dubai/ecommerce-fulfilment',
+        destination: '/ecommerce-storage',
+        permanent: true,
+      },
+      {
+        source: '/self-storage-dubai/student-storage',
+        destination: '/student-storage',
+        permanent: true,
+      },
+      {
+        source: '/self-storage-dubai/furniture-storage',
+        destination: '/furniture-storage',
+        permanent: true,
+      },
+      {
+        source: '/self-storage-dubai/household-storage',
+        destination: '/personal-storage',
+        permanent: true,
+      },
+      {
+        source: '/self-storage-dubai/how-it-works',
+        destination: '/how-it-works',
+        permanent: true,
+      },
       // www → non-www for ALL pages (fixes hreflang conflicts and www 404s)
       {
         source: '/:path*',

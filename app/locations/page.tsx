@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   keywords:
     "storage locations dubai, storage near me, self storage dubai locations, storage facilities dubai, dubai storage centers",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Storage Locations Dubai - SafeStorage",
     description: "Premium storage locations across Dubai with door-to-door service. Find a location near you.",
     url: "https://safestorage.ae/locations",
@@ -272,7 +273,7 @@ export default function LocationsPage() {
                   <li className="flex items-start gap-2"><span className="text-green-600 font-bold mt-1">✓</span><span>No surprise charges — all costs disclosed upfront</span></li>
                 </ul>
                 <div className="mt-6 p-4 bg-[#0A2463] text-white rounded-lg">
-                  <p className="font-bold mb-1">Starts from 12.60 AED / sqft</p>
+                  <p className="font-bold mb-1">Starts from 12.65 AED / sqft</p>
                   <p className="text-sm">Plans scale based on volume of items stored. No minimum contract. No long-term commitment required.</p>
                 </div>
               </div>
@@ -363,10 +364,11 @@ export default function LocationsPage() {
                 business is within our door-to-door service coverage area.
               </p>
               <p className="text-gray-700">
-                Our service zones are centred around four key hubs — Business Bay (serving central and downtown
-                Dubai), Dubai Marina (serving the western coast), Jumeirah (serving the villa communities), and
-                Dubai Investment Park (serving the southern industrial and residential areas). Each zone has
-                dedicated logistics teams for fast, efficient service.
+                Storage itself is held at our single Dubai facility in Dubai Investment Park. For collection and
+                delivery we route the city through four zones — central and downtown Dubai, the western coast,
+                the villa communities, and the southern residential and industrial areas — which together cover
+                the {locations.length} areas listed above and every other community in Dubai. Whichever area you are
+                in, our team comes to your door; you never need to travel to the warehouse.
               </p>
             </div>
             <div>

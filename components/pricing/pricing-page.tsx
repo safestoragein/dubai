@@ -30,7 +30,9 @@ export default function PricingPage() {
               className="space-y-4"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-                Flexible & Affordable Storage Pricing
+                {/* Carries both the location and the price — the audit flagged this
+                    H1 as having neither. */}
+                Storage Prices in Dubai — From 12.65 AED/sqft
               </h1>
               <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
                 Transparent pricing with no hidden fees. Pay for what you need, when you need it.
@@ -77,7 +79,7 @@ export default function PricingPage() {
         <div className="container px-4 md:px-6">
           <div className="flex justify-center">
             <div className="bg-blue-50 rounded-2xl p-10 border-2 border-primary text-center max-w-xl w-full">
-              <p className="text-2xl md:text-3xl font-bold text-primary">Pricing starts from 12.60 AED / sqft</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary">Pricing starts from 12.65 AED / sqft</p>
               <p className="text-sm text-muted-foreground mt-3">VAT-inclusive · secure indoor storage · door-to-door pickup & delivery</p>
             </div>
           </div>

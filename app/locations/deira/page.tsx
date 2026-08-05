@@ -1,14 +1,16 @@
 import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
+import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Deira & Bur Dubai Storage — Door-to-door Pickup",
   description:
-    "Storage in Deira, Bur Dubai, Karama & Oud Metha. Door-to-Door pickup from your home or office. Secure units from 12.60 AED / sqft. Old Dubai area specialists. Call +971505773388.",
+    "Storage in Deira, Bur Dubai, Karama & Oud Metha. Door-to-Door pickup from your home or office. Secure units from 12.65 AED / sqft. Old Dubai area specialists.",
   keywords:
     "deira storage dubai, bur dubai storage, karama storage, storage deira, self storage bur dubai, oud metha storage, old dubai storage units",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Deira & Bur Dubai Storage — Door-to-door Pickup | SafeStorage",
     description: "Secure storage for Deira, Bur Dubai, Karama & Oud Metha. Door-to-Door pickup from your door. Call +971505773388.",
     url: "https://safestorage.ae/locations/deira",
@@ -22,12 +24,18 @@ export const metadata: Metadata = {
 }
 
 const deiraSchemas = [
+  locationBusinessSchema({
+    name: "Deira",
+    url: "https://safestorage.ae/locations/deira",
+    serves: ["Bur Dubai", "Karama", "Oud Metha", "Al Rigga", "Al Garhoud"]
+  }),
+
   {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Storage in Deira, Bur Dubai & Old Dubai",
     description:
-      "Secure storage for Deira, Bur Dubai, Karama, Oud Metha, and all old Dubai areas. Door-to-Door pickup. Flexible plans from 12.60 AED / sqft.",
+      "Secure storage for Deira, Bur Dubai, Karama, Oud Metha, and all old Dubai areas. Door-to-Door pickup. Flexible plans from 12.65 AED / sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/deira",
     areaServed: [
@@ -109,7 +117,7 @@ export default function DeiraPage() {
               </p>
               <p className="text-gray-700">
                 SafeStorage&apos;s volume-based pricing is ideal for Deira and Bur Dubai residents who want to store
-                specific items rather than pay for an entire storage unit. Starting from 12.60 AED / sqft (VAT-inclusive),
+                specific items rather than pay for an entire storage unit. Starting from 12.65 AED / sqft (VAT-inclusive),
                 residents can store just what they need and pay only for that — no wasted space, no fixed unit costs.
               </p>
             </div>
@@ -215,7 +223,7 @@ export default function DeiraPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage handle shared room or flatshare storage in Deira?</h3>
-              <p className="text-gray-700">Yes. Many Deira residents live in shared accommodation where they have personal belongings but limited private space. SafeStorage can store an individual&apos;s personal items — clothes, electronics, personal boxes — under a single account even from a shared living situation. For small volumes, our pricing from 12.60 AED / sqft (VAT-inclusive) makes storage accessible for individuals rather than requiring a full apartment clearance. Simply list or photograph your specific items and we will store them separately from any shared household contents.</p>
+              <p className="text-gray-700">Yes. Many Deira residents live in shared accommodation where they have personal belongings but limited private space. SafeStorage can store an individual&apos;s personal items — clothes, electronics, personal boxes — under a single account even from a shared living situation. For small volumes, our pricing from 12.65 AED / sqft (VAT-inclusive) makes storage accessible for individuals rather than requiring a full apartment clearance. Simply list or photograph your specific items and we will store them separately from any shared household contents.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage serve the Oud Metha and Al Jaddaf areas?</h3>

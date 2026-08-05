@@ -1,16 +1,18 @@
 import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
+import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Al Barsha Storage Dubai — Home Pickup",
   description:
-    "Storage in Al Barsha 1, 2, 3 & 4 Dubai. Door-to-Door pickup from your home or office. Secure units from 12.60 AED / sqft. Barsha Heights & Tecom also covered. Call +971505773388.",
+    "Storage in Al Barsha 1, 2, 3 & 4 Dubai. Door-to-Door pickup from your home or office. Secure units from 12.65 AED / sqft. Barsha Heights & Tecom also covered.",
   keywords:
     "al barsha storage dubai, storage al barsha 1, storage al barsha 2, storage near mall of the emirates, barsha heights storage, tecom storage dubai, al barsha self storage",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Al Barsha Storage Dubai — Door-to-door Pickup | SafeStorage",
-    description: "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights & Tecom. home pickup. From 12.60 AED / sqft. Call +971505773388.",
+    description: "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights & Tecom. home pickup. From 12.65 AED / sqft. Call +971505773388.",
     url: "https://safestorage.ae/locations/al-barsha",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -22,12 +24,18 @@ export const metadata: Metadata = {
 }
 
 const alBarshaSchemas = [
+  locationBusinessSchema({
+    name: "Al Barsha 1",
+    url: "https://safestorage.ae/locations/al-barsha",
+    serves: ["Al Barsha 2", "Al Barsha 3", "Al Barsha South", "Barsha Heights (IMPZ)", "Tecom"]
+  }),
+
   {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Storage in Al Barsha Dubai",
     description:
-      "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Door-to-Door pickup from your home or office. Flexible plans from 12.60 AED / sqft.",
+      "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. Door-to-Door pickup from your home or office. Flexible plans from 12.65 AED / sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/al-barsha",
     areaServed: [
@@ -196,11 +204,11 @@ export default function AlBarshaPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I store furniture from a villa in Al Barsha during renovation?</h3>
-              <p className="text-gray-700">Yes. Villa renovation storage in Al Barsha is one of our most common services. Our team can clear a 3–4 bedroom villa in Al Barsha in a single day, professionally packing and loading all furniture, appliances, and household contents. Everything is transported to our secure facility and stored safely until your renovation is complete. Villa renovation storage in Al Barsha starts from 12.60 AED / sqft (VAT-inclusive). Get an accurate quote by sharing photos or a video of your villa contents via WhatsApp (+971505773388).</p>
+              <p className="text-gray-700">Yes. Villa renovation storage in Al Barsha is one of our most common services. Our team can clear a 3–4 bedroom villa in Al Barsha in a single day, professionally packing and loading all furniture, appliances, and household contents. Everything is transported to our secure facility and stored safely until your renovation is complete. Villa renovation storage in Al Barsha starts from 12.65 AED / sqft (VAT-inclusive). Get an accurate quote by sharing photos or a video of your villa contents via WhatsApp (+971505773388).</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage serve Barsha Heights apartment residents?</h3>
-              <p className="text-gray-700">Yes. Barsha Heights (IMPZ) is fully covered by SafeStorage. Barsha Heights apartment residents use our service primarily for between-lease storage, apartment renovation storage, and personal household storage for items that don&apos;t fit in compact Barsha Heights units. Our team knows the building access and loading procedures for major Barsha Heights towers and can manage pickups efficiently without causing inconvenience to building management. Barsha Heights 1-bedroom apartment storage starts from 12.60 AED / sqft (VAT-inclusive).</p>
+              <p className="text-gray-700">Yes. Barsha Heights (IMPZ) is fully covered by SafeStorage. Barsha Heights apartment residents use our service primarily for between-lease storage, apartment renovation storage, and personal household storage for items that don&apos;t fit in compact Barsha Heights units. Our team knows the building access and loading procedures for major Barsha Heights towers and can manage pickups efficiently without causing inconvenience to building management. Barsha Heights 1-bedroom apartment storage starts from 12.65 AED / sqft (VAT-inclusive).</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What business storage services are available for Tecom companies?</h3>

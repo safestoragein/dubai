@@ -1,7 +1,7 @@
 export const pricingPlans = [
   {
     name: "Storage Plan",
-    price: "12.60 AED / sqft",
+    price: "12.65 AED / sqft",
     description: "One simple, transparent price for all your storage needs",
     space: "Flexible space — small, medium or large",
     popular: true,
@@ -12,7 +12,7 @@ export const pricingFaqs = [
   {
     question: "How much does storage cost?",
     answer:
-      "Our storage starts from 12.60 AED / sqft (VAT-inclusive). It is one simple, transparent price for any unit size.",
+      "Our storage starts from 12.65 AED / sqft (VAT-inclusive). It is one simple, transparent price for any unit size.",
   },
   {
     question: "Can I upgrade or downgrade my plan?",

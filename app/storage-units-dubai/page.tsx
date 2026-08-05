@@ -17,10 +17,10 @@ import { env } from "@/lib/env"
 
 export const metadata: Metadata = {
   title: "Storage Units Dubai — Prices & Sizes 2026",
-  description: "Compare storage unit sizes and prices in Dubai for 2026. From small locker-size to full-villa storage — transparent pricing from 12.60 AED / sqft and door-to-door pickup. No hidden fees.",
+  description: "Compare storage unit sizes and prices in Dubai for 2026. See what fits in each unit, what it costs per month, and book with door-to-door pickup.",
   keywords: "storage units dubai, self storage dubai, storage dubai price, storage units near me, cheap storage dubai, secure storage dubai, furniture storage dubai, storage facility dubai, storage space dubai, storage rental dubai",
   openGraph: {
-    title: "Storage Units in Dubai - From 12.60 AED / sqft | Door-to-door Pickup",
+    title: "Storage Units in Dubai - From 12.65 AED / sqft | Door-to-door Pickup",
     description: "Secure, clean storage units in Dubai. Door-to-Door service, 24/7 access, transparent pricing. Trusted by 500+ customers.",
     url: "https://safestorage.ae/storage-units-dubai",
     siteName: "SafeStorage Dubai",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Storage Units in Dubai - From 12.60 AED / sqft",
+    title: "Storage Units in Dubai - From 12.65 AED / sqft",
     description: "Secure, clean storage with Door-to-Door pickup. 500+ happy customers.",
   },
   alternates: {
@@ -233,7 +233,7 @@ const testimonials = [
 const faqs = [
   {
     question: "How much do storage units cost in Dubai?",
-    answer: "Storage units at SafeStorage Dubai start from just 12.60 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific storage needs. All prices include clean, secure units. Door-to-door service is available. No hidden fees! Contact us at 050-577-3388 for a personalized quote.",
+    answer: "Storage units at SafeStorage Dubai start from just 12.65 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific storage needs. All prices include clean, secure units. Door-to-door service is available. No hidden fees! Contact us at 050-577-3388 for a personalized quote.",
   },
   {
     question: "Do you offer door-to-door service?",
@@ -304,7 +304,7 @@ export default function StorageUnitsDubaiPage() {
             <div className="flex flex-wrap justify-center gap-3 mb-8">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                <span className="text-white text-sm font-medium">4.9/5 (487+ Reviews)</span>
+                <span className="text-white text-sm font-medium">4.9/5 (6700+ Reviews Globally)</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Users className="h-4 w-4 text-dubai-gold" />
@@ -323,7 +323,7 @@ export default function StorageUnitsDubaiPage() {
             {/* Main Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Storage Units in Dubai
-              <span className="block text-dubai-gold mt-2">From 12.60 AED / sqft</span>
+              <span className="block text-dubai-gold mt-2">From 12.65 AED / sqft</span>
             </h1>
 
             {/* Subheadline */}
@@ -356,7 +356,7 @@ export default function StorageUnitsDubaiPage() {
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {[
-                { label: "Starting Price", value: "12.60 AED / sqft" },
+                { label: "Starting Price", value: "12.65 AED / sqft" },
                 { label: "Pickup", value: "Door-to-Door" },
                 { label: "Response", value: "15 min" },
               ].map((stat, i) => (
@@ -424,14 +424,14 @@ export default function StorageUnitsDubaiPage() {
               Storage Unit Prices in Dubai
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Prices start from 12.60 AED / sqft. All units are clean and secure, with door-to-door service available.
+              Prices start from 12.65 AED / sqft. All units are clean and secure, with door-to-door service available.
             </p>
           </div>
 
           <div className="max-w-xl mx-auto">
             <div className="relative bg-white rounded-2xl shadow-lg ring-2 ring-dubai-gold overflow-hidden text-center p-10">
               <h3 className="text-2xl md:text-3xl font-bold text-dubai-navy mb-3">
-                Pricing starts from 12.60 AED / sqft
+                Pricing starts from 12.65 AED / sqft
               </h3>
               <p className="text-muted-foreground mb-6">
                 VAT-inclusive · all unit sizes · door-to-door pickup & delivery
@@ -625,7 +625,7 @@ export default function StorageUnitsDubaiPage() {
               </div>
               <div className="h-6 w-px bg-gray-200" />
               <span className="font-bold text-lg">4.9</span>
-              <span className="text-muted-foreground text-sm">487+ Google Reviews</span>
+              <span className="text-muted-foreground text-sm">6700+ Google Reviews Globally</span>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold text-dubai-navy mb-4">
@@ -864,6 +864,16 @@ export default function StorageUnitsDubaiPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-dubai-navy mb-3">Why SafeStorage is Dubai&apos;s Top-Rated Storage Unit Provider</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Most storage units in Dubai require you to do the work: hire a lorry, load it yourself, drive to an
+              industrial estate, and repeat the whole exercise every time you need something back. SafeStorage
+              removes all of it. We collect from your door anywhere in Dubai, wrap and load your items with our
+              own trained team, store them in a clean indoor unit at our Dubai Investment Park facility, and
+              deliver them back &mdash; in full or box by box &mdash; within 24&ndash;48 hours of your request.
+              Pricing starts from 12.65 AED per sqft including VAT, with door-to-door transport included rather
+              than added at the end, and billing is month-to-month with no lock-in. That combination is why
+              SafeStorage holds a 4.9/5 rating across 6,700+ reviews globally.
+            </p>
           </div>
 
           {/* Static FAQ section — plain HTML so search engines read every word */}

@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   keywords:
     "about safestorage dubai, storage company dubai, trusted storage dubai, secure storage facility",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "About SafeStorage Dubai - Your Trusted Storage Partner",
     description: "Serving Dubai since 2015 with premium storage solutions. Secure units, 24/7 security, door-to-door service.",
     url: "https://safestorage.ae/about",
@@ -52,9 +53,9 @@ const aboutSchemas = [
 export default function AboutPage() {
   const milestones = [
     { year: "2015", title: "Founded", description: "Started with a mission to provide hassle-free storage solutions" },
-    { year: "2019", title: "10000+ Customers", description: "Reached our first milestone of 10000 happy customers" },
+    { year: "2019", title: "10,000+ Customers", description: "Reached our first milestone of 10000 happy customers" },
     { year: "2023", title: "50000+ Customers", description: "Reached our first milestone of 50000 happy customers" },
-    { year: "2026", title: "1 Lakh + Customers", description: "Trusted by over 1 Lakh + customers globally" },
+    { year: "2026", title: "100,000+ Customers", description: "Trusted by over 100,000+ customers globally" },
    
   ]
 
@@ -100,7 +101,7 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-dubai-gold" />
-                <span>1 Lakh + Happy Customers</span>
+                <span>100,000+ Happy Customers</span>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="h-5 w-5 text-dubai-gold" />
@@ -287,7 +288,7 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Experience the SafeStorage Difference?</h2>
             <p className="text-white/80 text-lg mb-8">
-              Join 1 Lakh+ happy customers who trust us with their valuable belongings. Get your free quote in just 2 minutes.
+              Join 100,000+ happy customers who trust us with their valuable belongings. Get your free quote in just 2 minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
@@ -350,7 +351,7 @@ export default function AboutPage() {
             <h3 className="text-xl font-bold text-dubai-navy mb-4">SafeStorage by the Numbers</h3>
             <div className="grid md:grid-cols-4 gap-6 text-center text-gray-700">
               <div>
-                <p className="text-3xl font-bold text-[#0A2463] mb-1">1 Lakh+</p>
+                <p className="text-3xl font-bold text-[#0A2463] mb-1">100,000+</p>
                 <p className="text-sm">Happy Customers Globally</p>
               </div>
               <div>
@@ -489,7 +490,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Has SafeStorage won any awards or received notable recognition?</h3>
-              <p className="text-gray-700">SafeStorage has received recognition through its customer reviews and ratings platform performance. With a consistent 4.9 out of 5 rating across thousands of verified customer reviews, SafeStorage regularly appears as a top-rated storage provider in Dubai on Google, Trustpilot, and other review platforms. The ISO 9001:2015 certification is itself a recognised mark of quality management excellence. SafeStorage&apos;s growth from a startup in 2015 to a 1 lakh+ customer business managing 1.2 million square feet globally in under a decade is widely regarded as one of the most successful scaling stories in the Indian and UAE storage industry.</p>
+              <p className="text-gray-700">SafeStorage has received recognition through its customer reviews and ratings platform performance. With a consistent 4.9 out of 5 rating across thousands of verified customer reviews, SafeStorage regularly appears as a top-rated storage provider in Dubai on Google, Trustpilot, and other review platforms. The ISO 9001:2015 certification is itself a recognised mark of quality management excellence. SafeStorage&apos;s growth from a startup in 2015 to a 100,000+ customer business managing 1.2 million square feet globally in under a decade is widely regarded as one of the most successful scaling stories in the Indian and UAE storage industry.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">How does SafeStorage ensure the safety of its staff and customers during pickups?</h3>

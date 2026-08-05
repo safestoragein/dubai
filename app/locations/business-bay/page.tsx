@@ -1,14 +1,16 @@
 import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
+import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Storage Units Near Business Bay Dubai | 24hr Pickup",
   description:
-    "Looking for storage units near Business Bay Dubai? SafeStorage offers secure units with door-to-door pickup from Business Bay, DIFC & Downtown. Book online — space ready tomorrow. Call +971505773388.",
+    "Looking for storage units near Business Bay Dubai? SafeStorage offers secure units with door-to-door pickup from Business Bay, DIFC & Downtown.",
   keywords:
     "storage units near business bay dubai, business bay self storage, storage near DIFC, downtown dubai storage units, business bay office storage, storage pickup business bay",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Storage Units Near Business Bay Dubai - Pickup in 24hrs | SafeStorage",
     description: "Secure storage near Business Bay & DIFC. Door-to-Door pickup from your address. Call +971505773388.",
     url: "https://safestorage.ae/locations/business-bay",
@@ -22,6 +24,12 @@ export const metadata: Metadata = {
 }
 
 const businessBaySchemas = [
+  locationBusinessSchema({
+    name: "Business Bay",
+    url: "https://safestorage.ae/locations/business-bay",
+    serves: ["DIFC", "Downtown Dubai"]
+  }),
+
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -176,7 +184,7 @@ export default function BusinessBayPage() {
           <div>
             <h3 className="text-xl font-semibold text-[#0A2463] mb-3">High-Rise Apartment Storage — Business Bay Towers</h3>
             <p className="text-gray-700 mb-3">Living in a Business Bay high-rise means paying a premium for every square metre of living space. Residents commonly find themselves storing items they rarely use — extra furniture from a previous larger home, seasonal decorations, sports equipment, suitcases, or clothing for a different climate. These items take up valuable space in apartments where storage rooms are often tiny or non-existent.</p>
-            <p className="text-gray-700">SafeStorage solves this by offering flexible, volume-based storage starting from 12.60 AED / sqft (VAT-inclusive). You pay only for the actual volume you store, not a fixed unit size. Our team collects directly from your apartment floor, handles all the carrying and loading, and returns items to your door whenever you need them — usually within 24 hours of a delivery request.</p>
+            <p className="text-gray-700">SafeStorage solves this by offering flexible, volume-based storage starting from 12.65 AED / sqft (VAT-inclusive). You pay only for the actual volume you store, not a fixed unit size. Our team collects directly from your apartment floor, handles all the carrying and loading, and returns items to your door whenever you need them — usually within 24 hours of a delivery request.</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Corporate Office Storage — Business Bay &amp; Sheikh Zayed Road</h3>

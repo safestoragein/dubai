@@ -4,9 +4,9 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Customer Testimonials | SafeStorage Dubai Reviews",
+  title: { absolute: "Customer Testimonials | SafeStorage Dubai Reviews" },
   description:
-    "Read what our customers say about SafeStorage Dubai. Real reviews and testimonials from satisfied clients across Dubai. See why we're the trusted storage solution.",
+    "Real SafeStorage Dubai customer reviews. Read how expats, families and businesses across Dubai rate our door-to-door storage service.",
   keywords:
     "storage reviews dubai, customer testimonials, storage company reviews, safestorage reviews, dubai storage feedback",
   alternates: {
@@ -20,7 +20,7 @@ const testimonialsSchemas = [
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/testimonials#webpage',
     name: 'Customer Testimonials | SafeStorage Dubai Reviews',
-    description: 'Real reviews and testimonials from satisfied SafeStorage Dubai customers. See why we\'re trusted by 1 Lakh+ customers.',
+    description: 'Real reviews and testimonials from satisfied SafeStorage Dubai customers. See why we\'re trusted by 100,000+ customers.',
     url: 'https://safestorage.ae/testimonials',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -83,7 +83,7 @@ export default function TestimonialsPage() {
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h1>
           <p className="text-lg text-white/90">
-            Over 1 Lakh satisfied customers across Dubai trust SafeStorage with their most valuable belongings.
+            over 100,000 satisfied customers globally trust SafeStorage with their most valuable belongings.
             Read their stories below.
           </p>
         </div>
@@ -125,7 +125,7 @@ export default function TestimonialsPage() {
           </div>
 
           <div className="text-center">
-            <p className="text-lg text-gray-700 mb-4">Join over 1 Lakh+ happy customers. Get your free quote today.</p>
+            <p className="text-lg text-gray-700 mb-4">Join 100,000+ happy customers worldwide. Get your free quote today.</p>
             <Link
               href="/get-quote"
               className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c02a50] transition-colors"
@@ -187,7 +187,7 @@ export default function TestimonialsPage() {
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Transparent Pricing That Customers Praise</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                One of the most consistent themes in our customer reviews is the relief customers feel when they discover our pricing is genuinely transparent. In an industry often criticised for hidden fees, lock-in contracts, and confusing pricing structures, SafeStorage has built its reputation on the opposite: the price quoted is the price charged, every time. Storage pricing starts from 12.60 AED / sqft (VAT-inclusive), with door-to-door pickup & delivery available.
+                One of the most consistent themes in our customer reviews is the relief customers feel when they discover our pricing is genuinely transparent. In an industry often criticised for hidden fees, lock-in contracts, and confusing pricing structures, SafeStorage has built its reputation on the opposite: the price quoted is the price charged, every time. Storage pricing starts from 12.65 AED / sqft (VAT-inclusive), with door-to-door pickup & delivery available.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 We offer flexible monthly contracts with no long-term commitments, making SafeStorage suitable for customers at every stage — from those storing during a two-week renovation to businesses needing multi-year storage solutions. Long-term customers benefit from a wide range of discounts on prepaid plans — the longer you store, the more you save. We are proud that our Net Promoter Score consistently exceeds industry benchmarks because our customers know exactly what they are paying for and feel they are receiving excellent value. Call +971505773388 today for a personalised quote with no obligation.
@@ -251,7 +251,7 @@ export default function TestimonialsPage() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">10. Has SafeStorage won any industry recognition or awards?</h3>
-              <p className="text-gray-700">SafeStorage Dubai is part of the broader SafeStorage group which serves over 1 Lakh customers globally. Our Dubai operation has earned strong recognition through consistently high customer satisfaction scores, numerous five-star reviews across all major platforms, and partnerships with leading Dubai property management companies, real estate agencies, and corporate relocation services. While we let our customer reviews speak louder than awards, we are proud to be the storage partner of choice for thousands of Dubai residents and businesses.</p>
+              <p className="text-gray-700">SafeStorage Dubai is part of the broader SafeStorage group which serves over 100,000 customers globally. Our Dubai operation has earned strong recognition through consistently high customer satisfaction scores, numerous five-star reviews across all major platforms, and partnerships with leading Dubai property management companies, real estate agencies, and corporate relocation services. While we let our customer reviews speak louder than awards, we are proud to be the storage partner of choice for thousands of Dubai residents and businesses.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -261,14 +261,14 @@ export default function TestimonialsPage() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">12. Is there anything customers wish they had known before starting storage with SafeStorage?</h3>
-              <p className="text-gray-700">The most common piece of feedback from new customers is that they wish they had contacted SafeStorage sooner. Many customers initially planned to manage their move or renovation themselves, only to realise part-way through how much easier and more affordable professional storage would have been. Another common point is that customers are often pleasantly surprised by how affordable storage is — with pricing starting from 12.60 AED / sqft (VAT-inclusive) — and wish they had not spent months moving items between locations when SafeStorage could have handled everything seamlessly from the start.</p>
+              <p className="text-gray-700">The most common piece of feedback from new customers is that they wish they had contacted SafeStorage sooner. Many customers initially planned to manage their move or renovation themselves, only to realise part-way through how much easier and more affordable professional storage would have been. Another common point is that customers are often pleasantly surprised by how affordable storage is — with pricing starting from 12.65 AED / sqft (VAT-inclusive) — and wish they had not spent months moving items between locations when SafeStorage could have handled everything seamlessly from the start.</p>
             </div>
 
           </div>
 
           <div className="text-center bg-gradient-to-r from-[#0A2463] to-[#3E92CC] rounded-2xl p-10 text-white">
             <h3 className="text-2xl font-bold mb-3">Join Thousands of Happy SafeStorage Customers</h3>
-            <p className="text-white/85 mb-6 text-lg">Experience Dubai&apos;s most trusted storage service. Door-to-Door pickup, clean and secure units, 24/7 security — from 12.60 AED / sqft.</p>
+            <p className="text-white/85 mb-6 text-lg">Experience Dubai&apos;s most trusted storage service. Door-to-Door pickup, clean and secure units, 24/7 security — from 12.65 AED / sqft.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/get-quote"

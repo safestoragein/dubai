@@ -104,6 +104,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/warehouse-storage-dubai`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/business-storage`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -257,34 +263,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/self-storage-dubai/household-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/self-storage-dubai/student-storage`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/self-storage-dubai/furniture-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
       url: `${baseUrl}/self-storage-dubai/short-term-moving-renovation`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/self-storage-dubai/how-it-works`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
     },
 
 
@@ -449,24 +431,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.95,
     },
-    {
-      url: `${baseUrl}/storage-dubai/ecommerce-fulfilment`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/storage-dubai/vehicle-storage`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/storage-dubai/records-archival`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
   ]
 
   // Fetch actual blog posts from API
@@ -512,5 +476,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     blogRoutes = []
   }
 
-  return [...routes, ...blogRoutes]
+  // De-duplicate by URL, keeping the first (highest-priority) entry for each.
+  // Several service pages were listed twice after the duplicate /storage-dubai/*
+  // and /self-storage-dubai/* URLs were consolidated onto their canonical
+  // equivalents. A sitemap that lists the same URL more than once is a weak
+  // quality signal and makes indexation reports harder to read, so collapse
+  // them here rather than relying on every hand-maintained block staying unique.
+  const seen = new Set<string>()
+  return [...routes, ...blogRoutes].filter((route) => {
+    if (!route?.url || seen.has(route.url)) return false
+    seen.add(route.url)
+    return true
+  })
 }

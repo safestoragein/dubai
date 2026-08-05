@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Storage Unit vs Renting Bigger Apartment in Dubai — Which Saves More? | SafeStorage",
+  title: { absolute: "Storage Unit vs Renting Bigger Apartment in Dubai — Which Saves More?" },
   description: "Should you rent a bigger Dubai apartment or use a storage unit? Complete cost comparison and analysis for Dubai residents in 2025. The numbers may surprise you.",
   keywords: "storage vs bigger apartment dubai, storage unit vs moving bigger dubai, cost storage vs apartment dubai, do I need bigger home or storage dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Storage Unit vs Renting Bigger Apartment in Dubai — Which Saves More?",
     description: "Full cost analysis: storage unit vs upgrading apartment in Dubai. The numbers strongly favour storage in most scenarios.",
     url: "https://safestorage.ae/blog/storage-vs-bigger-home",
@@ -110,9 +111,9 @@ export default function StorageVsBiggerHomePage() {
                 <div className="bg-green-50 rounded-lg p-4">
                   <div className="font-bold text-green-800 mb-2">Option B: Storage unit + stay in 1BR</div>
                   <div className="space-y-1 text-sm">
-                    <div className="flex justify-between"><span>Medium storage unit</span><span className="font-bold">From 12.60 AED / sqft</span></div>
+                    <div className="flex justify-between"><span>Medium storage unit</span><span className="font-bold">From 12.65 AED / sqft</span></div>
                     <div className="flex justify-between"><span>Door-to-Door pickup + delivery</span><span className="font-bold">AED 0</span></div>
-                    <div className="flex justify-between border-t pt-2 font-bold text-green-700"><span>Year 1 total extra cost</span><span>From 12.60 AED / sqft</span></div>
+                    <div className="flex justify-between border-t pt-2 font-bold text-green-700"><span>Year 1 total extra cost</span><span>From 12.65 AED / sqft</span></div>
                   </div>
                 </div>
                 <div className="bg-dubai-gold/20 rounded-lg p-4">
@@ -157,7 +158,7 @@ export default function StorageVsBiggerHomePage() {
             </div>
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
-              <h2 className="text-2xl font-bold mb-3">Solve Your Space Problem from 12.60 AED / sqft</h2>
+              <h2 className="text-2xl font-bold mb-3">Solve Your Space Problem from 12.65 AED / sqft</h2>
               <p className="text-white/80 mb-6">Before committing to a more expensive flat, try storage. Door-to-Door pickup, secure units, flexible monthly contracts.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">

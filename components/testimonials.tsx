@@ -51,6 +51,7 @@ const testimonials = [
     verified: true,
   },
   {
+    content: "I left Dubai for eight months and needed somewhere safe for my whole apartment. They packed everything, sent me the inventory, and delivered it all back the week I returned — not a single item missing or damaged.",
     author: "Jennifer Lee",
     role: "Expat, Downtown Dubai",
     rating: 5,
@@ -104,7 +105,7 @@ export default function Testimonials() {
             transition={{ delay: 0.2 }}
             className="text-xl text-muted-foreground max-w-[800px]"
           >
-            Real experiences from 1 Lakh + happy customers across Globally
+            Real experiences from 100,000+ happy customers across Globally
           </m.p>
         </div>
 
@@ -166,7 +167,7 @@ export default function Testimonials() {
         >
           <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
             <Link href="/get-quote" className="group">
-              Join 1 Lakh+ Happy Customers
+              Join 100,000+ Happy Customers
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>

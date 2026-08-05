@@ -1,14 +1,16 @@
 import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
+import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Dubai Hills Estate Storage — Door-to-door Pickup",
   description:
-    "Storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup service, secure units, flexible plans from 12.60 AED / sqft. Al Quoz also covered. Call +971505773388.",
+    "Storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup service, secure units, flexible plans from 12.65 AED / sqft. Al Quoz also covered.",
   keywords:
     "dubai hills estate storage, storage dubai hills, storage near dubai hills mall, al quoz storage, dubai hills villa storage, storage emaar dubai hills",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Dubai Hills Estate Storage — Door-to-door Pickup | SafeStorage",
     description: "Door-to-Door pickup storage for Dubai Hills villas and apartments. Secure units. Al Quoz & Umm Suqeim also covered. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-hills",
@@ -22,6 +24,12 @@ export const metadata: Metadata = {
 }
 
 const dubaiHillsSchemas = [
+  locationBusinessSchema({
+    name: "Dubai Hills Estate",
+    url: "https://safestorage.ae/locations/dubai-hills",
+    serves: ["Al Quoz", "Umm Suqeim", "Nad Al Sheba"]
+  }),
+
   {
     "@context": "https://schema.org",
     "@type": "Service",

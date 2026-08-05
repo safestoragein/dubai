@@ -6,11 +6,12 @@ import { FileText, CheckCircle2, Star, Phone, ArrowRight, Shield, Lock, Clock } 
 
 export const metadata: Metadata = {
   title: "Document Storage Dubai — Secure Records",
-  description: "Secure document and records storage in Dubai. Store business files, legal documents, contracts and personal records safely. Fire-resistant, access-controlled. From 12.60 AED / sqft. Call +971505773388.",
+  description: "Secure document and records storage in Dubai. Store business files, legal documents, contracts and personal records safely. Fire-resistant, access-controlled.",
   keywords: "document storage dubai, records storage dubai, file storage dubai, business document storage dubai, legal document storage dubai, archive storage dubai, confidential document storage dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Document Storage Dubai — Secure Records & Archive Storage | SafeStorage",
-    description: "Secure document storage in Dubai for businesses and individuals. Fire-resistant, access-controlled, confidential. From 12.60 AED / sqft.",
+    description: "Secure document storage in Dubai for businesses and individuals. Fire-resistant, access-controlled, confidential. From 12.65 AED / sqft.",
     url: "https://safestorage.ae/document-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -70,7 +71,7 @@ export default function DocumentStoragePage() {
                 <FileText className="w-4 h-4" /> Document & Records Storage
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Document Storage Dubai — Secure Archive & Records Management</h1>
-              <p className="text-xl text-white/85 mb-8">Free up prime office space and comply with UAE retention requirements — without destroying documents you're legally required to keep. SafeStorage Dubai provides secure, access-controlled document and archive storage for businesses and individuals from 12.60 AED / sqft.</p>
+              <p className="text-xl text-white/85 mb-8">Free up prime office space and comply with UAE retention requirements — without destroying documents you're legally required to keep. SafeStorage Dubai provides secure, access-controlled document and archive storage for businesses and individuals from 12.65 AED / sqft.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Quote</Button>
@@ -89,7 +90,7 @@ export default function DocumentStoragePage() {
           <div className="container px-4 max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
-                { stat: "12.60 AED", label: "Starting price / sqft" },
+                { stat: "12.65 AED", label: "Starting price / sqft" },
                 { stat: "5+ Years", label: "UAE retention requirements" },
                 { stat: "24/7", label: "Security monitoring" },
                 { stat: "Door-to-Door", label: "Initial collection" },
@@ -127,7 +128,7 @@ export default function DocumentStoragePage() {
             </div>
             <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6">
               <p className="text-dubai-navy font-medium">
-                <strong>Cost comparison:</strong> Storing business records with SafeStorage starts from 12.60 AED / sqft (VAT-inclusive). Renting the equivalent office floor space in Business Bay costs AED 800–1,500/month. Offsite document storage saves 80% vs using prime office space for archive boxes.
+                <strong>Cost comparison:</strong> Storing business records with SafeStorage starts from 12.65 AED / sqft (VAT-inclusive). Renting the equivalent office floor space in Business Bay costs AED 800–1,500/month. Offsite document storage saves 80% vs using prime office space for archive boxes.
               </p>
             </div>
           </div>
@@ -142,7 +143,7 @@ export default function DocumentStoragePage() {
                 { icon: FileText, title: "Individual Labelling & Inventory", desc: "Your boxes are labelled with your reference system. We maintain an outer inventory record so specific boxes can be retrieved without searching through everything." },
                 { icon: Clock, title: "Timed Destruction Service", desc: "We can schedule document destruction at the end of your required retention period — certified shredding with a destruction certificate issued for your compliance records." },
                 { icon: CheckCircle2, title: "Confidentiality Assured", desc: "Staff are bound by confidentiality agreements. Your documents are stored in a sealed, individually assigned area — not accessible by other customers or general staff." },
-                { icon: ArrowRight, title: "Retrieval on Request", desc: "Need a specific box? Request retrieval via phone or email. We locate and have ready for collection within 2 business hours for standard requests." },
+                { icon: ArrowRight, title: "Retrieval on Request", desc: "Need a specific box? Request retrieval via phone or email with one week's notice, and we locate it and have it ready for collection on your chosen date." },
               ].map((f) => (
                 <div key={f.title} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                   <f.icon className="w-10 h-10 text-dubai-gold mb-4" />
@@ -159,7 +160,7 @@ export default function DocumentStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">Who Uses Our Document Storage</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { title: "Law Firms & Legal Practices", desc: "Store client files, case records, and legal correspondence securely off-site. Maintain confidentiality while freeing DIFC or JLT office space. Retrieve files on request within hours." },
+                { title: "Law Firms & Legal Practices", desc: "Store client files, case records, and legal correspondence securely off-site. Maintain confidentiality while freeing DIFC or JLT office space. Retrieve files on request with a week&apos;s notice." },
                 { title: "Accounting & Finance Firms", desc: "VAT records, audit files, financial statements and client tax documents must be retained for 5+ years in the UAE. Secure offsite storage is safer and cheaper than prime office filing cabinets." },
                 { title: "Real Estate Companies", desc: "Title deeds, sales agreements, tenancy contracts and DLD records. Real estate documents often have 10-year retention requirements and build up rapidly in high-volume agencies." },
                 { title: "HR & Recruitment Departments", desc: "Employee contracts, performance records, visa documents, and payroll files. UAE Labour Law requires retention of employment records for minimum 2 years post-employment." },
@@ -182,7 +183,7 @@ export default function DocumentStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">Customer Testimonials</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { name: "Ibrahim S.", location: "DIFC", role: "Law Firm Partner", text: "We store 5 years of closed client files with SafeStorage. Retrieval when we need a reference takes 2 hours. We freed up an entire storage room in our DIFC office that now accommodates a meeting room. Cost savings plus more usable space — an obvious decision.", rating: 5 },
+                { name: "Ibrahim S.", location: "DIFC", role: "Law Firm Partner", text: "We store 5 years of closed client files with SafeStorage. We plan our retrievals a week ahead and the boxes are always ready when we arrive. We freed up an entire storage room in our DIFC office that now accommodates a meeting room. Cost savings plus more usable space — an obvious decision.", rating: 5 },
                 { name: "Laleh K.", location: "Business Bay", role: "Finance Director", text: "VAT audit required records from 2018–2022. Everything was with SafeStorage — labelled by year and category. The retrieval was smooth and everything was in exactly the condition it was stored. The auditors were satisfied. Could not have managed the same compliance with in-office storage.", rating: 5 },
                 { name: "Dr. Mahesh R.", location: "Al Quoz", role: "Clinic Owner", text: "Patient records from our first 4 years of operation are stored with SafeStorage. DHA requires us to retain for 25 years for some records. Having them offsite in a secure, access-controlled environment gives me confidence in our compliance posture.", rating: 5 },
               ].map((t) => (
@@ -203,7 +204,7 @@ export default function DocumentStoragePage() {
             <div className="space-y-4">
               {[
                 { q: "Do you provide an inventory of my stored documents?", a: "Yes. We create an outer inventory of your boxes with your own reference labels or descriptions. We do not open or read document contents — the inventory is based on box labels you provide. For businesses with large volumes, we recommend your own internal cataloguing system (even a spreadsheet) to track what's in each box." },
-                { q: "Can you retrieve a specific box without me coming in?", a: "Yes. Call or email us with your box reference number. We locate the box and have it ready for collection within 2 business hours during business days. For urgent retrieval, call directly — we can prioritise if needed. A retrieval fee applies for individual box access without a pre-arranged visit." },
+                { q: "Can you retrieve a specific box without me coming in?", a: "Yes. Call or email us with your box reference number at least one week before you need it. We locate the box and have it ready for collection on your requested date. A retrieval fee applies for individual box access without a pre-arranged visit." },
                 { q: "Do you offer certified document destruction?", a: "Yes. We provide a scheduled shredding service for documents that have reached the end of their required retention period. A certificate of destruction is issued for your compliance records. This is particularly valuable for financial and legal documents where destruction must be documented for regulatory purposes." },
               ].map((faq) => (
                 <details key={faq.q} className="border border-gray-200 rounded-xl p-6 group">
@@ -239,7 +240,7 @@ export default function DocumentStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our Document Storage Service in Dubai</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
               <p>SafeStorage Dubai provides secure, access-controlled document and records storage for businesses and individuals across the emirate. Every box stored with us is held in a dedicated, access-controlled area &mdash; a clean, enclosed indoor space that keeps paper records dust-protected and away from the rain, direct sun, and outdoor elements. Our facility offers the physical security and confidentiality that legally required and irreplaceable documents demand, with a complete audit trail of every access event.</p>
-              <p>UAE businesses are legally required to retain a wide range of documents for minimum statutory periods &mdash; from 2 years for employee records under UAE Labour Law to 10 years for real estate transactions under Dubai Land Department regulations. Failing to retain documents for the required period, or failing to produce them during an audit or legal proceeding, can result in regulatory penalties and significant legal exposure. SafeStorage Dubai provides an affordable, reliable solution that allows businesses to maintain full compliance with retention requirements without using expensive prime office floor space for archive boxes. Our pricing starts from 12.60 AED / sqft (VAT-inclusive), representing a fraction of the cost of equivalent office storage space in Dubai&apos;s commercial districts.</p>
+              <p>UAE businesses are legally required to retain a wide range of documents for minimum statutory periods &mdash; from 2 years for employee records under UAE Labour Law to 10 years for real estate transactions under Dubai Land Department regulations. Failing to retain documents for the required period, or failing to produce them during an audit or legal proceeding, can result in regulatory penalties and significant legal exposure. SafeStorage Dubai provides an affordable, reliable solution that allows businesses to maintain full compliance with retention requirements without using expensive prime office floor space for archive boxes. Our pricing starts from 12.65 AED / sqft (VAT-inclusive), representing a fraction of the cost of equivalent office storage space in Dubai&apos;s commercial districts.</p>
             </div>
 
             <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive Document Storage FAQs</h2>
@@ -257,7 +258,7 @@ export default function DocumentStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">How quickly can I retrieve specific files or boxes?</h3>
-                <p className="text-gray-700 leading-relaxed">For standard retrieval requests, we locate and prepare your specified box(es) for collection within 2 business hours during business days. If you call us before 12 noon, your box is typically ready for collection the same afternoon. For urgent retrieval requests &mdash; for example, if a document is needed for a same-day audit, legal proceeding, or emergency &mdash; call us directly at +971505773388 and we will prioritise the retrieval. A retrieval fee applies for individual box access outside of pre-arranged visits. If you visit regularly (weekly or bi-weekly), we can arrange scheduled access that reduces per-retrieval costs. We aim to make retrieval as seamless and responsive as possible.</p>
+                <p className="text-gray-700 leading-relaxed">For standard retrieval requests, we ask for one week&apos;s advance notice so we can locate and prepare your specified box(es) for collection on your chosen date. Submit the request by phone at +971505773388 or by email, quoting the box reference number from your inventory record. Because documents are held in a secure archival section rather than an open-access unit, planning retrievals a week ahead is what allows us to have your boxes ready and waiting when you arrive. A retrieval fee applies for individual box access outside of pre-arranged visits. If you need files regularly (weekly or bi-weekly), we can arrange scheduled access that reduces per-retrieval costs and removes the need to give notice each time.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

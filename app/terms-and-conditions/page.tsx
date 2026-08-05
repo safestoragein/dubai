@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: 'Terms and Conditions',
   description: 'Read SafeStorage Dubai terms and conditions for storage services in UAE. Understand our policies, liability, payment terms and customer responsibilities.',
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: 'Terms and Conditions | SafeStorage Dubai',
     description: 'SafeStorage Dubai storage service terms and conditions',
     url: 'https://safestorage.ae/terms-and-conditions',
@@ -141,7 +142,7 @@ export default function TermsAndConditionsPage() {
           <li style={{ marginBottom: '15px', fontSize: '16px' }}>
             <strong>Additional Item Charges:</strong>
             <ol style={{ marginTop: '10px', paddingLeft: '20px', listStyleType: 'decimal' }}>
-              <li>Storage charges start from 12.60 AED / sqft (VAT-inclusive). You pay only for the space your items actually occupy.</li>
+              <li>Storage charges start from 12.65 AED / sqft (VAT-inclusive). You pay only for the space your items actually occupy.</li>
               <li>Applicable packing and transport charges are confirmed in your quotation based on the items being collected.</li>
               <li>Extra-large or unusual items to be discussed with the SafeStorage team for an accurate quote.</li>
             </ol>

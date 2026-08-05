@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Renovation Storage Tips Dubai — Complete Guide for Apartment & Villa Renovation | SafeStorage",
-  description: "Planning a Dubai renovation? Complete guide to storing furniture and belongings during renovation. Avoid damage, save costs, and make your renovation stress-free. Call +971505773388.",
+  title: { absolute: "Renovation Storage Tips Dubai — Complete Guide for Apartment & Villa Renovation" },
+  description: "Planning a Dubai renovation? How to store furniture and belongings while work is underway, what to pack first, and how to avoid dust damage.",
   keywords: "renovation storage dubai, furniture storage during renovation dubai, apartment renovation storage dubai, villa renovation storage, moving out for renovation dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Renovation Storage Tips Dubai — Make Your Reno Stress-Free",
     description: "Complete guide to storing belongings during Dubai apartment and villa renovation. What to store, how to plan, and the cost breakdown.",
     url: "https://safestorage.ae/blog/renovation-storage-tips",
@@ -126,9 +127,9 @@ export default function RenovationStorageTipsPage() {
               <div className="bg-green-50 border border-green-200 rounded-xl p-5">
                 <h3 className="font-bold text-green-800 mb-3">Storage Cost (2BR Apartment)</h3>
                 <div className="space-y-2 text-sm text-green-700">
-                  <div className="flex justify-between"><span>Unit pricing</span><span className="font-bold">From 12.60 AED / sqft</span></div>
+                  <div className="flex justify-between"><span>Unit pricing</span><span className="font-bold">From 12.65 AED / sqft</span></div>
                   <div className="flex justify-between"><span>Door-to-Door pickup + delivery</span><span className="font-bold">AED 0</span></div>
-                  <div className="border-t border-green-300 pt-2 flex justify-between font-bold"><span>Total</span><span>From 12.60 AED / sqft</span></div>
+                  <div className="border-t border-green-300 pt-2 flex justify-between font-bold"><span>Total</span><span>From 12.65 AED / sqft</span></div>
                 </div>
               </div>
               <div className="bg-red-50 border border-red-200 rounded-xl p-5">

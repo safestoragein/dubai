@@ -130,14 +130,15 @@ export default function TestimonialVideosPage() {
               Customer Stories
             </m.div>
 
-            <m.h1
+            {/* h2, not h1 — app/testimonials/page.tsx already emits the page's single h1. */}
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl font-bold mb-6 text-white"
             >
               Hear From Our <span className="text-dubai-gold">Satisfied</span> Customers
-            </m.h1>
+            </m.h2>
 
             <m.p
               initial={{ opacity: 0, y: 20 }}

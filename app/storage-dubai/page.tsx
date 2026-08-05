@@ -19,11 +19,11 @@ import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
   title: "Storage Dubai — Personal, Business & Vehicle Storage",
-  description: "One storage provider for all your Dubai needs: personal furniture, business inventory, vehicle storage & document archival. 4.9★ rated by 500+ customers. Door-to-Door pickup, transparent pricing. Call +971505773388.",
+  description: "One storage provider for all your Dubai needs: personal furniture, business inventory, vehicle storage & document archival. 4.9★ rated by 500+ customers.",
   keywords: "all in one storage dubai, personal and business storage dubai, vehicle furniture storage dubai, storage provider dubai, full service storage dubai, pickup and delivery storage dubai, 4.9 rated storage dubai",
   openGraph: {
-    title: "Storage Dubai | #1 Rated Storage Facility | From 12.60 AED / sqft",
-    description: "Best storage in Dubai from 12.60 AED / sqft. Secure units, 24/7 access, Door-to-Door service. 4.9★ rated by 500+ customers.",
+    title: "Storage Dubai | #1 Rated Storage Facility | From 12.65 AED / sqft",
+    description: "Best storage in Dubai from 12.65 AED / sqft. Secure units, 24/7 access, Door-to-Door service. 4.9★ rated by 500+ customers.",
     url: "https://safestorage.ae/storage-dubai",
     siteName: "SafeStorage Dubai",
     images: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Storage Dubai | #1 Rated | From 12.60 AED / sqft",
+    title: "Storage Dubai | #1 Rated | From 12.65 AED / sqft",
     description: "Best storage in Dubai. Secure units, Door-to-Door pickup. 500+ happy customers.",
   },
   alternates: {
@@ -93,7 +93,7 @@ const storageServices = [
     icon: Package,
     title: "Furniture Storage",
     description: "Secure, dedicated units perfect for protecting furniture. Ideal for relocations and staging.",
-    link: "/self-storage-dubai/furniture-storage",
+    link: "/furniture-storage",
   },
   {
     icon: FileText,
@@ -242,7 +242,7 @@ const testimonials = [
 const faqs = [
   {
     question: "How much does storage cost in Dubai?",
-    answer: "Storage in Dubai at SafeStorage starts from just 12.60 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include security. Door-to-door service is available. Contact us at 050-577-3388 for a personalized quote.",
+    answer: "Storage in Dubai at SafeStorage starts from just 12.65 AED / sqft (VAT-inclusive). We offer flexible pricing based on your specific needs - from small boxes to full villa contents. All prices include security. Door-to-door service is available. Contact us at 050-577-3388 for a personalized quote.",
   },
   {
     question: "Do you pick up items from my location?",
@@ -310,7 +310,7 @@ const storageDubaiSchemas = [
     url: 'https://safestorage.ae/storage-dubai',
     areaServed: { '@type': 'City', name: 'Dubai' },
     serviceType: 'Self Storage',
-    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.60', description: 'Starts from 12.60 AED / sqft (VAT-inclusive)' },
+    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.65', description: 'Starts from 12.65 AED / sqft (VAT-inclusive)' },
   },
   {
     '@context': 'https://schema.org',
@@ -372,7 +372,7 @@ export default function StorageDubaiPage() {
 
               {/* Subheadline */}
               <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-                Door-to-Door service • From 12.60 AED / sqft • 24/7 access • Secure units
+                Door-to-Door service • From 12.65 AED / sqft • 24/7 access • Secure units
               </p>
 
               {/* CTAs */}
@@ -403,7 +403,7 @@ export default function StorageDubaiPage() {
                   { label: "Happy Customers", value: "500+" },
                   { label: "Google Rating", value: "4.9★" },
                   { label: "Access Hours", value: "24/7" },
-                  { label: "Starting Price", value: "12.60 AED / sqft" },
+                  { label: "Starting Price", value: "12.65 AED / sqft" },
                 ].map((stat, i) => (
                   <div key={i} className="bg-white/5 backdrop-blur-sm rounded-lg p-4">
                     <div className="text-dubai-gold font-bold text-xl">{stat.value}</div>
@@ -500,14 +500,14 @@ export default function StorageDubaiPage() {
                 Storage Dubai Pricing
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Transparent pricing - Competitors hide this! Prices start from 12.60 AED / sqft.
+                Transparent pricing - Competitors hide this! Prices start from 12.65 AED / sqft.
               </p>
             </div>
 
             <div className="max-w-xl mx-auto">
               <div className="relative bg-white rounded-2xl shadow-lg ring-2 ring-dubai-gold overflow-hidden text-center p-10">
                 <h3 className="text-2xl md:text-3xl font-bold text-dubai-navy mb-3">
-                  Pricing starts from 12.60 AED / sqft
+                  Pricing starts from 12.65 AED / sqft
                 </h3>
                 <p className="text-muted-foreground mb-6">
                   VAT-inclusive · all unit sizes · door-to-door pickup & delivery
@@ -802,7 +802,7 @@ export default function StorageDubaiPage() {
               <div>
                 <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Storage Costs in Dubai</h3>
                 <p className="text-gray-700 mb-3">
-                  Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) — whether you need a small
+                  Storage in Dubai starts from 12.65 AED / sqft (VAT-inclusive) — whether you need a small
                   personal unit (25–50 sq ft), an extra-large unit (200+ sq ft) for full villa contents or
                   commercial inventory, or vehicle storage for standard cars and motorcycles.
                 </p>
@@ -865,7 +865,7 @@ export default function StorageDubaiPage() {
             <div className="bg-gray-50 rounded-xl p-8 mb-10">
               <h3 className="text-xl font-bold text-[#0A2463] mb-4">Storage Pricing Guide — Dubai 2025</h3>
               <p className="text-gray-700 mb-4">
-                Storage prices in Dubai vary significantly depending on the provider, unit size, location, and included services. As a reference point for the Dubai market: basic self-service storage (no pickup) ranges from AED 150–400/month for small units. Full-service storage with door-to-door service — the SafeStorage model — starts from 12.60 AED / sqft (VAT-inclusive), whether for small personal units, large commercial units, or vehicle storage.
+                Storage prices in Dubai vary significantly depending on the provider, unit size, location, and included services. As a reference point for the Dubai market: basic self-service storage (no pickup) ranges from AED 150–400/month for small units. Full-service storage with door-to-door service — the SafeStorage model — starts from 12.65 AED / sqft (VAT-inclusive), whether for small personal units, large commercial units, or vehicle storage.
               </p>
             </div>
 

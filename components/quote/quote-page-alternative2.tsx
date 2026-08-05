@@ -188,7 +188,7 @@ const calculateSharedSpacePricing = (selectedItems: SelectedItem[]) => {
   // Minimum 30 sqft for shared space
   const chargeablesqft = Math.max(calculatedsqft, 30)
 
-  // 12 AED per sqft + 5% VAT = 12.60 AED per sqft inclusive
+  // 12 AED per sqft + 5% VAT = 12.65 AED per sqft inclusive
   const pricePersqft = SHARED_RATE_PER_SQFT_AED
   const pricePersqftInclVat = pricePersqft * (1 + VAT_RATE)
   const subtotal = chargeablesqft * pricePersqft
@@ -1347,13 +1347,14 @@ export default function QuotePage() {
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
           <div className="text-center">
-            <m.h1
+            {/* h2, not h1 — app/get-quote/page.tsx already emits the page's single h1. */}
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-2xl sm:text-3xl font-bold text-slate-800 mb-2"
             >
               Get Storage Quote
-            </m.h1>
+            </m.h2>
             <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

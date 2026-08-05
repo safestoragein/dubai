@@ -6,6 +6,7 @@ import { Calendar, Truck, Warehouse, Package, Phone, ArrowRight, Check, ChevronR
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+import { PHONE_DISPLAY } from "@/lib/company-facts"
 
 export default function HowItWorksPage() {
   // Scroll to top when the page loads
@@ -13,7 +14,9 @@ export default function HowItWorksPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  const phoneNumber = process.env.NEXT_PUBLIC_CONTACT_NUMBER || "+971 XX XXX XXXX"
+  // Never fall back to a placeholder: NEXT_PUBLIC_* is inlined at build time, so a
+  // missing env var used to ship a live `tel:+971XXXXXXXXX` link to production.
+  const phoneNumber = process.env.NEXT_PUBLIC_CONTACT_NUMBER || PHONE_DISPLAY
 
   // Refs for scroll animations
   const containerRef = useRef(null)
@@ -28,7 +31,7 @@ export default function HowItWorksPage() {
       icon: Calendar,
       color: "from-blue-500 to-blue-600",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/full-shot-woman-scanning-products_23-2148943323.jpg-FAOsFt1liszoayCOCLFr9S99saKR82.jpeg",
+        "/confident-professional.png",
       features: [
         "Simple online booking system",
         "Instant price quotes",
@@ -44,7 +47,7 @@ export default function HowItWorksPage() {
       icon: Truck,
       color: "from-green-500 to-green-600",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/full-shot-woman-scanning-products_23-2148943323.jpg-FAOsFt1liszoayCOCLFr9S99saKR82.jpeg",
+        "/organized-storage-boxes.png",
       features: [
         "Professional packing service",
         "Careful handling of all items",
@@ -60,7 +63,7 @@ export default function HowItWorksPage() {
       icon: Warehouse,
       color: "from-purple-500 to-purple-600",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/full-shot-woman-scanning-products_23-2148943323.jpg-FAOsFt1liszoayCOCLFr9S99saKR82.jpeg",
+        "/organized-warehouse-space.png",
       features: [
         "24/7 security surveillance",
         "Clean, indoor storage environment",
@@ -76,7 +79,7 @@ export default function HowItWorksPage() {
       icon: Package,
       color: "from-orange-500 to-orange-600",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/full-shot-woman-scanning-products_23-2148943323.jpg-FAOsFt1liszoayCOCLFr9S99saKR82.jpeg",
+        "/varied-storage-row.png",
       features: [
         "On-demand delivery service",
         "Online return request system",
@@ -101,9 +104,10 @@ export default function HowItWorksPage() {
             <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full bg-primary/10 border border-primary/30">
               <span className="text-sm font-medium text-primary">Our Simple Process</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            {/* h2, not h1 — app/how-it-works/page.tsx already emits the page's single h1. */}
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Storage Made <span className="text-yellow-400">Simple</span>
-            </h1>
+            </h2>
             <p className="text-xl md:text-2xl mb-8 text-gray-600 max-w-2xl mx-auto">
               From pickup to safe storage, we handle everything while you relax. Just 4 easy steps to secure your
               belongings.
@@ -349,7 +353,12 @@ export default function HowItWorksPage() {
       <div className="fixed bottom-6 right-6 z-50">
         <m.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1, type: "spring" }}>
           <Button size="lg" className="rounded-full h-16 w-16 shadow-lg" asChild>
-            <a href="#" aria-label="Chat with us">
+            <a
+              href={`https://wa.me/${phoneNumber.replace(/[^0-9]/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              aria-label="Chat with us on WhatsApp"
+            >
               <m.div
                 animate={{ rotate: [0, 10, -10, 10, 0] }}
                 transition={{ repeat: Number.POSITIVE_INFINITY, repeatDelay: 5, duration: 0.5 }}
@@ -461,7 +470,7 @@ function FaqAccordion() {
     {
       question: "How quickly can I get my items back?",
       answer:
-        "For smooth operations we kindly request our customers to inform 7 days prior.",
+        "We deliver stored items back to your address within 24–48 hours of your request. Call, WhatsApp or email us and tell us whether you need everything or only specific boxes — partial retrievals are delivered on the same 24–48 hour window, and the rest of your items stay in storage on the same monthly rate. For large or full-villa retrievals, giving us a few days' notice helps us schedule the right vehicle and crew.",
     },
     {
       question: "What items are not allowed in storage?",

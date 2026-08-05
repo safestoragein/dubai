@@ -17,7 +17,7 @@ const sampleComments: Comment[] = [
       {
         id: 101,
         author: {
-          name: "Ahmed Hassan",
+          name: "SafeStorage Dubai Editorial Team",
           avatar: "/abstract-geometric-shapes.png",
           role: "Storage Specialist",
         },
@@ -96,7 +96,7 @@ export const blogPosts: BlogPost[] = [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DALL%C2%B7E%202025-03-12%2012.14.39%20-%20An%20informative%20illustration%20showing%20different%20storage%20unit%20sizes%20with%20labeled%20dimensions%2C%20depicting%20furniture%20and%20boxes%20inside%20each%20size%2C%20set%20in%20a%20mod-VdQnzRPsAxWiKR7QgN61y60iVUNkbA.webp",
     date: "June 15, 2023",
     author: {
-      name: "Ahmed Hassan",
+      name: "SafeStorage Dubai Editorial Team",
       avatar: "/abstract-geometric-shapes.png",
       role: "Storage Specialist",
     },
@@ -162,7 +162,7 @@ export const blogPosts: BlogPost[] = [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DALL%C2%B7E%202025-03-12%2012.14.41%20-%20A%20visually%20appealing%20infographic-style%20image%20showcasing%20essential%20packing%20tips%20for%20long-term%20storage.%20It%20includes%20labeled%20boxes%2C%20protective%20wraps%2C%20and-CDjEILElvVjSdOiJq8w29UfFDhwZiY.webp",
     date: "July 22, 2023",
     author: {
-      name: "Sarah Johnson",
+      name: "SafeStorage Dubai Editorial Team",
       avatar: "/placeholder.svg?key=lydvp",
       role: "Packing Expert",
     },
@@ -252,7 +252,7 @@ export const blogPosts: BlogPost[] = [
       "/placeholder.svg?height=400&width=600&text=Secure+Storage+in+Dubai",
     date: "August 10, 2023",
     author: {
-      name: "Mohammed Al Farsi",
+      name: "SafeStorage Dubai Editorial Team",
       avatar: "/placeholder.svg?key=2vrdn",
       role: "Storage Facility Manager",
     },

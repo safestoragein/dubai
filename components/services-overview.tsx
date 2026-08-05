@@ -21,7 +21,7 @@ const services = [
   {
     emoji: "📦",
     title: "Document & Records Archival",
-    slug: "/storage-dubai/records-archival",
+    slug: "/document-storage",
     body: "Compliance-ready document storage for businesses that need secure, organised records management. Our clean, dust-protected archival units keep paper documents, legal files, medical records, and financial statements safe for years. Catalogued access ensures you can retrieve specific boxes on demand without sorting through everything.",
     popular: "Law firms, medical practices, accounting firms, government contractors, banks.",
     color: "#7c3aed",

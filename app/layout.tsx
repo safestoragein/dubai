@@ -36,10 +36,19 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  // NOTE: deliberately no `title`, `description` or `url` here.
+  //
+  // Child pages inherit this block wholesale when they do not declare their own.
+  // With a hardcoded url/title, every such page emitted the HOMEPAGE og:url and
+  // og:title — contradicting its own canonical tag, so any share of /contact,
+  // /how-it-works etc. resolved back to the homepage. The identical
+  // twitter:title also appeared on virtually every page.
+  //
+  // Omitting them makes Next.js derive og:title / twitter:title from each page's
+  // own `title`, and og:description / twitter:description from its `description`.
+  // Pages that need an explicit og:url (the homepage, key landing pages) declare
+  // their own openGraph block.
   openGraph: {
-    title: "SafeStorage Dubai - Premium Self Storage Solutions | +971505773388",
-    description: "Dubai's most trusted self storage facility with secure units, 24/7 security, and door-to-door service. Call now!",
-    url: "https://safestorage.ae",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
     type: "website",
@@ -54,8 +63,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SafeStorage Dubai - Premium Self Storage | +971505773388",
-    description: "Dubai's most trusted self storage facility with secure units and door-to-door service.",
     images: ["/twitter-image.jpg"],
     creator: "@safestoragedubai"
   },

@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Dubai Shopping Guide 2026: Malls & Souks",
   description:
-    "Ultimate Dubai shopping guide 2026! Discover the best malls (Dubai Mall, Mall of Emirates), traditional souks (Gold, Spice), outlet malls, markets & shopping festivals. Real prices, best times to shop & insider tips!",
+    "The 2026 Dubai shopping guide: best malls, souks and outlet villages, when the sales run, and how to get bulky purchases home and stored.",
   keywords:
     "dubai shopping 2026, best malls dubai, dubai mall, mall of emirates, gold souk dubai, spice souk, dubai shopping festival, outlet mall dubai, where to shop dubai, dubai markets",
   openGraph: {

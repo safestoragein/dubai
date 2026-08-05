@@ -13,14 +13,14 @@ const useCases = [
     emoji: "✈️",
     title: "Expats Relocating or Travelling",
     body: "Whether you're moving between emirates, leaving Dubai temporarily on a work assignment, or waiting for your new lease to start, our flexible monthly storage bridges the gap. No minimum commitment — even 2 weeks works. We'll deliver everything back when you're settled.",
-    cta: "/self-storage-dubai/household-storage",
+    cta: "/personal-storage",
     ctaLabel: "Household Storage →",
   },
   {
     emoji: "🛒",
     title: "E-commerce & Small Businesses",
     body: "Manage inventory without expensive long-term warehouse leases. Store seasonal stock, marketing materials, office furniture, or fulfilment inventory. 24/7 access means you can pick, restock, or audit on your schedule — with no minimum contract tying you down.",
-    cta: "/storage-dubai/ecommerce-fulfilment",
+    cta: "/ecommerce-storage",
     ctaLabel: "E-commerce Storage →",
   },
   {
@@ -34,14 +34,14 @@ const useCases = [
     emoji: "🎓",
     title: "Students Between Semesters",
     body: "University students leaving Dubai for summer break can store their belongings safely and affordably instead of shipping everything home. We pick up from your dorm or apartment and deliver back to your new address when you return. Short-term plans available — no year-long lock-in.",
-    cta: "/self-storage-dubai/student-storage",
+    cta: "/student-storage",
     ctaLabel: "Student Storage →",
   },
   {
     emoji: "🚙",
     title: "Seasonal Vehicle Storage",
     body: "Protect your car or motorcycle from Dubai's dust and the elements. Secure indoor vehicle bays keep your vehicle covered while you're travelling or between seasons. CCTV-monitored bays with controlled entry — your vehicle stays in the same condition you left it.",
-    cta: "/storage-dubai/vehicle-storage",
+    cta: "/car-storage",
     ctaLabel: "Vehicle Storage →",
   },
 ]

@@ -25,7 +25,9 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             >
-              Our <span className="text-dubai-gold">Services</span>
+              {/* "Our Services" targets nothing. /services is the page for
+                  "storage services dubai" (200/mo). */}
+              Storage Services in <span className="text-dubai-gold">Dubai</span>
             </m.h1>
             <m.p
               initial={{ opacity: 0, y: 20 }}
@@ -81,10 +83,17 @@ export default function ServicesPage() {
                     <div className="w-10 h-10 bg-dubai-gold/10 rounded-lg flex items-center justify-center text-dubai-gold">
                       {category.icon}
                     </div>
-                    <h2 className="text-xl font-bold text-dubai-navy">{category.name} Storage</h2>
+                    {/* The card heading is the link. These three cards previously had
+                        no link at all, so /services introduced the core services
+                        without passing any internal equity to their pages. */}
+                    <h2 className="text-xl font-bold text-dubai-navy">
+                      <Link href={category.href} className="hover:text-dubai-gold transition-colors">
+                        {category.name} Storage
+                      </Link>
+                    </h2>
                   </div>
                   <p className="text-gray-600 mb-4">{category.description}</p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 mb-5">
                     {category.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
                         <Check className="h-4 w-4 text-dubai-gold flex-shrink-0" />
@@ -92,6 +101,13 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
+                  <Link
+                    href={category.href}
+                    className="inline-flex items-center text-dubai-gold font-semibold hover:underline"
+                  >
+                    Explore {category.name.toLowerCase()} storage
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
                 </div>
               </m.div>
             ))}

@@ -24,17 +24,20 @@ const BlogSection      = dynamic(() => import("@/components/blog-section"))
 export const metadata: Metadata = {
   title: { absolute: "SafeStorage Dubai — #1 Rated Storage with Door-to-door Pickup" },
   description:
-    "SafeStorage Dubai: secure self-storage units with door-to-door service. Personal, business, vehicle & document storage from 12.60 AED / sqft. 500+ Dubai customers. Get a free quote in 2 minutes.",
+    "Secure self-storage in Dubai with door-to-door pickup. Personal, business, vehicle & document storage from 12.65 AED/sqft, VAT incl. Free quote in 2 minutes.",
   keywords:
     "safestorage dubai, door-to-door pickup storage dubai, secure storage dubai, affordable storage dubai, storage facility dubai, self storage dubai, personal storage dubai, business storage dubai, furniture storage dubai, vehicle storage dubai, document storage dubai, storage units dubai, dubai storage solutions, storage with pickup and delivery dubai",
+  // og:title now matches the page title — they previously disagreed, and both
+  // image paths (/og-home.jpg, /twitter-home.jpg) pointed at files that did not
+  // exist in public/, so every share rendered with a broken image.
   openGraph: {
-    title: "SafeStorage Dubai - Secure Storage Solutions | Door-to-door Pickup",
-    description: "Premium secure storage units in Dubai. 24/7 security, door-to-door service. Call +971505773388.",
+    title: "SafeStorage Dubai — #1 Rated Storage with Door-to-door Pickup",
+    description: "Secure storage units in Dubai from 12.65 AED/sqft with door-to-door pickup and delivery. Call +971505773388.",
     url: "https://safestorage.ae",
     siteName: "SafeStorage Dubai",
     images: [
       {
-        url: "/og-home.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "SafeStorage Dubai Facility",
@@ -45,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SafeStorage Dubai - Secure Storage Solutions",
-    description: "Premium storage units in Dubai with door-to-door service. Call +971505773388.",
-    images: ["/twitter-home.jpg"],
+    title: "SafeStorage Dubai — #1 Rated Storage with Door-to-door Pickup",
+    description: "Secure storage units in Dubai from 12.65 AED/sqft with door-to-door pickup and delivery.",
+    images: ["/twitter-image.jpg"],
   },
   alternates: {
     canonical: "https://safestorage.ae",
@@ -202,7 +205,7 @@ export default function LandingPage() {
               <p>✓ <strong>No Lock-In</strong> — Monthly contracts, cancel anytime</p>
               <p>✓ <strong>Transparent Pricing</strong> — No hidden fees, no surprises</p>
               <p>✓ <strong>Same-Day Pickup</strong> — Available for requests before 12 PM</p>
-              <p>✓ <strong>1 Lakh+ Customers</strong> — Trusted across Dubai and the UAE</p>
+              <p>✓ <strong>100,000+ Customers</strong> — Trusted across Dubai and the UAE</p>
             </div>
           </div>
 
@@ -220,7 +223,7 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="font-bold text-[#0A2463] mb-3">Flexible Storage Plans from 12.60 AED / sqft</h3>
+              <h3 className="font-bold text-[#0A2463] mb-3">Flexible Storage Plans from 12.65 AED / sqft</h3>
               <p className="text-gray-700 text-sm mb-3">
                 Storage units are available in sizes from 25 sq ft (small locker) to 300+ sq ft
                 (full villa contents). Monthly plans with no setup fees, no registration costs,

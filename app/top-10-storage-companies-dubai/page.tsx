@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Top 10 Storage Companies in Dubai (2026)",
   description:
-    "Looking for the best storage companies in Dubai? Here are the top 10 storage providers in Dubai ranked by price, security, reliability & customer reviews. SafeStorage Dubai is rated #1.",
+    "Looking for the best storage companies in Dubai? Here are the top 10 storage providers in Dubai ranked by price, security, reliability & customer reviews.",
   keywords:
     "top 10 storage companies in dubai, best storage companies dubai, storage companies in dubai, top storage dubai, best self storage dubai, storage facilities dubai, top rated storage dubai 2026, storage company dubai comparison",
   openGraph: {
@@ -64,7 +64,7 @@ const structuredData = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "How much do storage companies charge in Dubai?", acceptedAnswer: { "@type": "Answer", text: "Storage prices in Dubai vary by company and unit size. SafeStorage Dubai starts from 12.60 AED / sqft. Self-storage units at providers like The Box and Yellow Box typically start from AED 150–250/month. Premium or larger units can cost AED 500–2,000+/month." } },
+        { "@type": "Question", name: "How much do storage companies charge in Dubai?", acceptedAnswer: { "@type": "Answer", text: "Storage prices in Dubai vary by company and unit size. SafeStorage Dubai starts from 12.65 AED / sqft. Self-storage units at providers like The Box and Yellow Box typically start from AED 150–250/month. Premium or larger units can cost AED 500–2,000+/month." } },
         { "@type": "Question", name: "Which storage company in Dubai is best for businesses?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage Dubai is the best storage company for businesses in Dubai, offering dedicated business storage plans, document archival, e-commerce fulfilment, and flexible contracts. They serve businesses of all sizes from startups to large corporations." } },
       ],
     },
@@ -80,7 +80,7 @@ const companies = [
     score: 9.8,
     rating: 4.9,
     reviews: 2400,
-    price: "From 12.60 AED / sqft",
+    price: "From 12.65 AED / sqft",
     tag: "Editor's Choice",
     tagBg: "#FFD700",
     tagColor: "#0A2463",
@@ -551,6 +551,9 @@ export default function Top10StorageCompaniesDubai() {
 
             <div style={{ marginBottom: "28px" }}>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A2463", marginBottom: "12px" }}>3. Pricing Transparency — No Hidden Fees, No Surprises</h3>
+              <p style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "15px" }}>
+                SafeStorage Dubai quotes a single VAT-inclusive rate from 12.65 AED per sqft that already includes door-to-door collection and delivery. There is no separate transport charge added at the end, no mandatory packing-materials bundle, and no admin or exit fee. You receive a written breakdown showing the monthly storage fee, any optional add-ons you asked for and the VAT before you commit to anything, and that quote stays valid for 14 days. Billing is month-to-month, you can cancel with 30 days&apos; notice without penalty, and rates do not change mid-term. The price you are quoted is the price you pay.
+              </p>
             </div>
 
             <div style={{ marginBottom: "28px" }}>
@@ -613,10 +616,10 @@ export default function Top10StorageCompaniesDubai() {
               { href: "/self-storage-dubai", label: "Self Storage Dubai" },
               { href: "/personal-storage", label: "Personal Storage" },
               { href: "/business-storage", label: "Business Storage" },
-              { href: "/self-storage-dubai/furniture-storage", label: "Furniture Storage" },
+              { href: "/furniture-storage", label: "Furniture Storage" },
               { href: "/cheap-storage-dubai", label: "Cheap Storage Dubai" },
-              { href: "/storage-dubai/vehicle-storage", label: "Vehicle Storage" },
-              { href: "/storage-dubai/records-archival", label: "Document Storage" },
+              { href: "/car-storage", label: "Vehicle Storage" },
+              { href: "/document-storage", label: "Document Storage" },
               { href: "/top-10-storage-companies-uae", label: "Top Storage UAE" },
               { href: "/pricing", label: "Pricing" },
             ].map((link) => (

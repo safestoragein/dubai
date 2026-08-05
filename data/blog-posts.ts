@@ -65,7 +65,7 @@ export const blogPosts: BlogPost[] = [
     coverImage: "/varied-storage-row.png",
     date: "2023-06-15",
     author: {
-      name: "Ahmed Hassan",
+      name: "SafeStorage Dubai Editorial Team",
       avatar: "/confident-executive.png",
     },
     featured: true,
@@ -115,7 +115,7 @@ export const blogPosts: BlogPost[] = [
     coverImage: "/organized-storage-boxes.png",
     date: "2023-07-22",
     author: {
-      name: "Sarah Johnson",
+      name: "SafeStorage Dubai Editorial Team",
       avatar: "/confident-professional.png",
     },
     featured: true,

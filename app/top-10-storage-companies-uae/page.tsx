@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Top 10 Storage Companies in UAE (2026)",
   description:
-    "Looking for the best storage companies in UAE? Compare the top 10 storage providers across Dubai, Abu Dhabi & Sharjah ranked by price, security & customer reviews. SafeStorage UAE rated #1.",
+    "The 10 best storage companies in the UAE compared across Dubai, Abu Dhabi and Sharjah — ranked on price, security, coverage and customer reviews.",
   keywords:
     "top 10 storage companies in UAE, best storage companies UAE, storage companies in UAE, top storage UAE, best self storage UAE, storage facilities UAE, storage company dubai abu dhabi sharjah, top rated storage UAE 2026",
   openGraph: {
@@ -63,7 +63,7 @@ const structuredData = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "How much does storage cost per month in UAE?", acceptedAnswer: { "@type": "Answer", text: "Storage costs in the UAE vary widely depending on the provider, unit size, and location, with some premium units exceeding AED 2,000/month. SafeStorage UAE starts from 12.60 AED / sqft. Most self-storage facilities in Dubai start from AED 200–350/month for a small unit." } },
+        { "@type": "Question", name: "How much does storage cost per month in UAE?", acceptedAnswer: { "@type": "Answer", text: "Storage costs in the UAE vary widely depending on the provider, unit size, and location, with some premium units exceeding AED 2,000/month. SafeStorage UAE starts from 12.65 AED / sqft. Most self-storage facilities in Dubai start from AED 200–350/month for a small unit." } },
         { "@type": "Question", name: "Which storage company in UAE serves Abu Dhabi and Sharjah?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage UAE serves customers across all UAE emirates including Dubai, Abu Dhabi, Sharjah, Ajman, and Ras Al Khaimah through their door-to-door service model. Space Keeper also covers Abu Dhabi. Most other UAE storage companies are limited to Dubai." } },
       ],
     },
@@ -366,6 +366,9 @@ export default function Top10StorageCompaniesUAE() {
 
             <div style={{ marginBottom: "28px" }}>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A2463", marginBottom: "12px" }}>2. Evaluate the True All-In Cost</h3>
+              <p style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "15px" }}>
+                The advertised monthly rate is rarely what you end up paying. Ask every provider to quote the total cost of a realistic scenario &mdash; for example, storing a one-bedroom apartment for six months and retrieving it once in the middle. Costs that are commonly excluded from the headline price include collection and delivery, packing materials, labour for loading and unloading, insurance or damage cover, retrieval and re-delivery fees, and VAT. A facility that looks cheaper per square foot often costs more once transport and handling are added, particularly if you have to hire a lorry yourself. SafeStorage UAE quotes are VAT-inclusive and cover door-to-door collection and delivery, so the figure you are quoted is the figure you pay.
+              </p>
             </div>
 
             <div style={{ marginBottom: "28px" }}>
@@ -377,6 +380,9 @@ export default function Top10StorageCompaniesUAE() {
 
             <div style={{ marginBottom: "28px" }}>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A2463", marginBottom: "12px" }}>4. Assess Security Standards Thoroughly</h3>
+              <p style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "15px" }}>
+                Security claims are easy to make and harder to verify, so ask specific questions. How many cameras cover the storage floor, and how long is footage retained? Is access controlled and logged per person, or does the whole site share one code? Who is authorised to collect items from your unit, and how is that identity checked? Is there fire detection and suppression, and when was it last serviced? Is your inventory recorded and signed at intake, so there is a documented record of what went in? A provider that answers these precisely is showing you their actual process; one that answers with &ldquo;fully secure, 24/7&rdquo; and nothing more is showing you their marketing copy.
+              </p>
             </div>
 
             <div style={{ marginBottom: "28px" }}>
@@ -428,10 +434,10 @@ export default function Top10StorageCompaniesUAE() {
               { href: "/self-storage-dubai", label: "Self Storage Dubai" },
               { href: "/personal-storage", label: "Personal Storage" },
               { href: "/business-storage", label: "Business Storage" },
-              { href: "/self-storage-dubai/furniture-storage", label: "Furniture Storage" },
+              { href: "/furniture-storage", label: "Furniture Storage" },
               { href: "/cheap-storage-dubai", label: "Cheap Storage Dubai" },
-              { href: "/storage-dubai/vehicle-storage", label: "Vehicle Storage" },
-              { href: "/storage-dubai/records-archival", label: "Document Storage" },
+              { href: "/car-storage", label: "Vehicle Storage" },
+              { href: "/document-storage", label: "Document Storage" },
               { href: "/pricing", label: "Pricing" },
             ].map((link) => (
               <a key={link.href} href={link.href} style={{ display: "block", background: "white", border: "1px solid #e0e7ff", borderRadius: "8px", padding: "11px 14px", color: "#0A2463", textDecoration: "none", fontWeight: 600, fontSize: "13px", textAlign: "center" }}>

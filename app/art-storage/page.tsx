@@ -6,9 +6,10 @@ import { Shield, Star, Phone, CheckCircle2, Package, Camera, Lock, ArrowRight, A
 
 export const metadata: Metadata = {
   title: "Art Storage Dubai — Secure Art Vaults",
-  description: "Specialist art storage in Dubai for paintings, sculptures, antiques & collectibles. Secure vaults, photography on intake, white-glove handling. Call +971505773388.",
+  description: "Specialist art storage in Dubai for paintings, sculptures, antiques & collectibles. Secure vaults, photography on intake, white-glove handling.",
   keywords: "art storage dubai, artwork storage dubai, painting storage dubai, sculpture storage dubai, antique storage dubai, secure art storage, valuables storage dubai, gallery storage dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Art Storage Dubai — Secure Vaults for Artwork & Valuables",
     description: "Specialist art storage in Dubai. Secure vaults, photography on intake, white-glove handling for paintings, sculptures & collectibles.",
     url: "https://safestorage.ae/art-storage",
@@ -195,7 +196,7 @@ export default function ArtStoragePage() {
                 { q: "Do you photograph items before storage?", a: "Yes, every item is photographed in detail before storage begins. We document condition, dimensions, and any pre-existing damage. Both parties sign the condition report. You receive a digital copy. This protects both you and us." },
                 { q: "How do you pack paintings for storage?", a: "Large paintings are wrapped in acid-free tissue, then in polyethylene foam, and stored vertically in dedicated slots — never stacked horizontally unless specifically padded for it. Framed works have corner protectors. Works on canvas without frames are handled with particular care to avoid any pressure on the canvas surface." },
                 { q: "Can you arrange art transportation?", a: "We do not operate an art courier service, but we work with trusted specialist art transportation companies in Dubai and can recommend or facilitate connections. International art shipping for major works should always use an accredited fine art shipper." },
-                { q: "How much does art storage cost?", a: "Art storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), based on the volume and type of items stored. A full collection requires an in-person consultation and quotation. Please call us at +971505773388 to discuss your specific requirements." },
+                { q: "How much does art storage cost?", a: "Art storage at SafeStorage starts from 12.65 AED / sqft (VAT-inclusive), based on the volume and type of items stored. A full collection requires an in-person consultation and quotation. Please call us at +971505773388 to discuss your specific requirements." },
               ].map((faq) => (
                 <details key={faq.q} className="border border-gray-200 rounded-xl p-6 group">
                   <summary className="font-semibold text-dubai-navy cursor-pointer list-none flex justify-between items-center">

@@ -39,12 +39,23 @@ export const organizationSchema = {
       contactType: "customer service",
       areaServed: "AE",
       availableLanguage: ["en"],
-      hoursAvailable: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        opens: "08:00",
-        closes: "22:00"
-      }
+      // Must match localBusinessSchema.openingHoursSpecification below and the
+      // hours published on /contact and in the footer. This previously said
+      // 08:00–22:00 seven days, a fourth conflicting set of opening hours.
+      hoursAvailable: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "08:00",
+          closes: "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Sunday",
+          opens: "10:00",
+          closes: "18:00"
+        }
+      ]
     },
     {
       "@type": "ContactPoint",
@@ -98,7 +109,7 @@ export const localBusinessSchema = {
   url: "https://safestorage.ae",
   telephone: "+971505773388",
   email: "support@safestorage.ae",
-  priceRange: "From 12.60 AED / sqft",
+  priceRange: "From 12.65 AED / sqft",
   currenciesAccepted: "AED",
   paymentAccepted: "Cash, Credit Card, Debit Card, Bank Transfer, Cheque",
   areaServed: [
@@ -154,8 +165,8 @@ export const localBusinessSchema = {
     ratingValue: "4.9",
     bestRating: "5",
     worstRating: "1",
-    ratingCount: "487",
-    reviewCount: "312"
+    ratingCount: "6700",
+    reviewCount: "6700"
   },
   review: [
     {
@@ -202,7 +213,7 @@ export const localBusinessSchema = {
       "@type": "Offer",
       name: "Storage in Dubai",
       description: "Flexible, secure storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.60", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     }
@@ -242,7 +253,7 @@ export const faqSchema = {
       name: "How much does storage cost in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Storage in Dubai starts from 12.60 AED / sqft (VAT-inclusive) at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units are secure, clean, 24/7 CCTV-monitored, with door-to-door pickup & delivery available across Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
+        text: "Storage in Dubai starts from 12.65 AED / sqft (VAT-inclusive) at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units are secure, clean, 24/7 CCTV-monitored, with door-to-door pickup & delivery available across Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
       }
     },
     {
@@ -267,7 +278,7 @@ export const faqSchema = {
       name: "What sizes of storage units are available at SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai offers flexible storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use. We also store vehicles such as cars, bikes, and boats. Pricing starts from 12.60 AED / sqft (VAT-inclusive). Call +971505773388 for a quote."
+        text: "SafeStorage Dubai offers flexible storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use. We also store vehicles such as cars, bikes, and boats. Pricing starts from 12.65 AED / sqft (VAT-inclusive). Call +971505773388 for a quote."
       }
     },
     {
@@ -275,7 +286,7 @@ export const faqSchema = {
       name: "How do I know what storage unit size I need?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You only pay for the space you use, so there's no need to pick a fixed unit size. Whether you're storing a few boxes or the full contents of a villa or business, our dedicated storage consultants offer free assessments and will work out exactly how much space your items need. Pricing starts from 12.60 AED / sqft (VAT-inclusive). Call +971505773388 for personalized advice."
+        text: "You only pay for the space you use, so there's no need to pick a fixed unit size. Whether you're storing a few boxes or the full contents of a villa or business, our dedicated storage consultants offer free assessments and will work out exactly how much space your items need. Pricing starts from 12.65 AED / sqft (VAT-inclusive). Call +971505773388 for personalized advice."
       }
     },
     {
@@ -368,7 +379,7 @@ export const faqSchema = {
       name: "Can I store my car or vehicle in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! SafeStorage Dubai offers secure, indoor vehicle storage starting from 12.60 AED / sqft (VAT-inclusive). We store cars, motorcycles, classic cars, boats, jet skis, and RVs. All vehicles are kept in our secure indoor facility with 24/7 CCTV surveillance. Door-to-Door service available for vehicles too."
+        text: "Yes! SafeStorage Dubai offers secure, indoor vehicle storage starting from 12.65 AED / sqft (VAT-inclusive). We store cars, motorcycles, classic cars, boats, jet skis, and RVs. All vehicles are kept in our secure indoor facility with 24/7 CCTV surveillance. Door-to-Door service available for vehicles too."
       }
     },
     // BUSINESS STORAGE
@@ -406,7 +417,7 @@ export const faqSchema = {
       name: "What do customers say about SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai has a 4.9/5 rating on Google with 487+ verified reviews. Customers praise our: door-to-door service, secure and clean units that keep belongings well protected, transparent pricing with no hidden fees, responsive customer service (15-minute average response), and professional, friendly staff. Read our reviews at our Google Business listing."
+        text: "SafeStorage Dubai has a 4.9/5 rating on Google with 6,700+ verified reviews globally. Customers praise our: door-to-door service, secure and clean units that keep belongings well protected, transparent pricing with no hidden fees, responsive customer service (15-minute average response), and professional, friendly staff. Read our reviews at our Google Business listing."
       }
     },
     // PRACTICAL QUESTIONS
@@ -528,7 +539,7 @@ export const serviceSchema = {
       "@type": "Offer",
       name: "Storage in Dubai",
       description: "Flexible, secure storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.60", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     }
@@ -541,7 +552,7 @@ export const productSchema = {
   "@type": "Product",
   "@id": "https://safestorage.ae/#product",
   name: "Self Storage Units Dubai",
-  description: "Premium secure indoor storage units in Dubai with door-to-door service. Personal, business, and vehicle storage from 12.60 AED / sqft (VAT-inclusive).",
+  description: "Premium secure indoor storage units in Dubai with door-to-door service. Personal, business, and vehicle storage from 12.65 AED / sqft (VAT-inclusive).",
   brand: {
     "@type": "Brand",
     name: "SafeStorage Dubai"
@@ -575,14 +586,14 @@ export const productSchema = {
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "AED",
-    lowPrice: "12.60",
-    highPrice: "12.60",
+    lowPrice: "12.65",
+    highPrice: "12.65",
     offerCount: "1",
     offers: [
       {
         "@type": "Offer",
         name: "Storage in Dubai",
-        price: "12.60",
+        price: "12.65",
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
@@ -613,8 +624,8 @@ export const productSchema = {
     ratingValue: "4.9",
     bestRating: "5",
     worstRating: "1",
-    ratingCount: "487",
-    reviewCount: "312"
+    ratingCount: "6700",
+    reviewCount: "6700"
   },
   review: [
     {
@@ -637,7 +648,7 @@ export const howToSchema = {
   estimatedCost: {
     "@type": "MonetaryAmount",
     currency: "AED",
-    value: "12.60"
+    value: "12.65"
   },
   step: [
     {
@@ -674,7 +685,7 @@ export const itemListSchema = {
   "@type": "ItemList",
   "@id": "https://safestorage.ae/#itemlist",
   name: "Storage in Dubai at SafeStorage Dubai",
-  description: "Flexible storage in Dubai - pay only for the space you use, priced from 12.60 AED / sqft (VAT-inclusive)",
+  description: "Flexible storage in Dubai - pay only for the space you use, priced from 12.65 AED / sqft (VAT-inclusive)",
   numberOfItems: 1,
   itemListElement: [
     {
@@ -688,7 +699,7 @@ export const itemListSchema = {
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
-          price: "12.60",
+          price: "12.65",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
           url: "https://safestorage.ae/storage-units-dubai",
@@ -753,7 +764,7 @@ export const offerSchema = {
   "@id": "https://safestorage.ae/#offer",
   name: "New Customer Offer - SafeStorage Dubai",
   description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes secure indoor units, with door-to-door service available.",
-  priceSpecification: { "@type": "UnitPriceSpecification", price: "12.60", priceCurrency: "AED", unitText: "per sq ft" },
+  priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
   priceValidUntil: "2026-12-31",
   availability: "https://schema.org/InStock",
   validFrom: "2024-01-01",
@@ -809,6 +820,65 @@ export const aboutPageSchema = {
     "@id": "https://safestorage.ae/#organization"
   }
 }
+
+// 13b. LOCATION-PAGE BUSINESS SCHEMA (Function)
+//
+// Every /locations/* page describes the same single business, so this reuses the
+// canonical "#business" @id rather than minting a new entity per page — twelve
+// LocalBusiness nodes with twelve different @ids would read as twelve branches,
+// which is exactly the "facilities we do not operate" overclaim that put the
+// Google Business Profile at risk in the first place.
+//
+// The NAP and geo below MUST stay identical to localBusinessSchema above. Google
+// matches the site to the GBP listing by comparing name, address and phone; any
+// drift between these blocks breaks Map Pack eligibility.
+export const locationBusinessSchema = (area: {
+  name: string
+  url: string
+  serves?: string[]
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "SelfStorage",
+  "@id": "https://safestorage.ae/#business",
+  name: "SafeStorage Dubai",
+  url: "https://safestorage.ae",
+  telephone: "+971505773388",
+  email: "support@safestorage.ae",
+  priceRange: "AED",
+  image: "https://safestorage.ae/og-image.jpg",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Building 23, Warehouse 5, DIP-1",
+    addressLocality: "Dubai",
+    addressRegion: "Dubai",
+    postalCode: "00000",
+    addressCountry: "AE",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "24.9903469",
+    longitude: "55.1539764",
+  },
+  hasMap: "https://maps.app.goo.gl/eimPkShrQADHTq3N7",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "08:00",
+      closes: "20:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Sunday",
+      opens: "10:00",
+      closes: "18:00",
+    },
+  ],
+  areaServed: [area.name, ...(area.serves ?? [])].map((name) => ({
+    "@type": "Place",
+    name,
+  })),
+})
 
 // 14. BREADCRUMB SCHEMA (Function)
 export const breadcrumbSchema = (items: Array<{name: string, url: string}>) => ({

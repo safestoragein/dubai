@@ -1,14 +1,16 @@
 import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
+import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Expat Storage Dubai — Moving Back Home | Jumeirah",
   description:
-    "Moving back home from Jumeirah or leaving Dubai? SafeStorage offers expat-friendly storage — keep belongings safely stored while you decide what to ship. Door-to-Door pickup, flexible terms, trusted by 500+ expats. Call +971505773388.",
+    "Moving back home from Jumeirah or leaving Dubai? SafeStorage offers expat-friendly storage — keep belongings safely stored while you decide what to ship.",
   keywords:
     "expat storage dubai moving back home, jumeirah expat storage, leaving dubai storage, storage for expats dubai, moving out storage jumeirah, temporary storage expat dubai, repatriation storage dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Expat Storage Dubai Moving Back Home | Jumeirah | SafeStorage",
     description: "Trusted by 500+ expats leaving Dubai. Store belongings safely in Jumeirah — flexible terms, door-to-door pickup. Call +971505773388.",
     url: "https://safestorage.ae/locations/jumeirah",
@@ -22,6 +24,12 @@ export const metadata: Metadata = {
 }
 
 const jumeirahSchemas = [
+  locationBusinessSchema({
+    name: "Jumeirah",
+    url: "https://safestorage.ae/locations/jumeirah",
+    serves: ["Umm Suqeim", "Al Safa"]
+  }),
+
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -64,7 +72,7 @@ export default function JumeirahPage() {
     <LocationPage
       location="Jumeirah"
       areas={["Jumeirah 1", "Jumeirah 2", "Jumeirah 3", "Umm Suqeim", "Al Safa", "Al Wasl"]}
-      distance="20-25 minutes"
+      distance="15-20 minutes"
       benefits={[
         "Door-to-Door pickup from Jumeirah villas",
         "Perfect for villa renovations",
@@ -254,7 +262,7 @@ export default function JumeirahPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What are the storage options for residents of Satwa?</h3>
-            <p className="text-gray-700">Satwa is fully within our Jumeirah service zone and we regularly serve Satwa&apos;s dense residential community. Satwa&apos;s residents include long-term Dubai families, working professionals, and a significant business community. We offer the full range of personal, household, and commercial storage options for Satwa customers with the same door-to-door pickup, secure storage, and flexible monthly plans. Satwa residents appreciate our affordable pricing starting from 12.60 AED / sqft (VAT-inclusive), making SafeStorage accessible to residents across all income levels.</p>
+            <p className="text-gray-700">Satwa is fully within our Jumeirah service zone and we regularly serve Satwa&apos;s dense residential community. Satwa&apos;s residents include long-term Dubai families, working professionals, and a significant business community. We offer the full range of personal, household, and commercial storage options for Satwa customers with the same door-to-door pickup, secure storage, and flexible monthly plans. Satwa residents appreciate our affordable pricing starting from 12.65 AED / sqft (VAT-inclusive), making SafeStorage accessible to residents across all income levels.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you offer short-term storage for Jumeirah residents who are travelling for a few weeks?</h3>

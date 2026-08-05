@@ -251,10 +251,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </p>
 
           <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#111827", marginBottom: "12px", marginTop: "24px" }}>
-            Flexible Plans Starting from 12.60 AED / sqft
+            Flexible Plans Starting from 12.65 AED / sqft
           </h3>
           <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "24px" }}>
-            There are no long-term lock-ins. Pricing starts from 12.60 AED / sqft (VAT-inclusive), and you only pay for the space you use. You can start with as little as one week of storage, extend month by month, or book long-term for the best rates. Getting started takes less than two minutes: visit our website, select your unit size, book your pickup slot, and we handle everything else. Most customers have their items picked up within 24 hours of booking.
+            There are no long-term lock-ins. Pricing starts from 12.65 AED / sqft (VAT-inclusive), and you only pay for the space you use. You can start with as little as one week of storage, extend month by month, or book long-term for the best rates. Getting started takes less than two minutes: visit our website, select your unit size, book your pickup slot, and we handle everything else. Most customers have their items picked up within 24 hours of booking.
           </p>
 
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
@@ -274,7 +274,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Get a Free Quote
             </a>
             <a
-              href="https://safestorage.ae/self-storage-dubai/how-it-works"
+              href="https://safestorage.ae/how-it-works"
               style={{
                 display: "inline-block",
                 background: "#fff",
@@ -448,7 +448,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Does SafeStorage Dubai store vehicles?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Yes. SafeStorage Dubai offers dedicated indoor covered vehicle storage bays for cars, SUVs, motorcycles, scooters, and classic vehicles. Vehicle storage is indoor and under 24/7 CCTV surveillance. Vehicle storage pricing starts from 12.60 AED / sqft (VAT-inclusive), so you only pay for the space your vehicle occupies. This is ideal for expats travelling abroad for extended periods, classic car owners who want their vehicle stored safely over summer, or individuals who own a second vehicle they do not use daily. All vehicle storage bays include a complimentary wash before return. Call +971505773388 for vehicle storage availability and pricing.
+              Yes. SafeStorage Dubai offers dedicated indoor covered vehicle storage bays for cars, SUVs, motorcycles, scooters, and classic vehicles. Vehicle storage is indoor and under 24/7 CCTV surveillance. Vehicle storage pricing starts from 12.65 AED / sqft (VAT-inclusive), so you only pay for the space your vehicle occupies. This is ideal for expats travelling abroad for extended periods, classic car owners who want their vehicle stored safely over summer, or individuals who own a second vehicle they do not use daily. All vehicle storage bays include a complimentary wash before return. Call +971505773388 for vehicle storage availability and pricing.
             </p>
           </div>
 

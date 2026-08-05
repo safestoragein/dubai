@@ -15,6 +15,10 @@ export interface ServiceCategory {
   description: string
   image: string
   features: string[]
+  /** Canonical URL for this service. The /services cards had no links at all,
+   *  so the three highest-intent pages received no internal equity from the
+   *  page that exists to introduce them. */
+  href: string
   services: ServiceType[]
   faqs: { question: string; answer: string }[]
 }
@@ -22,6 +26,7 @@ export interface ServiceCategory {
 export const serviceCategories: ServiceCategory[] = [
   {
     id: "household",
+    href: "/personal-storage",
     name: "Household",
     icon: <Home className="h-5 w-5" />,
     description: "Safe storage for furniture, appliances, and personal belongings.",
@@ -36,6 +41,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "business",
+    href: "/business-storage",
     name: "Business",
     icon: <Briefcase className="h-5 w-5" />,
     description: "Secure storage for inventory, equipment, and office supplies.",
@@ -50,6 +56,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "document",
+    href: "/document-storage",
     name: "Document",
     icon: <FileText className="h-5 w-5" />,
     description: "Secure archiving for business and personal documents.",

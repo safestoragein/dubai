@@ -88,11 +88,14 @@ export default function ContactPage() {
               <div className="inline-block px-4 py-1 bg-dubai-gold/10 border border-dubai-gold/20 rounded-full text-dubai-darkgold text-sm font-medium">
                 Contact Us
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-dubai-navy">
+              {/* h2, not h1 — app/contact/page.tsx already emits the page's single h1.
+                  Two h1 tags on one page split the topical signal. */}
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-dubai-navy">
                 Get in Touch – We're Here to Help!
-              </h1>
+              </h2>
               <p className="text-xl text-dubai-navy/70 max-w-[600px]">
-                Have questions? Need assistance? Our team is ready to support you 24/7.
+                Have questions? Need assistance? Our team replies within 15 minutes during
+                business hours — Monday–Saturday 8 AM–8 PM, Sunday 10 AM–6 PM.
               </p>
               <div className="pt-4">
                 <Button
@@ -187,7 +190,10 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-dubai-navy">Working Hours</h3>
-                    <p className="text-dubai-navy/70">Mon-Sun: 8 AM - 7 PM</p>
+                    <p className="text-dubai-navy/70">Mon–Sat: 8 AM – 8 PM · Sun: 10 AM – 6 PM</p>
+                    <p className="text-dubai-navy/50 text-sm mt-1">
+                      24/7 facility access available for existing customers on request
+                    </p>
                   </div>
                 </div>
               </div>

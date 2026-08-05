@@ -26,7 +26,7 @@ export default function WhyChooseUs() {
       icon: DollarSign,
       title: "Transparent Pricing",
       description:
-        "What we quote is what you pay. No admin fees, no deposit surprises, no hidden charges on your invoice. VAT-inclusive pricing from 12.60 AED / sqft. We also offer a price-match guarantee — show us a lower quoted price and we'll beat it.",
+        "What we quote is what you pay. No admin fees, no deposit surprises, no hidden charges on your invoice. VAT-inclusive pricing from 12.65 AED / sqft. We also offer a price-match guarantee — show us a lower quoted price and we'll beat it.",
       highlight: "No Hidden Fees",
     },
     {
@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
       icon: Shield,
       title: "24/7 CCTV Monitoring",
       description:
-        "Multi-angle CCTV cameras cover every corridor, entry point, loading area, and storage zone. Footage is retained for 90 days. Motion alerts are triggered on all access points after hours. Your belongings are monitored continuously.",
+        "Multi-angle CCTV cameras cover every corridor, entry point, loading area, and storage zone. Motion alerts are triggered on all access points after hours. Your belongings are monitored continuously.",
       highlight: "Round the Clock",
     },
     {
@@ -106,7 +106,7 @@ export default function WhyChooseUs() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight text-dubai-navy"
           >
-            Why 1 Lakh+ Customers Trust <span className="text-dubai-gold">SafeStorage Globally</span>
+            Why 100,000+ Customers Trust <span className="text-dubai-gold">SafeStorage Globally</span>
           </m.h2>
           <m.p
             initial={{ opacity: 0, y: 20 }}
@@ -164,7 +164,7 @@ export default function WhyChooseUs() {
         >
           <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
             <Link href="/get-quote" className="group">
-              Join 1 Lakh + Happy Customers
+              Join 100,000+ Happy Customers
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>

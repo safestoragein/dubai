@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Complete Self Storage Guide Dubai 2025 — Everything You Need to Know | SafeStorage",
+  title: { absolute: "Complete Self Storage Guide Dubai 2025 — Everything You Need to Know" },
   description: "The definitive guide to self storage in Dubai. How it works, what it costs, how to choose, what to look for, and mistakes to avoid. Updated 2025.",
   keywords: "self storage guide dubai, how does self storage work dubai, self storage dubai 2025, choosing storage unit dubai, self storage tips dubai beginners guide",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Complete Self Storage Guide Dubai 2025 — Everything You Need to Know",
     description: "Definitive beginner's guide to self storage in Dubai. Process, costs, tips, and what to look for. Updated 2025.",
     url: "https://safestorage.ae/blog/self-storage-guide-dubai",

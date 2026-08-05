@@ -1,14 +1,16 @@
 import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
+import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Furniture Storage — Dubai Marina & JBR Renovation",
   description:
-    "Renovating your Dubai Marina or JBR apartment? Store furniture safely during renovation — from 1 week. Short-term storage between leases also available. Door-to-Door pickup from Marina & JBR. Call +971505773388.",
+    "Renovating your Dubai Marina or JBR apartment? Store furniture safely during renovation — from 1 week. Short-term storage between leases also available.",
   keywords:
     "furniture storage during renovation dubai marina, short term storage between leases JBR dubai, storage JBR dubai, storage during renovation marina, temporary furniture storage marina, lease gap storage dubai marina",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Furniture Storage During Renovation Dubai Marina & JBR | SafeStorage",
     description: "Short-term storage during renovations or between leases in Dubai Marina & JBR. Door-to-Door pickup. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-marina",
@@ -22,6 +24,12 @@ export const metadata: Metadata = {
 }
 
 const dubaiMarinaSchemas = [
+  locationBusinessSchema({
+    name: "Dubai Marina",
+    url: "https://safestorage.ae/locations/dubai-marina",
+    serves: ["JBR", "Bluewaters"]
+  }),
+
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -201,7 +209,7 @@ export default function DubaiMarinaPage() {
           <p className="text-gray-700 mb-4">SafeStorage pricing is transparent, volume-based, and identical across all Dubai areas including premium zones like Marina and JBR. There are no location premiums or surcharges for high-rise access:</p>
           <div className="max-w-xl mx-auto">
             <div className="bg-white rounded-lg p-8 border-2 border-[#0A2463] text-center">
-              <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12.60 AED / sqft</p>
+              <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12.65 AED / sqft</p>
               <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · door-to-door pickup & delivery</p>
             </div>
           </div>

@@ -2,7 +2,7 @@ import BlogListing from "@/components/blog/blog-listing"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Storage Tips & Guides | SafeStorage Dubai Blog",
+  title: { absolute: "Storage Tips & Guides | SafeStorage Dubai Blog" },
   description:
     "Expert storage tips, guides, and insights from SafeStorage Dubai. Learn how to organize, pack, and maximize your storage space in Dubai.",
   keywords: "storage tips dubai, storage guides, packing tips, organizing storage, storage blog dubai, storage advice",
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     languages: { 'en': 'https://safestorage.ae/blog', 'x-default': 'https://safestorage.ae/blog' },
   },
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Storage Tips & Guides | SafeStorage Dubai Blog",
     description: "Expert storage tips, guides, and insights from SafeStorage Dubai.",
     url: "https://safestorage.ae/blog",

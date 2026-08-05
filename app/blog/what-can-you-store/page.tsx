@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "What Can You Store in a Storage Unit in Dubai? Full Guide | SafeStorage",
-  description: "What's allowed and not allowed in Dubai storage units. Complete guide covering what you can store, what's prohibited, and specialist items that need special handling.",
+  title: { absolute: "What Can You Store in a Storage Unit in Dubai? Full Guide" },
+  description: "What you can and cannot store in a Dubai storage unit. Full list of permitted items, prohibited goods, and the rules that apply in the UAE.",
   keywords: "what can you store storage unit dubai, what is allowed storage dubai, prohibited items storage dubai, can I store food storage unit, storage unit rules dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "What Can You Store in a Storage Unit in Dubai? Complete Guide",
     description: "Full guide to what's permitted and prohibited in Dubai storage units. Know before you book.",
     url: "https://safestorage.ae/blog/what-can-you-store",

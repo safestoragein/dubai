@@ -9,7 +9,7 @@ import { MapPin, Calendar, Star, TrendingUp, Phone, ArrowRight, Share2, Bookmark
 export const metadata: Metadata = {
   title: "Top 6 Places to Visit in Dubai 2026",
   description:
-    "Discover the best places to visit in Dubai in 2026! From Burj Khalifa to Museum of the Future, explore Dubai's top attractions. Planning to move or relocate? We've got storage solutions too!",
+    "Discover the best places to visit in Dubai in 2026! From Burj Khalifa to Museum of the Future, explore Dubai's top attractions. Planning to move or relocate?",
   keywords:
     "dubai 2026, places to visit dubai, dubai attractions 2026, things to do dubai, dubai travel guide 2026, burj khalifa, dubai mall, museum of the future, dubai marina, palm jumeirah",
   openGraph: {

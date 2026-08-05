@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Star, MessageCircle } from "lucide-react"
 import { env } from "@/lib/env"
+import { SOCIAL } from "@/lib/company-facts"
 
 export default function Footer() {
   return (
@@ -92,19 +93,37 @@ export default function Footer() {
             <h3 className="text-lg font-medium text-dubai-gold">Storage Types</h3>
             <ul className="space-y-2 text-dubai-sand/80 text-sm">
               <li>
+                <Link href="/self-storage-dubai" className="hover:text-dubai-gold transition-colors">Self Storage Dubai</Link>
+              </li>
+              <li>
+                <Link href="/storage-units-dubai" className="hover:text-dubai-gold transition-colors">Storage Unit Sizes &amp; Prices</Link>
+              </li>
+              <li>
                 <Link href="/personal-storage" className="hover:text-dubai-gold transition-colors">Personal Storage</Link>
               </li>
               <li>
                 <Link href="/business-storage" className="hover:text-dubai-gold transition-colors">Business Storage</Link>
               </li>
+              {/* These must match the URLs linked from /services. The footer used to
+                  link a parallel /storage-dubai/* set, giving every service two live,
+                  self-canonicalising URLs that split ranking signals between them. */}
               <li>
-                <Link href="/storage-dubai/vehicle-storage" className="hover:text-dubai-gold transition-colors">Vehicle Storage</Link>
+                <Link href="/car-storage" className="hover:text-dubai-gold transition-colors">Vehicle Storage</Link>
               </li>
               <li>
-                <Link href="/storage-dubai/records-archival" className="hover:text-dubai-gold transition-colors">Document Storage</Link>
+                <Link href="/document-storage" className="hover:text-dubai-gold transition-colors">Document Storage</Link>
               </li>
               <li>
-                <Link href="/storage-dubai/ecommerce-fulfilment" className="hover:text-dubai-gold transition-colors">E-commerce Storage</Link>
+                <Link href="/ecommerce-storage" className="hover:text-dubai-gold transition-colors">E-commerce Storage</Link>
+              </li>
+              <li>
+                <Link href="/furniture-storage" className="hover:text-dubai-gold transition-colors">Furniture Storage</Link>
+              </li>
+              <li>
+                <Link href="/student-storage" className="hover:text-dubai-gold transition-colors">Student Storage</Link>
+              </li>
+              <li>
+                <Link href="/warehouse-storage-dubai" className="hover:text-dubai-gold transition-colors">Warehouse Storage</Link>
               </li>
             </ul>
           </div>
@@ -113,18 +132,26 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-medium text-dubai-gold">We Serve</h3>
             <ul className="space-y-2 text-dubai-sand/80 text-sm">
-              <li>
-                <Link href="/locations/dubai-investment-park" className="hover:text-dubai-gold transition-colors">Dubai Investment Park</Link>
-              </li>
-              <li>
-                <Link href="/locations/business-bay" className="hover:text-dubai-gold transition-colors">Business Bay</Link>
-              </li>
-              <li>
-                <Link href="/locations/dubai-marina" className="hover:text-dubai-gold transition-colors">Dubai Marina</Link>
-              </li>
-              <li>
-                <Link href="/locations/jumeirah" className="hover:text-dubai-gold transition-colors">Jumeirah</Link>
-              </li>
+              {/* All 12 location pages are linked here. Previously only 4 were, so the
+                  other 8 received no internal equity and were crawled only via sitemap. */}
+              {[
+                ["/locations/dubai-investment-park", "Dubai Investment Park"],
+                ["/locations/business-bay", "Business Bay"],
+                ["/locations/dubai-marina", "Dubai Marina"],
+                ["/locations/jumeirah", "Jumeirah"],
+                ["/locations/downtown-dubai", "Downtown Dubai"],
+                ["/locations/palm-jumeirah", "Palm Jumeirah"],
+                ["/locations/al-barsha", "Al Barsha"],
+                ["/locations/jumeirah-village-circle", "JVC"],
+                ["/locations/dubai-hills", "Dubai Hills"],
+                ["/locations/mirdif", "Mirdif"],
+                ["/locations/deira", "Deira"],
+                ["/locations/dubai-silicon-oasis", "Dubai Silicon Oasis"],
+              ].map(([href, label]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-dubai-gold transition-colors">{label}</Link>
+                </li>
+              ))}
               <li>
                 <Link href="/locations" className="hover:text-dubai-gold transition-colors">All Locations →</Link>
               </li>
@@ -164,26 +191,37 @@ export default function Footer() {
                   Building 23, Warehouse 5, DIP-1, Dubai, United Arab Emirates
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-dubai-gold shrink-0" />
-                <span>24/7 Access Available</span>
+              <li className="flex items-start gap-2">
+                <Clock className="h-4 w-4 text-dubai-gold shrink-0 mt-0.5" />
+                <span>
+                  Mon–Sat 8 AM–8 PM · Sun 10 AM–6 PM
+                  <span className="block text-dubai-sand/60">
+                    24/7 facility access for existing customers on request
+                  </span>
+                </span>
               </li>
             </ul>
 
-            {/* Social Links */}
+            {/* Social Links — these must stay in sync with the sameAs array in
+                lib/structured-data.ts. They were previously href="#", which meant the
+                Organization schema claimed profiles the site itself did not link to. */}
             <div className="flex space-x-3 pt-2">
-              <Link href="#" className="text-dubai-sand/80 hover:text-dubai-gold transition-colors bg-white/10 p-2 rounded-full">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-dubai-sand/80 hover:text-dubai-gold transition-colors bg-white/10 p-2 rounded-full">
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="text-dubai-sand/80 hover:text-dubai-gold transition-colors bg-white/10 p-2 rounded-full">
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
+              {[
+                [SOCIAL.facebook, Facebook, "Facebook"],
+                [SOCIAL.instagram, Instagram, "Instagram"],
+                [SOCIAL.linkedin, Linkedin, "LinkedIn"],
+              ].map(([href, Icon, label]: any) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-dubai-sand/80 hover:text-dubai-gold transition-colors bg-white/10 p-2 rounded-full"
+                >
+                  <Icon className="h-5 w-5" />
+                  <span className="sr-only">{label}</span>
+                </a>
+              ))}
             </div>
           </div>
         </div>

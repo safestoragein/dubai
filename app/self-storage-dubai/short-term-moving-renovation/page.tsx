@@ -7,10 +7,11 @@ import { Home, Truck, Clock, Package, ArrowRight, CheckCircle2, Calendar, Shield
 export const metadata: Metadata = {
   title: "Short-Term Storage Dubai — Moving & Renovation",
   description:
-    "Need storage between apartment leases, during a renovation, or while moving in Dubai? Book from 1 week — door-to-door pickup, flexible month-to-month plans. Perfect for lease gap storage & renovation projects. Call +971505773388.",
+    "Need storage between apartment leases, during a renovation, or while moving in Dubai? Book from 1 week — door-to-door pickup, flexible month-to-month plans.",
   keywords:
     "short term storage between leases dubai, lease gap storage dubai, storage during apartment renovation dubai, temporary storage moving house dubai, storage between moves dubai, 1 month storage dubai, weekly storage rental dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Short-Term Storage Between Leases Dubai | Moving & Renovation | SafeStorage",
     description: "Storage between leases, during renovation or while moving in Dubai. From 1 week, door-to-door pickup. Call +971505773388.",
     url: "https://safestorage.ae/self-storage-dubai/short-term-moving-renovation",
@@ -454,7 +455,7 @@ export default function ShortTermStoragePage() {
                     Store items room by room and retrieve them as each area of your home is completed. 
                     Perfect for phased renovations.
                   </p>
-                  <Link href="/self-storage-dubai/household-storage" className="text-dubai-gold hover:underline">
+                  <Link href="/personal-storage" className="text-dubai-gold hover:underline">
                     Learn about household storage options →
                   </Link>
                 </CardContent>
@@ -674,7 +675,7 @@ export default function ShortTermStoragePage() {
             <h3 className="text-xl font-bold text-[#0A2463] mb-3">Short-Term Storage Rates</h3>
             <p className="text-gray-700">
               Short-term storage is priced on monthly plans with no minimum contract, starting from
-              12.60 AED / sqft (VAT-inclusive). A typical 1–2 bedroom apartment contents fits in a medium unit.
+              12.65 AED / sqft (VAT-inclusive). A typical 1–2 bedroom apartment contents fits in a medium unit.
               Door-to-Door pickup & delivery is available. For renovations lasting 1–3 months, we offer a
               renovation storage package with preferential rates. Same-day pickup is available for bookings
               before 12 PM. Call +971 50 577 3388 to book or get an instant quote.

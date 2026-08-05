@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Summer Storage Dubai — What to Do with Your Belongings When You Leave | SafeStorage",
-  description: "Leaving Dubai for summer? Complete guide to storing your belongings, protecting your apartment, and saving money during the summer break. From 12.60 AED / sqft.",
+  title: { absolute: "Summer Storage Dubai — What to Do with Your Belongings When You Leave" },
+  description: "Leaving Dubai for summer? Complete guide to storing your belongings, protecting your apartment, and saving money during the summer break. From 12.65 AED / sqft.",
   keywords: "summer storage dubai, leaving dubai for summer, storage during summer holidays dubai, what to do with belongings summer dubai, expat summer dubai storage",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Summer Storage Dubai — Complete Guide for Expats Leaving for Summer",
     description: "Everything Dubai expats need to know about storing belongings when leaving for summer. Save money, free up your apartment, and travel with peace of mind.",
     url: "https://safestorage.ae/blog/summer-storage-dubai",
@@ -86,7 +87,7 @@ export default function SummerStorageDubaiPage() {
               {[
                 { option: "Option 1: Keep the apartment running (AC on)", cost: "AED 500–1,500/month in electricity, plus full rent", pros: ["Nothing gets damaged", "Return to ready home"], cons: ["Expensive — paying for empty apartment", "Risk of AC failure while you're away", "No security for valuables"] },
                 { option: "Option 2: Leave everything and hope for the best", cost: "AED 0", pros: ["No effort"], cons: ["Valuables left unattended for months", "Security concerns in empty property", "Returns to an apartment that may need deep clean", "Electronics and valuables at risk"] },
-                { option: "Option 3: Store with SafeStorage Dubai", cost: "from 12.60 AED / sqft (you only pay for the space you use)", pros: ["Clean, secure, indoor units", "Door-to-Door pickup", "Security monitored 24/7", "Pay only for what you store", "Peace of mind abroad"], cons: ["Requires move-out and move-in effort", "Monthly storage cost"] },
+                { option: "Option 3: Store with SafeStorage Dubai", cost: "from 12.65 AED / sqft (you only pay for the space you use)", pros: ["Clean, secure, indoor units", "Door-to-Door pickup", "Security monitored 24/7", "Pay only for what you store", "Peace of mind abroad"], cons: ["Requires move-out and move-in effort", "Monthly storage cost"] },
               ].map((opt) => (
                 <div key={opt.option} className="border border-gray-200 rounded-xl p-6">
                   <h3 className="font-bold text-dubai-navy text-lg mb-1">{opt.option}</h3>
@@ -132,9 +133,9 @@ export default function SummerStorageDubaiPage() {
             <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
               <div className="space-y-3">
                 {[
-                  { item: "Medium storage unit", cost: "From 12.60 AED / sqft" },
+                  { item: "Medium storage unit", cost: "From 12.65 AED / sqft" },
                   { item: "Door-to-Door pickup + delivery (SafeStorage)", cost: "AED 0" },
-                  { item: "Total storage cost", cost: "From 12.60 AED / sqft" },
+                  { item: "Total storage cost", cost: "From 12.65 AED / sqft" },
                   { item: "", cost: "" },
                   { item: "Alternative: Keep AC running (electricity only)", cost: "AED 1,500–4,500" },
                 ].map((row) => row.item ? (
@@ -152,7 +153,7 @@ export default function SummerStorageDubaiPage() {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               {[
                 { name: "Nadia O.", location: "Dubai Marina", text: "Third year using SafeStorage for summer. I travel for nearly three months and don't want my valuables sitting in an empty flat. They pick everything up, keep it secure, and deliver it back before I land. Total peace of mind." },
-                { name: "Vikram S.", location: "JVC", text: "Leaving for 3 months, didn't want to keep paying AED 1,500 electricity for an empty flat. Storage worked out to just 12.60 AED / sqft and I switched off the AC entirely. Came back to a working home and AED 2,700 saved on electricity alone." },
+                { name: "Vikram S.", location: "JVC", text: "Leaving for 3 months, didn't want to keep paying AED 1,500 electricity for an empty flat. Storage worked out to just 12.65 AED / sqft and I switched off the AC entirely. Came back to a working home and AED 2,700 saved on electricity alone." },
               ].map((t) => (
                 <div key={t.name} className="bg-slate-50 rounded-xl p-5 border border-gray-200">
                   <p className="text-gray-700 italic mb-3">"{t.text}"</p>

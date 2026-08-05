@@ -14,6 +14,8 @@ import { Clock } from "@/components/icons"
 import { getCategoryColor } from "@/lib/blog-images"
 import { blogImageUrl } from "@/lib/blog-image"
 import { POSTS_PER_PAGE, pageHref } from "@/lib/blog-listing"
+import { BLOG_CATEGORIES, readTimeFromContent, resolveCategory, toIsoDate } from "@/lib/blog-meta"
+import { formatDate } from "@/lib/utils"
 
 // Helper function to construct image URL from endpoint data
 function constructImageUrl(postImages: string | null | undefined): string {
@@ -67,7 +69,9 @@ export default function BlogPage({
   const [loading, setLoading] = useState(initialBlogs.length === 0)
   const [selectedCategory, setSelectedCategory] = useState("all")
 
-  const allCategories = ["Storage Tips", "Moving Guide", "Business Storage", "Organization", "News", "Personal Storage"]
+  // Must be the same set resolveCategory() assigns, or the filter offers categories
+  // no post has ("Organization", "News") while hiding ones that are in use.
+  const allCategories = [...BLOG_CATEGORIES]
 
   useEffect(() => {
     // Only re-fetch if SSR didn't provide any posts
@@ -102,11 +106,11 @@ export default function BlogPage({
               slug: generateSlug(title),
               title,
               excerpt: blog.seo_desc || "",
-              author: { name: "SafeStorage Team" },
-              categories: [blog.post_category || "Storage Tips"],
+              author: { name: "SafeStorage Dubai Editorial Team" },
+              categories: [resolveCategory(blog.post_category, title)],
               date: blog.created_at || new Date().toISOString(),
               image: constructImageUrl(blog.post_images),
-              readTime: "5 min read",
+              readTime: readTimeFromContent(blog.description),
               likes: getConsistentLikes(postId),
               views: getConsistentViews(postId),
               comments: [],
@@ -405,7 +409,12 @@ function BlogPostCard({ post, index }: { post: BlogPost; index: number }) {
         <h3 className="text-xl font-bold mb-2 group-hover:text-dubai-gold transition-colors">{post.title}</h3>
       </Link>
       <p className="text-dubai-navy/70 mb-3 line-clamp-2">{post.excerpt}</p>
-      <div className="flex items-center text-sm text-dubai-navy/60 mb-3">
+      <div className="flex flex-wrap items-center text-sm text-dubai-navy/60 mb-3 gap-y-1">
+        {/* Publication date — no post on the listing showed one, which removes the
+            freshness signal Google uses for "2026 price" style queries and stops
+            AI answer engines citing the article at all. */}
+        <time dateTime={toIsoDate(post.date)}>{formatDate(post.date)}</time>
+        <span className="mx-2">•</span>
         <Clock className="h-4 w-4 mr-1" />
         <span>{post.readTime}</span>
         <span className="mx-2">•</span>
@@ -461,7 +470,11 @@ function BlogPostRow({ post, index }: { post: BlogPost; index: number }) {
             </Badge>
           ))}
         </div>
-        <div className="flex items-center text-sm text-dubai-navy/60 mb-3">
+        <div className="flex flex-wrap items-center text-sm text-dubai-navy/60 mb-3 gap-y-1">
+          {/* Publication date — see the grid card above. Both layouts need it, or
+              the freshness signal disappears depending on the view mode. */}
+          <time dateTime={toIsoDate(post.date)}>{formatDate(post.date)}</time>
+          <span className="mx-2">•</span>
           <Clock className="h-4 w-4 mr-1" />
           <span>{post.readTime}</span>
           <span className="mx-2">•</span>

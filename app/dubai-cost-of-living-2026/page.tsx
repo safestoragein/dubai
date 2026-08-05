@@ -13,7 +13,7 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Dubai Cost of Living 2026: Budget Guide",
   description:
-    "How much does it cost to live in Dubai in 2026? Complete breakdown of rent, food, transport, utilities & more. Real prices in AED. Budget calculator for singles, couples & families living in Dubai.",
+    "How much does it cost to live in Dubai in 2026? Complete breakdown of rent, food, transport, utilities & more. Real prices in AED.",
   keywords:
     "dubai cost of living 2026, living expenses dubai, dubai monthly budget, how much to live in dubai, dubai prices, cost to live in dubai, dubai rent prices, dubai salary requirements",
   openGraph: {
@@ -441,7 +441,7 @@ export default function DubaiCostOfLiving2026() {
                         </h3>
                       </div>
                       <p className="text-gray-700 mb-4 text-sm leading-relaxed">
-                        {index === 0 ? "Paying AED 90,000/year for a 2-bed apartment? Get a 1-bed for AED 60,000 and store extra items from just 12.60 AED / sqft. Save thousands annually!" :
+                        {index === 0 ? "Paying AED 90,000/year for a 2-bed apartment? Get a 1-bed for AED 60,000 and store extra items from just 12.65 AED / sqft. Save thousands annually!" :
                          index === 2 ? "Don't pay AED 2,000+ monthly for a car you rarely use! Store seasonal sports equipment, camping gear, and winter clothes instead of buying a bigger car." :
                          index === 4 ? "Kids outgrow everything! Store last year's school uniforms, sports gear, and toys. Swap seasonally instead of buying new every year." :
                          "Bought too much during sales? Store seasonal clothes, extra furniture, and bulk purchases. Pay monthly storage instead of yearly rent for extra space!"}
@@ -501,7 +501,7 @@ export default function DubaiCostOfLiving2026() {
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                 <Package className="h-10 w-10 text-[#D8315B] mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Storage from 12.60 AED / sqft</h3>
+                <h3 className="font-semibold mb-2">Storage from 12.65 AED / sqft</h3>
                 <p className="text-sm text-gray-200">vs AED 2,500+ extra rent monthly</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">

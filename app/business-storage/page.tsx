@@ -9,10 +9,11 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Business Storage Dubai — Inventory & Office Storage",
   description:
-    "Business storage solutions for Dubai companies — store excess inventory, office equipment, trade show materials, and retail stock. Flexible monthly contracts, pickup & delivery on demand. Call +971505773388.",
+    "Business storage solutions for Dubai companies — store excess inventory, office equipment, trade show materials, and retail stock.",
   keywords:
     "business storage dubai companies, inventory storage dubai warehouse alternative, office equipment storage dubai, commercial storage dubai SME, stock storage dubai retail, trade show storage dubai, b2b storage dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Business Storage Dubai — Inventory & Office Storage",
     description: "Flexible storage for Dubai businesses — inventory, office equipment & stock. Monthly contracts, on-demand delivery. Call +971505773388.",
     url: "https://safestorage.ae/business-storage",
@@ -68,7 +69,7 @@ const businessStorageSchemas = [
     url: 'https://safestorage.ae/business-storage',
     areaServed: { '@type': 'City', name: 'Dubai' },
     serviceType: 'Business Storage',
-    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.60' },
+    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12.65' },
   },
   {
     '@context': 'https://schema.org',
@@ -112,7 +113,9 @@ export default function BusinessStoragePage() {
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Business Storage <span className="text-dubai-gold">Solutions</span>
+              {/* "business storage" is KD 0 at 400/mo — the easiest commercial term
+                  in the market. The H1 previously omitted Dubai entirely. */}
+              Business Storage <span className="text-dubai-gold">Dubai</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8">
               Secure, flexible storage for your business documents, inventory, and equipment.
@@ -253,7 +256,7 @@ export default function BusinessStoragePage() {
           <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
             <h3 className="text-xl font-bold text-[#0A2463] mb-4">Business Storage Plans &amp; Pricing</h3>
             <p className="text-gray-700 mb-4">
-              Business storage plans at SafeStorage start from 12.60 AED / sqft (VAT-inclusive). Medium units (50–100 sq ft)
+              Business storage plans at SafeStorage start from 12.65 AED / sqft (VAT-inclusive). Medium units (50–100 sq ft)
               suit a small office clearance or modest inventory, while larger units (100–300+ sq ft) are
               available for full office contents, warehouse overflow, or bulk retail stock.
             </p>
@@ -372,7 +375,7 @@ export default function BusinessStoragePage() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-semibold text-[#0A2463] mb-3">5. How is business storage priced in Dubai?</h3>
-              <p className="text-gray-700">Business storage at SafeStorage starts from 12.60 AED / sqft (VAT-inclusive), based on the unit size required. Medium units (50–100 sq ft) are suitable for small office clearances, modest inventory, or document archives. Large units (100–200 sq ft) accommodate full office contents or substantial inventory volumes. Extra-large units (200–400+ sq ft) suit larger commercial storage needs. All plans include clean and secure indoor units, 24/7 security, and a dedicated account manager, with door-to-door service available across Dubai.</p>
+              <p className="text-gray-700">Business storage at SafeStorage starts from 12.65 AED / sqft (VAT-inclusive), based on the unit size required. Medium units (50–100 sq ft) are suitable for small office clearances, modest inventory, or document archives. Large units (100–200 sq ft) accommodate full office contents or substantial inventory volumes. Extra-large units (200–400+ sq ft) suit larger commercial storage needs. All plans include clean and secure indoor units, 24/7 security, and a dedicated account manager, with door-to-door service available across Dubai.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">

@@ -6,11 +6,12 @@ import { ShoppingBag, CheckCircle2, Star, Phone, ArrowRight, Package, Truck, Bar
 
 export const metadata: Metadata = {
   title: "E-Commerce Storage Dubai — Inventory",
-  description: "Flexible e-commerce and inventory storage in Dubai. Cheaper than warehouse rental, no 3-year leases, scale up or down as needed. From 12.60 AED / sqft. Door-to-Door pickup. Call +971505773388.",
+  description: "Flexible e-commerce and inventory storage in Dubai. Cheaper than warehouse rental, no 3-year leases, scale up or down as needed. From 12.65 AED / sqft.",
   keywords: "ecommerce storage dubai, inventory storage dubai, online seller storage dubai, fulfilment storage dubai, amazon fba storage dubai, product storage dubai, business inventory storage dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "E-Commerce Storage Dubai — Flexible Inventory & Fulfilment",
-    description: "Scale your Dubai e-commerce business without warehouse commitments. Flexible monthly storage from 12.60 AED / sqft. Store, pick and ship your inventory affordably.",
+    description: "Scale your Dubai e-commerce business without warehouse commitments. Flexible monthly storage from 12.65 AED / sqft. Store, pick and ship your inventory affordably.",
     url: "https://safestorage.ae/ecommerce-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -51,7 +52,7 @@ const schemas = [
 
 const comparison = [
   { aspect: "Minimum commitment", storage: "1 month", warehouse: "2-3 year lease" },
-  { aspect: "Monthly cost", storage: "From 12.60 AED / sqft", warehouse: "AED 5,000–15,000+" },
+  { aspect: "Monthly cost", storage: "From 12.65 AED / sqft", warehouse: "AED 5,000–15,000+" },
   { aspect: "Setup time", storage: "Same week", warehouse: "2-3 months" },
   { aspect: "Scaling up", storage: "Next day", warehouse: "New lease or negotiation" },
   { aspect: "Scaling down", storage: "30 days notice", warehouse: "Lease break fees" },
@@ -70,7 +71,7 @@ export default function EcommerceStoragePage() {
                 <ShoppingBag className="w-4 h-4" /> E-Commerce Inventory Storage
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">E-Commerce Storage Dubai — Flexible Inventory Storage Without Warehouse Leases</h1>
-              <p className="text-xl text-white/85 mb-8">Growing your Dubai e-commerce business shouldn't mean committing to a 3-year warehouse lease. SafeStorage Dubai provides flexible monthly inventory storage — scale up or down as your business demands. From 12.60 AED / sqft with no long-term commitment.</p>
+              <p className="text-xl text-white/85 mb-8">Growing your Dubai e-commerce business shouldn't mean committing to a 3-year warehouse lease. SafeStorage Dubai provides flexible monthly inventory storage — scale up or down as your business demands. From 12.65 AED / sqft with no long-term commitment.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Business Quote</Button>
@@ -90,7 +91,7 @@ export default function EcommerceStoragePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
                 { stat: "1 Month", label: "Minimum contract" },
-                { stat: "12.60 AED", label: "Starting price / sqft" },
+                { stat: "12.65 AED", label: "Starting price / sqft" },
                 { stat: "24hrs", label: "Scale up time" },
                 { stat: "Door-to-Door", label: "Initial inventory pickup" },
               ].map((s) => (
@@ -279,7 +280,7 @@ export default function EcommerceStoragePage() {
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-lg font-bold text-dubai-navy mb-3">How does this compare to warehouse rental in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Traditional warehouse rental in Dubai typically requires a 2&ndash;3 year minimum lease, a deposit equivalent to 3&ndash;6 months of rent, legal costs for the lease agreement, fit-out costs for racking and infrastructure, and a minimum space commitment far larger than most growing businesses actually need. Monthly costs for a modest 1,000 sq ft warehouse in Al Quoz, DIP, or Jebel Ali typically range from AED 5,000 to AED 15,000+. SafeStorage provides an equivalent effective storage area from 12.60 AED / sqft (VAT-inclusive) on a month-to-month basis, with no setup costs, no deposit beyond the first month, and the ability to scale up or down in 24 hours. For businesses with annual revenue below AED 5 million, warehouse rental is almost never the right solution.</p>
+                <p className="text-gray-700 leading-relaxed">Traditional warehouse rental in Dubai typically requires a 2&ndash;3 year minimum lease, a deposit equivalent to 3&ndash;6 months of rent, legal costs for the lease agreement, fit-out costs for racking and infrastructure, and a minimum space commitment far larger than most growing businesses actually need. Monthly costs for a modest 1,000 sq ft warehouse in Al Quoz, DIP, or Jebel Ali typically range from AED 5,000 to AED 15,000+. SafeStorage provides an equivalent effective storage area from 12.65 AED / sqft (VAT-inclusive) on a month-to-month basis, with no setup costs, no deposit beyond the first month, and the ability to scale up or down in 24 hours. For businesses with annual revenue below AED 5 million, warehouse rental is almost never the right solution.</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">

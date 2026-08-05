@@ -7,7 +7,7 @@ import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
   title: "Start a Business in Dubai 2026: Guide",
-  description: "Complete guide to starting a business in Dubai in 2026. Learn about licenses, free zones, costs, visas, banking, and setup process. Includes storage solutions for your business needs.",
+  description: "Complete guide to starting a business in Dubai in 2026. Learn about licenses, free zones, costs, visas, banking, and setup process.",
   keywords: "starting business dubai, dubai business setup, free zone dubai, mainland company dubai, business license dubai, entrepreneur dubai, company formation uae, dubai startup guide",
   openGraph: {
     title: "Starting a Business in Dubai 2026: Complete Entrepreneur Guide",
@@ -481,7 +481,7 @@ export default function StartingBusinessDubai2026() {
                           </p>
                         ) : (
                           <p className="text-gray-700">
-                            <strong>Secure document storage from day 1.</strong> Store licenses, contracts, invoices, and legal documents safely. UAE law requires keeping business records for 5 years. Clean, secure facility with 24/7 access from just 12.60 AED / sqft.
+                            <strong>Secure document storage from day 1.</strong> Store licenses, contracts, invoices, and legal documents safely. UAE law requires keeping business records for 5 years. Clean, secure facility with 24/7 access from just 12.65 AED / sqft.
                           </p>
                         )}
                       </div>
@@ -545,7 +545,7 @@ export default function StartingBusinessDubai2026() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-1 h-6 w-6 flex-shrink-0" />
-                    <span><strong>Document archival:</strong> Secure 5-year record keeping from 12.60 AED / sqft</span>
+                    <span><strong>Document archival:</strong> Secure 5-year record keeping from 12.65 AED / sqft</span>
                   </li>
                 </ul>
                 <div className="mt-6">
@@ -719,7 +719,7 @@ export default function StartingBusinessDubai2026() {
               },
               {
                 q: "How do I store my business documents and inventory?",
-                a: "Use professional storage like SafeStorage. UAE law requires keeping business records for 5 years. Clean, secure document storage from 12.60 AED / sqft. Inventory storage available for e-commerce businesses.",
+                a: "Use professional storage like SafeStorage. UAE law requires keeping business records for 5 years. Clean, secure document storage from 12.65 AED / sqft. Inventory storage available for e-commerce businesses.",
               },
               {
                 q: "What's the corporate tax in Dubai?",

@@ -18,10 +18,13 @@ import {
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import confetti from "canvas-confetti"
+import { PHONE_DISPLAY } from "@/lib/company-facts"
 
 export default function ThankYouPage() {
   const [mounted, setMounted] = useState(false)
-  const phoneNumber = process.env.NEXT_PUBLIC_CONTACT_NUMBER || "+971 XX XXX XXXX"
+  // See how-it-works-page.tsx — a placeholder fallback ships to production when the
+  // env var is missing at build time. Always fall back to the real number.
+  const phoneNumber = process.env.NEXT_PUBLIC_CONTACT_NUMBER || PHONE_DISPLAY
 
   // Trigger confetti effect when component mounts
   useEffect(() => {

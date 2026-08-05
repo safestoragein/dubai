@@ -1,14 +1,16 @@
 import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
+import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Document Archival — Dubai Investment Park",
   description:
-    "Professional document archival and records storage in Dubai Investment Park. Fireproof, secure document storage for businesses in DIP, Motor City & JAFZA. Pickup & retrieval on demand. Call +971505773388.",
+    "Professional document archival and records storage in Dubai Investment Park. Fireproof, secure document storage for businesses in DIP, Motor City & JAFZA.",
   keywords:
     "document archival service dubai investment park, records storage DIP dubai, document storage motor city dubai, business records archival JAFZA, secure document storage dubai investment park, file storage DIP",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Document Archival Service Dubai Investment Park | SafeStorage",
     description: "Business document archival & records storage near DIP, Motor City & JAFZA. On-demand retrieval. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-investment-park",
@@ -22,6 +24,12 @@ export const metadata: Metadata = {
 }
 
 const dipSchemas = [
+  locationBusinessSchema({
+    name: "Dubai Investment Park",
+    url: "https://safestorage.ae/locations/dubai-investment-park",
+    serves: ["Motor City", "JAFZA"]
+  }),
+
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -244,7 +252,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What is the pricing for commercial storage near Dubai Investment Park?</h3>
-            <p className="text-gray-700">Commercial storage pricing for DIP and surrounding areas follows the same transparent volume-based model as all SafeStorage plans, starting from 12.60 AED / sqft (VAT-inclusive). For businesses, we also offer dedicated commercial units from 100 sq ft to 1,000+ sq ft. There are no setup fees, no long-term contracts required, and no hidden charges. Your dedicated commercial storage consultant will prepare a customised quote based on your specific volume, access requirements, and service frequency. Call +971505773388 or email us for a commercial quote.</p>
+            <p className="text-gray-700">Commercial storage pricing for DIP and surrounding areas follows the same transparent volume-based model as all SafeStorage plans, starting from 12.65 AED / sqft (VAT-inclusive). For businesses, we also offer dedicated commercial units from 100 sq ft to 1,000+ sq ft. There are no setup fees, no long-term contracts required, and no hidden charges. Your dedicated commercial storage consultant will prepare a customised quote based on your specific volume, access requirements, and service frequency. Call +971505773388 or email us for a commercial quote.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can SafeStorage handle a full factory or warehouse clearance in DIP?</h3>
@@ -256,7 +264,7 @@ export default function DubaiInvestmentParkPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there student storage available near Dubai Production City and Studio City?</h3>
-            <p className="text-gray-700">Yes, SafeStorage offers student storage plans for students at institutions near Dubai Production City and Dubai Studio City, including those studying at media, film, and broadcasting institutions in the area. Student storage plans are designed to be affordable and flexible, covering semester breaks when students return home and need to store their room&apos;s worth of belongings securely. Plans start from 12.60 AED / sqft (VAT-inclusive). Door-to-door pickup from your accommodation and delivery back when your new semester begins is available. Contact us for our dedicated student storage discount.</p>
+            <p className="text-gray-700">Yes, SafeStorage offers student storage plans for students at institutions near Dubai Production City and Dubai Studio City, including those studying at media, film, and broadcasting institutions in the area. Student storage plans are designed to be affordable and flexible, covering semester breaks when students return home and need to store their room&apos;s worth of belongings securely. Plans start from 12.65 AED / sqft (VAT-inclusive). Door-to-door pickup from your accommodation and delivery back when your new semester begins is available. Contact us for our dedicated student storage discount.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do residents in the DIP residential community book storage?</h3>

@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "How to Declutter Your Dubai Apartment — Step-by-Step Guide | SafeStorage",
-  description: "Complete guide to decluttering your Dubai apartment or villa. What to keep, store, sell and donate. The Dubai declutter framework that works for expat lifestyles.",
+  title: { absolute: "How to Declutter Your Dubai Apartment — Step-by-Step Guide" },
+  description: "How to declutter a Dubai apartment or villa room by room. What to keep, store, sell or donate — plus where to sell and donate locally.",
   keywords: "how to declutter dubai apartment, declutter dubai home, marie kondo dubai, minimalism dubai apartment, clear out apartment dubai, declutter before moving dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "How to Declutter Your Dubai Apartment — Complete Step-by-Step Guide",
     description: "The Dubai declutter method for expat apartments. What to keep, store, sell and donate without regret.",
     url: "https://safestorage.ae/blog/declutter-dubai-apartment",
@@ -131,7 +132,7 @@ export default function DeclutterDubaiApartmentPage() {
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
               <h2 className="text-2xl font-bold mb-3">Store What You're Not Ready to Decide On</h2>
-              <p className="text-white/80 mb-6">The STORE pile is where SafeStorage comes in. Don't make permanent decisions under time pressure. Store items while you take time to decide what truly matters — from 12.60 AED / sqft.</p>
+              <p className="text-white/80 mb-6">The STORE pile is where SafeStorage comes in. Don't make permanent decisions under time pressure. Store items while you take time to decide what truly matters — from 12.65 AED / sqft.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Storage Quote</Button>

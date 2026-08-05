@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Villa Moving Guide Dubai — Complete Checklist for Moving a Dubai Villa | SafeStorage",
-  description: "Complete guide to moving a Dubai villa. 8-week checklist, what to store, how to manage the logistics, and how to avoid the most expensive mistakes. Door-to-Door pickup available.",
+  title: { absolute: "Villa Moving Guide Dubai — Complete Checklist for Moving a Dubai Villa" },
+  description: "Complete guide to moving a Dubai villa. 8-week checklist, what to store, how to manage the logistics, and how to avoid the most expensive mistakes.",
   keywords: "villa moving dubai, moving out of villa dubai, dubai villa move checklist, how to move villa dubai, moving large house dubai, villa relocation dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Villa Moving Guide Dubai — Complete 8-Week Checklist",
     description: "Everything you need to know about moving a Dubai villa. Step-by-step checklist, storage options, and logistics guide.",
     url: "https://safestorage.ae/blog/villa-moving-guide-dubai",
@@ -142,7 +143,7 @@ export default function VillaMovingGuideDubaiPage() {
                   {[
                     ["Professional movers (4BR villa, local move)", "AED 2,500–5,000"],
                     ["Packing service (full villa)", "AED 1,500–3,000"],
-                    ["Storage unit (if bridging)", "From 12.60 AED / sqft"],
+                    ["Storage unit (if bridging)", "From 12.65 AED / sqft"],
                     ["DEWA transfer/connection", "AED 110–130"],
                     ["Cleaning service (outgoing villa)", "AED 600–1,500"],
                     ["Building moving permit (many required)", "AED 0–500"],

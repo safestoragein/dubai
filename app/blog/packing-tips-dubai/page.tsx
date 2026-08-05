@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Packing Tips for Storage in Dubai — Expert Guide to Pack Right | SafeStorage",
-  description: "Professional packing tips for storage in Dubai. How to pack boxes, protect furniture, label correctly and maximise space. Expert advice from Dubai's storage specialists.",
+  title: { absolute: "Packing Tips for Storage in Dubai — Expert Guide to Pack Right" },
+  description: "Professional packing tips for storage in Dubai. How to pack boxes, protect furniture, label correctly and maximise space.",
   keywords: "packing tips storage dubai, how to pack for storage dubai, packing boxes storage dubai, furniture packing storage, moving storage dubai packing guide",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Packing Tips for Storage in Dubai — Pack Right the First Time",
     description: "Expert packing guide for Dubai storage. How to protect your belongings, use space efficiently, and avoid the most common packing mistakes.",
     url: "https://safestorage.ae/blog/packing-tips-dubai",

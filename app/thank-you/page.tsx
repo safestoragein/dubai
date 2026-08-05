@@ -2,7 +2,7 @@ import ThankYouPage from "@/components/thank-you/thank-you-page"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Thank You | SafeStorage Dubai",
+  title: "Thank You",
   description: "Thank you for choosing SafeStorage Dubai. We'll be in touch soon to discuss your storage needs.",
   alternates: {
     canonical: "https://safestorage.ae/thank-you",

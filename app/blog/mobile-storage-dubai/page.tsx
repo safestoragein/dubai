@@ -6,10 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Mobile Storage Dubai — Door-to-Door Service Storage | SafeStorage",
-  description: "Mobile storage in Dubai — we come to you, pick up your belongings, store them safely, and deliver back when you're ready. Door-to-Door pickup across Dubai. From 12.60 AED / sqft.",
+  title: { absolute: "Mobile Storage Dubai — Door-to-Door Service Storage" },
+  description: "Mobile storage in Dubai — we come to you, pick up your belongings, store them safely, and deliver back when you're ready. Door-to-Door pickup across Dubai.",
   keywords: "mobile storage dubai, door to door storage dubai, pickup storage dubai, collect and store dubai, storage with pickup and delivery dubai, valet storage dubai",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Mobile Storage Dubai — We Pick Up, Store & Deliver Back",
     description: "Mobile storage with door-to-door pickup across Dubai. We come to you, collect your items, store them safely, and deliver back. No hassle, no transport needed.",
     url: "https://safestorage.ae/blog/mobile-storage-dubai",

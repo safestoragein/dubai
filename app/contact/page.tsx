@@ -1,16 +1,36 @@
 import ContactPage from "@/components/contact/contact-page"
+import ContactForm from "@/components/contact/contact-form"
 import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Contact SafeStorage Dubai | Get in Touch",
+  title: { absolute: "Contact SafeStorage Dubai | Call, WhatsApp or Get a Quote" },
   description:
-    "Contact SafeStorage Dubai for secure storage solutions. Call us, visit our locations, or get a free quote. We're here to help with all your storage needs in Dubai.",
+    "Contact SafeStorage Dubai for secure storage. Call +971 50 577 3388, WhatsApp us, or send a message — we reply within 15 minutes in business hours.",
   keywords:
     "contact storage dubai, storage company dubai, storage locations dubai, storage customer service, dubai storage contact",
   alternates: {
     canonical: "https://safestorage.ae/contact",
+  },
+  // Without its own openGraph block this page inherited the root layout's, which
+  // sets url: "https://safestorage.ae" — so every share of /contact pointed back
+  // at the homepage and contradicted this page's own canonical tag.
+  openGraph: {
+    title: "Contact SafeStorage Dubai | Call, WhatsApp or Get a Quote",
+    description:
+      "Reach SafeStorage Dubai by phone, WhatsApp or message. We reply within 15 minutes during business hours.",
+    url: "https://safestorage.ae/contact",
+    siteName: "SafeStorage Dubai",
+    locale: "en_AE",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Contact SafeStorage Dubai" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact SafeStorage Dubai",
+    description: "Call, WhatsApp or message us — we reply within 15 minutes in business hours.",
+    images: ["/twitter-image.jpg"],
   },
 }
 
@@ -66,6 +86,56 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {/* Contact form — this page previously had no way to send a message at all. */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="text-2xl font-bold text-[#0A2463] mb-2 text-center">Send Us a Message</h2>
+          <p className="text-gray-600 text-center mb-8">
+            Prefer to write rather than call? Tell us what you need and a storage consultant will come
+            back to you within 15 minutes during business hours.
+          </p>
+          <ContactForm />
+        </div>
+      </section>
+
+      {/* Embedded map with the correct pin. Reinforces the single NAP record that
+          Google matches the site against the Business Profile listing. Uses the
+          keyless maps embed and loads lazily so it does not affect LCP. */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-2xl font-bold text-[#0A2463] mb-2 text-center">Find Our Dubai Facility</h2>
+          <p className="text-gray-600 text-center mb-8">
+            Building 23, Warehouse 5, DIP-1, Dubai, United Arab Emirates — open
+            Monday–Saturday 8 AM–8 PM and Sunday 10 AM–6 PM. Call ahead on{" "}
+            <a href="tel:+971505773388" className="text-[#D8315B] underline">+971 50 577 3388</a>{" "}
+            to arrange a visit.
+          </p>
+          <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+            <iframe
+              title="SafeStorage Dubai facility location — Building 23, Warehouse 5, DIP-1"
+              src="https://maps.google.com/maps?q=24.9903469,55.1539764&z=16&output=embed"
+              width="100%"
+              height="420"
+              style={{ border: 0, display: "block" }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+          <p className="text-center mt-4">
+            <a
+              href="https://maps.app.goo.gl/eimPkShrQADHTq3N7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#0A2463] font-semibold underline"
+            >
+              Open in Google Maps →
+            </a>
+          </p>
+        </div>
+      </section>
+
       <ContactPage />
       {/* Static informational content for SEO — server-rendered */}
       <section className="py-16 bg-gray-50">
@@ -182,11 +252,8 @@ export default function Contact() {
 
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">4. Can I store my vehicle at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">Yes. SafeStorage offers covered vehicle storage bays for cars, motorcycles, boats, jet skis, and caravans. Vehicle storage starts from 12.60 AED / sqft (VAT-inclusive) and includes 24/7 CCTV monitoring, covered shelter from Dubai&apos;s sun and sandstorms, and optional battery maintenance and tire pressure checks for long-term vehicle storage. Our facility is popular among expats leaving Dubai temporarily, classic car collectors, and owners of seasonal recreational vehicles.</p>
+              <p className="text-gray-700">Yes. SafeStorage offers covered vehicle storage bays for cars, motorcycles, boats, jet skis, and caravans. Vehicle storage starts from 12.65 AED / sqft (VAT-inclusive) and includes 24/7 CCTV monitoring, covered shelter from Dubai&apos;s sun and sandstorms, and optional battery maintenance and tire pressure checks for long-term vehicle storage. Our facility is popular among expats leaving Dubai temporarily, classic car collectors, and owners of seasonal recreational vehicles.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -232,13 +299,15 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-yellow-300">A Trusted Name in Dubai Storage</h3>
-                <p className="text-white/90 leading-relaxed">SafeStorage Dubai has been serving residents and businesses across the UAE for over a decade. With more than 10,000 satisfied customers and a track record of reliability, we have become the go-to storage provider for expats, families, and businesses across Dubai. Our commitment to transparency, exceptional service, and competitive pricing has earned us a 4.8-star average rating across all review platforms. When you store with SafeStorage, you are not just renting space — you are gaining a trusted partner who takes responsibility for your belongings as if they were our own.</p>
+                <p className="text-white/90 leading-relaxed">SafeStorage Dubai has been serving residents and businesses across the UAE for over a decade. With 100,000+ customers served globally and a track record of reliability, we have become the go-to storage provider for expats, families, and businesses across Dubai. Our commitment to transparency, exceptional service, and competitive pricing has earned us a 4.9/5 average rating across 6,700+ reviews globally. When you store with SafeStorage, you are not just renting space — you are gaining a trusted partner who takes responsibility for your belongings as if they were our own.</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-yellow-300">Clean, Secure Facilities</h3>
+                <p className="text-white/90 leading-relaxed">Our Dubai Investment Park facility is a purpose-fitted indoor warehouse, not a converted lock-up. Units are clean and dust-protected, items are stored on raised platforms and away from external walls, and the building is treated on a scheduled pest-control programme. Every unit is inspected between customers. You are welcome to visit and see the space your belongings will occupy before you commit — most customers who compare facilities in person book with us on the same visit.</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-yellow-300">Uncompromising Security</h3>
+                <p className="text-white/90 leading-relaxed">Multi-angle CCTV covers every corridor, entry point, loading area and storage zone. Access is controlled and logged, motion alerts are triggered on all access points after hours, and only named, authorised individuals can collect from your unit. Your inventory is recorded and signed at intake, so what goes in is documented before the vehicle leaves your address.</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-yellow-300">Genuinely Hassle-Free Service</h3>

@@ -153,7 +153,7 @@ export function renderQuotationEmail(d: QuotationEmailData): string {
           <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:${ORANGE};font-weight:700;">Monthly storage</div>
           <div style="padding-top:10px;"><span style="font-size:16px;color:#ffffff;font-weight:700;vertical-align:top;line-height:1;">AED </span><span class="price" style="font-size:46px;color:#ffffff;font-weight:800;line-height:1;">${money(d.monthlyStorageAed)}</span></div>
           <div style="padding-top:4px;font-size:13px;color:${MUTED_BLUE};">per month</div>
-          <div style="font-size:12px;line-height:1.5;color:${CARD_MUTED};border-top:1px solid ${NAVY_LINE};margin-top:12px;padding-top:12px;">Estimated ${d.totalSqft} sq ft at AED 12.60 / sq ft &middot; VAT included. Billed monthly, cancel anytime.</div>
+          <div style="font-size:12px;line-height:1.5;color:${CARD_MUTED};border-top:1px solid ${NAVY_LINE};margin-top:12px;padding-top:12px;">Estimated ${d.totalSqft} sq ft at AED 12.65 / sq ft &middot; VAT included. Billed monthly, cancel anytime.</div>
         </td></tr></table>
       </td>
       <td class="stack" width="50%" valign="top" style="padding-left:8px;">
@@ -305,7 +305,7 @@ Nothing is booked yet, and no payment is needed to hold this price.
 
 MONTHLY STORAGE
 AED ${money(d.monthlyStorageAed)} / month
-Estimated ${d.totalSqft} sq ft at AED 12.60 per sq ft, VAT included. Billed monthly, cancel anytime.
+Estimated ${d.totalSqft} sq ft at AED 12.65 per sq ft, VAT included. Billed monthly, cancel anytime.
 
 ${transport}
 Or drop off yourself: AED ${money(d.selfDropTokenAed)} token, which comes off your storage bill.

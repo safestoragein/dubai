@@ -1,16 +1,18 @@
 import type { Metadata } from "next"
 import LocationPage from "@/components/locations/location-page"
 import SchemaScript from "@/components/schema-script"
+import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Mirdif Storage Dubai — Villa & Family Storage",
   description:
-    "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Door-to-Door pickup from villas and apartments. Secure, flexible plans from 12.60 AED / sqft. Same-day available. Call +971505773388.",
+    "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Door-to-Door pickup from villas and apartments. Secure, flexible plans from 12.65 AED / sqft.",
   keywords:
     "mirdif storage dubai, storage mirdif, mirdif self storage, rashidiya storage dubai, storage near mirdif city centre, east dubai storage, muhaisnah storage",
   openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     title: "Mirdif Storage Dubai — Villa & Family Pickup | SafeStorage",
-    description: "Door-to-Door pickup storage for Mirdif villas and apartments. Secure, from 12.60 AED / sqft. Rashidiya also covered. Call +971505773388.",
+    description: "Door-to-Door pickup storage for Mirdif villas and apartments. Secure, from 12.65 AED / sqft. Rashidiya also covered. Call +971505773388.",
     url: "https://safestorage.ae/locations/mirdif",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -22,12 +24,18 @@ export const metadata: Metadata = {
 }
 
 const mirdifSchemas = [
+  locationBusinessSchema({
+    name: "Mirdif",
+    url: "https://safestorage.ae/locations/mirdif",
+    serves: ["Rashidiya", "Muhaisnah", "Al Warqa", "Nad Al Sheba"]
+  }),
+
   {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Storage in Mirdif & East Dubai",
     description:
-      "Secure storage for Mirdif, Rashidiya, Muhaisnah, and east Dubai residents. Door-to-Door pickup from villas and apartments. Flexible plans from 12.60 AED / sqft.",
+      "Secure storage for Mirdif, Rashidiya, Muhaisnah, and east Dubai residents. Door-to-Door pickup from villas and apartments. Flexible plans from 12.65 AED / sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/mirdif",
     areaServed: [

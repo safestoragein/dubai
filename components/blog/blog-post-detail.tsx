@@ -9,6 +9,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { formatDate } from "@/lib/utils"
 import { blogImageUrl } from "@/lib/blog-image"
+import { readTimeFromContent, resolveCategory } from "@/lib/blog-meta"
 import LikeButton from "./like-button"
 import ShareButtons from "./share-buttons"
 
@@ -289,11 +290,11 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
             title: title,
             excerpt: blog.seo_desc || '',
             content: blog.description || '',
-            author: { name: 'SafeStorage Team' },
-            categories: [blog.post_category || 'Storage Tips'],
+            author: { name: 'SafeStorage Dubai Editorial Team' },
+            categories: [resolveCategory(blog.post_category, title)],
             date: blog.created_at || new Date().toISOString(),
             image: constructImageUrl(blog.post_images),
-            readTime: "5 min read",
+            readTime: readTimeFromContent(blog.description),
             likes: getConsistentLikes(postId),
             views: getConsistentViews(postId),
             comments: [],
@@ -334,11 +335,11 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
                 title: blogTitle,
                 excerpt: blog.seo_desc || '',
                 content: blog.description || '',
-                author: { name: 'SafeStorage Team' },
-                categories: [blog.post_category || 'Storage Tips'],
+                author: { name: 'SafeStorage Dubai Editorial Team' },
+                categories: [resolveCategory(blog.post_category, blogTitle)],
                 date: blog.created_at || new Date().toISOString(),
                 image: constructImageUrl(blog.post_images),
-                readTime: "5 min read",
+                readTime: readTimeFromContent(blog.description),
                 likes: getConsistentLikes(blogPostId),
                 views: getConsistentViews(blogPostId),
                 comments: [],

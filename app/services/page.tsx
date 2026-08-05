@@ -6,7 +6,7 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: "Storage Services Dubai — Personal, Business & Vehicle",
   description:
-    "Secure & hassle-free storage solutions for household, personal, business, document, and vehicle storage in Dubai. Secure units with 24/7 security. Call +971505773388.",
+    "Secure & hassle-free storage solutions for household, personal, business, document, and vehicle storage in Dubai. Secure units with 24/7 security.",
   keywords:
     "storage services dubai, personal storage, business storage, document storage, vehicle storage, self storage dubai, secure storage dubai, furniture storage, moving storage",
   openGraph: {
@@ -137,6 +137,13 @@ export default function Services() {
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Secure Indoor Storage</h3>
+              <p className="text-gray-700">
+                Every item we collect is stored inside our Dubai Investment Park warehouse — never in an
+                outdoor container or an unmanned lock-up. Units are clean and dust-protected, goods sit on
+                raised platforms away from external walls, and multi-angle CCTV covers the whole floor.
+                Access is logged and restricted to named individuals you
+                authorise, so you always know exactly who can reach your belongings.
+              </p>
             </div>
           </div>
 
@@ -242,7 +249,7 @@ export default function Services() {
                 Our document storage service solves this challenge comprehensively. Documents are stored in individual fireproof units, with each box individually labelled and indexed using barcodes. When a specific file or box is needed, clients request retrieval via phone, WhatsApp, or our portal, and the item is delivered to their office within 24–48 hours. Annual box audits help clients identify documents that have reached their required retention period and can be securely shredded.
               </p>
               <p className="text-gray-700">
-                Document storage starts from 12.60 AED / sqft (VAT-inclusive). Secure shredding with a certificate of destruction is available for records that have exceeded their required retention period. Our service is trusted by law firms, financial institutions, DIFC companies, free zone businesses, and government-related entities across Dubai.
+                Document storage starts from 12.65 AED / sqft (VAT-inclusive). Secure shredding with a certificate of destruction is available for records that have exceeded their required retention period. Our service is trusted by law firms, financial institutions, DIFC companies, free zone businesses, and government-related entities across Dubai.
               </p>
             </div>
 
@@ -279,7 +286,7 @@ export default function Services() {
                 Dubai&apos;s numerous universities, colleges, and international schools create a large student population with specific storage needs. Students who return home during semester breaks — whether domestically within the UAE or internationally — need affordable, flexible storage for their room&apos;s worth of belongings without committing to long-term contracts.
               </p>
               <p className="text-gray-700 mb-4">
-                SafeStorage&apos;s student storage plans are specifically designed to be affordable and aligned with academic calendars. We pick up from student accommodation at the end of term and return everything to the same or a new address at the start of the next term. Plans are month-to-month with no minimum and pricing starts from 12.60 AED / sqft (VAT-inclusive).
+                SafeStorage&apos;s student storage plans are specifically designed to be affordable and aligned with academic calendars. We pick up from student accommodation at the end of term and return everything to the same or a new address at the start of the next term. Plans are month-to-month with no minimum and pricing starts from 12.65 AED / sqft (VAT-inclusive).
               </p>
             </div>
           </div>
