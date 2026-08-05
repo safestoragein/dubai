@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "palm jumeirah storage, storage palm jumeirah dubai, villa storage palm jumeirah, furniture storage palm fronds, palm jumeirah self storage, storage near palm jumeirah",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Palm Jumeirah Storage — Villa & Apartment Pickup | SafeStorage",
-    description: "Door-to-Door pickup from all Palm Jumeirah Fronds, Trunk & Crescent. Secure villa & apartment storage. Call +971505773388.",
     url: "https://safestorage.ae/locations/palm-jumeirah",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -77,6 +75,7 @@ export default function PalmJumeirahPage() {
         location="Palm Jumeirah"
         areas={["Palm Trunk", "Palm Fronds (all 16)", "Palm Crescent", "Shoreline Apartments", "Garden Homes", "Signature Villas"]}
         distance="20-25 minutes"
+        intro="Discreet storage for Palm villas, Shoreline apartments and Golden Mile residences, with careful handling for furniture and pieces of high value."
         benefits={[
           "Full villa clearance and furniture storage service",
           "Expert team familiar with Palm access roads and security",
@@ -95,7 +94,7 @@ export default function PalmJumeirahPage() {
             Palm Jumeirah is home to some of Dubai&apos;s most prestigious residential properties — from the iconic
             Signature Villas and Garden Homes on the Fronds to the Shoreline Apartments on the Trunk and the ultra-luxury
             residences on the Crescent. SafeStorage serves every part of the Palm with the same premium, hands-off
-            storage service that has made us the trusted choice for Dubai&apos;s most discerning residents since 2018.
+            storage service that has made us the trusted choice for Dubai&apos;s most discerning residents since 2015.
           </p>
           <p className="text-lg text-gray-700 mb-8">
             Our dedicated Palm Jumeirah team understands the unique logistics of this iconic community — from navigating

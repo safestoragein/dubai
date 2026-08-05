@@ -20,8 +20,6 @@ export const metadata: Metadata = {
     "Storage FAQs Dubai, Self storage questions, Storage unit sizes, SafeStorage help, Storage security Dubai, Pickup and delivery storage, Storage pricing FAQ, Packing services Dubai, 24/7 storage access, Storage facility rules, Household storage tips, Business storage help, Dubai safe storage guide",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "FAQs - SafeStorage Dubai",
-    description: "Find answers to common questions about our storage services, pricing, security, and more.",
     url: "https://safestorage.ae/faq",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -221,6 +219,23 @@ const faqCategories = [
       },
     ]
   },
+  {
+    title: "Choosing a Storage Company",
+    faqs: [
+      {
+        question: "Why should I choose SafeStorage Dubai over other storage companies?",
+        answer: "SafeStorage Dubai brings the storage to you. Our own trained team collects from your door, inventories and signs for every item, and delivers it back when you ask — nothing is subcontracted to third-party movers, so one company holds the chain of custody throughout. You pay only for the space your items occupy, from 12.65 AED / sqft VAT-inclusive, quoted in writing with no admin fee or deposit, on a month-to-month contract with no early-termination penalty."
+      },
+      {
+        question: "What should I compare when choosing a storage company in Dubai?",
+        answer: "Compare four things. First, whether the price is VAT-inclusive and quoted in writing before booking — many quotes exclude VAT, access fees or a deposit. Second, whether collection and delivery are included or billed separately as a moving job. Third, whether you receive a documented inventory signed at collection, which is your only record of what was handed over. Fourth, the contract terms — look for month-to-month billing with no minimum period and no early-termination penalty. SafeStorage Dubai meets all four, and holds a 4.9/5 rating across 6,700+ verified Google reviews with ISO 9001:2015 certification."
+      },
+      {
+        question: "Where can I store my furniture during renovation in Dubai?",
+        answer: "SafeStorage Dubai stores furniture during home and villa renovations, with collection from anywhere in Dubai and delivery back once the work is finished. Our team wraps and loads the furniture at your door, inventories every piece, and stores it in a clean, dust-protected indoor unit at our Dubai Investment Park facility. Because billing is month-to-month, you are not locked in if the renovation over-runs. Storage starts at 12.65 AED / sqft, VAT-inclusive."
+      },
+    ]
+  },
 ]
 
 const faqPageSchemas = [
@@ -345,7 +360,7 @@ export default function FAQPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="text-white/80 text-lg mb-8">
-              Join 500+ happy customers who trust SafeStorage Dubai. Get your free quote in just 2 minutes.
+              Join the 100,000+ customers who trust SafeStorage worldwide. Get your free quote in just 2 minutes.
             </p>
             <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
               <Link href="/get-quote" className="group">

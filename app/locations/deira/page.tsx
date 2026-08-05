@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "deira storage dubai, bur dubai storage, karama storage, storage deira, self storage bur dubai, oud metha storage, old dubai storage units",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Deira & Bur Dubai Storage — Door-to-door Pickup | SafeStorage",
-    description: "Secure storage for Deira, Bur Dubai, Karama & Oud Metha. Door-to-Door pickup from your door. Call +971505773388.",
     url: "https://safestorage.ae/locations/deira",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -78,6 +76,7 @@ export default function DeiraPage() {
         location="Deira & Bur Dubai"
         areas={["Deira", "Bur Dubai", "Karama", "Oud Metha", "Al Rigga", "Al Garhoud", "Al Mankhool", "Al Qusais"]}
         distance="20-25 minutes"
+        intro="Storage for Deira&apos;s older apartment buildings and Gold Souk-area businesses, with team access arranged for narrow streets and buildings without loading bays."
         benefits={[
           "Door-to-Door pickup from apartments and flats across old Dubai",
           "Ideal for traders and businesses storing inventory",

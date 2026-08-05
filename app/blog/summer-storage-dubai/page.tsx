@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   keywords: "summer storage dubai, leaving dubai for summer, storage during summer holidays dubai, what to do with belongings summer dubai, expat summer dubai storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Summer Storage Dubai — Complete Guide for Expats Leaving for Summer",
-    description: "Everything Dubai expats need to know about storing belongings when leaving for summer. Save money, free up your apartment, and travel with peace of mind.",
     url: "https://safestorage.ae/blog/summer-storage-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

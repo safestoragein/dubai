@@ -28,9 +28,6 @@ export const metadata: Metadata = {
     "prohibited items storage dubai, what can i store dubai, restricted items self storage, storage rules dubai, items not allowed storage uae",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Prohibited Items — What You Cannot Store | SafeStorage Dubai",
-    description:
-      "A plain checklist of what we cannot take into storage in Dubai, and why. Check before your pickup day.",
     url: "https://safestorage.ae/prohibited-items",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -10,8 +10,7 @@ export const metadata: Metadata = {
   description: "Complete guide to starting a business in Dubai in 2026. Learn about licenses, free zones, costs, visas, banking, and setup process.",
   keywords: "starting business dubai, dubai business setup, free zone dubai, mainland company dubai, business license dubai, entrepreneur dubai, company formation uae, dubai startup guide",
   openGraph: {
-    title: "Starting a Business in Dubai 2026: Complete Entrepreneur Guide",
-    description: "Everything you need to know about starting a business in Dubai - licenses, costs, free zones, visas, and practical tips.",
+    url: "https://safestorage.ae/starting-business-dubai-2026",
     images: ["https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&h=800&fit=crop&q=80"],
   },
   alternates: {

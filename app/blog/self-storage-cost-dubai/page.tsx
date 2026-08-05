@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   keywords: "self storage cost dubai, storage unit price dubai, how much is storage dubai, storage unit cost per month dubai, cheap storage dubai, affordable storage dubai 2025",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "How Much Does Self Storage Cost in Dubai? 2025 Price Guide",
-    description: "Detailed breakdown of self storage costs in Dubai by unit size. SafeStorage Dubai pricing from 12.65 AED / sqft. What's included and what to avoid.",
     url: "https://safestorage.ae/blog/self-storage-cost-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

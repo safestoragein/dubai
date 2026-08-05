@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   keywords: "seasonal storage dubai, ramadan storage dubai, eid storage dubai, seasonal items storage dubai, holiday storage dubai, furniture storage ramadan",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Seasonal & Ramadan Storage Dubai — Managing Seasonal Items",
-    description: "How Dubai residents use seasonal storage for Ramadan, Eid, summer and school year transitions. What to store and when.",
     url: "https://safestorage.ae/blog/seasonal-ramadan-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

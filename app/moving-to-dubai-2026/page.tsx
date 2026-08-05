@@ -17,8 +17,6 @@ export const metadata: Metadata = {
   keywords:
     "moving to dubai 2026, relocate to dubai, dubai relocation guide, moving to uae, dubai visa, living in dubai, dubai apartments, international move dubai, dubai newcomers guide",
   openGraph: {
-    title: "Moving to Dubai 2026: Complete Relocation Guide",
-    description: "Everything you need to know about moving to Dubai in 2026. Visa, housing, jobs, schools & more!",
     url: "https://safestorage.ae/moving-to-dubai-2026",
     siteName: "SafeStorage Dubai",
     images: [

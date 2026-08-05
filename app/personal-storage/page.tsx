@@ -16,8 +16,6 @@ export const metadata: Metadata = {
     "Best Personal Self Storage in Dubai, Personal Storage Facility in Dubai, Self Storage in Dubai, Self Storage, Storage in Dubai, Personal Storage Dubai, Box Storage Solutions Dubai, Student Storage Solutions Dubai, Affordable Household Storage Dubai, Household Storage Units Dubai, Residential Storage Dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Personal Household Storage Dubai | Furniture & Boxes | SafeStorage",
-    description: "Store household furniture and moving boxes with door-to-door pickup from your Dubai home. From 12.65 AED / sqft. Call +971505773388.",
     url: "https://safestorage.ae/personal-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -130,11 +128,11 @@ export default function PersonalStoragePage() {
             <div className="flex flex-wrap justify-center gap-4 mb-6">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                <span className="text-white text-sm font-medium">4.9/5 (6700+ Reviews Globally)</span>
+                <span className="text-white text-sm font-medium">4.9/5 (6,700+ reviews worldwide)</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Users className="h-4 w-4 text-dubai-gold" />
-                <span className="text-white text-sm font-medium">Trusted by 50,000+ Customers Globally</span>
+                <span className="text-white text-sm font-medium">Trusted by 100,000+ customers worldwide</span>
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">

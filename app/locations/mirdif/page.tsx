@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "mirdif storage dubai, storage mirdif, mirdif self storage, rashidiya storage dubai, storage near mirdif city centre, east dubai storage, muhaisnah storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Mirdif Storage Dubai — Villa & Family Pickup | SafeStorage",
-    description: "Door-to-Door pickup storage for Mirdif villas and apartments. Secure, from 12.65 AED / sqft. Rashidiya also covered. Call +971505773388.",
     url: "https://safestorage.ae/locations/mirdif",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -77,6 +75,7 @@ export default function MirdifPage() {
         location="Mirdif"
         areas={["Mirdif (all phases)", "Rashidiya", "Muhaisnah", "Al Warqa", "Nad Al Sheba", "Uptown Mirdif"]}
         distance="20-25 minutes"
+        intro="Family storage for Mirdif and Uptown villas — school-holiday clutter, extra furniture, and full clearances when families move between villas."
         benefits={[
           "Door-to-Door pickup from Mirdif villas and townhouses",
           "Ideal for families with large villa storage needs",

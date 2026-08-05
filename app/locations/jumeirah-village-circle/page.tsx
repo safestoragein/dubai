@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "JVC storage dubai, jumeirah village circle storage, storage near JVC, JVT storage dubai, self storage jumeirah village, storage pickup JVC dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "JVC Storage Dubai — Jumeirah Village Circle | SafeStorage",
-    description: "Door-to-Door pickup storage for JVC apartments and townhouses. Secure, flexible monthly plans. JVT also covered. Call +971505773388.",
     url: "https://safestorage.ae/locations/jumeirah-village-circle",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -76,6 +74,7 @@ export default function JumeirahVillageCirclePage() {
         location="Jumeirah Village Circle (JVC)"
         areas={["JVC District 10–18", "JVC Apartments", "JVC Townhouses", "Jumeirah Village Triangle (JVT)", "Dubai Sports City", "Motor City"]}
         distance="15-20 minutes"
+        intro="Storage for JVC&apos;s compact apartments and townhouses, with flexible month-to-month terms suited to the area&apos;s high turnover of short leases."
         benefits={[
           "Door-to-Door pickup from all JVC districts and buildings",
           "Ideal for growing families needing extra space",

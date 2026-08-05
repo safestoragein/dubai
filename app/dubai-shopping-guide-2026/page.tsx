@@ -17,8 +17,6 @@ export const metadata: Metadata = {
   keywords:
     "dubai shopping 2026, best malls dubai, dubai mall, mall of emirates, gold souk dubai, spice souk, dubai shopping festival, outlet mall dubai, where to shop dubai, dubai markets",
   openGraph: {
-    title: "Dubai Shopping Guide 2026: Best Malls, Souks & Markets",
-    description: "Complete guide to shopping in Dubai - luxury malls, traditional souks, outlets & markets!",
     url: "https://safestorage.ae/dubai-shopping-guide-2026",
     siteName: "SafeStorage Dubai",
     images: [

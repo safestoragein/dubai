@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords: "international relocation storage dubai, moving abroad from dubai storage, dubai international moving storage, shipping vs storage dubai, expat relocation dubai, moving overseas dubai storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "International Relocation Storage Dubai — Moving Abroad?",
-    description: "Moving abroad from Dubai? Store instead of shipping — save thousands of dirhams and keep your options open. Door-to-Door pickup, clean and secure, from 12.65 AED / sqft.",
     url: "https://safestorage.ae/international-relocation",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

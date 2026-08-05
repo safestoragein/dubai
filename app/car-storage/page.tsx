@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords: "Motorcycle storage Dubai, Bike storage Dubai, Motorbike storage UAE, Secure motorcycle parking, Indoor bike storage, Motorcycle winter storage, Superbike storage Dubai, Bicycle storage Dubai, Motorcycle safety storage, Two wheeler storage, Motorbike parking Dubai, Long term bike storage, SafeStorage vehicles, Motorcycle protection Dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Car Storage Dubai — Secure Indoor Vehicle Storage | SafeStorage",
-    description: "Protect your car, motorcycle, or classic vehicle from Dubai's harsh outdoor conditions. Secure covered indoor storage from 12.65 AED / sqft with door-to-door pickup.",
     url: "https://safestorage.ae/car-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

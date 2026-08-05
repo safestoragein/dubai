@@ -22,8 +22,6 @@ export const metadata: Metadata = {
   description: "One storage provider for all your Dubai needs: personal furniture, business inventory, vehicle storage & document archival. 4.9★ rated by 500+ customers.",
   keywords: "all in one storage dubai, personal and business storage dubai, vehicle furniture storage dubai, storage provider dubai, full service storage dubai, pickup and delivery storage dubai, 4.9 rated storage dubai",
   openGraph: {
-    title: "Storage Dubai | #1 Rated Storage Facility | From 12.65 AED / sqft",
-    description: "Best storage in Dubai from 12.65 AED / sqft. Secure units, 24/7 access, Door-to-Door service. 4.9★ rated by 500+ customers.",
     url: "https://safestorage.ae/storage-dubai",
     siteName: "SafeStorage Dubai",
     images: [
@@ -39,8 +37,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Storage Dubai | #1 Rated | From 12.65 AED / sqft",
-    description: "Best storage in Dubai. Secure units, Door-to-Door pickup. 500+ happy customers.",
   },
   alternates: {
     canonical: "https://safestorage.ae/storage-dubai",
@@ -575,7 +571,7 @@ export default function StorageDubaiPage() {
                 Who Uses Storage in Dubai?
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Join 500+ happy customers from all walks of life
+                Join 100,000+ customers from all walks of life
               </p>
             </div>
 

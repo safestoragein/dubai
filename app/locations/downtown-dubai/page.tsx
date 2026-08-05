@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "storage downtown dubai, storage near burj khalifa, DIFC storage dubai, downtown dubai self storage, storage units downtown dubai, burj khalifa district storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Downtown Dubai & DIFC Storage — Door-to-door Pickup | SafeStorage",
-    description: "Secure storage for Downtown Dubai, DIFC & Burj Khalifa District. Door-to-Door pickup. Same-day available. Call +971505773388.",
     url: "https://safestorage.ae/locations/downtown-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -85,6 +83,7 @@ export default function DowntownDubaiPage() {
         location="Downtown Dubai"
         areas={["Downtown Dubai", "DIFC", "Burj Khalifa District", "Business Bay", "Sheikh Zayed Road", "The Old Town"]}
         distance="10-15 minutes"
+        intro="Storage for Downtown apartments and Burj Khalifa District offices, collected floor-to-door from towers where lift and loading-bay access must be booked in advance."
         benefits={[
           "Same-day pickup from your Downtown tower",
           "Document archiving for DIFC-registered companies",
@@ -98,7 +97,7 @@ export default function DowntownDubaiPage() {
         <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold text-[#0A2463] mb-4">Storage Near Downtown Dubai, DIFC &amp; Burj Khalifa</h2>
           <p className="text-sm text-gray-500 mb-6">
-            Written by the SafeStorage Dubai operations team · Serving Downtown since 2018 · 500+ Downtown customers
+            Written by the SafeStorage Dubai operations team · Serving Downtown since 2015
           </p>
           <p className="text-lg text-gray-700 mb-6">
             SafeStorage is the preferred storage provider for residents and businesses in Downtown Dubai, the Dubai

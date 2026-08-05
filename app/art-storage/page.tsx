@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords: "art storage dubai, artwork storage dubai, painting storage dubai, sculpture storage dubai, antique storage dubai, secure art storage, valuables storage dubai, gallery storage dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Art Storage Dubai — Secure Vaults for Artwork & Valuables",
-    description: "Specialist art storage in Dubai. Secure vaults, photography on intake, white-glove handling for paintings, sculptures & collectibles.",
     url: "https://safestorage.ae/art-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords:
     "Storage prices Dubai Self storage cost UAE, Affordable storage units, Cheap storage Dubai, Storage rental rates, Flexible storage plans, No deposit storage, Monthly storage fees, Business storage pricing, Personal storage cost, Storage discounts Dubai, Household storage rates, SafeStorage pricing, Secure storage quotes",
   openGraph: {
-    title: "SafeStorage Pricing - Storage from 12.65 AED / sqft",
-    description: "Competitive storage rates in Dubai. All sizes available with door-to-door service. Call +971505773388.",
     url: "https://safestorage.ae/pricing",
     siteName: "SafeStorage Dubai",
     images: [
@@ -27,8 +25,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SafeStorage Pricing - From 12.65 AED / sqft",
-    description: "Affordable storage units in Dubai with transparent pricing. Call +971505773388.",
     images: ["/twitter-pricing.jpg"],
   },
   alternates: {

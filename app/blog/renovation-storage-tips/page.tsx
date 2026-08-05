@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   keywords: "renovation storage dubai, furniture storage during renovation dubai, apartment renovation storage dubai, villa renovation storage, moving out for renovation dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Renovation Storage Tips Dubai — Make Your Reno Stress-Free",
-    description: "Complete guide to storing belongings during Dubai apartment and villa renovation. What to store, how to plan, and the cost breakdown.",
     url: "https://safestorage.ae/blog/renovation-storage-tips",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

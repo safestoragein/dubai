@@ -12,8 +12,6 @@ export const metadata: Metadata = {
     "short term storage between leases dubai, lease gap storage dubai, storage during apartment renovation dubai, temporary storage moving house dubai, storage between moves dubai, 1 month storage dubai, weekly storage rental dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Short-Term Storage Between Leases Dubai | Moving & Renovation | SafeStorage",
-    description: "Storage between leases, during renovation or while moving in Dubai. From 1 week, door-to-door pickup. Call +971505773388.",
     url: "https://safestorage.ae/self-storage-dubai/short-term-moving-renovation",
   },
   alternates: {

@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   keywords: "packing tips storage dubai, how to pack for storage dubai, packing boxes storage dubai, furniture packing storage, moving storage dubai packing guide",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Packing Tips for Storage in Dubai — Pack Right the First Time",
-    description: "Expert packing guide for Dubai storage. How to protect your belongings, use space efficiently, and avoid the most common packing mistakes.",
     url: "https://safestorage.ae/blog/packing-tips-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

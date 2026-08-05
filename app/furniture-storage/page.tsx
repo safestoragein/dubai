@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, wardrobe storage dubai, dining table storage dubai, moving furniture storage dubai, apartment furniture storage dubai, villa furniture storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Furniture Storage Dubai — Secure Storage with Door-to-door Pickup | SafeStorage",
-    description: "Store your furniture safely in Dubai. Secure covered units, professional wrapping, door-to-door pickup, flexible monthly contracts. From 12.65 AED / sqft for single items to full villa contents.",
     url: "https://safestorage.ae/furniture-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

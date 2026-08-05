@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "al barsha storage dubai, storage al barsha 1, storage al barsha 2, storage near mall of the emirates, barsha heights storage, tecom storage dubai, al barsha self storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Al Barsha Storage Dubai — Door-to-door Pickup | SafeStorage",
-    description: "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights & Tecom. home pickup. From 12.65 AED / sqft. Call +971505773388.",
     url: "https://safestorage.ae/locations/al-barsha",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -78,6 +76,7 @@ export default function AlBarshaPage() {
         location="Al Barsha"
         areas={["Al Barsha 1", "Al Barsha 2", "Al Barsha 3", "Al Barsha South", "Barsha Heights (IMPZ)", "Tecom"]}
         distance="15-20 minutes"
+        intro="Villa and apartment storage across Al Barsha 1, 2 and 3, with collection from Mall of the Emirates, Barsha Heights and the Tecom towers."
         benefits={[
           "Door-to-Door pickup from all Al Barsha sub-communities",
           "Ideal for families downsizing or renovating",

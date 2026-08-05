@@ -31,9 +31,6 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Warehouse Storage Dubai | Space Without a Lease",
-    description:
-      "Flexible warehouse storage in Dubai from 12.65 AED/sqft. Scale up or down monthly instead of committing to a commercial lease.",
     url: "https://safestorage.ae/warehouse-storage-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -42,8 +39,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Warehouse Storage Dubai | Space Without a Lease",
-    description: "Pay for the warehouse space you actually use. From 12.65 AED/sqft, VAT included.",
     images: ["/twitter-image.jpg"],
   },
 }

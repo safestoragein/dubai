@@ -14,8 +14,6 @@ export const metadata: Metadata = {
   description: "Find the cheapest storage in Dubai! Transparent pricing starts from 12.65 AED / sqft. Compare costs, save money, and get flexible storage solutions.",
   keywords: "cheap storage dubai, affordable storage dubai, storage prices dubai, budget storage uae, cheapest storage dubai, low cost storage, storage deals dubai, student storage dubai, small business storage",
   openGraph: {
-    title: "Cheap Storage Dubai 2026: Best Affordable Options - Starts from 12.65 AED / sqft",
-    description: "Transparent pricing, no hidden fees. Professional storage starts from 12.65 AED / sqft in Dubai.",
     url: "https://safestorage.ae/cheap-storage-dubai",
     siteName: "SafeStorage Dubai",
     images: [

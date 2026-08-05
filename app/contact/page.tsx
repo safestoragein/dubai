@@ -17,9 +17,6 @@ export const metadata: Metadata = {
   // sets url: "https://safestorage.ae" — so every share of /contact pointed back
   // at the homepage and contradicted this page's own canonical tag.
   openGraph: {
-    title: "Contact SafeStorage Dubai | Call, WhatsApp or Get a Quote",
-    description:
-      "Reach SafeStorage Dubai by phone, WhatsApp or message. We reply within 15 minutes during business hours.",
     url: "https://safestorage.ae/contact",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -28,8 +25,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact SafeStorage Dubai",
-    description: "Call, WhatsApp or message us — we reply within 15 minutes in business hours.",
     images: ["/twitter-image.jpg"],
   },
 }

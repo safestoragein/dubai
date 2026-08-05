@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "Storage Jumeirah, Self storage Jumeirah, Jumeirah villa storage, Umm Suqeim storage, Al Safa storage, Al Wasl storage, Household storage Dubai, Furniture storage Jumeirah, Luxury item storage, Secure storage Dubai, Storage with pickup, Villa renovation storage, Personal storage units, SafeStorage Jumeirah",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Expat Storage Dubai Moving Back Home | Jumeirah | SafeStorage",
-    description: "Trusted by 500+ expats leaving Dubai. Store belongings safely in Jumeirah — flexible terms, door-to-door pickup. Call +971505773388.",
     url: "https://safestorage.ae/locations/jumeirah",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -73,6 +71,7 @@ export default function JumeirahPage() {
       location="Jumeirah"
       areas={["Jumeirah 1", "Jumeirah 2", "Jumeirah 3", "Umm Suqeim", "Al Safa", "Al Wasl"]}
       distance="15-20 minutes"
+      intro="Villa storage across Jumeirah 1, 2 and 3, Umm Suqeim and Al Wasl, most often during renovations, extensions and garden works."
       benefits={[
         "Door-to-Door pickup from Jumeirah villas",
         "Perfect for villa renovations",

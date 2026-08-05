@@ -12,8 +12,6 @@ export const metadata: Metadata = {
     "storage locations in Dubai, Dubai storage locations, self storage units Dubai, storage near me Dubai, safe storage Dubai, secure storage facilities Dubai, household storage locations Dubai, business storage locations UAE, personal storage near me Dubai, storage warehouses in Dubai, Safe Storage Dubai locations",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Storage Locations Dubai - SafeStorage",
-    description: "Premium storage locations across Dubai with door-to-door service. Find a location near you.",
     url: "https://safestorage.ae/locations",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -290,7 +288,7 @@ export default function LocationsPage() {
           <div className="space-y-6">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Which areas of Dubai does SafeStorage serve?</h3>
-              <p className="text-gray-700">SafeStorage serves every area of Dubai with our door-to-door service. Our four primary service zones cover Business Bay (central Dubai), Dubai Marina (western Dubai), Jumeirah (villa communities), and Dubai Investment Park (southern Dubai). Beyond these core zones, we also serve Deira, Bur Dubai, Karama, Mirdif, Arabian Ranches, Dubai Silicon Oasis, Academic City, International City, Al Barsha, Tecom, and all other Dubai communities. If you are unsure whether your area is covered, simply call or WhatsApp us on +971505773388 and we will confirm immediately.</p>
+              <p className="text-gray-700">SafeStorage serves every area of Dubai with our door-to-door service. The twelve areas above each have a dedicated page covering collection times, typical storage needs and local specifics — from Business Bay and Downtown in central Dubai, to Dubai Marina and Palm Jumeirah in the west, the Jumeirah villa communities, and Dubai Investment Park in the south. Beyond those twelve, we also serve Bur Dubai, Karama, Arabian Ranches, Academic City, International City, Tecom, and all other Dubai communities. If you are unsure whether your area is covered, simply call or WhatsApp us on +971505773388 and we will confirm immediately.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How quickly can SafeStorage pick up from my location in Dubai?</h3>

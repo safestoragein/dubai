@@ -7,9 +7,6 @@ export const metadata: Metadata = {
   keywords:
     "top 10 storage companies in dubai, best storage companies dubai, storage companies in dubai, top storage dubai, best self storage dubai, storage facilities dubai, top rated storage dubai 2026, storage company dubai comparison",
   openGraph: {
-    title: "Top 10 Storage Companies in Dubai (2026) - Best Rated & Reviewed",
-    description:
-      "Compare the top 10 storage companies in Dubai. Scores, best-for labels & honest reviews. SafeStorage Dubai rated #1 for overall value.",
     url: "https://safestorage.ae/top-10-storage-companies-dubai",
     siteName: "SafeStorage Dubai",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Top 10 Storage Companies in Dubai 2026" }],
@@ -19,8 +16,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://safestorage.ae/top-10-storage-companies-dubai" },
   twitter: {
     card: "summary_large_image",
-    title: "Top 10 Storage Companies in Dubai (2026)",
-    description: "Compare Dubai's best storage providers — honest scores & reviews.",
   },
 }
 
@@ -538,7 +533,7 @@ export default function Top10StorageCompaniesDubai() {
             <div style={{ marginBottom: "28px" }}>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A2463", marginBottom: "12px" }}>1. The Most-Reviewed Storage Company in Dubai</h3>
               <p style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "15px" }}>
-                With over 2,400 verified customer reviews and a 4.9 out of 5 average rating, SafeStorage Dubai has accumulated more genuine customer feedback than any other storage provider in the city. These are not promotional testimonials &mdash; they are independently verified Google reviews from real customers across Dubai. The consistency of the positive feedback across all review criteria (communication, punctuality, handling care, and value) reflects a genuinely customer-centric operation rather than a one-off good experience. When choosing a storage company in Dubai, the volume and quality of real customer reviews is one of the most reliable indicators of service quality, and SafeStorage leads this metric by a significant margin over competitors.
+                With 6,700+ verified Google reviews worldwide and a 4.9 out of 5 average rating, SafeStorage Dubai has accumulated more genuine customer feedback than any other storage provider in the city. These are not promotional testimonials &mdash; they are independently verified Google reviews from real customers across Dubai. The consistency of the positive feedback across all review criteria (communication, punctuality, handling care, and value) reflects a genuinely customer-centric operation rather than a one-off good experience. When choosing a storage company in Dubai, the volume and quality of real customer reviews is one of the most reliable indicators of service quality, and SafeStorage leads this metric by a significant margin over competitors.
               </p>
             </div>
 

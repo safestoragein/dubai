@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords: "student storage dubai, university storage dubai, semester storage dubai, summer student storage dubai, student accommodation storage, UAEU student storage, AUD student storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Student Storage Dubai — Affordable Between-Semester Storage | SafeStorage",
-    description: "Student storage in Dubai from 12.65 AED / sqft. Store between semesters, summer breaks or after graduation. Door-to-Door pickup near major universities.",
     url: "https://safestorage.ae/student-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -17,8 +17,6 @@ export const metadata: Metadata = {
   keywords:
     "dubai cost of living 2026, living expenses dubai, dubai monthly budget, how much to live in dubai, dubai prices, cost to live in dubai, dubai rent prices, dubai salary requirements",
   openGraph: {
-    title: "Dubai Cost of Living 2026: Complete Budget Guide",
-    description: "Real prices & monthly budgets for living in Dubai. Rent, food, transport, schools & more!",
     url: "https://safestorage.ae/dubai-cost-of-living-2026",
     siteName: "SafeStorage Dubai",
     images: [

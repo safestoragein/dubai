@@ -13,8 +13,6 @@ export const metadata: Metadata = {
   keywords: "self storage dubai flexible plans, storage with door-to-door pickup dubai, no lorry storage dubai, month to month storage dubai, book storage online dubai, storage unit near me pickup dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Self Storage Dubai – Secure, Affordable Units Near You",
-    description: "SafeStorage offers secure units with easy pickup and flexible plans.",
     url: "https://safestorage.ae/self-storage-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -286,7 +284,9 @@ export default function SelfStorageDubaiPage() {
                     Use our Storage Unit Size Guide to compare volume and get a precise recommendation.
                   </p>
                   <Button variant="outline" className="w-full" asChild>
-                    <Link href="/self-storage-dubai/storage-unit-sizes">
+                    {/* Link the real page, not /self-storage-dubai/storage-unit-sizes,
+                        which only resolves through a 308 in next.config.mjs. */}
+                    <Link href="/storage-units-dubai">
                       View Size Guide <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -463,23 +463,52 @@ export default function SelfStorageDubaiPage() {
               </p>
               
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {/* These were all `/self-storage-dubai/near/${area}` links. None of
+                    those pages exist — every one 308s straight back to this page,
+                    so seventeen cards were self-referencing redirects. Areas that
+                    have a real location page now link to it; the rest stay as
+                    plain coverage labels rather than links to nowhere. */}
                 {[
-                  "Dubai Marina", "JLT", "JVC", "Jumeirah", 
-                  "Downtown", "Business Bay", "Al Quoz", "Al Barsha", 
-                  "Deira", "Bur Dubai", "Mirdif", "Silicon Oasis",
-                  "Motor City", "Dubai South", "DIP", "Al Quasis", "Dubai Hills"
-                ].map(area => (
-                  <Link 
-                    key={area}
-                    href={`/self-storage-dubai/near/${area.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow text-center group"
-                  >
-                    <MapPin className="h-5 w-5 text-dubai-gold mx-auto mb-2" />
-                    <span className="text-gray-700 group-hover:text-dubai-gold transition-colors">
-                      {area}
-                    </span>
-                  </Link>
-                ))}
+                  { area: "Dubai Marina", slug: "dubai-marina" },
+                  { area: "JLT" },
+                  { area: "JVC", slug: "jumeirah-village-circle" },
+                  { area: "Jumeirah", slug: "jumeirah" },
+                  { area: "Downtown", slug: "downtown-dubai" },
+                  { area: "Business Bay", slug: "business-bay" },
+                  { area: "Al Quoz" },
+                  { area: "Al Barsha", slug: "al-barsha" },
+                  { area: "Deira", slug: "deira" },
+                  { area: "Bur Dubai" },
+                  { area: "Mirdif", slug: "mirdif" },
+                  { area: "Silicon Oasis", slug: "dubai-silicon-oasis" },
+                  { area: "Motor City" },
+                  { area: "Dubai South" },
+                  { area: "DIP", slug: "dubai-investment-park" },
+                  { area: "Al Quasis" },
+                  { area: "Dubai Hills", slug: "dubai-hills" },
+                ].map(({ area, slug }) => {
+                  const card = (
+                    <>
+                      <MapPin className="h-5 w-5 text-dubai-gold mx-auto mb-2" />
+                      <span className="text-gray-700 group-hover:text-dubai-gold transition-colors">
+                        {area}
+                      </span>
+                    </>
+                  )
+                  return slug ? (
+                    <Link
+                      key={area}
+                      href={`/locations/${slug}`}
+                      className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow text-center group"
+                    >
+                      {card}
+                    </Link>
+                  ) : (
+                    <div key={area} className="bg-white p-4 rounded-lg text-center group">
+                      {card}
+                    </div>
+                  )
+                })}
               </div>
               
               <div className="mt-8 text-center">
@@ -569,7 +598,8 @@ export default function SelfStorageDubaiPage() {
               <div className="mt-8 text-center">
                 <p className="text-gray-600 mb-4">Have more questions?</p>
                 <Button variant="outline" asChild>
-                  <Link href="/self-storage-dubai/faqs">
+                  {/* /self-storage-dubai/faqs does not exist — it 308s to /faq. */}
+                  <Link href="/faq">
                     View All FAQs <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

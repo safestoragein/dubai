@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords: "Document storage Dubai, Business record storage, Legal document storage, Medical record storage, File storage Dubai, Confidential storage, Office document storage, Paper storage Dubai, Storage for compliance, SafeStorage archival Url Fetching issue Canonical for article url Favicon logo",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Document Storage Dubai — Secure Records & Archive Storage | SafeStorage",
-    description: "Secure document storage in Dubai for businesses and individuals. Fire-resistant, access-controlled, confidential. From 12.65 AED / sqft.",
     url: "https://safestorage.ae/document-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

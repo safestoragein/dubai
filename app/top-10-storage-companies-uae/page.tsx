@@ -7,8 +7,6 @@ export const metadata: Metadata = {
   keywords:
     "top 10 storage companies in UAE, best storage companies UAE, storage companies in UAE, top storage UAE, best self storage UAE, storage facilities UAE, storage company dubai abu dhabi sharjah, top rated storage UAE 2026",
   openGraph: {
-    title: "Top 10 Storage Companies in UAE (2026) - Best Rated & Reviewed",
-    description: "Honest scores & reviews of the top 10 storage companies in UAE. SafeStorage UAE rated #1 overall.",
     url: "https://safestorage.ae/top-10-storage-companies-uae",
     siteName: "SafeStorage Dubai",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Top 10 Storage Companies in UAE 2026" }],
@@ -18,8 +16,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://safestorage.ae/top-10-storage-companies-uae" },
   twitter: {
     card: "summary_large_image",
-    title: "Top 10 Storage Companies in UAE (2026)",
-    description: "Scored & reviewed: UAE's best storage providers across Dubai, Abu Dhabi & Sharjah.",
   },
 }
 

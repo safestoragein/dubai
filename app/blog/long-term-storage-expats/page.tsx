@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   keywords: "long term storage dubai expats, expat storage dubai long term, 6 month storage dubai, 12 month storage dubai, year long storage dubai expat, remote storage management dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Long-Term Storage Dubai for Expats — Complete Guide & Pricing",
-    description: "Everything Dubai expats need to know about long-term storage. Cost breakdown, remote management, and when it's the right choice.",
     url: "https://safestorage.ae/blog/long-term-storage-expats",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

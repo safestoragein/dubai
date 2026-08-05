@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   keywords: "what can you store storage unit dubai, what is allowed storage dubai, prohibited items storage dubai, can I store food storage unit, storage unit rules dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "What Can You Store in a Storage Unit in Dubai? Complete Guide",
-    description: "Full guide to what's permitted and prohibited in Dubai storage units. Know before you book.",
     url: "https://safestorage.ae/blog/what-can-you-store",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   keywords: "small business storage dubai, business storage solution dubai, warehouse alternative dubai, inventory storage small business dubai, office storage dubai, retail storage dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Small Business Storage Dubai — Flexible Alternative to Warehouses",
-    description: "How smart Dubai small businesses use storage units to avoid warehouse leases. Flexible, affordable, scale up or down.",
     url: "https://safestorage.ae/blog/small-business-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -16,9 +16,6 @@ export const metadata: Metadata = {
   // See app/contact/page.tsx — omitting openGraph here made this page emit the
   // homepage og:url and og:title, contradicting its own canonical.
   openGraph: {
-    title: "How Storage in Dubai Works | Pickup, Store, Deliver",
-    description:
-      "Book online, we collect and pack, we store securely, and we deliver back within 24–48 hours. No lorry, no heavy lifting.",
     url: "https://safestorage.ae/how-it-works",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -27,8 +24,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "How Storage in Dubai Works",
-    description: "Book, we collect, we store, we deliver back in 24–48 hours.",
     images: ["/twitter-image.jpg"],
   },
 }

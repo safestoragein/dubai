@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "dubai silicon oasis storage, DSO storage dubai, academic city storage, international city storage dubai, storage near DSO, dubai silicon oasis self storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Dubai Silicon Oasis Storage — DSO & Academic City | SafeStorage",
-    description: "Door-to-Door pickup storage for DSO, Academic City & International City. Secure, from 12.65 AED / sqft. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-silicon-oasis",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -76,6 +74,7 @@ export default function DubaiSiliconOasisPage() {
         location="Dubai Silicon Oasis (DSO)"
         areas={["Dubai Silicon Oasis (all zones)", "Academic City", "International City", "Dubailand", "Liwan", "Majan"]}
         distance="25-30 minutes"
+        intro="Storage for Silicon Oasis apartments, Academic City student housing and DSO free-zone businesses, with the longest run from our DIP facility and scheduling to match."
         benefits={[
           "Ideal for DSO tech companies needing equipment storage",
           "Student-friendly rates for Academic City residents",

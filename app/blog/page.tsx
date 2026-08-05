@@ -12,8 +12,6 @@ export const metadata: Metadata = {
   },
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Storage Tips & Guides | SafeStorage Dubai Blog",
-    description: "Expert storage tips, guides, and insights from SafeStorage Dubai.",
     url: "https://safestorage.ae/blog",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

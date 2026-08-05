@@ -5,6 +5,7 @@ import { cache } from "react"
 import { notFound, permanentRedirect } from "next/navigation"
 import { blogImageUrl } from "@/lib/blog-image"
 import { normaliseFeedContent } from "@/lib/blog-meta"
+import { BLOG_AUTHOR } from "@/lib/company-facts"
 
 // ISR: regenerate at most once per hour
 export const revalidate = 3600
@@ -207,7 +208,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     dateModified: post?.updated_at || post?.created_at || new Date().toISOString(),
     author: {
       '@type': 'Organization',
-      name: 'SafeStorage Dubai',
+      // Must equal the byline rendered by blog-post-detail.tsx.
+      name: BLOG_AUTHOR,
       url: 'https://safestorage.ae',
     },
     publisher: {

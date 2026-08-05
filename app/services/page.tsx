@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords:
     "Storage services Dubai, Household storage, Business storage, Document storage, Archive storage in Dubai, Furniture storage, Inventory storage, Secure storage Dubai, Office storage, Personal storage units, Self storage services, Equipment storage, Commercial storage, SafeStorage services",
   openGraph: {
-    title: "SafeStorage Services - Personal, Business & Vehicle Storage",
-    description: "Complete storage solutions in Dubai. Secure units, 24/7 security, door-to-door pickup. Call +971505773388.",
     url: "https://safestorage.ae/services",
     siteName: "SafeStorage Dubai",
     images: [
@@ -27,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SafeStorage Services Dubai | +971505773388",
-    description: "Personal, business & vehicle storage solutions with door-to-door service.",
+    // Was "SafeStorage Services Dubai | +971505773388" — the last page still
+    // carrying the generic phone-number twitter:title the audit flagged.
     images: ["/twitter-services.jpg"],
   },
   alternates: {

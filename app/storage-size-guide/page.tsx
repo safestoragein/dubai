@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords: "storage unit size guide dubai, what size storage do I need, storage unit sizes dubai, self storage sizes, storage unit calculator dubai, how big storage unit do i need",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Storage Unit Size Guide Dubai — Find Your Perfect Fit | SafeStorage",
-    description: "Complete guide to storage unit sizes in Dubai. See what fits in each unit and get the right size first time. From 12.65 AED / sqft.",
     url: "https://safestorage.ae/storage-size-guide",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

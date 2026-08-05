@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "Storage Business Bay, Business Bay storage, Downtown Dubai storage, DIFC storage units, Office storage Dubai, Document archiving Dubai, Personal storage units, Secure storage Dubai, Storage with pickup, Furniture storage Dubai, Commercial storage UAE, Self storage Business Bay, SafeStorage Dubai, High-rise apartment storage",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Storage Units Near Business Bay Dubai - Pickup in 24hrs | SafeStorage",
-    description: "Secure storage near Business Bay & DIFC. Door-to-Door pickup from your address. Call +971505773388.",
     url: "https://safestorage.ae/locations/business-bay",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -73,6 +71,7 @@ export default function BusinessBayPage() {
       location="Business Bay"
       areas={["Business Bay", "Downtown Dubai", "DIFC", "Sheikh Zayed Road", "Al Khail Road"]}
       distance="10-15 minutes"
+      intro="Office clearances, DIFC document archiving and high-rise apartment storage, collected from any tower between Sheikh Zayed Road and the Dubai Canal."
       benefits={[
         "Perfect for Business Bay office storage",
         "Document archiving for DIFC companies",
@@ -256,6 +255,8 @@ export default function BusinessBayPage() {
             <p className="text-gray-700">No, there is no minimum storage period for Business Bay or any other area. SafeStorage plans are completely flexible — you can store for as short as one week and as long as several years. Monthly billing means you only pay for the time you actually need. You can cancel with 14 days&apos; notice at any time. This makes SafeStorage ideal for Business Bay residents who need storage during a short apartment renovation, a brief trip abroad, or while waiting for a new lease to begin.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you cover Al Khail Road and the Dubai Canal side of Business Bay?</h3>
+            <p className="text-gray-700">Yes. Our Business Bay zone runs from Sheikh Zayed Road across to Al Khail Road (E44) and along the full length of the Dubai Canal Promenade, including the Bay Square low-rises and the canal-side residential towers. Access from Al Khail Road is often faster outside peak hours, and our team routes accordingly. If you are unsure whether your tower falls inside the zone, send the building name on WhatsApp to +971505773388 and we will confirm before you book.</p>
           </div>
         </div>
       </div>

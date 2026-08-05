@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "dubai hills estate storage, storage dubai hills, storage near dubai hills mall, al quoz storage, dubai hills villa storage, storage emaar dubai hills",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Dubai Hills Estate Storage — Door-to-door Pickup | SafeStorage",
-    description: "Door-to-Door pickup storage for Dubai Hills villas and apartments. Secure units. Al Quoz & Umm Suqeim also covered. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-hills",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -76,6 +74,7 @@ export default function DubaiHillsPage() {
         location="Dubai Hills Estate"
         areas={["Dubai Hills Estate", "Emaar Hills", "Park Heights", "Park Ridge", "Golf Place", "Al Quoz", "Nad Al Sheba"]}
         distance="15-20 minutes"
+        intro="Family villa storage for Dubai Hills Estate — garden furniture, seasonal items and full-room clearances during extensions and landscaping work."
         benefits={[
           "Expert care for premium Dubai Hills villa contents",
           "Door-to-Door pickup from all Dubai Hills sub-communities",

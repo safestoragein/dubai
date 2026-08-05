@@ -22,6 +22,14 @@ export async function generateMetadata({
     alternates: {
       canonical: "https://safestorage.ae/get-quote",
     },
+    // og:url must be set per page — the root layout deliberately omits it, so a
+    // page without its own openGraph block emits no og:url at all. Images must be
+    // repeated here too: Next replaces the parent openGraph object rather than
+    // merging into it, so declaring one drops the root's images.
+    openGraph: {
+      url: "https://safestorage.ae/get-quote",
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    },
     ...(hasParams && {
       robots: {
         index: false,

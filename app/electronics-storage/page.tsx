@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords: "electronics storage dubai, laptop storage dubai, TV storage dubai, tech storage dubai, gadget storage dubai, server storage dubai, secure electronics storage, gaming equipment storage dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Electronics Storage Dubai — Secure Storage for Your Tech | SafeStorage",
-    description: "Protect your electronics in clean, dust-protected indoor storage from 12.65 AED / sqft. Laptops, TVs, servers & gaming gear. Door-to-Door Pickup & Delivery.",
     url: "https://safestorage.ae/electronics-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords: "expat leaving uae storage, leaving dubai storage, storage for expats dubai, moving out dubai storage, expat storage dubai long term, leaving dubai checklist, repatriation storage dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Expat Leaving UAE? Complete Storage Checklist | SafeStorage Dubai",
-    description: "Trusted by 500+ expats leaving Dubai. Store belongings safely from 12.65 AED / sqft — flexible terms, door-to-door pickup. Don't ship everything when you can store affordably.",
     url: "https://safestorage.ae/expat-leaving-uae",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

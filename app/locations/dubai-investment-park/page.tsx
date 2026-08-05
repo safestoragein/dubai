@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "Storage Dubai Investment Park, Dubai Investment Park storage units, Motor City storage, Dubai Production City storage, Sports City storage, Warehouse storage DIP, Business storage Dubai, Personal storage DIP, Secure storage units, Storage with pickup, E-commerce storage DIP, Household storage DIP, SafeStorage DIP, Inventory storage Dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Document Archival Service Dubai Investment Park | SafeStorage",
-    description: "Business document archival & records storage near DIP, Motor City & JAFZA. On-demand retrieval. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-investment-park",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -73,6 +71,7 @@ export default function DubaiInvestmentParkPage() {
       location="Dubai Investment Park"
       areas={["Dubai Investment Park 1", "Dubai Investment Park 2", "Motor City", "Dubai Production City", "Dubai Studio City", "Sports City"]}
       distance="10-15 minutes"
+      intro="Our own facility is in DIP, so collections here are the fastest we run — useful for Green Community residents and DIP, Motor City and Dubai Production City businesses."
       benefits={[
         "Perfect for DIP warehouse and business storage",
         "Ideal for Motor City residents",

@@ -13,8 +13,6 @@ export const metadata: Metadata = {
   keywords:
     "dubai 2026, places to visit dubai, dubai attractions 2026, things to do dubai, dubai travel guide 2026, burj khalifa, dubai mall, museum of the future, dubai marina, palm jumeirah",
   openGraph: {
-    title: "Top 6 Places to Visit in Dubai 2026 | Ultimate Travel Guide",
-    description: "Your complete guide to Dubai's must-visit attractions in 2026. Perfect for tourists and new residents!",
     url: "https://safestorage.ae/top-places-dubai-2026",
     siteName: "SafeStorage Dubai",
     images: [

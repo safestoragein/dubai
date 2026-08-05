@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   keywords: "best movers dubai 2025, how to choose movers dubai, dubai moving company guide, professional movers dubai, moving tips dubai, trusted movers dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Best Movers Dubai 2025 — Complete Hiring Guide",
-    description: "How to find and vet the best movers in Dubai. What to check, red flags, and protecting your belongings during the move.",
     url: "https://safestorage.ae/blog/best-movers-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

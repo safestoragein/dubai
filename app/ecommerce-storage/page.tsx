@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   keywords: "E-commerce storage Dubai, Inventory management Dubai, Warehouse for rent Dubai, Small business storage, Bulk storage Dubai, Inventory tracking UAE, Scalable business storage, SafeStorage fulfilment",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "E-Commerce Storage Dubai — Flexible Inventory & Fulfilment",
-    description: "Scale your Dubai e-commerce business without warehouse commitments. Flexible monthly storage from 12.65 AED / sqft. Store, pick and ship your inventory affordably.",
     url: "https://safestorage.ae/ecommerce-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

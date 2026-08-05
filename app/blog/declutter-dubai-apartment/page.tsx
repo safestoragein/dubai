@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   keywords: "how to declutter dubai apartment, declutter dubai home, marie kondo dubai, minimalism dubai apartment, clear out apartment dubai, declutter before moving dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "How to Declutter Your Dubai Apartment — Complete Step-by-Step Guide",
-    description: "The Dubai declutter method for expat apartments. What to keep, store, sell and donate without regret.",
     url: "https://safestorage.ae/blog/declutter-dubai-apartment",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

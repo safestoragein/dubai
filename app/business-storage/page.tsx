@@ -14,8 +14,6 @@ export const metadata: Metadata = {
     "Business Storage Facilities, Business Storage Solutions, Commercial Storage Dubai, Self Storage, Storage in Dubai, Business Storage Dubai, Office Storage Solutions Dubai, Warehouse Storage For Companies Dubai, Corporate Storage Unit Rental Dubai, Storage For Business Inventory Dubai, Affordable Business Storage Dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Business Storage Dubai — Inventory & Office Storage",
-    description: "Flexible storage for Dubai businesses — inventory, office equipment & stock. Monthly contracts, on-demand delivery. Call +971505773388.",
     url: "https://safestorage.ae/business-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -105,11 +103,11 @@ export default function BusinessStoragePage() {
             <div className="flex flex-wrap justify-center gap-4 mb-6">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                <span className="text-white text-sm font-medium">4.9/5 (6700+ Reviews Globally)</span>
+                <span className="text-white text-sm font-medium">4.9/5 (6,700+ reviews worldwide)</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Users className="h-4 w-4 text-dubai-gold" />
-                <span className="text-white text-sm font-medium">Trusted by 500+ Corporate Clients Globally</span>
+                <span className="text-white text-sm font-medium">Trusted by 100,000+ customers worldwide</span>
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -185,7 +183,7 @@ export default function BusinessStoragePage() {
               Ready to Simplify Your Business Storage?
             </h2>
             <p className="text-white/80 mb-8">
-              Join 500+ global businesses who trust SafeStorage Dubai. Get a customized quote in just 2 minutes.
+              Join the 100,000+ customers who trust SafeStorage worldwide. Get a customized quote in just 2 minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button

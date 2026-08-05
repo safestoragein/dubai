@@ -20,8 +20,6 @@ export const metadata: Metadata = {
   description: "Compare storage unit sizes and prices in Dubai for 2026. See what fits in each unit, what it costs per month, and book with door-to-door pickup.",
   keywords: "storage units dubai, self storage dubai, storage dubai price, storage units near me, cheap storage dubai, secure storage dubai, furniture storage dubai, storage facility dubai, storage space dubai, storage rental dubai",
   openGraph: {
-    title: "Storage Units in Dubai - From 12.65 AED / sqft | Door-to-door Pickup",
-    description: "Secure, clean storage units in Dubai. Door-to-Door service, 24/7 access, transparent pricing. Trusted by 500+ customers.",
     url: "https://safestorage.ae/storage-units-dubai",
     siteName: "SafeStorage Dubai",
     images: [
@@ -37,8 +35,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Storage Units in Dubai - From 12.65 AED / sqft",
-    description: "Secure, clean storage with Door-to-Door pickup. 500+ happy customers.",
   },
   alternates: {
     canonical: "https://safestorage.ae/storage-units-dubai",
@@ -304,7 +300,7 @@ export default function StorageUnitsDubaiPage() {
             <div className="flex flex-wrap justify-center gap-3 mb-8">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                <span className="text-white text-sm font-medium">4.9/5 (6700+ Reviews Globally)</span>
+                <span className="text-white text-sm font-medium">4.9/5 (6,700+ reviews worldwide)</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Users className="h-4 w-4 text-dubai-gold" />
@@ -625,7 +621,7 @@ export default function StorageUnitsDubaiPage() {
               </div>
               <div className="h-6 w-px bg-gray-200" />
               <span className="font-bold text-lg">4.9</span>
-              <span className="text-muted-foreground text-sm">6700+ Google Reviews Globally</span>
+              <span className="text-muted-foreground text-sm">6,700+ Google reviews worldwide</span>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold text-dubai-navy mb-4">

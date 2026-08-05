@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "Storage Dubai Marina, Self storage Marina, JBR storage, Marina Walk storage, Bluewaters storage, Household storage Marina, Furniture storage Dubai, Secure storage units, Storage with pickup, Personal storage Dubai, Apartment storage Marina, Short term storage, Business storage Marina, SafeStorage Marina",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    title: "Furniture Storage During Renovation Dubai Marina & JBR | SafeStorage",
-    description: "Short-term storage during renovations or between leases in Dubai Marina & JBR. Door-to-Door pickup. Call +971505773388.",
     url: "https://safestorage.ae/locations/dubai-marina",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
@@ -73,6 +71,7 @@ export default function DubaiMarinaPage() {
       location="Dubai Marina"
       areas={["Dubai Marina", "JBR", "Marina Walk", "Dubai Marina Mall area", "Bluewaters"]}
       distance="15-20 minutes"
+      intro="Apartment storage for Marina, JLT, JBR and Bluewaters, built around towers where storage rooms are small and loading-bay slots have to be booked."
       benefits={[
         "Door-to-Door pickup from your Marina apartment",
         "Quick access via Sheikh Zayed Road",
@@ -256,6 +255,8 @@ export default function DubaiMarinaPage() {
             <p className="text-gray-700">Yes, customers can arrange to visit the SafeStorage facility by appointment to access their stored items in person. Simply contact your storage consultant to schedule a visit during facility operating hours. However, most customers find the on-demand delivery service more convenient — simply request the specific items you need and they will be delivered to your Dubai Marina address within 24 hours. For large quantities, we can deliver in batches. There is no requirement to visit the facility, and many customers manage their entire storage experience remotely.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you collect from JLT and Bluewaters as well as Dubai Marina?</h3>
+            <p className="text-gray-700">Yes. The Dubai Marina zone covers JLT, Marina Walk, the Marina Mall towers, Bluewaters Island and JBR, all served by the same team on the same schedule. JLT does not have a separate location page because it is collected as part of this zone. Building access in Marina and JLT towers usually needs a booked loading bay slot, so give us the tower name when you book and we will arrange it with building management.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there parking available when SafeStorage collects from my JBR apartment?</h3>

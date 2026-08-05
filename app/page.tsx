@@ -31,8 +31,6 @@ export const metadata: Metadata = {
   // image paths (/og-home.jpg, /twitter-home.jpg) pointed at files that did not
   // exist in public/, so every share rendered with a broken image.
   openGraph: {
-    title: "SafeStorage Dubai — #1 Rated Storage with Door-to-door Pickup",
-    description: "Secure storage units in Dubai from 12.65 AED/sqft with door-to-door pickup and delivery. Call +971505773388.",
     url: "https://safestorage.ae",
     siteName: "SafeStorage Dubai",
     images: [
@@ -48,8 +46,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SafeStorage Dubai — #1 Rated Storage with Door-to-door Pickup",
-    description: "Secure storage units in Dubai from 12.65 AED/sqft with door-to-door pickup and delivery.",
     images: ["/twitter-image.jpg"],
   },
   alternates: {
