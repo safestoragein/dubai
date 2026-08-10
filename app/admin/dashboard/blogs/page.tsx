@@ -5,115 +5,67 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 
+
+// /api/blogs proxies safestorage.in/get_blog_content -- the same feed the blog
+// pages, the sitemap and the indexer read.
+//
+// This page used to read https://safestorage.in/back/app/get_blog_content
+// directly, which is a different system altogether: 17 rows, last written
+// 2025-12-31, and a schema of blog_id/content/meta_title/slug rather than
+// post_id/title/description. None of the Dubai posts have ever been in it, which
+// is why the list stopped at December and newly edited posts never appeared.
+//
+// It cannot be swapped for a direct browser fetch of the correct feed: that URL
+// sends no Access-Control-Allow-Origin, so the request is blocked ("Failed to
+// fetch"), whereas /back/app/* sends `*` -- which is very likely how this page
+// came to be pointed at the wrong system in the first place. Going through our
+// own route also means the 8.5 MB of article bodies stays on the server.
+const FEED = "/api/blogs"
+
 export default function BlogsManagement() {
   const [blogs, setBlogs] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     fetchBlogs()
   }, [])
 
   const fetchBlogs = async () => {
+    setLoading(true)
+    setError(null)
     try {
-      console.log('Fetching blogs from endpoint...')
-      
-      // Try the get_blog_content endpoint first
-      let response = await fetch('https://safestorage.in/back/app/get_blog_content')
-      let data = await response.json()
-      
-      console.log('Primary API Response:', data)
-      
-      let posts = []
-      
-      // Handle the case where data is directly an array (current response format)
-      if (Array.isArray(data)) {
-        console.log('Data is directly an array with', data.length, 'items')
-        posts = data.filter((item: any) => item.content_type === 'blog' || item.content_type === 'post')
-        console.log('Filtered posts:', posts.length)
-      } 
-      // Handle wrapped response format
-      else if (data.status === 'success' && data.data) {
-        if (data.data.posts && Array.isArray(data.data.posts)) {
-          posts = data.data.posts
-          console.log('Using data.data.posts')
-        } else if (data.data.all_content && Array.isArray(data.data.all_content)) {
-          posts = data.data.all_content.filter((item: any) => item.content_type === 'post' || item.content_type === 'blog')
-          console.log('Using data.data.all_content filtered for posts')
-        } else if (Array.isArray(data.data)) {
-          posts = data.data.filter((item: any) => item.content_type === 'post' || item.content_type === 'blog')
-          console.log('Using direct data.data array')
-        }
+      const res = await fetch(FEED, { cache: "no-store" })
+      if (!res.ok) throw new Error(`feed returned HTTP ${res.status}`)
+
+      const body = await res.json()
+      if (body.status !== "success" || !Array.isArray(body.data)) {
+        throw new Error(body.error || "unexpected response shape")
       }
-      // If no posts found, try the fallback endpoint
-      else {
-        console.log('Primary endpoint failed, trying fallback...')
-        try {
-          response = await fetch('/api/blogs')
-          const fallbackData = await response.json()
-          console.log('Fallback API Response:', fallbackData)
-          
-          if (fallbackData.status === 'success' && Array.isArray(fallbackData.data)) {
-            posts = fallbackData.data.map((blog: any) => {
-              const extraData = blog.extra_data ? (typeof blog.extra_data === 'string' ? JSON.parse(blog.extra_data) : blog.extra_data) : {}
-              return {
-                id: blog.blog_id,
-                blog_id: blog.blog_id,
-                slug: blog.slug,
-                meta_title: blog.meta_title,
-                title: blog.meta_title,
-                meta_description: blog.meta_description,
-                content: blog.content,
-                content_type: 'post',
-                author: extraData.author || 'SafeStorage Team',
-                category: extraData.category || 'General',
-                featured_image: extraData.featured_image,
-                views: extraData.views || 0,
-                likes: extraData.likes || 0,
-                is_published: extraData.is_published !== false,
-                is_featured: extraData.is_featured || false,
-                created_at: extraData.created_at || new Date().toISOString(),
-                status: 'active'
-              }
-            })
-            console.log('Using fallback data')
-          }
-        } catch (fallbackError) {
-          console.error('Fallback endpoint also failed:', fallbackError)
-        }
-      }
-      
-      console.log('Found posts:', posts.length)
-      
-      if (posts.length > 0) {
-        // Process the data to match our display format
-        const processedBlogs = posts.map((blog: any) => {
-          return {
-            id: blog.id || blog.blog_id,
-            slug: blog.slug || '',
-            title: blog.meta_title || blog.title || 'Untitled',
-            excerpt: blog.meta_description || blog.excerpt || 'No excerpt',
-            content: blog.content || '',
-            author: { name: blog.author || 'SafeStorage Team' },
-            category: blog.category || 'General',
-            categories: [blog.category || 'General'],
-            date: blog.created_at || new Date().toISOString(),
-            featured_image: blog.featured_image || '',
-            views: blog.views || 0,
-            likes: blog.likes || 0,
-            status: blog.status || 'active',
-            is_published: blog.is_published !== false,
-            is_featured: blog.is_featured || false,
-          }
-        })
-        
-        console.log('Processed blogs:', processedBlogs.length, processedBlogs)
-        setBlogs(processedBlogs)
-      } else {
-        console.log('No posts found after processing')
-        setBlogs([])
-      }
-    } catch (error) {
-      console.error('Error fetching blogs:', error)
+
+      // The route already filtered to published rows, sorted newest first and
+      // mapped through toBlogPost, so the slug here is the address the post
+      // really lives at. Only the display shape is assembled below.
+      setBlogs(
+        body.data.map((p: any) => ({
+          id: p.id,
+          slug: p.slug,
+          title: p.title,
+          excerpt: p.excerpt,
+          author: { name: p.author },
+          category: p.category,
+          categories: [p.category],
+          date: p.date,
+          featured_image: p.image,
+          views: p.views,
+          likes: p.likes,
+          status: "active",
+          is_published: true,
+          is_featured: false,
+        }))
+      )
+    } catch (e) {
+      setError((e as Error).message)
       setBlogs([])
     } finally {
       setLoading(false)
@@ -123,14 +75,16 @@ export default function BlogsManagement() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-3xl font-bold text-gray-900">Blog Management</h2>
-          <p className="mt-2 text-gray-600">Manage your blog posts</p>
-        </div>
-        <Link href="/admin/dashboard/blogs/new">
-          <Button>Create New Post</Button>
-        </Link>
+      {/* No create/edit/delete here. Posts are authored in the safestorage.in
+          dashboard and reach the site through get_blog_content; this page is the
+          read-only view of what that feed is serving. The buttons that used to
+          sit here wrote to a different content store, so a post "created" from
+          this screen was saved somewhere the site never reads. */}
+      <div>
+        <h2 className="text-3xl font-bold text-gray-900">Blog Posts</h2>
+        <p className="mt-2 text-gray-600">
+          Read-only view of the posts served from safestorage.in/get_blog_content.
+        </p>
       </div>
 
       <Card>
@@ -138,6 +92,11 @@ export default function BlogsManagement() {
           <CardTitle>All Blog Posts</CardTitle>
         </CardHeader>
         <CardContent>
+          {error && (
+            <div className="mb-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+              <b>Could not load posts.</b> {error}
+            </div>
+          )}
           {loading ? (
             <div className="text-center py-8">
               <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
@@ -145,10 +104,10 @@ export default function BlogsManagement() {
             </div>
           ) : blogs.length === 0 ? (
             <div className="text-center py-8">
-              <p className="text-gray-600">No blog posts found.</p>
-              <Link href="/admin/dashboard/blogs/new">
-                <Button className="mt-4">Create your first blog post</Button>
-              </Link>
+              <p className="text-gray-600">
+                No posts returned by the feed. That points at safestorage.in, not at
+                this dashboard.
+              </p>
             </div>
           ) : (
             <div className="overflow-x-auto">
@@ -197,9 +156,19 @@ export default function BlogsManagement() {
                       <td className="py-3 px-4 text-sm text-gray-600">
                         {new Date(blog.date).toLocaleDateString()}
                       </td>
+                      {/* "View" rather than "Edit": the edit screen reads and
+                          writes /back/app/*, the 17-row system these posts have
+                          never been in, so it cannot load any of them. Posts are
+                          authored in the safestorage.in dashboard; this page is
+                          the read-only view of what the feed is actually
+                          serving. */}
                       <td className="py-3 px-4">
-                        <Link href={`/admin/dashboard/blogs/edit/${blog.id}`}>
-                          <Button size="sm" variant="outline">Edit</Button>
+                        <Link
+                          href={`/blog/${blog.slug}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button size="sm" variant="outline">View</Button>
                         </Link>
                       </td>
                     </tr>

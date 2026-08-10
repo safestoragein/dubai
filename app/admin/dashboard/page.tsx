@@ -13,12 +13,14 @@ export default function AdminDashboard() {
         <Link href="/admin/dashboard/blogs">
           <Card className="hover:shadow-lg transition-shadow cursor-pointer">
             <CardHeader>
-              <CardTitle>Blog Management</CardTitle>
-              <CardDescription>Create, edit, and manage blog posts</CardDescription>
+              <CardTitle>Blog Posts</CardTitle>
+              <CardDescription>See what the feed is serving</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold text-blue-600">Blogs</div>
-              <p className="text-sm text-gray-500 mt-2">Manage your blog content</p>
+              <p className="text-sm text-gray-500 mt-2">
+                Read-only. Posts are authored in the safestorage.in dashboard.
+              </p>
             </CardContent>
           </Card>
         </Link>
@@ -54,13 +56,13 @@ export default function AdminDashboard() {
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
-            <Link 
-              href="/admin/dashboard/blogs/new" 
+            <Link
+              href="/admin/dashboard/seo-index"
               className="block p-3 bg-blue-50 hover:bg-blue-100 rounded-md transition-colors"
             >
-              <span className="font-medium">Create New Blog Post</span>
+              <span className="font-medium">Google Indexing</span>
             </Link>
-            <Link 
+            <Link
               href="/admin/dashboard/leads" 
               className="block p-3 bg-green-50 hover:bg-green-100 rounded-md transition-colors"
             >

@@ -92,11 +92,34 @@ export function postUrl(row: FeedRow): string | null {
 }
 
 /**
- * Everything about a post that changes what the page says.
+ * Bumped whenever the field list below changes.
  *
- * post_id and created_at are excluded deliberately: the id never changes, and
- * created_at is rewritten by the upstream dashboard on saves that alter
- * nothing a reader would notice. Including it would resubmit posts for free.
+ * A stored hash is only comparable with one computed the same way, so every
+ * hash is stamped with the version that produced it. Without this, changing the
+ * field list makes all 273 posts look edited at once -- which would try to
+ * submit 273 URLs against a 200/day quota and set every sitemap lastmod to the
+ * same instant. Both baselines re-stamp themselves instead. See
+ * importBaseline in seo-index-db.ts and refreshLastmod in blog-lastmod.ts.
+ *
+ *   v1  the eight content fields
+ *   v2  ...and created_at
+ */
+export const HASH_VERSION = 2
+
+/**
+ * Everything the feed says about a post, except its id.
+ *
+ * created_at is included. It is named "created" but the upstream dashboard
+ * rewrites it on every save, so it is in practice a last-saved stamp -- post
+ * 292 moved 12:02:04 -> 14:25:38 across two saves on 2026-08-10 while all eight
+ * content fields stayed byte-identical. v1 excluded it on the assumption that
+ * such a save changes nothing worth announcing; the operator's expectation is
+ * the opposite, that saving a post is what marks it edited, so a save now
+ * queues it.
+ *
+ * The cost of that choice: a save which changes nothing a reader would notice
+ * still spends one of the 200 daily quota units. Only that post is affected --
+ * the other 272 keep the timestamp they had, verified across the full feed.
  */
 export function contentHash(row: FeedRow): string {
   return createHash("sha256")
@@ -110,6 +133,7 @@ export function contentHash(row: FeedRow): string {
         row.tags ?? "",
         row.post_category ?? "",
         row.status ?? "",
+        row.created_at ?? "",
       ])
     )
     .digest("hex")
@@ -518,7 +542,7 @@ export async function buildQueue(rows: FeedRow[]): Promise<{ items: PendingItem[
   // First run only: learn what already exists. Everything after is measured
   // against that snapshot.
   let baseline = 0
-  if (!(await hasBaseline())) {
+  if (!(await hasBaseline(HASH_VERSION))) {
     const seed = rows
       .filter((r) => String(r.status ?? "1") === "1")
       .map((r) => {
@@ -526,7 +550,7 @@ export async function buildQueue(rows: FeedRow[]): Promise<{ items: PendingItem[
         return url ? { post_id: Number(r.post_id), url, content_hash: contentHash(r) } : null
       })
       .filter((e): e is { post_id: number; url: string; content_hash: string } => e !== null)
-    baseline = await importBaseline(seed)
+    baseline = await importBaseline(seed, HASH_VERSION)
   }
 
   const state = await getSubmittedState()
@@ -585,7 +609,7 @@ export async function buildQueue(rows: FeedRow[]): Promise<{ items: PendingItem[
         ? "new post"
         : prev.url !== url
           ? "title changed — new address"
-          : "content changed since last submission",
+          : "saved upstream since last submission",
     })
   }
 

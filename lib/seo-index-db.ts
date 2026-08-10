@@ -137,11 +137,27 @@ export async function quotaUsedToday(): Promise<number> {
   return Number((rows as { n: number }[])[0]?.n || 0)
 }
 
-/** Has the one-time baseline snapshot been taken? */
-export async function hasBaseline(): Promise<boolean> {
+/**
+ * The `source` value that stamps a baseline row with the hash version that
+ * produced it. Stored here rather than in a new column so the table needs no
+ * migration on a running server.
+ */
+function baselineSource(version: number): string {
+  return `existing-v${version}`
+}
+
+/**
+ * Has a baseline been taken *with this hash version*?
+ *
+ * Version-aware because a hash is only comparable with one computed the same
+ * way. A baseline from an older version is not a wrong answer, it is an
+ * unreadable one, and treating it as valid would mark every post edited.
+ */
+export async function hasBaseline(version: number): Promise<boolean> {
   await ensureTable()
   const [rows] = await getPool().query(
-    `SELECT id FROM seo_index_log WHERE notify_type = 'BASELINE' LIMIT 1`
+    `SELECT id FROM seo_index_log WHERE notify_type = 'BASELINE' AND source = ? LIMIT 1`,
+    [baselineSource(version)]
   )
   return (rows as unknown[]).length > 0
 }
@@ -161,15 +177,23 @@ export async function hasBaseline(): Promise<boolean> {
  * Rows go in with ok = 0 so they never count toward the quota.
  */
 export async function importBaseline(
-  entries: { post_id: number; url: string; content_hash: string }[]
+  entries: { post_id: number; url: string; content_hash: string }[],
+  version: number
 ): Promise<number> {
   await ensureTable()
-  if (await hasBaseline()) return 0
+  if (await hasBaseline(version)) return 0
   if (entries.length === 0) return 0
 
   const now = utcNow()
   const day = utcDay()
   const pool = getPool()
+
+  // Re-stamping after a hash-version change: the old rows carry hashes that can
+  // no longer be compared, and leaving them would let getSubmittedState pick one
+  // and report every post as edited. Only BASELINE rows go -- the URL_UPDATED
+  // rows are the record of what was actually sent to Google and are kept, so the
+  // dashboard's indexed/reindexed counts survive.
+  await pool.query(`DELETE FROM seo_index_log WHERE notify_type = 'BASELINE'`)
 
   // Chunked: max_allowed_packet is not infinite and this is a few hundred rows.
   let n = 0
@@ -178,8 +202,8 @@ export async function importBaseline(
     await pool.query(
       `INSERT INTO seo_index_log
          (post_id, url, notify_type, action, content_hash, ok, source, created_at, day)
-       VALUES ${chunk.map(() => "(?, ?, 'BASELINE', NULL, ?, 0, 'existing', ?, ?)").join(", ")}`,
-      chunk.flatMap((e) => [e.post_id, e.url, e.content_hash, now, day])
+       VALUES ${chunk.map(() => "(?, ?, 'BASELINE', NULL, ?, 0, ?, ?, ?)").join(", ")}`,
+      chunk.flatMap((e) => [e.post_id, e.url, e.content_hash, baselineSource(version), now, day])
     )
     n += chunk.length
   }

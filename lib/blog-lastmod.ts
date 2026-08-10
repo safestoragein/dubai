@@ -1,11 +1,16 @@
 // Per-post `lastmod` for the blog sitemap.
 //
-// THE PROBLEM. The safestorage.in feed carries `created_at` and nothing else —
-// there is no `updated_at`, and `created_at` does not move when someone edits a
-// post. app/sitemap.ts therefore published `new Date(post.updated_at ||
-// post.created_at)`, which resolves to the publish date on every post forever:
-// edit an article and its sitemap entry is byte-identical to yesterday's, so a
-// crawler has no reason to refetch it.
+// THE PROBLEM. app/sitemap.ts published `new Date(post.updated_at ||
+// post.created_at)`. The feed has no `updated_at` at all, so that always fell
+// through to `created_at` and every post's lastmod was frozen — a crawler had no
+// reason to refetch anything.
+//
+// `created_at` is in fact rewritten by the upstream dashboard on every save
+// (post 292 moved 12:02:04 -> 14:25:38 across two saves on 2026-08-10), so it
+// behaves as a last-saved stamp and is part of the hash. The naive read of it
+// still would not work, though: `new Date(created_at)` is the moment the CMS
+// wrote the row, and a bulk re-save would move all 273 at once with nothing to
+// distinguish a real edit. The hash is what makes the signal per-post.
 //
 // THE FIX. Hash the fields that reach the rendered page, store the hash next to
 // a timestamp, and move the timestamp only when the hash moves. An edit to one
@@ -23,7 +28,7 @@
 // by side without a timezone in the way.
 import "server-only"
 import mysql from "mysql2/promise"
-import { contentHash, fetchFeed, postUrl, type FeedRow } from "./seo-indexing"
+import { HASH_VERSION, contentHash, fetchFeed, postUrl, type FeedRow } from "./seo-indexing"
 
 let pool: mysql.Pool | null = null
 
@@ -58,10 +63,21 @@ export async function ensureTable(): Promise<void> {
        last_modified DATETIME     NOT NULL,
        first_seen    DATETIME     NOT NULL,
        checked_at    DATETIME     NOT NULL,
+       hash_version  INT          NOT NULL DEFAULT 1,
        PRIMARY KEY (post_id),
        KEY idx_last_modified (last_modified)
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`
   )
+  // For tables created before hash_version existed. MariaDB supports the
+  // IF NOT EXISTS form, so this is a no-op once applied.
+  try {
+    await getPool().query(
+      `ALTER TABLE blog_lastmod ADD COLUMN IF NOT EXISTS hash_version INT NOT NULL DEFAULT 1`
+    )
+  } catch {
+    // An older server without IF NOT EXISTS will already have the column from
+    // CREATE TABLE above; a genuine failure surfaces on the next query.
+  }
   ensured = true
 }
 
@@ -90,6 +106,7 @@ interface StoredRow {
   url: string
   content_hash: string
   last_modified: string
+  hash_version: number
 }
 
 export interface RefreshSummary {
@@ -99,6 +116,8 @@ export interface RefreshSummary {
   unchanged: number
   removed: number
   skipped: number
+  /** Rows re-stamped after a hash-version change. Their lastmod did NOT move. */
+  restamped: number
   changed: { post_id: number; url: string; reason: string }[]
 }
 
@@ -119,7 +138,7 @@ export async function refreshLastmod(): Promise<RefreshSummary> {
   const pool = getPool()
 
   const [existing] = await pool.query(
-    `SELECT post_id, url, content_hash, last_modified FROM blog_lastmod`
+    `SELECT post_id, url, content_hash, last_modified, hash_version FROM blog_lastmod`
   )
   const stored = new Map<number, StoredRow>()
   for (const r of existing as StoredRow[]) stored.set(Number(r.post_id), r)
@@ -131,6 +150,7 @@ export async function refreshLastmod(): Promise<RefreshSummary> {
     unchanged: 0,
     removed: 0,
     skipped: 0,
+    restamped: 0,
     changed: [],
   }
 
@@ -164,17 +184,32 @@ export async function refreshLastmod(): Promise<RefreshSummary> {
       const seen = publishedAt(row)
       await pool.query(
         `INSERT INTO blog_lastmod
-           (post_id, url, content_hash, last_modified, first_seen, checked_at)
-         VALUES (?, ?, ?, ?, ?, ?)
+           (post_id, url, content_hash, last_modified, first_seen, checked_at, hash_version)
+         VALUES (?, ?, ?, ?, ?, ?, ?)
          ON DUPLICATE KEY UPDATE
            url = VALUES(url),
            content_hash = VALUES(content_hash),
            last_modified = VALUES(last_modified),
-           checked_at = VALUES(checked_at)`,
-        [postId, url, hash, seen, seen, now]
+           checked_at = VALUES(checked_at),
+           hash_version = VALUES(hash_version)`,
+        [postId, url, hash, seen, seen, now, HASH_VERSION]
       )
       summary.added++
       summary.changed.push({ post_id: postId, url, reason: "new post" })
+      continue
+    }
+
+    // A hash from an older version is not comparable with this one. Re-stamp it
+    // to the current algorithm and leave last_modified exactly where it is --
+    // treating it as a change would stamp all 273 posts "modified now", which is
+    // the signal this whole table exists to avoid sending.
+    if (Number(prev.hash_version) !== HASH_VERSION) {
+      await pool.query(
+        `UPDATE blog_lastmod SET content_hash = ?, hash_version = ?, url = ?, checked_at = ?
+          WHERE post_id = ?`,
+        [hash, HASH_VERSION, url, now, postId]
+      )
+      summary.restamped++
       continue
     }
 
@@ -188,9 +223,9 @@ export async function refreshLastmod(): Promise<RefreshSummary> {
 
     await pool.query(
       `UPDATE blog_lastmod
-          SET url = ?, content_hash = ?, last_modified = ?, checked_at = ?
+          SET url = ?, content_hash = ?, last_modified = ?, checked_at = ?, hash_version = ?
         WHERE post_id = ?`,
-      [url, hash, now, now, postId]
+      [url, hash, now, now, HASH_VERSION, postId]
     )
     summary.updated++
     summary.changed.push({

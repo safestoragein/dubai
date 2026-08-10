@@ -1,112 +1,62 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { toBlogPost } from '@/lib/blog-post'
 
-const BACKEND_URL = 'https://safestorage.in/back/app'
+// The feed the site actually renders from. Note it is NOT under /back/app --
+// that is a different system (17 rows, last written 2025-12-31, blog_id/content
+// schema) which has never held the Dubai posts.
+const FEED = 'https://safestorage.in/get_blog_content'
 
-// GET all blogs
+// GET the blog list for the admin dashboard.
+//
+// Proxied here rather than fetched from the browser for two reasons. FEED sends
+// no Access-Control-Allow-Origin, so a client-side fetch is blocked outright --
+// /back/app/* does send it, which is the whole reason this dashboard ended up
+// pointed at the wrong system. And the feed is 8.5 MB because every row carries
+// its full article body; the list needs a title and an excerpt, so the body is
+// dropped here instead of being shipped to the browser on every page load.
+//
+// This replaces a call to get_all_blogs, which now 404s with an HTML error page
+// -- response.json() threw on the HTML and every request 500ed.
 export async function GET(request: NextRequest) {
   try {
-    const response = await fetch(`${BACKEND_URL}/get_all_blogs`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(FEED, { cache: 'no-store' })
+    if (!response.ok) throw new Error(`feed returned HTTP ${response.status}`)
 
-    const data = await response.json()
-    return NextResponse.json(data)
+    const rows = await response.json()
+    if (!Array.isArray(rows)) throw new Error('feed did not return an array')
+
+    const posts = rows
+      .filter((row: any) => String(row.status ?? '1') === '1')
+      // The feed arrives unordered; newest first is what surfaces a post that
+      // was just edited, which is the reason to open this page at all.
+      .sort((a: any, b: any) =>
+        String(b.created_at || '').localeCompare(String(a.created_at || ''))
+      )
+      .map((row: any) => {
+        // toBlogPost is the mapper /blog/[slug] and the listing use, so the slug
+        // here is the address the post really lives at.
+        const p = toBlogPost(row)
+        return {
+          id: p.id,
+          slug: p.slug,
+          title: p.title,
+          excerpt: p.excerpt,
+          category: p.categories[0],
+          author: p.author.name,
+          date: p.date,
+          image: p.image,
+          readTime: p.readTime,
+          views: p.views,
+          likes: p.likes,
+        }
+      })
+
+    return NextResponse.json({ status: 'success', count: posts.length, data: posts })
   } catch (error) {
     console.error('Error fetching blogs:', error)
     return NextResponse.json(
-      { error: 'Failed to fetch blogs' },
-      { status: 500 }
-    )
-  }
-}
-
-// POST new blog
-export async function POST(request: NextRequest) {
-  try {
-    // Parse multipart form data
-    const formData = await request.formData()
-    
-    // Generate slug from title if not provided
-    const generateSlug = (title: string) => {
-      return title
-        .toLowerCase()
-        .replace(/[^a-z0-9 -]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .trim()
-    }
-    
-    // Get form fields
-    const title = formData.get('title') as string
-    const content = formData.get('content') as string
-    const metaTitle = formData.get('meta_title') as string || title
-    const metaDescription = formData.get('meta_description') as string
-    const tags = formData.get('tags') as string
-    const author = formData.get('author') as string || 'SafeStorage Team'
-    const category = formData.get('category') as string || 'General'
-    const featuredImage = formData.get('featured_image') as string || ''
-    const excerpt = formData.get('excerpt') as string || ''
-    
-    // Prepare extra_data
-    const extraData = {
-      author: author,
-      category: category,
-      featured_image: featuredImage,
-      excerpt: excerpt,
-      page_title: title,
-      read_time: '5 min read',
-      created_by: 'admin'
-    }
-    
-    // Create new FormData for backend
-    const backendFormData = new FormData()
-    backendFormData.append('content_type', 'post')
-    backendFormData.append('content', content)
-    backendFormData.append('meta_title', metaTitle)
-    backendFormData.append('meta_description', metaDescription)
-    backendFormData.append('slug', generateSlug(metaTitle))
-    backendFormData.append('tags', tags)
-    backendFormData.append('extra_data', JSON.stringify(extraData))
-    backendFormData.append('status', '1')
-    
-    // Handle multiple image uploads
-    const images = formData.getAll('images') as File[]
-    if (images && images.length > 0) {
-      // Add each image to FormData - PHP backend expects 'image' field with array notation
-      images.forEach((image, index) => {
-        backendFormData.append(`image[${index}]`, image, image.name)
-      })
-    }
-    
-    // Send to backend with FormData
-    const response = await fetch(`${BACKEND_URL}/insert_blog_content`, {
-      method: 'POST',
-      body: backendFormData, // Send as FormData
-    })
-
-    const responseText = await response.text()
-    
-    // Handle the response
-    if (response.ok && responseText.includes('success')) {
-      return NextResponse.json({
-        status: 'success',
-        message: 'Blog post created successfully'
-      })
-    } else {
-      return NextResponse.json({
-        status: 'error',
-        message: responseText || 'Failed to create blog post'
-      }, { status: response.status || 400 })
-    }
-
-  } catch (error) {
-    console.error('Error creating blog:', error)
-    return NextResponse.json(
-      { error: 'Failed to create blog post' },
-      { status: 500 }
+      { status: 'error', error: `Failed to fetch blogs: ${(error as Error).message}` },
+      { status: 502 }
     )
   }
 }

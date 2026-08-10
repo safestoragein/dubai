@@ -3,7 +3,14 @@ import { NextRequest, NextResponse } from 'next/server'
 // Cache this route at the Vercel edge for 5 minutes
 export const revalidate = 300
 
-const BACKEND_URL = 'https://safestorage.in'
+// The one blog source. Named for what it is: "BACKEND_URL" invited the reading
+// that it meant the /back/app back office, which is a different content store
+// and has never held the Dubai posts.
+//
+// Read-only. The PUT and DELETE handlers that used to live below called
+// /update_blog/<id> and /delete_blog/<slug>, both of which now 404 -- and blog
+// publishing does not belong in this dashboard in any case.
+const FEED = 'https://safestorage.in'
 
 // Helper function to generate slug from title
 function generateSlug(title: string): string {
@@ -25,7 +32,7 @@ export async function GET(
     console.log('Looking for blog with slug:', targetSlug)
 
     // Fetch all blogs and find the one with matching slug
-    const response = await fetch(`${BACKEND_URL}/get_blog_content`, {
+    const response = await fetch(`${FEED}/get_blog_content`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -86,67 +93,6 @@ export async function GET(
     console.error('Error fetching blog:', error)
     return NextResponse.json(
       { error: 'Failed to fetch blog' },
-      { status: 500 }
-    )
-  }
-}
-
-// UPDATE blog
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: Promise<{ slug: string }> }
-) {
-  try {
-    const { slug } = await params
-    const body = await request.json()
-    
-    const formData = new URLSearchParams()
-    Object.keys(body).forEach(key => {
-      if (body[key] !== undefined && body[key] !== null) {
-        formData.append(key, body[key])
-      }
-    })
-
-    const response = await fetch(`${BACKEND_URL}/update_blog/${body.blog_id}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: formData.toString(),
-    })
-
-    const data = await response.json()
-    return NextResponse.json(data)
-  } catch (error) {
-    console.error('Error updating blog:', error)
-    return NextResponse.json(
-      { error: 'Failed to update blog' },
-      { status: 500 }
-    )
-  }
-}
-
-// DELETE blog
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: Promise<{ slug: string }> }
-) {
-  try {
-    const { slug } = await params
-    // Assuming the slug here is the blog_id for delete
-    const response = await fetch(`${BACKEND_URL}/delete_blog/${slug}`, {
-      method: 'POST', // CodeIgniter often uses POST for delete operations
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-
-    const data = await response.json()
-    return NextResponse.json(data)
-  } catch (error) {
-    console.error('Error deleting blog:', error)
-    return NextResponse.json(
-      { error: 'Failed to delete blog' },
       { status: 500 }
     )
   }
