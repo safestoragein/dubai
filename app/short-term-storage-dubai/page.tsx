@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     "short term storage between leases dubai, lease gap storage dubai, storage during apartment renovation dubai, temporary storage moving house dubai, storage between moves dubai, 1 month storage dubai, weekly storage rental dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    url: "https://safestorage.ae/self-storage-dubai/short-term-moving-renovation",
+    url: "https://safestorage.ae/short-term-storage-dubai",
   },
   alternates: {
-    canonical: "https://safestorage.ae/self-storage-dubai/short-term-moving-renovation",
+    canonical: "https://safestorage.ae/short-term-storage-dubai",
   },
 }
 

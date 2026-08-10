@@ -6,7 +6,7 @@ const useCases = [
     emoji: "🏗️",
     title: "Villa & Apartment Renovations",
     body: "Dubai residents renovating their homes need a safe, temporary place for furniture and belongings during construction. We store everything during the renovation period — from 2 weeks to 6 months — and deliver it back once the work is done. Over 40% of our Dubai customers use us specifically for renovation storage.",
-    cta: "/self-storage-dubai/short-term-moving-renovation",
+    cta: "/short-term-storage-dubai",
     ctaLabel: "Renovation Storage →",
   },
   {

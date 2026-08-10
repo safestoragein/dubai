@@ -116,6 +116,15 @@ const nextConfig = {
         destination: '/how-it-works',
         permanent: true,
       },
+      // The last page still living under the retired nested pattern. Unlike the
+      // redirects above it is not a duplicate — it is the only page targeting
+      // "short term storage dubai" — so the content moved to a top-level URL
+      // rather than being folded into another page.
+      {
+        source: '/self-storage-dubai/short-term-moving-renovation',
+        destination: '/short-term-storage-dubai',
+        permanent: true,
+      },
       // www → non-www for ALL pages (fixes hreflang conflicts and www 404s)
       {
         source: '/:path*',
