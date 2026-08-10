@@ -100,6 +100,12 @@ export default function DashboardLayout({
                 >
                   Leads
                 </Link>
+                <Link
+                  href="/admin/dashboard/seo-index"
+                  className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Google Indexing
+                </Link>
               </nav>
             </div>
             <div className="flex items-center space-x-4">
