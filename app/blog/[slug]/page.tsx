@@ -5,7 +5,8 @@ import { cache } from "react"
 import { notFound, permanentRedirect } from "next/navigation"
 import { blogImageUrl } from "@/lib/blog-image"
 import { normaliseFeedContent } from "@/lib/blog-meta"
-import { BLOG_AUTHOR } from "@/lib/company-facts"
+import { toBlogPost } from "@/lib/blog-post"
+import { BLOG_AUTHOR, HOURS_DISPLAY } from "@/lib/company-facts"
 
 // ISR: regenerate at most once per hour
 export const revalidate = 3600
@@ -190,6 +191,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     .trim()
     .slice(0, 200)
 
+  // One publication date for the schema, the visible byline and the hydrated
+  // client state. A `new Date()` fallback would differ between the server render
+  // and hydration, so an undated row simply renders no date rather than a
+  // fabricated one.
+  const publishedAt = post?.created_at || ''
+
   const blogPostingSchema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -204,8 +211,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       height: 630,
     },
     url: canonicalUrl,
-    datePublished: post?.created_at || new Date().toISOString(),
-    dateModified: post?.updated_at || post?.created_at || new Date().toISOString(),
+    datePublished: publishedAt,
+    dateModified: post?.updated_at || publishedAt,
     author: {
       '@type': 'Organization',
       // Must equal the byline rendered by blog-post-detail.tsx.
@@ -243,11 +250,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <SchemaScript schema={[blogPostingSchema, breadcrumbSchema]} />
-      {/* Server-rendered H1 — for Google/crawlers only, visually hidden to avoid duplicate with client title */}
-      <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: "0" }}>
-        {post.title} — SafeStorage Dubai Guide
-      </h1>
-      <BlogPostDetail slug={slug} />
+      {/* The post row is already in hand, so the article renders on the server.
+          It used to be handed to the client as a bare slug, which meant the HTML
+          served to crawlers was a spinner reading "Loading article…" with a
+          visually-hidden H1 standing in for the body — on all 284 posts. */}
+      <BlogPostDetail slug={trueSlug} initialPost={toBlogPost(post, publishedAt)} />
 
       {/* Static section — server-rendered, boosts word count and internal linking */}
       <section style={{ padding: "48px 24px", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
@@ -419,7 +426,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px", paddingBottom: "20px", borderBottom: "1px solid #f3f4f6" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Can I access my stored items anytime?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              SafeStorage Dubai offers facility access during operating hours: Monday through Saturday from 8 AM to 8 PM, and Sunday from 10 AM to 6 PM. Business customers and those with special requirements can arrange extended access hours. Alternatively, rather than visiting the facility yourself, you can request specific items or boxes to be delivered to your address — our team will retrieve and deliver them within 24–48 hours. This delivery-on-demand feature is particularly popular with customers who store business inventory or archive documents they need occasionally.
+              SafeStorage Dubai offers facility access during operating hours: {HOURS_DISPLAY}, seven days a week. Business customers and those with special requirements can arrange extended access hours. Alternatively, rather than visiting the facility yourself, you can request specific items or boxes to be delivered to your address — our team will retrieve and deliver them within 24–48 hours. This delivery-on-demand feature is particularly popular with customers who store business inventory or archive documents they need occasionally.
             </p>
           </div>
 

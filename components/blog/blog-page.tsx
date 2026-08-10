@@ -16,6 +16,7 @@ import { blogImageUrl } from "@/lib/blog-image"
 import { POSTS_PER_PAGE, pageHref } from "@/lib/blog-listing"
 import { BLOG_CATEGORIES, normaliseFeedContent, readTimeFromContent, resolveCategory, toIsoDate } from "@/lib/blog-meta"
 import { formatDate } from "@/lib/utils"
+import { BLOG_AUTHOR } from "@/lib/company-facts"
 
 // Helper function to construct image URL from endpoint data
 function constructImageUrl(postImages: string | null | undefined): string {
@@ -106,7 +107,7 @@ export default function BlogPage({
               slug: generateSlug(title),
               title,
               excerpt: normaliseFeedContent(blog.seo_desc),
-              author: { name: "SafeStorage Dubai Editorial Team" },
+              author: { name: BLOG_AUTHOR },
               categories: [resolveCategory(blog.post_category, title)],
               date: blog.created_at || new Date().toISOString(),
               image: constructImageUrl(blog.post_images),
@@ -311,7 +312,18 @@ export default function BlogPage({
 
 // Numbers to show: always first and last, plus a window around the current page.
 // Gaps become "…" so a 22-page listing doesn't render 22 links.
+//
+// Up to MAX_FULL_PAGER pages we list every one. The windowed form on a 6-page
+// listing exposed only /blog/page/2 and /blog/page/6 from page 1, leaving pages
+// 3–5 reachable in two hops instead of one — needless link depth for the sake of
+// hiding three links.
+const MAX_FULL_PAGER = 10
+
 function pageItems(current: number, total: number): (number | "gap")[] {
+  if (total <= MAX_FULL_PAGER) {
+    return Array.from({ length: total }, (_, i) => i + 1)
+  }
+
   const wanted = new Set<number>([1, total, current, current - 1, current + 1])
   const pages = [...wanted].filter((p) => p >= 1 && p <= total).sort((a, b) => a - b)
 

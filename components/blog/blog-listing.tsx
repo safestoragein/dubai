@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import BlogPage from "@/components/blog/blog-page"
 import SchemaScript from "@/components/schema-script"
 import { getListingPosts, getTotalPages, POSTS_PER_PAGE, pageHref } from "@/lib/blog-listing"
+import { BLOG_AUTHOR } from "@/lib/company-facts"
 
 // Server-rendered listing shared by /blog (page 1) and /blog/page/[page].
 // Renders one page of cards into the HTML; the full post index below keeps every
@@ -36,7 +37,7 @@ export default async function BlogListing({ page }: { page: number }) {
       url: `https://safestorage.ae/blog/${post.slug}`,
       datePublished: post.date,
       image: post.image,
-      author: { "@type": "Organization", name: "SafeStorage Dubai" },
+      author: { "@type": "Organization", name: BLOG_AUTHOR },
     })),
   }
 

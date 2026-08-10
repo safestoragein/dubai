@@ -1,3 +1,4 @@
+import { BLOG_AUTHOR } from "@/lib/company-facts"
 // Sample blog data with added reaction metrics
 export const blogPosts = [
   {
@@ -9,7 +10,7 @@ export const blogPosts = [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DALL%C2%B7E%202025-03-12%2012.14.39%20-%20An%20informative%20illustration%20showing%20different%20storage%20unit%20sizes%20with%20labeled%20dimensions%2C%20depicting%20furniture%20and%20boxes%20inside%20each%20size%2C%20set%20in%20a%20mod-VdQnzRPsAxWiKR7QgN61y60iVUNkbA.webp",
     date: "June 15, 2023",
     author: {
-      name: "SafeStorage Dubai Editorial Team",
+      name: BLOG_AUTHOR,
       avatar: "/placeholder.svg?height=40&width=40",
     },
     readTime: "5 min read",
@@ -27,7 +28,7 @@ export const blogPosts = [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DALL%C2%B7E%202025-03-12%2012.14.41%20-%20A%20visually%20appealing%20infographic-style%20image%20showcasing%20essential%20packing%20tips%20for%20long-term%20storage.%20It%20includes%20labeled%20boxes%2C%20protective%20wraps%2C%20and-CDjEILElvVjSdOiJq8w29UfFDhwZiY.webp",
     date: "July 22, 2023",
     author: {
-      name: "SafeStorage Dubai Editorial Team",
+      name: BLOG_AUTHOR,
       avatar: "/placeholder.svg?height=40&width=40",
     },
     readTime: "7 min read",
@@ -44,7 +45,7 @@ export const blogPosts = [
     image: "/placeholder.svg?height=400&width=600",
     date: "August 10, 2023",
     author: {
-      name: "SafeStorage Dubai Editorial Team",
+      name: BLOG_AUTHOR,
       avatar: "/placeholder.svg?height=40&width=40",
     },
     readTime: "6 min read",

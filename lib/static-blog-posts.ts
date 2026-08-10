@@ -13,6 +13,7 @@
 
 import { getRandomBlogImage } from "@/lib/blog-images"
 import type { ListingPost } from "@/lib/blog-listing"
+import { BLOG_AUTHOR } from "@/lib/company-facts"
 
 export interface StaticPost {
   slug: string
@@ -206,7 +207,7 @@ export function getStaticListingPosts(): ListingPost[] {
     slug: post.slug,
     title: post.title,
     excerpt: post.excerpt,
-    author: { name: "SafeStorage Dubai Editorial Team" },
+    author: { name: BLOG_AUTHOR },
     categories: [post.category],
     date: post.date,
     image: getRandomBlogImage(post.category, index),

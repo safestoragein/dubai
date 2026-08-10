@@ -8,43 +8,13 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { formatDate } from "@/lib/utils"
-import { blogImageUrl } from "@/lib/blog-image"
-import { normaliseFeedContent, readTimeFromContent, resolveCategory } from "@/lib/blog-meta"
 import LikeButton from "./like-button"
 import ShareButtons from "./share-buttons"
+import { type BlogPost, toBlogPost } from "@/lib/blog-post"
 
-// Helper function to construct image URL from endpoint data
-function constructImageUrl(postImages: string | null | undefined): string {
-  return blogImageUrl(postImages) || "/blog-placeholder.jpg"
-}
-
-// Generate consistent likes/views based on post ID (deterministic)
-function getConsistentLikes(postId: number): number {
-  const hash = ((postId * 2654435761) % 100) + 50
-  return hash
-}
-
-function getConsistentViews(postId: number): number {
-  const hash = ((postId * 1597334677) % 400) + 100
-  return hash
-}
-
-interface BlogPost {
-  id: number
-  title: string
-  excerpt: string
-  content: string
-  slug: string
-  author: { name: string; avatar?: string; role?: string }
-  categories: string[]
-  image?: string
-  readTime?: string
-  likes: number
-  views: number
-  comments?: any[]
-  date: string
-  tags?: string[]
-}
+// Row -> BlogPost mapping, the slug helper and the deterministic like/view
+// counts all live in lib/blog-post so the server page renders exactly the object
+// this component hydrates. See the note at the top of that file.
 
 // Function to format blog content — strips unsafe tags and demotes h1→h2.
 // Does NOT restructure HTML: the CMS already sends valid HTML so we must not
@@ -75,16 +45,6 @@ function formatBlogContent(content: string): string {
     .replace(/<\/h1>/gi, '</h2>')
 
   return formattedContent
-}
-
-// Helper function to generate slug from title
-function generateSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9 -]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '')
 }
 
 // Match a tag to a blog URL or fall back to get-quote
@@ -171,12 +131,23 @@ function CopyButton({ contentId }: { contentId: string }) {
   )
 }
 
-export default function BlogPostDetail({ slug }: { slug: string }) {
-  const [mounted, setMounted] = useState(false)
-  const [post, setPost] = useState<BlogPost | null>(null)
+/**
+ * `initialPost` is the row /blog/[slug] already fetched on the server. When it
+ * is supplied the article renders straight into the HTML — no spinner, no second
+ * fetch of a post we are holding — and the client hydrates the same object.
+ * The prop stays optional so any other caller still works unchanged.
+ */
+export default function BlogPostDetail({
+  slug,
+  initialPost,
+}: {
+  slug: string
+  initialPost?: BlogPost | null
+}) {
+  const [post, setPost] = useState<BlogPost | null>(initialPost ?? null)
   const [allBlogs, setAllBlogs] = useState<BlogPost[]>([])
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(!initialPost)
   const [imageError, setImageError] = useState(false)
   const [relatedImageErrors, setRelatedImageErrors] = useState<Record<number, boolean>>({})
 
@@ -263,8 +234,6 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
   }, [post])
 
   useEffect(() => {
-    setMounted(true)
-
     const fetchBlogPost = async () => {
       try {
         // Use individual blog API endpoint
@@ -281,29 +250,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         const blog = data.data
 
         if (blog) {
-          const title = blog.title || blog.seo_title || 'Untitled'
-
-          const postId = parseInt(blog.post_id) || 0
-          const currentPost = {
-            id: postId,
-            slug: generateSlug(title),
-            title: title,
-            excerpt: normaliseFeedContent(blog.seo_desc),
-            content: normaliseFeedContent(blog.description),
-            author: { name: 'SafeStorage Dubai Editorial Team' },
-            categories: [resolveCategory(blog.post_category, title)],
-            date: blog.created_at || new Date().toISOString(),
-            image: constructImageUrl(blog.post_images),
-            readTime: readTimeFromContent(blog.description),
-            likes: getConsistentLikes(postId),
-            views: getConsistentViews(postId),
-            comments: [],
-            tags: blog.tags
-              ? (Array.isArray(blog.tags)
-                  ? blog.tags
-                  : blog.tags.split('|').map((t: string) => t.trim()).filter(Boolean))
-              : []
-          }
+          const currentPost = toBlogPost(blog)
           setPost(currentPost)
 
           // Fetch related posts
@@ -326,30 +273,7 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
         if (data.status === 'success' && Array.isArray(data.data)) {
           const allPosts = data.data
             .filter((blog: any) => parseInt(blog.post_id) !== currentPostId)
-            .map((blog: any) => {
-              const blogTitle = blog.title || blog.seo_title || 'Untitled'
-              const blogPostId = parseInt(blog.post_id) || 0
-              return {
-                id: blogPostId,
-                slug: generateSlug(blogTitle),
-                title: blogTitle,
-                excerpt: normaliseFeedContent(blog.seo_desc),
-                content: normaliseFeedContent(blog.description),
-                author: { name: 'SafeStorage Dubai Editorial Team' },
-                categories: [resolveCategory(blog.post_category, blogTitle)],
-                date: blog.created_at || new Date().toISOString(),
-                image: constructImageUrl(blog.post_images),
-                readTime: readTimeFromContent(blog.description),
-                likes: getConsistentLikes(blogPostId),
-                views: getConsistentViews(blogPostId),
-                comments: [],
-                tags: blog.tags
-              ? (Array.isArray(blog.tags)
-                  ? blog.tags
-                  : blog.tags.split('|').map((t: string) => t.trim()).filter(Boolean))
-              : []
-              }
-            })
+            .map((blog: any) => toBlogPost(blog))
 
           // Store all blogs for tag URL matching
           setAllBlogs(allPosts)
@@ -367,8 +291,19 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
       }
     }
 
-    fetchBlogPost()
-  }, [slug])
+    // With a server-rendered post there is nothing to fetch for the article
+    // itself — only the related-posts strip below it, which is not part of the
+    // indexed article and can arrive after hydration.
+    if (initialPost) {
+      fetchRelatedPosts(initialPost.id, initialPost.categories[0])
+    } else {
+      fetchBlogPost()
+    }
+    // Keyed on the post id, not the object: `initialPost` is a fresh object on
+    // every server render, and depending on it would re-run the related-posts
+    // fetch on each one.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slug, initialPost?.id])
 
   if (loading) {
     return (
@@ -413,7 +348,11 @@ export default function BlogPostDetail({ slug }: { slug: string }) {
           className="mb-8"
         >
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-dubai-navy">{post.title}</h2>
+          {/* The visible title is the page's H1. It was an H2 only because the
+              body was client-rendered, so the page carried a separate hidden H1
+              for crawlers. The article is server-rendered now, so the heading a
+              reader sees and the heading Google reads are the same element. */}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-dubai-navy">{post.title}</h1>
 
           <div className="flex flex-wrap gap-2 mb-6">
             {post.categories?.map((category, index) => (

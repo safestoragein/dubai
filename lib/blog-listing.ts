@@ -13,6 +13,7 @@
 import { getStaticListingPosts } from "@/lib/static-blog-posts"
 import { blogImageUrl } from "@/lib/blog-image"
 import { normaliseFeedContent, readTimeFromContent, resolveCategory } from "@/lib/blog-meta"
+import { BLOG_AUTHOR } from "@/lib/company-facts"
 
 export const POSTS_PER_PAGE = 50
 
@@ -64,7 +65,7 @@ export function mapListingPost(blog: any): ListingPost {
     slug: generateSlug(title),
     title,
     excerpt: normaliseFeedContent(blog.seo_desc),
-    author: { name: "SafeStorage Dubai Editorial Team" },
+    author: { name: BLOG_AUTHOR },
     categories: [resolveCategory(blog.post_category, title)],
     // The feed row carries the body, so read time is measured here — the body
     // itself is still not mapped onto ListingPost (see the note at the top).
