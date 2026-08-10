@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/check-html-entities.mjs",
     "build": "next build",
+    "check:entities": "node scripts/check-html-entities.mjs",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start"
