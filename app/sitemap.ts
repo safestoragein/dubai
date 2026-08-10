@@ -1,15 +1,11 @@
 import type { MetadataRoute } from "next"
 import { getTotalPages } from "@/lib/blog-listing"
 
-// Helper function to generate slug from title (matches blog page logic)
-function generateSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9 -]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
+// The slug helper this file used to carry went with the per-post URLs, to
+// /sitemap-blogs.xml. Both it and lib/blog-lastmod.ts build post URLs through
+// blogSlug in lib/blog-post.ts — the same function /blog/[slug] canonicalises
+// to — so there is one definition of a post's address rather than a copy here
+// that can drift from it.
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://safestorage.ae"
@@ -263,7 +259,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/self-storage-dubai/short-term-moving-renovation`,
+      url: `${baseUrl}/short-term-storage-dubai`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.85,
@@ -444,19 +440,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const blogs = Array.isArray(data) ? data : []
 
-    // Generate blog routes from actual blog posts
-    blogRoutes = blogs.map((post: any) => {
-      const title = post.title || post.seo_title || ''
-      const slug = generateSlug(title)
-      if (!slug) return null
-
-      return {
-        url: `${baseUrl}/blog/${slug}`,
-        lastModified: new Date(post.updated_at || post.created_at || Date.now()),
-        changeFrequency: "monthly" as const,
-        priority: 0.7,
-      }
-    }).filter((route: any) => route !== null)
+    // Individual post URLs are NOT listed here — they live in
+    // /sitemap-blogs.xml, which publishes a real per-post <lastmod>.
+    //
+    // They used to be emitted from this loop as
+    //   new Date(post.updated_at || post.created_at || Date.now())
+    // but the feed has no `updated_at`, so every post's lastmod was frozen at
+    // its publish date and an edit changed nothing a crawler could see. The
+    // blog_lastmod table exists to answer that question; see lib/blog-lastmod.ts.
+    //
+    // The feed is still fetched here because the listing-page count below
+    // depends on how many posts there are.
 
     // Paginated listing pages (/blog is already in `routes` as page 1). These carry
     // self-referencing canonicals and are the crawl path to every post, so they
