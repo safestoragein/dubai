@@ -52,8 +52,11 @@ const alBarshaSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/al-barsha#webpage",
-    name: "Al Barsha Storage Dubai — Door-to-door Pickup | SafeStorage",
-    description: "Secure storage for Al Barsha 1, 2, 3, 4, Barsha Heights and Tecom. home pickup.",
+    // Must equal the rendered <title>: the `title` above is a plain string, so the
+    // root layout template appends " | SafeStorage Dubai" to it.
+    name: "Al Barsha Storage Dubai — Home Pickup | SafeStorage Dubai",
+    description:
+      "Storage in Al Barsha 1, 2, 3 & 4, Barsha Heights & Tecom. Door-to-door home or office pickup available. Secure, modern storage units from 12.65 AED/sqft.",
     url: "https://safestorage.ae/locations/al-barsha",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",

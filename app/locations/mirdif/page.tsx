@@ -49,8 +49,11 @@ const mirdifSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/mirdif#webpage",
-    name: "Mirdif Storage Dubai — Villa & Family Pickup | SafeStorage",
-    description: "Door-to-Door pickup storage for Mirdif villas and apartments. Secure. Rashidiya also covered.",
+    // Must equal the rendered <title>: the `title` above is a plain string, so the
+    // root layout template appends " | SafeStorage Dubai" to it.
+    name: "Mirdif Storage Dubai — Villa & Family Storage | SafeStorage Dubai",
+    description:
+      "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Door-to-Door pickup from villas and apartments. Secure, flexible plans from 12.65 AED / sqft.",
     url: "https://safestorage.ae/locations/mirdif",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",

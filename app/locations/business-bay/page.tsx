@@ -46,8 +46,9 @@ const businessBaySchemas = [
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/locations/business-bay#webpage',
-    name: 'Storage Units Near Business Bay Dubai | Pickup in 24hrs',
-    description: 'Secure storage near Business Bay & DIFC. Door-to-Door pickup from your address.',
+    name: 'Storage Units Business Bay | Secure & Safe Storage',
+    description:
+      'Secure storage in Business Bay & Downtown Dubai. Self Storage units for office documents and household furniture.',
     url: 'https://safestorage.ae/locations/business-bay',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',

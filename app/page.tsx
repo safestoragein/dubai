@@ -11,6 +11,8 @@ import { ArrowRight } from "lucide-react"
 import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 import { blogPosts } from "@/data/blog-posts"
+import SchemaScript from "@/components/schema-script"
+import { homePageSchema } from "@/lib/structured-data"
 
 // Lazy-load below-fold sections — code-split to reduce initial JS bundle
 const ComparisonSection = dynamic(() => import("@/components/comparison-section"))
@@ -57,6 +59,9 @@ export default function LandingPage() {
   const featuredPosts = blogPosts.filter((post) => post.featured).slice(0, 3)
   return (
     <div className="flex min-h-screen flex-col">
+      {/* WebPage node for the homepage only — see lib/structured-data.ts */}
+      <SchemaScript schema={homePageSchema} />
+
       {/* Above-fold — loaded immediately */}
       <HeroSectionQuote />
       <TrustBadges />

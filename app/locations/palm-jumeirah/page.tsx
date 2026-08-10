@@ -49,8 +49,11 @@ const palmJumeirahSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/palm-jumeirah#webpage",
-    name: "Palm Jumeirah Storage — Villa & Apartment Pickup | SafeStorage",
-    description: "Door-to-Door pickup from all Palm Jumeirah Fronds, Trunk & Crescent. Secure villa and apartment storage.",
+    // Must equal the rendered <title>: the `title` above is a plain string, so the
+    // root layout template appends " | SafeStorage Dubai" to it.
+    name: "Palm Jumeirah Storage — Villa & Apartment | SafeStorage Dubai",
+    description:
+      "Storage for Palm Jumeirah villas and apartments. Door-to-Door pickup from all Fronds, Trunk & Crescent. Secure and 24/7 monitored. Same-day available.",
     url: "https://safestorage.ae/locations/palm-jumeirah",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",

@@ -730,12 +730,28 @@ export const itemListSchema = {
   ]
 }
 
-// 9. SPEAKABLE SCHEMA - Voice Search Optimization
-export const speakableSchema = {
+// 9. HOMEPAGE WEBPAGE SCHEMA (incl. speakable for voice search)
+//
+// NOTE: deliberately NOT in `allSchemas` — it must render on the homepage only.
+// It used to be injected site-wide with @id `#speakable` and a generic name, so
+// every inner page carried a WebPage node named "SafeStorage Dubai - Storage
+// Solutions" with no `url`. Anything resolving "the WebPage for this URL" from
+// JSON-LD (link-preview / interlinking tools, Google) picked that name up
+// instead of the page's own <title> — the same failure mode as the hardcoded
+// homepage og:title documented in app/layout.tsx.
+//
+// `name` must stay in sync with the homepage `title` in app/page.tsx, and the
+// cssSelectors below only exist on the homepage.
+export const homePageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://safestorage.ae/#speakable",
-  name: "SafeStorage Dubai - Storage Solutions",
+  "@id": "https://safestorage.ae/#webpage",
+  url: "https://safestorage.ae",
+  name: "Best Secured Safe Storage Solution Dubai | Safe Storage UAE",
+  description:
+    "Secure Storage in Dubai & the UAE for homes, offices & businesses. Flexible plans, affordable rates & 24/7 access to monitoring.",
+  isPartOf: { "@id": "https://safestorage.ae/#website" },
+  inLanguage: "en-AE",
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: [".hero-headline", ".trust-badges", ".pricing-section", ".faq-section"]
@@ -825,7 +841,10 @@ export const locationBusinessSchema = (area: {
   "@context": "https://schema.org",
   "@type": "SelfStorage",
   "@id": "https://safestorage.ae/#business",
-  name: "SafeStorage Dubai",
+  // Same @id as localBusinessSchema above, so the two nodes merge — the name
+  // must match it exactly or consumers see two different names for one entity.
+  name: "SafeStorage Dubai - Premium Storage Solutions",
+  alternateName: "SafeStorage Dubai",
   url: "https://safestorage.ae",
   telephone: "+971505773388",
   email: "support@safestorage.ae",
@@ -913,6 +932,5 @@ export const allSchemas = [
   serviceSchema,
   productSchema,
   itemListSchema,
-  speakableSchema,
   offerSchema,
 ]

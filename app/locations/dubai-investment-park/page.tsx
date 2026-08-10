@@ -47,8 +47,11 @@ const dipSchemas = [
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/locations/dubai-investment-park#webpage',
-    name: 'Document Archival Service Dubai Investment Park | SafeStorage',
-    description: 'Business document archival & records storage near DIP, Motor City & JAFZA. On-demand retrieval.',
+    // Must match the page <title> above — link-preview / interlinking tools read
+    // this WebPage name and showed it in place of the title when they disagreed.
+    name: 'Storage Units Dubai Investment Park | DIP | SafeStorage',
+    description:
+      'Secure storage in Dubai Investment Park (DIP). Self Storage units with door-to-door pickup for business and personal use.',
     url: 'https://safestorage.ae/locations/dubai-investment-park',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',

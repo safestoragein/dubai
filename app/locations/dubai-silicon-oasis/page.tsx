@@ -48,8 +48,9 @@ const dsoSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/dubai-silicon-oasis#webpage",
-    name: "Dubai Silicon Oasis Storage — DSO & Academic City | SafeStorage",
-    description: "Door-to-Door pickup storage for DSO, Academic City & International City. Secure, from 12.65 AED / sqft.",
+    name: "Dubai Silicon Oasis Storage: DSO & Academic City | SafeStorage",
+    description:
+      "Secure storage in Dubai Silicon Oasis, Academic City & International City. Door-to-door pickup, same-day service, starting from 12.65 AED/sqft.",
     url: "https://safestorage.ae/locations/dubai-silicon-oasis",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",

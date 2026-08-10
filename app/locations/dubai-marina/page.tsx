@@ -47,8 +47,9 @@ const dubaiMarinaSchemas = [
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/locations/dubai-marina#webpage',
-    name: 'Furniture Storage During Renovation Dubai Marina & JBR',
-    description: 'Renovating your Dubai Marina apartment? Store furniture safely during renovation. Door-to-Door pickup from Marina & JBR.',
+    name: 'Secure SafeStorage Units Dubai Marina | Self Storage',
+    description:
+      'Secure storage in Dubai Marina with door-to-door pickup. 24/7 security & secure storage for furniture, sports gear, and more.',
     url: 'https://safestorage.ae/locations/dubai-marina',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',

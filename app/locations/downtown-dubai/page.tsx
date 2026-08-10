@@ -56,9 +56,11 @@ const downtownSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/downtown-dubai#webpage",
-    name: "Downtown Dubai Storage — Door-to-door Pickup | SafeStorage",
+    // Must equal the rendered <title>: the `title` above is a plain string, so the
+    // root layout template appends " | SafeStorage Dubai" to it.
+    name: "Downtown Dubai Storage — Door-to-door Pickup | SafeStorage Dubai",
     description:
-      "Secure storage for Downtown Dubai, DIFC & Burj Khalifa District. Door-to-Door pickup from your tower. Same-day available.",
+      "Storage in Downtown Dubai, DIFC & Burj Khalifa District. Secure units, door-to-door pickup from your tower, same-day service.",
     url: "https://safestorage.ae/locations/downtown-dubai",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",

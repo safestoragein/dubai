@@ -48,8 +48,11 @@ const dubaiHillsSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/dubai-hills#webpage",
-    name: "Dubai Hills Estate Storage — Door-to-door Pickup | SafeStorage",
-    description: "Premium secure storage for Dubai Hills Estate. Door-to-Door pickup from all Dubai Hills communities.",
+    // Must equal the rendered <title>: the `title` above is a plain string, so the
+    // root layout template appends " | SafeStorage Dubai" to it.
+    name: "Dubai Hills Estate Storage — Door-to-door Pickup | SafeStorage Dubai",
+    description:
+      "Storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup service, secure units, flexible plans from 12.65 AED / sqft. Al Quoz also covered.",
     url: "https://safestorage.ae/locations/dubai-hills",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",

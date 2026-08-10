@@ -47,8 +47,9 @@ const jumeirahSchemas = [
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/locations/jumeirah#webpage',
-    name: 'Expat Storage Dubai Moving Back Home | Jumeirah Storage',
-    description: 'Trusted by 500+ expats leaving Dubai. Store belongings safely in Jumeirah — flexible terms, door-to-door pickup.',
+    name: 'Safe Storage Units Jumeirah | Secure Storage Dubai',
+    description:
+      'Secure storage in Jumeirah with door-to-door villa pickup. Self Storage units for furniture, luxury items, and renovations.',
     url: 'https://safestorage.ae/locations/jumeirah',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',

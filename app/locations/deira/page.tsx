@@ -50,8 +50,9 @@ const deiraSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/deira#webpage",
-    name: "Deira & Bur Dubai Storage — Door-to-door Pickup | SafeStorage",
-    description: "Secure storage for Deira, Bur Dubai, Karama & Oud Metha. Door-to-Door pickup from your door.",
+    name: "SafeStorage Dubai: Deira & Bur Dubai Door-to-Door Storage",
+    description:
+      "Deira, Bur Dubai, Karama & Oud Metha storage with home or office pickup. Safe, secure units from 12.65 AED/sqft by Old Dubai area specialists.",
     url: "https://safestorage.ae/locations/deira",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",

@@ -48,8 +48,11 @@ const jvcSchemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://safestorage.ae/locations/jumeirah-village-circle#webpage",
-    name: "JVC Storage Dubai — Jumeirah Village Circle | SafeStorage",
-    description: "Door-to-Door pickup storage for JVC apartments and townhouses. Secure, flexible monthly plans. JVT also covered.",
+    // Must equal the rendered <title>: the `title` above is a plain string, so the
+    // root layout template appends " | SafeStorage Dubai" to it.
+    name: "JVC Storage Dubai — Jumeirah Village Circle | SafeStorage Dubai",
+    description:
+      "Self-storage for JVC, Dubai. Door-to-door pickup from apartments & townhouses. Secure units starting at 12.65 AED/sqft. JVT is also fully covered today.",
     url: "https://safestorage.ae/locations/jumeirah-village-circle",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
