@@ -11,7 +11,10 @@ console.log("Verify - Secret length:", JWT_SECRET.length)
 
 export async function GET() {
   try {
-    const cookieStore = cookies()
+    // Next.js 16 makes cookies() async. Unawaited it returns a Promise, so
+    // .get() threw and every verify landed in the catch as "Invalid or
+    // expired token" -- including requests that simply had no cookie yet.
+    const cookieStore = await cookies()
     const token = cookieStore.get("admin-token")
 
     if (!token) {

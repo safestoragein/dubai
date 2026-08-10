@@ -72,7 +72,11 @@ export async function POST(request: Request) {
       name: "admin-token",
       value: token,
       httpOnly: true,
-      secure: true, // Always secure since we're on HTTPS
+      // A Secure cookie is discarded by the browser over plain HTTP, so on
+      // http://localhost login returned 200, set the cookie, and the browser
+      // threw it away -- the next request carried no token and bounced back
+      // to /login. Still Secure in production, which is served over HTTPS.
+      secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       maxAge: 60 * 60 * 8, // 8 hours
       path: "/"
