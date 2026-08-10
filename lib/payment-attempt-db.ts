@@ -12,12 +12,15 @@ let pool: mysql.Pool | null = null
 
 function getPool(): mysql.Pool {
   if (!pool) {
+    // DB_NAME has no default on purpose: a fallback would let the app connect to
+    // whatever database happens to share that name on the host it runs on.
+    if (!process.env.DB_NAME) throw new Error("DB_NAME is not set")
     pool = mysql.createPool({
       host: process.env.DB_HOST || "127.0.0.1",
       port: Number(process.env.DB_PORT || 3306),
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME || "safestorage_dubai",
+      database: process.env.DB_NAME,
       waitForConnections: true,
       connectionLimit: 5,
       dateStrings: true,

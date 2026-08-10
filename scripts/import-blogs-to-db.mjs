@@ -12,12 +12,19 @@ import mysql from "mysql2/promise"
 
 const FEED = "https://safestorage.in/get_blog_content"
 
+// DB_NAME has no default on purpose: a fallback would let this script write to
+// whatever database happens to share that name on the host it runs on.
+if (!process.env.DB_NAME) {
+  console.error("DB_NAME is not set; aborting.")
+  process.exit(1)
+}
+
 const conn = await mysql.createConnection({
   host: process.env.DB_HOST || "127.0.0.1",
   port: Number(process.env.DB_PORT || 3306),
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME || "safestorage_dubai",
+  database: process.env.DB_NAME,
 })
 
 console.log("Fetching feed:", FEED)

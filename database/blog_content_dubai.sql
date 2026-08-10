@@ -1,11 +1,8 @@
 -- Local blog table for the Dubai site (EC2 MariaDB).
 -- Column shape mirrors the safestorage.in /get_blog_content feed exactly so the
 -- app's existing blog code consumes it unchanged.
-CREATE DATABASE IF NOT EXISTS safestorage_dubai
-  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
-USE safestorage_dubai;
-
+-- This script does not create or select a database. Run it against the schema
+-- named by DB_NAME, e.g.  mysql -u "$DB_USER" -p "$DB_NAME" < blog_content_dubai.sql
 CREATE TABLE IF NOT EXISTS blog_content (
   post_id       INT AUTO_INCREMENT PRIMARY KEY,
   title         VARCHAR(500),
