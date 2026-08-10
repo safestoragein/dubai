@@ -9,7 +9,7 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   title: { absolute: "Business Storage Solutions in Dubai & UAE | Safe Storage" },
   description:
-    "Professional business storage in Dubai & UAE — secure units, flexible plans, secured storage & reliable service for inventory, equipment & documents.",
+    "Professional business storage in Dubai. Secure units, flexible plans & reliable service for inventory, equipment & documents. Protect your assets.",
   keywords:
     "Business Storage Facilities, Business Storage Solutions, Commercial Storage Dubai, Self Storage, Storage in Dubai, Business Storage Dubai, Office Storage Solutions Dubai, Warehouse Storage For Companies Dubai, Corporate Storage Unit Rental Dubai, Storage For Business Inventory Dubai, Affordable Business Storage Dubai",
   openGraph: {

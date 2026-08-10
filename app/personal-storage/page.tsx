@@ -9,11 +9,17 @@ import SchemaScript from "@/components/schema-script"
 export const metadata: Metadata = {
   // `absolute` so the root template does not append a second brand; the full
   // string stays inside Google's ~60-character display limit.
-  title: { absolute: "Personal & Household Storage Solutions in Dubai | Safe Storage" },
+  // The spec lists this URL twice; the later entry wins, as it did for
+  // /document-storage in ee17df0.
+  title: { absolute: "Personal Storage Dubai | Affordable Household storage Units" },
+  // Spec wording with two corrections. It reads "starting AED 24/mo", a figure
+  // published nowhere else on the site — the only price we publish is
+  // PRICE_PER_SQFT_AED — and "free pickup & delivery", which df0df39 / 166d65a
+  // removed sitewide because transport is charged.
   description:
-    "Secure personal storage in Dubai & UAE for household goods, boxes, documents & overflow items. Flexible plans, secured storage & easy access.",
+    "Affordable personal storage in Dubai from 12.65 AED/sqft. Secure storage units with door-to-door pickup & delivery.",
   keywords:
-    "Best Personal Self Storage in Dubai, Personal Storage Facility in Dubai, Self Storage in Dubai, Self Storage, Storage in Dubai, Personal Storage Dubai, Box Storage Solutions Dubai, Student Storage Solutions Dubai, Affordable Household Storage Dubai, Household Storage Units Dubai, Residential Storage Dubai",
+    "Personal storage Dubai, Household storage, Home storage Dubai, Furniture storage, Self storage Dubai, Decluttering storage, Student storage Dubai, Seasonal storage, Short term storage, Long term storage, Luggage storage Dubai, Apartment storage, Storage with pickup, SafeStorage personal",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/personal-storage",

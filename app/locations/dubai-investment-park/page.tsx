@@ -5,8 +5,9 @@ import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: { absolute: "Storage Units Dubai Investment Park | DIP | SafeStorage" },
+  // "free pickup" in the spec: transport is charged (df0df39 / 166d65a).
   description:
-    "Secure storage in Dubai Investment Park (DIP). Self Storage units with free pickup for business and personal use.",
+    "Secure storage in Dubai Investment Park (DIP). Self Storage units with door-to-door pickup for business and personal use.",
   keywords:
     "Storage Dubai Investment Park, Dubai Investment Park storage units, Motor City storage, Dubai Production City storage, Sports City storage, Warehouse storage DIP, Business storage Dubai, Personal storage DIP, Secure storage units, Storage with pickup, E-commerce storage DIP, Household storage DIP, SafeStorage DIP, Inventory storage Dubai",
   openGraph: {

@@ -37,20 +37,6 @@ import { ADDRESS_FULL, EMAIL, HOURS_DISPLAY, PRICE_PER_SQFT_AED } from "@/lib/co
  * Every rule is deliberately narrow: the price only matches when followed by an
  * AED/dirham unit, and the URL rewrites only touch our own legacy paths.
  */
-/** Whitespace as the editor emits it: real spaces, `&nbsp;`, or an HTML tag. */
-const GAP = String.raw`(?:\s|&nbsp;|<[^>]*>)`
-
-/**
- * The CTA link labels that arrive wrapped in square brackets. Word gaps use
- * {@link GAP} because the editor sprinkles `&nbsp;` mid-phrase — one post
- * stores the label as `Get&nbsp; Free Quotation`.
- */
-const CTA_LABELS = [
-  String.raw`Get${GAP}+Free${GAP}+Quotation`,
-  String.raw`Click${GAP}+Here${GAP}+For${GAP}+Quotation`,
-  String.raw`Here${GAP}+More${GAP}+Information`,
-].join("|")
-
 const FEED_RULES: Array<[RegExp, string]> = [
   // Price — only when immediately followed by a currency/unit, so prose that
   // happens to contain 12.60 for another reason is untouched.
@@ -82,18 +68,15 @@ const FEED_RULES: Array<[RegExp, string]> = [
     `the same hours every day, ${HOURS_DISPLAY}`,
   ],
 
-  // Link labels the CMS wrapped in square brackets — "[Get Free Quotation]",
-  // "[Here More Information]" — which read as unfilled placeholders. They are
-  // real links; only the brackets go.
+  // NOTE: the square brackets around CTA link labels — "[Get Free Quotation]",
+  // "[Here More Information]" — are deliberately LEFT ALONE. Two rules here used
+  // to strip them, on the reading that they looked like unfilled placeholders.
+  // They are not: the brackets are authored in the CMS and are meant to show.
   //
-  // The bracket and the phrase are almost never adjacent in the source: the
-  // editor emits `[</span><a …><span>Here More Information</span></a><span>]`,
-  // so a plain `\[phrase\]` match catches 4 posts out of 216. Each bracket is
-  // therefore matched on its own, and only when the phrase sits on the other
-  // side of it with nothing but tags and whitespace in between. Brackets around
-  // real prose ("[approximately 1/2 the size of a standard closet]") never match.
-  [new RegExp(String.raw`\[(?=${GAP}*(?:${CTA_LABELS}))`, "gi"), ""],
-  [new RegExp(String.raw`(?<=(?:${CTA_LABELS})${GAP}*)\]`, "gi"), ""],
+  // These rules exist to reconcile facts the site publishes differently from the
+  // feed (price, address, email, numbering, hours) and to repoint legacy URLs.
+  // Punctuation the editor typed is content, not a fact to reconcile, so it is
+  // not rewritten here.
 
   // Legacy service URLs. These now 301, so links still work, but pointing
   // editorial links straight at the canonical target avoids a redirect hop on

@@ -7,7 +7,7 @@ import { FileText, CheckCircle2, Star, Phone, ArrowRight, Shield, Lock, Clock } 
 export const metadata: Metadata = {
   title: { absolute: "Document Storage & Records Archival Dubai | SafeStorage UAE" },
   description: "Secure Commercial and document storage in Dubai. Professional archival for legal, medical, and business records.",
-  keywords: "Document storage Dubai, Business record storage, Legal document storage, Medical record storage, File storage Dubai, Confidential storage, Office document storage, Paper storage Dubai, Storage for compliance, SafeStorage archival Url Fetching issue Canonical for article url Favicon logo",
+  keywords: "Document storage Dubai, Business record storage, Legal document storage, Medical record storage, File storage Dubai, Confidential storage, Office document storage, Paper storage Dubai, Storage for compliance, SafeStorage archival",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/document-storage",

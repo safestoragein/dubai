@@ -14,6 +14,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { env } from "@/lib/env"
+import { CUSTOMERS_GLOBAL, CUSTOMERS_LABEL, YEARS_SERVING } from "@/lib/company-facts"
 
 export const metadata: Metadata = {
   title: "Storage Units Dubai — Prices & Sizes 2026",
@@ -304,7 +305,7 @@ export default function StorageUnitsDubaiPage() {
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Users className="h-4 w-4 text-dubai-gold" />
-                <span className="text-white text-sm font-medium">500+ Customers</span>
+                <span className="text-white text-sm font-medium">{CUSTOMERS_GLOBAL} Customers</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Truck className="h-4 w-4 text-green-400" />
@@ -372,7 +373,7 @@ export default function StorageUnitsDubaiPage() {
           <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 text-white">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-5 w-5" />
-              <span className="font-medium">500+ Happy Customers</span>
+              <span className="font-medium">{CUSTOMERS_GLOBAL} Happy Customers</span>
             </div>
             <div className="flex items-center gap-2">
               <Star className="h-5 w-5 fill-white" />
@@ -384,7 +385,7 @@ export default function StorageUnitsDubaiPage() {
             </div>
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5" />
-              <span className="font-medium">7+ Years in Dubai</span>
+              <span className="font-medium">{YEARS_SERVING} Years in Dubai</span>
             </div>
           </div>
         </div>
@@ -464,7 +465,7 @@ export default function StorageUnitsDubaiPage() {
               Why Choose SafeStorage Dubai?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              8 reasons why 500+ customers trust us with their valuable belongings
+              8 reasons why {CUSTOMERS_LABEL} trust us with their valuable belongings
             </p>
           </div>
 
@@ -665,7 +666,7 @@ export default function StorageUnitsDubaiPage() {
           <div className="text-center mt-10">
             <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
               <Link href="/get-quote">
-                Join 500+ Happy Customers
+                Join {CUSTOMERS_GLOBAL} Happy Customers
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

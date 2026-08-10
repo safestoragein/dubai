@@ -8,8 +8,10 @@ import Script from "next/script"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Self Storage Dubai — Flexible Plans, No Lorry Needed",
-  description: "Self storage in Dubai with door-to-door pickup — no need to rent a truck. Flexible monthly plans, secure units, 24/7 CCTV.",
+  title: { absolute: "Self Storage Dubai: Flexible Plans & No Lorry | SafeStorage" },
+  // Spec wording, minus its "free door-to-door pickup" — transport is charged,
+  // and the site stopped advertising it as free in df0df39 / 166d65a.
+  description: "Dubai self storage with door-to-door pickup. No need to rent a truck. Flexible monthly plans, secure units, and 24/7 CCTV monitoring.",
   keywords: "self storage dubai flexible plans, storage with door-to-door pickup dubai, no lorry storage dubai, month to month storage dubai, book storage online dubai, storage unit near me pickup dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],

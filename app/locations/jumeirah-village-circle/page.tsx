@@ -6,7 +6,7 @@ import { locationBusinessSchema } from "@/lib/structured-data"
 export const metadata: Metadata = {
   title: "JVC Storage Dubai — Jumeirah Village Circle",
   description:
-    "Self storage for JVC (Jumeirah Village Circle) Dubai. Door-to-Door pickup from apartments & townhouses. Secure units from 12.65 AED / sqft. JVT also covered.",
+    "Self-storage for JVC, Dubai. Door-to-door pickup from apartments & townhouses. Secure units starting at 12.65 AED/sqft. JVT is also fully covered today.",
   keywords:
     "JVC storage dubai, jumeirah village circle storage, storage near JVC, JVT storage dubai, self storage jumeirah village, storage pickup JVC dubai",
   openGraph: {

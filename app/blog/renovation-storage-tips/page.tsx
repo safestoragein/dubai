@@ -6,8 +6,8 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: { absolute: "Renovation Storage Tips Dubai — Complete Guide for Apartment & Villa Renovation" },
-  description: "Planning a Dubai renovation? How to store furniture and belongings while work is underway, what to pack first, and how to avoid dust damage.",
+  title: { absolute: "Dubai Renovation Storage | Complete Apartment & Villa Guide" },
+  description: "Planning a Dubai renovation? Learn how to store furniture, what to pack first, and simple ways to protect your belongings from dust damage.",
   keywords: "renovation storage dubai, furniture storage during renovation dubai, apartment renovation storage dubai, villa renovation storage, moving out for renovation dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],

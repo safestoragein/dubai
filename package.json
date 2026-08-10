@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "node scripts/check-html-entities.mjs",
+    "prebuild": "node scripts/check-html-entities.mjs && node scripts/check-feed-punctuation.mjs",
     "build": "next build",
     "check:entities": "node scripts/check-html-entities.mjs",
+    "check:punctuation": "node scripts/check-feed-punctuation.mjs",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start"

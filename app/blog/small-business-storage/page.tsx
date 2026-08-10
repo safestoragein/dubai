@@ -6,8 +6,8 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: { absolute: "Small Business Storage Dubai — Flexible Alternative to Warehouse Rental" },
-  description: "How small businesses in Dubai use self storage to avoid warehouse leases. Flexible monthly contracts, no long-term commitment, scale as you grow.",
+  title: { absolute: "Dubai Small Business Storage: Flexible Warehouse Alternative" },
+  description: "Dubai small businesses use self-storage to skip long warehouse leases. Scale seamlessly as you grow with zero long-term commitments and flexible monthly plans.",
   keywords: "small business storage dubai, business storage solution dubai, warehouse alternative dubai, inventory storage small business dubai, office storage dubai, retail storage dubai",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],

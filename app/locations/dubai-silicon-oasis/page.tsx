@@ -4,9 +4,9 @@ import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: "Dubai Silicon Oasis Storage — DSO & Academic City",
+  title: { absolute: "Dubai Silicon Oasis Storage: DSO & Academic City | SafeStorage" },
   description:
-    "Storage in Dubai Silicon Oasis (DSO), Academic City & International City. Door-to-Door pickup, secure, from 12.65 AED / sqft. Same-day available.",
+    "Secure storage in Dubai Silicon Oasis, Academic City & International City. Door-to-door pickup, same-day service, starting from 12.65 AED/sqft.",
   keywords:
     "dubai silicon oasis storage, DSO storage dubai, academic city storage, international city storage dubai, storage near DSO, dubai silicon oasis self storage",
   openGraph: {

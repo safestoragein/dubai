@@ -4,9 +4,9 @@ import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: "Deira & Bur Dubai Storage — Door-to-door Pickup",
+  title: { absolute: "SafeStorage Dubai: Deira & Bur Dubai Door-to-Door Storage" },
   description:
-    "Storage in Deira, Bur Dubai, Karama & Oud Metha. Door-to-Door pickup from your home or office. Secure units from 12.65 AED / sqft. Old Dubai area specialists.",
+    "Deira, Bur Dubai, Karama & Oud Metha storage with home or office pickup. Safe, secure units from 12.65 AED/sqft by Old Dubai area specialists.",
   keywords:
     "deira storage dubai, bur dubai storage, karama storage, storage deira, self storage bur dubai, oud metha storage, old dubai storage units",
   openGraph: {

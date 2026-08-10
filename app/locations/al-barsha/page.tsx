@@ -5,8 +5,10 @@ import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Al Barsha Storage Dubai — Home Pickup",
+  // Spec wording, minus its "pickup included!" — transport is charged, and the
+  // site stopped advertising it as free or included in df0df39 / 166d65a.
   description:
-    "Storage in Al Barsha 1, 2, 3 & 4 Dubai. Door-to-Door pickup from your home or office. Secure units from 12.65 AED / sqft. Barsha Heights & Tecom also covered.",
+    "Storage in Al Barsha 1, 2, 3 & 4, Barsha Heights & Tecom. Door-to-door home or office pickup available. Secure, modern storage units from 12.65 AED/sqft.",
   keywords:
     "al barsha storage dubai, storage al barsha 1, storage al barsha 2, storage near mall of the emirates, barsha heights storage, tecom storage dubai, al barsha self storage",
   openGraph: {

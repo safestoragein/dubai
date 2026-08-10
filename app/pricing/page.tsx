@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Transparent storage pricing in Dubai. No hidden fees, no deposits, and flexible plans. Get a free custom quote today!",
   keywords:
-    "Storage prices Dubai Self storage cost UAE, Affordable storage units, Cheap storage Dubai, Storage rental rates, Flexible storage plans, No deposit storage, Monthly storage fees, Business storage pricing, Personal storage cost, Storage discounts Dubai, Household storage rates, SafeStorage pricing, Secure storage quotes",
+    "Storage prices Dubai, Self storage cost UAE, Affordable storage units, Cheap storage Dubai, Storage rental rates, Flexible storage plans, No deposit storage, Monthly storage fees, Business storage pricing, Personal storage cost, Storage discounts Dubai, Household storage rates, SafeStorage pricing, Secure storage quotes",
   openGraph: {
     url: "https://safestorage.ae/pricing",
     siteName: "SafeStorage Dubai",

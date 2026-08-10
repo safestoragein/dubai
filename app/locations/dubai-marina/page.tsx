@@ -5,8 +5,9 @@ import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: { absolute: "Secure SafeStorage Units Dubai Marina | Self Storage" },
+  // "free pickup" in the spec: transport is charged (df0df39 / 166d65a).
   description:
-    "Secure storage in Dubai Marina with free pickup. 24/7 security & secure storage for furniture, sports gear, and more.",
+    "Secure storage in Dubai Marina with door-to-door pickup. 24/7 security & secure storage for furniture, sports gear, and more.",
   keywords:
     "Storage Dubai Marina, Self storage Marina, JBR storage, Marina Walk storage, Bluewaters storage, Household storage Marina, Furniture storage Dubai, Secure storage units, Storage with pickup, Personal storage Dubai, Apartment storage Marina, Short term storage, Business storage Marina, SafeStorage Marina",
   openGraph: {

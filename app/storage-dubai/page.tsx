@@ -14,12 +14,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { env } from "@/lib/env"
+import { CUSTOMERS_GLOBAL, CUSTOMERS_LABEL, RATING_VALUE, REVIEW_COUNT_DISPLAY, YEARS_SERVING } from "@/lib/company-facts"
 import Script from "next/script"
 import SchemaScript from "@/components/schema-script"
 
 export const metadata: Metadata = {
-  title: "Storage Dubai — Personal, Business & Vehicle Storage",
-  description: "One storage provider for all your Dubai needs: personal furniture, business inventory, vehicle storage & document archival. 4.9★ rated by 500+ customers.",
+  title: { absolute: "SafeStorage Dubai | Top Personal & Business Storage Solutions" },
+  description: "One Dubai storage provider for personal furniture, business stock, vehicles, and documents. Highly rated and trusted by hundreds of customers.",
   keywords: "all in one storage dubai, personal and business storage dubai, vehicle furniture storage dubai, storage provider dubai, full service storage dubai, pickup and delivery storage dubai, 4.9 rated storage dubai",
   openGraph: {
     url: "https://safestorage.ae/storage-dubai",
@@ -348,7 +349,7 @@ export default function StorageDubaiPage() {
               <div className="flex flex-wrap justify-center gap-3 mb-6">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                   <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                  <span className="text-white text-sm font-medium">4.9★ (500+ Reviews)</span>
+                  <span className="text-white text-sm font-medium">{RATING_VALUE}★ ({REVIEW_COUNT_DISPLAY} reviews worldwide)</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                   <BadgeCheck className="h-4 w-4 text-dubai-gold" />
@@ -396,7 +397,7 @@ export default function StorageDubaiPage() {
               {/* Quick Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
                 {[
-                  { label: "Happy Customers", value: "500+" },
+                  { label: "Happy Customers", value: CUSTOMERS_GLOBAL },
                   { label: "Google Rating", value: "4.9★" },
                   { label: "Access Hours", value: "24/7" },
                   { label: "Starting Price", value: "12.65 AED / sqft" },
@@ -646,7 +647,7 @@ export default function StorageDubaiPage() {
                   ))}
                 </div>
                 <span className="text-lg font-semibold">4.9/5</span>
-                <span className="text-muted-foreground">(500+ Google Reviews)</span>
+                <span className="text-muted-foreground">({REVIEW_COUNT_DISPLAY} Google reviews worldwide)</span>
               </div>
             </div>
 
@@ -767,7 +768,7 @@ export default function StorageDubaiPage() {
                   Building 23, Warehouse 5, DIP-1, Dubai, UAE
                 </p>
                 <p className="text-white/60 text-sm mt-2">
-                  Trusted by 500+ customers | 4.9★ on Google | 7+ Years Serving Dubai
+                  Trusted by {CUSTOMERS_LABEL} | {RATING_VALUE}★ on Google | {YEARS_SERVING} Years Serving Dubai
                 </p>
               </div>
             </div>

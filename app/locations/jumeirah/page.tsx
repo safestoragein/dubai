@@ -5,8 +5,9 @@ import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: { absolute: "Safe Storage Units Jumeirah | Secure Storage Dubai" },
+  // "free villa pickup" in the spec: transport is charged (df0df39 / 166d65a).
   description:
-    "Secure storage in Jumeirah with free villa pickup. Self Storage units for furniture, luxury items, and renovations.",
+    "Secure storage in Jumeirah with door-to-door villa pickup. Self Storage units for furniture, luxury items, and renovations.",
   keywords:
     "Storage Jumeirah, Self storage Jumeirah, Jumeirah villa storage, Umm Suqeim storage, Al Safa storage, Al Wasl storage, Household storage Dubai, Furniture storage Jumeirah, Luxury item storage, Secure storage Dubai, Storage with pickup, Villa renovation storage, Personal storage units, SafeStorage Jumeirah",
   openGraph: {
