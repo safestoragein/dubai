@@ -80,7 +80,7 @@ export default function DeiraPage() {
         benefits={[
           "Door-to-Door pickup from apartments and flats across old Dubai",
           "Ideal for traders and businesses storing inventory",
-          "Affordable rates that suit old Dubai&apos;s diverse community",
+          "Affordable rates that suit old Dubai's diverse community",
           "Experienced team familiar with old Dubai building access",
         ]}
       />

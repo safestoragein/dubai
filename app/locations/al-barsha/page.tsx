@@ -199,7 +199,7 @@ export default function AlBarshaPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">How quickly can SafeStorage pick up from Al Barsha 1 or Al Barsha 2?</h3>
-              <p className="text-gray-700">For requests confirmed before 12 PM, same-day pickup is typically available in Al Barsha 1 and 2. Standard pickups can be scheduled within 24 hours, with morning, afternoon, or evening time windows available Monday through Saturday. Al Barsha&apos;s location in central Dubai makes it one of our fastest service zones. For villa pickups in Al Barsha 2 or 3, we recommend booking at least 48 hours ahead to ensure the right vehicle and crew size is allocated for larger volumes.</p>
+              <p className="text-gray-700">For requests confirmed before 12 PM, same-day pickup is typically available in Al Barsha 1 and 2. Standard pickups can be scheduled within 24 hours, with morning, afternoon, or evening time windows available seven days a week. Al Barsha&apos;s location in central Dubai makes it one of our fastest service zones. For villa pickups in Al Barsha 2 or 3, we recommend booking at least 48 hours ahead to ensure the right vehicle and crew size is allocated for larger volumes.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I store furniture from a villa in Al Barsha during renovation?</h3>

@@ -158,7 +158,7 @@ export default function DocumentStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">Who Uses Our Document Storage</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { title: "Law Firms & Legal Practices", desc: "Store client files, case records, and legal correspondence securely off-site. Maintain confidentiality while freeing DIFC or JLT office space. Retrieve files on request with a week&apos;s notice." },
+                { title: "Law Firms & Legal Practices", desc: "Store client files, case records, and legal correspondence securely off-site. Maintain confidentiality while freeing DIFC or JLT office space. Retrieve files on request with a week's notice." },
                 { title: "Accounting & Finance Firms", desc: "VAT records, audit files, financial statements and client tax documents must be retained for 5+ years in the UAE. Secure offsite storage is safer and cheaper than prime office filing cabinets." },
                 { title: "Real Estate Companies", desc: "Title deeds, sales agreements, tenancy contracts and DLD records. Real estate documents often have 10-year retention requirements and build up rapidly in high-volume agencies." },
                 { title: "HR & Recruitment Departments", desc: "Employee contracts, performance records, visa documents, and payroll files. UAE Labour Law requires retention of employment records for minimum 2 years post-employment." },

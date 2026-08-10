@@ -87,7 +87,7 @@ export default function HowItWorks() {
                   </p>
                   <p className="text-gray-700">
                     Once you are happy with the quote, book a pickup time that suits you. We offer morning
-                    (8 AM–12 PM), afternoon (12 PM–4 PM), and evening (4 PM–8 PM) slots from Monday to Saturday.
+                    (8 AM–12 PM), afternoon (12 PM–4 PM), and evening (4 PM–8 PM) slots, seven days a week.
                     Same-day pickup is available for bookings made before 12 PM.
                   </p>
                 </div>
@@ -179,7 +179,7 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="font-semibold mb-2">Do you offer same-day pickup?</p>
-                <p>Yes. Same-day pickup is available for bookings placed before 12 PM. Our team will arrive within the same day&apos;s available time slots. This is ideal for urgent situations such as a lease ending unexpectedly, a renovation starting sooner than planned, or a sudden relocation requirement. For next-day pickups, we have slots available from 8 AM to 8 PM Monday through Saturday.</p>
+                <p>Yes. Same-day pickup is available for bookings placed before 12 PM. Our team will arrive within the same day&apos;s available time slots. This is ideal for urgent situations such as a lease ending unexpectedly, a renovation starting sooner than planned, or a sudden relocation requirement. For next-day pickups, we have slots available from 8 AM to 8 PM, seven days a week.</p>
               </div>
               <div>
                 <p className="font-semibold mb-2">Is packing service included or is it extra?</p>

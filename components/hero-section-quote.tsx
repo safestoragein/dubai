@@ -12,7 +12,7 @@ const rotatingHeadlines = [
   "Your belongings deserve the best",
   "Dedicated storage experts at your service",
   "Just minutes from your location",
-  "Trusted by 500+ happy customers",
+  "Trusted by 100,000+ customers worldwide",
 ]
 
 // Pre-computed building data — no Math.random() in render (avoids hydration mismatch)
@@ -196,11 +196,11 @@ export default function HeroSectionQuote() {
             <div className="flex flex-wrap justify-center gap-3 mb-5">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-full">
                 <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" aria-hidden="true" />
-                <span className="text-white text-xs sm:text-sm font-medium">4.9/5 (6700+ Reviews Globally)</span>
+                <span className="text-white text-xs sm:text-sm font-medium">4.9/5 (6,700+ reviews worldwide)</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-full">
                 <Shield className="h-4 w-4 text-dubai-gold" aria-hidden="true" />
-                <span className="text-white text-xs sm:text-sm font-medium">10+ Years Serving Globally</span>
+                <span className="text-white text-xs sm:text-sm font-medium">10+ Years Serving Dubai</span>
               </div>
             </div>
 

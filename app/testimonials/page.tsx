@@ -2,6 +2,7 @@ import TestimonialVideosPage from "@/components/testimonials/testimonial-videos-
 import SchemaScript from "@/components/schema-script"
 import type { Metadata } from "next"
 import Link from "next/link"
+import { CUSTOMERS_GLOBAL } from "@/lib/company-facts"
 
 export const metadata: Metadata = {
   title: { absolute: "Customer Reviews & Testimonials | SafeStorage Dubai" },
@@ -144,11 +145,13 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Why 10,000+ Customers Trust SafeStorage — detailed text for SEO */}
+      {/* Why customers trust SafeStorage — detailed text for SEO.
+          The heading used to read "10,000+", contradicting the 100,000+ figure
+          published three times on this same page. One number, from company-facts. */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-5xl">
 
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-4 text-center">Why 10,000+ Customers Trust SafeStorage Dubai</h2>
+          <h2 className="text-3xl font-bold text-[#0A2463] mb-4 text-center">Why {CUSTOMERS_GLOBAL} Customers Trust SafeStorage Dubai</h2>
           <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
             Discover the story behind Dubai&apos;s most trusted storage company — our history, service philosophy, and the standards that have earned us thousands of five-star reviews.
           </p>

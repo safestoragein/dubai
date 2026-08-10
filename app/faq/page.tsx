@@ -137,12 +137,12 @@ const faqCategories = [
       },
       {
         question: "How far in advance do I need to book a pickup?",
-        answer: "Standard pickups can be scheduled with as little as 24 hours&apos; notice in most cases. For same-day pickup, requests must be made before 12 PM on the same day and are subject to team availability. For large pickups — such as full villa clearances, commercial office removals, or multi-tonne business inventory — we recommend booking 2 to 3 days in advance to ensure we allocate the appropriate team size and vehicle capacity. For urgent same-day requests, call +971505773388 directly for the fastest response."
+        answer: "Standard pickups can be scheduled with as little as 24 hours' notice in most cases. For same-day pickup, requests must be made before 12 PM on the same day and are subject to team availability. For large pickups — such as full villa clearances, commercial office removals, or multi-tonne business inventory — we recommend booking 2 to 3 days in advance to ensure we allocate the appropriate team size and vehicle capacity. For urgent same-day requests, call +971505773388 directly for the fastest response."
       },
     ]
   },
   {
-    title: "Billing &amp; Cancellation",
+    title: "Billing & Cancellation",
     faqs: [
       {
         question: "How does monthly billing work at SafeStorage?",
@@ -150,7 +150,7 @@ const faqCategories = [
       },
       {
         question: "How do I cancel my storage plan?",
-        answer: "Cancelling with SafeStorage is straightforward and penalty-free. Simply provide 7 days&apos; written or verbal notice to your dedicated storage consultant or contact us via email or WhatsApp. We will schedule door-to-door delivery of all your stored items back to your Dubai address within your notice period. If you have prepaid for a longer term and cancel early, we will refund the unused months minus a small administrative processing fee. There are no cancellation penalties, no lock-in clauses, and no obstacles to ending your storage — we want you to stay because you love the service, not because you feel trapped."
+        answer: "Cancelling with SafeStorage is straightforward and penalty-free. Simply provide 7 days' written or verbal notice to your dedicated storage consultant or contact us via email or WhatsApp. We will schedule door-to-door delivery of all your stored items back to your Dubai address within your notice period. If you have prepaid for a longer term and cancel early, we will refund the unused months minus a small administrative processing fee. There are no cancellation penalties, no lock-in clauses, and no obstacles to ending your storage — we want you to stay because you love the service, not because you feel trapped."
       },
       {
         question: "What happens if I miss a monthly payment?",
@@ -159,7 +159,7 @@ const faqCategories = [
     ]
   },
   {
-    title: "Access Hours &amp; Retrieval",
+    title: "Access Hours & Retrieval",
     faqs: [
       {
         question: "Can I retrieve a single item from storage without getting everything back?",
@@ -172,7 +172,7 @@ const faqCategories = [
     ]
   },
   {
-    title: "Prohibited Items &amp; Special Requirements",
+    title: "Prohibited Items & Special Requirements",
     faqs: [
       {
         question: "Can I store valuable documents and important records?",
@@ -185,7 +185,7 @@ const faqCategories = [
     ]
   },
   {
-    title: "International Shipping &amp; Overseas Storage",
+    title: "International Shipping & Overseas Storage",
     faqs: [
       {
         question: "Do you offer international shipping of stored items?",
@@ -194,7 +194,7 @@ const faqCategories = [
     ]
   },
   {
-    title: "E-Commerce &amp; Business Storage",
+    title: "E-Commerce & Business Storage",
     faqs: [
       {
         question: "How does SafeStorage support e-commerce businesses in Dubai?",
@@ -207,7 +207,7 @@ const faqCategories = [
     ]
   },
   {
-    title: "Student &amp; Expat Storage",
+    title: "Student & Expat Storage",
     faqs: [
       {
         question: "Is SafeStorage suitable for university students in Dubai?",
@@ -215,7 +215,7 @@ const faqCategories = [
       },
       {
         question: "What makes SafeStorage ideal for Dubai expats specifically?",
-        answer: "Dubai&apos;s large expat population faces unique storage challenges: frequent apartment moves as lease terms change, transitional periods between tenancies, temporary relocations back to home countries, and the general transience of expat life. SafeStorage is designed to accommodate all of these scenarios seamlessly. Our flexible monthly contracts require no long-term commitment, our door-to-door service eliminates the logistical hassle of self-storage, and our facility can store your belongings safely and affordably for months or years while you navigate the next chapter of your Dubai journey. Many expats consider SafeStorage their &apos;Dubai home base&apos; for their most valued belongings."
+        answer: "Dubai's large expat population faces unique storage challenges: frequent apartment moves as lease terms change, transitional periods between tenancies, temporary relocations back to home countries, and the general transience of expat life. SafeStorage is designed to accommodate all of these scenarios seamlessly. Our flexible monthly contracts require no long-term commitment, our door-to-door service eliminates the logistical hassle of self-storage, and our facility can store your belongings safely and affordably for months or years while you navigate the next chapter of your Dubai journey. Many expats consider SafeStorage their 'Dubai home base' for their most valued belongings."
       },
     ]
   },

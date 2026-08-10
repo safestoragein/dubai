@@ -2,6 +2,7 @@ import ServicesPage from "@/components/services/services-page"
 import type { Metadata } from "next"
 import Link from "next/link"
 import SchemaScript from "@/components/schema-script"
+import { HOURS_DISPLAY } from "@/lib/company-facts"
 
 export const metadata: Metadata = {
   title: { absolute: "Storage Services Dubai | Personal, Business & Document Units" },
@@ -310,10 +311,8 @@ export default function Services() {
               <p className="text-gray-700">When SafeStorage collects your items, our team photographs every individual item and box, creating a complete digital inventory that is accessible through your online account or provided as a document. Each photo is tagged with a description, location in the facility, and date of storage. When you want to retrieve specific items, you can browse your digital inventory and request exactly what you need — without having to retrieve everything. This is particularly useful for customers who store many boxes of similar-looking items and want to identify exactly what they need before requesting delivery.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-            </div>
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">How quickly can I get my items back from SafeStorage?</h3>
-              <p className="text-gray-700">Standard item retrieval and delivery takes 24–48 hours from the time of your request. For urgent requests made before 12 PM on working days, same-day delivery may be available to most Dubai addresses — call us directly on +971505773388 to check same-day availability. You can request specific items from your digital inventory for delivery, so you do not need to retrieve your entire stored collection if you only need a few things. Delivery is available Monday through Saturday in morning, afternoon, and evening time windows. Emergency after-hours access can be arranged in exceptional circumstances.</p>
+              <p className="text-gray-700">Standard item retrieval and delivery takes 24–48 hours from the time of your request. For urgent requests made before 12 PM, same-day delivery may be available to most Dubai addresses — call us directly on +971505773388 to check same-day availability. You can request specific items from your digital inventory for delivery, so you do not need to retrieve your entire stored collection if you only need a few things. Delivery is available {HOURS_DISPLAY} in morning, afternoon, and evening time windows. Emergency after-hours access can be arranged in exceptional circumstances.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can SafeStorage help with the packing, or do I need to pack myself?</h3>
@@ -341,7 +340,7 @@ export default function Services() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is SafeStorage available on weekends for pickup and delivery?</h3>
-              <p className="text-gray-700">SafeStorage operates pickup and delivery services Monday through Saturday. Saturday pickups and deliveries are available across all Dubai service zones. Sunday availability is limited to pre-arranged commercial pickups and emergency retrievals — contact us if you require Sunday service and we will do our best to accommodate your needs. Public holiday availability varies; contact us directly on +971505773388 to check availability around UAE public holidays. Our customer service team is available 7 days a week by WhatsApp and phone for booking, account queries, and urgent requests even outside standard service hours.</p>
+              <p className="text-gray-700">Yes. SafeStorage operates pickup and delivery {HOURS_DISPLAY}, weekends included, across all Dubai service zones — Saturday and Sunday slots are booked exactly like weekday ones. Public holiday availability varies; contact us directly on +971505773388 to check availability around UAE public holidays. Our customer service team is reachable by WhatsApp and phone for booking, account queries, and urgent requests even outside standard service hours.</p>
             </div>
           </div>
         </div>

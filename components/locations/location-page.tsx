@@ -10,9 +10,16 @@ interface LocationPageProps {
   areas: string[]
   distance: string
   benefits: string[]
+  /**
+   * The opening line, unique to this area. Every location page used to render
+   * "Premium, secure storage units with door-to-door service for all {location}
+   * residents" — token-swapped template text in the first 150 words, which is
+   * the passage Google weights most heavily. Each page now supplies its own.
+   */
+  intro: string
 }
 
-export default function LocationPage({ location, areas, distance, benefits }: LocationPageProps) {
+export default function LocationPage({ location, areas, distance, benefits, intro }: LocationPageProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section */}
@@ -22,9 +29,7 @@ export default function LocationPage({ location, areas, distance, benefits }: Lo
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Storage Solutions in {location}
             </h1>
-            <p className="text-xl mb-8">
-              Premium, secure storage units with door-to-door service for all {location} residents
-            </p>
+            <p className="text-xl mb-8">{intro}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>
                 <Link href="/get-quote">Get Instant Quote</Link>
@@ -112,6 +117,9 @@ export default function LocationPage({ location, areas, distance, benefits }: Lo
                 <CardContent className="pt-6 text-center">
                   <Shield className="mx-auto h-12 w-12 text-[#3E92CC] mb-4" />
                   <h3 className="font-semibold mb-2">24/7 Security</h3>
+                  <p className="text-sm text-gray-600">
+                    Multi-angle CCTV, logged entry and after-hours motion alerts, around the clock
+                  </p>
                 </CardContent>
               </Card>
               <Card>

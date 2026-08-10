@@ -240,7 +240,7 @@ export default function DubaiSiliconOasisPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I manage my DSO storage account remotely if I leave Dubai?</h3>
-              <p className="text-gray-700">Yes. SafeStorage accounts can be managed entirely remotely by phone, WhatsApp, or our online portal. Many DSO and Academic City residents — particularly students and tech workers on contract assignments — use this feature when they leave Dubai temporarily. You can request delivery of specific items to a Dubai address even while you are abroad, change your billing payment method remotely, extend your plan, or arrange for items to be returned to a different Dubai address when you return. Our customer service team is available Monday through Saturday to assist with remote account management.</p>
+              <p className="text-gray-700">Yes. SafeStorage accounts can be managed entirely remotely by phone, WhatsApp, or our online portal. Many DSO and Academic City residents — particularly students and tech workers on contract assignments — use this feature when they leave Dubai temporarily. You can request delivery of specific items to a Dubai address even while you are abroad, change your billing payment method remotely, extend your plan, or arrange for items to be returned to a different Dubai address when you return. Our customer service team is available seven days a week to assist with remote account management.</p>
             </div>
           </div>
         </div>

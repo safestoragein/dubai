@@ -427,7 +427,7 @@ export default function StorageSizeGuidePage() {
               },
               {
                 q: "What size unit do I need for a 2-bedroom apartment?",
-                a: "A two-bedroom apartment normally requires a 100–120 sq ft unit. This accommodates two beds, a full living room set, a dining area, kitchen appliances, wardrobes, and 30–50 boxes. If you have a lot of large appliances, a gym room, or unusually large furniture, consider 150 sq ft. SafeStorage Dubai&apos;s consultants can help you right-size based on your actual inventory."
+                a: "A two-bedroom apartment normally requires a 100–120 sq ft unit. This accommodates two beds, a full living room set, a dining area, kitchen appliances, wardrobes, and 30–50 boxes. If you have a lot of large appliances, a gym room, or unusually large furniture, consider 150 sq ft. SafeStorage Dubai's consultants can help you right-size based on your actual inventory."
               },
               {
                 q: "Will a 3-bedroom villa fit in a 150 sq ft unit?",
@@ -446,7 +446,7 @@ export default function StorageSizeGuidePage() {
                 a: "The most accurate method is to list every item you plan to store — furniture piece by piece, and an estimate of boxes. Then match that to our size guide. As a quick rule of thumb: every 10 medium boxes fills roughly 10–12 sq ft. A double bed frame (disassembled) takes about 20 sq ft lying flat. A 3-seater sofa (without cushions) takes roughly 15 sq ft. Add these up and round up to the nearest unit size. When in doubt, go one size larger — the cost difference is small and the frustration of being too tight is significant."
               },
               {
-                q: "What happens if my items don&apos;t all fit in the unit I booked?",
+                q: "What happens if my items don't all fit in the unit I booked?",
                 a: "If on pickup day your items exceed your booked unit size, our team will assess the situation and immediately arrange an upgrade to the next available size. Your pricing adjusts accordingly from that day. We never turn away items — our priority is ensuring everything you need to store is safely housed. If you are unsure about size before booking, call +971505773388 for a free no-obligation size assessment."
               },
               {
@@ -471,7 +471,7 @@ export default function StorageSizeGuidePage() {
               },
               {
                 q: "What is the difference between self-storage and door-to-door storage in Dubai?",
-                a: "Traditional self-storage requires you to transport your items to the facility, load them into your unit yourself, and collect them when needed — using your own vehicle or a rented lorry. Door-to-door storage, which is SafeStorage Dubai&apos;s primary model, means our team comes to your home or office, loads your items, transports them to our facility, and delivers them back when you request. Door-to-door storage is more convenient, often similar in price when you factor in lorry rental and moving costs, and reduces the physical effort on the customer&apos;s side entirely."
+                a: "Traditional self-storage requires you to transport your items to the facility, load them into your unit yourself, and collect them when needed — using your own vehicle or a rented lorry. Door-to-door storage, which is SafeStorage Dubai's primary model, means our team comes to your home or office, loads your items, transports them to our facility, and delivers them back when you request. Door-to-door storage is more convenient, often similar in price when you factor in lorry rental and moving costs, and reduces the physical effort on the customer's side entirely."
               }
             ].map((faq, i) => (
               <div key={i} className="bg-gray-50 rounded-xl p-6 border border-gray-200">

@@ -6,7 +6,7 @@
 // category despite seven existing. Both are obvious template placeholders to a
 // reader and give Google nothing to differentiate the posts by.
 
-import { ADDRESS_FULL, EMAIL, PRICE_PER_SQFT_AED } from "@/lib/company-facts"
+import { ADDRESS_FULL, EMAIL, HOURS_DISPLAY, PRICE_PER_SQFT_AED } from "@/lib/company-facts"
 
 /**
  * Blog bodies and excerpts come from the safestorage.in feed, which is edited
@@ -14,10 +14,12 @@ import { ADDRESS_FULL, EMAIL, PRICE_PER_SQFT_AED } from "@/lib/company-facts"
  * contradictions alive and well in feed content, even though every file in this
  * repo has been reconciled:
  *
- *   8 posts   superseded 12.60 AED/sqft rate
+ *   6 posts   superseded 12.60 AED/sqft rate
  *   2 posts   free Gmail address as the contact
  *   2 posts   the old "402-B Wing, Emarat Atrium Building" address
- *   18 posts  "1 lakh" customers (Indian numbering on a .ae domain)
+ *   21 posts  "1 lakh" customers (Indian numbering on a .ae domain)
+ *   1 post    the retired Mon–Sat / short-Sunday opening hours
+ *   216 posts link labels still wrapped in [square brackets] (687 labels)
  *   90 posts  links to service URLs that are now 301 redirects
  *
  * This is a safety net, not the fix — the rows should be corrected at source in
@@ -25,9 +27,30 @@ import { ADDRESS_FULL, EMAIL, PRICE_PER_SQFT_AED } from "@/lib/company-facts"
  * so future drift in the feed cannot silently reintroduce a contradiction the
  * rest of the site has resolved.
  *
+ * Deliberately NOT handled here: five posts carry an in-body author credit
+ * ("The author: Ayesha Rahman", "About the Author: Sarah Al-Maktoum", …) that
+ * contradicts the Editorial Team byline the page renders. Rewriting a bio by
+ * regex would either delete editorial copy or put words in a named person's
+ * mouth, so those five rows have to be reconciled in the blog admin — either
+ * drop the in-body credit or give the post a real author profile.
+ *
  * Every rule is deliberately narrow: the price only matches when followed by an
  * AED/dirham unit, and the URL rewrites only touch our own legacy paths.
  */
+/** Whitespace as the editor emits it: real spaces, `&nbsp;`, or an HTML tag. */
+const GAP = String.raw`(?:\s|&nbsp;|<[^>]*>)`
+
+/**
+ * The CTA link labels that arrive wrapped in square brackets. Word gaps use
+ * {@link GAP} because the editor sprinkles `&nbsp;` mid-phrase — one post
+ * stores the label as `Get&nbsp; Free Quotation`.
+ */
+const CTA_LABELS = [
+  String.raw`Get${GAP}+Free${GAP}+Quotation`,
+  String.raw`Click${GAP}+Here${GAP}+For${GAP}+Quotation`,
+  String.raw`Here${GAP}+More${GAP}+Information`,
+].join("|")
+
 const FEED_RULES: Array<[RegExp, string]> = [
   // Price — only when immediately followed by a currency/unit, so prose that
   // happens to contain 12.60 for another reason is untouched.
@@ -47,6 +70,30 @@ const FEED_RULES: Array<[RegExp, string]> = [
   [/\b1\s*lakh\s*\(\s*1,00,000\+?\s*\)/gi, "100,000+"],
   [/\b1\s*lakh\s*\+/gi, "100,000+"],
   [/\b1\s*lakh\b/gi, "100,000"],
+  // "over one lakh happy customers" — the spelled-out form the numeric rules miss.
+  [/\bone\s+lakh\b/gi, "100,000"],
+
+  // Opening hours. One post describes "daytime hours through Monday to Saturday
+  // and shorter hours on Sunday", which is the schedule the whole site retired:
+  // company-facts publishes one set of hours, seven days a week, and the schema
+  // and Google Business Profile have to agree with it.
+  [
+    /daytime\s+hours\s+(?:through|from)\s+Monday\s+(?:to|through)\s+Saturday\s+and\s+shorter\s+hours\s+on\s+Sunday/gi,
+    `the same hours every day, ${HOURS_DISPLAY}`,
+  ],
+
+  // Link labels the CMS wrapped in square brackets — "[Get Free Quotation]",
+  // "[Here More Information]" — which read as unfilled placeholders. They are
+  // real links; only the brackets go.
+  //
+  // The bracket and the phrase are almost never adjacent in the source: the
+  // editor emits `[</span><a …><span>Here More Information</span></a><span>]`,
+  // so a plain `\[phrase\]` match catches 4 posts out of 216. Each bracket is
+  // therefore matched on its own, and only when the phrase sits on the other
+  // side of it with nothing but tags and whitespace in between. Brackets around
+  // real prose ("[approximately 1/2 the size of a standard closet]") never match.
+  [new RegExp(String.raw`\[(?=${GAP}*(?:${CTA_LABELS}))`, "gi"), ""],
+  [new RegExp(String.raw`(?<=(?:${CTA_LABELS})${GAP}*)\]`, "gi"), ""],
 
   // Legacy service URLs. These now 301, so links still work, but pointing
   // editorial links straight at the canonical target avoids a redirect hop on

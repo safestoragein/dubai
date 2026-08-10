@@ -4,29 +4,41 @@ import { m } from "framer-motion"
 import { MapPin } from "lucide-react"
 import Link from "next/link"
 
+// Each card carries an explicit `slug` for its location page. These used to link
+// to `#${name}` anchors — #al-barsha, #deira, #jlt and so on — but no element on
+// the homepage has any of those ids, so all six cards were dead clicks and six
+// internal links pointed nowhere. The JLT card is now Jumeirah: JLT has no
+// location page of its own (it is covered by /locations/dubai-marina), so it was
+// the one entry that could not be given a real destination.
 const locations = [
   {
     name: "Al Barsha",
+    slug: "al-barsha",
     description: "Secure & affordable self-storage options.",
   },
   {
     name: "Deira",
+    slug: "deira",
     description: "Convenient, short-term & long-term storage solutions.",
   },
   {
     name: "Dubai Marina",
+    slug: "dubai-marina",
     description: "High-end storage for personal & business use.",
   },
   {
     name: "Business Bay",
+    slug: "business-bay",
     description: "Premium storage solutions for businesses and individuals.",
   },
   {
-    name: "JLT",
-    description: "Convenient storage options with 24/7 access.",
+    name: "Jumeirah",
+    slug: "jumeirah",
+    description: "Villa storage with free pickup, ideal during renovations.",
   },
   {
     name: "Downtown Dubai",
+    slug: "downtown-dubai",
     description: "Central location with flexible storage solutions.",
   },
 ]
@@ -67,7 +79,7 @@ export default function LocationSection() {
               transition={{ delay: index * 0.1 }}
               className="group"
             >
-              <Link href={`#${location.name.toLowerCase().replace(" ", "-")}`} className="block">
+              <Link href={`/locations/${location.slug}`} className="block">
                 <div className="bg-white rounded-xl border p-6 shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/50">
                   <div className="flex items-start gap-4">
                     <div className="rounded-full bg-primary/10 p-3">

@@ -11,6 +11,8 @@
 // publishing the derivation invites an argument the customer cannot win or lose
 // on the facts. The CRM and the activity log keep the full derivation.
 
+import { HOURS_SHORT } from "@/lib/company-facts"
+
 export interface WelcomeNoteData {
   firstName: string
 
@@ -113,8 +115,8 @@ export function renderWelcomeNoteEmail(d: WelcomeNoteData): string {
     : ""
 
   const rmLine = d.rmName
-    ? `Questions about your bill? Your consultant <strong>${esc(d.rmName)}</strong> is on <a href="tel:${esc(d.supportPhone.replace(/\s/g, ""))}" style="color:${NAVY};font-weight:700;text-decoration:none;">${esc(d.supportPhone)}</a>, Mon&ndash;Sat 9am&ndash;6pm.`
-    : `Questions about your bill? Call <a href="tel:${esc(d.supportPhone.replace(/\s/g, ""))}" style="color:${NAVY};font-weight:700;text-decoration:none;">${esc(d.supportPhone)}</a>, Mon&ndash;Sat 9am&ndash;6pm.`
+    ? `Questions about your bill? Your consultant <strong>${esc(d.rmName)}</strong> is on <a href="tel:${esc(d.supportPhone.replace(/\s/g, ""))}" style="color:${NAVY};font-weight:700;text-decoration:none;">${esc(d.supportPhone)}</a>, ${HOURS_SHORT}.`
+    : `Questions about your bill? Call <a href="tel:${esc(d.supportPhone.replace(/\s/g, ""))}" style="color:${NAVY};font-weight:700;text-decoration:none;">${esc(d.supportPhone)}</a>, ${HOURS_SHORT}.`
 
   return `<!-- welcome note -->
 <div style="background:#eef1f6;padding:24px 0;font-family:${F};">
@@ -251,8 +253,8 @@ export function renderWelcomeNoteText(d: WelcomeNoteData): string {
     `- Send your TRN if you need a VAT invoice.`,
     ``,
     d.rmName
-      ? `Questions about your bill? Your consultant ${d.rmName} is on ${d.supportPhone}, Mon-Sat 9am-6pm.`
-      : `Questions about your bill? Call ${d.supportPhone}, Mon-Sat 9am-6pm.`,
+      ? `Questions about your bill? Your consultant ${d.rmName} is on ${d.supportPhone}, ${HOURS_SHORT}.`
+      : `Questions about your bill? Call ${d.supportPhone}, ${HOURS_SHORT}.`,
     ``,
     `SAFE STORAGE UAE - We store anything you care!`,
     `${d.supportPhone} - ${d.supportEmail} - safestorage.ae`

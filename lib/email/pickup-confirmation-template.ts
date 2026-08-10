@@ -8,6 +8,8 @@
 // layout (Outlook has no flexbox or grid), and the same palette so a customer
 // who quotes and then books gets two emails that plainly come from one company.
 
+import { HOURS_SHORT } from "@/lib/company-facts"
+
 export interface PickupConfirmationData {
   firstName: string
   /** Permanent customer code, e.g. DUB07. Falls back to the order code. */
@@ -164,7 +166,7 @@ export function renderPickupConfirmationEmail(d: PickupConfirmationData): string
           <div style="font-size:15px;font-weight:700;color:${INK};">${esc(d.rmName)}</div>
           <div style="font-size:13.5px;color:${BODY};padding-top:2px;">
             <a href="tel:${esc(d.supportPhone.replace(/\s/g, ""))}" style="color:${NAVY};text-decoration:none;font-weight:600;">${esc(d.supportPhone)}</a>
-            &nbsp;&middot;&nbsp; Mon&ndash;Sat, 9am&ndash;6pm
+            &nbsp;&middot;&nbsp; ${HOURS_SHORT}
           </div>
         </td>
       </tr>
@@ -305,7 +307,7 @@ export function renderPickupConfirmationText(d: PickupConfirmationData): string 
   if (d.rmName) {
     lines.push(
       `YOUR STORAGE CONSULTANT`,
-      `${d.rmName} — ${d.supportPhone} — Mon-Sat, 9am-6pm`,
+      `${d.rmName} — ${d.supportPhone} — ${HOURS_SHORT}`,
       ``
     )
   }

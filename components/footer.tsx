@@ -31,7 +31,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-dubai-sand/80 max-w-xs">
-              Dubai&apos;s most trusted storage partner since 2015 Globally. Secure units, 24/7 security, and door-to-door service.
+              Dubai&apos;s most trusted storage partner since 2015. Secure units, 24/7 security, and door-to-door service.
             </p>
             {/* Google Rating */}
             <div className="flex items-center gap-2 pt-2">
@@ -42,7 +42,7 @@ export default function Footer() {
               </div>
               <span className="text-dubai-sand/80 text-sm">4.9/5 on Google</span>
             </div>
-            <p className="text-dubai-sand/60 text-sm">6700+ Verified Reviews Globally</p>
+            <p className="text-dubai-sand/60 text-sm">6,700+ verified reviews worldwide</p>
           </div>
 
           {/* Quick Links */}

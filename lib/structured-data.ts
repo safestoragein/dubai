@@ -18,8 +18,8 @@ export const organizationSchema = {
     height: 60
   },
   image: "https://safestorage.ae/images/storage-facility-background.png",
-  description: "Dubai's most trusted storage partner since 2018. Secure indoor units, 24/7 security, and door-to-door service.",
-  foundingDate: "2018",
+  description: "Dubai's most trusted storage partner since 2015. Secure indoor units, 24/7 security, and door-to-door service.",
+  foundingDate: "2015",
   founders: [
     {
       "@type": "Person",
@@ -90,7 +90,7 @@ export const localBusinessSchema = {
   "@id": "https://safestorage.ae/#business",
   name: "SafeStorage Dubai - Premium Storage Solutions",
   alternateName: "SafeStorage Dubai",
-  description: "Dubai's most trusted storage partner since 2018. Secure indoor units, 24/7 security, and door-to-door service. Serving Dubai Marina, Business Bay, JLT, Downtown, and all areas.",
+  description: "Dubai's most trusted storage partner since 2015. Secure indoor units, 24/7 security, and door-to-door service. Serving Dubai Marina, Business Bay, JLT, Downtown, and all areas.",
   image: [
     "https://safestorage.ae/images/storage-facility-background.png",
     "https://safestorage.ae/expansive-storage.png",
@@ -145,44 +145,18 @@ export const localBusinessSchema = {
       closes: "20:00"
     }
   ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    bestRating: "5",
-    worstRating: "1",
-    ratingCount: "6700",
-    reviewCount: "6700"
-  },
-  review: [
-    {
-      "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      author: { "@type": "Person", name: "Ahmed Hassan" },
-      datePublished: "2024-11-15",
-      reviewBody: "Excellent storage facility with top-notch security and spotlessly clean units. The door-to-door pickup service made everything so convenient!"
-    },
-    {
-      "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      author: { "@type": "Person", name: "Sarah Mitchell" },
-      datePublished: "2024-11-10",
-      reviewBody: "Best storage solution in Dubai! Clean, secure, and the staff is incredibly helpful. Highly recommended!"
-    },
-    {
-      "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      author: { "@type": "Person", name: "Fatima Al-Rashid" },
-      datePublished: "2024-10-25",
-      reviewBody: "Used their service for villa renovation storage. Their secure, dust-protected units kept all my furniture in perfect condition. Door-to-Door pickup was a huge bonus!"
-    },
-    {
-      "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      author: { "@type": "Person", name: "Mark Thompson" },
-      datePublished: "2024-10-15",
-      reviewBody: "Perfect for e-commerce inventory storage. Flexible terms and easy access. The dedicated consultant really understood our business needs."
-    }
-  ],
+  // aggregateRating / review deliberately NOT declared here.
+  //
+  // The 4.9 / 6,700 figure is the SafeStorage group's worldwide Google rating,
+  // not a rating of this UAE entity — Google cannot reconcile it against the
+  // Dubai Business Profile, and self-serving review markup on a LocalBusiness
+  // (reviews the business publishes about itself) is ignored at best and a
+  // structured-data spam signal at worst. The four Review objects that used to
+  // sit here were site copy, not verified reviews of this listing.
+  //
+  // Re-add ONLY when the Dubai Google Business Profile carries verified reviews,
+  // and then publish that UAE count — not the global one. The 6,700 figure stays
+  // in visible copy, labelled "worldwide", where it is an honest brand claim.
   amenityFeature: [
     { "@type": "LocationFeatureSpecification", name: "24/7 CCTV Security", value: true },
     { "@type": "LocationFeatureSpecification", name: "Secure Indoor Units", value: true },
@@ -227,6 +201,12 @@ export const webSiteSchema = {
 }
 
 // 4. COMPREHENSIVE FAQ SCHEMA - AI Overviews & FAQ Rich Snippets (30+ Questions)
+//
+// NOT currently emitted on any page, and it must stay that way unless the page
+// that emits it renders all of these questions and answers as visible content —
+// Google requires FAQPage markup to match what the user sees. The homepage used
+// to emit this block while rendering only 6 of the questions. /faq and the
+// homepage each now build their own FAQPage from the questions they display.
 export const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -414,7 +394,7 @@ export const faqSchema = {
       name: "How long has SafeStorage Dubai been in business?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai has been serving Dubai since 2018 - over 7 years of trusted storage experience. We've grown from a small team to Dubai's most trusted storage partner, serving 500+ happy customers with a 4.9/5 Google rating. Our experience means we understand Dubai's unique storage challenges and provide solutions that work."
+        text: "SafeStorage Dubai has been serving Dubai since 2015 - over 10 years of trusted storage experience. We've grown from a small team to Dubai's most trusted storage partner, part of a group serving 100,000+ customers worldwide with a 4.9/5 Google rating. Our experience means we understand Dubai's unique storage challenges and provide solutions that work."
       }
     },
     {
@@ -636,22 +616,10 @@ export const productSchema = {
       }
     ]
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    bestRating: "5",
-    worstRating: "1",
-    ratingCount: "6700",
-    reviewCount: "6700"
-  },
-  review: [
-    {
-      "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5" },
-      author: { "@type": "Person", name: "Ahmed Hassan" },
-      reviewBody: "Excellent storage facility with top-notch security and spotlessly clean units."
-    }
-  ]
+  // aggregateRating / review omitted for the same reason as localBusinessSchema
+  // above: the 4.9 / 6,700 figure is the group's worldwide Google rating, not a
+  // rating of this product or this UAE entity, and the single Review below it
+  // was site copy rather than a verified review.
 }
 
 // 7. HOWTO SCHEMA - How-to Rich Snippets
@@ -831,7 +799,7 @@ export const aboutPageSchema = {
   "@type": "AboutPage",
   "@id": "https://safestorage.ae/about#webpage",
   name: "About SafeStorage Dubai - Dubai's Trusted Storage Partner Since 2018",
-  description: "Learn about SafeStorage Dubai - serving Dubai since 2018 with secure indoor storage, 24/7 security, and door-to-door service. 500+ happy customers.",
+  description: "Learn about SafeStorage Dubai - serving Dubai since 2015 with secure indoor storage, 24/7 security, and door-to-door service. 100,000+ customers worldwide.",
   url: "https://safestorage.ae/about",
   mainEntity: {
     "@id": "https://safestorage.ae/#organization"

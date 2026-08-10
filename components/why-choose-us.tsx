@@ -106,7 +106,7 @@ export default function WhyChooseUs() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold tracking-tight text-dubai-navy"
           >
-            Why 100,000+ Customers Trust <span className="text-dubai-gold">SafeStorage Globally</span>
+            Why 100,000+ Customers Trust <span className="text-dubai-gold">SafeStorage Worldwide</span>
           </m.h2>
           <m.p
             initial={{ opacity: 0, y: 20 }}

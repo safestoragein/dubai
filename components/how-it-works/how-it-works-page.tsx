@@ -460,7 +460,7 @@ function FaqAccordion() {
     {
       question: "How long does the pickup process take?",
       answer:
-        "Our pickup process typically depending on the volume of items. Our professional team works efficiently to ensure your items are properly packed and loaded for safe transport to our storage facility.",
+        "Our pickup process typically takes 2 to 4 hours, depending on the volume of items. Our professional team works efficiently to ensure your items are properly packed and loaded for safe transport to our storage facility.",
     },
     {
       question: "Can I access my items while they're in storage?",

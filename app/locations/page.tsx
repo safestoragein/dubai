@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, Phone, ArrowRight, CheckCircle2 } from "lucide-react"
+import { HOURS_DISPLAY } from "@/lib/company-facts"
 
 export const metadata: Metadata = {
   title: { absolute: "Dubai Secure Storage Locations Near You | Safe Storage" },
@@ -252,7 +253,7 @@ export default function LocationsPage() {
                 <p className="text-gray-700 mb-4">The SafeStorage process is designed to eliminate every inconvenience associated with traditional self-storage. Here is exactly what happens when you book with us:</p>
                 <ol className="space-y-3 text-gray-700">
                   <li><strong>Step 1 — Get a Quote:</strong> Contact us by phone, WhatsApp (+971505773388), or online form. Describe what you need to store and we provide an instant, transparent quote with no hidden fees.</li>
-                  <li><strong>Step 2 — Schedule Pickup:</strong> Choose your preferred pickup date and time window (morning, afternoon, or evening, Monday through Saturday). Same-day pickup is available for requests made before 12 PM.</li>
+                  <li><strong>Step 2 — Schedule Pickup:</strong> Choose your preferred pickup date and time window (morning, afternoon, or evening, {HOURS_DISPLAY}). Same-day pickup is available for requests made before 12 PM.</li>
                   <li><strong>Step 3 — We Collect:</strong> Our uniformed team arrives at your location in a clean, covered moving vehicle. We carefully pack, wrap, and load your items — you do not need to lift a single box.</li>
                   <li><strong>Step 4 — Secure Storage:</strong> Your items are transported to our secure facility and stored in a dedicated, individually alarmed unit. You receive a digital inventory of everything stored.</li>
                   <li><strong>Step 5 — On-Demand Retrieval:</strong> When you need items back, simply contact us. We deliver your specified items to your address within 24–48 hours, or same-day for urgent requests.</li>
@@ -320,7 +321,7 @@ export default function LocationsPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">What areas of Dubai have same-day pickup available?</h3>
-              <p className="text-gray-700">Same-day pickup is available across all major Dubai areas for requests confirmed before 12 PM on working days (Monday through Saturday). This includes Business Bay, Downtown Dubai, Dubai Marina, JBR, JLT, Jumeirah 1–3, Umm Suqeim, Al Barsha, Dubai Investment Park, Motor City, and Sports City. For more distant areas such as Mirdif, Rashidiya, or Dubai Silicon Oasis, same-day availability may depend on scheduling — we recommend calling us early in the day for these locations.</p>
+              <p className="text-gray-700">Same-day pickup is available across all major Dubai areas for requests confirmed before 12 PM, any day of the week ({HOURS_DISPLAY}). This includes Business Bay, Downtown Dubai, Dubai Marina, JBR, JLT, Jumeirah 1–3, Umm Suqeim, Al Barsha, Dubai Investment Park, Motor City, and Sports City. For more distant areas such as Mirdif, Rashidiya, or Dubai Silicon Oasis, same-day availability may depend on scheduling — we recommend calling us early in the day for these locations.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you serve areas outside Dubai such as Abu Dhabi, Sharjah, or Ajman?</h3>
@@ -378,8 +379,8 @@ export default function LocationsPage() {
               </p>
               <p className="text-gray-700">
                 Standard pickups are scheduled within 24–48 hours based on your preferred time slot. We offer
-                morning (8 AM–12 PM), afternoon (12 PM–4 PM), and evening (4 PM–8 PM) windows Monday through
-                Saturday. Our team arrives within a 1-hour window and handles all the packing and loading.
+                morning (8 AM–12 PM), afternoon (12 PM–4 PM), and evening (4 PM–8 PM) windows, seven days a
+                week. Our team arrives within a 1-hour window and handles all the packing and loading.
               </p>
             </div>
           </div>

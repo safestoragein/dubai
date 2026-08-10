@@ -86,7 +86,7 @@ export default function Testimonials() {
             <div className="h-6 w-px bg-gray-200" />
             <div className="flex items-center gap-2">
               <span className="font-bold text-lg">4.9</span>
-              <span className="text-muted-foreground text-sm">6700+ Google Reviews Globally</span>
+              <span className="text-muted-foreground text-sm">6,700+ Google reviews worldwide</span>
             </div>
           </m.div>
 
@@ -105,7 +105,7 @@ export default function Testimonials() {
             transition={{ delay: 0.2 }}
             className="text-xl text-muted-foreground max-w-[800px]"
           >
-            Real experiences from 100,000+ happy customers across Globally
+            Real experiences from the 100,000+ customers SafeStorage serves worldwide
           </m.p>
         </div>
 

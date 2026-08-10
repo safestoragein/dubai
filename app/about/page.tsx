@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import TrustBadges from "@/components/trust-badges"
+import { CUSTOMERS_GLOBAL, CUSTOMERS_LABEL, HOURS_DISPLAY, REVIEWS_LABEL } from "@/lib/company-facts"
 import WhyChooseUs from "@/components/why-choose-us"
 import Testimonials from "@/components/testimonials"
 import SchemaScript from "@/components/schema-script"
@@ -207,7 +208,7 @@ export default function AboutPage() {
         <div className="bg-dubai-navy rounded-2xl p-10 text-center">
           <p className="text-white text-xl leading-relaxed max-w-3xl mx-auto">
             What began as a small idea has grown into a trusted storage brand,
-            serving lakhs of customers globaly with care, transparency, and
+            serving {CUSTOMERS_LABEL} with care, transparency, and
             reliability — and we’re just getting started.
           </p>
         </div>
@@ -379,7 +380,7 @@ export default function AboutPage() {
             The founding insight was straightforward but powerful: if you can have groceries delivered to your door, why should storage be any different? Ramesh and his team built SafeStorage around a full-service, door-to-door model where the company handles every aspect of the storage experience — collection, transportation, secure storage, and on-demand delivery. Customers never need to lift a single box or visit a facility unless they want to.
           </p>
           <p className="text-lg text-gray-700 mb-8">
-            This model proved immediately successful. SafeStorage grew rapidly in India, expanding from its initial market to multiple cities and building a reputation for reliability, transparency, and exceptional customer service. By 2019, SafeStorage had served over 10,000 customers. By 2023, that number had grown to over 50,000 globally. Today, SafeStorage serves over 1 lakh (100,000) customers across India and the UAE, with 1.2 million square feet of storage under management and a technology platform that enables seamless remote management of stored items from anywhere in the world.
+            This model proved immediately successful. SafeStorage grew rapidly in India, expanding from its initial market to multiple cities and building a reputation for reliability, transparency, and exceptional customer service. By 2019, SafeStorage had served over 10,000 customers. By 2023, that number had grown to over 50,000 worldwide. Today, SafeStorage serves {CUSTOMERS_LABEL}, with 1.2 million square feet of storage under management and a technology platform that enables seamless remote management of stored items from anywhere in the world.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-10">
@@ -451,7 +452,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">How many customers has SafeStorage served globally?</h3>
-              <p className="text-gray-700">SafeStorage has served over 1 lakh (100,000) customers globally across India and the UAE. Key milestones include reaching 10,000 customers in 2019, growing to 50,000 customers by 2023, and surpassing 1 lakh customers as the company&apos;s scale and reputation continued to grow. SafeStorage has accumulated over 10,000 customer reviews with a consistent 4.9 out of 5 rating, reflecting the company&apos;s commitment to service quality and customer satisfaction. These reviews are available on Google, Trustpilot, and the SafeStorage website for prospective customers to review before booking.</p>
+              <p className="text-gray-700">SafeStorage has served {CUSTOMERS_LABEL}. Key milestones include reaching 10,000 customers in 2019, growing to 50,000 customers by 2023, and passing {CUSTOMERS_GLOBAL} as the company&apos;s scale and reputation continued to grow. SafeStorage has accumulated {REVIEWS_LABEL}, reflecting the company&apos;s commitment to service quality and customer satisfaction. These reviews are available on Google and the SafeStorage website for prospective customers to review before booking.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Is SafeStorage ISO certified?</h3>
@@ -483,7 +484,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">How do I contact SafeStorage Dubai?</h3>
-              <p className="text-gray-700">You can reach SafeStorage Dubai through several channels: by phone at +971505773388, by WhatsApp at the same number (+971505773388 — this is the fastest and most popular channel), by email through the contact form at safestorage.ae, or by filling in the online quote request form on the website. WhatsApp is our most efficient communication channel — simply send a message describing what you need to store or send photos of the items, and we will respond with a quote within minutes. Our team is available Monday through Saturday from 8 AM to 8 PM, and WhatsApp messages received outside these hours are responded to on the next working day.</p>
+              <p className="text-gray-700">You can reach SafeStorage Dubai through several channels: by phone at +971505773388, by WhatsApp at the same number (+971505773388 — this is the fastest and most popular channel), by email through the contact form at safestorage.ae, or by filling in the online quote request form on the website. WhatsApp is our most efficient communication channel — simply send a message describing what you need to store or send photos of the items, and we will respond with a quote within minutes. Our team is available {HOURS_DISPLAY}, and WhatsApp messages received outside these hours are responded to the next morning.</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-dubai-navy mb-3">Has SafeStorage won any awards or received notable recognition?</h3>
