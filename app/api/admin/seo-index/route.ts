@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { isAuthenticated } from '@/lib/auth'
-import { getStatus, runIndexing } from '@/lib/seo-indexing'
+import { getStatus, runIndexing, serviceAccountStatus } from '@/lib/seo-indexing'
 import { getLedgerRows, getStats, quotaUsedToday } from '@/lib/seo-index-db'
 import { QUOTA } from '@/lib/seo-indexing'
 
@@ -32,11 +32,20 @@ export async function GET(request: NextRequest) {
       quotaUsedToday(),
     ])
 
+    // Reported on every poll, not just when the queue is asked for: reading the
+    // key is a local operation, and a missing or broken one is the single most
+    // useful thing the page can say. It used to ride along with the queue, so
+    // the warning only appeared after an 8.5 MB feed fetch had succeeded --
+    // exactly the request most likely to be slow or failing at the same time.
+    const key = serviceAccountStatus()
     const body: Record<string, unknown> = {
       status: 'success',
       stats,
       rows,
       quota: { used, limit: QUOTA },
+      service_account: key.client_email,
+      service_account_source: key.source,
+      service_account_error: key.error,
     }
 
     if (withQueue) {
@@ -44,7 +53,6 @@ export async function GET(request: NextRequest) {
         const s = await getStatus()
         body.queue = s.queue
         body.feed_posts = s.feed_posts
-        body.service_account = s.service_account
         body.retire_old = s.retire_old
       } catch (e) {
         // A feed or key problem must not blank the page — the history below is

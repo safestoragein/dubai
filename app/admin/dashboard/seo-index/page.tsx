@@ -48,6 +48,8 @@ type Data = {
   queue_error?: string
   feed_posts?: number
   service_account?: string | null
+  service_account_source?: string | null
+  service_account_error?: string | null
   retire_old?: boolean
 }
 
@@ -211,11 +213,24 @@ export default function SeoIndexPage() {
         </div>
       )}
 
-      {data?.service_account === null && (
-        <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-          <b>No service account key loaded.</b> Set <code>GOOGLE_INDEXING_KEY_JSON</code> in{" "}
-          <code>.env.local</code> on the server and restart. Nothing can be submitted until
-          then.
+      {/* The reason comes from the resolver rather than being restated here, so
+          the page can tell an unset variable apart from an unreadable path, a
+          truncated paste or an OAuth client download. */}
+      {data && !data.service_account && (
+        <div className="space-y-2 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+          <div>
+            <b>No service account key loaded.</b> Nothing can be submitted until this is fixed.
+          </div>
+          {data.service_account_error && (
+            <div className="font-mono text-xs leading-relaxed text-red-900">
+              {data.service_account_error}
+            </div>
+          )}
+          <div className="text-xs text-red-900/80">
+            The key is read from the environment at startup, so it takes a restart of{" "}
+            <code>safestorage.service</code> to pick up — not a rebuild. Keep it outside the
+            repo: the deploy hook runs <code>git checkout -f</code>.
+          </div>
         </div>
       )}
 
@@ -257,7 +272,14 @@ export default function SeoIndexPage() {
             label="Last submission"
             value={data?.stats.last_run ? `${data.stats.last_run} UTC` : "never"}
           />
-          <Field label="Service account" value={data?.service_account || "not loaded"} />
+          <Field
+            label="Service account"
+            value={
+              data?.service_account
+                ? `${data.service_account}${data.service_account_source ? ` (via ${data.service_account_source})` : ""}`
+                : "not loaded"
+            }
+          />
         </CardContent>
       </Card>
 

@@ -63,11 +63,21 @@ It is still off by default because `URL_DELETED` cannot be undone. Set
 Add to `.env.local` (already gitignored via `.env*`):
 
 ```
-# Service-account key. Inline JSON — the whole downloaded file on one line.
-GOOGLE_INDEXING_KEY_JSON={"type":"service_account","project_id":"...","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"indexing@....iam.gserviceaccount.com",...}
+# Service-account key. Three sources, tried in this order — set exactly one.
 
-# Optional — a path outside the repo instead of inline JSON. Takes second place.
-# GOOGLE_INDEXING_KEY_FILE=/home/ubuntu/.secrets/google-indexing-key.json
+# 1. PREFERRED. A path outside the repo, mode 600, holding the downloaded JSON
+#    exactly as it came from Google. Nothing can mangle it in transit, and the
+#    deploy hook's `git checkout -f` cannot fight a file that is not in the repo.
+GOOGLE_INDEXING_KEY_FILE=/home/ubuntu/.secrets/google-indexing-key.json
+
+# 2. base64 of that same file, for hosts where only env vars are available.
+#    Contains no quotes, spaces or newlines, so no .env parser can corrupt it:
+#      base64 -w0 google-indexing-key.json
+# GOOGLE_INDEXING_KEY_B64=eyJ0eXBlIjoic2VydmljZV9hY2NvdW50Iiwi...
+
+# 3. The JSON inline, which must be on ONE line. Easiest to get wrong: a
+#    pretty-printed paste spans lines and the parser reads only the first.
+# GOOGLE_INDEXING_KEY_JSON={"type":"service_account","project_id":"...","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"indexing@....iam.gserviceaccount.com",...}
 
 # Optional. Falls back to REVALIDATE_SECRET, which is already set on the server.
 # SEO_INDEX_SECRET=<random string>

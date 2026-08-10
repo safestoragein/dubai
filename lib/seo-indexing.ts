@@ -122,46 +122,162 @@ interface ServiceAccount {
   private_key: string
 }
 
-let credsMemo: ServiceAccount | null | undefined
+export type KeySource =
+  | "GOOGLE_INDEXING_KEY_FILE"
+  | "GOOGLE_INDEXING_KEY_B64"
+  | "GOOGLE_INDEXING_KEY_JSON"
+
+export interface KeyStatus {
+  loaded: boolean
+  /** Which variable the key was read from, or null when none is set. */
+  source: KeySource | null
+  client_email: string | null
+  /** Why it is not loaded, in terms an operator can act on. null when loaded. */
+  error: string | null
+}
+
+interface Resolved {
+  creds: ServiceAccount | null
+  status: KeyStatus
+}
+
+let resolvedMemo: Resolved | undefined
 
 /**
- * The service-account key, from the environment only.
+ * Resolve the service-account key, recording *why* when it cannot be.
  *
- * Never from a file inside the repo: `git checkout -f` on every deploy would
- * fight it, and a key under the app directory is one nginx location block from
- * being served. GOOGLE_INDEXING_KEY_FILE points at a path outside the repo
- * (mode 600); GOOGLE_INDEXING_KEY_JSON carries the JSON inline in .env.local,
- * which is already how this project holds its secrets.
+ * The key comes from the environment only. Never from a file inside the repo:
+ * `git checkout -f` on every deploy would fight it, and a key under the app
+ * directory is one nginx location block from being served.
+ *
+ * Three sources, in the order they are preferred:
+ *
+ *   GOOGLE_INDEXING_KEY_FILE  a path outside the repo, mode 600. Preferred:
+ *                             the file is the JSON exactly as downloaded, so
+ *                             nothing can mangle it in transit.
+ *   GOOGLE_INDEXING_KEY_B64   base64 of that file. For hosts where only env
+ *                             vars are available — survives any .env parser
+ *                             because it contains no quotes, spaces or newlines.
+ *   GOOGLE_INDEXING_KEY_JSON  the JSON inline, which must be on ONE line.
+ *
+ * Every failure returns a specific reason rather than a bare null. "Not loaded"
+ * on its own cannot distinguish an unset variable from an unreadable path, a
+ * truncated paste or an OAuth client download, and an operator staring at a
+ * dashboard has no way to tell which of those they are looking at.
  */
-export function loadServiceAccount(): ServiceAccount | null {
-  if (credsMemo !== undefined) return credsMemo
+function resolveServiceAccount(): Resolved {
+  if (resolvedMemo) return resolvedMemo
 
-  let raw = process.env.GOOGLE_INDEXING_KEY_JSON || ""
+  const fail = (error: string, source: KeySource | null = null): Resolved =>
+    (resolvedMemo = { creds: null, status: { loaded: false, source, client_email: null, error } })
 
-  if (!raw && process.env.GOOGLE_INDEXING_KEY_FILE) {
+  let raw = ""
+  let source: KeySource
+
+  if (process.env.GOOGLE_INDEXING_KEY_FILE) {
+    source = "GOOGLE_INDEXING_KEY_FILE"
+    const path = process.env.GOOGLE_INDEXING_KEY_FILE
     try {
-      raw = readFileSync(process.env.GOOGLE_INDEXING_KEY_FILE, "utf8")
-    } catch {
-      return (credsMemo = null)
+      raw = readFileSync(path, "utf8")
+    } catch (e) {
+      const code = (e as NodeJS.ErrnoException).code
+      const why =
+        code === "ENOENT"
+          ? "no such file"
+          : code === "EACCES"
+            ? "permission denied — the file must be readable by the user running the app"
+            : code || (e as Error).message
+      return fail(`cannot read ${path}: ${why}`, source)
     }
+  } else if (process.env.GOOGLE_INDEXING_KEY_B64) {
+    source = "GOOGLE_INDEXING_KEY_B64"
+    raw = Buffer.from(process.env.GOOGLE_INDEXING_KEY_B64, "base64").toString("utf8")
+  } else if (process.env.GOOGLE_INDEXING_KEY_JSON) {
+    source = "GOOGLE_INDEXING_KEY_JSON"
+    raw = process.env.GOOGLE_INDEXING_KEY_JSON
+  } else {
+    return fail(
+      "no key configured. Set GOOGLE_INDEXING_KEY_FILE to a path outside the repo " +
+        "(mode 600), or GOOGLE_INDEXING_KEY_B64, or GOOGLE_INDEXING_KEY_JSON on one line."
+    )
   }
-  if (!raw) return (credsMemo = null)
 
-  try {
-    const j = JSON.parse(raw)
-    // The "Desktop app" OAuth client download is the common mix-up and Google's
-    // resulting error is unhelpful, so name it here instead.
-    if (j.installed || j.web) return (credsMemo = null)
-    if (!j.client_email || !j.private_key) return (credsMemo = null)
-    return (credsMemo = {
-      client_email: j.client_email,
-      // Survives being pasted into .env.local, where the newlines usually
-      // arrive escaped.
-      private_key: String(j.private_key).replace(/\\n/g, "\n"),
-    })
-  } catch {
-    return (credsMemo = null)
+  raw = raw.trim()
+  // Some .env parsers keep the wrapping quotes as part of the value.
+  if ((raw.startsWith("'") && raw.endsWith("'")) || (raw.startsWith('"') && raw.endsWith('"'))) {
+    raw = raw.slice(1, -1).trim()
   }
+  if (!raw) return fail(`${source} is set but empty`, source)
+
+  // Advice only makes sense against the source it came from: telling someone
+  // reading a file that "inline JSON must be on one line" sends them to fix
+  // something they are not using.
+  const fromFile = source === "GOOGLE_INDEXING_KEY_FILE"
+
+  let j: Record<string, unknown>
+  try {
+    j = JSON.parse(raw)
+  } catch (e) {
+    return fail(
+      `${source} is not valid JSON (${(e as Error).message}). ` +
+        (fromFile
+          ? `The file is not the key as Google issued it — re-download it.`
+          : `Inline JSON must be on a single line; GOOGLE_INDEXING_KEY_FILE avoids the problem entirely.`),
+      source
+    )
+  }
+
+  // The "Desktop app" OAuth client download is the common mix-up and Google's
+  // own error for it is unhelpful, so name it here instead.
+  if (j.installed || j.web) {
+    return fail(
+      `${source} holds an OAuth client download, not a service-account key. Download ` +
+        `the key from the service account's own Keys tab.`,
+      source
+    )
+  }
+  if (j.type && j.type !== "service_account") {
+    return fail(`${source} has type "${String(j.type)}", expected "service_account"`, source)
+  }
+
+  const missing = [!j.client_email && "client_email", !j.private_key && "private_key"].filter(
+    Boolean
+  )
+  if (missing.length) return fail(`${source} is missing ${missing.join(" and ")}`, source)
+
+  // Survives being pasted into .env.local, where the newlines arrive escaped.
+  const privateKey = String(j.private_key).replace(/\\n/g, "\n")
+
+  // Sign once here so a mangled PEM fails at load with a reason, rather than on
+  // the first submission inside a cron run nobody is watching.
+  try {
+    const probe = createSign("RSA-SHA256")
+    probe.update("preflight")
+    probe.sign(privateKey)
+  } catch (e) {
+    return fail(
+      `${source} private_key is not a usable RSA key (${(e as Error).message}). ` +
+        (fromFile
+          ? `The PEM in the file is damaged — re-download the key from Google.`
+          : `Its newlines were most likely lost in the paste; GOOGLE_INDEXING_KEY_FILE avoids that.`),
+      source
+    )
+  }
+
+  const clientEmail = String(j.client_email)
+  return (resolvedMemo = {
+    creds: { client_email: clientEmail, private_key: privateKey },
+    status: { loaded: true, source, client_email: clientEmail, error: null },
+  })
+}
+
+export function loadServiceAccount(): ServiceAccount | null {
+  return resolveServiceAccount().creds
+}
+
+/** Whether a key is loaded and, when it is not, precisely what is wrong. */
+export function serviceAccountStatus(): KeyStatus {
+  return resolveServiceAccount().status
 }
 
 function b64url(input: Buffer | string): string {
@@ -184,12 +300,9 @@ let tokenMemo: { token: string; expires: number } | null = null
 export async function getAccessToken(force = false): Promise<{ ok: true; token: string } | { ok: false; error: string }> {
   const creds = loadServiceAccount()
   if (!creds) {
-    return {
-      ok: false,
-      error:
-        "no service account key — set GOOGLE_INDEXING_KEY_JSON (inline JSON) or " +
-        "GOOGLE_INDEXING_KEY_FILE (path outside the repo) in .env.local",
-    }
+    // The resolver already worked out exactly what is wrong; repeating a
+    // generic message here would throw that away.
+    return { ok: false, error: serviceAccountStatus().error || "no service account key" }
   }
 
   if (!force && tokenMemo && tokenMemo.expires > Date.now() + 120_000) {
@@ -538,14 +651,16 @@ export async function runIndexing(live: boolean, source = "cron"): Promise<RunSu
 
 /** Read-only snapshot for the status endpoint. Sends nothing, spends nothing. */
 export async function getStatus() {
-  const creds = loadServiceAccount()
+  const key = serviceAccountStatus()
   const rows = await fetchFeed()
   const { items, skipped } = await buildQueue(rows)
 
   return {
     site: SITE,
     feed_posts: rows.length,
-    service_account: creds ? creds.client_email : null,
+    service_account: key.client_email,
+    service_account_source: key.source,
+    service_account_error: key.error,
     retire_old: RETIRE_OLD,
     quota: { used: await quotaUsedToday(), limit: QUOTA },
     queue: { pending: items.length, skipped, items: items.slice(0, 25) },
