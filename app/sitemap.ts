@@ -203,6 +203,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    // Industrial service areas. These target warehouse- and trade-intent queries
+    // ("warehouse al quoz", "storage ras al khor") rather than the residential
+    // storage intent the other location pages serve.
+    {
+      url: `${baseUrl}/locations/al-quoz`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/locations/ras-al-khor`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/locations/umm-ramool`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/locations/al-qusais`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
 
     // Top 10 Storage Company Ranking Pages (high-priority SEO)
     {

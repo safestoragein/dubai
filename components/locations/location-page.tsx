@@ -17,9 +17,20 @@ interface LocationPageProps {
    * the passage Google weights most heavily. Each page now supplies its own.
    */
   intro: string
+  /**
+   * Optional per-area rewrite of the three feature cards. The defaults describe
+   * the service in the abstract; an area with a specific reason to care — stone
+   * dust in Ras Al Khor, damp paper stock in Al Qusais — should say so instead.
+   * Omit to keep the generic copy.
+   */
+  features?: {
+    doorToDoor?: string
+    security?: string
+    clean?: string
+  }
 }
 
-export default function LocationPage({ location, areas, distance, benefits, intro }: LocationPageProps) {
+export default function LocationPage({ location, areas, distance, benefits, intro, features }: LocationPageProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section */}
@@ -110,7 +121,9 @@ export default function LocationPage({ location, areas, distance, benefits, intr
                 <CardContent className="pt-6 text-center">
                   <Truck className="mx-auto h-12 w-12 text-[#D8315B] mb-4" />
                   <h3 className="font-semibold mb-2">Door-to-door Service</h3>
-                  <p className="text-sm text-gray-600">We collect from {location} and deliver back when needed</p>
+                  <p className="text-sm text-gray-600">
+                    {features?.doorToDoor ?? `We collect from ${location} and deliver back when needed`}
+                  </p>
                 </CardContent>
               </Card>
               <Card>
@@ -118,7 +131,8 @@ export default function LocationPage({ location, areas, distance, benefits, intr
                   <Shield className="mx-auto h-12 w-12 text-[#3E92CC] mb-4" />
                   <h3 className="font-semibold mb-2">24/7 Security</h3>
                   <p className="text-sm text-gray-600">
-                    Multi-angle CCTV, logged entry and after-hours motion alerts, around the clock
+                    {features?.security ??
+                      "Multi-angle CCTV, logged entry and after-hours motion alerts, around the clock"}
                   </p>
                 </CardContent>
               </Card>
@@ -126,7 +140,9 @@ export default function LocationPage({ location, areas, distance, benefits, intr
                 <CardContent className="pt-6 text-center">
                   <Clock className="mx-auto h-12 w-12 text-[#0A2463] mb-4" />
                   <h3 className="font-semibold mb-2">Clean & Dust-Protected</h3>
-                  <p className="text-sm text-gray-600">Indoor units kept clean and dust-protected year-round</p>
+                  <p className="text-sm text-gray-600">
+                    {features?.clean ?? "Indoor units kept clean and dust-protected year-round"}
+                  </p>
                 </CardContent>
               </Card>
             </div>

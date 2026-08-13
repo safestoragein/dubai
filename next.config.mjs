@@ -138,12 +138,11 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
-      // Old location area aliases that never had pages → main locations page
-      {
-        source: '/locations/al-quoz',
-        destination: '/locations',
-        permanent: true,
-      },
+      // Old location area aliases that never had pages → main locations page.
+      //
+      // /locations/al-quoz was removed from this list: it now has a real page.
+      // A redirect here wins over the route, so leaving it in place would have
+      // sent every Al Quoz visitor to the generic index instead.
       {
         source: '/locations/arabian-ranches',
         destination: '/locations',

@@ -96,6 +96,30 @@ const locations = [
     areas: ["Dubai Investment Park", "Dubai Production City", "Dubai Studio City", "Motor City"],
     distance: "10-15 minutes",
   },
+  {
+    name: "Al Quoz",
+    slug: "al-quoz",
+    areas: ["Al Quoz Industrial 1-4", "Alserkal Avenue", "Al Safa", "Umm Suqeim"],
+    distance: "20-25 minutes",
+  },
+  {
+    name: "Ras Al Khor",
+    slug: "ras-al-khor",
+    areas: ["Ras Al Khor Industrial 1-3", "Nad Al Hamar", "Al Aweer", "Nad Al Sheba"],
+    distance: "25-30 minutes",
+  },
+  {
+    name: "Umm Ramool",
+    slug: "umm-ramool",
+    areas: ["Umm Ramool", "Al Garhoud", "DAFZA", "Cargo Village"],
+    distance: "25-30 minutes",
+  },
+  {
+    name: "Al Qusais",
+    slug: "al-qusais",
+    areas: ["Al Qusais 1-3", "Al Qusais Industrial 1-5", "Al Nahda", "Al Twar"],
+    distance: "30-35 minutes",
+  },
 ]
 
 export default function LocationsPage() {
