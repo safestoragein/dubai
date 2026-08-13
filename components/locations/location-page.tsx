@@ -28,9 +28,26 @@ interface LocationPageProps {
     security?: string
     clean?: string
   }
+  /**
+   * Optional per-area rewrite of the closing CTA, for the same reason as
+   * `features`: the default asks for a quote in the abstract, and an area with
+   * a sharper ask should make it. Omit to keep the generic copy.
+   */
+  cta?: {
+    heading?: string
+    body?: string
+  }
 }
 
-export default function LocationPage({ location, areas, distance, benefits, intro, features }: LocationPageProps) {
+export default function LocationPage({
+  location,
+  areas,
+  distance,
+  benefits,
+  intro,
+  features,
+  cta,
+}: LocationPageProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section */}
@@ -154,10 +171,10 @@ export default function LocationPage({ location, areas, distance, benefits, intr
       <section className="py-16 bg-gradient-to-r from-[#0A2463] to-[#3E92CC] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">
-            Ready to Store with SafeStorage?
+            {cta?.heading ?? "Ready to Store with SafeStorage?"}
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Get your free quote today and experience the best storage service in {location}
+            {cta?.body ?? `Get your free quote today and experience the best storage service in ${location}`}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>

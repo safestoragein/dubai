@@ -21,6 +21,107 @@ export const metadata: Metadata = {
   },
 }
 
+/**
+ * One source for the FAQ block: it renders the questions and builds the
+ * FAQPage schema below. Google requires the markup to match what the reader
+ * sees (see the note above `faqSchema` in lib/structured-data.ts), which only
+ * holds if the two are never written out twice.
+ *
+ * An answer is a list of parts rather than a string so it can carry inline
+ * links and still yield the exact plain text the schema needs.
+ */
+type AnswerPart = string | { text: string; href: string }
+
+const answerText = (parts: AnswerPart[]) =>
+  parts.map((p) => (typeof p === "string" ? p : p.text)).join("")
+
+const FAQS: { q: string; a: AnswerPart[] }[] = [
+  {
+    q: "Do you cover all of Al Quoz Industrial?",
+    a: [
+      "Yes, all four industrial areas plus the residential sections and Alserkal Avenue. As part of the Sheikh Zayed Road route, we have daily availability and thus scheduling slots becomes easier for us. In case you have regular pickup requirement, we can arrange it on weekly/monthly basis so that you don't have to call each time.",
+    ],
+  },
+  {
+    q: "Do you serve Dubai Marina?",
+    a: [
+      "Yes, plus JBR, Media City and Internet City. We cover every Marina tower. The thing to know is that Marina buildings need the service lift and loading bay booked in advance, so we arrange that with your building management before the pickup. Book before noon and same-day is usually possible, otherwise 24 to 48 hours.",
+    ],
+  },
+  {
+    q: "Is this actually cheaper than leasing more warehouse space?",
+    a: [
+      "For dead stock and archives, almost always. You're currently paying Al Quoz industrial rates for space holding things that don't move. Our units start at 12.65 AED per sqft including VAT, and you only pay for the volume you use. No setup fee, no annual commitment. Send us your volume and we'll put the two costs side by side so you can see it properly.",
+    ],
+  },
+  {
+    q: "Will you store artwork from Alserkal?",
+    a: [
+      "Yes. Artwork, framed pieces, sculpture, exhibition materials. It's wrapped, photographed and catalogued on collection, then stored indoors in dust-protected, climate-stable units. Not outdoor containers. You can pull individual pieces rather than releasing the whole unit, and we'll work to your show calendar. If a piece has particular handling requirements, tell us before collection.",
+    ],
+  },
+  {
+    q: "How do I get a document back once it's stored?",
+    a: [
+      "Call, WhatsApp or email your consultant and say which box or file. We find it by barcode and deliver it to your Al Quoz address within 24 to 48 hours. Before noon and same-day is often possible. Delivery inside Dubai is part of the service and any extra charges are in your contract before you book.",
+    ],
+  },
+  {
+    q: "Do you cover Al Safa, Al Wasl and Umm Suqeim?",
+    a: [
+      "All of them, plus Al Manara. These are some of our busiest residential collections, mostly renovation storage and people moving between houses. Around 20 to 25 minutes from us. WhatsApp +971505773388 and we'll confirm for your street.",
+    ],
+  },
+  {
+    q: "What does it cost?",
+    a: [
+      "From 12.65 AED per sqft, VAT included. You pay for the space you use rather than a fixed unit size, so a few boxes costs a few boxes. Business Storage starts from 100 sq ft to 1,000+ sq ft. With zero setup fees and hidden charges; no lengthy contracts involved. Contact us at +971505773388 or fill out our ",
+      { text: "quote form", href: "/get-quote" },
+      ".",
+    ],
+  },
+  {
+    q: "Can you clear an entire warehouse?",
+    a: [
+      "Yes. We'll send however many trucks and staff the volume needs. A full warehouse or showroom can usually be cleared in a day, or spread over several visits if you'd rather keep operating. Everything is catalogued and photographed and goes into units that are yours. You call items back as you need them. It works well during a move, a fit-out or a lease change.",
+    ],
+  },
+  {
+    q: "Do you take showroom furniture and display stock?",
+    a: [
+      "It's one of the most common things we store from Al Quoz. Furniture, lighting, tiles, fit-out material, ex-display pieces. Wrapped on collection, stored indoors. Most showrooms use us to hold backup ranges and call them forward as display space opens up. Regular clients get scheduled deliveries instead of ad-hoc requests.",
+    ],
+  },
+  {
+    q: "We're renovating a villa. How does that work?",
+    a: [
+      "We come and empty it. From furniture to appliances, wardrobes, paintings, everything gets catalogued and photographed, stored in your dedicated storage space until the construction is done. If you need something during the works, we'll bring that back separately. Most renovation storage runs three to nine months on monthly terms.",
+    ],
+  },
+  {
+    q: "Do you shred old documents?",
+    a: [
+      "Yes. Once records pass their retention date, we pull the boxes and arrange certified destruction. You get a certificate confirming it was done in line with UAE data protection rules. Useful if you're sitting on a decade of paperwork you legally can't just bin.",
+    ],
+  },
+  {
+    q: "How fast can you collect?",
+    a: [
+      "Book before noon and same-day is usually possible, subject to team availability. Otherwise 24 to 48 hours. Al Quoz is close to our route so lead times are shorter here than for outlying areas. Photos on WhatsApp are the quickest way to get a price and a slot.",
+    ],
+  },
+  {
+    q: "What won't you store?",
+    a: [
+      "No food products, beverages, detergents, perfume, jewellery, medicinal products or spices. No hazardous, flammable, explosive, perishable, living, prohibited or odoriferous materials, and no cash whatsoever. Vehicles we do take — see ",
+      { text: "car storage", href: "/car-storage" },
+      " for how to prepare one. If in doubt about something, check first — practically everything else goes. The full list is on our ",
+      { text: "prohibited items page", href: "/prohibited-items" },
+      ".",
+    ],
+  },
+]
+
 const alQuozSchemas = [
   locationBusinessSchema({
     name: "Al Quoz",
@@ -67,6 +168,16 @@ const alQuozSchemas = [
       { '@type': 'ListItem', position: 3, name: 'Al Quoz', item: 'https://safestorage.ae/locations/al-quoz' },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': 'https://safestorage.ae/locations/al-quoz#faq',
+    mainEntity: FAQS.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: answerText(f.a) },
+    })),
+  },
 ]
 
 export default function AlQuozPage() {
@@ -90,7 +201,7 @@ export default function AlQuozPage() {
         "Dubai Marina",
       ]}
       distance="20-25 minutes"
-      intro="Everyone in Al Quoz is short on space. We come to you, take it away, keep it clean and dry, and bring it back when you want it — a straight run down Sheikh Zayed Road from our facility, so we're there most days anyway."
+      intro="Everyone in Al Quoz is short on space. Warehouses full, studios full, and half of the houses in Al Safa have been undergoing renovations, with the furniture piled up in their majlis. We come to you, take it away, keep it clean and dry, and bring it back when you want it — a straight run down Sheikh Zayed Road from our facility, so we're there most days anyway."
       benefits={[
         "Your warehouse rent is too high to store dead stock. Move it out, keep the floor for work that pays.",
         "Alserkal studios need somewhere clean between shows. Indoor units, not a container in a yard.",
@@ -102,12 +213,16 @@ export default function AlQuozPage() {
         security: "CCTV from multiple angles, every entry logged, motion alerts after hours",
         clean: "Everything indoors. If you've worked in Al Quoz you'll know why that matters.",
       }}
+      cta={{
+        heading: "Need space this week?",
+        body: "Send us a few photos on WhatsApp and we'll quote you in minutes.",
+      }}
     />
     {/* Static rich-text section for SEO — server-rendered */}
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Business Storage in Al Quoz</h2>
-        <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Stop paying warehouse rent for stock that doesn&apos;t move</h3>
+        <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Business &amp; Warehouse Storage — Al Quoz</h2>
+        <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Warehouse Overflow &amp; Dead Stock Storage</h3>
         <p className="text-lg text-gray-700 mb-4">
           Walk through most Al Quoz warehouses and you&apos;ll find the same thing. A mezzanine full of boxes nobody
           has opened in two years. Display units from a campaign that ended. Packaging for a product line that got
@@ -127,7 +242,7 @@ export default function AlQuozPage() {
 
         <div className="grid md:grid-cols-2 gap-8 mb-10">
           <div>
-            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Alserkal Avenue and the studios</h3>
+            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Art, Studio &amp; Exhibition Storage — Alserkal Avenue</h3>
             <p className="text-gray-700 mb-3">
               Al Quoz is where Dubai&apos;s art and design businesses ended up, and they all have the same problem.
               A show goes up, a show comes down, and in between the work has to live somewhere that isn&apos;t a hot
@@ -145,7 +260,7 @@ export default function AlQuozPage() {
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Document storage and archiving</h3>
+            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Records Management for Al Quoz Firms</h3>
             <p className="text-gray-700 mb-3">
               Al Quoz houses a variety of trading companies, contractors, workshops and printers and every single one
               of them is awash with paper — invoices, LPOs, job cards, warranty certificates, personnel files,
@@ -164,7 +279,7 @@ export default function AlQuozPage() {
         </div>
 
         <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
-          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Showrooms and retail stock</h3>
+          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Showroom &amp; Retail Stock Overflow</h3>
           <p className="text-gray-700 mb-4">
             The strip of showrooms on Sheikh Zayed and Umm Suqeim Roads is all about display area. From furniture to
             tiles, from lighting to auto spare parts, from fit-out providers. That space is far too expensive to fill
@@ -178,7 +293,7 @@ export default function AlQuozPage() {
         </div>
 
         <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
-          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Dubai Marina</h3>
+          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Storage Services — Dubai Marina &amp; JBR</h3>
           <p className="text-gray-700 mb-4">
             Marina is on the same Sheikh Zayed Road corridor, so it&apos;s covered from here too, along with JBR,
             Media City and Internet City.
@@ -202,8 +317,10 @@ export default function AlQuozPage() {
     {/* Home storage */}
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Home Storage Around Al Quoz</h2>
-        <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Al Safa, Al Wasl, Umm Suqeim, Al Manara</h3>
+        <h2 className="text-3xl font-bold text-[#0A2463] mb-6">
+          Household Storage — Al Safa, Al Wasl &amp; Umm Suqeim
+        </h2>
+        <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Villa Renovation &amp; Residential Storage</h3>
         <p className="text-lg text-gray-700 mb-4">
           These are older villa communities and something is always being knocked down and rebuilt. A villa
           renovation here usually runs three to nine months, and most people would rather empty the house than
@@ -220,7 +337,7 @@ export default function AlQuozPage() {
         </p>
 
         <div className="bg-gray-50 rounded-xl p-8 mb-8">
-          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Everywhere we cover from this page</h3>
+          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Areas Served — Al Quoz &amp; Neighbouring Communities</h3>
           <div className="grid md:grid-cols-2 gap-4 text-gray-700">
             <ul className="space-y-1">
               <li>• Al Quoz Industrial 1, 2, 3 and 4</li>
@@ -256,7 +373,9 @@ export default function AlQuozPage() {
     {/* Extended Detail Section */}
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Why Al Quoz is different from anywhere else in Dubai</h2>
+        <h2 className="text-3xl font-bold text-[#0A2463] mb-6">
+          Al Quoz Storage — Comprehensive Guide for Businesses &amp; Residents
+        </h2>
         <p className="text-lg text-gray-700 mb-4">
           Most districts do one thing. Al Quoz does four. It&apos;s the biggest light-industrial zone in the city,
           it&apos;s the gallery and studio quarter, it&apos;s the showroom belt, and there are established residential
@@ -272,7 +391,7 @@ export default function AlQuozPage() {
         </p>
 
         <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
-          <h3 className="text-xl font-bold text-[#0A2463] mb-4">What we&apos;re careful with</h3>
+          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Fragile &amp; Specialist Item Handling</h3>
           <p className="text-gray-700 mb-4">
             Al Quoz sends us more fragile items than any other part of Dubai. Framed work, sculpture, designer
             furniture, upholstery, instruments, camera bodies and lenses.
@@ -285,7 +404,7 @@ export default function AlQuozPage() {
         </div>
 
         <div className="bg-white rounded-xl p-8 border border-gray-200">
-          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Commercial services, briefly</h3>
+          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Commercial Storage Options for Al Quoz Businesses</h3>
           <div className="grid md:grid-cols-2 gap-4 text-gray-700">
             <div>
               <p className="font-semibold mb-2">Documents</p>
@@ -316,64 +435,28 @@ export default function AlQuozPage() {
     {/* FAQ Section */}
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-3xl font-bold text-[#0A2463] mb-4 text-center">Questions People Actually Ask</h2>
+        <h2 className="text-3xl font-bold text-[#0A2463] mb-4 text-center">Frequently Asked Questions — Al Quoz Storage</h2>
         <p className="text-gray-600 text-center mb-10">
           Common questions from Al Quoz workshops, Alserkal studios, showroom operators and residents of Al Safa,
           Al Wasl and Umm Suqeim.
         </p>
         <div className="space-y-6">
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you cover all of Al Quoz Industrial?</h3>
-            <p className="text-gray-700">Yes, all four industrial areas plus the residential sections and Alserkal Avenue. As part of the Sheikh Zayed Road route, we have daily availability and thus scheduling slots becomes easier for us. In case you have regular pickup requirement, we can arrange it on weekly/monthly basis so that you don&apos;t have to call each time.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you serve Dubai Marina?</h3>
-            <p className="text-gray-700">Yes, plus JBR, Media City and Internet City. We cover every Marina tower. The thing to know is that Marina buildings need the service lift and loading bay booked in advance, so we arrange that with your building management before the pickup. Book before noon and same-day is usually possible, otherwise 24 to 48 hours.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is this actually cheaper than leasing more warehouse space?</h3>
-            <p className="text-gray-700">For dead stock and archives, almost always. You&apos;re currently paying Al Quoz industrial rates for space holding things that don&apos;t move. Our units start at 12.65 AED per sqft including VAT, and you only pay for the volume you use. No setup fee, no annual commitment. Send us your volume and we&apos;ll put the two costs side by side so you can see it properly.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Will you store artwork from Alserkal?</h3>
-            <p className="text-gray-700">Yes. Artwork, framed pieces, sculpture, exhibition materials. It&apos;s wrapped, photographed and catalogued on collection, then stored indoors in dust-protected, climate-stable units. Not outdoor containers. You can pull individual pieces rather than releasing the whole unit, and we&apos;ll work to your show calendar. If a piece has particular handling requirements, tell us before collection.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I get a document back once it&apos;s stored?</h3>
-            <p className="text-gray-700">Call, WhatsApp or email your consultant and say which box or file. We find it by barcode and deliver it to your Al Quoz address within 24 to 48 hours. Before noon and same-day is often possible. Delivery inside Dubai is part of the service and any extra charges are in your contract before you book.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you cover Al Safa, Al Wasl and Umm Suqeim?</h3>
-            <p className="text-gray-700">All of them, plus Al Manara. These are some of our busiest residential collections, mostly renovation storage and people moving between houses. Around 20 to 25 minutes from us. WhatsApp +971505773388 and we&apos;ll confirm for your street.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">What does it cost?</h3>
-            <p className="text-gray-700">From 12.65 AED per sqft, VAT included. You pay for the space you use rather than a fixed unit size, so a few boxes costs a few boxes. Business Storage starts from 100 sq ft to 1,000+ sq ft. With zero setup fees and hidden charges; no lengthy contracts involved. Contact us at +971505773388 or fill out our <a href="/get-quote" className="text-[#3E92CC] hover:underline">quote form</a>.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can you clear an entire warehouse?</h3>
-            <p className="text-gray-700">Yes. We&apos;ll send however many trucks and staff the volume needs. A full warehouse or showroom can usually be cleared in a day, or spread over several visits if you&apos;d rather keep operating. Everything is catalogued and photographed and goes into units that are yours. You call items back as you need them. It works well during a move, a fit-out or a lease change.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you take showroom furniture and display stock?</h3>
-            <p className="text-gray-700">It&apos;s one of the most common things we store from Al Quoz. Furniture, lighting, tiles, fit-out material, ex-display pieces. Wrapped on collection, stored indoors. Most showrooms use us to hold backup ranges and call them forward as display space opens up. Regular clients get scheduled deliveries instead of ad-hoc requests.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">We&apos;re renovating a villa. How does that work?</h3>
-            <p className="text-gray-700">We come and empty it. From furniture to appliances, wardrobes, paintings, everything gets catalogued and photographed, stored in your dedicated storage space until the construction is done. If you need something during the works, we&apos;ll bring that back separately. Most renovation storage runs three to nine months on monthly terms.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you shred old documents?</h3>
-            <p className="text-gray-700">Yes. Once records pass their retention date, we pull the boxes and arrange certified destruction. You get a certificate confirming it was done in line with UAE data protection rules. Useful if you&apos;re sitting on a decade of paperwork you legally can&apos;t just bin.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">How fast can you collect?</h3>
-            <p className="text-gray-700">Book before noon and same-day is usually possible, subject to team availability. Otherwise 24 to 48 hours. Al Quoz is close to our route so lead times are shorter here than for outlying areas. Photos on WhatsApp are the quickest way to get a price and a slot.</p>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">What won&apos;t you store?</h3>
-            <p className="text-gray-700">No food products, beverages, detergents, perfume, jewellery, medicinal products or spices. No hazardous, flammable, explosive, perishable, living, prohibited or odoriferous materials, and no cash whatsoever. Vehicles are not accepted. If in doubt about something, check first — practically everything else goes. The full list is on our <a href="/prohibited-items" className="text-[#3E92CC] hover:underline">prohibited items page</a>.</p>
-          </div>
+          {FAQS.map((f) => (
+            <div key={f.q} className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-[#0A2463] mb-3">{f.q}</h3>
+              <p className="text-gray-700">
+                {f.a.map((part, i) =>
+                  typeof part === "string" ? (
+                    <span key={i}>{part}</span>
+                  ) : (
+                    <a key={i} href={part.href} className="text-[#3E92CC] hover:underline">
+                      {part.text}
+                    </a>
+                  ),
+                )}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
