@@ -82,7 +82,16 @@ export const metadata: Metadata = {
     languages: {
       'en-AE': 'https://safestorage.ae',
     }
-  }
+  },
+  verification: {
+    // Bing Webmaster Tools. Keep this even after verification succeeds —
+    // removing it un-verifies the site. Same token as /BingSiteAuth.xml.
+    other: {
+      'msvalidate.01': 'CE2999A01424EE6AAAD6644FD9815A8B',
+      // Pinterest domain claim. Same rule — leave it in place permanently.
+      'p:domain_verify': '18dd736ed5ee9262f349f008791004ed',
+    },
+  },
 }
 
 export const viewport: Viewport = {
