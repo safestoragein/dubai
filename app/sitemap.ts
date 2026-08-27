@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { getTotalPages } from "@/lib/blog-listing"
+import { getBlogFeedSafe } from "@/lib/blog-feed"
 
 // The slug helper this file used to carry went with the per-post URLs, to
 // /sitemap-blogs.xml. Both it and lib/blog-lastmod.ts build post URLs through
@@ -460,12 +461,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let blogRoutes: MetadataRoute.Sitemap = []
 
   try {
-    const response = await fetch('https://safestorage.in/get_blog_content', {
-      cache: 'no-store'
-    })
-    const data = await response.json()
-
-    const blogs = Array.isArray(data) ? data : []
+    // Shared memo rather than a fresh 11.7 MB download per sitemap request --
+    // `cache: 'no-store'` here is what timed /sitemap.xml out (504) on 13 Aug.
+    const blogs = await getBlogFeedSafe()
 
     // Individual post URLs are NOT listed here — they live in
     // /sitemap-blogs.xml, which publishes a real per-post <lastmod>.

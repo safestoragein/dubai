@@ -1,14 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { toBlogPost } from '@/lib/blog-post'
-
-// The feed the site actually renders from. Note it is NOT under /back/app --
-// that is a different system (17 rows, last written 2025-12-31, blog_id/content
-// schema) which has never held the Dubai posts.
-const FEED = 'https://safestorage.in/get_blog_content'
+import { getBlogFeed } from '@/lib/blog-feed'
 
 // GET the blog list for the admin dashboard.
 //
-// Proxied here rather than fetched from the browser for two reasons. FEED sends
+// Proxied here rather than fetched from the browser for two reasons. The feed
+// (safestorage.in/get_blog_content, see lib/blog-feed.ts) sends
 // no Access-Control-Allow-Origin, so a client-side fetch is blocked outright --
 // /back/app/* does send it, which is the whole reason this dashboard ended up
 // pointed at the wrong system. And the feed is 8.5 MB because every row carries
@@ -19,10 +16,9 @@ const FEED = 'https://safestorage.in/get_blog_content'
 // -- response.json() threw on the HTML and every request 500ed.
 export async function GET(request: NextRequest) {
   try {
-    const response = await fetch(FEED, { cache: 'no-store' })
-    if (!response.ok) throw new Error(`feed returned HTTP ${response.status}`)
-
-    const rows = await response.json()
+    // Shared memo -- a plain fetch here re-downloaded all 11.7 MB per request
+    // because Next's data cache rejects entries over 2 MB.
+    const rows = await getBlogFeed()
     if (!Array.isArray(rows)) throw new Error('feed did not return an array')
 
     const posts = rows

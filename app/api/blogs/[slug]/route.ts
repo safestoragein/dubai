@@ -1,16 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getBlogFeed } from '@/lib/blog-feed'
 
 // Cache this route at the Vercel edge for 5 minutes
 export const revalidate = 300
 
-// The one blog source. Named for what it is: "BACKEND_URL" invited the reading
-// that it meant the /back/app back office, which is a different content store
-// and has never held the Dubai posts.
+// The one blog source is safestorage.in/get_blog_content, reached through
+// lib/blog-feed.ts. Not the /back/app back office, which is a different content
+// store and has never held the Dubai posts.
 //
 // Read-only. The PUT and DELETE handlers that used to live below called
 // /update_blog/<id> and /delete_blog/<slug>, both of which now 404 -- and blog
 // publishing does not belong in this dashboard in any case.
-const FEED = 'https://safestorage.in'
 
 // Helper function to generate slug from title
 function generateSlug(title: string): string {
@@ -31,16 +31,11 @@ export async function GET(
     const targetSlug = slug
     console.log('Looking for blog with slug:', targetSlug)
 
-    // Fetch all blogs and find the one with matching slug
-    const response = await fetch(`${FEED}/get_blog_content`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      next: { revalidate: 300 },
-    })
-
-    const data = await response.json()
+    // Fetch all blogs and find the one with matching slug.
+    // Shared memo: `next: { revalidate: 300 }` never cached this -- the payload
+    // is ~11.7 MB and Next's data cache rejects entries over 2 MB, so every
+    // request re-downloaded the whole feed from the India box.
+    const data = await getBlogFeed()
     console.log('Backend response type:', Array.isArray(data) ? 'array' : typeof data, 'Length:', Array.isArray(data) ? data.length : 'N/A')
 
     // Handle different response formats - backend returns array directly

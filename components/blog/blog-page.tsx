@@ -83,40 +83,18 @@ export default function BlogPage({
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch("/api/blogs/fetch", {
+      // Summaries, not /api/blogs/fetch: the listing renders excerpts only, and
+      // the full feed ships all 281 article bodies (~8.7 MB) to build this list.
+      // Rows arrive already mapped by toBlogPost on the server, so the shape
+      // matches what the server-rendered listing put in `initialBlogs`.
+      const response = await fetch("/api/blogs/summaries", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       })
       const data = await response.json()
 
       if (data.status === "success" && data.data && data.data.length > 0) {
-        const generateSlug = (title: string) =>
-          title
-            .toLowerCase()
-            .replace(/[^a-z0-9 -]/g, "")
-            .replace(/\s+/g, "-")
-            .replace(/-+/g, "-")
-            .replace(/^-+|-+$/g, "")
-
-        const processedBlogs = data.data
-          .map((blog: any) => {
-            const title = blog.title || blog.seo_title || "Untitled"
-            const postId = parseInt(blog.post_id) || 1
-            return {
-              id: postId,
-              slug: generateSlug(title),
-              title,
-              excerpt: normaliseFeedContent(blog.seo_desc),
-              author: { name: BLOG_AUTHOR },
-              categories: [resolveCategory(blog.post_category, title)],
-              date: blog.created_at || new Date().toISOString(),
-              image: constructImageUrl(blog.post_images),
-              readTime: readTimeFromContent(blog.description),
-              likes: getConsistentLikes(postId),
-              views: getConsistentViews(postId),
-              comments: [],
-            }
-          })
+        const processedBlogs = [...data.data]
           // Highest post_id first — must match sortNewestFirst() in lib/blog-listing.ts.
           .sort((a: any, b: any) => b.id - a.id)
         setBlogs(processedBlogs)

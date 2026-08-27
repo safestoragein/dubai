@@ -6,6 +6,7 @@ import { notFound, permanentRedirect } from "next/navigation"
 import { blogImageUrl } from "@/lib/blog-image"
 import { normaliseFeedContent } from "@/lib/blog-meta"
 import { toBlogPost } from "@/lib/blog-post"
+import { getBlogFeedSafe } from "@/lib/blog-feed"
 import { BLOG_AUTHOR, HOURS_DISPLAY } from "@/lib/company-facts"
 
 // ISR: regenerate at most once per hour
@@ -28,27 +29,16 @@ interface BlogPostPageProps {
 }
 
 // cache() deduplicates this across generateMetadata + page component in a single request
-const fetchAllBlogs = cache(async () => {
-  const controller = new AbortController()
-  // The feed is ~11 MB and this runs once per statically generated post. At the
-  // previous 10s the fetch could abort on a slow link, and because the catch
-  // returns [] the page component then called notFound() — baking a permanent
-  // 404 into a post that exists. Observed locally: three live posts built as 404
-  // while still being linked from every page of the listing.
-  const timeout = setTimeout(() => controller.abort(), 60000)
-  try {
-    const response = await fetch('https://safestorage.in/get_blog_content', {
-      next: { revalidate: 3600 },
-      signal: controller.signal,
-    })
-    clearTimeout(timeout)
-    const data = await response.json()
-    return Array.isArray(data) ? data : []
-  } catch {
-    clearTimeout(timeout)
-    return []
-  }
-})
+//
+// The feed is ~11 MB and this runs once per statically generated post. The
+// `next: { revalidate: 3600 }` this used to pass never cached anything -- Next's
+// data cache rejects entries over 2 MB -- so all 281 posts each re-downloaded
+// the whole feed. getBlogFeedSafe() memoises it in the process (and holds the
+// last good copy), which also protects the timeout path below: the catch returns
+// [] and the page component then calls notFound(), baking a permanent 404 into a
+// post that exists. Observed locally: three live posts built as 404 while still
+// being linked from every page of the listing.
+const fetchAllBlogs = cache(async () => getBlogFeedSafe())
 
 // Pre-generate all CMS blog post pages at build time so they're served
 // as static HTML from CDN instead of being server-rendered on demand.

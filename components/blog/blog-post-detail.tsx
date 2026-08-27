@@ -265,15 +265,17 @@ export default function BlogPostDetail({
 
     const fetchRelatedPosts = async (currentPostId: number, category: string) => {
       try {
-        const response = await fetch('/api/blogs/fetch', {
+        // Summaries, not /api/blogs/fetch: this strip needs two cards and a list
+        // of slugs, and the full feed ships all 281 article bodies (~8.7 MB) to
+        // do it. The rows arrive already mapped by toBlogPost on the server.
+        const response = await fetch('/api/blogs/summaries', {
           cache: 'no-store'
         })
         const data = await response.json()
 
         if (data.status === 'success' && Array.isArray(data.data)) {
           const allPosts = data.data
-            .filter((blog: any) => parseInt(blog.post_id) !== currentPostId)
-            .map((blog: any) => toBlogPost(blog))
+            .filter((post: BlogPost) => post.id !== currentPostId)
 
           // Store all blogs for tag URL matching
           setAllBlogs(allPosts)
