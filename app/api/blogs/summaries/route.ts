@@ -17,10 +17,23 @@ import { toBlogPost } from "@/lib/blog-post"
 // `content` is dropped. ~160 KB instead of ~8.7 MB.
 export const dynamic = "force-dynamic"
 
+// Mapping 281 rows through toBlogPost costs ~200 ms, and this route is hit on
+// every blog page view. getBlogFeed() hands back the same array identity until
+// its TTL expires, so that reference is the cache key: one map per feed refresh
+// instead of one per request. Two vCPUs do not have 200 ms of event loop to
+// spare per visitor.
+let memo: { rows: any[]; data: any[] } | null = null
+
+function summarise(rows: any[]) {
+  if (memo && memo.rows === rows) return memo.data
+  const data = rows.map((row) => ({ ...toBlogPost(row), content: "" }))
+  memo = { rows, data }
+  return data
+}
+
 export async function GET() {
   try {
-    const rows = await getBlogFeed()
-    const data = rows.map((row) => ({ ...toBlogPost(row), content: "" }))
+    const data = summarise(await getBlogFeed())
 
     return NextResponse.json(
       { status: "success", data },
