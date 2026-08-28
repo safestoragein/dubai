@@ -158,14 +158,14 @@ Then the two commercial options are calculated from that footprint:
 
 | Option | Rule | Formula |
 |---|---|---|
-| **Shared space** (open, shared warehouse) | 10 AED per sq ft, **minimum 30 sq ft billed** | `max(sqft, 30) × 10` |
+| **Shared space** (open, shared warehouse) | 12 AED per sq ft + 5% VAT (= 12.65 VAT-inclusive), **no minimum** | `round(sqft × 12 × 1.05)` |
 | **Closed space** (private container) | Containers of 30 sq ft at **700 AED each**, rounded up | `ceil(sqft ÷ 30) × 700` |
 
 Worked example — a customer whose goods total 40 points:
 
 ```
   40 points → ceil(40/16) = 3 pallets → 48 sq ft
-  Shared: max(48,30) × 10 AED       = 480 AED
+  Shared: 48 × 12 AED + 5% VAT      = 605 AED
   Closed: ceil(48/30) = 2 × 700 AED = 1,400 AED
 ```
 
@@ -174,7 +174,8 @@ was shown and which they picked.
 
 **Rates to know when changing pricing** — all four live in
 `components/quote/quote-page-alternative2.tsx`: points-per-pallet (16), sq ft-per-pallet
-(16), shared rate (10 AED) and minimum (30 sq ft), closed container size (30 sq ft) and
+(16), shared rate (`SHARED_RATE_PER_SQFT_AED` = 12 AED) and VAT (`VAT_RATE` = 5%; there is
+no minimum billable area), closed container size (30 sq ft) and
 price (700 AED). They are **hardcoded in the front end**, not read from the backend, so a
 price change is a code change and a deploy.
 

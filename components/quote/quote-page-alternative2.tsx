@@ -185,8 +185,11 @@ const calculateSharedSpacePricing = (selectedItems: SelectedItem[]) => {
   const pallets = calculatePallets(totalPoints)
   const calculatedsqft = calculateSquareFeet(pallets)
 
-  // Minimum 30 sqft for shared space
-  const chargeablesqft = Math.max(calculatedsqft, 30)
+  // No minimum billable area — the customer pays for exactly the space their
+  // items occupy. (A 30 sqft floor used to be applied here; it made a 16 sqft
+  // quote bill as 30 sqft, so the quote email's "16 sq ft at AED 12.65" line
+  // never reconciled with the headline price.)
+  const chargeablesqft = calculatedsqft
 
   // 12 AED per sqft + 5% VAT = 12.65 AED per sqft inclusive
   const pricePersqft = SHARED_RATE_PER_SQFT_AED
@@ -204,7 +207,7 @@ const calculateSharedSpacePricing = (selectedItems: SelectedItem[]) => {
     vatRate: VAT_RATE,
     vatAmount,
     totalCost,
-    isMinimumApplied: calculatedsqft < 30
+    isMinimumApplied: false
   }
 }
 
