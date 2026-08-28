@@ -87,6 +87,17 @@ export function sortNewestFirst(posts: ListingPost[]): ListingPost[] {
 
 // Raw feed rows. Returns [] on any error so the page degrades to the client-side
 // refetch instead of throwing.
+//
+// NOTE: this deliberately still fetches the feed itself rather than reusing the
+// memo in lib/blog-feed.ts. That module is "server-only", and this file is
+// imported by the CLIENT listing component (for POSTS_PER_PAGE), so importing it
+// here fails the build with "You're importing a component that needs
+// server-only". The 11.7 MB payload therefore still cannot be stored by Next's
+// data cache and still logs "items over 2MB can not be cached" on /blog,
+// /blog/page/[n] and /sitemap.xml. Noisy and slow, but harmless -- it is a
+// CACHED fetch, so unlike the old blog-feed call it does not turn a static page
+// dynamic. Fixing it properly means splitting the shared constants out of this
+// file first.
 export async function fetchBlogPosts(): Promise<any[]> {
   try {
     const response = await fetch("https://safestorage.in/get_blog_content", {
