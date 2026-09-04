@@ -4,6 +4,8 @@ import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { SHARJAH_AREAS } from "@/lib/sharjah-areas"
 import { storageLocationSentence } from "@/lib/facilities"
+import { emirateFaqs } from "@/lib/emirate-faqs"
+import LocalProof from "@/components/locations/local-proof"
 import {
   PRICE_PER_SQFT_AED,
   PHONE,
@@ -67,32 +69,12 @@ export const metadata: Metadata = {
   },
 }
 
-const faqs = [
-  {
-    q: "Do you have a storage facility in Sharjah?",
-    a: `Yes. SafeStorage operates a warehouse in Sharjah, so goods collected here are stored in the emirate rather than trucked to another one. What we run on top of that is the collection service: our team comes to your address, wraps and loads your things, and takes them to the facility. For most customers that is the point — no van hire, no loading yourself, and no driving to a unit every time something needs to go in or out.`,
-  },
-  {
-    q: "How much does storage cost for a Sharjah customer?",
-    a: `Storage is ${PRICE_PER_SQFT_AED} AED per square foot per month, VAT included, and you pay for the floor space your items actually occupy rather than a fixed unit size. Transport between Sharjah and the facility is quoted separately, because it depends on where you are and how much there is. You get both numbers before you commit — there is no charge for the quote and nothing is booked until you say yes.`,
-  },
-  {
-    q: "Which parts of Sharjah do you collect from?",
-    a: "All of it. Al Nahda, Al Majaz, Al Taawun, Al Qasimia, Al Khan, Rolla, Muwaileh, University City, Al Nahda 1 and 2, Abu Shagara, Al Qulayaa and the industrial areas are all inside our normal collection run. If your area is not on that list it does not mean no — tell us the address and we will confirm.",
-  },
-  {
-    q: "I am moving from Sharjah to Dubai and the dates do not line up. Can you help?",
-    a: "This is the single most common reason Sharjah customers call. We empty the flat on the day you hand back the keys, hold everything for however long the gap runs, and deliver to the new address once you can receive it. There is no minimum term, so a two-week gap is charged as two weeks. It works the same in reverse if you are moving into Sharjah.",
-  },
-  {
-    q: "How quickly can I get my things back?",
-    a: `Give us notice and delivery back to a Sharjah address is normally arranged within ${RETRIEVAL_WINDOW}. You can take back everything or just a few items — there is no requirement to close the whole account to get one box.`,
-  },
-  {
-    q: "Is furniture safe in storage over a Sharjah summer?",
-    a: `Furniture is wrapped before it leaves your home, kept off the floor and stored inside a covered warehouse rather than a yard or container. ${CCTV_COVERAGE} ${FACILITY_ACCESS_NOTE}.`,
-  },
-]
+const faqs = emirateFaqs({
+  emirate: "Sharjah",
+  facilityKey: "sharjah",
+  sampleDistricts: ["Al Nahda", "Al Majaz"],
+  university: "Sharjah University City",
+})
 
 const schemas = [
   locationBusinessSchema({
@@ -166,13 +148,13 @@ export default function SharjahPage() {
             <div className={s.heroContent}>
               <span className={s.heroTag}>Serving Sharjah</span>
               <h1>
-                Self Storage in <em>Sharjah</em>, Collected From Your Door
+                Storage for Sharjah — <em>we collect, store and bring it back</em>
               </h1>
-              <p className={s.heroSlogan}>You pack nothing. You carry nothing. You drive nowhere.</p>
+              <p className={s.heroSlogan}>No driving to a unit. No van hire. No lifting.</p>
               <p>
-                Storage units in Sharjah usually mean hiring a van and hauling boxes yourself. We do it the other
-                way round — our team arrives at your flat or office in Sharjah, wraps everything, loads it and
-                stores it. From {PRICE_PER_SQFT_AED} AED per sqft, and you only pay for the space you use.
+                We pick up from your door in Sharjah, store it securely in our Sharjah facility, and deliver it
+                back whenever you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month, VAT included — and you
+                pay for the space your things actually occupy, not a unit size you have to fill.
               </p>
               <div className={s.heroCta}>
                 <Link href="/get-quote" className={`${s.btn} ${s.btnAccent}`}>
@@ -304,9 +286,9 @@ export default function SharjahPage() {
         {/* ---------- why (dark band) ---------- */}
         <section className={s.wrap}>
           <div className={s.darkBand}>
-            <span className={s.eyebrow}>Why not a self-storage unit</span>
+            <span className={s.eyebrow}>What a Sharjah unit does not include</span>
             <h2>
-              The Cheapest Storage in Sharjah Is Not Cheap Once You Add <em>The Van</em>
+              Golden Box, SafeZone and Easy Storage Have Units in Sharjah. <em>None of Them Come and Get It.</em>
             </h2>
             <div className={s.featGrid}>
               {[
@@ -499,6 +481,10 @@ export default function SharjahPage() {
             </p>
           </div>
         </section>
+
+        {/* Sharjah-specific proof. Renders nothing until real quotes exist —
+            see lib/local-proof.ts. */}
+        <LocalProof emirateSlug="sharjah" emirate="Sharjah" />
 
         {/* ---------- FAQ ---------- */}
         <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>

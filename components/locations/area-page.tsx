@@ -13,6 +13,7 @@ import {
   RETRIEVAL_WINDOW,
 } from "@/lib/company-facts"
 import { storageLocationSentence } from "@/lib/facilities"
+import { emirateFaqs } from "@/lib/emirate-faqs"
 import { emirateFontVars } from "./fonts"
 import s from "./emirate-theme.module.css"
 
@@ -52,9 +53,9 @@ export default function AreaPage({ area }: { area: SharjahArea }) {
           <div className={s.heroContent}>
             <span className={s.heroTag}>Sharjah · {area.name}</span>
             <h1>
-              Storage in <em>{area.name}</em> {area.headline}
+              Storage for {area.name} — <em>we collect, store and bring it back</em>
             </h1>
-            <p className={s.heroSlogan}>We come to you. You lift nothing.</p>
+            <p className={s.heroSlogan}>No driving to a unit. No van hire. No lifting.</p>
             <p>{area.blurb}</p>
             <div className={s.heroCta}>
               <Link href="/get-quote" className={`${s.btn} ${s.btnAccent}`}>
@@ -242,21 +243,20 @@ export default function AreaPage({ area }: { area: SharjahArea }) {
               <p>{f.a}</p>
             </article>
           ))}
-          <article className={s.faqItem}>
-            <h3>How much does storage cost?</h3>
-            <p>
-              {PRICE_PER_SQFT_AED} AED per square foot per month, VAT included, on the floor space your items
-              occupy. Transport from {area.name} is quoted separately because it depends on the address and the
-              load. You are given both numbers before anything is booked.
-            </p>
-          </article>
-          <article className={s.faqItem}>
-            <h3>Is my furniture safe over a Sharjah summer?</h3>
-            <p>
-              Everything is wrapped before it leaves your property, kept off the floor and stored inside a
-              covered warehouse rather than a yard or a container. {CCTV_COVERAGE} {FACILITY_ACCESS_NOTE}.
-            </p>
-          </article>
+          {/* The canonical ten, localised to this district. Same array the
+              FAQPage schema is built from in the route. */}
+          {emirateFaqs({
+            emirate: "Sharjah",
+            facilityKey: "sharjah",
+            sampleDistricts: ["Al Nahda", "Al Majaz"],
+            university: "Sharjah University City",
+            district: area.name,
+          }).map((f) => (
+            <article key={f.q} className={s.faqItem}>
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </article>
+          ))}
         </div>
       </section>
 

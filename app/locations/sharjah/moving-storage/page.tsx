@@ -3,6 +3,7 @@ import Link from "next/link"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { SHARJAH_AREAS } from "@/lib/sharjah-areas"
+import { emirateFaqs } from "@/lib/emirate-faqs"
 import { emirateFontVars } from "@/components/locations/fonts"
 import s from "@/components/locations/emirate-theme.module.css"
 import {
@@ -55,31 +56,20 @@ export const metadata: Metadata = {
   alternates: { canonical: URL },
 }
 
+/* The scope disclosure (we are not a removals company) has to stay first here —
+   it is the whole point of this page — so the canonical ten follow it rather
+   than replace it. */
 const faqs = [
   {
     q: "Are you a moving company? Will you move me from A to B?",
-    a: "No — and it matters that we say so before you book. SafeStorage is a storage company. We collect from your Sharjah address, store your belongings at our facility, and deliver them to wherever you tell us later. If your old and new places are available on the same day and you just need a van and two men for a single afternoon, a removals firm is the right call and will be cheaper. Where we fit is the move where the dates do not meet and something has to be held in between.",
+    a: "No — and it matters that we say so before you book. SafeStorage is a storage company. We collect from your Sharjah address, store your belongings, and deliver them to wherever you tell us later. If your old and new places are available on the same day and you just need a van and two men for a single afternoon, a removals firm is the right call and will be cheaper. Where we fit is the move where the dates do not meet and something has to be held in between.",
   },
-  {
-    q: "My Sharjah lease ends on the 30th and the new place is ready on the 12th. What happens?",
-    a: "We collect on the 30th, the day you hand the keys back, and hold everything until the 12th. Then we deliver to the new address. You are billed for the storage period actually used — there is no minimum term, so twelve days is charged as twelve days, not as a month.",
-  },
-  {
-    q: "Do you pack, or do I have to?",
-    a: "We wrap and load. Furniture is wrapped before it leaves the property and loaded by our crew — you do not need to hire a van, carry anything, or be the one negotiating with building management about the service lift. What you should do yourself is pack small loose items into boxes beforehand, which makes the collection faster and cheaper.",
-  },
-  {
-    q: "How much does it cost?",
-    a: `Storage is ${PRICE_PER_SQFT_AED} AED per square foot per month, VAT included, charged on the floor space your things actually occupy. The collection and the later delivery are quoted separately, based on your address and how much there is. You get every number before anything is booked.`,
-  },
-  {
-    q: "Can you deliver to an address in Dubai instead of Sharjah?",
-    a: "Yes, and it is the most common version of this job. Sharjah to Dubai and Dubai to Sharjah are both routine — delivery goes wherever you tell us, and it does not have to be the emirate we collected from.",
-  },
-  {
-    q: "What if my new place is delayed again?",
-    a: "Then it is delayed, and you tell us a new date. Because billing is monthly on space used and there is no fixed end date, a handover slipping by three weeks costs you three weeks of storage rather than a renegotiated contract.",
-  },
+  ...emirateFaqs({
+    emirate: "Sharjah",
+    facilityKey: "sharjah",
+    sampleDistricts: ["Al Nahda", "Al Majaz"],
+    university: "Sharjah University City",
+  }),
 ]
 
 const schemas = [

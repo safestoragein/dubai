@@ -4,6 +4,7 @@ import AreaPage from "@/components/locations/area-page"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { SHARJAH_AREAS, AREA_BY_SLUG } from "@/lib/sharjah-areas"
+import { emirateFaqs } from "@/lib/emirate-faqs"
 import { PRICE_PER_SQFT_AED, CCTV_COVERAGE, FACILITY_ACCESS_NOTE, RETRIEVAL_WINDOW } from "@/lib/company-facts"
 
 /*
@@ -72,18 +73,18 @@ export default async function SharjahAreaPage({
 
   const url = `https://safestorage.ae/locations/sharjah/${area.slug}`
 
-  // The two generic FAQs the template appends are marked up here too, so the
-  // FAQPage node matches what is actually rendered rather than a subset.
+  // Must be the SAME list the template renders: its own two district questions
+  // followed by the canonical ten, localised. Built from the same helper so the
+  // markup cannot claim a question the page does not show.
   const faqs = [
     ...area.faqs,
-    {
-      q: "How much does storage cost?",
-      a: `${PRICE_PER_SQFT_AED} AED per square foot per month, VAT included, on the floor space your items occupy. Transport from ${area.name} is quoted separately because it depends on the address and the load. You are given both numbers before anything is booked.`,
-    },
-    {
-      q: "Is my furniture safe over a Sharjah summer?",
-      a: `Everything is wrapped before it leaves your property, kept off the floor and stored inside a covered warehouse rather than a yard or a container. ${CCTV_COVERAGE} ${FACILITY_ACCESS_NOTE}.`,
-    },
+    ...emirateFaqs({
+      emirate: "Sharjah",
+      facilityKey: "sharjah",
+      sampleDistricts: ["Al Nahda", "Al Majaz"],
+      university: "Sharjah University City",
+      district: area.name,
+    }),
   ]
 
   const schemas = [

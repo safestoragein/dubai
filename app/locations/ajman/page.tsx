@@ -3,6 +3,8 @@ import Link from "next/link"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { storageLocationSentence } from "@/lib/facilities"
+import { emirateFaqs } from "@/lib/emirate-faqs"
+import LocalProof from "@/components/locations/local-proof"
 import { emirateFontVars } from "@/components/locations/fonts"
 import s from "@/components/locations/emirate-theme.module.css"
 import {
@@ -47,32 +49,12 @@ const AJMAN_AREAS = [
   "Al Zahra",
 ]
 
-const faqs = [
-  {
-    q: "Do you have a storage facility in Ajman?",
-    a: `Yes. SafeStorage operates a warehouse in Ajman, so goods collected here stay in the emirate. On top of that we run the collection service: our crew comes to your address, wraps and loads everything, and takes it to the facility. What we do not offer is a unit you hold the key to and visit at will — if that is what you need, an Ajman self-storage yard is the better fit and we would rather say so now.`,
-  },
-  {
-    q: "How much is the transport on top?",
-    a: "Transport is quoted on the actual job — your address, the access, and how much there is. Because we store within Ajman rather than driving everything to another emirate, the journey is a local one. You are given the transport figure and the storage figure before anything is booked, so you judge the total rather than discover it.",
-  },
-  {
-    q: "How much is the storage itself?",
-    a: `${PRICE_PER_SQFT_AED} AED per square foot per month, VAT included, charged on the floor space your items actually occupy rather than a fixed unit size. No minimum term — a fortnight is charged as a fortnight.`,
-  },
-  {
-    q: "Which parts of Ajman do you collect from?",
-    a: "Al Nuaimiya, Al Rashidiya, Al Jurf, the Corniche, Al Rumailah, Al Mowaihat, Al Hamidiya, Emirates City, Al Bustan, Garden City, Al Zahra and the Free Zone are all inside our normal run. If your area is not listed, tell us the address and we will confirm rather than guess.",
-  },
-  {
-    q: "How quickly can I get things back?",
-    a: `Delivery back to an Ajman address is normally arranged within ${RETRIEVAL_WINDOW} on notice. You can take back part of what is stored without closing the account or disturbing the rest.`,
-  },
-  {
-    q: "Can you deliver to Dubai or Sharjah instead?",
-    a: "Yes. Delivery goes to whatever address you give us — it does not have to be the emirate we collected from. Moving from Ajman into Dubai with a gap in between is one of the more common reasons people here call.",
-  },
-]
+const faqs = emirateFaqs({
+  emirate: "Ajman",
+  facilityKey: "ajman",
+  sampleDistricts: ["Al Nuaimiya", "Al Rashidiya"],
+  university: "Ajman University",
+})
 
 export const metadata: Metadata = {
   title: { absolute: "Self Storage Ajman | Storage Space With Door-to-Door Pickup" },
@@ -161,13 +143,13 @@ export default function AjmanPage() {
             <div className={s.heroContent}>
               <span className={s.heroTag}>Serving Ajman</span>
               <h1>
-                Self Storage in <em>Ajman</em>, Collected From Your Door
+                Storage for Ajman — <em>we collect, store and bring it back</em>
               </h1>
-              <p className={s.heroSlogan}>You pack nothing. You carry nothing. You drive nowhere.</p>
+              <p className={s.heroSlogan}>No driving to a unit. No van hire. No lifting.</p>
               <p>
-                Storage space in Ajman normally means renting a unit and hauling everything there yourself. We
-                come to your flat or villa instead, wrap it, load it and store it — from{" "}
-                {PRICE_PER_SQFT_AED} AED per sqft, billed on the space you actually use.
+                We pick up from your door in Ajman, store it securely in our Ajman facility, and deliver it back
+                whenever you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month, VAT included — billed on the
+                space your things actually occupy, not a unit size you have to fill.
               </p>
               <div className={s.heroCta}>
                 <Link href="/get-quote" className={`${s.btn} ${s.btnAccent}`}>
@@ -307,7 +289,7 @@ export default function AjmanPage() {
           <div className={s.darkBand}>
             <span className={s.eyebrow}>Why not a self-storage unit</span>
             <h2>
-              A Cheap Ajman Unit Stops Being Cheap Once You Add <em>The Van</em>
+              A Unit in Ajman Is Only Cheap If <em>You Do The Moving</em>
             </h2>
             <div className={s.featGrid}>
               <article className={s.feat}>
@@ -395,6 +377,9 @@ export default function AjmanPage() {
             </p>
           </div>
         </section>
+
+        {/* Renders nothing until real Ajman quotes exist — see lib/local-proof.ts. */}
+        <LocalProof emirateSlug="ajman" emirate="Ajman" />
 
         {/* ---------- FAQ ---------- */}
         <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
