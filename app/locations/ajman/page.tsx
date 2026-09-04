@@ -88,7 +88,14 @@ export const metadata: Metadata = {
     locale: "en_AE",
     type: "website",
   },
-  alternates: { canonical: URL },
+  alternates: {
+    canonical: URL,
+    languages: {
+      "en-AE": URL,
+      "ar-AE": "https://safestorage.ae/ar/locations/ajman",
+      "x-default": URL,
+    },
+  },
 }
 
 const schemas = [

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import LanguageToggle from "@/components/ar/language-toggle"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, MessageCircle, Phone, ChevronDown } from "lucide-react"
@@ -95,6 +96,7 @@ export default function Header() {
 
         {/* Desktop Contact & CTA */}
         <div className="hidden lg:flex items-center space-x-3">
+          <LanguageToggle />
           <a
             href={env.WHATSAPP_LINK}
             target="_blank"
@@ -153,6 +155,7 @@ export default function Header() {
                     <MessageCircle className="h-5 w-5" />
                     <span className="font-medium">WhatsApp Us</span>
                   </a>
+                  <div className="pt-1"><LanguageToggle className="w-full justify-center" /></div>
                   <Button className="w-full bg-dubai-gold hover:bg-dubai-darkgold text-white py-6" asChild>
                     <Link href="/get-quote">Get Your Free Quote</Link>
                   </Button>

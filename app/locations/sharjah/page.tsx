@@ -56,7 +56,15 @@ export const metadata: Metadata = {
     locale: "en_AE",
     type: "website",
   },
-  alternates: { canonical: URL },
+  alternates: {
+    canonical: URL,
+    // Declared on BOTH sides: a one-way hreflang is ignored by Google.
+    languages: {
+      "en-AE": URL,
+      "ar-AE": "https://safestorage.ae/ar/locations/sharjah",
+      "x-default": URL,
+    },
+  },
 }
 
 const faqs = [

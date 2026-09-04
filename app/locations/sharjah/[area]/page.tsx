@@ -50,7 +50,14 @@ export async function generateMetadata({
       locale: "en_AE",
       type: "website",
     },
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: {
+        "en-AE": url,
+        "ar-AE": `https://safestorage.ae/ar/locations/sharjah/${area.slug}`,
+        "x-default": url,
+      },
+    },
   }
 }
 

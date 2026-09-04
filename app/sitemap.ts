@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 import { getTotalPages } from "@/lib/blog-listing"
 import { getBlogFeedSafe } from "@/lib/blog-feed"
 import { SHARJAH_AREAS } from "@/lib/sharjah-areas"
+import { AR_EMIRATES } from "@/lib/ar/registry"
 
 // The slug helper this file used to carry went with the per-post URLs, to
 // /sitemap-blogs.xml. Both it and lib/blog-lastmod.ts build post URLs through
@@ -267,6 +268,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
+
+    // --- Arabic (/ar) ---------------------------------------------------
+    // Sharjah has the highest Arabic-speaking share of the emirates we serve
+    // and the search-term report shows Arabic queries already arriving, so the
+    // Arabic Sharjah page carries the same priority as its English twin.
+    {
+      url: `${baseUrl}/ar/locations`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...AR_EMIRATES.map((e) => ({
+      url: `${baseUrl}/ar/locations/${e.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: e.slug === "sharjah" ? 0.85 : 0.75,
+    })),
+    ...AR_EMIRATES.flatMap((e) =>
+      e.areas.map((a) => ({
+        url: `${baseUrl}/ar/locations/${e.slug}/${a.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      }))
+    ),
 
     // Top 10 Storage Company Ranking Pages (high-priority SEO)
     {

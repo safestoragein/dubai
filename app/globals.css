@@ -341,3 +341,12 @@ article a {
 .hero-building-float-s {
   animation: floatBuildingScale linear infinite;
 }
+
+/* Room for the fixed mobile CTA bar (components/sticky-mobile-cta.tsx) so it can
+   never cover the last element on a page — footer links included. Matches the
+   bar's own lg:hidden breakpoint. */
+@media (max-width: 1023.98px) {
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  }
+}

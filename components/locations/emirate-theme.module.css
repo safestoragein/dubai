@@ -1108,3 +1108,89 @@
 .disclosure strong {
   color: var(--accent);
 }
+
+/* ==========================================================================
+   RTL (Arabic). Scoped to [dir="rtl"] so the English pages are untouched.
+
+   Most of this stylesheet is flex/grid and mirrors for free. Only the rules
+   that hard-code a physical side need an override — those are listed here
+   rather than rewritten above, so the LTR design stays readable as one block.
+   ========================================================================== */
+
+[dir="rtl"] .heroContent {
+  padding: 44px 48px 52px;
+}
+@media (max-width: 860px) {
+  [dir="rtl"] .heroContent {
+    padding: 34px 26px 40px;
+  }
+}
+/* Hero photo is anchored to the copy-free side, which flips with direction. */
+[dir="rtl"] .heroInner {
+  background-position: center left;
+  background-image: linear-gradient(
+      260deg,
+      rgba(255, 250, 240, 0.985) 0%,
+      rgba(255, 250, 240, 0.95) 38%,
+      rgba(255, 248, 234, 0.55) 60%,
+      rgba(255, 246, 226, 0.08) 82%,
+      rgba(255, 246, 226, 0) 100%
+    ),
+    url("/expansive-storage.png");
+}
+@media (max-width: 860px) {
+  [dir="rtl"] .heroInner {
+    background-image: linear-gradient(
+        190deg,
+        rgba(255, 250, 240, 0.985) 0%,
+        rgba(255, 250, 240, 0.94) 55%,
+        rgba(255, 246, 226, 0.35) 100%
+      ),
+      url("/expansive-storage.png");
+  }
+}
+[dir="rtl"] .heroRating {
+  right: auto;
+  left: 34px;
+}
+[dir="rtl"] .introNavy::after {
+  right: auto;
+  left: -14px;
+  transform: rotate(8deg);
+}
+[dir="rtl"] .typeRow:hover {
+  padding-left: 6px;
+  padding-right: 14px;
+}
+[dir="rtl"] .disclosure {
+  border-left: 1px solid rgba(238, 88, 36, 0.3);
+  border-right: 4px solid var(--accent);
+}
+[dir="rtl"] .parentLink {
+  transform-origin: right center;
+}
+/* The ↗ / ← glyphs are directional; mirror them rather than swapping the text. */
+[dir="rtl"] .circleBtn,
+[dir="rtl"] .areaLink span {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .card:hover .circleBtn,
+[dir="rtl"] .introCard:hover .circleBtn {
+  transform: scaleX(-1) rotate(45deg);
+}
+[dir="rtl"] .priceList li::before {
+  content: "✓";
+}
+/* Arabic renders taller than Latin at the same px size; give it more room. */
+[dir="rtl"] .page {
+  line-height: 1.75;
+}
+[dir="rtl"] .prose p {
+  line-height: 1.95;
+}
+[dir="rtl"] .faqItem p,
+[dir="rtl"] .useCard p,
+[dir="rtl"] .feat p,
+[dir="rtl"] .step p {
+  line-height: 1.85;
+}
