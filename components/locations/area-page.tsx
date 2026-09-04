@@ -10,9 +10,9 @@ import {
   FACILITY_ACCESS_NOTE,
   RATING_VALUE,
   REVIEW_COUNT_DISPLAY,
-  ADDRESS_FULL,
   RETRIEVAL_WINDOW,
 } from "@/lib/company-facts"
+import { storageLocationSentence } from "@/lib/facilities"
 import { emirateFontVars } from "./fonts"
 import s from "./emirate-theme.module.css"
 
@@ -25,9 +25,11 @@ import s from "./emirate-theme.module.css"
  * prose is the part that is genuinely identical everywhere: the price, the
  * process, and the disclosure that the warehouse is in Dubai.
  *
- * That disclosure is repeated on every district page on purpose. A district
- * page is more likely than the city page to be someone's first landing, so it
- * cannot rely on /locations/sharjah having already said it.
+ * The "where your things go" disclosure is repeated on every district page on
+ * purpose: a district page is likelier than the city page to be someone's first
+ * landing, so it cannot rely on /locations/sharjah having said it already. Its
+ * wording comes from lib/facilities.ts and changes on its own when the Sharjah
+ * address is filled in there.
  */
 export default function AreaPage({ area }: { area: SharjahArea }) {
   const nearby = area.nearby.map((slug) => AREA_BY_SLUG[slug]).filter(Boolean)
@@ -123,10 +125,9 @@ export default function AreaPage({ area }: { area: SharjahArea }) {
           <p>{area.character[0]}</p>
           <p>{area.character[1]}</p>
           <div className={s.disclosure}>
-            <strong>Where your things actually go.</strong> SafeStorage does not operate a facility in{" "}
-            {area.name} or anywhere else in Sharjah. There is one warehouse and it is at {ADDRESS_FULL}. What
-            we run in {area.name} is the collection and delivery service. Transport is quoted separately and
-            confirmed before anything is booked.
+            <strong>Where your things actually go.</strong> {storageLocationSentence("sharjah")} We collect
+            from your address in {area.name}, so you do not need to drive anything anywhere. Transport is
+            quoted separately and confirmed before anything is booked.
           </div>
         </div>
       </section>

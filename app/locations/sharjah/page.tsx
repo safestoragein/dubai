@@ -3,6 +3,7 @@ import Link from "next/link"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { SHARJAH_AREAS } from "@/lib/sharjah-areas"
+import { storageLocationSentence } from "@/lib/facilities"
 import {
   PRICE_PER_SQFT_AED,
   PHONE,
@@ -15,7 +16,6 @@ import {
   REVIEW_COUNT_DISPLAY,
   CUSTOMERS_GLOBAL,
   YEARS_SERVING,
-  ADDRESS_FULL,
   RETRIEVAL_WINDOW,
 } from "@/lib/company-facts"
 import { emirateFontVars } from "@/components/locations/fonts"
@@ -32,10 +32,11 @@ import s from "@/components/locations/emirate-theme.module.css"
  * self storage sharjah · storage in sharjah · storage space in sharjah ·
  * storage units sharjah · cheap storage sharjah · furniture storage sharjah.
  *
- * HONESTY CONSTRAINT: SafeStorage operates ONE facility, in DIP-1 Dubai. This
- * page must read as "we collect from Sharjah", never as "we have a Sharjah
- * facility" — see the note in lib/company-facts.ts about GBP suspension risk.
- * Every figure below is imported from that file; nothing is retyped.
+ * FACILITY CLAIMS: SafeStorage operates a warehouse in Sharjah. Its address is
+ * not published yet, so this page states the facility exists without naming a
+ * street — lib/facilities.ts owns that, and filling the address in there updates
+ * this page automatically. Never invent or approximate an address (GBP
+ * suspension risk). Every figure below is imported; nothing is retyped.
  */
 
 const URL = "https://safestorage.ae/locations/sharjah"
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Do you have a storage facility in Sharjah?",
-    a: `No — and we would rather say so plainly. SafeStorage runs a single secure warehouse at ${ADDRESS_FULL}. What we operate in Sharjah is the collection service: our team comes to your address in Sharjah, wraps and loads your things, and brings them back to that facility. For most customers this is the point, because it means no van hire, no loading yourself, and no driving to a unit every time something needs to go in or out.`,
+    a: `Yes. SafeStorage operates a warehouse in Sharjah, so goods collected here are stored in the emirate rather than trucked to another one. ${storageLocationSentence("sharjah")} What we run on top of that is the collection service: our team comes to your address, wraps and loads your things, and takes them to the facility. For most customers that is the point — no van hire, no loading yourself, and no driving to a unit every time something needs to go in or out.`,
   },
   {
     q: "How much does storage cost for a Sharjah customer?",
@@ -96,7 +97,7 @@ const schemas = [
     "@type": "Service",
     name: "Self Storage in Sharjah with Door-to-Door Collection",
     description:
-      "Household, furniture and business storage for Sharjah residents. Items are collected from your Sharjah address and stored at the SafeStorage facility in Dubai Investments Park.",
+      "Household, furniture and business storage for Sharjah residents. Items are collected from your Sharjah address and stored at the SafeStorage facility in Sharjah.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: URL,
     serviceType: "Self Storage",
@@ -325,8 +326,8 @@ export default function SharjahPage() {
                 We Come to <em>Your Address</em> in Sharjah
               </h2>
               <p className={s.splitBlurb}>
-                Our warehouse is in Dubai Investments Park — we are not going to pretend otherwise. What we run in
-                Sharjah is the collection, and it reaches every district below.
+                We operate a warehouse in Sharjah itself, so your things stay in the emirate. The collection
+                service on top of it reaches every district below.
               </p>
               <div className={s.typeList}>
                 <div className={s.typeRow}>
@@ -371,7 +372,7 @@ export default function SharjahPage() {
                 ))}
               </div>
               <p className={s.areaNote}>
-                Storage is held at {ADDRESS_FULL}. Transport between Sharjah and the facility is quoted
+                {storageLocationSentence("sharjah")} Transport between your address and the facility is quoted
                 separately and confirmed by our team before anything is booked — so the number you are given is
                 the number you pay.
               </p>
@@ -446,7 +447,7 @@ export default function SharjahPage() {
             </p>
             <p>
               SafeStorage works the other way round. You tell us roughly what there is, we come to your address in
-              Sharjah, wrap it, load it and take it to our warehouse at {ADDRESS_FULL}. Storage is charged at{" "}
+              Sharjah, wrap it, load it and take it to our Sharjah warehouse. Storage is charged at{" "}
               {PRICE_PER_SQFT_AED} AED per square foot per month, VAT included, on the floor space your items
               genuinely occupy. When you want any of it back, we bring it to you.
             </p>
@@ -477,13 +478,16 @@ export default function SharjahPage() {
               service and the same rate in each case — only the contents of the van change.
             </p>
 
-            <h3>What we will not claim</h3>
+            <h3>Where your things are actually kept</h3>
             <p>
-              We do not operate a facility inside Sharjah, and you will not find one advertised on this page. There
-              is one SafeStorage warehouse and it is in Dubai Investments Park. What we operate in Sharjah is the
-              collection and delivery service, which for most customers is the part that actually matters. If
-              having a unit you can drive to at midnight is what you need, a Sharjah self-storage yard will serve
-              you better than we will, and we would rather say that now than after you have booked.
+              SafeStorage operates a warehouse in Sharjah, so goods collected in the emirate are stored in the
+              emirate rather than driven to another one and back. {storageLocationSentence("sharjah")}
+            </p>
+            <p>
+              What we do not offer is a unit you hold the key to and visit at will. This is a managed service:
+              we collect, we store, and we deliver back on request, normally within {RETRIEVAL_WINDOW}. If what
+              you actually want is a door you can open at midnight, a self-storage yard will suit you better,
+              and we would rather say that now than after you have booked.
             </p>
           </div>
         </section>

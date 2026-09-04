@@ -207,7 +207,7 @@ export default function LocationsPage() {
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-4 text-[#0A2463]">Beyond Dubai</h2>
             <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
-              Our facility is in Dubai Investments Park, but our collection service reaches other emirates.
+              We operate warehouses in Dubai, Sharjah and Ajman, with door-to-door collection across all three.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="hover:shadow-lg transition-shadow">
@@ -445,7 +445,8 @@ export default function LocationsPage() {
                 business is within our door-to-door service coverage area.
               </p>
               <p className="text-gray-700">
-                Storage itself is held at our single Dubai facility in Dubai Investment Park. For collection and
+                Storage for Dubai customers is held at our Dubai Investments Park facility; we also operate
+                warehouses in Sharjah and Ajman, so goods collected in those emirates stay in them. For collection and
                 delivery we route the city through four zones — central and downtown Dubai, the western coast,
                 the villa communities, and the southern residential and industrial areas — which together cover
                 the {locations.length} areas listed above and every other community in Dubai. Whichever area you are

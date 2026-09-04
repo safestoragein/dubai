@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
+import { storageLocationSentence } from "@/lib/facilities"
 import { emirateFontVars } from "@/components/locations/fonts"
 import s from "@/components/locations/emirate-theme.module.css"
 import {
@@ -14,7 +15,6 @@ import {
   FACILITY_ACCESS_NOTE,
   RATING_VALUE,
   REVIEW_COUNT_DISPLAY,
-  ADDRESS_FULL,
   RETRIEVAL_WINDOW,
 } from "@/lib/company-facts"
 
@@ -23,10 +23,11 @@ import {
  * ajman, storage space in ajman) but the cheapest storage CPC in the UAE at
  * roughly ₹196, which is why it is worth a page at all.
  *
- * Ajman is the furthest of the three emirates from DIP-1, so the transport
- * caveat carries more weight here than on the Sharjah pages and is stated
- * plainly rather than buried. Same honesty constraint as everywhere: one
- * facility, in Dubai. See lib/company-facts.ts.
+ * SafeStorage operates a warehouse in Ajman, so goods collected here stay in
+ * the emirate. That address is NOT published yet — lib/facilities.ts owns which
+ * facilities exist and which addresses may be shown, and every claim on this
+ * page reads from it. Fill in the Ajman address there and this page updates
+ * itself. Never invent or approximate one.
  */
 
 const URL = "https://safestorage.ae/locations/ajman"
@@ -49,11 +50,11 @@ const AJMAN_AREAS = [
 const faqs = [
   {
     q: "Do you have a storage facility in Ajman?",
-    a: `No. SafeStorage runs a single warehouse, at ${ADDRESS_FULL}. What we operate in Ajman is the collection and delivery service — our crew comes to your address, wraps and loads everything, and takes it to that facility. If you specifically need a unit in Ajman you can drive to whenever you like, an Ajman self-storage yard is the better fit and we would rather say so now.`,
+    a: `Yes. SafeStorage operates a warehouse in Ajman, so goods collected here stay in the emirate. ${storageLocationSentence("ajman")} On top of that we run the collection service: our crew comes to your address, wraps and loads everything, and takes it to the facility. What we do not offer is a unit you hold the key to and visit at will — if that is what you need, an Ajman self-storage yard is the better fit and we would rather say so now.`,
   },
   {
-    q: "Ajman is further from Dubai than Sharjah. Does that cost more?",
-    a: "Transport is quoted on the actual journey, so an Ajman collection generally costs more to move than a Sharjah one. The storage rate itself is identical. You are given both numbers before anything is booked, so you can judge the total rather than discover it — and for storage running more than a month or two, the one-off transport usually matters less than the monthly rate.",
+    q: "How much is the transport on top?",
+    a: "Transport is quoted on the actual job — your address, the access, and how much there is. Because we store within Ajman rather than driving everything to another emirate, the journey is a local one. You are given the transport figure and the storage figure before anything is booked, so you judge the total rather than discover it.",
   },
   {
     q: "How much is the storage itself?",
@@ -97,7 +98,7 @@ const schemas = [
     "@type": "Service",
     name: "Self Storage in Ajman with Door-to-Door Collection",
     description:
-      "Household and business storage for Ajman residents. Items are collected from your Ajman address and stored at the SafeStorage facility in Dubai Investments Park.",
+      "Household and business storage for Ajman residents. Items are collected from your Ajman address and stored at the SafeStorage facility in Ajman.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: URL,
     serviceType: "Self Storage",
@@ -249,8 +250,8 @@ export default function AjmanPage() {
                 We Come to <em>Your Address</em> in Ajman
               </h2>
               <p className={s.splitBlurb}>
-                Ajman is the furthest of the emirates we serve from our warehouse, so the transport number
-                matters more here than anywhere else. We tell it to you up front.
+                We operate a warehouse in Ajman itself, so your things stay in the emirate. Transport is a
+                local job, quoted on your actual address and told to you up front.
               </p>
               <div className={s.typeList}>
                 <div className={s.typeRow}>
@@ -286,7 +287,7 @@ export default function AjmanPage() {
                 ))}
               </div>
               <p className={s.areaNote}>
-                Storage is held at {ADDRESS_FULL}. Transport between Ajman and the facility is quoted
+                {storageLocationSentence("ajman")} Transport between your address and the facility is quoted
                 separately and confirmed before anything is booked — so the number you are given is the number
                 you pay.
               </p>
@@ -335,8 +336,8 @@ export default function AjmanPage() {
                 One Rate, <em>Told To You Up Front</em>
               </h2>
               <p>
-                Storage is charged on the space you actually use. Transport from Ajman is quoted separately
-                and is higher than a Sharjah or Dubai collection — you see both numbers before you commit.
+                Storage is charged on the space you actually use. Transport is quoted separately against your
+                actual address — you see both numbers before you commit.
               </p>
               <ul className={s.priceList}>
                 <li>No minimum storage term</li>
@@ -371,19 +372,19 @@ export default function AjmanPage() {
               with more furniture than cupboard space.
             </p>
             <p>
-              What is different about Ajman is distance. Our warehouse is at {ADDRESS_FULL}, which is a longer
-              run from Ajman than from Sharjah, and the transport quote reflects that honestly rather than
-              hiding it in a headline rate. The storage itself costs the same {PRICE_PER_SQFT_AED} AED per
-              square foot per month wherever you are. For storage lasting more than a month or two, that
-              monthly rate is what dominates the total — but you should see both numbers and decide for
-              yourself, which is why we give you both before anything is booked.
+              We operate a warehouse in Ajman, so goods collected in the emirate are stored in the emirate
+              rather than driven down the coast and back. {storageLocationSentence("ajman")} Storage costs the
+              same {PRICE_PER_SQFT_AED} AED per square foot per month wherever you are, charged on the floor
+              space your items actually occupy, and transport is quoted against your real address rather than
+              a table.
             </p>
-            <h3>What we will not claim</h3>
+            <h3>What we do not offer</h3>
             <p>
-              There is no SafeStorage facility in Ajman and this page does not pretend otherwise. We operate
-              one warehouse and it is in Dubai. What we run in Ajman is collection and delivery. If what you
-              actually want is a unit down the road that you can visit at any hour, an Ajman self-storage yard
-              will serve you better than we will. {FACILITY_ACCESS_NOTE}.
+              This is a managed service, not a yard with keys. We collect, we store and we deliver back on
+              request — normally within {RETRIEVAL_WINDOW}. What you do not get is a unit you can drive to and
+              open at any hour. If that is what you actually want, an Ajman self-storage yard will serve you
+              better than we will, and we would rather say it here than after you have booked.{" "}
+              {FACILITY_ACCESS_NOTE}.
             </p>
           </div>
         </section>

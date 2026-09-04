@@ -85,7 +85,7 @@ export default async function SharjahAreaPage({
       "@context": "https://schema.org",
       "@type": "Service",
       name: `Storage Collection in ${area.name}, Sharjah`,
-      description: `Household and business storage collected from ${area.name}, Sharjah and held at the SafeStorage facility in Dubai Investments Park. Retrieval normally within ${RETRIEVAL_WINDOW}.`,
+      description: `Household and business storage collected from ${area.name}, Sharjah and held at the SafeStorage facility in Sharjah. Retrieval normally within ${RETRIEVAL_WINDOW}.`,
       provider: { "@id": "https://safestorage.ae/#organization" },
       url,
       serviceType: "Self Storage",

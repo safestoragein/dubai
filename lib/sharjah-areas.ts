@@ -10,11 +10,13 @@
  * souks of Rolla, the term cycle at University City. If a future area is added,
  * write it the same way; do not clone a neighbour and swap the name.
  *
- * HONESTY CONSTRAINT
- * ------------------
- * SafeStorage operates ONE facility, in DIP-1 Dubai. Nothing here may read as a
- * facility in Sharjah — see lib/company-facts.ts on GBP suspension risk. Every
- * page renders a disclosure banner saying so.
+ * FACILITY CLAIMS
+ * ---------------
+ * SafeStorage operates warehouses in Dubai, Sharjah AND Ajman. Which emirates
+ * have a facility, and which addresses may be published, is owned by
+ * lib/facilities.ts — never hard-code either into copy here. The Sharjah and
+ * Ajman addresses are not published yet; pages say the facility exists without
+ * naming a street. Never invent or approximate one (GBP suspension risk).
  */
 
 export type SharjahArea = {
@@ -446,7 +448,7 @@ export const SHARJAH_AREAS: SharjahArea[] = [
     faqs: [
       {
         q: "Do you rent warehouse space in the Sharjah industrial areas?",
-        a: "No, and we would rather be clear about it than waste your time. We do not lease units by the square metre — we take custody of your goods and store them at our own facility in Dubai Investments Park, charged on the floor space they occupy. If you need a warehouse to hold yourself in Sajaa or Industrial Area 10 to 18, you want a commercial property agent, not us.",
+        a: "No, and we would rather be clear about it than waste your time. We do not lease units by the square metre — we take custody of your goods and store them at our own Sharjah warehouse, charged on the floor space they occupy. If you need a warehouse to hold yourself in Sajaa or Industrial Area 10 to 18, you want a commercial property agent, not us.",
       },
       {
         q: "How quickly can we get stock back when we need it?",

@@ -24,10 +24,19 @@ export const PHONE_DISPLAY = "+971 50 577 3388"
 export const EMAIL = "support@safestorage.ae"
 
 /**
- * The only address SafeStorage Dubai operates from. Publish this verbatim
- * everywhere — site, schema, llms.txt and GBP. Do not list service areas as
- * though they were facilities; claiming facilities you do not operate is a
- * Google Business Profile suspension risk.
+ * The Dubai facility address.
+ *
+ * ⚠ THIS IS NO LONGER THE ONLY FACILITY. SafeStorage also operates in Sharjah
+ * and Ajman; those addresses are not published yet. Which emirates we operate
+ * in, and which addresses may be published, is owned by lib/facilities.ts —
+ * read that, not this constant, when a page needs to say where goods are
+ * stored. This constant remains the DUBAI address specifically, and is what
+ * JSON-LD and GBP publish, because schema needs one real verifiable address.
+ *
+ * Still true, and still the reason facilities.ts exists: do not list a service
+ * area as though it were a facility, and never invent an address for a
+ * facility whose address has not been supplied. Claiming facilities you do not
+ * operate is a Google Business Profile suspension risk.
  */
 export const ADDRESS_STREET = "Building 23, Warehouse 5, DIP-1"
 export const ADDRESS_FULL = `${ADDRESS_STREET}, Dubai, United Arab Emirates`
