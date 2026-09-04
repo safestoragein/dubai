@@ -698,6 +698,7 @@
   flex-wrap: wrap;
   gap: 9px;
 }
+.areaChips a,
 .areaChips span {
   background: rgba(255, 255, 255, 0.09);
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -708,6 +709,7 @@
   color: #e8ebf5;
   transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
+.areaChips a:hover,
 .areaChips span:hover {
   background: rgba(238, 88, 36, 0.24);
   border-color: rgba(238, 88, 36, 0.6);
@@ -966,4 +968,143 @@
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* ==========================================================================
+   AREA PAGES — added for the Sharjah district set and the Ajman city page.
+   Everything above is shared with /locations/sharjah unchanged.
+   ========================================================================== */
+
+/* Internal-link grid. Every area page carries one of these pointing at its
+   neighbours, and /locations/sharjah carries one pointing at all of them, so
+   the district set is reachable in one hop from the city page and from each
+   other rather than only from the sitemap. */
+.areaLinks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 960px) {
+  .areaLinks {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .areaLinks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.areaLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 15px 17px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s, color 0.18s;
+}
+.areaLink:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(37, 49, 90, 0.12);
+  border-color: rgba(238, 88, 36, 0.45);
+  color: var(--accent);
+}
+.areaLink span {
+  color: var(--accent);
+  font-size: 15px;
+  flex: none;
+}
+.areaLinkCurrent {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+  pointer-events: none;
+}
+.areaLinkCurrent span {
+  color: var(--accent-tint);
+}
+
+/* "Up" link back to the parent city page. */
+.parentLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 26px;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  border-bottom: 2px solid rgba(238, 88, 36, 0.35);
+  padding-bottom: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.parentLink:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Two-column bullet list used for "what people here store". */
+.useGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .useGrid {
+    grid-template-columns: 1fr;
+  }
+}
+.useCard {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.useCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.11);
+}
+.useIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(140deg, #ffe0cd, #f9b68c);
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.useCard h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--navy);
+}
+.useCard p {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Honesty banner. Every district page repeats that the warehouse is in Dubai,
+   because a district page is far more likely than the city page to be the
+   first thing a searcher lands on. */
+.disclosure {
+  background: #fff7f2;
+  border: 1px solid rgba(238, 88, 36, 0.3);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 18px 22px;
+  font-size: 13.5px;
+  color: #5a4034;
+  line-height: 1.62;
+}
+.disclosure strong {
+  color: var(--accent);
 }

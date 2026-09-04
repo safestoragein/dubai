@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next"
 import { getTotalPages } from "@/lib/blog-listing"
 import { getBlogFeedSafe } from "@/lib/blog-feed"
+import { SHARJAH_AREAS } from "@/lib/sharjah-areas"
 
 // The slug helper this file used to carry went with the per-post URLs, to
 // /sitemap-blogs.xml. Both it and lib/blog-lastmod.ts build post URLs through
@@ -241,6 +242,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.85,
     },
+
+    // Highest-volume page in the Sharjah set (~5,100/mo on the movers cluster).
+    {
+      url: `${baseUrl}/locations/sharjah/moving-storage`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/locations/ajman`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+
+    // Sharjah district pages. Generated from the same list the pages are built
+    // from, so a new area cannot be added to the site and forgotten here.
+    // Priority 0.6: these exist for coverage and internal linking, not because
+    // the district terms carry search volume.
+    ...SHARJAH_AREAS.map((a) => ({
+      url: `${baseUrl}/locations/sharjah/${a.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
 
     // Top 10 Storage Company Ranking Pages (high-priority SEO)
     {

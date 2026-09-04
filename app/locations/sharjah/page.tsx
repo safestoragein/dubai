@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Sora, Manrope } from "next/font/google"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
+import { SHARJAH_AREAS } from "@/lib/sharjah-areas"
 import {
   PRICE_PER_SQFT_AED,
   PHONE,
@@ -18,7 +18,8 @@ import {
   ADDRESS_FULL,
   RETRIEVAL_WINDOW,
 } from "@/lib/company-facts"
-import s from "./sharjah.module.css"
+import { emirateFontVars } from "@/components/locations/fonts"
+import s from "@/components/locations/emirate-theme.module.css"
 
 /*
  * ONE Sharjah page, not ten.
@@ -36,9 +37,6 @@ import s from "./sharjah.module.css"
  * facility" — see the note in lib/company-facts.ts about GBP suspension risk.
  * Every figure below is imported from that file; nothing is retyped.
  */
-
-const sora = Sora({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-sora", display: "swap" })
-const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-manrope", display: "swap" })
 
 const URL = "https://safestorage.ae/locations/sharjah"
 
@@ -91,7 +89,7 @@ const schemas = [
   locationBusinessSchema({
     name: "Sharjah",
     url: URL,
-    serves: ["Al Nahda", "Al Majaz", "Al Taawun", "Al Qasimia", "Al Khan", "Rolla", "Muwaileh", "University City"],
+    serves: SHARJAH_AREAS.map((a) => a.name),
   }),
   {
     "@context": "https://schema.org",
@@ -102,17 +100,10 @@ const schemas = [
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: URL,
     serviceType: "Self Storage",
-    areaServed: [
-      "Sharjah",
-      "Al Nahda",
-      "Al Majaz",
-      "Al Taawun",
-      "Al Qasimia",
-      "Al Khan",
-      "Rolla",
-      "Muwaileh",
-      "University City",
-    ].map((name) => ({ "@type": "Place", name })),
+    areaServed: ["Sharjah", ...SHARJAH_AREAS.map((a) => a.name)].map((name) => ({
+      "@type": "Place",
+      name,
+    })),
   },
   {
     "@context": "https://schema.org",
@@ -144,27 +135,12 @@ const schemas = [
   },
 ]
 
-const areas = [
-  "Al Nahda",
-  "Al Majaz",
-  "Al Taawun",
-  "Al Qasimia",
-  "Al Khan",
-  "Rolla",
-  "Muwaileh",
-  "University City",
-  "Abu Shagara",
-  "Al Qulayaa",
-  "Al Nahda 2",
-  "Industrial Areas",
-]
-
 export default function SharjahPage() {
   return (
     <>
       <SchemaScript schema={schemas} />
 
-      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+      <div className={`${s.page} ${emirateFontVars}`}>
         {/* ---------- breadcrumb ---------- */}
         <nav className={`${s.wrap} ${s.crumbs}`} aria-label="Breadcrumb">
           <Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/locations">Locations</Link> &nbsp;/&nbsp;{" "}
@@ -367,13 +343,20 @@ export default function SharjahPage() {
                   </div>
                   <span className={s.circleBtn}>↗</span>
                 </div>
-                <div className={s.typeRow}>
+                <Link href="/locations/sharjah/university-city" className={s.typeRow}>
                   <div>
                     <h3>Student accommodation</h3>
                     <p>University City pickups at end of term, held over the summer</p>
                   </div>
                   <span className={s.circleBtn}>↗</span>
-                </div>
+                </Link>
+                <Link href="/locations/sharjah/moving-storage" className={s.typeRow}>
+                  <div>
+                    <h3>Moving between tenancies</h3>
+                    <p>The gap when the lease ends before the new place is ready</p>
+                  </div>
+                  <span className={s.circleBtn}>↗</span>
+                </Link>
               </div>
             </div>
 
@@ -381,8 +364,10 @@ export default function SharjahPage() {
               <h3>Districts we collect from</h3>
               <p>Not a list of facilities — a list of places our van comes to.</p>
               <div className={s.areaChips}>
-                {areas.map((a) => (
-                  <span key={a}>{a}</span>
+                {SHARJAH_AREAS.map((a) => (
+                  <Link key={a.slug} href={`/locations/sharjah/${a.slug}`}>
+                    {a.name}
+                  </Link>
                 ))}
               </div>
               <p className={s.areaNote}>
@@ -517,6 +502,31 @@ export default function SharjahPage() {
                 <h3>{f.q}</h3>
                 <p>{f.a}</p>
               </article>
+            ))}
+          </div>
+        </section>
+
+        {/* ---------- internal links: every service area ----------
+             The client's point: Al Quoz names 12 neighbourhoods and Sharjah named
+             none. These are links rather than plain text so the district pages are
+             reachable in one hop from here, not only from the sitemap. */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
+          <div className={s.sectionHead}>
+            <span className={s.eyebrow}>Service areas</span>
+            <h2>
+              Every Part of Sharjah <em>We Collect From</em>
+            </h2>
+            <p>
+              Each one has its own page covering how collection works on those streets — lifts, parking,
+              access and what people there usually store.
+            </p>
+          </div>
+          <div className={s.areaLinks}>
+            {SHARJAH_AREAS.map((a) => (
+              <Link key={a.slug} href={`/locations/sharjah/${a.slug}`} className={s.areaLink}>
+                {a.name}
+                <span>↗</span>
+              </Link>
             ))}
           </div>
         </section>

@@ -230,6 +230,26 @@ export default function LocationsPage() {
                   </Button>
                 </CardContent>
               </Card>
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-2xl">
+                    <MapPin className="mr-2 h-6 w-6 text-[#D8315B]" />
+                    Ajman
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700 mb-4">
+                    Collection from Al Nuaimiya, Al Rashidiya, Al Jurf, the Corniche and the Free Zone.
+                    Furthest of the emirates we serve, so the transport figure is quoted up front.
+                  </p>
+                  <Button className="w-full bg-[#0A2463] hover:bg-[#3E92CC]" asChild>
+                    <Link href="/locations/ajman">
+                      Storage in Ajman
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
