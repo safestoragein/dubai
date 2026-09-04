@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Do you have a storage facility in Sharjah?",
-    a: `Yes. SafeStorage operates a warehouse in Sharjah, so goods collected here are stored in the emirate rather than trucked to another one. ${storageLocationSentence("sharjah")} What we run on top of that is the collection service: our team comes to your address, wraps and loads your things, and takes them to the facility. For most customers that is the point — no van hire, no loading yourself, and no driving to a unit every time something needs to go in or out.`,
+    a: `Yes. SafeStorage operates a warehouse in Sharjah, so goods collected here are stored in the emirate rather than trucked to another one. What we run on top of that is the collection service: our team comes to your address, wraps and loads your things, and takes them to the facility. For most customers that is the point — no van hire, no loading yourself, and no driving to a unit every time something needs to go in or out.`,
   },
   {
     q: "How much does storage cost for a Sharjah customer?",
@@ -481,7 +481,7 @@ export default function SharjahPage() {
             <h3>Where your things are actually kept</h3>
             <p>
               SafeStorage operates a warehouse in Sharjah, so goods collected in the emirate are stored in the
-              emirate rather than driven to another one and back. {storageLocationSentence("sharjah")}
+              emirate rather than driven to another one and back.
             </p>
             <p>
               What we do not offer is a unit you hold the key to and visit at will. This is a managed service:

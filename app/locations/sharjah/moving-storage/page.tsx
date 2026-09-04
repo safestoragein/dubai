@@ -3,7 +3,6 @@ import Link from "next/link"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { SHARJAH_AREAS } from "@/lib/sharjah-areas"
-import { storageLocationSentence } from "@/lib/facilities"
 import { emirateFontVars } from "@/components/locations/fonts"
 import s from "@/components/locations/emirate-theme.module.css"
 import {
@@ -364,9 +363,9 @@ export default function MovingStoragePage() {
             <h3>What we do and do not do</h3>
             <p>
               We collect from your Sharjah address, wrap and load, store at our Sharjah warehouse, and deliver
-              to wherever you tell us afterwards. {storageLocationSentence("sharjah")} We do not do same-day
-              point-to-point removals, we do not quote per truck, and if that is what you need this is the
-              wrong page. Being clear about the boundary saves both of us a wasted call.
+              to wherever you tell us afterwards. We do not do same-day point-to-point removals, we do not
+              quote per truck, and if that is what you need this is the wrong page. Being clear about the
+              boundary saves both of us a wasted call.
             </p>
           </div>
         </section>

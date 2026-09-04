@@ -15,8 +15,9 @@
  * Fill in `address` for that facility and redeploy. Everything updates on its
  * own: the page copy switches from "we have a facility in Sharjah" to naming the
  * address, the FAQ answer changes, and llms.txt should be refreshed to match.
- * Until an address is filled in, pages state that the facility exists but do NOT
- * invent, approximate or imply a street address.
+ * Until an address is filled in, pages state that the facility exists and say
+ * nothing further — they do not invent or approximate a street address, and they
+ * do not tell the customer that an address is being withheld.
  *
  * SCHEMA WARNING
  * --------------
@@ -99,7 +100,11 @@ export function storageLocationSentence(key: Facility["key"]): string {
     return `Your belongings are stored at our ${f.emirate} facility, ${f.address}.`
   }
   if (f) {
-    return `Your belongings are stored at our ${f.emirate} facility. We are not publishing that address online yet — our team confirms the exact location with you before collection.`
+    // No address yet. State the facility plainly and stop — do NOT explain that
+    // the address is unpublished. Narrating the omission draws attention to it
+    // and reads as evasive; a customer who wants the address asks, and the team
+    // gives it. Fill `address` in above and this becomes the named-address line.
+    return `Your belongings are stored at our ${f.emirate} facility.`
   }
   return `Your belongings are stored at ${SCHEMA_FACILITY.address}.`
 }

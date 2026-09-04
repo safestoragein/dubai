@@ -50,7 +50,7 @@ const AJMAN_AREAS = [
 const faqs = [
   {
     q: "Do you have a storage facility in Ajman?",
-    a: `Yes. SafeStorage operates a warehouse in Ajman, so goods collected here stay in the emirate. ${storageLocationSentence("ajman")} On top of that we run the collection service: our crew comes to your address, wraps and loads everything, and takes it to the facility. What we do not offer is a unit you hold the key to and visit at will — if that is what you need, an Ajman self-storage yard is the better fit and we would rather say so now.`,
+    a: `Yes. SafeStorage operates a warehouse in Ajman, so goods collected here stay in the emirate. On top of that we run the collection service: our crew comes to your address, wraps and loads everything, and takes it to the facility. What we do not offer is a unit you hold the key to and visit at will — if that is what you need, an Ajman self-storage yard is the better fit and we would rather say so now.`,
   },
   {
     q: "How much is the transport on top?",
@@ -373,7 +373,7 @@ export default function AjmanPage() {
             </p>
             <p>
               We operate a warehouse in Ajman, so goods collected in the emirate are stored in the emirate
-              rather than driven down the coast and back. {storageLocationSentence("ajman")} Storage costs the
+              rather than driven down the coast and back. Storage costs the
               same {PRICE_PER_SQFT_AED} AED per square foot per month wherever you are, charged on the floor
               space your items actually occupy, and transport is quoted against your real address rather than
               a table.
