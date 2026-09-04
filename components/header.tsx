@@ -155,7 +155,8 @@ export default function Header() {
                     <MessageCircle className="h-5 w-5" />
                     <span className="font-medium">WhatsApp Us</span>
                   </a>
-                  <div className="pt-1"><LanguageToggle className="w-full justify-center" /></div>
+                  {/* Renders nothing outside /ar — no empty wrapper left behind. */}
+                  <LanguageToggle className="w-full justify-center mt-1" />
                   <Button className="w-full bg-dubai-gold hover:bg-dubai-darkgold text-white py-6" asChild>
                     <Link href="/get-quote">Get Your Free Quote</Link>
                   </Button>
