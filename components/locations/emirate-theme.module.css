@@ -112,6 +112,17 @@
   box-shadow: 0 10px 26px rgba(37, 49, 90, 0.4);
 }
 
+
+/* HERO IMAGE — LCP.
+   Was a 1.46 MB PNG (a photograph saved as PNG), which on 4G is several seconds
+   of the Largest Contentful Paint on its own. Now WebP with a JPEG fallback via
+   image-set(): 133 KB desktop, 87 KB on the mobile rule below — a 91% cut.
+   The .png is left in public/ only because other pages may still reference it;
+   nothing in this stylesheet does.
+
+   A CSS background is invisible to the browser's preload scanner, so it is not
+   requested until the stylesheet has parsed. The pages using this theme also
+   emit <link rel="preload" as="image"> for it — see components/locations/hero-preload.tsx. */
 /* ---------- hero ---------- */
 .hero {
   padding: 22px 0 14px;
@@ -136,7 +147,7 @@
       rgba(255, 246, 226, 0.08) 82%,
       rgba(255, 246, 226, 0) 100%
     ),
-    url("/expansive-storage.png");
+    image-set(url("/expansive-storage.webp") type("image/webp"), url("/expansive-storage.jpg") type("image/jpeg"));
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
@@ -151,7 +162,7 @@
         rgba(255, 250, 240, 0.94) 55%,
         rgba(255, 246, 226, 0.35) 100%
       ),
-      url("/expansive-storage.png");
+      image-set(url("/expansive-storage-768.webp") type("image/webp"), url("/expansive-storage.jpg") type("image/jpeg"));
   }
 }
 .heroContent {
@@ -1136,7 +1147,7 @@
       rgba(255, 246, 226, 0.08) 82%,
       rgba(255, 246, 226, 0) 100%
     ),
-    url("/expansive-storage.png");
+    image-set(url("/expansive-storage-768.webp") type("image/webp"), url("/expansive-storage.jpg") type("image/jpeg"));
 }
 @media (max-width: 860px) {
   [dir="rtl"] .heroInner {
@@ -1146,7 +1157,7 @@
         rgba(255, 250, 240, 0.94) 55%,
         rgba(255, 246, 226, 0.35) 100%
       ),
-      url("/expansive-storage.png");
+      image-set(url("/expansive-storage-768.webp") type("image/webp"), url("/expansive-storage.jpg") type("image/jpeg"));
   }
 }
 [dir="rtl"] .heroRating {

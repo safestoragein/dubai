@@ -21,6 +21,7 @@ import {
   RETRIEVAL_WINDOW,
 } from "@/lib/company-facts"
 import { emirateFontVars } from "@/components/locations/fonts"
+import HeroPreload from "@/components/locations/hero-preload"
 import s from "@/components/locations/emirate-theme.module.css"
 
 /*
@@ -44,9 +45,12 @@ import s from "@/components/locations/emirate-theme.module.css"
 const URL = "https://safestorage.ae/locations/sharjah"
 
 export const metadata: Metadata = {
-  title: { absolute: "Self Storage Sharjah | Storage Units With Pickup | SafeStorage" },
+  title: { absolute: "Self Storage in Sharjah | Door-to-Door Collection | SafeStorage" },
+  // Brief's wording, with the price corrected: "from AED 99/month" is published
+  // nowhere and contradicts company-facts.ts. 12.65 AED/sqft is the figure
+  // /pricing and the JSON-LD Offer already carry.
   description:
-    `Self storage in Sharjah from ${PRICE_PER_SQFT_AED} AED/sqft. Door-to-door collection from Al Nahda, Al Majaz, Al Taawun and Muwaileh — we pack, collect and store. Pay only for the space you use.`,
+    `Storage for Sharjah homes and businesses from ${PRICE_PER_SQFT_AED} AED/sqft. We collect from your door, store securely, deliver back. Free quote in 2 minutes.`,
   keywords:
     "self storage sharjah, storage in sharjah, storage space in sharjah, storage units sharjah, cheap storage sharjah, furniture storage sharjah, household storage sharjah, storage sharjah al nahda, storage al majaz, storage al taawun, storage muwaileh, storage near me sharjah, SafeStorage Sharjah",
   openGraph: {
@@ -100,7 +104,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${URL}#webpage`,
-    name: "Self Storage Sharjah | Storage Units With Pickup | SafeStorage",
+    name: "Self Storage in Sharjah | Door-to-Door Collection | SafeStorage",
     description: `Self storage in Sharjah from ${PRICE_PER_SQFT_AED} AED/sqft with door-to-door collection.`,
     url: URL,
     isPartOf: { "@id": "https://safestorage.ae/#website" },
@@ -132,6 +136,7 @@ export default function SharjahPage() {
       <SchemaScript schema={schemas} />
 
       <div className={`${s.page} ${emirateFontVars}`}>
+        <HeroPreload />
         {/* ---------- breadcrumb ---------- */}
         <nav className={`${s.wrap} ${s.crumbs}`} aria-label="Breadcrumb">
           <Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/locations">Locations</Link> &nbsp;/&nbsp;{" "}

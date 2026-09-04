@@ -2,6 +2,7 @@ import Link from "next/link"
 import type { ArArea, ArEmirate } from "@/lib/ar/emirates"
 import { AR, arStorageLocation } from "@/lib/ar/emirates"
 import { emirateFontVars } from "@/components/locations/fonts"
+import HeroPreload from "@/components/locations/hero-preload"
 import s from "@/components/locations/emirate-theme.module.css"
 import {
   PRICE_PER_SQFT_AED,
@@ -30,6 +31,7 @@ export default function ArAreaPage({ emirate: e, area }: { emirate: ArEmirate; a
 
   return (
     <div className={`${s.page} ${emirateFontVars}`}>
+      <HeroPreload />
       <nav className={`${s.wrap} ${s.crumbs}`} aria-label="مسار التنقل">
         <Link href="/ar">{AR.home}</Link> &nbsp;/&nbsp; <Link href="/ar/locations">{AR.locations}</Link>{" "}
         &nbsp;/&nbsp; <Link href={`/ar/locations/${e.slug}`}>{e.name}</Link> &nbsp;/&nbsp;{" "}

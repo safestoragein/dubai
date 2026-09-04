@@ -6,6 +6,7 @@ import { storageLocationSentence } from "@/lib/facilities"
 import { emirateFaqs } from "@/lib/emirate-faqs"
 import LocalProof from "@/components/locations/local-proof"
 import { emirateFontVars } from "@/components/locations/fonts"
+import HeroPreload from "@/components/locations/hero-preload"
 import s from "@/components/locations/emirate-theme.module.css"
 import {
   PRICE_PER_SQFT_AED,
@@ -128,6 +129,7 @@ export default function AjmanPage() {
       <SchemaScript schema={schemas} />
 
       <div className={`${s.page} ${emirateFontVars}`}>
+        <HeroPreload />
         <nav className={`${s.wrap} ${s.crumbs}`} aria-label="Breadcrumb">
           <Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/locations">Locations</Link> &nbsp;/&nbsp;{" "}
           <span>Ajman</span>

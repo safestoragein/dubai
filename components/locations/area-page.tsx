@@ -15,6 +15,7 @@ import {
 import { storageLocationSentence } from "@/lib/facilities"
 import { emirateFaqs } from "@/lib/emirate-faqs"
 import { emirateFontVars } from "./fonts"
+import HeroPreload from "./hero-preload"
 import s from "./emirate-theme.module.css"
 
 /**
@@ -37,6 +38,7 @@ export default function AreaPage({ area }: { area: SharjahArea }) {
 
   return (
     <div className={`${s.page} ${emirateFontVars}`}>
+      <HeroPreload />
       {/* ---------- breadcrumb ---------- */}
       <nav className={`${s.wrap} ${s.crumbs}`} aria-label="Breadcrumb">
         <Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/locations">Locations</Link> &nbsp;/&nbsp;{" "}
