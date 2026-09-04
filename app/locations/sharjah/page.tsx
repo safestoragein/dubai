@@ -152,14 +152,19 @@ export default function SharjahPage() {
             </div>
             <div className={s.heroContent}>
               <span className={s.heroTag}>Serving Sharjah</span>
+              {/* Exact-match keyword restored. Target is "self storage sharjah"
+                  (320/mo, KD 19); every page ranking for it carries the phrase in
+                  the H1 and ours did not, which is why it was absent from the top
+                  15. The door-to-door line follows it rather than replacing it. */}
               <h1>
-                Storage for Sharjah — <em>we collect, store and bring it back</em>
+                Self Storage in <em>Sharjah</em> — We Collect, Store and Bring It Back
               </h1>
               <p className={s.heroSlogan}>No driving to a unit. No van hire. No lifting.</p>
               <p>
-                We pick up from your door in Sharjah, store it securely in our Sharjah facility, and deliver it
-                back whenever you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month, VAT included — and you
-                pay for the space your things actually occupy, not a unit size you have to fill.
+                Self storage in Sharjah normally means renting a unit and moving into it yourself. We pick up
+                from your door instead, store it securely in our Sharjah facility, and deliver it back whenever
+                you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month, VAT included — you pay for the space
+                your things actually occupy, not a unit size you have to fill.
               </p>
               <div className={s.heroCta}>
                 <Link href="/get-quote" className={`${s.btn} ${s.btnAccent}`}>
@@ -433,7 +438,7 @@ export default function SharjahPage() {
         {/* ---------- prose (SEO body) ---------- */}
         <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
           <div className={s.prose}>
-            <h2>Storage in Sharjah, Explained Properly</h2>
+            <h2>Self Storage in Sharjah, Explained Properly</h2>
             <p>
               Sharjah has plenty of self storage units. What it has less of is anyone willing to come and get your
               things. Almost every quoted unit price assumes you will arrive with a van, carry the load in
@@ -485,6 +490,143 @@ export default function SharjahPage() {
               and we would rather say that now than after you have booked.
             </p>
           </div>
+        </section>
+
+        {/* ---------- how much space / what it costs ----------
+             Every page ranking for "self storage sharjah" publishes a unit-size
+             table. We bill per square foot, so the honest equivalent is a space
+             guide. Also carries the semantic set Semrush shows around the head
+             term: storage space in sharjah, household storage rates, storage in
+             sharjah prices, cheap storage sharjah. */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
+          <div className={s.sectionHead}>
+            <span className={s.eyebrow}>Storage space and rates</span>
+            <h2>
+              How Much Storage Space Do You <em>Actually Need</em> in Sharjah?
+            </h2>
+            <p>
+              Traditional self storage in Sharjah sells you a unit — 25 sqft, 50 sqft, 100 sqft — and you pay
+              for all of it whether you fill it or not. We measure what your things occupy and bill that. Here
+              is roughly what different homes work out at.
+            </p>
+          </div>
+          <div className={s.tableWrap}>
+            <table className={s.dataTable}>
+              <thead>
+                <tr>
+                  <th>What you are storing</th>
+                  <th>Typical space</th>
+                  <th>Indicative monthly rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>A few boxes and a bicycle</strong><br />Student room, seasonal kit</td>
+                  <td>~15–25 sqft</td>
+                  <td>~190–315 AED</td>
+                </tr>
+                <tr>
+                  <td><strong>Studio or 1-bed flat</strong><br />Al Nahda, Al Taawun, Abu Shagara towers</td>
+                  <td>~40–60 sqft</td>
+                  <td>~505–760 AED</td>
+                </tr>
+                <tr>
+                  <td><strong>2-bed flat</strong><br />Al Majaz, Buhaira Corniche, Al Khan</td>
+                  <td>~70–90 sqft</td>
+                  <td>~885–1,140 AED</td>
+                </tr>
+                <tr>
+                  <td><strong>3-bed flat or small villa</strong><br />Al Qasimia, Al Qulayaah, Maysaloon</td>
+                  <td>~100–130 sqft</td>
+                  <td>~1,265–1,645 AED</td>
+                </tr>
+                <tr>
+                  <td><strong>Villa or townhouse</strong><br />Muwaileh, Al Zahia, Al Mowaihat</td>
+                  <td>~150–220 sqft</td>
+                  <td>~1,900–2,785 AED</td>
+                </tr>
+                <tr>
+                  <td><strong>Business stock or archive</strong><br />Rolla, Al Qasimia, Industrial Areas</td>
+                  <td>From ~20 sqft</td>
+                  <td>From ~255 AED</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className={s.tableNote}>
+            Indicative only, at {PRICE_PER_SQFT_AED} AED per sqft per month VAT included. Your actual figure is
+            measured from what we collect, not estimated from the size of your home — two identical flats can
+            differ by half if one owns more furniture. Transport from your Sharjah address is quoted separately.
+            Nothing is booked until you have agreed both numbers.
+          </p>
+        </section>
+
+        {/* ---------- comparison table ---------- */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
+          <div className={s.sectionHead}>
+            <span className={s.eyebrow}>Compared honestly</span>
+            <h2>
+              Storage Units in Sharjah vs <em>What We Do</em>
+            </h2>
+            <p>
+              Sharjah has good self-storage companies with units you can rent. They are the right answer for
+              some people and the wrong one for others. Here is the difference, including where they win.
+            </p>
+          </div>
+          <div className={s.tableWrap}>
+            <table className={s.dataTable}>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>A self storage unit in Sharjah</th>
+                  <th>SafeStorage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Getting your things there</strong></td>
+                  <td className={s.no}>You. Van hire, loading, two trips</td>
+                  <td className={s.yes}>We collect from your door</td>
+                </tr>
+                <tr>
+                  <td><strong>Packing and wrapping</strong></td>
+                  <td className={s.no}>Yours to do</td>
+                  <td className={s.yes}>Our crew wraps and loads</td>
+                </tr>
+                <tr>
+                  <td><strong>Lift booking, loading bay, building permission</strong></td>
+                  <td className={s.no}>You arrange it</td>
+                  <td className={s.yes}>We arrange it</td>
+                </tr>
+                <tr>
+                  <td><strong>What you pay for</strong></td>
+                  <td className={s.no}>The whole unit, filled or not</td>
+                  <td className={s.yes}>Only the space your items occupy</td>
+                </tr>
+                <tr>
+                  <td><strong>Getting one item back</strong></td>
+                  <td>Drive there yourself, any time</td>
+                  <td>Delivered to your door in {RETRIEVAL_WINDOW}</td>
+                </tr>
+                <tr>
+                  <td><strong>Turning up at midnight</strong></td>
+                  <td className={s.yes}>Yes — this is where a unit wins</td>
+                  <td className={s.no}>No. Access is booked in advance</td>
+                </tr>
+                <tr>
+                  <td><strong>Minimum term</strong></td>
+                  <td>Often 1–3 months</td>
+                  <td className={s.yes}>None. A fortnight is a fortnight</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className={s.tableNote}>
+            If you want a door you hold the key to and can visit whenever you like, rent a unit — a Sharjah
+            self-storage company will serve you better than we will, and we would rather say that here than
+            after you have booked. If what you actually want is for the whole job to be handled, that is what
+            this service is.
+          </p>
         </section>
 
         {/* Sharjah-specific proof. Renders nothing until real quotes exist —
