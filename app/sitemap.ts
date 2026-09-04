@@ -232,6 +232,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
 
+    // Sharjah — an emirate-level page, not a Dubai district. Higher priority
+    // than the district pages because the city head terms carry the volume
+    // (~620/mo) while Sharjah district terms return none.
+    {
+      url: `${baseUrl}/locations/sharjah`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+
     // Top 10 Storage Company Ranking Pages (high-priority SEO)
     {
       url: `${baseUrl}/top-10-storage-companies-dubai`,

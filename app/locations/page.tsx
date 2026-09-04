@@ -197,6 +197,44 @@ export default function LocationsPage() {
         </div>
       </section>
 
+      {/* Beyond Dubai — emirate-level pages.
+          Kept out of the Dubai grid above on purpose: that grid's cards state a
+          "Distance" from the DIP-1 facility and list Dubai districts, neither of
+          which is meaningful for another emirate. Sharjah still needs an internal
+          link from the hub or the page is orphaned. */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-4 text-[#0A2463]">Beyond Dubai</h2>
+            <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+              Our facility is in Dubai Investments Park, but our collection service reaches other emirates.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-2xl">
+                    <MapPin className="mr-2 h-6 w-6 text-[#D8315B]" />
+                    Sharjah
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700 mb-4">
+                    Door-to-door collection from Al Nahda, Al Majaz, Al Taawun, Al Qasimia, Rolla, Muwaileh and
+                    University City. We pack and load; storage is held at our Dubai facility.
+                  </p>
+                  <Button className="w-full bg-[#0A2463] hover:bg-[#3E92CC]" asChild>
+                    <Link href="/locations/sharjah">
+                      Storage in Sharjah
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service Coverage */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
