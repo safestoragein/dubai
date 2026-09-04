@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import LanguageToggle from "@/components/ar/language-toggle"
+import CountrySwitcher from "@/components/country-switcher"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, MessageCircle, Phone, ChevronDown } from "lucide-react"
@@ -96,6 +97,7 @@ export default function Header() {
 
         {/* Desktop Contact & CTA */}
         <div className="hidden lg:flex items-center space-x-3">
+          <CountrySwitcher />
           <LanguageToggle />
           <a
             href={env.WHATSAPP_LINK}
@@ -155,6 +157,7 @@ export default function Header() {
                     <MessageCircle className="h-5 w-5" />
                     <span className="font-medium">WhatsApp Us</span>
                   </a>
+                  <CountrySwitcher className="mt-1" />
                   {/* Renders nothing outside /ar — no empty wrapper left behind. */}
                   <LanguageToggle className="w-full justify-center mt-1" />
                   <Button className="w-full bg-dubai-gold hover:bg-dubai-darkgold text-white py-6" asChild>
