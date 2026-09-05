@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import WorkingPlacesAutocomplete from "@/components/ui/working-places-autocomplete"
+import { sanitizePhoneInput, validatePhone } from "@/lib/phone"
 import {
   calculateTransportPrice,
   transportEstimateRange,
@@ -541,7 +542,9 @@ export default function QuotePage() {
   const sendPartialLead = React.useCallback(() => {
     const fd = formDataRef.current
     const name = (fd.fullName || "").trim()
-    const phone = (fd.phone || "").trim()
+    // Never beacon a phone that failed validation — the visitor may have left
+    // mid-typing, and a half-number in the CRM is worse than an empty column.
+    const phone = validatePhone(fd.phone) ? "" : (fd.phone || "").trim()
     const email = (fd.email || "").trim()
 
     // Nothing worth saving.
@@ -1080,6 +1083,11 @@ export default function QuotePage() {
       toast.error("Please enter a valid email address")
       return false
     }
+    const phoneError = validatePhone(formData.phone)
+    if (phoneError) {
+      toast.error(phoneError)
+      return false
+    }
     // Out-of-area pickups are not blocked. They cannot be auto-priced, so the
     // transport card offers a custom quote and the lead is flagged for the team.
     return true
@@ -1444,9 +1452,14 @@ export default function QuotePage() {
                       <Label className="text-sm font-semibold text-slate-700">Phone Number *</Label>
                       <Input
                         type="tel"
+                        inputMode="tel"
+                        autoComplete="tel"
+                        maxLength={20}
                         placeholder="+971 50 577 3388"
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        // Strip letters as they are typed — a bare type="tel" let a
+                        // visitor save their name here (see lib/phone.ts).
+                        onChange={(e) => setFormData({ ...formData, phone: sanitizePhoneInput(e.target.value) })}
                         className="h-12 border-2 border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-lg"
                       />
                     </div>

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
+import { sanitizePhoneInput, validatePhone } from "@/lib/phone"
 import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react"
 
 /**
@@ -48,6 +49,15 @@ export default function ContactForm() {
 
     if (!name || !email || !phone) {
       setError("Please fill in your name, email and phone number.")
+      setStatus("error")
+      return
+    }
+
+    // type="tel" validates nothing, so a name typed here would otherwise reach
+    // the CRM as the contact number (see lib/phone.ts).
+    const phoneError = validatePhone(phone)
+    if (phoneError) {
+      setError(`${phoneError}.`)
       setStatus("error")
       return
     }
@@ -110,9 +120,16 @@ export default function ContactForm() {
             id="contact-phone"
             name="phone"
             type="tel"
+            inputMode="tel"
             required
+            maxLength={20}
             autoComplete="tel"
             placeholder="+971 50 000 0000"
+            onInput={(e) => {
+              const el = e.currentTarget
+              const cleaned = sanitizePhoneInput(el.value)
+              if (cleaned !== el.value) el.value = cleaned
+            }}
           />
         </div>
       </div>
