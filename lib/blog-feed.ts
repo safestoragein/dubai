@@ -47,6 +47,10 @@ const TIMEOUT_MS = 60_000
 
 let cached: { at: number; rows: any[] } | null = null
 let inFlight: Promise<any[]> | null = null
+// Bumped by invalidateFeed(). A download that was already in flight when an
+// invalidation arrived must not be memoised as fresh -- it was started before
+// the edit and would pin the stale rows for another full TTL.
+let generation = 0
 
 function load(): Promise<any[]> {
   return new Promise<any[]>((resolve, reject) => {
@@ -105,9 +109,10 @@ export async function getBlogFeed(): Promise<any[]> {
   if (cached && Date.now() - cached.at < TTL_MS) return cached.rows
 
   if (!inFlight) {
+    const startedAt = generation
     inFlight = load()
       .then((rows) => {
-        cached = { at: Date.now(), rows }
+        if (startedAt === generation) cached = { at: Date.now(), rows }
         return rows
       })
       .catch((error) => {
@@ -122,6 +127,25 @@ export async function getBlogFeed(): Promise<any[]> {
   }
 
   return inFlight
+}
+
+/**
+ * Drop the memo so the very next read re-pulls the feed.
+ *
+ * The memo is a plain module variable, so `revalidatePath()` does NOT clear it:
+ * without this, a dashboard save could invalidate every rendered page and the
+ * regeneration would still be handed the same up-to-10-minute-old rows. That is
+ * what made an edit on safestorage.in take up to 10 minutes to appear on
+ * safestorage.ae. Called by /api/revalidate and /api/sync-blogs, which the
+ * dashboard pings on every Dubai post save.
+ *
+ * A request already in flight is left to finish -- its callers are waiting on it
+ * and cancelling would only fail them -- but the generation bump stops its result
+ * being stored, so the read after it fetches the new content.
+ */
+export function invalidateFeed(): void {
+  generation += 1
+  cached = null
 }
 
 /** Same contract as the old inline call sites: [] instead of throwing. */

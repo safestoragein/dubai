@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
 import { syncBlogsFromFeed } from '@/lib/blog-sync'
+import { invalidateFeed } from '@/lib/blog-feed'
 
 // Webhook the safestorage.in PHP dashboard calls right after a blog is added or
 // edited, so the change appears on safestorage.ae within seconds instead of
@@ -16,6 +17,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const result = await syncBlogsFromFeed()
+    invalidateFeed() // the pages render from the feed memo, not the synced table
     revalidatePath('/blog')
     revalidatePath('/blog/[slug]', 'page')
     revalidatePath('/sitemap.xml')

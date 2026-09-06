@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
+import { invalidateFeed } from '@/lib/blog-feed'
 
 // On-demand revalidation of the blog pages. Called by the blog-sync job after it
 // pulls new/edited posts into the local DB, so changes appear immediately instead
@@ -11,6 +12,12 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    // Must come first. The blog pages read the safestorage.in feed through an
+    // in-process memo (lib/blog-feed.ts) that revalidatePath cannot see, so
+    // without this the regenerated pages would be rebuilt from the same stale
+    // rows and the edit would still take up to 10 minutes to appear.
+    invalidateFeed()
+
     revalidatePath('/blog')
     revalidatePath('/blog/[slug]', 'page')
     // Individual post URLs live in /sitemap-blogs.xml, so that is the document a
