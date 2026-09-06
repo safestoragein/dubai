@@ -4,9 +4,19 @@ import { syncBlogsFromFeed } from '@/lib/blog-sync'
 import { invalidateFeed } from '@/lib/blog-feed'
 
 // Webhook the safestorage.in PHP dashboard calls right after a blog is added or
-// edited, so the change appears on safestorage.ae within seconds instead of
-// waiting for the cron. Pulls content + images into the Dubai server, then
-// revalidates the blog pages. Protected by REVALIDATE_SECRET.
+// edited (Manage_posts::notify_dubai_sync), so the change appears on
+// safestorage.ae within seconds instead of waiting for the cron.
+// Protected by REVALIDATE_SECRET.
+//
+// ORDER MATTERS. The blog pages render from the live safestorage.in feed, so
+// dropping the feed memo and marking the pages stale is the whole of what makes
+// an edit go live -- and it must not queue behind syncBlogsFromFeed(), which
+// pulls ~12 MB plus any new images and takes minutes. It used to run second,
+// which is why a save still took ~10 minutes to appear: the caller's curl gives
+// up after 20 s, so the revalidation could be abandoned before it was reached.
+// The row/image sync still runs after, and the */5 cron remains the backstop.
+//
+//   POST https://safestorage.ae/api/sync-blogs?secret=<REVALIDATE_SECRET>
 //
 //   POST https://safestorage.ae/api/sync-blogs?secret=<REVALIDATE_SECRET>
 export async function POST(request: NextRequest) {
@@ -15,16 +25,24 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ status: 'error', message: 'Invalid secret' }, { status: 401 })
   }
 
+  // Cheap and first: this is what publishes the edit.
+  invalidateFeed()
+  revalidatePath('/blog')
+  revalidatePath('/blog/[slug]', 'page')
+  revalidatePath('/sitemap.xml')
+  revalidatePath('/sitemap-blogs.xml')
+
+  // Then the slow part: rows + images into the local store. A failure here must
+  // not report the whole call as failed -- the content is already live.
   try {
     const result = await syncBlogsFromFeed()
-    invalidateFeed() // the pages render from the feed memo, not the synced table
-    revalidatePath('/blog')
-    revalidatePath('/blog/[slug]', 'page')
-    revalidatePath('/sitemap.xml')
-    return NextResponse.json({ status: 'success', ...result })
+    return NextResponse.json({ status: 'success', revalidated: true, ...result })
   } catch (error) {
-    console.error('sync-blogs webhook error:', error)
-    return NextResponse.json({ status: 'error', message: 'Sync failed' }, { status: 500 })
+    console.error('sync-blogs webhook: revalidated, but the row/image sync failed:', error)
+    return NextResponse.json(
+      { status: 'partial', revalidated: true, message: 'Pages revalidated; row/image sync failed' },
+      { status: 200 }
+    )
   }
 }
 
