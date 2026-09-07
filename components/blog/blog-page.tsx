@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { m } from "framer-motion"
 import { Search, ChevronLeft, ChevronRight, User, ArrowRight, MessageSquare, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -59,27 +59,70 @@ export default function BlogPage({
   initialBlogs = [],
   currentPage = 1,
   totalPages = 1,
+  totalCount,
+  initialPopular = [],
+  initialRecommended = [],
 }: {
+  /**
+   * ONLY the posts this URL renders -- 50, not the whole blog.
+   *
+   * This is a client component, so every post here is serialised twice: into the
+   * rendered HTML and again into the RSC flight payload in <script> tags. Passing
+   * all 305 to render 50 cards made that payload 397 KB of an 824 KB page, none of
+   * which the first paint uses. The rest arrives from /api/blogs/summaries when
+   * something actually needs it -- see loadAllPosts below.
+   */
   initialBlogs?: BlogPost[]
   currentPage?: number
   totalPages?: number
+  /** Count across every post, since `blogs` no longer holds them all up front. */
+  totalCount?: number
+  /** Computed server-side across ALL posts, so the sidebar is right on first paint
+   *  instead of being recomputed from 50 and then jumping when the rest lands. */
+  initialPopular?: BlogPost[]
+  initialRecommended?: BlogPost[]
 }) {
   const [searchQuery, setSearchQuery] = useState("")
   // Initialise from SSR data so crawlers see articles immediately
   const [blogs, setBlogs] = useState<BlogPost[]>(initialBlogs)
+  // Whether `blogs` holds every post or just this page's slice. Search and the
+  // article count read differently depending on which.
+  const [hasAllPosts, setHasAllPosts] = useState(initialBlogs.length === 0)
   const [loading, setLoading] = useState(initialBlogs.length === 0)
   const [selectedCategory, setSelectedCategory] = useState("all")
+  const requestedAll = useRef(false)
+  const articleCount = hasAllPosts ? blogs.length : (totalCount ?? initialBlogs.length)
 
   // Must be the same set resolveCategory() assigns, or the filter offers categories
   // no post has ("Organization", "News") while hiding ones that are in use.
   const allCategories = [...BLOG_CATEGORIES]
 
+  // Pull the full index in the background, so searching and filtering still see
+  // every post. Deferred to idle rather than fired on mount: the visitor who just
+  // reads page 1 -- most of them -- should not pay for it at all, and the visitor
+  // who does search gets it well before they finish typing. Falls back to a timer
+  // where requestIdleCallback is missing (Safari).
   useEffect(() => {
-    // Only re-fetch if SSR didn't provide any posts
     if (initialBlogs.length === 0) {
-      fetchBlogs()
+      loadAllPosts()
+      return
     }
+    const idle = (window as any).requestIdleCallback
+    if (typeof idle === "function") {
+      const handle = idle(() => loadAllPosts(), { timeout: 4000 })
+      return () => (window as any).cancelIdleCallback?.(handle)
+    }
+    const timer = setTimeout(loadAllPosts, 2000)
+    return () => clearTimeout(timer)
   }, [])
+
+  const loadAllPosts = () => {
+    // A filter keystroke can race the idle callback; whichever arrives first wins
+    // and the other becomes a no-op.
+    if (requestedAll.current) return
+    requestedAll.current = true
+    void fetchBlogs()
+  }
 
   const fetchBlogs = async () => {
     try {
@@ -98,6 +141,7 @@ export default function BlogPage({
           // Highest post_id first — must match sortNewestFirst() in lib/blog-listing.ts.
           .sort((a: any, b: any) => b.id - a.id)
         setBlogs(processedBlogs)
+        setHasAllPosts(true)
       }
     } catch (error) {
       console.error("Error fetching blogs:", error)
@@ -108,6 +152,13 @@ export default function BlogPage({
   
   const isFiltering = searchQuery !== "" || selectedCategory !== "all"
 
+  // Filtering is the one thing that genuinely needs every post. If the visitor
+  // starts before the idle fetch ran, start it now; until it lands they see
+  // matches from this page's slice, which then fills in on its own.
+  useEffect(() => {
+    if (isFiltering) loadAllPosts()
+  }, [isFiltering])
+
   const filteredBlogs = blogs.filter(blog => {
     const matchesCategory = selectedCategory === "all" || blog.categories[0] === selectedCategory
     const matchesSearch = searchQuery === "" ||
@@ -116,8 +167,14 @@ export default function BlogPage({
     return matchesCategory && matchesSearch
   })
 
-  const popularPosts = [...blogs].sort((a, b) => b.views - a.views).slice(0, 5)
-  const recommendedPosts = [...blogs].sort((a, b) => b.likes - a.likes).slice(0, 5)
+  // Server-computed until the full index arrives, then recomputed from it, so the
+  // ranking is across every post at every moment rather than across this page's 50.
+  const popularPosts = hasAllPosts
+    ? [...blogs].sort((a, b) => b.views - a.views).slice(0, 5)
+    : initialPopular
+  const recommendedPosts = hasAllPosts
+    ? [...blogs].sort((a, b) => b.likes - a.likes).slice(0, 5)
+    : initialRecommended
 
   // Search and category filtering run across every post, so they show all matches on
   // one screen rather than paginating a filtered set (the URL doesn't carry the
@@ -127,7 +184,12 @@ export default function BlogPage({
   const pageStart = (currentPage - 1) * POSTS_PER_PAGE
   const featuredPosts = isFiltering
     ? filteredBlogs
-    : filteredBlogs.slice(pageStart, pageStart + POSTS_PER_PAGE)
+    : hasAllPosts
+      // `blogs` is every post, so take this URL's window out of it.
+      ? filteredBlogs.slice(pageStart, pageStart + POSTS_PER_PAGE)
+      // `blogs` IS this URL's window -- the server already sliced it. Slicing again
+      // by pageStart would render nothing on every page but the first.
+      : filteredBlogs
 
   return (
     <div className="container px-4 md:px-6 py-12 md:py-16">
@@ -170,10 +232,10 @@ export default function BlogPage({
               </h2>
               <span className="text-dubai-gold flex items-center">
                 {isFiltering
-                  ? `${filteredBlogs.length} of ${blogs.length} Articles`
+                  ? `${filteredBlogs.length} of ${articleCount} Articles`
                   : totalPages > 1
-                    ? `Page ${currentPage} of ${totalPages} · ${blogs.length} Articles`
-                    : `${blogs.length} Articles`}
+                    ? `Page ${currentPage} of ${totalPages} · ${articleCount} Articles`
+                    : `${articleCount} Articles`}
               </span>
             </div>
 

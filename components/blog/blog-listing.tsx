@@ -63,7 +63,20 @@ export default async function BlogListing({ page }: { page: number }) {
   return (
     <>
       <SchemaScript schema={[blogSchema, breadcrumbSchema]} />
-      <BlogPage initialBlogs={posts} currentPage={page} totalPages={totalPages} />
+      {/* initialBlogs is this page's 50, not all of them. BlogPage is a client
+          component, so anything handed to it is serialised into the RSC flight
+          payload embedded in the HTML — passing the whole index put 397 KB of
+          unused post objects into an 824 KB page. The sidebar's two rankings are
+          computed here, across every post, so they are correct on first paint
+          without the client needing the full set to draw them. */}
+      <BlogPage
+        initialBlogs={pagePosts}
+        currentPage={page}
+        totalPages={totalPages}
+        totalCount={posts.length}
+        initialPopular={[...posts].sort((a, b) => b.views - a.views).slice(0, 5)}
+        initialRecommended={[...posts].sort((a, b) => b.likes - a.likes).slice(0, 5)}
+      />
 
       {/* Server-rendered complete article index — ensures ALL blog posts have at least
           one internal link regardless of which page of the listing a crawler lands on. */}
