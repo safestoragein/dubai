@@ -28,7 +28,8 @@
 // by side without a timezone in the way.
 import "server-only"
 import mysql from "mysql2/promise"
-import { HASH_VERSION, contentHash, fetchFeed, postUrl, type FeedRow } from "./seo-indexing"
+import { HASH_VERSION, contentHash, postUrl, type FeedRow } from "./seo-indexing"
+import { getBlogFeed } from "./blog-feed"
 
 let pool: mysql.Pool | null = null
 
@@ -122,6 +123,111 @@ export interface RefreshSummary {
 }
 
 /**
+ * Everything the reconcile intends to write, worked out before anything is
+ * written. Splitting the decision from the writes is what lets the read path
+ * run the same logic as cron and still cost nothing when nothing has changed:
+ * an unchanged feed produces an empty plan and therefore zero queries.
+ */
+interface Plan {
+  inserts: { postId: number; url: string; hash: string; seen: string }[]
+  updates: { postId: number; url: string; hash: string; reason: string }[]
+  restamps: { postId: number; url: string; hash: string }[]
+  untouched: number[]
+  deletes: number[]
+  skipped: number
+}
+
+function planReconcile(rows: FeedRow[], stored: Map<number, StoredRow>): Plan {
+  const plan: Plan = {
+    inserts: [],
+    updates: [],
+    restamps: [],
+    untouched: [],
+    deletes: [],
+    skipped: 0,
+  }
+  const live = new Set<number>()
+
+  for (const row of rows) {
+    const postId = Number(row.post_id)
+    if (!postId) {
+      plan.skipped++
+      continue
+    }
+
+    // Unpublished posts never enter the sitemap.
+    if (String(row.status ?? "1") !== "1") {
+      plan.skipped++
+      continue
+    }
+
+    const url = postUrl(row)
+    if (!url) {
+      plan.skipped++
+      continue
+    }
+
+    live.add(postId)
+    const hash = contentHash(row)
+    const prev = stored.get(postId)
+
+    if (!prev) {
+      // A post we have never seen enters at its own publish date, not at
+      // "whenever this ran" — otherwise a backlog of new posts would all claim
+      // to have been modified in the same second.
+      plan.inserts.push({ postId, url, hash, seen: publishedAt(row) })
+      continue
+    }
+
+    // A hash from an older version is not comparable with this one. Re-stamp it
+    // to the current algorithm and leave last_modified exactly where it is --
+    // treating it as a change would stamp all 273 posts "modified now", which is
+    // the signal this whole table exists to avoid sending.
+    if (Number(prev.hash_version) !== HASH_VERSION) {
+      plan.restamps.push({ postId, url, hash })
+      continue
+    }
+
+    if (prev.content_hash === hash && prev.url === url) {
+      plan.untouched.push(postId)
+      continue
+    }
+
+    plan.updates.push({
+      postId,
+      url,
+      hash,
+      reason: prev.url !== url ? "title changed — new address" : "content edited",
+    })
+  }
+
+  // Drop anything the feed no longer publishes.
+  for (const [postId] of stored) {
+    if (!live.has(postId)) plan.deletes.push(postId)
+  }
+
+  return plan
+}
+
+/** Big IN (...) lists are split so one pass never builds a statement MariaDB refuses. */
+function chunk<T>(items: T[], size: number): T[][] {
+  const out: T[][] = []
+  for (let i = 0; i < items.length; i += size) out.push(items.slice(i, i + size))
+  return out
+}
+
+export interface ReconcileOptions {
+  /**
+   * Bump `checked_at` on rows that did not change.
+   *
+   * Cron does — it is the audit trail that answers "is the refresher alive".
+   * The read path does not: it would turn every sitemap fetch into ~290 writes
+   * to record that nothing happened.
+   */
+  audit?: boolean
+}
+
+/**
  * Reconcile the table against the feed.
  *
  * `last_modified` moves in exactly two cases: a post we have never seen (set to
@@ -131,118 +237,153 @@ export interface RefreshSummary {
  *
  * Unpublished posts are deleted from the table rather than left behind: a
  * sitemap should not advertise a URL that no longer resolves.
+ *
+ * Writes are batched and conditional, so the steady state — the feed unchanged
+ * since the last pass — issues exactly one SELECT and no writes at all. That is
+ * what makes it safe to call from the sitemap request path; see selfHeal below.
  */
-export async function refreshLastmod(): Promise<RefreshSummary> {
+export async function reconcileLastmod(options: ReconcileOptions = {}): Promise<RefreshSummary> {
+  const audit = options.audit ?? false
   await ensureTable()
-  const rows = await fetchFeed()
-  const pool = getPool()
 
+  // getBlogFeed rather than fetchFeed: the same ~11.7 MB download already
+  // serves /api/blogs/summaries and every rendered post through one in-process
+  // memo, so reconciling costs nothing extra. fetchFeed would pull the whole
+  // feed again on its own.
+  const rows = await getBlogFeed()
+
+  // An empty feed is a feed that FAILED, not a blog with no posts. Believing it
+  // would delete every row and publish an empty sitemap, which reads to Google
+  // as "every article was removed" — the one outcome this table must never
+  // produce. getBlogFeed returns [] for a response that is not a JSON array, so
+  // this is reachable from a plain upstream error page.
+  if (!Array.isArray(rows) || rows.length === 0) {
+    throw new Error("blog feed returned no rows — refusing to reconcile")
+  }
+
+  const pool = getPool()
   const [existing] = await pool.query(
     `SELECT post_id, url, content_hash, last_modified, hash_version FROM blog_lastmod`
   )
   const stored = new Map<number, StoredRow>()
   for (const r of existing as StoredRow[]) stored.set(Number(r.post_id), r)
 
-  const summary: RefreshSummary = {
-    examined: rows.length,
-    added: 0,
-    updated: 0,
-    unchanged: 0,
-    removed: 0,
-    skipped: 0,
-    restamped: 0,
-    changed: [],
+  const plan = planReconcile(rows, stored)
+  const now = utcNow()
+
+  for (const batch of chunk(plan.inserts, 100)) {
+    await pool.query(
+      `INSERT INTO blog_lastmod
+         (post_id, url, content_hash, last_modified, first_seen, checked_at, hash_version)
+       VALUES ${batch.map(() => "(?, ?, ?, ?, ?, ?, ?)").join(", ")}
+       ON DUPLICATE KEY UPDATE
+         url = VALUES(url),
+         content_hash = VALUES(content_hash),
+         last_modified = VALUES(last_modified),
+         checked_at = VALUES(checked_at),
+         hash_version = VALUES(hash_version)`,
+      batch.flatMap((i) => [i.postId, i.url, i.hash, i.seen, i.seen, now, HASH_VERSION])
+    )
   }
 
-  const now = utcNow()
-  const live = new Set<number>()
-
-  for (const row of rows) {
-    const postId = Number(row.post_id)
-    if (!postId) {
-      summary.skipped++
-      continue
-    }
-
-    // Unpublished posts never enter the sitemap.
-    if (String(row.status ?? "1") !== "1") {
-      summary.skipped++
-      continue
-    }
-
-    const url = postUrl(row)
-    if (!url) {
-      summary.skipped++
-      continue
-    }
-
-    live.add(postId)
-    const hash = contentHash(row)
-    const prev = stored.get(postId)
-
-    if (!prev) {
-      const seen = publishedAt(row)
-      await pool.query(
-        `INSERT INTO blog_lastmod
-           (post_id, url, content_hash, last_modified, first_seen, checked_at, hash_version)
-         VALUES (?, ?, ?, ?, ?, ?, ?)
-         ON DUPLICATE KEY UPDATE
-           url = VALUES(url),
-           content_hash = VALUES(content_hash),
-           last_modified = VALUES(last_modified),
-           checked_at = VALUES(checked_at),
-           hash_version = VALUES(hash_version)`,
-        [postId, url, hash, seen, seen, now, HASH_VERSION]
-      )
-      summary.added++
-      summary.changed.push({ post_id: postId, url, reason: "new post" })
-      continue
-    }
-
-    // A hash from an older version is not comparable with this one. Re-stamp it
-    // to the current algorithm and leave last_modified exactly where it is --
-    // treating it as a change would stamp all 273 posts "modified now", which is
-    // the signal this whole table exists to avoid sending.
-    if (Number(prev.hash_version) !== HASH_VERSION) {
-      await pool.query(
-        `UPDATE blog_lastmod SET content_hash = ?, hash_version = ?, url = ?, checked_at = ?
-          WHERE post_id = ?`,
-        [hash, HASH_VERSION, url, now, postId]
-      )
-      summary.restamped++
-      continue
-    }
-
-    if (prev.content_hash === hash && prev.url === url) {
-      // The common case by a wide margin: touch only the audit column, so the
-      // published lastmod stays exactly where it was.
-      await pool.query(`UPDATE blog_lastmod SET checked_at = ? WHERE post_id = ?`, [now, postId])
-      summary.unchanged++
-      continue
-    }
-
+  for (const u of plan.updates) {
     await pool.query(
       `UPDATE blog_lastmod
           SET url = ?, content_hash = ?, last_modified = ?, checked_at = ?, hash_version = ?
         WHERE post_id = ?`,
-      [url, hash, now, now, HASH_VERSION, postId]
+      [u.url, u.hash, now, now, HASH_VERSION, u.postId]
     )
-    summary.updated++
-    summary.changed.push({
-      post_id: postId,
-      url,
-      reason: prev.url !== url ? "title changed — new address" : "content edited",
-    })
   }
 
-  // Drop anything the feed no longer publishes.
-  for (const [postId] of stored) {
-    if (live.has(postId)) continue
-    await pool.query(`DELETE FROM blog_lastmod WHERE post_id = ?`, [postId])
-    summary.removed++
+  for (const r of plan.restamps) {
+    await pool.query(
+      `UPDATE blog_lastmod SET content_hash = ?, hash_version = ?, url = ?, checked_at = ?
+        WHERE post_id = ?`,
+      [r.hash, HASH_VERSION, r.url, now, r.postId]
+    )
   }
 
-  return summary
+  if (audit) {
+    for (const batch of chunk(plan.untouched, 500)) {
+      await pool.query(
+        `UPDATE blog_lastmod SET checked_at = ? WHERE post_id IN (${batch.map(() => "?").join(", ")})`,
+        [now, ...batch]
+      )
+    }
+  }
+
+  for (const batch of chunk(plan.deletes, 500)) {
+    await pool.query(
+      `DELETE FROM blog_lastmod WHERE post_id IN (${batch.map(() => "?").join(", ")})`,
+      batch
+    )
+  }
+
+  return {
+    examined: rows.length,
+    added: plan.inserts.length,
+    updated: plan.updates.length,
+    unchanged: plan.untouched.length,
+    removed: plan.deletes.length,
+    skipped: plan.skipped,
+    restamped: plan.restamps.length,
+    changed: [
+      ...plan.inserts.map((i) => ({ post_id: i.postId, url: i.url, reason: "new post" })),
+      ...plan.updates.map((u) => ({ post_id: u.postId, url: u.url, reason: u.reason })),
+    ],
+  }
+}
+
+/** What cron and POST /api/blog-lastmod call: a reconcile that also records that it ran. */
+export async function refreshLastmod(): Promise<RefreshSummary> {
+  return reconcileLastmod({ audit: true })
+}
+
+// The sitemap is only as current as the last reconcile, and for a month it had
+// none: /api/blog-lastmod was written for a cron that was never installed, so
+// the table kept the snapshot it seeded itself with on 2026-08-10 and the 17
+// posts published after it appeared in NO sitemap at all — app/sitemap.ts had
+// already stopped emitting individual post URLs.
+//
+// The lesson is not "install the cron" (it should be, and is, installed — see
+// scripts/blog-lastmod.sh). It is that correctness here must not depend on a
+// crontab line anyone can forget, lose to a rebuild, or leave failing quietly.
+// So the read path reconciles too: a post cannot be missing from the sitemap
+// that is being served, because serving it is what puts the post in.
+//
+// This is affordable only because reconcileLastmod writes nothing when nothing
+// changed and reads the feed through the shared memo. The throttle below caps
+// it regardless, and a failure is swallowed — rows already in the table are
+// still correct and still worth serving.
+const SELF_HEAL_INTERVAL_MS = 5 * 60 * 1000
+
+let lastSelfHeal = 0
+let selfHealInFlight: Promise<void> | null = null
+
+async function selfHeal(): Promise<void> {
+  if (Date.now() - lastSelfHeal < SELF_HEAL_INTERVAL_MS) return
+
+  if (!selfHealInFlight) {
+    selfHealInFlight = reconcileLastmod({ audit: false })
+      .then((summary) => {
+        if (summary.added || summary.updated || summary.removed) {
+          console.log(
+            `blog-lastmod self-heal: +${summary.added} ~${summary.updated} -${summary.removed}`
+          )
+        }
+      })
+      .catch((error) => {
+        console.error("blog-lastmod self-heal failed:", error)
+      })
+      // Stamped on success and failure alike: a feed that is down should be
+      // retried on the next interval, not on every crawler hit in between.
+      .finally(() => {
+        lastSelfHeal = Date.now()
+        selfHealInFlight = null
+      })
+  }
+
+  return selfHealInFlight
 }
 
 export interface SitemapEntry {
@@ -253,23 +394,17 @@ export interface SitemapEntry {
 /**
  * Every published blog URL with the date its content last changed.
  *
- * Seeds itself on the first call so the sitemap is never empty just because
- * cron has not run yet. After that it is a single indexed read.
+ * Reconciles against the feed first (throttled, and a no-op when the feed has
+ * not moved), so a post published since the last pass is in the document this
+ * call returns rather than in the one after the next cron run.
  */
 export async function getBlogSitemapEntries(): Promise<SitemapEntry[]> {
   await ensureTable()
-  const pool = getPool()
+  await selfHeal()
 
-  let [rows] = await pool.query(
+  const [rows] = await getPool().query(
     `SELECT url, last_modified FROM blog_lastmod ORDER BY last_modified DESC`
   )
-
-  if ((rows as unknown[]).length === 0) {
-    await refreshLastmod()
-    ;[rows] = await pool.query(
-      `SELECT url, last_modified FROM blog_lastmod ORDER BY last_modified DESC`
-    )
-  }
 
   return (rows as { url: string; last_modified: string }[]).map((r) => ({
     url: r.url,
