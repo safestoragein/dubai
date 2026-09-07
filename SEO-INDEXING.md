@@ -163,7 +163,8 @@ crontab -e
 ```
 
 ```cron
-*/5 * * * * /home/ubuntu/dubai/scripts/seo-index.sh >> /home/ubuntu/seo-index.log 2>&1
+*/5  * * * * /bin/bash /home/ubuntu/dubai/scripts/seo-index.sh   >> /home/ubuntu/seo-index.log 2>&1
+*/10 * * * * /bin/bash /home/ubuntu/dubai/scripts/blog-lastmod.sh >> /home/ubuntu/blog-lastmod.log 2>&1
 ```
 
 Runs a few minutes after `sync-blogs.sh` in the same window so it sees content that just
@@ -172,6 +173,25 @@ outage or an expired key cannot fail the content sync, which blog pages depend o
 
 Exit codes: `0` clean, `1` at least one submission rejected (cron will mail it; the log line
 carries the reason).
+
+Both lines were missing from the box until **2026-09-07**. The crontab held one entry,
+`sync-blogs.sh`, so neither the Indexing API submissions nor the sitemap `lastmod` refresh
+had ever run on a schedule. `blog_lastmod` kept the snapshot it seeded itself with and the
+17 posts published after it were in **no sitemap at all** — `app/sitemap.ts` no longer emits
+individual post URLs, so `/sitemap-blogs.xml` is the only document that carries them.
+
+The sitemap no longer depends on that cron line — `getBlogSitemapEntries()` reconciles on
+read (see `lib/blog-lastmod.ts`), so a new post reaches the sitemap whether or not cron is
+alive. The cron is still worth having: it is what bumps `checked_at`, and `checked_at` is
+the only evidence that the refresher is running at all.
+
+Check it is alive:
+
+```bash
+curl -s "http://127.0.0.1:3000/api/blog-lastmod?secret=$SEO_INDEX_SECRET" | jq
+# last_checked within the last 10 minutes = cron is fine
+# posts == the feed's published count = the sitemap is complete
+```
 
 ---
 
