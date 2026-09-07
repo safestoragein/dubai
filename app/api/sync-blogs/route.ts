@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
 import { syncBlogsFromFeed } from '@/lib/blog-sync'
 import { invalidateFeed } from '@/lib/blog-feed'
+import { publishSideEffects } from '@/lib/blog-publish'
 
 // Webhook the safestorage.in PHP dashboard calls right after a blog is added or
 // edited (Manage_posts::notify_dubai_sync), so the change appears on
@@ -31,6 +32,13 @@ export async function POST(request: NextRequest) {
   revalidatePath('/blog/[slug]', 'page')
   revalidatePath('/sitemap.xml')
   revalidatePath('/sitemap-blogs.xml')
+
+  // Not awaited, by design. Reconciles the sitemap and tells Google, both of
+  // which used to wait on a cron tick -- up to ten minutes for a <loc> on a post
+  // whose page was already live. The caller's cURL gives up after 20 s and this
+  // starts with an ~11.7 MB feed pull, so it must not be in front of the
+  // response. See lib/blog-publish.ts for why that is safe on this server.
+  publishSideEffects('webhook')
 
   // Then the slow part: rows + images into the local store. A failure here must
   // not report the whole call as failed -- the content is already live.

@@ -47,10 +47,12 @@ export async function GET() {
       status: 200,
       headers: {
         "Content-Type": "application/xml; charset=utf-8",
-        // Cron refreshes the table every 10 minutes; there is no point serving
-        // a crawler something staler than that, and no point recomputing it for
-        // every hit either.
-        "Cache-Control": "public, max-age=600, s-maxage=600",
+        // The table is now reconciled by the save webhook itself, so this
+        // document is correct within seconds of a post going live. A ten-minute
+        // cache in front of it would hand that back. 60 s still collapses a
+        // crawler fetching it repeatedly, and the reconcile behind it is one
+        // SELECT and no writes when nothing changed.
+        "Cache-Control": "public, max-age=60, s-maxage=60",
       },
     })
   } catch (error) {

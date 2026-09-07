@@ -7,15 +7,20 @@
 // article bodies (~8.8 MB escaped) into <script> tags that nothing rendered and blew
 // /blog up to 12 MB. Only /blog/[slug] needs the body, and it loads its own.
 //
-// Kept free of "server-only" on purpose: the client listing imports POSTS_PER_PAGE
-// so the server slice and the hydrated slice can never drift apart.
+// The pagination constants the client view also needs live in
+// lib/blog-pagination.ts and are re-exported below, so this file can be
+// "server-only" and read the feed through the shared memo like everything else.
 
+import "server-only"
 import { getStaticListingPosts } from "@/lib/static-blog-posts"
 import { blogImageUrl } from "@/lib/blog-image"
 import { normaliseFeedContent, readTimeFromContent, resolveCategory } from "@/lib/blog-meta"
 import { BLOG_AUTHOR } from "@/lib/company-facts"
+import { getBlogFeedSafe } from "@/lib/blog-feed"
+import { POSTS_PER_PAGE, getTotalPages, pageHref } from "@/lib/blog-pagination"
 
-export const POSTS_PER_PAGE = 50
+// Re-exported so every existing server-side import of these keeps working.
+export { POSTS_PER_PAGE, getTotalPages, pageHref }
 
 export interface ListingPost {
   id: number
@@ -88,27 +93,16 @@ export function sortNewestFirst(posts: ListingPost[]): ListingPost[] {
 // Raw feed rows. Returns [] on any error so the page degrades to the client-side
 // refetch instead of throwing.
 //
-// NOTE: this deliberately still fetches the feed itself rather than reusing the
-// memo in lib/blog-feed.ts. That module is "server-only", and this file is
-// imported by the CLIENT listing component (for POSTS_PER_PAGE), so importing it
-// here fails the build with "You're importing a component that needs
-// server-only". The 11.7 MB payload therefore still cannot be stored by Next's
-// data cache and still logs "items over 2MB can not be cached" on /blog,
-// /blog/page/[n] and /sitemap.xml. Noisy and slow, but harmless -- it is a
-// CACHED fetch, so unlike the old blog-feed call it does not turn a static page
-// dynamic. Fixing it properly means splitting the shared constants out of this
-// file first.
+// Through the shared memo in lib/blog-feed.ts. This used to call fetch() with
+// `next: {revalidate: 600}` on the ~12 MB feed, which Next's data cache silently
+// refuses to store (the "items over 2MB can not be cached" spam on /blog,
+// /blog/page/[n] and /sitemap.xml) -- so the revalidate never applied and every
+// single listing render re-downloaded the whole feed from the India box. It could
+// not use the memo before because blog-feed.ts is "server-only" and this file was
+// pinned to the client boundary by POSTS_PER_PAGE; that constant now lives in
+// lib/blog-pagination.ts, which is what unblocks this.
 export async function fetchBlogPosts(): Promise<any[]> {
-  try {
-    const response = await fetch("https://safestorage.in/get_blog_content", {
-      next: { revalidate: 600 },
-    })
-    if (!response.ok) return []
-    const data = await response.json()
-    return Array.isArray(data) ? data : []
-  } catch {
-    return []
-  }
+  return getBlogFeedSafe()
 }
 
 // Feed posts plus the hand-written static routes under app/blog/<slug>/. The static
@@ -121,13 +115,4 @@ export async function getListingPosts(): Promise<ListingPost[]> {
   // A static route always wins a slug clash — Next.js serves it over /blog/[slug].
   const feedPosts = raw.map(mapListingPost).filter((p) => !staticSlugs.has(p.slug))
   return sortNewestFirst([...staticPosts, ...feedPosts])
-}
-
-export function getTotalPages(postCount: number): number {
-  return Math.max(1, Math.ceil(postCount / POSTS_PER_PAGE))
-}
-
-// Page 1 stays on the bare /blog URL so the canonical listing URL never changes.
-export function pageHref(page: number): string {
-  return page <= 1 ? "/blog" : `/blog/page/${page}`
 }

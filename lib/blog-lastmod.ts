@@ -319,6 +319,11 @@ export async function reconcileLastmod(options: ReconcileOptions = {}): Promise<
     )
   }
 
+  // Any successful reconcile counts against the read path's throttle, whoever
+  // ran it. Without this, the webhook reconciles on save and the very next
+  // sitemap request reconciles again on top of it.
+  lastSelfHeal = Date.now()
+
   return {
     examined: rows.length,
     added: plan.inserts.length,

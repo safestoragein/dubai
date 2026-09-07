@@ -27,6 +27,7 @@ import "server-only"
 import { createHash, createSign } from "crypto"
 import { readFileSync } from "fs"
 import { blogSlug } from "./blog-post"
+import { getBlogFeed } from "./blog-feed"
 import {
   getRetiredUrls,
   getStats,
@@ -525,10 +526,16 @@ export interface RunSummary {
 }
 
 export async function fetchFeed(): Promise<FeedRow[]> {
-  const res = await fetch(FEED, { cache: "no-store", signal: AbortSignal.timeout(60_000) })
-  if (!res.ok) throw new Error(`feed HTTP ${res.status}`)
-  const rows = await res.json()
-  if (!Array.isArray(rows)) throw new Error("feed did not return an array")
+  // Through the shared memo rather than its own fetch: a save fires the sitemap
+  // reconcile and this run back to back, and they were pulling the same ~11.7 MB
+  // twice on a 2-vCPU box. getBlogFeed also uses node:https, which Next does not
+  // instrument -- see lib/blog-feed.ts for why that matters.
+  const rows = await getBlogFeed()
+  // An empty feed is a failed feed, not a blog with no posts. Treating it as
+  // real would make every post look retired.
+  if (!Array.isArray(rows) || rows.length === 0) {
+    throw new Error("feed returned no rows")
+  }
   return rows as FeedRow[]
 }
 
