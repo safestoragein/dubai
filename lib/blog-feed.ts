@@ -45,12 +45,39 @@ const TTL_MS = 10 * 60 * 1000
 // into [], and an empty feed is what bakes a 404 into a post that exists.
 const TIMEOUT_MS = 60_000
 
-let cached: { at: number; rows: any[] } | null = null
-let inFlight: Promise<any[]> | null = null
-// Bumped by invalidateFeed(). A download that was already in flight when an
-// invalidation arrived must not be memoised as fresh -- it was started before
-// the edit and would pin the stale rows for another full TTL.
-let generation = 0
+// THE STATE LIVES ON globalThis, AND THAT IS LOAD-BEARING.
+//
+// Next compiles route handlers and pages into SEPARATE bundles. Plain
+// module-level `let`s therefore give you TWO independent copies of this module
+// -- one for /api/*, one for the page render -- each with its own memo.
+//
+// That is what made an edit take ten minutes to appear on safestorage.ae, and it
+// survived every fix aimed at the webhook. The doorbell called invalidateFeed()
+// from the ROUTE bundle, so /api/blogs/<slug> went fresh instantly, while the
+// PAGE bundle's copy sat untouched until its own TTL_MS expired. Measured
+// 2026-09-07: post 320's page was invalidated and genuinely re-rendered at
+// 09:03:45 -- the .html and .rsc were rewritten -- and it rendered the OLD body,
+// because the render read the page bundle's stale memo. The API returned the new
+// body at the same instant.
+//
+// One slot on globalThis is one memo for the whole process, so invalidateFeed()
+// from any bundle is seen by all of them. Do NOT turn these back into plain
+// module variables.
+interface FeedState {
+  cached: { at: number; rows: any[] } | null
+  inFlight: Promise<any[]> | null
+  // Bumped by invalidateFeed(). A download that was already in flight when an
+  // invalidation arrived must not be memoised as fresh -- it was started before
+  // the edit and would pin the stale rows for another full TTL.
+  generation: number
+  lastForced: number
+}
+
+const GLOBAL_KEY = Symbol.for("safestorage.blogFeedState")
+const globalStore = globalThis as unknown as Record<symbol, FeedState | undefined>
+const state: FeedState =
+  globalStore[GLOBAL_KEY] ??
+  (globalStore[GLOBAL_KEY] = { cached: null, inFlight: null, generation: 0, lastForced: 0 })
 
 function load(): Promise<any[]> {
   return new Promise<any[]>((resolve, reject) => {
@@ -106,27 +133,27 @@ function load(): Promise<any[]> {
  * different posts triggers one 11.7 MB download, not one per hit.
  */
 export async function getBlogFeed(): Promise<any[]> {
-  if (cached && Date.now() - cached.at < TTL_MS) return cached.rows
+  if (state.cached && Date.now() - state.cached.at < TTL_MS) return state.cached.rows
 
-  if (!inFlight) {
-    const startedAt = generation
-    inFlight = load()
+  if (!state.inFlight) {
+    const startedAt = state.generation
+    state.inFlight = load()
       .then((rows) => {
-        if (startedAt === generation) cached = { at: Date.now(), rows }
+        if (startedAt === state.generation) state.cached = { at: Date.now(), rows }
         return rows
       })
       .catch((error) => {
         // A stale copy beats the [] that callers turn into notFound() -- that
         // path has already baked permanent 404s into live posts.
-        if (cached) return cached.rows
+        if (state.cached) return state.cached.rows
         throw error
       })
       .finally(() => {
-        inFlight = null
+        state.inFlight = null
       })
   }
 
-  return inFlight
+  return state.inFlight
 }
 
 /**
@@ -144,8 +171,8 @@ export async function getBlogFeed(): Promise<any[]> {
  * being stored, so the read after it fetches the new content.
  */
 export function invalidateFeed(): void {
-  generation += 1
-  cached = null
+  state.generation += 1
+  state.cached = null
 }
 
 /** Same contract as the old inline call sites: [] instead of throwing. */
@@ -173,11 +200,10 @@ export async function getBlogFeedSafe(): Promise<any[]> {
  * read, which is the right answer anyway once a refresh has just happened.
  */
 const MIN_FORCED_REFRESH_MS = 30_000
-let lastForced = 0
 
 export async function getBlogFeedFresh(): Promise<any[]> {
-  if (Date.now() - lastForced < MIN_FORCED_REFRESH_MS) return getBlogFeed()
-  lastForced = Date.now()
+  if (Date.now() - state.lastForced < MIN_FORCED_REFRESH_MS) return getBlogFeed()
+  state.lastForced = Date.now()
   invalidateFeed()
   return getBlogFeed()
 }
