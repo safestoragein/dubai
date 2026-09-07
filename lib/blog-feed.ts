@@ -207,3 +207,25 @@ export async function getBlogFeedFresh(): Promise<any[]> {
   invalidateFeed()
   return getBlogFeed()
 }
+
+/**
+ * Read-only snapshot of the shared memo, for diagnostics.
+ *
+ * `generation` is the useful field: it only moves when invalidateFeed() runs, so
+ * comparing it between the route bundle and the RSC bundle answers "is this one
+ * memo or two" — the question that made an edit take ten minutes to appear.
+ */
+export function peekFeedState(): {
+  generation: number
+  cachedAt: number | null
+  rows: number
+  inFlight: boolean
+} {
+  return {
+    generation: state.generation,
+    cachedAt: state.cached ? state.cached.at : null,
+    rows: state.cached ? state.cached.rows.length : 0,
+    inFlight: state.inFlight !== null,
+  }
+}
+
