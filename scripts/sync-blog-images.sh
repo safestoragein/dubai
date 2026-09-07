@@ -36,19 +36,50 @@ FILES="$(printf '%s' "$JSON" \
 TOTAL=$(printf '%s\n' "$FILES" | grep -c . || true)
 echo "==> $TOTAL unique images referenced by the feed."
 
-downloaded=0; skipped=0; failed=0
-while IFS= read -r f; do
-  [ -n "$f" ] || continue
-  out="$DEST/$f"
+# One image. Downloads it when missing, and REPLACES it when the source has a
+# different Content-Length.
+#
+# This used to be `[ -s "$out" ] && skip` -- presence taken as proof of
+# correctness, so an image replaced on safestorage.in never propagated. Measured
+# 2026-09-07: 197 of 317 local files differed from the source, 550 MB here against
+# 74 MB there, because safestorage.in had optimised its images and this box kept
+# serving the originals. nginx prefers the local file (`try_files $uri
+# @blog_images_in`), so visitors were being handed up to 7 MB in place of 370 KB.
+#
+# Writes to a temp file and renames: nginx serves this directory directly and an
+# in-place write would hand somebody half an image.
+sync_one() {
+  f="$1"; out="$DEST/$f"
   if [ -s "$out" ]; then
-    skipped=$((skipped+1)); continue
-  fi
-  if curl -fsS --retry 2 -o "$out" "$SRC_BASE/$f"; then
-    downloaded=$((downloaded+1))
+    remote=$(curl -sI --max-time 30 "$SRC_BASE/$f" | awk 'BEGIN{IGNORECASE=1} /^content-length:/ {gsub(/\r/,"",$2); print $2}' | tail -1)
+    # No length from the source is not evidence of a change -- leave it alone
+    # rather than re-downloading every file on every pass.
+    [ -z "$remote" ] && { echo "skip $f"; return; }
+    local_size=$(stat -c%s "$out" 2>/dev/null || echo 0)
+    [ "$local_size" = "$remote" ] && { echo "skip $f"; return; }
+    action=replaced
   else
-    echo "    ! failed: $f"; rm -f "$out"; failed=$((failed+1))
+    action=downloaded
   fi
-done <<< "$FILES"
+  if curl -fsS --retry 2 --max-time 120 -o "$out.tmp.$$" "$SRC_BASE/$f"; then
+    mv -f "$out.tmp.$$" "$out"; echo "$action $f"
+  else
+    rm -f "$out.tmp.$$"; echo "failed $f"
+  fi
+}
+export -f sync_one
+export DEST SRC_BASE
 
-echo "==> Done. downloaded=$downloaded  already-present=$skipped  failed=$failed"
+# 8 at a time: this is now a HEAD per existing file as well, and the India box is
+# ~0.15 s away, so serial would take minutes on every tick.
+RESULT=$(printf '%s\n' "$FILES" | grep . | xargs -P 8 -I{} bash -c 'sync_one "$@"' _ {} 2>/dev/null)
+
+downloaded=$(printf '%s\n' "$RESULT" | grep -c '^downloaded ' || true)
+replaced=$(printf '%s\n'  "$RESULT" | grep -c '^replaced '   || true)
+skipped=$(printf '%s\n'   "$RESULT" | grep -c '^skip '       || true)
+failed=$(printf '%s\n'    "$RESULT" | grep -c '^failed '     || true)
+printf '%s\n' "$RESULT" | grep '^replaced ' | sed 's/^/    /'
+printf '%s\n' "$RESULT" | grep '^failed '   | sed 's/^/    ! /'
+
+echo "==> Done. downloaded=$downloaded  replaced=$replaced  unchanged=$skipped  failed=$failed"
 echo "==> Local blog-images: $(ls -1 "$DEST" | wc -l) files, $(du -sh "$DEST" | cut -f1)"
