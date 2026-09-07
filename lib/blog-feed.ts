@@ -229,3 +229,28 @@ export function peekFeedState(): {
   }
 }
 
+/**
+ * Only the posts the dashboard has published (`status = '1'`).
+ *
+ * The Dubai dashboard's trash button is a SOFT delete: it flips
+ * tbl_dubai_posts.status to '0' and keeps the row, so the feed keeps returning
+ * it. Nothing on this site used to look at that column, so a "deleted" post went
+ * on rendering at its own URL and in the listing — only the sitemap dropped it.
+ *
+ * A missing status counts as published, matching every other reader of this feed
+ * (see blog-lastmod and seo-indexing): an absent column must not blank the blog.
+ *
+ * Memoised on the raw array's identity, so filtering 291 rows happens once per
+ * feed refresh rather than once per request. That key is safe across bundles
+ * because the array itself comes from the one shared memo above.
+ */
+let publishedMemo: { rows: any[]; out: any[] } | null = null
+
+export function publishedOnly(rows: any[]): any[] {
+  if (!Array.isArray(rows)) return []
+  if (publishedMemo && publishedMemo.rows === rows) return publishedMemo.out
+  const out = rows.filter((r) => String(r?.status ?? "1") === "1")
+  publishedMemo = { rows, out }
+  return out
+}
+

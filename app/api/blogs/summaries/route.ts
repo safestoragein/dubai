@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { getBlogFeed } from "@/lib/blog-feed"
+import { getBlogFeed, publishedOnly } from "@/lib/blog-feed"
 import { toBlogPost } from "@/lib/blog-post"
 
 // Everything the browser needs about every post EXCEPT the article body.
@@ -33,7 +33,7 @@ function summarise(rows: any[]) {
 
 export async function GET() {
   try {
-    const data = summarise(await getBlogFeed())
+    const data = summarise(publishedOnly(await getBlogFeed()))
 
     return NextResponse.json(
       { status: "success", data },

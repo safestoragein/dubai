@@ -16,7 +16,7 @@ import { getStaticListingPosts } from "@/lib/static-blog-posts"
 import { blogImageUrl } from "@/lib/blog-image"
 import { normaliseFeedContent, readTimeFromContent, resolveCategory } from "@/lib/blog-meta"
 import { BLOG_AUTHOR } from "@/lib/company-facts"
-import { getBlogFeedSafe } from "@/lib/blog-feed"
+import { getBlogFeedSafe, publishedOnly } from "@/lib/blog-feed"
 import { POSTS_PER_PAGE, getTotalPages, pageHref } from "@/lib/blog-pagination"
 
 // Re-exported so every existing server-side import of these keeps working.
@@ -102,7 +102,9 @@ export function sortNewestFirst(posts: ListingPost[]): ListingPost[] {
 // pinned to the client boundary by POSTS_PER_PAGE; that constant now lives in
 // lib/blog-pagination.ts, which is what unblocks this.
 export async function fetchBlogPosts(): Promise<any[]> {
-  return getBlogFeedSafe()
+  // publishedOnly: a post deactivated in the dashboard must leave the listing,
+  // not just the sitemap.
+  return publishedOnly(await getBlogFeedSafe())
 }
 
 // Feed posts plus the hand-written static routes under app/blog/<slug>/. The static

@@ -6,7 +6,7 @@ import { notFound, permanentRedirect } from "next/navigation"
 import { blogImageUrl } from "@/lib/blog-image"
 import { normaliseFeedContent } from "@/lib/blog-meta"
 import { toBlogPost } from "@/lib/blog-post"
-import { getBlogFeedSafe, getBlogFeedFresh } from "@/lib/blog-feed"
+import { getBlogFeedSafe, getBlogFeedFresh, publishedOnly } from "@/lib/blog-feed"
 import { BLOG_AUTHOR, HOURS_DISPLAY } from "@/lib/company-facts"
 
 // ISR: regenerate at most once per hour
@@ -137,7 +137,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 // One definition of "which post is this slug", used by the first lookup and by
 // the fresh-feed retry below, so the two can never disagree about a match.
 function findPost(blogs: any[], slug: string): any {
-  return blogs.find((b: any) => {
+  // publishedOnly, so a post deactivated in the dashboard 404s instead of
+  // staying reachable at its own URL after it has been "deleted".
+  return publishedOnly(blogs).find((b: any) => {
     const title = b.title || b.seo_title || ''
     const postId = parseInt(b.post_id) || 0
     const idMatch = slug.match(/^(\d+)-/)

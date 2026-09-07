@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getBlogFeed } from '@/lib/blog-feed'
+import { getBlogFeed, publishedOnly } from '@/lib/blog-feed'
 
 // Cache this route at the Vercel edge for 5 minutes
 export const revalidate = 300
@@ -35,7 +35,7 @@ export async function GET(
     // Shared memo: `next: { revalidate: 300 }` never cached this -- the payload
     // is ~11.7 MB and Next's data cache rejects entries over 2 MB, so every
     // request re-downloaded the whole feed from the India box.
-    const data = await getBlogFeed()
+    const data = publishedOnly(await getBlogFeed())
     console.log('Backend response type:', Array.isArray(data) ? 'array' : typeof data, 'Length:', Array.isArray(data) ? data.length : 'N/A')
 
     // Handle different response formats - backend returns array directly
