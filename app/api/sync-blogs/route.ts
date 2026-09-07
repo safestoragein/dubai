@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
 import { syncBlogsFromFeed } from '@/lib/blog-sync'
 import { invalidateFeed } from '@/lib/blog-feed'
-import { publishSideEffects } from '@/lib/blog-publish'
+import { publishSideEffects, revalidateRecentPostPaths } from '@/lib/blog-publish'
 
 // Webhook the safestorage.in PHP dashboard calls right after a blog is added or
 // edited (Manage_posts::notify_dubai_sync), so the change appears on
@@ -32,6 +32,12 @@ export async function POST(request: NextRequest) {
   revalidatePath('/blog/[slug]', 'page')
   revalidatePath('/sitemap.xml')
   revalidatePath('/sitemap-blogs.xml')
+
+  // The route-pattern revalidate above does NOT clear the individual prerendered
+  // /blog/<slug> pages, so the edited post kept serving stale HTML. Awaited, and
+  // here rather than in the background pass, because revalidatePath needs the
+  // request store. One feed read (~0.15 s, and the memo was just dropped anyway).
+  await revalidateRecentPostPaths()
 
   // Not awaited, by design. Reconciles the sitemap and tells Google, both of
   // which used to wait on a cron tick -- up to ten minutes for a <loc> on a post

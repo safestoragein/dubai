@@ -31,6 +31,8 @@
 // the final state of every save in it.
 import "server-only"
 import { revalidatePath } from "next/cache"
+import { getBlogFeed } from "./blog-feed"
+import { blogSlug } from "./blog-post"
 import { reconcileLastmod } from "./blog-lastmod"
 import { runIndexing } from "./seo-indexing"
 
@@ -49,23 +51,6 @@ async function pass(source: string): Promise<void> {
       )
     }
 
-    // Clear each changed post's EXACT path, not just the /blog/[slug] route.
-    //
-    // The route-level revalidatePath the webhook already does covers paths Next
-    // has as prerendered pages. It does not reliably clear a path that resolved
-    // to notFound(), and that is the case that hurts: /blog/[slug] is ISR with
-    // `revalidate = 3600`, so a URL opened before its post existed is stored as a
-    // 404 and served for an hour after the post goes live. The reconcile has just
-    // told us precisely which posts are new or edited, so clear those.
-    for (const change of summary.changed) {
-      try {
-        revalidatePath(new URL(change.url).pathname)
-      } catch {
-        // revalidatePath outside a request context can throw depending on the
-        // Next version. The fresh-feed retry in app/blog/[slug]/page.tsx is the
-        // guarantee; this is the faster path, not the safety net.
-      }
-    }
   } catch (error) {
     console.error(`blog-publish(${source}): sitemap reconcile failed:`, error)
   }
@@ -115,4 +100,52 @@ export function publishSideEffects(source: string): void {
   }
 
   start(source)
+}
+
+/**
+ * Mark the most recently saved posts' EXACT paths stale.
+ *
+ * WHY THIS EXISTS. `revalidatePath('/blog/[slug]', 'page')` — which the webhook
+ * already calls — does NOT clear the individual prerendered pages of a route
+ * that has generateStaticParams. Measured 2026-09-07: an edit that removed a
+ * sentence reached the feed and /api/blogs/<slug> immediately, while
+ * /blog/<slug> kept serving the old HTML with `x-nextjs-cache: HIT` through
+ * repeated webhook calls. Only revalidatePath() on the concrete path clears it.
+ *
+ * 🔴 IT MUST BE CALLED FROM A ROUTE HANDLER, NOT FROM publishSideEffects().
+ * revalidatePath needs Next's request store; called from the detached background
+ * pass it throws and the catch there swallowed it, which is exactly why the
+ * first attempt at this looked like it worked and did nothing.
+ *
+ * Takes the N most recently saved rather than trying to work out which changed:
+ * the webhook fires within seconds of a save, so the edited post is always at
+ * the top, and `created_at` (which the dashboard rewrites on every save) is IST
+ * written as if it were UTC — comparing it to a clock invites an off-by-5:30
+ * bug for no benefit.
+ */
+export async function revalidateRecentPostPaths(limit = 25): Promise<number> {
+  let rows: any[]
+  try {
+    rows = await getBlogFeed()
+  } catch (error) {
+    console.error("blog-publish: could not read the feed to revalidate paths:", error)
+    return 0
+  }
+
+  const recent = [...rows]
+    .sort((a, b) => String(b?.created_at ?? "").localeCompare(String(a?.created_at ?? "")))
+    .slice(0, limit)
+
+  let done = 0
+  for (const row of recent) {
+    const slug = blogSlug(row?.title || row?.seo_title || "")
+    if (!slug) continue
+    try {
+      revalidatePath(`/blog/${slug}`)
+      done++
+    } catch (error) {
+      console.error(`blog-publish: revalidatePath failed for /blog/${slug}:`, error)
+    }
+  }
+  return done
 }

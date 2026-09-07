@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
 import { invalidateFeed } from '@/lib/blog-feed'
+import { revalidateRecentPostPaths } from '@/lib/blog-publish'
 
 // On-demand revalidation of the blog pages. Called by the blog-sync job after it
 // pulls new/edited posts into the local DB, so changes appear immediately instead
@@ -25,6 +26,12 @@ export async function POST(request: NextRequest) {
     // blog listing pages and the static posts, so it is refreshed too.
     revalidatePath('/sitemap.xml')
     revalidatePath('/sitemap-blogs.xml')
+
+  // The route-pattern revalidate above does NOT clear the individual prerendered
+  // /blog/<slug> pages, so the edited post kept serving stale HTML. Awaited, and
+  // here rather than in the background pass, because revalidatePath needs the
+  // request store. One feed read (~0.15 s, and the memo was just dropped anyway).
+  await revalidateRecentPostPaths()
     return NextResponse.json({ status: 'success', revalidated: true })
   } catch (error) {
     console.error('Revalidation error:', error)
