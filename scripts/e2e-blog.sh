@@ -28,49 +28,73 @@ note() { printf "       %s\n" "$1"; }
 FEEDJSON=$(mktemp); curl -s -m 240 "$FEED" -o "$FEEDJSON"
 trap 'rm -f "$FEEDJSON"' EXIT
 
-echo "== 1. every published post renders, and its body matches the source =="
-python3 - "$FEEDJSON" "$BASE" <<'PY'
+echo "== 1. every published post renders, and the PAGE agrees with the API =="
+# Compared against /api/blogs/<slug>, NOT against the raw feed, on purpose.
+# The app deliberately rewrites article bodies on the way out -- legacy URLs are
+# remapped (/storage-dubai/records-archival -> /records-storage) and prices are
+# corrected (12.60 -> 12.65 AED/sqft) -- so a raw-feed comparison reports posts
+# as "stale" that are perfectly current. The API applies the same mapper the page
+# does, which makes it the right reference AND the exact pair that diverged in
+# the split-memo bug: API fresh, page stale.
+python3 - "$FEEDJSON" "$BASE" <<'PYEOF'
 import json,sys,re,urllib.request,concurrent.futures as cf
 rows=json.load(open(sys.argv[1])); base=sys.argv[2]
 def slug(t):
     s=(t or '').lower(); s=re.sub(r'[^a-z0-9 -]','',s); s=re.sub(r'\s+','-',s)
     return re.sub(r'-+','-',s).strip('-')
 def words(h):
-    h=re.sub(r'<[^>]+>',' ',h); h=h.replace('&nbsp;',' ').replace('&mdash;','-')
+    h=re.sub(r'<[^>]+>',' ',h)
+    h=h.replace('&nbsp;',' ').replace('&mdash;','-').replace('&amp;','&').replace('&#39;',"'")
     return re.sub(r'\s+',' ',h).strip()
+def get(u):
+    # 308s are the intended legacy-slug redirects; urlopen follows them.
+    return urllib.request.urlopen(u, timeout=150).read().decode('utf-8','replace')
 def check(r):
     if str(r.get('status','1'))!='1': return None
     sl=slug(r.get('title'))
     if not sl: return None
-    # a distinctive sentence from the middle of the body must appear on the page
-    body=words(r.get('description') or '')
-    sents=[s for s in re.split(r'(?<=[.!?]) ',body) if len(s)>70]
-    if not sents: return None
-    probe=sents[len(sents)//2][:70]
     try:
-        page=urllib.request.urlopen(f"{base}/blog/{sl}",timeout=120).read().decode('utf-8','replace')
+        api=json.loads(get(base+"/api/blogs/"+sl))
     except Exception as e:
-        return ('HTTP', sl, str(e)[:50])
-    return None if probe in words(page) else ('STALE', sl, probe[:52])
+        return ('API', sl, str(e)[:45])
+    body=words((api.get('data') or api).get('content') or '')
+    sents=[x for x in re.split(r'(?<=[.!?]) ',body) if len(x)>70]
+    if not sents: return None
+    try:
+        page=words(get(base+"/blog/"+sl))
+    except Exception as e:
+        return ('HTTP', sl, str(e)[:45])
+    probes=[sents[0][:70], sents[len(sents)//2][:70], sents[-1][:70]]
+    missing=[x for x in probes if x not in page]
+    return None if not missing else ('STALE', sl, missing[0][:50])
 bad=[]
 with cf.ThreadPoolExecutor(8) as ex:
     for res in ex.map(check, rows):
         if res: bad.append(res)
-print(f"  checked {len(rows)} posts")
-for k,sl,d in bad[:12]: print(f"  FAIL {k} /blog/{sl}  {d}")
+print("  checked %d posts" % len(rows))
+for k,sl,d in bad[:12]: print("  %s /blog/%s  %s" % (k,sl,d))
 open('/tmp/e2e_stale','w').write(str(len(bad)))
-PY
+PYEOF
 N=$(cat /tmp/e2e_stale 2>/dev/null || echo 999)
-[ "$N" = "0" ] && ok "all post bodies match the source feed" || bad "$N post(s) serve content that differs from the feed"
+[ "$N" = "0" ] && ok "every page matches what the API serves" || bad "$N page(s) disagree with the API"
 
 echo "== 2. the route bundle and the RSC bundle share ONE feed memo =="
-R=$(curl -s -m 60 "$BASE/api/feed-state" | python3 -c "import json,sys; print(json.load(sys.stdin)['generation'])" 2>/dev/null)
-P=$(curl -s -m 60 "$BASE/feed-state" | python3 -c "import sys,re,json; t=re.sub(r'<[^>]+>','',sys.stdin.read()); print(json.loads(t.strip())['generation'])" 2>/dev/null)
+# generation only moves when invalidateFeed() runs. Equal on both sides means one
+# memo; divergence means the bundle split is back and edits lag by TTL_MS.
+gen() {
+  curl -s -m 90 "$1" | python3 -c "
+import sys,re,json
+t=sys.stdin.read().replace('&quot;','\"')
+m=re.search(r'\{[^{}]*\"bundle\"[^{}]*\}', t, re.S)
+print(json.loads(m.group(0))['generation'] if m else '')
+"
+}
+R=$(gen "$BASE/api/feed-state"); P=$(gen "$BASE/feed-state")
 note "route-handler generation=$R   rsc-page generation=$P"
 if [ -n "$R" ] && [ "$R" = "$P" ]; then
   ok "one shared memo (generations match)"
 else
-  bad "SPLIT MEMO — route=$R rsc=$P; invalidateFeed() will not reach the pages"
+  bad "SPLIT MEMO - route=$R rsc=$P; invalidateFeed() will not reach the pages"
 fi
 
 echo "== 3. sitemap carries every published post =="

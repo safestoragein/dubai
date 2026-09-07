@@ -340,6 +340,28 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // Blog pages: always let the BROWSER revalidate.
+        //
+        // Next's default for an ISR page is `s-maxage=3600,
+        // stale-while-revalidate=31532400` with no max-age, which leaves browsers
+        // to guess a freshness lifetime. They guess generously, so a reader who
+        // opened a post before an edit -- or worse, while it briefly 404'd -- kept
+        // being shown that copy long after the server was serving the new one.
+        // That cost real time on 2026-09-07: the page was repeatedly reported as
+        // "still not updated" when the server had already fixed it.
+        //
+        // max-age=0 + must-revalidate makes the browser ask every time; the answer
+        // is a 304 when nothing changed, so it costs a round trip and no payload.
+        // s-maxage keeps the server-side ISR behaviour exactly as it was.
+        source: '/blog/:slug*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate, s-maxage=3600, stale-while-revalidate=86400',
+          },
+        ],
+      },
+      {
         source: '/:all*(svg|jpg|jpeg|png|gif|ico|webp|avif)',
         headers: [
           {
