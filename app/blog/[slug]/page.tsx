@@ -6,7 +6,7 @@ import { notFound, permanentRedirect } from "next/navigation"
 import { blogImageUrl } from "@/lib/blog-image"
 import { normaliseFeedContent } from "@/lib/blog-meta"
 import { toBlogPost } from "@/lib/blog-post"
-import { getBlogFeedSafe } from "@/lib/blog-feed"
+import { getBlogFeedSafe, getBlogFeedFresh } from "@/lib/blog-feed"
 import { BLOG_AUTHOR, HOURS_DISPLAY } from "@/lib/company-facts"
 
 // ISR: regenerate at most once per hour
@@ -134,19 +134,41 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 }
 
+// One definition of "which post is this slug", used by the first lookup and by
+// the fresh-feed retry below, so the two can never disagree about a match.
+function findPost(blogs: any[], slug: string): any {
+  return blogs.find((b: any) => {
+    const title = b.title || b.seo_title || ''
+    const postId = parseInt(b.post_id) || 0
+    const idMatch = slug.match(/^(\d+)-/)
+    if (idMatch) return parseInt(idMatch[1]) === postId
+    return generateSlug(title) === slug
+  })
+}
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
 
   let post: any = null
   try {
-    const blogs = await fetchAllBlogs()
-    post = blogs.find((b: any) => {
-      const title = b.title || b.seo_title || ''
-      const postId = parseInt(b.post_id) || 0
-      const idMatch = slug.match(/^(\d+)-/)
-      if (idMatch) return parseInt(idMatch[1]) === postId
-      return generateSlug(title) === slug
-    })
+    post = findPost(await fetchAllBlogs(), slug)
+
+    if (!post) {
+      // Never 404 on the strength of a memoised feed.
+      //
+      // This route is `revalidate = 3600`, so notFound() is not a transient
+      // answer -- Next stores it as a prerendered 404 and serves it for an hour.
+      // Anyone who opened a post's URL in the minute before it was published
+      // therefore killed that post for everyone until the window expired, while
+      // the feed, /api/blogs/summaries and the sitemap all had it. That is
+      // exactly what happened to post 320 on 2026-09-07.
+      //
+      // A miss is rare and a wrong miss is expensive, so it is worth one fresh
+      // read of the source before committing to it. getBlogFeedFresh throttles
+      // itself, so a bot spraying invented slugs cannot turn this into a
+      // download per request.
+      post = findPost(await getBlogFeedFresh(), slug)
+    }
 
     if (!post) {
       notFound()

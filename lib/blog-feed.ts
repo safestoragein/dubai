@@ -156,3 +156,28 @@ export async function getBlogFeedSafe(): Promise<any[]> {
     return []
   }
 }
+
+/**
+ * The feed, guaranteed newer than the last forced refresh.
+ *
+ * For ONE caller: /blog/[slug] when a slug does not match any post. That is the
+ * one place a stale memo is expensive rather than merely late -- the page calls
+ * notFound(), the route is ISR with `revalidate = 3600`, and Next stores that 404
+ * as a prerendered page. So a post published seconds after somebody first opened
+ * its URL stayed dead for an hour, while the feed, the API and the sitemap all
+ * had it. Post 320 did exactly that on 2026-09-07.
+ *
+ * Throttled because the caller is the miss path, which is also what a bot
+ * spraying invented slugs hits: without this, every 404 would pull ~12 MB. One
+ * forced refresh per 30 s at most; outside that window this is the normal memo
+ * read, which is the right answer anyway once a refresh has just happened.
+ */
+const MIN_FORCED_REFRESH_MS = 30_000
+let lastForced = 0
+
+export async function getBlogFeedFresh(): Promise<any[]> {
+  if (Date.now() - lastForced < MIN_FORCED_REFRESH_MS) return getBlogFeed()
+  lastForced = Date.now()
+  invalidateFeed()
+  return getBlogFeed()
+}

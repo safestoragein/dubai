@@ -30,6 +30,7 @@
 // once more after", which is all a burst can actually need — the second pass sees
 // the final state of every save in it.
 import "server-only"
+import { revalidatePath } from "next/cache"
 import { reconcileLastmod } from "./blog-lastmod"
 import { runIndexing } from "./seo-indexing"
 
@@ -46,6 +47,24 @@ async function pass(source: string): Promise<void> {
       console.log(
         `blog-publish(${source}): sitemap +${summary.added} ~${summary.updated} -${summary.removed}`
       )
+    }
+
+    // Clear each changed post's EXACT path, not just the /blog/[slug] route.
+    //
+    // The route-level revalidatePath the webhook already does covers paths Next
+    // has as prerendered pages. It does not reliably clear a path that resolved
+    // to notFound(), and that is the case that hurts: /blog/[slug] is ISR with
+    // `revalidate = 3600`, so a URL opened before its post existed is stored as a
+    // 404 and served for an hour after the post goes live. The reconcile has just
+    // told us precisely which posts are new or edited, so clear those.
+    for (const change of summary.changed) {
+      try {
+        revalidatePath(new URL(change.url).pathname)
+      } catch {
+        // revalidatePath outside a request context can throw depending on the
+        // Next version. The fresh-feed retry in app/blog/[slug]/page.tsx is the
+        // guarantee; this is the faster path, not the safety net.
+      }
     }
   } catch (error) {
     console.error(`blog-publish(${source}): sitemap reconcile failed:`, error)
