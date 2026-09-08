@@ -519,13 +519,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.75,
     },
 
-    // PILLAR 2: Storage Dubai
-    {
-      url: `${baseUrl}/storage-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
+
+    // /storage-dubai is deliberately absent: it was a near-duplicate head-term
+    // page competing with /self-storage-dubai for `storage dubai`, and now 301s
+    // there. A sitemap must not advertise a URL that redirects.
   ]
 
   // Fetch actual blog posts from API

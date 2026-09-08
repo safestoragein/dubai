@@ -557,7 +557,7 @@ export default function DubaiCostOfLiving2026() {
             Don't let high rent eat your salary. Store smartly and save thousands every year!
           </p>
           <Button className="bg-[#0A2463] hover:bg-[#3E92CC]" asChild>
-            <Link href="/storage-dubai">
+            <Link href="/self-storage-dubai">
               Explore Storage Solutions
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

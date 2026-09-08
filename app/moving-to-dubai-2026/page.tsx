@@ -490,7 +490,7 @@ export default function MovingToDubai2026() {
             Moving to a new country is exciting but challenging. Let SafeStorage make one part easier - we'll handle your belongings while you handle everything else!
           </p>
           <Button className="bg-[#0A2463] hover:bg-[#3E92CC]" asChild>
-            <Link href="/storage-dubai">
+            <Link href="/self-storage-dubai">
               Learn More About Our Storage Solutions
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

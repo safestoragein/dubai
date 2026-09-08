@@ -5,7 +5,7 @@ import SchemaScript from "@/components/schema-script"
 import { Globe, CheckCircle2, Star, Phone, ArrowRight, Package, ShieldCheck, Clock, Plane } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "International Relocation Storage Dubai",
+  title: "International Relocation from Dubai | Store or Ship",
   description: "Moving internationally from Dubai? Store your belongings affordably while you settle abroad. Avoid costly international shipping. From 12.65 AED / sqft.",
   keywords: "international relocation storage dubai, moving abroad from dubai storage, dubai international moving storage, shipping vs storage dubai, expat relocation dubai, moving overseas dubai storage",
   openGraph: {

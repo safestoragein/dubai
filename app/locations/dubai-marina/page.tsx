@@ -4,7 +4,7 @@ import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: { absolute: "Secure SafeStorage Units Dubai Marina | Self Storage" },
+  title: { absolute: "Self Storage Dubai Marina | Door-to-Door Collection" },
   // "free pickup" in the spec: transport is charged (df0df39 / 166d65a).
   description:
     "Secure storage in Dubai Marina with door-to-door pickup. 24/7 security & secure storage for furniture, sports gear, and more.",

@@ -720,7 +720,7 @@ export default function DubaiShoppingGuide2026() {
             Dubai shopping is addictive! Keep buying, we'll keep storing. Clean, secure, and accessible anytime.
           </p>
           <Button className="bg-[#0A2463] hover:bg-[#3E92CC]" asChild>
-            <Link href="/storage-dubai">
+            <Link href="/self-storage-dubai">
               Learn About Storage Solutions
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

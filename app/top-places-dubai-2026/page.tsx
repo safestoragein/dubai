@@ -372,7 +372,7 @@ export default function TopPlacesDubai2026() {
                 <Link href="/get-quote">Get Your Free Quote Today</Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-white text-[#0A2463] hover:bg-gray-100" asChild>
-                <Link href="/storage-dubai">Learn More About Our Services</Link>
+                <Link href="/self-storage-dubai">Learn More About Our Services</Link>
               </Button>
             </div>
           </div>

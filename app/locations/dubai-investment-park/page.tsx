@@ -4,7 +4,7 @@ import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: { absolute: "Storage Units Dubai Investment Park | DIP | SafeStorage" },
+  title: { absolute: "Self Storage Dubai Investment Park (DIP) | SafeStorage" },
   // "free pickup" in the spec: transport is charged (df0df39 / 166d65a).
   description:
     "Secure storage in Dubai Investment Park (DIP). Self Storage units with door-to-door pickup for business and personal use.",

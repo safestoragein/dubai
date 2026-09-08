@@ -86,6 +86,26 @@ const nextConfig = {
         permanent: true,
       },
 
+      // ---------------------------------------------------------------------
+      // SILO 1 — head-term consolidation.
+      //
+      // /storage-dubai was one of five near-duplicate head-term pages sitting
+      // flat at root, all competing for the same intent. The keyword ownership
+      // register gives `storage dubai` (1,300/mo) to /self-storage-dubai/, and
+      // two live pages claiming one keyword is exactly the split that kept this
+      // site off page one — Google picked a different URL each crawl and neither
+      // consolidated authority.
+      //
+      // The route file is deleted in the same commit and the four guide pages
+      // that linked to it now link to the hub directly, so this redirect catches
+      // external links and bookmarks rather than papering over internal ones.
+      // ---------------------------------------------------------------------
+      {
+        source: '/storage-dubai',
+        destination: '/self-storage-dubai',
+        permanent: true,
+      },
+
       // Fix broken internal links: /terms → /terms-and-conditions
       {
         source: '/terms',
