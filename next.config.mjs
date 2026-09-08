@@ -182,18 +182,13 @@ const nextConfig = {
         destination: '/personal-storage',
         permanent: true,
       },
-      {
-        source: '/self-storage-dubai/how-it-works',
-        destination: '/how-it-works',
-        permanent: true,
-      },
       // The last page still living under the retired nested pattern. Unlike the
       // redirects above it is not a duplicate — it is the only page targeting
       // "short term storage dubai" — so the content moved to a top-level URL
       // rather than being folded into another page.
       {
         source: '/self-storage-dubai/short-term-moving-renovation',
-        destination: '/short-term-storage-dubai',
+        destination: '/self-storage-dubai/short-term',
         permanent: true,
       },
       // www → non-www for ALL pages (fixes hreflang conflicts and www 404s)
@@ -370,28 +365,28 @@ const nextConfig = {
       },
       {
         source: '/storage-dubai/warehouse-storage',
-        destination: '/storage-dubai',
+        destination: '/self-storage-dubai',
         permanent: true,
       },
       {
         source: '/storage-dubai/long-term-storage',
-        destination: '/storage-dubai',
+        destination: '/self-storage-dubai',
         permanent: true,
       },
       {
         source: '/storage-dubai/pricing-cost-guide',
-        destination: '/pricing',
+        destination: '/self-storage-dubai/prices',
         permanent: true,
       },
       {
         source: '/storage-dubai/self-vs-full-service',
-        destination: '/storage-dubai',
+        destination: '/self-storage-dubai',
         permanent: true,
       },
       // Redirect old self-storage-dubai subpages that don't exist
       {
         source: '/self-storage-dubai/storage-unit-sizes',
-        destination: '/storage-units-dubai',
+        destination: '/self-storage-dubai/storage-units',
         permanent: true,
       },
       {
