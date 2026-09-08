@@ -129,6 +129,19 @@ const nextConfig = {
       { source: '/pricing',                  destination: '/self-storage-dubai/prices',        permanent: true },
       { source: '/cheap-storage-dubai',      destination: '/self-storage-dubai/prices',        permanent: true },
 
+      // ---------------------------------------------------------------------
+      // SILO 5 — the hub now exists, so its one redirect can ship.
+      //
+      // /locations/sharjah/moving-storage is a SERVICE page misfiled among
+      // Sharjah's area pages. The silo QA flagged it as blocking: it was being
+      // replaced with no redirect defined anywhere. It belongs in Silo 5.
+      // ---------------------------------------------------------------------
+      {
+        source: '/locations/sharjah/moving-storage',
+        destination: '/moving-storage-dubai',
+        permanent: true,
+      },
+
       // Fix broken internal links: /terms → /terms-and-conditions
       {
         source: '/terms',

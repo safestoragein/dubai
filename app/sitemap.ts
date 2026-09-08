@@ -240,12 +240,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Highest-volume page in the Sharjah set (~5,100/mo on the movers cluster).
     {
-      url: `${baseUrl}/locations/sharjah/moving-storage`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
       url: `${baseUrl}/locations/ajman`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -338,6 +332,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // PILLAR 1: Self Storage Dubai
     {
       url: `${baseUrl}/self-storage-dubai`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      // SILO 5 HUB. `moving and storage dubai` is 1,900/mo at CPC AED 6.98 and
+      // the site had no page for it at all — the largest single gap in the plan.
+      url: `${baseUrl}/moving-storage-dubai`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.95,

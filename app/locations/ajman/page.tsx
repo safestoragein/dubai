@@ -414,7 +414,7 @@ export default function AjmanPage() {
               Sharjah
               <span>↗</span>
             </Link>
-            <Link href="/locations/sharjah/moving-storage" className={s.areaLink}>
+            <Link href="/moving-storage-dubai" className={s.areaLink}>
               Moving storage
               <span>↗</span>
             </Link>

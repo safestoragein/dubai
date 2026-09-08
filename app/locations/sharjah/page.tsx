@@ -351,7 +351,7 @@ export default function SharjahPage() {
                   </div>
                   <span className={s.circleBtn}>↗</span>
                 </Link>
-                <Link href="/locations/sharjah/moving-storage" className={s.typeRow}>
+                <Link href="/moving-storage-dubai" className={s.typeRow}>
                   <div>
                     <h3>Moving between tenancies</h3>
                     <p>The gap when the lease ends before the new place is ready</p>
