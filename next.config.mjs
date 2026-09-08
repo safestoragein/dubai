@@ -58,6 +58,34 @@ const nextConfig = {
   // Redirects for old/removed pages
   async redirects() {
     return [
+      // ---------------------------------------------------------------------
+      // SILO 1 — money page consolidation.
+      //
+      // `local self storage` is 2,400/mo (AE) at KD 16, and the URL currently
+      // ranking #7 for it is a BLOG POST. A commercial local query answered by
+      // an article URL ranks volatilely — Google cannot decide whether we are
+      // an article or a business — which is why that ranking kept vanishing.
+      //
+      // Both of these point at the new money page. They MUST stay in the same
+      // deployment as app/self-storage-dubai/local-self-storage/page.tsx: the
+      // redirect without the page is a 404, and the page without the redirect
+      // leaves the #7 ranking stranded on the blog post.
+      // ---------------------------------------------------------------------
+      {
+        source:
+          '/blog/local-self-storage-the-ultimate-guide-to-the-best-storage-units-dubai-for-homes-businesses',
+        destination: '/self-storage-dubai/local-self-storage',
+        permanent: true,
+      },
+      {
+        // Root-level exact match. The money page is nested so it inherits
+        // topical relevance from the hub, but this still captures direct-URL
+        // and exact-match signals.
+        source: '/local-self-storage-dubai',
+        destination: '/self-storage-dubai/local-self-storage',
+        permanent: true,
+      },
+
       // Fix broken internal links: /terms → /terms-and-conditions
       {
         source: '/terms',

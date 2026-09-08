@@ -349,6 +349,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.95,
     },
     {
+      // ★ MONEY PAGE. Highest priority on the site after the homepage: it is the
+      // designated target for `local self storage` (2,400/mo, KD 16) and the
+      // destination of the 301 from the blog post that holds the current #7.
+      url: `${baseUrl}/self-storage-dubai/local-self-storage`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1.0,
+    },
+    {
       url: `${baseUrl}/short-term-storage-dubai`,
       lastModified: new Date(),
       changeFrequency: "weekly",
