@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
+import { SiloHubLinks } from "@/components/silo/silo-links"
 
 /**
  * ★★ SILO 5 HUB · /moving-storage-dubai/ — owns `moving and storage dubai`
@@ -233,7 +234,7 @@ export default function MovingStorageDubaiPage() {
                   <h3 className="mb-2 font-semibold text-dubai-navy">Leaving the UAE</h3>
                   <p className="text-sm text-gray-600">
                     Sea freight, air freight, or store here while you decide.{" "}
-                    <Link href="/international-relocation" className="text-dubai-navy underline underline-offset-2">
+                    <Link href="/moving-storage-dubai/international-relocation" className="text-dubai-navy underline underline-offset-2">
                       International relocation from Dubai
                     </Link>{" "}
                     explains the options and the real timelines.
@@ -242,7 +243,7 @@ export default function MovingStorageDubaiPage() {
               </div>
               <p className="mt-8 text-gray-700">
                 Arriving rather than leaving? If this is your first move into the country, our{" "}
-                <Link href="/moving-to-dubai-2026" className="text-dubai-navy underline underline-offset-2">
+                <Link href="/guides/moving-to-dubai" className="text-dubai-navy underline underline-offset-2">
                   moving to Dubai guide
                 </Link>{" "}
                 covers the visa, housing and shipping sequence before any of the above applies to you.
@@ -409,12 +410,12 @@ export default function MovingStorageDubaiPage() {
                 </Link>{" "}
                 covers sizes, access and security. Household and long-stay storage sits under{" "}
                 {/* PHASE-2 LINK: → /personal-storage-dubai/ */}
-                <Link href="/personal-storage" className="text-dubai-navy underline underline-offset-2">
+                <Link href="/personal-storage-dubai" className="text-dubai-navy underline underline-offset-2">
                   personal storage
                 </Link>
                 , and commercial jobs are on{" "}
                 {/* PHASE-2 LINK: → /business-storage-dubai/ */}
-                <Link href="/business-storage" className="text-dubai-navy underline underline-offset-2">
+                <Link href="/business-storage-dubai" className="text-dubai-navy underline underline-offset-2">
                   business storage
                 </Link>
                 .
@@ -462,6 +463,7 @@ export default function MovingStorageDubaiPage() {
           </div>
         </section>
       </main>
+      <SiloHubLinks silo="s5" />
     </>
   )
 }

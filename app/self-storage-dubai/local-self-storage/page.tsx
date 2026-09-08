@@ -167,14 +167,14 @@ const coverage = [
   {
     band: "Central and coastal",
     areas: [
-      { name: "Dubai Marina", href: "/locations/dubai-marina" },
+      { name: "Dubai Marina", href: "/locations/dubai/dubai-marina" },
       { name: "JBR" },
-      { name: "Palm Jumeirah", href: "/locations/palm-jumeirah" },
-      { name: "Jumeirah 1–3", href: "/locations/jumeirah" },
+      { name: "Palm Jumeirah", href: "/locations/dubai/palm-jumeirah" },
+      { name: "Jumeirah 1–3", href: "/locations/dubai/jumeirah" },
       { name: "Umm Suqeim" },
       { name: "Al Wasl" },
-      { name: "Downtown Dubai", href: "/locations/downtown-dubai" },
-      { name: "Business Bay", href: "/locations/business-bay" },
+      { name: "Downtown Dubai", href: "/locations/dubai/downtown-dubai" },
+      { name: "Business Bay", href: "/locations/dubai/business-bay" },
       { name: "DIFC" },
       { name: "JLT" },
     ],
@@ -182,9 +182,9 @@ const coverage = [
   {
     band: "New Dubai and the villa communities",
     areas: [
-      { name: "JVC", href: "/locations/jumeirah-village-circle" },
+      { name: "JVC", href: "/locations/dubai/jumeirah-village-circle" },
       { name: "JVT" },
-      { name: "Dubai Hills", href: "/locations/dubai-hills" },
+      { name: "Dubai Hills", href: "/locations/dubai/dubai-hills" },
       { name: "Arabian Ranches" },
       { name: "DAMAC Hills" },
       { name: "Town Square" },
@@ -197,12 +197,12 @@ const coverage = [
   {
     band: "Established Dubai",
     areas: [
-      { name: "Al Barsha 1–3", href: "/locations/al-barsha" },
+      { name: "Al Barsha 1–3", href: "/locations/dubai/al-barsha" },
       { name: "Barsha Heights" },
-      { name: "Mirdif", href: "/locations/mirdif" },
+      { name: "Mirdif", href: "/locations/dubai/mirdif" },
       { name: "Al Warqa" },
       { name: "Rashidiya" },
-      { name: "Deira", href: "/locations/deira" },
+      { name: "Deira", href: "/locations/dubai/deira" },
       { name: "Bur Dubai" },
       { name: "Karama" },
       { name: "Oud Metha" },
@@ -212,15 +212,15 @@ const coverage = [
   {
     band: "East and south",
     areas: [
-      { name: "Dubai Silicon Oasis", href: "/locations/dubai-silicon-oasis" },
+      { name: "Dubai Silicon Oasis", href: "/locations/dubai/dubai-silicon-oasis" },
       { name: "Academic City" },
       { name: "International City" },
-      { name: "Dubai Investment Park", href: "/locations/dubai-investment-park" },
+      { name: "Dubai Investment Park", href: "/locations/dubai/dubai-investment-park" },
       { name: "Dubai South" },
-      { name: "Al Quoz", href: "/locations/al-quoz" },
-      { name: "Ras Al Khor", href: "/locations/ras-al-khor" },
-      { name: "Umm Ramool", href: "/locations/umm-ramool" },
-      { name: "Al Qusais", href: "/locations/al-qusais" },
+      { name: "Al Quoz", href: "/locations/dubai/al-quoz" },
+      { name: "Ras Al Khor", href: "/locations/dubai/ras-al-khor" },
+      { name: "Umm Ramool", href: "/locations/dubai/umm-ramool" },
+      { name: "Al Qusais", href: "/locations/dubai/al-qusais" },
     ],
   },
 ]
@@ -569,7 +569,7 @@ export default function LocalSelfStoragePage() {
                   container home costs more than storing for a year, and you don&rsquo;t yet know if the new job sticks.
                   Storing while you decide is the cheaper option surprisingly often. We deal with this constantly around
                   the end of the school year. See{" "}
-                  <Link href="/expat-leaving-uae" className="text-dubai-navy underline underline-offset-2">
+                  <Link href="/personal-storage-dubai/expat-storage" className="text-dubai-navy underline underline-offset-2">
                     storage for expats
                   </Link>
                   .
@@ -592,7 +592,7 @@ export default function LocalSelfStoragePage() {
                   <strong className="text-dubai-navy">Business overflow.</strong> Stock that outgrew the shop, company
                   records you&rsquo;re required to retain, exhibition kit used twice a year. That&rsquo;s a different
                   conversation —{" "}
-                  <Link href="/business-storage" className="text-dubai-navy underline underline-offset-2">
+                  <Link href="/business-storage-dubai" className="text-dubai-navy underline underline-offset-2">
                     business storage
                   </Link>{" "}
                   covers it.
@@ -685,9 +685,9 @@ export default function LocalSelfStoragePage() {
                 ))}
               </Accordion>
               <p className="mt-6 text-sm text-gray-600">
-                {/* PHASE-2 LINK: → /self-storage-dubai/prohibited-items/ */}
+                {/* PHASE-2 LINK: → /self-storage-dubai/self-storage-dubai/prohibited-items/ */}
                 Full list on our{" "}
-                <Link href="/prohibited-items" className="text-dubai-navy underline underline-offset-2">
+                <Link href="/self-storage-dubai/prohibited-items" className="text-dubai-navy underline underline-offset-2">
                   prohibited items page
                 </Link>
                 .

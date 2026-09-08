@@ -382,7 +382,7 @@ export default function StorageUnitsPage() {
                 it&rsquo;s a good trade. For a business rotating stock weekly, it isn&rsquo;t, and a drive-up unit or a
                 small warehouse bay is the right answer.{" "}
                 {/* PHASE-2 LINK: → /business-storage-dubai/ */}
-                <Link href="/business-storage" className="text-dubai-navy underline underline-offset-2">
+                <Link href="/business-storage-dubai" className="text-dubai-navy underline underline-offset-2">
                   Business storage
                 </Link>{" "}
                 covers those setups.
@@ -398,8 +398,8 @@ export default function StorageUnitsPage() {
                 Also worth thinking about: anything with liquid in it. Half a bottle of olive oil in a kitchen carton finds
                 its way into everything within four months. We empty and drain appliances at pickup, but pantry boxes are
                 usually packed by the customer. Full list on the{" "}
-                {/* PHASE-2 LINK: → /self-storage-dubai/prohibited-items/ */}
-                <Link href="/prohibited-items" className="text-dubai-navy underline underline-offset-2">
+                {/* PHASE-2 LINK: → /self-storage-dubai/self-storage-dubai/prohibited-items/ */}
+                <Link href="/self-storage-dubai/prohibited-items" className="text-dubai-navy underline underline-offset-2">
                   prohibited items page
                 </Link>{" "}
                 — ask for it before pickup day if you&rsquo;re unsure about anything in a cupboard.

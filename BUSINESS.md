@@ -223,8 +223,8 @@ into `/get-quote`.
 | Service pages | ~12 | Rank per storage type | /furniture-storage, /car-storage, /document-storage, /business-storage, /student-storage, /ecommerce-storage |
 | Location pages | 12 | Rank per Dubai community | /locations/dubai-marina, /locations/business-bay, /locations/palm-jumeirah, /locations/jumeirah-village-circle |
 | SEO hub & spoke | ~10 | Category authority | /self-storage-dubai, /storage-dubai, /storage-units-dubai, /cheap-storage-dubai |
-| Comparison / intent | ~5 | Capture shopping queries | /top-10-storage-companies-dubai, /top-10-storage-companies-uae, /pricing, /storage-size-guide |
-| Lifestyle / expat guides | ~6 | Top-of-funnel reach | /moving-to-dubai-2026, /dubai-cost-of-living-2026, /expat-leaving-uae, /international-relocation |
+| Comparison / intent | ~5 | Capture shopping queries | /guides/best-storage-companies-dubai, /guides/best-storage-companies-uae, /pricing, /storage-size-guide |
+| Lifestyle / expat guides | ~6 | Top-of-funnel reach | /guides/moving-to-dubai, /guides/dubai-cost-of-living, /expat-leaving-uae, /international-relocation |
 | Blog | 15 hand-written + CMS posts | Ongoing content | /blog, /blog/<slug> |
 | Trust & conversion support | ~8 | Reduce friction | /about, /how-it-works, /testimonials, /faq, /pricing, /contact |
 

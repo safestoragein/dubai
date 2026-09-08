@@ -124,7 +124,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">What areas of Dubai are covered?</h3>
-              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai covers every area of Dubai for door-to-door service. Our primary service zones include Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, Al Quoz, Dubai Investment Park, Motor City, Sports City, Deira, Bur Dubai, Mirdif, Arabian Ranches, The Springs, The Meadows, and all other Dubai communities. We also serve Sharjah and other UAE emirates through our extended coverage network. If you are unsure whether your location is covered, simply call us and we will confirm.</p>
+              <p className="text-gray-700 leading-relaxed">SafeStorage Dubai covers every area of Dubai for door-to-door service. Our primary service zones include Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, Al Quoz, Dubai Investment Park, Motor City, Sports City, Deira, Bur Dubai, Mirdif, Arabian Ranches, The Springs, The Meadows, and all other Dubai communities. We also serve Sharjah and other UAE emirates through our extended coverage network. See <Link href="/self-storage-dubai/local-self-storage" className="text-dubai-navy underline decoration-dubai-gold/60 underline-offset-2">local self storage across Dubai</Link> for coverage by community, or <Link href="/locations" className="text-dubai-navy underline decoration-dubai-gold/60 underline-offset-2">all the areas we collect from</Link> by emirate. If you are unsure whether your location is covered, simply call us and we will confirm.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-dubai-navy mb-2">Do you offer same-day pickup?</h3>
@@ -247,16 +247,16 @@ export default function LandingPage() {
               <h2 className="text-xl font-bold text-[#0A2463] mb-4">Specialized Storage Services</h2>
               <ul className="space-y-2">
                 {[
-                  { href: "/car-storage", label: "Car & Vehicle Storage Dubai" },
-                  { href: "/art-storage", label: "Art & Valuables Storage Dubai" },
-                  { href: "/electronics-storage", label: "Electronics Storage Dubai" },
-                  { href: "/furniture-storage", label: "Furniture Storage Dubai" },
-                  { href: "/ecommerce-storage", label: "E-commerce & Fulfilment Storage" },
-                  { href: "/document-storage", label: "Document & Records Storage" },
-                  { href: "/student-storage", label: "Student Storage Dubai" },
-                  { href: "/storage-size-guide", label: "Storage Unit Size Guide" },
-                  { href: "/expat-leaving-uae", label: "Expat Leaving UAE — Storage Guide" },
-                  { href: "/international-relocation", label: "International Relocation Storage" },
+                  { href: "/personal-storage-dubai/car-storage", label: "Car & Vehicle Storage Dubai" },
+                  { href: "/personal-storage-dubai/art-storage", label: "Art & Valuables Storage Dubai" },
+                  { href: "/personal-storage-dubai/electronics-storage", label: "Electronics Storage Dubai" },
+                  { href: "/personal-storage-dubai/furniture-storage", label: "Furniture Storage Dubai" },
+                  { href: "/business-storage-dubai/ecommerce-fulfilment", label: "E-commerce & Fulfilment Storage" },
+                  { href: "/business-storage-dubai/document-storage", label: "Document & Records Storage" },
+                  { href: "/personal-storage-dubai/student-storage", label: "Student Storage Dubai" },
+                  { href: "/self-storage-dubai/unit-sizes", label: "Storage Unit Size Guide" },
+                  { href: "/personal-storage-dubai/expat-storage", label: "Expat Leaving UAE — Storage Guide" },
+                  { href: "/moving-storage-dubai/international-relocation", label: "International Relocation Storage" },
                 ].map(({ href, label }) => (
                   <li key={href}>
                     <Link href={href} className="text-[#0A2463] text-sm hover:text-[#D8315B] hover:underline transition-colors">
@@ -270,14 +270,14 @@ export default function LandingPage() {
               <h2 className="text-xl font-bold text-[#0A2463] mb-4">Dubai Living Guides 2026</h2>
               <ul className="space-y-2">
                 {[
-                  { href: "/moving-to-dubai-2026", label: "Moving to Dubai 2026 — Complete Guide" },
-                  { href: "/dubai-cost-of-living-2026", label: "Dubai Cost of Living 2026" },
-                  { href: "/dubai-shopping-guide-2026", label: "Dubai Shopping Guide 2026" },
-                  { href: "/starting-business-dubai-2026", label: "Starting a Business in Dubai 2026" },
-                  { href: "/top-places-dubai-2026", label: "Top Places to Visit in Dubai 2026" },
-                  { href: "/top-10-storage-companies-dubai", label: "Top 10 Storage Companies in Dubai" },
-                  { href: "/top-10-storage-companies-uae", label: "Top 10 Storage Companies in UAE" },
-                  { href: "/storage-size-guide", label: "How Big a Storage Unit Do I Need?" },
+                  { href: "/guides/moving-to-dubai", label: "Moving to Dubai 2026 — Complete Guide" },
+                  { href: "/guides/dubai-cost-of-living", label: "Dubai Cost of Living 2026" },
+                  { href: "/guides/dubai-shopping-guide", label: "Dubai Shopping Guide 2026" },
+                  { href: "/guides/starting-a-business-in-dubai", label: "Starting a Business in Dubai 2026" },
+                  { href: "/guides/best-places-to-live-dubai", label: "Top Places to Visit in Dubai 2026" },
+                  { href: "/guides/best-storage-companies-dubai", label: "Top 10 Storage Companies in Dubai" },
+                  { href: "/guides/best-storage-companies-uae", label: "Top 10 Storage Companies in UAE" },
+                  { href: "/self-storage-dubai/unit-sizes", label: "How Big a Storage Unit Do I Need?" },
                   { href: "/blog", label: "Storage Tips & Guides Blog" },
                 ].map(({ href, label }) => (
                   <li key={href}>

@@ -32,9 +32,9 @@ export default function Header() {
     // internal link, from a child page. A site-wide nav link makes it the hub the
     // rest of the site treats it as.
     { href: "/self-storage-dubai", label: "Self Storage" },
-    { href: "/personal-storage", label: "Personal Storage" },
-    { href: "/business-storage", label: "Business Storage" },
-    { href: "/how-it-works", label: "How It Works" },
+    { href: "/personal-storage-dubai", label: "Personal Storage" },
+    { href: "/business-storage-dubai", label: "Business Storage" },
+    { href: "/self-storage-dubai/how-it-works", label: "How It Works" },
     { href: "/about", label: "About Us" },
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },

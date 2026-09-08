@@ -5,7 +5,7 @@ const services = [
   {
     emoji: "🏠",
     title: "Personal & Household Storage",
-    slug: "/personal-storage",
+    slug: "/personal-storage-dubai",
     body: "Moving to a new apartment? Renovating your villa? Or simply need more space at home? Our personal storage units keep your furniture, clothing, electronics, and seasonal items safe in secure, clean facilities across Dubai. Units start from 25 sq ft — perfect for a studio apartment's worth of belongings — up to 200+ sq ft for an entire villa's contents.",
     popular: "Families during villa renovations, expats relocating between areas, couples downsizing apartments.",
     color: "#0A2463",
@@ -13,7 +13,7 @@ const services = [
   {
     emoji: "💼",
     title: "Business & Commercial Storage",
-    slug: "/business-storage",
+    slug: "/business-storage-dubai",
     body: "Free up your office space without losing access to important inventory, documents, or equipment. Our business storage solutions include dedicated units with flexible terms that scale with your needs. No long-term contracts — store month-to-month as your business grows. 24/7 access means you can restock or retrieve inventory on your schedule.",
     popular: "E-commerce sellers, startups, law firms, accounting practices, retail businesses with seasonal stock.",
     color: "#1a4a8a",
@@ -21,7 +21,7 @@ const services = [
   {
     emoji: "📦",
     title: "Document & Records Archival",
-    slug: "/document-storage",
+    slug: "/business-storage-dubai/document-storage",
     body: "Compliance-ready document storage for businesses that need secure, organised records management. Our clean, dust-protected archival units keep paper documents, legal files, medical records, and financial statements safe for years. Catalogued access ensures you can retrieve specific boxes on demand without sorting through everything.",
     popular: "Law firms, medical practices, accounting firms, government contractors, banks.",
     color: "#7c3aed",
@@ -93,7 +93,7 @@ export default function ServicesOverview() {
             Not sure which service is right for you? Our storage consultants will help you find the perfect fit.
           </p>
           <Link
-            href="/services"
+            href="/self-storage-dubai"
             className="inline-flex items-center gap-2 text-dubai-navy font-semibold hover:text-dubai-gold transition-colors"
           >
             View all storage services <ArrowRight className="h-4 w-4" />

@@ -26,7 +26,7 @@ export interface ServiceCategory {
 export const serviceCategories: ServiceCategory[] = [
   {
     id: "household",
-    href: "/personal-storage",
+    href: "/personal-storage-dubai",
     name: "Household",
     icon: <Home className="h-5 w-5" />,
     description: "Safe storage for furniture, appliances, and personal belongings.",
@@ -41,7 +41,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "business",
-    href: "/business-storage",
+    href: "/business-storage-dubai",
     name: "Business",
     icon: <Briefcase className="h-5 w-5" />,
     description: "Secure storage for inventory, equipment, and office supplies.",
@@ -56,7 +56,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     id: "document",
-    href: "/document-storage",
+    href: "/business-storage-dubai/document-storage",
     name: "Document",
     icon: <FileText className="h-5 w-5" />,
     description: "Secure archiving for business and personal documents.",

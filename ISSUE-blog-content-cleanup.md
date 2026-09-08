@@ -129,7 +129,7 @@ checked:
 - `https://safestorage.ae/dubai` already returns **404**
 - no nginx `location` block for it (only `/blog-images/` and `/`)
 - no code references a bare `/dubai` path — the only matches are the legitimate pages
-  `/dubai-cost-of-living-2026` and `/dubai-shopping-guide-2026`, plus comments pointing at
+  `/guides/dubai-cost-of-living` and `/guides/dubai-shopping-guide`, plus comments pointing at
   the safestorage.in backend paths `/back/dubai/schedule_pickup`
   (`app/api/emails/pickup-confirmation/route.ts:8`) and `/back/dubai/manage_inventory`
   (`lib/email/welcome-note-template.ts:2`)

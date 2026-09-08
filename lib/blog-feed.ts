@@ -37,6 +37,9 @@
 // pages, and any cached variant re-introduces the 11.7 MB store spam.
 import "server-only"
 import https from "node:https"
+// blogSlug is the SAME function /blog/[slug] canonicalises to, so a withheld
+// slug here matches exactly the URL the post would otherwise be served at.
+import { blogSlug } from "@/lib/blog-post"
 
 const FEED = "https://safestorage.in/get_blog_content"
 const TTL_MS = 10 * 60 * 1000
@@ -246,10 +249,60 @@ export function peekFeedState(): {
  */
 let publishedMemo: { rows: any[]; out: any[] } | null = null
 
+/**
+ * Posts withheld by decision here, regardless of what the feed says.
+ *
+ * WHY THIS EXISTS
+ * ---------------
+ * Blog content is authored in the safestorage.in dashboard, so the only way to
+ * unpublish a post was to flip its status there. That is the right long-term
+ * fix and it should still be done — but it leaves this site advertising
+ * something it does not offer until somebody gets to the dashboard, and the
+ * post keeps appearing in the listing, the sitemap and the feed in the
+ * meantime.
+ *
+ * WHAT IS WITHHELD, AND WHY
+ * -------------------------
+ * The wine-storage post is an entire article selling wine and spirits storage.
+ * /self-storage-dubai/prohibited-items lists "Alcohol and liquor" as an item we
+ * do not store, so the article contradicted the site's own policy page, and
+ * alcohol storage in the UAE carries a licensing dimension beyond storage
+ * itself. The matching claims on /personal-storage-dubai/art-storage,
+ * /blog/what-can-you-store and /blog/summer-storage-dubai were removed at
+ * source; this one could not be, because it is not a file in this repo.
+ *
+ * Matching is on the SLUG, which is derived from the title (see blogSlug in
+ * lib/blog-post.ts) — so renaming the post in the dashboard changes its slug
+ * and it would reappear. Unpublishing it there is the durable answer.
+ *
+ * next.config.mjs 301s the URL to /self-storage-dubai/climate-controlled, which
+ * covers what heat and humidity actually do to stored goods. That is a real
+ * answer for anyone arriving on the old link, and it is why this is a redirect
+ * rather than the 410 used for posts that were genuinely deleted.
+ */
+const WITHHELD_SLUGS = new Set([
+  "wine-storage-dubai-keeping-your-collection-safe-in-the-uae-climate",
+])
+
+/**
+ * True when a post is withheld by decision.
+ *
+ * publishedOnly() keeps withheld posts out of the listing, the feed readers and
+ * the sitemap. /blog/[slug] reads the RAW feed rather than the filtered one —
+ * deliberately, so that a soft-deleted post still resolves at its own URL — so
+ * it has to check this itself, or the build emits a page that only the redirect
+ * in next.config.mjs keeps anyone from reading.
+ */
+export function isWithheldSlug(slug: string): boolean {
+  return WITHHELD_SLUGS.has(slug)
+}
+
 export function publishedOnly(rows: any[]): any[] {
   if (!Array.isArray(rows)) return []
   if (publishedMemo && publishedMemo.rows === rows) return publishedMemo.out
-  const out = rows.filter((r) => String(r?.status ?? "1") === "1")
+  const out = rows.filter(
+    (r) => String(r?.status ?? "1") === "1" && !WITHHELD_SLUGS.has(blogSlug(r?.title ?? "")),
+  )
   publishedMemo = { rows, out }
   return out
 }

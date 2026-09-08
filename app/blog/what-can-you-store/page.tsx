@@ -49,7 +49,7 @@ const allowed = [
   { category: "Electronics & Tech", items: ["TVs, monitors, projectors", "Computers, laptops, tablets", "Gaming consoles", "Cameras and audio equipment", "Servers and IT equipment"] },
   { category: "Clothing & Personal", items: ["Clothing and shoes", "Bags and luggage", "Belts and accessories", "Sports equipment", "Toys and games"] },
   { category: "Business & Commercial", items: ["Office furniture and equipment", "Inventory and stock", "Documents and archives", "Tools and equipment", "Display fixtures and signage"] },
-  { category: "Specialist Items", items: ["Artwork and paintings", "Musical instruments", "Wine and spirits", "Classic and collector vehicles", "Antiques and collectibles"] },
+  { category: "Specialist Items", items: ["Artwork and paintings", "Musical instruments", "Classic and collector vehicles", "Antiques and collectibles"] },
   { category: "Vehicles", items: ["Cars and SUVs", "Motorcycles and scooters", "Bicycles", "Boats and jet skis", "Classic and collector vehicles"] },
 ]
 
@@ -83,7 +83,7 @@ export default function WhatCanYouStorePage() {
 
         <article className="py-12">
           <div className="container px-4 max-w-4xl mx-auto prose prose-lg max-w-none text-gray-700">
-            <p className="text-xl leading-relaxed mb-8">The short answer: you can store almost anything in a Dubai storage unit — furniture, electronics, vehicles, business inventory, artwork, wine and much more. There are some clear prohibitions (flammables, hazardous materials, perishables) and some items that need specialist handling. Here's the complete picture.</p>
+            <p className="text-xl leading-relaxed mb-8">The short answer: you can store almost anything in a Dubai storage unit — furniture, electronics, vehicles, business inventory, artwork and much more. There are some clear prohibitions (flammables, hazardous materials, perishables) and some items that need specialist handling. Here's the complete picture.</p>
 
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-6">What You CAN Store — Comprehensive List</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
@@ -117,7 +117,6 @@ export default function WhatCanYouStorePage() {
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Items That Need Specialist Handling</h2>
             <div className="space-y-4 mb-8">
               {[
-                { item: "Wine and spirits", note: "Allowed. Keep bottles boxed and packed securely to prevent breakage. For long-term collections, ask about dedicated wine storage options." },
                 { item: "Vehicles", note: "Vehicles need dedicated vehicle bays, not standard storage units. Petrol tank should be at minimum level (not full). Disconnect battery for long-term storage. Ask about our vehicle storage pricing." },
                 { item: "Musical instruments", note: "Piano storage requires specialist knowledge and moving equipment. Declare high-value instruments at intake and pack them in their cases for protection." },
                 { item: "Medical or laboratory equipment", note: "Allowed but may require documentation of intended use. Contact us before booking if you have specific medical or lab equipment to store." },

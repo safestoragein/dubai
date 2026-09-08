@@ -4,11 +4,12 @@ import { m } from "framer-motion"
 import { MapPin } from "lucide-react"
 import Link from "next/link"
 
-// Each card carries an explicit `slug` for its location page. These used to link
+// Each card carries an explicit `slug` for its location page, resolved under
+// /locations/dubai/ since the emirate level was introduced. These used to link
 // to `#${name}` anchors — #al-barsha, #deira, #jlt and so on — but no element on
 // the homepage has any of those ids, so all six cards were dead clicks and six
 // internal links pointed nowhere. The JLT card is now Jumeirah: JLT has no
-// location page of its own (it is covered by /locations/dubai-marina), so it was
+// location page of its own (it is covered by /locations/dubai/dubai-marina), so it was
 // the one entry that could not be given a real destination.
 const locations = [
   {
@@ -79,7 +80,7 @@ export default function LocationSection() {
               transition={{ delay: index * 0.1 }}
               className="group"
             >
-              <Link href={`/locations/${location.slug}`} className="block">
+              <Link href={`/locations/dubai/${location.slug}`} className="block">
                 <div className="bg-white rounded-xl border p-6 shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/50">
                   <div className="flex items-start gap-4">
                     <div className="rounded-full bg-primary/10 p-3">

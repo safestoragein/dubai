@@ -9,6 +9,7 @@ import { toBlogPost } from "@/lib/blog-post"
 import { getBlogFeedSafe, getBlogFeedFresh, publishedOnly } from "@/lib/blog-feed"
 import { BLOG_AUTHOR, HOURS_DISPLAY } from "@/lib/company-facts"
 
+import { isWithheldSlug } from "@/lib/blog-feed"
 // ISR: regenerate at most once per hour
 export const revalidate = 3600
 
@@ -49,7 +50,11 @@ export async function generateStaticParams() {
       .map((post: any) => {
         const title = post.title || post.seo_title || ''
         const slug = generateSlug(title)
-        return slug ? { slug } : null
+        // Withheld posts must not be prerendered. next.config.mjs 301s them,
+        // so the page would be unreachable anyway — but building an orphan
+        // that only a redirect hides is one config edit away from publishing
+        // content that was deliberately withdrawn.
+        return slug && !isWithheldSlug(slug) ? { slug } : null
       })
       .filter(Boolean)
   } catch {

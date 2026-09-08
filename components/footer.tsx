@@ -45,116 +45,63 @@ export default function Footer() {
             <p className="text-dubai-sand/60 text-sm">6,700+ verified reviews worldwide</p>
           </div>
 
-          {/* Quick Links */}
+          {/* ---------------------------------------------------------------
+             * THE SILO BLOCK — five hubs, /locations, and the trust pages.
+             *
+             * This replaced a sitewide block of ten service links and twelve
+             * district links. That block put every page one hop from every
+             * other page on the site, which left Google no hierarchy to read
+             * and cancelled the silo structure on every page that rendered it.
+             *
+             * DO NOT add service or area pages back into the footer. They are
+             * reached through their hub. That is the entire point.
+             * ------------------------------------------------------------ */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium text-dubai-gold">Quick Links</h3>
+            <h3 className="text-lg font-medium text-dubai-gold">Storage</h3>
             <ul className="space-y-2 text-dubai-sand/80 text-sm">
-              <li>
-                <Link href="/" className="hover:text-dubai-gold transition-colors">Home</Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-dubai-gold transition-colors">About Us</Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-dubai-gold transition-colors">Services</Link>
-              </li>
-              <li>
-                <Link href="/self-storage-dubai/prices" className="hover:text-dubai-gold transition-colors">Pricing</Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-dubai-gold transition-colors">Contact</Link>
-              </li>
-              <li>
-                <Link href="/faq" className="hover:text-dubai-gold transition-colors">FAQs</Link>
-              </li>
-              <li>
-                <Link href="/blog" className="hover:text-dubai-gold transition-colors">Blog</Link>
-              </li>
-              <li>
-                <Link href="/prohibited-items" className="hover:text-dubai-gold transition-colors">Prohibited Items</Link>
-              </li>
-              <li>
-                <Link href="/top-10-storage-companies-dubai" className="hover:text-dubai-gold transition-colors">Top Storage Companies Dubai</Link>
-              </li>
-              <li>
-                <Link href="/top-10-storage-companies-uae" className="hover:text-dubai-gold transition-colors">Top Storage Companies UAE</Link>
-              </li>
-              <li>
-                <Link href="/privacy-policy" className="hover:text-dubai-gold transition-colors">Privacy Policy</Link>
-              </li>
-              <li>
-                <Link href="/terms-and-conditions" className="hover:text-dubai-gold transition-colors">Terms & Conditions</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Storage Types */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-dubai-gold">Storage Types</h3>
-            <ul className="space-y-2 text-dubai-sand/80 text-sm">
-              <li>
-                <Link href="/self-storage-dubai" className="hover:text-dubai-gold transition-colors">Self Storage Dubai</Link>
-              </li>
-              <li>
-                <Link href="/self-storage-dubai/storage-units" className="hover:text-dubai-gold transition-colors">Storage Unit Sizes &amp; Prices</Link>
-              </li>
-              <li>
-                <Link href="/personal-storage" className="hover:text-dubai-gold transition-colors">Personal Storage</Link>
-              </li>
-              <li>
-                <Link href="/business-storage" className="hover:text-dubai-gold transition-colors">Business Storage</Link>
-              </li>
-              {/* These must match the URLs linked from /services. The footer used to
-                  link a parallel /storage-dubai/* set, giving every service two live,
-                  self-canonicalising URLs that split ranking signals between them. */}
-              <li>
-                <Link href="/car-storage" className="hover:text-dubai-gold transition-colors">Vehicle Storage</Link>
-              </li>
-              <li>
-                <Link href="/document-storage" className="hover:text-dubai-gold transition-colors">Document Storage</Link>
-              </li>
-              <li>
-                <Link href="/ecommerce-storage" className="hover:text-dubai-gold transition-colors">E-commerce Storage</Link>
-              </li>
-              <li>
-                <Link href="/furniture-storage" className="hover:text-dubai-gold transition-colors">Furniture Storage</Link>
-              </li>
-              <li>
-                <Link href="/student-storage" className="hover:text-dubai-gold transition-colors">Student Storage</Link>
-              </li>
-              <li>
-                <Link href="/warehouse-storage-dubai" className="hover:text-dubai-gold transition-colors">Warehouse Storage</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Locations */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-dubai-gold">We Serve</h3>
-            <ul className="space-y-2 text-dubai-sand/80 text-sm">
-              {/* All 12 location pages are linked here. Previously only 4 were, so the
-                  other 8 received no internal equity and were crawled only via sitemap. */}
               {[
-                ["/locations/dubai-investment-park", "Dubai Investment Park"],
-                ["/locations/business-bay", "Business Bay"],
-                ["/locations/dubai-marina", "Dubai Marina"],
-                ["/locations/jumeirah", "Jumeirah"],
-                ["/locations/downtown-dubai", "Downtown Dubai"],
-                ["/locations/palm-jumeirah", "Palm Jumeirah"],
-                ["/locations/al-barsha", "Al Barsha"],
-                ["/locations/jumeirah-village-circle", "JVC"],
-                ["/locations/dubai-hills", "Dubai Hills"],
-                ["/locations/mirdif", "Mirdif"],
-                ["/locations/deira", "Deira"],
-                ["/locations/dubai-silicon-oasis", "Dubai Silicon Oasis"],
+                ["/self-storage-dubai", "Self Storage Dubai"],
+                ["/personal-storage-dubai", "Personal Storage"],
+                ["/business-storage-dubai", "Business Storage"],
+                ["/moving-storage-dubai", "Moving & Storage"],
+                ["/locations", "Locations"],
               ].map(([href, label]) => (
                 <li key={href}>
                   <Link href={href} className="hover:text-dubai-gold transition-colors">{label}</Link>
                 </li>
               ))}
-              <li>
-                <Link href="/locations" className="hover:text-dubai-gold transition-colors">All Locations →</Link>
-              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-dubai-gold">Company</h3>
+            <ul className="space-y-2 text-dubai-sand/80 text-sm">
+              {[
+                ["/about", "About Us"],
+                ["/guides", "Guides"],
+                ["/blog", "Blog"],
+                ["/faq", "FAQs"],
+                ["/testimonials", "Reviews"],
+                ["/contact", "Contact"],
+              ].map(([href, label]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-dubai-gold transition-colors">{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-dubai-gold">Legal</h3>
+            <ul className="space-y-2 text-dubai-sand/80 text-sm">
+              {[
+                ["/privacy-policy", "Privacy Policy"],
+                ["/terms-and-conditions", "Terms & Conditions"],
+              ].map(([href, label]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-dubai-gold transition-colors">{label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 

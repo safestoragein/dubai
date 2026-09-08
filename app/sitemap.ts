@@ -1,8 +1,16 @@
 import type { MetadataRoute } from "next"
 import { getTotalPages } from "@/lib/blog-listing"
 import { getBlogFeedSafe } from "@/lib/blog-feed"
-import { SHARJAH_AREAS } from "@/lib/sharjah-areas"
 import { AR_EMIRATES } from "@/lib/ar/registry"
+import { SILO_PAGES, HAND_WRITTEN } from "@/lib/silo/registry"
+import { allAreaPaths } from "@/lib/areas/registry"
+
+// The money page is listed explicitly above with a higher priority, so it is
+// filtered out here to avoid a duplicate entry the de-duplication would have
+// silently dropped at the wrong priority.
+const HAND_WRITTEN_SITEMAP = Object.keys(HAND_WRITTEN).filter(
+  (path) => path !== "/self-storage-dubai/local-self-storage",
+)
 
 // The slug helper this file used to carry went with the per-post URLs, to
 // /sitemap-blogs.xml. Both it and lib/blog-lastmod.ts build post URLs through
@@ -13,512 +21,71 @@ import { AR_EMIRATES } from "@/lib/ar/registry"
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://safestorage.ae"
 
-  // Create the base routes
-  const routes = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/self-storage-dubai/how-it-works`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/self-storage-dubai/prices`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/get-quote`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/testimonials`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/prohibited-items`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    // /thank-you removed from sitemap — post-form confirmation pages should not be indexed
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/terms-and-conditions`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.4,
-    },
+  // ---------------------------------------------------------------------
+  // Static routes.
+  //
+  // Generated from the same registries the pages render from — lib/silo for
+  // the commercial silos and the guides, lib/areas for Silo 4 — rather than
+  // hand-listed. The previous hand-maintained block still advertised /services
+  // and /storage-dubai months after both were retired, and would have needed a
+  // manual entry for every one of the pages added since.
+  //
+  // A sitemap must never list a URL that redirects, so nothing that appears as
+  // a `source` in next.config.mjs belongs here.
+  // ---------------------------------------------------------------------
+  const p = (
+    path: string,
+    priority: number,
+    changeFrequency: "weekly" | "monthly" | "yearly" = "monthly",
+  ) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(),
+    changeFrequency,
+    priority,
+  })
 
-    // Main category pages
-    {
-      url: `${baseUrl}/personal-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/warehouse-storage-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/business-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/self-storage-dubai/storage-units`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
+  const routes: MetadataRoute.Sitemap = [
+    // Home and the conversion path
+    p("", 1.0, "weekly"),
+    p("/get-quote", 0.9, "monthly"),
+    p("/contact", 0.8, "monthly"),
 
-    // Location pages
-    {
-      url: `${baseUrl}/locations`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/locations/business-bay`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/downtown-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/dubai-marina`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/palm-jumeirah`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/jumeirah`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/al-barsha`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/jumeirah-village-circle`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/dubai-hills`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/mirdif`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/deira`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/dubai-silicon-oasis`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/dubai-investment-park`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    // Industrial service areas. These target warehouse- and trade-intent queries
-    // ("warehouse al quoz", "storage ras al khor") rather than the residential
-    // storage intent the other location pages serve.
-    {
-      url: `${baseUrl}/locations/al-quoz`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/ras-al-khor`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/umm-ramool`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/al-qusais`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    // The five silo hubs. These are the top of the tree and the only
+    // cross-silo connectors on the site.
+    p("/self-storage-dubai", 0.95, "weekly"),
+    p("/personal-storage-dubai", 0.9, "weekly"),
+    p("/business-storage-dubai", 0.9, "weekly"),
+    p("/moving-storage-dubai", 0.9, "weekly"),
+    p("/locations", 0.9, "weekly"),
+    p("/guides", 0.8, "weekly"),
 
-    // Sharjah — an emirate-level page, not a Dubai district. Higher priority
-    // than the district pages because the city head terms carry the volume
-    // (~620/mo) while Sharjah district terms return none.
-    {
-      url: `${baseUrl}/locations/sharjah`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
+    // THE money page. `local self storage` is 2,400/mo at KD 16 and this is
+    // the one URL designated to receive the site's internal link equity.
+    p("/self-storage-dubai/local-self-storage", 0.95, "weekly"),
 
-    // Highest-volume page in the Sharjah set (~5,100/mo on the movers cluster).
-    {
-      url: `${baseUrl}/locations/ajman`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
+    // Hand-written silo children that are not in the content registry.
+    ...HAND_WRITTEN_SITEMAP.map((path) => p(path, 0.8)),
 
-    // Sharjah district pages. Generated from the same list the pages are built
-    // from, so a new area cannot be added to the site and forgotten here.
-    // Priority 0.6: these exist for coverage and internal linking, not because
-    // the district terms carry search volume.
-    ...SHARJAH_AREAS.map((a) => ({
-      url: `${baseUrl}/locations/sharjah/${a.slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    })),
+    // Every data-driven silo page and guide.
+    ...SILO_PAGES.map((page) => p(page.path, page.silo === "guides" ? 0.7 : 0.8)),
 
-    // --- Arabic (/ar) ---------------------------------------------------
-    // Sharjah has the highest Arabic-speaking share of the emirates we serve
-    // and the search-term report shows Arabic queries already arriving, so the
-    // Arabic Sharjah page carries the same priority as its English twin.
-    {
-      url: `${baseUrl}/ar/locations`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    ...AR_EMIRATES.map((e) => ({
-      url: `${baseUrl}/ar/locations/${e.slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: e.slug === "sharjah" ? 0.85 : 0.75,
-    })),
-    ...AR_EMIRATES.flatMap((e) =>
-      e.areas.map((a) => ({
-        url: `${baseUrl}/ar/locations/${e.slug}/${a.slug}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly" as const,
-        priority: 0.6,
-      }))
-    ),
+    // Silo 4 — every emirate hub and every area page, in both trees.
+    ...allAreaPaths().map((path) => p(path, path.split("/").length === 3 ? 0.85 : 0.7)),
 
-    // Top 10 Storage Company Ranking Pages (high-priority SEO)
-    {
-      url: `${baseUrl}/top-10-storage-companies-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.98,
-    },
-    {
-      url: `${baseUrl}/top-10-storage-companies-uae`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.98,
-    },
+    // Arabic mirror.
+    p("/ar/locations", 0.6),
+    ...AR_EMIRATES.flatMap((e) => [
+      p(`/ar/locations/${e.slug}`, 0.6),
+      ...e.areas.map((a) => p(`/ar/locations/${e.slug}/${a.slug}`, 0.5)),
+    ]),
 
-    // SEO Content Pages (2026 guides)
-    {
-      url: `${baseUrl}/dubai-cost-of-living-2026`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/dubai-shopping-guide-2026`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/moving-to-dubai-2026`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/starting-business-dubai-2026`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/top-places-dubai-2026`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-
-
-    // PILLAR 1: Self Storage Dubai
-    {
-      url: `${baseUrl}/self-storage-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      // SILO 5 HUB. `moving and storage dubai` is 1,900/mo at CPC AED 6.98 and
-      // the site had no page for it at all — the largest single gap in the plan.
-      url: `${baseUrl}/moving-storage-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      // ★ MONEY PAGE. Highest priority on the site after the homepage: it is the
-      // designated target for `local self storage` (2,400/mo, KD 16) and the
-      // destination of the 301 from the blog post that holds the current #7.
-      url: `${baseUrl}/self-storage-dubai/local-self-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/self-storage-dubai/short-term`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-
-
-    // NEW Service Pages
-    {
-      url: `${baseUrl}/car-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/art-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/electronics-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/furniture-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/ecommerce-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/student-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/document-storage`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/self-storage-dubai/unit-sizes`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/expat-leaving-uae`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/international-relocation`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-
-    // NEW Blog Posts (static)
-    {
-      url: `${baseUrl}/blog/self-storage-cost-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/summer-storage-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/packing-tips-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${baseUrl}/blog/long-term-storage-expats`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/renovation-storage-tips`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${baseUrl}/blog/what-can-you-store`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${baseUrl}/blog/small-business-storage`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/self-storage-guide-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/best-movers-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${baseUrl}/blog/villa-moving-guide-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${baseUrl}/blog/declutter-dubai-apartment`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${baseUrl}/blog/seasonal-ramadan-storage`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${baseUrl}/blog/storage-vs-bigger-home`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/mobile-storage-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${baseUrl}/blog/declutter-guide-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-
-
-    // /storage-dubai is deliberately absent: it was a near-duplicate head-term
-    // page competing with /self-storage-dubai for `storage dubai`, and now 301s
-    // there. A sitemap must not advertise a URL that redirects.
+    // Trust and content
+    p("/about", 0.8),
+    p("/testimonials", 0.7),
+    p("/faq", 0.8),
+    p("/blog", 0.8, "weekly"),
+    p("/privacy-policy", 0.3, "yearly"),
+    p("/terms-and-conditions", 0.3, "yearly"),
   ]
 
   // Fetch actual blog posts from API

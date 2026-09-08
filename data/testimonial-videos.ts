@@ -85,16 +85,6 @@ export const testimonialVideos: TestimonialVideo[] = [
     rating: 5,
   },
   {
-    videoId: "video-placeholder-9",
-    title: "Wine Collection Storage Solutions",
-    description:
-      "Thomas discusses how SafeStorage Dubai's secure, clean units kept his valuable collection safe and well organized. He explains the careful handling, security features, and accessibility that made it the perfect solution.",
-    customer: "Thomas Brown - Wine Collector",
-    category: "specialty",
-    rating: 5,
-    featured: true,
-  },
-  {
     videoId: "video-placeholder-10",
     title: "RV Storage During Summer in Dubai",
     description:

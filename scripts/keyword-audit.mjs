@@ -53,26 +53,93 @@ const REGISTER = [
   { kw: "storage dubai",                   owner: "/self-storage-dubai",
     // Every Silo 1 child's owned keyword contains this phrase.
     allow: ["/self-storage-dubai/"] },
-  { kw: "personal storage dubai",          owner: "/personal-storage" },
-  { kw: "business storage dubai",          owner: "/business-storage" },
+  { kw: "personal storage dubai",          owner: "/personal-storage-dubai" },
+  { kw: "business storage dubai",          owner: "/business-storage-dubai" },
   { kw: "moving and storage dubai",        owner: "/moving-storage-dubai" },
-  { kw: "warehouse storage dubai",         owner: "/warehouse-storage-dubai" },
-  { kw: "furniture storage dubai",         owner: "/furniture-storage" },
-  { kw: "car storage dubai",               owner: "/car-storage" },
-  { kw: "document storage dubai",          owner: "/document-storage" },
-  { kw: "student storage dubai",           owner: "/student-storage" },
+  { kw: "warehouse storage dubai",         owner: "/business-storage-dubai/warehouse-storage" },
+  { kw: "furniture storage dubai",         owner: "/personal-storage-dubai/furniture-storage" },
+  { kw: "car storage dubai",               owner: "/personal-storage-dubai/car-storage" },
+  { kw: "document storage dubai",          owner: "/business-storage-dubai/document-storage" },
+  { kw: "student storage dubai",           owner: "/personal-storage-dubai/student-storage" },
   // Terms these pages legitimately own. Without them the longest match on each
   // page falls back to the "storage dubai" head term and reports a page for
   // owning its own subject.
-  { kw: "art storage dubai",               owner: "/art-storage" },
-  { kw: "electronics storage dubai",       owner: "/electronics-storage" },
-  { kw: "ecommerce storage dubai",         owner: "/ecommerce-storage" },
-  { kw: "e-commerce storage dubai",        owner: "/ecommerce-storage" },
+  { kw: "art storage dubai",               owner: "/personal-storage-dubai/art-storage" },
+  { kw: "electronics storage dubai",       owner: "/personal-storage-dubai/electronics-storage" },
+  { kw: "ecommerce storage dubai",         owner: "/business-storage-dubai/ecommerce-fulfilment" },
+  { kw: "e-commerce storage dubai",        owner: "/business-storage-dubai/ecommerce-fulfilment" },
   { kw: "how self storage works",          owner: "/self-storage-dubai/how-it-works" },
-  { kw: "prohibited items",                owner: "/prohibited-items" },
+  { kw: "prohibited items",                owner: "/self-storage-dubai/prohibited-items" },
   { kw: "storage size guide",              owner: "/self-storage-dubai/unit-sizes" },
-  { kw: "best storage companies",          owner: "/top-10-storage-companies-dubai" },
-  { kw: "storage companies in dubai",      owner: "/top-10-storage-companies-dubai" },
+  { kw: "best storage companies",          owner: "/guides/best-storage-companies-dubai" },
+  { kw: "storage companies in dubai",      owner: "/guides/best-storage-companies-dubai" },
+
+  // ---- Silo 1, the pages that completed the hub -------------------------
+  { kw: "climate controlled storage dubai", owner: "/self-storage-dubai/climate-controlled" },
+  { kw: "safe and secure storage",          owner: "/self-storage-dubai/secure-storage" },
+  { kw: "secure storage dubai",             owner: "/self-storage-dubai/secure-storage" },
+  { kw: "24 hour storage dubai",            owner: "/self-storage-dubai/24-hour-access" },
+  { kw: "storage insurance dubai",          owner: "/self-storage-dubai/insurance" },
+  { kw: "self storage vs warehouse",        owner: "/self-storage-dubai/vs-warehouse-rental" },
+  { kw: "storage size calculator",          owner: "/self-storage-dubai/storage-calculator" },
+  { kw: "monthly storage dubai",            owner: "/self-storage-dubai/monthly-storage" },
+
+  // ---- Silo 2 -----------------------------------------------------------
+  { kw: "household storage dubai",          owner: "/personal-storage-dubai/household-storage" },
+  { kw: "apartment storage dubai",          owner: "/personal-storage-dubai/apartment-storage" },
+  { kw: "villa storage dubai",              owner: "/personal-storage-dubai/villa-storage" },
+  { kw: "bike storage dubai",               owner: "/personal-storage-dubai/motorbike-storage" },
+  { kw: "motorbike storage dubai",          owner: "/personal-storage-dubai/motorbike-storage" },
+  { kw: "luggage storage dubai",            owner: "/personal-storage-dubai/luggage-storage" },
+  { kw: "storage for expats dubai",         owner: "/personal-storage-dubai/expat-storage" },
+  { kw: "seasonal storage dubai",           owner: "/personal-storage-dubai/seasonal-storage" },
+  { kw: "storage during renovation",        owner: "/personal-storage-dubai/renovation-storage" },
+  { kw: "sports equipment storage",         owner: "/personal-storage-dubai/sports-equipment-storage" },
+  { kw: "clothes storage dubai",            owner: "/personal-storage-dubai/wardrobe-storage" },
+
+  // ---- Silo 3 -----------------------------------------------------------
+  { kw: "archive storage dubai",            owner: "/business-storage-dubai/archive-storage" },
+  { kw: "fulfilment centre dubai",          owner: "/business-storage-dubai/ecommerce-fulfilment" },
+  { kw: "3pl dubai",                        owner: "/business-storage-dubai/3pl-services" },
+  { kw: "inventory storage dubai",          owner: "/business-storage-dubai/inventory-storage" },
+  { kw: "pallet storage dubai",             owner: "/business-storage-dubai/pallet-storage" },
+  { kw: "retail storage dubai",             owner: "/business-storage-dubai/retail-stock-storage" },
+  { kw: "office storage dubai",             owner: "/business-storage-dubai/office-relocation-storage" },
+  { kw: "equipment storage dubai",          owner: "/business-storage-dubai/equipment-storage" },
+  { kw: "event storage dubai",              owner: "/business-storage-dubai/exhibition-storage" },
+  { kw: "exhibition storage dubai",         owner: "/business-storage-dubai/exhibition-storage" },
+  { kw: "free zone company storage",        owner: "/business-storage-dubai/free-zone-storage" },
+
+  // ---- Silo 4. The head term for the emirate hub, per §7 of the plan:
+  //      `self storage facilities in dubai` (1,600/mo) belongs to
+  //      /locations/dubai, NOT to /self-storage-dubai.
+  { kw: "self storage facilities in dubai", owner: "/locations/dubai" },
+  { kw: "self storage abu dhabi",           owner: "/locations/abu-dhabi" },
+  { kw: "storage abu dhabi",                owner: "/locations/abu-dhabi" },
+  { kw: "self storage sharjah",             owner: "/locations/sharjah" },
+  { kw: "self storage ajman",               owner: "/locations/ajman" },
+  { kw: "northern emirates self storage",   owner: "/locations/ras-al-khaimah" },
+  { kw: "self storage fujairah",            owner: "/locations/fujairah" },
+  { kw: "self storage umm al quwain",       owner: "/locations/umm-al-quwain" },
+  { kw: "self storage al ain",              owner: "/locations/al-ain" },
+
+  // ---- Silo 5 -----------------------------------------------------------
+  { kw: "international relocation dubai",   owner: "/moving-storage-dubai/international-relocation" },
+  { kw: "villa movers dubai",               owner: "/moving-storage-dubai/villa-movers" },
+  { kw: "apartment movers dubai",           owner: "/moving-storage-dubai/apartment-movers" },
+  { kw: "office movers dubai",              owner: "/moving-storage-dubai/office-movers" },
+  { kw: "packing services dubai",           owner: "/moving-storage-dubai/packing-services" },
+  { kw: "leaving uae checklist",            owner: "/moving-storage-dubai/leaving-uae-checklist" },
+
+  // ---- Guides -----------------------------------------------------------
+  { kw: "how much does storage cost in dubai", owner: "/guides/how-much-does-storage-cost-in-dubai" },
+  { kw: "storage packing checklist",        owner: "/guides/storage-packing-checklist" },
+  { kw: "dubai tenancy calendar",           owner: "/guides/dubai-tenancy-and-moving-calendar" },
+  { kw: "dubai cost of living",             owner: "/guides/dubai-cost-of-living" },
+  { kw: "moving to dubai",                  owner: "/guides/moving-to-dubai" },
+  { kw: "starting a business in dubai",     owner: "/guides/starting-a-business-in-dubai" },
+  { kw: "best places to live in dubai",     owner: "/guides/best-places-to-live-dubai" },
+  { kw: "dubai shopping guide",             owner: "/guides/dubai-shopping-guide" },
 ]
 
 /**

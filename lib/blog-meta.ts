@@ -81,13 +81,44 @@ const FEED_RULES: Array<[RegExp, string]> = [
   // Legacy service URLs. These now 301, so links still work, but pointing
   // editorial links straight at the canonical target avoids a redirect hop on
   // every one of them.
-  [/\/storage-dubai\/vehicle-storage/g, "/car-storage"],
-  [/\/storage-dubai\/records-archival/g, "/document-storage"],
-  [/\/storage-dubai\/ecommerce-fulfilment/g, "/ecommerce-storage"],
-  [/\/self-storage-dubai\/student-storage/g, "/student-storage"],
-  [/\/self-storage-dubai\/furniture-storage/g, "/furniture-storage"],
-  [/\/self-storage-dubai\/household-storage/g, "/personal-storage"],
-  [/\/self-storage-dubai\/how-it-works/g, "/how-it-works"],
+  [/\/storage-dubai\/vehicle-storage/g, "/personal-storage-dubai/car-storage"],
+  [/\/storage-dubai\/records-archival/g, "/business-storage-dubai/document-storage"],
+  [/\/storage-dubai\/ecommerce-fulfilment/g, "/business-storage-dubai/ecommerce-fulfilment"],
+  [/\/self-storage-dubai\/student-storage/g, "/personal-storage-dubai/student-storage"],
+  [/\/self-storage-dubai\/furniture-storage/g, "/personal-storage-dubai/furniture-storage"],
+  [/\/self-storage-dubai\/household-storage/g, "/personal-storage-dubai/household-storage"],
+
+  // Flat root URLs retired by the silo restructure. Ordered longest-first and
+  // anchored on a word boundary at the end, so /personal-storage does not eat
+  // the /personal-storage-dubai it is being rewritten to.
+  [/\/warehouse-storage-dubai\b/g, "/business-storage-dubai/warehouse-storage"],
+  [/\/international-relocation\b/g, "/moving-storage-dubai/international-relocation"],
+  [/\/electronics-storage\b/g, "/personal-storage-dubai/electronics-storage"],
+  [/\/furniture-storage\b/g, "/personal-storage-dubai/furniture-storage"],
+  [/\/document-storage\b/g, "/business-storage-dubai/document-storage"],
+  [/\/ecommerce-storage\b/g, "/business-storage-dubai/ecommerce-fulfilment"],
+  [/\/prohibited-items\b/g, "/self-storage-dubai/prohibited-items"],
+  [/\/expat-leaving-uae\b/g, "/personal-storage-dubai/expat-storage"],
+  [/\/student-storage\b/g, "/personal-storage-dubai/student-storage"],
+  [/\/business-storage(?!-dubai)\b/g, "/business-storage-dubai"],
+  [/\/personal-storage(?!-dubai)\b/g, "/personal-storage-dubai"],
+  [/\/car-storage\b/g, "/personal-storage-dubai/car-storage"],
+  [/\/art-storage\b/g, "/personal-storage-dubai/art-storage"],
+
+  // Guides lost the year from their slugs, so a feed link to the dated URL
+  // would take a redirect hop on every click.
+  [/\/top-10-storage-companies-dubai\b/g, "/guides/best-storage-companies-dubai"],
+  [/\/top-10-storage-companies-uae\b/g, "/guides/best-storage-companies-uae"],
+  [/\/dubai-cost-of-living-2026\b/g, "/guides/dubai-cost-of-living"],
+  [/\/moving-to-dubai-2026\b/g, "/guides/moving-to-dubai"],
+  [/\/starting-business-dubai-2026\b/g, "/guides/starting-a-business-in-dubai"],
+  [/\/top-places-dubai-2026\b/g, "/guides/best-places-to-live-dubai"],
+  [/\/dubai-shopping-guide-2026\b/g, "/guides/dubai-shopping-guide"],
+
+  // ⚠ NOT the other way round. /how-it-works now 301s TO the silo page, so a
+  // rule pointing at the root URL would send every editorial link through a
+  // redirect. This one was inverted by the restructure and is corrected here.
+  [/(?<!self-storage-dubai)\/how-it-works\b/g, "/self-storage-dubai/how-it-works"],
 
   // Upgrade our own domains to https. Third-party http links are left alone —
   // we cannot assume they support TLS.

@@ -262,7 +262,7 @@ export default function ThankYouPage() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-dubai-navy" asChild>
-                <Link href="/services">
+                <Link href="/self-storage-dubai">
                   Explore Our Services
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

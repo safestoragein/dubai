@@ -413,7 +413,7 @@ export default function StoragePricesPage() {
                   <strong className="text-dubai-navy">Don&rsquo;t store paperwork you can scan.</strong> Boxes of documents
                   are dense and heavy and mostly replaceable with a PDF. Businesses with a legal retention requirement are
                   a different case —{" "}
-                  <Link href="/business-storage" className="text-dubai-navy underline underline-offset-2">
+                  <Link href="/business-storage-dubai" className="text-dubai-navy underline underline-offset-2">
                     business storage
                   </Link>{" "}
                   covers archive rates.

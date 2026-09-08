@@ -119,7 +119,7 @@ export async function POST(request: Request) {
     // local path only if a caller omits it.
     kycUrl: (body.kycUrl ?? "").trim() || `${origin}/kyc`,
     warehouseMapUrl: process.env.NEXT_PUBLIC_WAREHOUSE_MAP_URL || `${origin}/contact`,
-    prohibitedUrl: `${origin}/prohibited-items`,
+    prohibitedUrl: `${origin}/self-storage-dubai/prohibited-items`,
     supportPhone: env.CONTACT_NUMBER,
     supportEmail: "support@safestorage.ae",
   }

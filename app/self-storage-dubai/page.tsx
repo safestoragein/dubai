@@ -6,6 +6,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Shield, Truck, Clock, Lock, ArrowRight, CheckCircle2, Package, MapPin } from "lucide-react"
 import Script from "next/script"
 import SchemaScript from "@/components/schema-script"
+import { SiloHubLinks } from "@/components/silo/silo-links"
+import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 export const metadata: Metadata = {
   title: { absolute: "Self Storage Dubai: Flexible Plans & No Lorry | SafeStorage" },
@@ -102,6 +104,12 @@ const pageSchemas = [
 export default function SelfStorageDubaiPage() {
   return (
     <>
+      <SiloBreadcrumb
+        trail={[
+          { name: "Home", href: "/" },
+          { name: "Self Storage Dubai" },
+        ]}
+      />
       <SchemaScript schema={pageSchemas} />
       <Script
         id="faq-schema"
@@ -500,7 +508,7 @@ export default function SelfStorageDubaiPage() {
                   return slug ? (
                     <Link
                       key={area}
-                      href={`/locations/${slug}`}
+                      href={`/locations/dubai/${slug}`}
                       className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow text-center group"
                     >
                       {card}
@@ -804,6 +812,7 @@ export default function SelfStorageDubaiPage() {
           </div>
         </section>
       </div>
+      <SiloHubLinks silo="s1" />
     </>
   )
 }

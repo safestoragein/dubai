@@ -4,6 +4,7 @@ import AreaPage from "@/components/locations/area-page"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { SHARJAH_AREAS, AREA_BY_SLUG } from "@/lib/sharjah-areas"
+import { SHARJAH } from "@/lib/areas/sharjah"
 import { emirateFaqs } from "@/lib/emirate-faqs"
 import { PRICE_PER_SQFT_AED, CCTV_COVERAGE, FACILITY_ACCESS_NOTE, RETRIEVAL_WINDOW } from "@/lib/company-facts"
 
@@ -132,7 +133,7 @@ export default async function SharjahAreaPage({
   return (
     <>
       <SchemaScript schema={schemas} />
-      <AreaPage area={area} />
+      <AreaPage area={area} emirate={SHARJAH} />
     </>
   )
 }

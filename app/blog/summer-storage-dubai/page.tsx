@@ -69,7 +69,6 @@ export default function SummerStorageDubaiPage() {
                 "Leather furniture and upholstery",
                 "Wooden furniture",
                 "Artwork and framed pictures",
-                "Wine and spirits collections",
                 "Musical instruments",
                 "Jewellery boxes and keepsakes",
                 "Photographs and printed materials",
