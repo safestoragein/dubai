@@ -68,7 +68,7 @@ const REGISTER = [
   { kw: "electronics storage dubai",       owner: "/electronics-storage" },
   { kw: "ecommerce storage dubai",         owner: "/ecommerce-storage" },
   { kw: "e-commerce storage dubai",        owner: "/ecommerce-storage" },
-  { kw: "how self storage works",          owner: "/how-it-works" },
+  { kw: "how self storage works",          owner: "/self-storage-dubai/how-it-works" },
   { kw: "prohibited items",                owner: "/prohibited-items" },
   { kw: "storage size guide",              owner: "/self-storage-dubai/unit-sizes" },
   { kw: "best storage companies",          owner: "/top-10-storage-companies-dubai" },
