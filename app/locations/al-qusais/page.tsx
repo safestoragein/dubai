@@ -354,7 +354,7 @@ export default function AlQusaisPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What does it cost for an Al Qusais business?</h3>
-            <p className="text-gray-700">Pricing is volume-based and opens at 12.65 AED per sqft including VAT, so you are charged for the area your goods take up rather than a fixed room size. Business requirements run from small shared lots to beyond 1,000 sq ft. Nothing is charged for setup, no minimum term applies, and no cost appears later that was not discussed. A consultant will price against your volume and how often you need to get at it. Detail sits on our <a href="/pricing" className="text-[#3E92CC] hover:underline">pricing page</a>.</p>
+            <p className="text-gray-700">Pricing is volume-based and opens at 12.65 AED per sqft including VAT, so you are charged for the area your goods take up rather than a fixed room size. Business requirements run from small shared lots to beyond 1,000 sq ft. Nothing is charged for setup, no minimum term applies, and no cost appears later that was not discussed. A consultant will price against your volume and how often you need to get at it. Detail sits on our <a href="/self-storage-dubai/prices" className="text-[#3E92CC] hover:underline">pricing page</a>.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can you empty a whole unit or flat in one visit?</h3>

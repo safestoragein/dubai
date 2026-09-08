@@ -38,7 +38,7 @@ export default function RelatedGuides({ currentSlug }: { currentSlug: string }) 
           <Link href="/prohibited-items" className="text-dubai-blue hover:underline">
             What you cannot store
           </Link>
-          <Link href="/pricing" className="text-dubai-blue hover:underline">
+          <Link href="/self-storage-dubai/prices" className="text-dubai-blue hover:underline">
             Storage pricing
           </Link>
           <Link href="/get-quote" className="text-dubai-blue hover:underline">

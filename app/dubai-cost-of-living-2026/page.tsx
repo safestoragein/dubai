@@ -513,7 +513,7 @@ export default function DubaiCostOfLiving2026() {
                 <Link href="/get-quote">See How Much You Can Save</Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-white text-[#0A2463] hover:bg-gray-100" asChild>
-                <Link href="/pricing">View Storage Pricing</Link>
+                <Link href="/self-storage-dubai/prices">View Storage Pricing</Link>
               </Button>
             </div>
           </div>

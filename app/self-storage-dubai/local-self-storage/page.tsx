@@ -33,12 +33,11 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
  *      source copy carried a [VERIFY] marker there; the sentence is written to
  *      be true without naming a number rather than inventing one.
  *
- * ⚠ Outbound links point at URLs that are live TODAY. Where the silo target
- * does not exist yet (/self-storage-dubai/prices/, /unit-sizes/, /how-it-works/,
- * /prohibited-items/, /personal-storage-dubai/, /business-storage-dubai/,
- * /moving-storage-dubai/, /locations/dubai/{area}/) this page links to the
- * current equivalent so nothing 404s. Re-point them as each silo page lands —
- * they are marked PHASE-2 LINK below.
+ * ⚠ Sibling links now point at real Silo 1 pages (/prices/, /unit-sizes/,
+ * /how-it-works/). The ones still pointing at a pre-silo URL are marked
+ * PHASE-2 LINK below — /prohibited-items, /expat-leaving-uae, /business-storage
+ * and /locations/{area} — and get re-pointed as those silo pages land. Nothing
+ * here 404s in the meantime, which is the rule: build the page, then redirect.
  */
 
 export const metadata: Metadata = {
@@ -498,13 +497,12 @@ export default function LocalSelfStoragePage() {
                 is. We ask about all three before quoting so there&rsquo;s no adjustment later.
               </p>
               <p className="mt-4 text-gray-700">
-                {/* PHASE-2 LINK: → /self-storage-dubai/prices/ and /self-storage-dubai/unit-sizes/ */}
                 Full breakdown on the{" "}
-                <Link href="/pricing" className="text-dubai-navy underline underline-offset-2">
+                <Link href="/self-storage-dubai/prices" className="text-dubai-navy underline underline-offset-2">
                   storage pricing page
                 </Link>
                 , and the{" "}
-                <Link href="/storage-size-guide" className="text-dubai-navy underline underline-offset-2">
+                <Link href="/self-storage-dubai/unit-sizes" className="text-dubai-navy underline underline-offset-2">
                   unit size guide
                 </Link>{" "}
                 if you want to sanity-check the space yourself before calling.
@@ -539,9 +537,8 @@ export default function LocalSelfStoragePage() {
                 })}
               </ol>
               <p className="mt-8 text-gray-700">
-                {/* PHASE-2 LINK: → /self-storage-dubai/how-it-works/ */}
                 Longer version on the{" "}
-                <Link href="/how-it-works" className="text-dubai-navy underline underline-offset-2">
+                <Link href="/self-storage-dubai/how-it-works" className="text-dubai-navy underline underline-offset-2">
                   how it works page
                 </Link>
                 .

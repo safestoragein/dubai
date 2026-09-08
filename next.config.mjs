@@ -106,6 +106,29 @@ const nextConfig = {
         permanent: true,
       },
 
+      // ---------------------------------------------------------------------
+      // SILO 1 — the MOVE and MERGE set.
+      //
+      // Each of these had a live page competing with the Silo 1 page that now
+      // owns its keyword. The register allows one owner per keyword; two live
+      // pages claiming one term is the split that kept this site off page one.
+      //
+      // /pricing and /cheap-storage-dubai MERGE into one page deliberately.
+      // Seven of this site's own URLs currently compete for `storage cost per
+      // month` — the worst cluster on the domain — and one page serving both the
+      // "what does it cost" and "what's cheapest" intent is what ends it.
+      //
+      // Every route file below is deleted in this same commit and every internal
+      // link re-pointed, so these catch external links and bookmarks rather than
+      // papering over our own.
+      // ---------------------------------------------------------------------
+      { source: '/storage-units-dubai',      destination: '/self-storage-dubai/storage-units', permanent: true },
+      { source: '/storage-size-guide',       destination: '/self-storage-dubai/unit-sizes',    permanent: true },
+      { source: '/short-term-storage-dubai', destination: '/self-storage-dubai/short-term',    permanent: true },
+      { source: '/how-it-works',             destination: '/self-storage-dubai/how-it-works',  permanent: true },
+      { source: '/pricing',                  destination: '/self-storage-dubai/prices',        permanent: true },
+      { source: '/cheap-storage-dubai',      destination: '/self-storage-dubai/prices',        permanent: true },
+
       // Fix broken internal links: /terms → /terms-and-conditions
       {
         source: '/terms',

@@ -81,7 +81,7 @@ export default function LandingPage() {
       <ComparisonSection />
       <div className="w-full bg-white py-8 flex justify-center">
         <Button variant="outline" size="lg" asChild>
-          <Link href="/how-it-works" className="group">
+          <Link href="/self-storage-dubai/how-it-works" className="group">
             Learn More About Our Process
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>

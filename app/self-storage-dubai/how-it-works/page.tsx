@@ -1,22 +1,23 @@
 import HowItWorksPage from "@/components/how-it-works/how-it-works-page"
 import SchemaScript from "@/components/schema-script"
+import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: { absolute: "Dubai Secure Safe Storage Process Explained | Safe Storage" },
+  title: { absolute: "How Self Storage Works in Dubai | Step by Step" },
   description:
     "Learn how Safe Storage works in Dubai & UAE – easy booking, pickup, secure storage, and fast delivery for homes & businesses.",
   keywords:
     "how storage works in Dubai, storage process Dubai, self storage guide Dubai, storage solutions UAE, safe storage guide Dubai, household storage process UAE, how to use storage units Dubai, secure storage services Dubai, personal storage guide UAE, business storage process Dubai, Safe Storage Dubai guide",
   alternates: {
-    canonical: "https://safestorage.ae/how-it-works",
-    languages: { 'en': 'https://safestorage.ae/how-it-works', 'x-default': 'https://safestorage.ae/how-it-works' },
+    canonical: "https://safestorage.ae/self-storage-dubai/how-it-works",
+    languages: { 'en': 'https://safestorage.ae/self-storage-dubai/how-it-works', 'x-default': 'https://safestorage.ae/self-storage-dubai/how-it-works' },
   },
   // See app/contact/page.tsx — omitting openGraph here made this page emit the
   // homepage og:url and og:title, contradicting its own canonical.
   openGraph: {
-    url: "https://safestorage.ae/how-it-works",
+    url: "https://safestorage.ae/self-storage-dubai/how-it-works",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
     type: "website",
@@ -32,10 +33,10 @@ const howItWorksSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': 'https://safestorage.ae/how-it-works#webpage',
+    '@id': 'https://safestorage.ae/self-storage-dubai/how-it-works#webpage',
     name: 'How It Works | SafeStorage Dubai Storage Process',
     description: 'Learn how SafeStorage Dubai\'s simple 4-step process works: book, we collect, you access anytime.',
-    url: 'https://safestorage.ae/how-it-works',
+    url: 'https://safestorage.ae/self-storage-dubai/how-it-works',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
   },
@@ -44,7 +45,7 @@ const howItWorksSchemas = [
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
-      { '@type': 'ListItem', position: 2, name: 'How It Works', item: 'https://safestorage.ae/how-it-works' },
+      { '@type': 'ListItem', position: 2, name: 'How It Works', item: 'https://safestorage.ae/self-storage-dubai/how-it-works' },
     ],
   },
 ]
@@ -52,6 +53,13 @@ const howItWorksSchemas = [
 export default function HowItWorks() {
   return (
     <>
+      <SiloBreadcrumb
+        trail={[
+          { name: "Home", href: "/" },
+          { name: "Self Storage Dubai", href: "/self-storage-dubai" },
+          { name: "How It Works" },
+        ]}
+      />
       <SchemaScript schema={howItWorksSchemas} />
       {/* Static header content for SEO — server-rendered */}
       <section className="bg-gradient-to-r from-[#0A2463] to-[#3E92CC] py-14 text-white">

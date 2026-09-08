@@ -59,7 +59,7 @@ export default function Footer() {
                 <Link href="/services" className="hover:text-dubai-gold transition-colors">Services</Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-dubai-gold transition-colors">Pricing</Link>
+                <Link href="/self-storage-dubai/prices" className="hover:text-dubai-gold transition-colors">Pricing</Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-dubai-gold transition-colors">Contact</Link>
@@ -96,7 +96,7 @@ export default function Footer() {
                 <Link href="/self-storage-dubai" className="hover:text-dubai-gold transition-colors">Self Storage Dubai</Link>
               </li>
               <li>
-                <Link href="/storage-units-dubai" className="hover:text-dubai-gold transition-colors">Storage Unit Sizes &amp; Prices</Link>
+                <Link href="/self-storage-dubai/storage-units" className="hover:text-dubai-gold transition-colors">Storage Unit Sizes &amp; Prices</Link>
               </li>
               <li>
                 <Link href="/personal-storage" className="hover:text-dubai-gold transition-colors">Personal Storage</Link>

@@ -288,7 +288,7 @@ export default function SelfStorageDubaiPage() {
                   <Button variant="outline" className="w-full" asChild>
                     {/* Link the real page, not /self-storage-dubai/storage-unit-sizes,
                         which only resolves through a 308 in next.config.mjs. */}
-                    <Link href="/storage-units-dubai">
+                    <Link href="/self-storage-dubai/storage-units">
                       View Size Guide <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -444,7 +444,7 @@ export default function SelfStorageDubaiPage() {
               
               <div className="mt-8 text-center">
                 <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                  <Link href="/how-it-works">
+                  <Link href="/self-storage-dubai/how-it-works">
                     See How It Works <ArrowRight className="ml-2" />
                   </Link>
                 </Button>
@@ -564,7 +564,7 @@ export default function SelfStorageDubaiPage() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                      <Link href="/pricing">View Pricing Guide</Link>
+                      <Link href="/self-storage-dubai/prices">View Pricing Guide</Link>
                     </Button>
                     <Button variant="outline" asChild>
                       <Link href="/get-quote">Get Your Quote</Link>

@@ -34,13 +34,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/how-it-works`,
+      url: `${baseUrl}/self-storage-dubai/how-it-works`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/pricing`,
+      url: `${baseUrl}/self-storage-dubai/prices`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
@@ -115,13 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/cheap-storage-dubai`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/storage-units-dubai`,
+      url: `${baseUrl}/self-storage-dubai/storage-units`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.95,
@@ -358,7 +352,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/short-term-storage-dubai`,
+      url: `${baseUrl}/self-storage-dubai/short-term`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.85,
@@ -409,7 +403,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/storage-size-guide`,
+      url: `${baseUrl}/self-storage-dubai/unit-sizes`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.85,

@@ -245,7 +245,7 @@ export default function WarehouseStorageDubaiPage() {
           </div>
           <p className="text-sm text-gray-600 mt-4">
             Not sure which you need? Tell us what you are storing and we will size it for
-            you — <Link href="/storage-size-guide" className="text-[#D8315B] underline">see the full size guide</Link>.
+            you — <Link href="/self-storage-dubai/unit-sizes" className="text-[#D8315B] underline">see the full size guide</Link>.
           </p>
         </div>
       </section>

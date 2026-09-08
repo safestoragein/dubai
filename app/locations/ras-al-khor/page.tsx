@@ -370,7 +370,7 @@ export default function RasAlKhorPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What does storage cost for a Ras Al Khor business?</h3>
-            <p className="text-gray-700">Charging is by volume and starts at 12.65 AED per sqft including VAT, so you are billed for the space your goods occupy rather than a fixed unit size. Business footprints run from small consolidated lots up to 1,000 sq ft and beyond. No setup fee, no minimum term, no charges introduced later. A consultant will price your requirement against volume, how often you need access, and collection frequency. Full detail sits on our <a href="/pricing" className="text-[#3E92CC] hover:underline">pricing page</a>.</p>
+            <p className="text-gray-700">Charging is by volume and starts at 12.65 AED per sqft including VAT, so you are billed for the space your goods occupy rather than a fixed unit size. Business footprints run from small consolidated lots up to 1,000 sq ft and beyond. No setup fee, no minimum term, no charges introduced later. A consultant will price your requirement against volume, how often you need access, and collection frequency. Full detail sits on our <a href="/self-storage-dubai/prices" className="text-[#3E92CC] hover:underline">pricing page</a>.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can you empty an entire showroom or workshop in Ras Al Khor?</h3>

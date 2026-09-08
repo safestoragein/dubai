@@ -296,7 +296,7 @@ export default function LocationsPage() {
               <Link href="/get-quote">Get Your Free Quote</Link>
             </Button>
             <Button size="lg" variant="outline" className="bg-white text-[#0A2463] hover:bg-gray-100" asChild>
-              <Link href="/pricing">View Pricing</Link>
+              <Link href="/self-storage-dubai/prices">View Pricing</Link>
             </Button>
           </div>
         </div>
