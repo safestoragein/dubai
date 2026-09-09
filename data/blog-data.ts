@@ -1,3 +1,14 @@
+// ⚠ These `slug` values are hand-written links into the CMS-authored blog, and
+// nothing in the build checks that the post they name still exists. On
+// 2026-09-09 three of the six were hard 404s and a fourth had been re-titled
+// (the slug is derived from the title and is never stored, so any re-title
+// breaks the link silently). Only the `featured` three render today, which is
+// the only reason this was one broken homepage link and not four.
+//
+// Re-check with:
+//   grep -o 'slug: "[^"]*"' data/blog-data.ts | cut -d'"' -f2 |
+//     xargs -I{} sh -c 'echo "$(curl -so /dev/null -w "%{http_code}" \
+//       https://safestorage.ae/blog/{}) {}"'
 import type { BlogPost, Comment } from "@/types/blog-types"
 
 // Sample comments for blog posts
@@ -113,7 +124,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 2,
-    slug: "safe-storage-services-in-dubai-best-storage-options-for-you",
+    slug: "safe-storage-services-in-dubai-discover-the-best-storage-options-for-you",
     title: "SafeStorage Services in Dubai: Best Storage Options For You",
     excerpt:
       "SafeStorage has become the leading and trusted storage provider in Dubai, offering fully monitored and secure dedicated household and commercial units",
@@ -281,7 +292,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 4,
-    slug: "business-storage-inventory-optimization",
+    slug: "business-storage-in-dubai-inventory-office-and-warehouse-solutions",
     title: "Business Storage Solutions: Optimizing Your Inventory",
     excerpt:
       "Learn how proper storage solutions can streamline your business operations and improve inventory management efficiency.",
@@ -414,7 +425,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 5,
-    slug: "moving-to-dubai-storage-guide",
+    slug: "moving-to-dubai-the-ultimate-checklist-for-a-smooth-relocation",
     title: "Moving to Dubai? Here's What You Need to Know About Storage",
     excerpt:
       "A comprehensive guide for expatriates and newcomers on navigating storage options when relocating to Dubai.",
@@ -529,7 +540,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 6,
-    slug: "smart-organization-storage-unit",
+    slug: "how-to-pack-a-personal-storage-unit-so-nothing-gets-damaged",
     title: "Smart Organization Tips for Your Storage Unit",
     excerpt:
       "Professional tips and strategies to organize your storage unit efficiently and make the most of every square foot.",

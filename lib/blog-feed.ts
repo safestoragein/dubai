@@ -40,6 +40,7 @@ import https from "node:https"
 // blogSlug is the SAME function /blog/[slug] canonicalises to, so a withheld
 // slug here matches exactly the URL the post would otherwise be served at.
 import { blogSlug } from "@/lib/blog-post"
+import { isRepointedBlogSlug } from "@/lib/blog-meta"
 
 const FEED = "https://safestorage.in/get_blog_content"
 const TTL_MS = 10 * 60 * 1000
@@ -300,9 +301,15 @@ export function isWithheldSlug(slug: string): boolean {
 export function publishedOnly(rows: any[]): any[] {
   if (!Array.isArray(rows)) return []
   if (publishedMemo && publishedMemo.rows === rows) return publishedMemo.out
-  const out = rows.filter(
-    (r) => String(r?.status ?? "1") === "1" && !WITHHELD_SLUGS.has(blogSlug(r?.title ?? "")),
-  )
+  const out = rows.filter((r) => {
+    if (String(r?.status ?? "1") !== "1") return false
+    const slug = blogSlug(r?.title ?? "")
+    // A post whose URL is redirected away is not reachable at its own address,
+    // so a listing card pointing at it is a redirect hop and the sitemap entry
+    // is an error. isRepointedBlogSlug covers the local-self-storage guide,
+    // whose commercial intent moved to /self-storage-dubai/local-self-storage.
+    return !WITHHELD_SLUGS.has(slug) && !isRepointedBlogSlug(slug)
+  })
   publishedMemo = { rows, out }
   return out
 }

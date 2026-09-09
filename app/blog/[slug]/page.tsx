@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { cache } from "react"
 import { notFound, permanentRedirect } from "next/navigation"
 import { blogImageUrl } from "@/lib/blog-image"
-import { normaliseFeedContent } from "@/lib/blog-meta"
+import { normaliseFeedContent, isRepointedBlogSlug, uniqueMetaTitle } from "@/lib/blog-meta"
 import { toBlogPost } from "@/lib/blog-post"
 import { getBlogFeedSafe, getBlogFeedFresh, publishedOnly } from "@/lib/blog-feed"
 import { BLOG_AUTHOR, HOURS_DISPLAY } from "@/lib/company-facts"
@@ -21,6 +21,32 @@ function generateSlug(title: string): string {
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
     .replace(/^-+|-+$/g, '')
+}
+
+/**
+ * Which post does this slug name?
+ *
+ * TITLE FIRST, id-prefix only as a fallback. The other way round — which is how
+ * this read until 2026-09-09 — hands any post whose title STARTS WITH A NUMBER
+ * to a completely different post: "10 Best Movers and Packers in Dubai 2026"
+ * has the slug 10-best-movers-…, `/^(\d+)-/` claimed it for post id 10, and the
+ * canonical redirect below then 308'd readers to post 10's article. Four posts
+ * were unreachable at their own URLs that way, all four of them in the sitemap,
+ * so Search Console saw four redirecting entries and Google indexed none of the
+ * articles. Their titles are ordinary listicle titles; more will be written.
+ *
+ * The id form still works, because links of the shape /blog/147-anything are in
+ * the feed and in the wild — it is just no longer allowed to outrank a post
+ * that genuinely owns the slug.
+ */
+function matchPost(rows: any[], slug: string): any {
+  const byTitle = rows.find((b: any) => generateSlug(b.title || b.seo_title || '') === slug)
+  if (byTitle) return byTitle
+
+  const idMatch = slug.match(/^(\d+)-/)
+  if (!idMatch) return undefined
+  const wantedId = parseInt(idMatch[1])
+  return rows.find((b: any) => (parseInt(b.post_id) || 0) === wantedId)
 }
 
 interface BlogPostPageProps {
@@ -54,7 +80,10 @@ export async function generateStaticParams() {
         // so the page would be unreachable anyway — but building an orphan
         // that only a redirect hides is one config edit away from publishing
         // content that was deliberately withdrawn.
-        return slug && !isWithheldSlug(slug) ? { slug } : null
+        // isRepointedBlogSlug covers the same hazard for posts that were
+        // re-titled or superseded: next.config.mjs 301s them, so prerendering
+        // one produces a page nothing can reach and the sitemap must not list.
+        return slug && !isWithheldSlug(slug) && !isRepointedBlogSlug(slug) ? { slug } : null
       })
       .filter(Boolean)
   } catch {
@@ -69,13 +98,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   try {
     const blogs = await fetchAllBlogs()
 
-    const post = blogs.find((b: any) => {
-      const title = b.title || b.seo_title || ''
-      const postId = parseInt(b.post_id) || 0
-      const idMatch = slug.match(/^(\d+)-/)
-      if (idMatch) return parseInt(idMatch[1]) === postId
-      return generateSlug(title) === slug
-    })
+    const post = matchPost(blogs, slug)
 
     if (!post) {
       return {
@@ -93,7 +116,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
     // Use seo_title for browser tab / Google title, seo_desc for meta description
     // Root layout template already appends "| SafeStorage Dubai" — do NOT add it here
-    const metaTitle = post.seo_title || post.title || "Blog"
+    const metaTitle = uniqueMetaTitle(post, blogs)
 
     // Generate unique description: use seo_desc, fallback to first 160 chars of plain-text content
     const rawDesc = normaliseFeedContent(post.seo_desc)
@@ -144,13 +167,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 function findPost(blogs: any[], slug: string): any {
   // publishedOnly, so a post deactivated in the dashboard 404s instead of
   // staying reachable at its own URL after it has been "deleted".
-  return publishedOnly(blogs).find((b: any) => {
-    const title = b.title || b.seo_title || ''
-    const postId = parseInt(b.post_id) || 0
-    const idMatch = slug.match(/^(\d+)-/)
-    if (idMatch) return parseInt(idMatch[1]) === postId
-    return generateSlug(title) === slug
-  })
+  return matchPost(publishedOnly(blogs), slug)
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -323,7 +340,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Get a Free Quote
             </a>
             <a
-              href="https://safestorage.ae/how-it-works"
+              href="https://safestorage.ae/self-storage-dubai/how-it-works"
               style={{
                 display: "inline-block",
                 background: "#fff",

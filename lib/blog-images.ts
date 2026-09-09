@@ -1,4 +1,9 @@
 // Random storage-related images from Unsplash
+//
+// ⚠ These are HOTLINKED, so a photo the uploader deletes becomes a broken image
+// on our pages with nothing in this repo changing. Three of the 55 had gone 404
+// by 2026-09-09 (checked with `curl -o /dev/null -w '%{http_code}'` over every
+// URL in the file). Re-check them whenever this list is edited.
 const storageImages = [
   'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', // Storage boxes
   'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80', // Warehouse
@@ -14,13 +19,13 @@ const storageImages = [
   'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80', // Storage room
   'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80', // Organized space
   'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80', // Boxes stacked
-  'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&q=80', // Clean storage
+  'https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=800&q=80', // Clean storage
 ]
 
 const businessImages = [
   'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80', // Office space
   'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', // Office interior
-  'https://images.unsplash.com/photo-1497366754035-f200581a8d4b?w=800&q=80', // Modern office
+  'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80', // Modern office
   'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80', // Business meeting
   'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80', // Business building
 ]
@@ -37,7 +42,7 @@ const sustainabilityImages = [
   'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80', // Green building
   'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80', // Solar panels
   'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80', // Green energy
-  'https://images.unsplash.com/photo-1569163139394-de4798aa62b6?w=800&q=80', // Sustainable
+  'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80', // Sustainable
   'https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=800&q=80', // Nature
 ]
 

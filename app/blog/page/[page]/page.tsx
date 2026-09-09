@@ -31,7 +31,11 @@ export async function generateMetadata({
   if (page === null) return {}
 
   const url = `https://safestorage.ae${pageHref(page)}`
-  const title = `Storage Tips & Guides | SafeStorage Dubai Blog — Page ${page}`
+  // The root layout appends "| SafeStorage Dubai", so naming the brand here too
+  // published "… SafeStorage Dubai Blog — Page 2 | SafeStorage Dubai" — 75
+  // characters, the brand twice, and Google truncating the half that says what
+  // the page is.
+  const title = `Storage Tips & Guides — Page ${page}`
   const description = `Page ${page} of expert storage tips, guides, and insights from SafeStorage Dubai.`
 
   return {

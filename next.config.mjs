@@ -241,6 +241,73 @@ const nextConfig = {
       { source: '/self-storage-dubai/faqs',              destination: '/faq',                                         permanent: true },
       { source: '/self-storage-dubai/near/:location',    destination: '/self-storage-dubai/near-me',                  permanent: true },
 
+      // ---------------------------------------------------------------------
+      // 2026-09-09 — URLs that were 404 on the live site.
+      //
+      // Found by crawling every page in both sitemaps and checking each
+      // internal link, rather than from the Semrush snapshot, which predates
+      // the silo restructure. The flat service URLs below were linked from
+      // editorial content and from outside; the blog slugs are posts that were
+      // re-titled in the safestorage.in dashboard, where the slug is derived
+      // from the title and never stored, so a title edit silently 404s every
+      // link that has ever been made to the post.
+      //
+      // lib/blog-meta.ts rewrites all of these in feed content so our own links
+      // land directly. These redirects are for everyone else's.
+      // ---------------------------------------------------------------------
+      { source: '/warehouse-storage',        destination: '/business-storage-dubai/warehouse-storage', permanent: true },
+      { source: '/short-term-storage',       destination: '/self-storage-dubai/short-term',            permanent: true },
+      { source: '/movers-dubai',             destination: '/moving-storage-dubai',                     permanent: true },
+      { source: '/car-storage-dubai',        destination: '/personal-storage-dubai/car-storage',       permanent: true },
+      { source: '/student-storage-dubai',    destination: '/personal-storage-dubai/student-storage',   permanent: true },
+      // "Bags and boxes between a checkout and a flight, or for months."
+      { source: '/box-storage-dubai',        destination: '/personal-storage-dubai/luggage-storage',   permanent: true },
+      { source: '/self-storage-dubai/secure', destination: '/self-storage-dubai/secure-storage',       permanent: true },
+
+      // Posts re-titled in the CMS. Keep in step with LEGACY_PATHS in
+      // lib/blog-meta.ts — that file rewrites our own links, this list catches
+      // Google's index and anyone else's.
+      {
+        source: '/blog/storage-facilities-in-dubai-the-complete-guide-to-secure-flexible-and-secure-self-storage-solutions',
+        destination: '/blog/storage-facilities-in-dubai-the-complete-guide-to-secure-flexible-and-climate-controlled-self-storage-solutions',
+        permanent: true,
+      },
+      {
+        source: '/blog/climate-controlled-storage-dubai-the-ultimate-guide-to-protecting-your-valuables-from-extreme-heat-and-humidity',
+        destination: '/blog/secure-storage-dubai-the-ultimate-guide-to-protecting-your-valuables-from-extreme-heat-and-humidity',
+        permanent: true,
+      },
+      {
+        source: '/blog/climate-controlled-storage-in-dubai-why-its-essential-for-uae-heat-and-humidity',
+        destination: '/blog/secure-storage-in-dubai-why-its-essential-for-uae-heat-and-humidity',
+        permanent: true,
+      },
+      {
+        source: '/blog/personal-self-storage-dubai-marina-climate-controlled-units-near-you',
+        destination: '/blog/personal-self-storage-dubai-marina-secure-storage-near-you',
+        permanent: true,
+      },
+      {
+        source: '/blog/safe-shifting-in-dubai-movers-packers-and-climate-controlled-storage',
+        destination: '/blog/safe-shifting-in-dubai-movers-packers-and-secure-storage',
+        permanent: true,
+      },
+      {
+        source: '/blog/safe-storage-in-dubai-climate-controlled-affordable-option',
+        destination: '/blog/rent-safe-storage-in-dubai-a-complete-guide-to-secure-storage-solutions',
+        permanent: true,
+      },
+      {
+        source: '/blog/short-term-storage-dubai-the-complete-guide-to-flexiblesecure-and-affordable-storage-solutions',
+        destination: '/blog/short-term-storage-dubai-a-complete-guide-for-storage-units',
+        permanent: true,
+      },
+      {
+        source: '/blog/personal-storage-dubai-for-newlyweds-merging-two-households',
+        destination: '/blog/personal-storage-dubai-when-it-is-your-things-not-a-whole-household',
+        permanent: true,
+      },
+
       // www → non-www for ALL pages (fixes hreflang conflicts and www 404s)
       {
         source: '/:path*',

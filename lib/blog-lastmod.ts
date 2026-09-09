@@ -29,7 +29,9 @@
 import "server-only"
 import mysql from "mysql2/promise"
 import { HASH_VERSION, contentHash, postUrl, type FeedRow } from "./seo-indexing"
-import { getBlogFeed } from "./blog-feed"
+import { getBlogFeed, isWithheldSlug } from "./blog-feed"
+import { isRepointedBlogSlug } from "./blog-meta"
+import { blogSlug } from "./blog-post"
 
 let pool: mysql.Pool | null = null
 
@@ -163,6 +165,20 @@ function planReconcile(rows: FeedRow[], stored: Map<number, StoredRow>): Plan {
 
     const url = postUrl(row)
     if (!url) {
+      plan.skipped++
+      continue
+    }
+
+    // A URL that does not serve this post must not be advertised as one.
+    //
+    // Two posts sat in the sitemap answering 301/308: the withheld wine article
+    // and the local-self-storage guide whose commercial intent moved to
+    // /self-storage-dubai/local-self-storage. Search Console reads a redirecting
+    // sitemap entry as an error on the sitemap, not as a helpful hint, and it
+    // spends crawl budget re-checking a URL we have already said is not the
+    // page. Anything this repo redirects away from is therefore excluded here.
+    const slug = blogSlug(row.title || row.seo_title || "")
+    if (isWithheldSlug(slug) || isRepointedBlogSlug(slug)) {
       plan.skipped++
       continue
     }

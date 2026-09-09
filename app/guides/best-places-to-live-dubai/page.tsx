@@ -64,7 +64,10 @@ const places = [
     ],
     bestTime: "Weekday mornings (10 AM) to avoid crowds",
     storageConnection: "Planning an extended stay to explore Dubai's innovation scene? We provide secure storage for your belongings, documents, and equipment while you're in the city.",
-    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyetJU4hidcRzV3nom4Zxs3X6i3QZVpVDel5JGUvGUlLJjdGIMX-TK7v-y7TwlAvH0XkN5yXvngfWWHNefseNEAwcRRect9Pxp34g2nh1Koww1F-LF2cEle87FxAtMJiCwu8fnGKiml4l4=s1360-w1360-h1020-rw"
+    // Was a lh3.googleusercontent.com Google-Maps photo URL, which is signed and
+    // short-lived: it answered 403 to every visitor and every crawler. Every
+    // other image on this page is an Unsplash URL, which is stable.
+    image: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=1200&q=80"
   },
   {
     id: 3,

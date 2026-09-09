@@ -344,12 +344,14 @@
   max-width: 680px;
   margin: 0 auto 44px;
 }
+.sectionHead h1,
 .sectionHead h2 {
   font-size: clamp(26px, 3.5vw, 37px);
   font-weight: 700;
   line-height: 1.14;
   margin-top: 14px;
 }
+.sectionHead h1 em,
 .sectionHead h2 em {
   font-style: normal;
   color: var(--accent);

@@ -78,62 +78,313 @@ const FEED_RULES: Array<[RegExp, string]> = [
   // Punctuation the editor typed is content, not a fact to reconcile, so it is
   // not rewritten here.
 
-  // Legacy service URLs. These now 301, so links still work, but pointing
-  // editorial links straight at the canonical target avoids a redirect hop on
-  // every one of them.
-  [/\/storage-dubai\/vehicle-storage/g, "/personal-storage-dubai/car-storage"],
-  [/\/storage-dubai\/records-archival/g, "/business-storage-dubai/document-storage"],
-  [/\/storage-dubai\/ecommerce-fulfilment/g, "/business-storage-dubai/ecommerce-fulfilment"],
-  [/\/self-storage-dubai\/student-storage/g, "/personal-storage-dubai/student-storage"],
-  [/\/self-storage-dubai\/furniture-storage/g, "/personal-storage-dubai/furniture-storage"],
-  [/\/self-storage-dubai\/household-storage/g, "/personal-storage-dubai/household-storage"],
-
-  // Flat root URLs retired by the silo restructure. Ordered longest-first and
-  // anchored on a word boundary at the end, so /personal-storage does not eat
-  // the /personal-storage-dubai it is being rewritten to.
-  [/\/warehouse-storage-dubai\b/g, "/business-storage-dubai/warehouse-storage"],
-  [/\/international-relocation\b/g, "/moving-storage-dubai/international-relocation"],
-  [/\/electronics-storage\b/g, "/personal-storage-dubai/electronics-storage"],
-  [/\/furniture-storage\b/g, "/personal-storage-dubai/furniture-storage"],
-  [/\/document-storage\b/g, "/business-storage-dubai/document-storage"],
-  [/\/ecommerce-storage\b/g, "/business-storage-dubai/ecommerce-fulfilment"],
-  [/\/prohibited-items\b/g, "/self-storage-dubai/prohibited-items"],
-  [/\/expat-leaving-uae\b/g, "/personal-storage-dubai/expat-storage"],
-  [/\/student-storage\b/g, "/personal-storage-dubai/student-storage"],
-  [/\/business-storage(?!-dubai)\b/g, "/business-storage-dubai"],
-  [/\/personal-storage(?!-dubai)\b/g, "/personal-storage-dubai"],
-  [/\/car-storage\b/g, "/personal-storage-dubai/car-storage"],
-  [/\/art-storage\b/g, "/personal-storage-dubai/art-storage"],
-
-  // Guides lost the year from their slugs, so a feed link to the dated URL
-  // would take a redirect hop on every click.
-  [/\/top-10-storage-companies-dubai\b/g, "/guides/best-storage-companies-dubai"],
-  [/\/top-10-storage-companies-uae\b/g, "/guides/best-storage-companies-uae"],
-  [/\/dubai-cost-of-living-2026\b/g, "/guides/dubai-cost-of-living"],
-  [/\/moving-to-dubai-2026\b/g, "/guides/moving-to-dubai"],
-  [/\/starting-business-dubai-2026\b/g, "/guides/starting-a-business-in-dubai"],
-  [/\/top-places-dubai-2026\b/g, "/guides/best-places-to-live-dubai"],
-  [/\/dubai-shopping-guide-2026\b/g, "/guides/dubai-shopping-guide"],
-
-  // ⚠ NOT the other way round. /how-it-works now 301s TO the silo page, so a
-  // rule pointing at the root URL would send every editorial link through a
-  // redirect. This one was inverted by the restructure and is corrected here.
-  [/(?<!self-storage-dubai)\/how-it-works\b/g, "/self-storage-dubai/how-it-works"],
+  // NOTE: legacy URL repointing is NOT done here any more. Substring rules on a
+  // path are unsafe — see LEGACY_PATHS below for what they did to 90 links.
 
   // Upgrade our own domains to https. Third-party http links are left alone —
   // we cannot assume they support TLS.
   [/http:\/\/(www\.)?safestorage\.(ae|in)/gi, "https://safestorage.$2"],
 ]
 
+/**
+ * Legacy internal paths and where they live now.
+ *
+ * ⚠ These are WHOLE PATHS, matched exactly, and they are applied in ONE pass.
+ * Both properties are load-bearing. The rules that used to live in FEED_RULES
+ * were substring regexes such as
+ *
+ *     [/\/document-storage\b/g, "/business-storage-dubai/document-storage"]
+ *
+ * and `\b` only anchors the END of the match. So an ALREADY-CORRECT link —
+ * /business-storage-dubai/document-storage — contains /document-storage and was
+ * rewritten again, producing
+ * /business-storage-dubai/business-storage-dubai/document-storage. Rules also
+ * fed each other: /storage-dubai/vehicle-storage became
+ * /personal-storage-dubai/car-storage, which a later /car-storage rule then
+ * doubled. And because `\b` matches before a hyphen, /car-storage matched
+ * inside /car-storage-dubai, and /business-storage inside the BLOG slug
+ * /blog/business-storage-in-business-bay-….
+ *
+ * Measured on the live site, 2026-09-09: 90 internal links across 100+ pages
+ * were 404 for exactly these three reasons — every one of them a link that was
+ * correct in the feed until this file touched it.
+ *
+ * Rules for adding an entry:
+ *   1. Key and value are complete paths, no trailing slash.
+ *   2. The value must be a page that returns 200 — never another key, or the
+ *      one-pass guarantee silently becomes a chain. assertNoChains() enforces
+ *      this in development.
+ *   3. Point at the FINAL destination, not at whatever 301s to it, so an
+ *      editorial link never costs a redirect hop.
+ */
+const LEGACY_PATHS: Record<string, string> = {
+  // ---- Silo 1: self storage -------------------------------------------
+  "/services": "/self-storage-dubai",
+  "/storage-dubai": "/self-storage-dubai",
+  "/pricing": "/self-storage-dubai/prices",
+  "/cheap-storage-dubai": "/self-storage-dubai/prices",
+  "/storage-units-dubai": "/self-storage-dubai/storage-units",
+  "/storage-size-guide": "/self-storage-dubai/unit-sizes",
+  "/short-term-storage": "/self-storage-dubai/short-term",
+  "/short-term-storage-dubai": "/self-storage-dubai/short-term",
+  "/how-it-works": "/self-storage-dubai/how-it-works",
+  "/prohibited-items": "/self-storage-dubai/prohibited-items",
+  "/local-self-storage-dubai": "/self-storage-dubai/local-self-storage",
+  "/self-storage-dubai/secure": "/self-storage-dubai/secure-storage",
+  "/self-storage-dubai/security-insurance": "/self-storage-dubai/secure-storage",
+  "/self-storage-dubai/short-term-moving-renovation": "/self-storage-dubai/short-term",
+  "/self-storage-dubai/storage-unit-sizes": "/self-storage-dubai/unit-sizes",
+  "/self-storage-dubai/faqs": "/faq",
+
+  // ---- Silo 2: personal storage ---------------------------------------
+  "/personal-storage": "/personal-storage-dubai",
+  "/self-storage-dubai/student-storage": "/personal-storage-dubai/student-storage",
+  "/self-storage-dubai/furniture-storage": "/personal-storage-dubai/furniture-storage",
+  "/self-storage-dubai/household-storage": "/personal-storage-dubai/household-storage",
+  "/furniture-storage": "/personal-storage-dubai/furniture-storage",
+  "/car-storage": "/personal-storage-dubai/car-storage",
+  "/car-storage-dubai": "/personal-storage-dubai/car-storage",
+  "/student-storage": "/personal-storage-dubai/student-storage",
+  "/student-storage-dubai": "/personal-storage-dubai/student-storage",
+  // "Box storage" is the luggage page's own subject: "Bags and boxes between a
+  // checkout and a flight, or for months."
+  "/box-storage-dubai": "/personal-storage-dubai/luggage-storage",
+  "/art-storage": "/personal-storage-dubai/art-storage",
+  "/electronics-storage": "/personal-storage-dubai/electronics-storage",
+  "/expat-leaving-uae": "/personal-storage-dubai/expat-storage",
+
+  // ---- Silo 3: business storage ---------------------------------------
+  "/business-storage": "/business-storage-dubai",
+  "/warehouse-storage": "/business-storage-dubai/warehouse-storage",
+  "/warehouse-storage-dubai": "/business-storage-dubai/warehouse-storage",
+  "/document-storage": "/business-storage-dubai/document-storage",
+  "/ecommerce-storage": "/business-storage-dubai/ecommerce-fulfilment",
+
+  // ---- Silo 4: moving --------------------------------------------------
+  "/movers-dubai": "/moving-storage-dubai",
+  "/international-relocation": "/moving-storage-dubai/international-relocation",
+
+  // ---- Retired /storage-dubai/* and /services/* nesting -----------------
+  "/storage-dubai/vehicle-storage": "/personal-storage-dubai/car-storage",
+  "/storage-dubai/records-archival": "/business-storage-dubai/document-storage",
+  "/storage-dubai/ecommerce-fulfilment": "/business-storage-dubai/ecommerce-fulfilment",
+  "/storage-dubai/business-storage": "/business-storage-dubai",
+  "/storage-dubai/warehouse-storage": "/business-storage-dubai/warehouse-storage",
+  "/storage-dubai/long-term-storage": "/self-storage-dubai/long-term",
+  "/storage-dubai/pricing-cost-guide": "/self-storage-dubai/prices",
+  "/storage-dubai/self-vs-full-service": "/self-storage-dubai/how-it-works",
+  "/services/climate-controlled": "/self-storage-dubai/climate-controlled",
+  "/services/document-storage": "/business-storage-dubai/document-storage",
+  "/services/ecommerce-storage": "/business-storage-dubai/ecommerce-fulfilment",
+  "/services/furniture-storage": "/personal-storage-dubai/furniture-storage",
+  "/services/vehicle-storage": "/personal-storage-dubai/car-storage",
+
+  // ---- Guides lost the year from their slugs ---------------------------
+  "/top-10-storage-companies-dubai": "/guides/best-storage-companies-dubai",
+  "/top-10-storage-companies-uae": "/guides/best-storage-companies-uae",
+  "/dubai-cost-of-living-2026": "/guides/dubai-cost-of-living",
+  "/moving-to-dubai-2026": "/guides/moving-to-dubai",
+  "/starting-business-dubai-2026": "/guides/starting-a-business-in-dubai",
+  "/top-places-dubai-2026": "/guides/best-places-to-live-dubai",
+  "/dubai-shopping-guide-2026": "/guides/dubai-shopping-guide",
+  "/terms": "/terms-and-conditions",
+
+  // ---- Areas moved under their emirate ---------------------------------
+  "/locations/al-barsha": "/locations/dubai/al-barsha",
+  "/locations/al-quoz": "/locations/dubai/al-quoz",
+  "/locations/al-qusais": "/locations/dubai/al-qusais",
+  "/locations/business-bay": "/locations/dubai/business-bay",
+  "/locations/deira": "/locations/dubai/deira",
+  "/locations/downtown": "/locations/dubai/downtown-dubai",
+  "/locations/downtown-dubai": "/locations/dubai/downtown-dubai",
+  "/locations/dubai-hills": "/locations/dubai/dubai-hills",
+  "/locations/dubai-investment-park": "/locations/dubai/dubai-investment-park",
+  "/locations/dubai-marina": "/locations/dubai/dubai-marina",
+  "/locations/dubai-silicon-oasis": "/locations/dubai/dubai-silicon-oasis",
+  "/locations/jumeirah": "/locations/dubai/jumeirah",
+  "/locations/jumeirah-village-circle": "/locations/dubai/jumeirah-village-circle",
+  "/locations/mirdif": "/locations/dubai/mirdif",
+  "/locations/palm-jumeirah": "/locations/dubai/palm-jumeirah",
+  "/locations/ras-al-khor": "/locations/dubai/ras-al-khor",
+  "/locations/umm-ramool": "/locations/dubai/umm-ramool",
+
+  // ---- Posts re-titled in the CMS --------------------------------------
+  //
+  // A post's slug is derived from its title and is never stored, so renaming a
+  // post in the safestorage.in dashboard silently 404s every link anyone has
+  // ever made to it — including the links in our own other posts. Six titles
+  // had "climate-controlled" swapped for "secure" in one editing pass.
+  // next.config.mjs 301s these too, for links we do not control.
+  "/blog/storage-facilities-in-dubai-the-complete-guide-to-secure-flexible-and-secure-self-storage-solutions":
+    "/blog/storage-facilities-in-dubai-the-complete-guide-to-secure-flexible-and-climate-controlled-self-storage-solutions",
+  "/blog/climate-controlled-storage-dubai-the-ultimate-guide-to-protecting-your-valuables-from-extreme-heat-and-humidity":
+    "/blog/secure-storage-dubai-the-ultimate-guide-to-protecting-your-valuables-from-extreme-heat-and-humidity",
+  "/blog/climate-controlled-storage-in-dubai-why-its-essential-for-uae-heat-and-humidity":
+    "/blog/secure-storage-in-dubai-why-its-essential-for-uae-heat-and-humidity",
+  "/blog/personal-self-storage-dubai-marina-climate-controlled-units-near-you":
+    "/blog/personal-self-storage-dubai-marina-secure-storage-near-you",
+  "/blog/safe-shifting-in-dubai-movers-packers-and-climate-controlled-storage":
+    "/blog/safe-shifting-in-dubai-movers-packers-and-secure-storage",
+  // No surviving post keeps this title. The anchor text on the one link is
+  // "safe storage in Dubai", which is what this post is.
+  "/blog/safe-storage-in-dubai-climate-controlled-affordable-option":
+    "/blog/rent-safe-storage-in-dubai-a-complete-guide-to-secure-storage-solutions",
+  "/blog/short-term-storage-dubai-the-complete-guide-to-flexiblesecure-and-affordable-storage-solutions":
+    "/blog/short-term-storage-dubai-a-complete-guide-for-storage-units",
+  "/blog/103-short-term-storage-dubai-the-complete-guide-to-flexiblesecure-and-affordable-storage-solutions":
+    "/blog/short-term-storage-dubai-a-complete-guide-for-storage-units",
+  "/blog/personal-storage-dubai-for-newlyweds-merging-two-households":
+    "/blog/personal-storage-dubai-when-it-is-your-things-not-a-whole-household",
+
+  // Two posts whose commercial intent is now served by a silo page.
+  "/blog/local-self-storage-the-ultimate-guide-to-the-best-storage-units-dubai-for-homes-businesses":
+    "/self-storage-dubai/local-self-storage",
+  "/blog/wine-storage-dubai-keeping-your-collection-safe-in-the-uae-climate":
+    "/self-storage-dubai/climate-controlled",
+
+  // Legacy "<post-id>-<slug>" links, and posts nginx already 301s after a
+  // re-title. Listed so an editorial link goes straight to the final URL.
+  "/blog/119-luxury-furniture-shifting-in-dubai-safe-storage-for-fine-wood-and-art":
+    "/blog/luxury-furniture-shifting-in-dubai-safe-storage-for-fine-wood-and-art",
+  "/blog/91-warehouse-vs-self-storage-dubai-a-professional-user-friendly-guide-for-smart-storage-decisions":
+    "/blog/warehouse-vs-self-storage-dubai-a-professional-user-friendly-guide-for-smart-storage-decisions",
+  "/blog/a-familys-guide-to-stress-free-storage-during-home-renovations":
+    "/blog/smart-self-storage-solutions-for-stress-free-home-renovation-in-dubai",
+  "/blog/cheap-storage-in-dubai-vs-premium-facilities-how-to-choose-a-moving-company-in-2026":
+    "/blog/cheap-storage-units-near-me-vs-premium-storage-how-to-choose-a-mover-in-dubai-2026",
+  "/blog/dubai-storage-companies-the-complete-professional-guide-to-safestorage-services":
+    "/blog/storage-in-dubai-a-complete-guide-by-safestorage",
+  "/blog/dubai-trusted-self-storage-company-safe-secure-storage-guide":
+    "/blog/top-self-storage-companies-in-dubai-safe-clean-and-low-cost-space",
+  "/blog/how-to-choose-the-right-moving-company-in-dubai-the-ultimate-guide-to-a-stress-free-transition":
+    "/blog/moving-company-dubai-your-complete-guide-to-a-stress-free-relocation",
+  "/blog/licensed-movers-in-dubai-stress-free-packing-and-secure-storage-services":
+    "/blog/villa-movers-and-packers-in-dubai-trusted-packing-and-secure-storage-services",
+  "/blog/local-home-shifting-services-in-al-barsha-safe-storage-for-home-renovation":
+    "/blog/storage-in-al-barsha-complete-guide-for-safe-and-flexible-storage-solutions",
+  "/blog/long-term-vs-short-term-storage-in-dubai-how-to-pick-the-best-storage-in-dubai":
+    "/blog/short-term-vs-long-term-storage-in-dubai-which-do-you-need",
+  "/blog/movers-in-dubai-the-expert-guide-to-stress-free-home-shifting":
+    "/blog/moving-company-dubai-your-complete-guide-to-a-stress-free-relocation",
+  "/blog/moving-and-storage-the-complete-guide-to-the-best-storage-units-dubai-for-stress-free-relocation":
+    "/blog/moving-company-dubai-your-complete-guide-to-a-stress-free-relocation",
+  "/blog/moving-packing-services-in-dubai-your-complete-guide-to-a-stress-free-move":
+    "/blog/packing-and-moving-services-in-dubai-your-complete-guide-to-a-stress-free-relocation",
+  "/blog/professional-movers-in-dubai-your-complete-guide-to-a-stress-free-move":
+    "/blog/moving-company-dubai-your-complete-guide-to-a-stress-free-relocation",
+}
+
+/**
+ * A destination must not itself be a key: the rewrite runs once per URL, so a
+ * chain would leave the first hop in place and publish a redirect (or a 404)
+ * that looks deliberate. Dev-only — this is a data mistake, not a runtime one.
+ */
+function assertNoChains(): void {
+  const chained = Object.entries(LEGACY_PATHS).filter(([, to]) => to in LEGACY_PATHS)
+  if (chained.length) {
+    throw new Error(
+      `LEGACY_PATHS destinations must be final, but these point at another key: ` +
+        chained.map(([from, to]) => `${from} -> ${to}`).join(", "),
+    )
+  }
+}
+if (process.env.NODE_ENV !== "production") assertNoChains()
+
+/**
+ * True when /blog/<slug> is repointed somewhere else by LEGACY_PATHS.
+ *
+ * Used by the sitemap reconcile so a post that has been re-titled, withdrawn or
+ * superseded by a silo page never appears in sitemap-blogs.xml at a URL that
+ * only answers with a redirect.
+ */
+export function isRepointedBlogSlug(slug: string): boolean {
+  return `/blog/${slug}` in LEGACY_PATHS
+}
+
+/** Our own origin, in the forms the feed actually uses. */
+const OWN_ORIGIN = /^https?:\/\/(?:www\.)?safestorage\.ae/i
+
+/**
+ * Rewrite ONE url-ish token. Anything that is not one of our paths — a
+ * third-party link, a mailto:, an anchor, a path we still serve — comes back
+ * untouched.
+ */
+function rewriteUrlToken(url: string): string {
+  const parts = url.match(/^((?:https?:\/\/(?:www\.)?safestorage\.ae)?)(\/[^?#\s"']*)([?#][^\s"']*)?$/i)
+  if (!parts) return url
+  const [, origin, rawPath, suffix = ""] = parts
+  // Trailing slashes are cosmetic in the feed; the site serves the bare path.
+  const path = rawPath.replace(/\/+$/, "")
+  const target = LEGACY_PATHS[path]
+  if (!target) return url
+  return `${origin ? "https://safestorage.ae" : ""}${target}${suffix}`
+}
+
+/**
+ * One editor left a closing quote off an href, so the next URL in the source
+ * was swallowed into it and the site published
+ * /locations/business-bayhttps://safestorage.ae/business-storage. The second
+ * URL is the one that was meant; keep it.
+ */
+const GLUED_HREF = /https?:\/\/(?:www\.)?safestorage\.ae\/[^\s"'<>]*?(https?:\/\/(?:www\.)?safestorage\.ae\/)/gi
+
+/**
+ * Repoint every one of our own legacy URLs in a block of feed HTML.
+ *
+ * Only attribute values and whole absolute URLs are considered, so prose that
+ * happens to read "our /pricing page" is never touched, and — because each URL
+ * is looked up as a COMPLETE path — a link that is already correct can never be
+ * rewritten into something that is not.
+ */
+export function rewriteFeedUrls(html: string): string {
+  return html
+    .replace(GLUED_HREF, "$1")
+    .replace(/\b(href|src)=("|')([^"']*)\2/gi, (_m, attr, q, value) => `${attr}=${q}${rewriteUrlToken(value)}${q}`)
+    .replace(/https?:\/\/(?:www\.)?safestorage\.ae\/[^\s"'<>)\]]*/gi, (u) => rewriteUrlToken(u))
+}
+
 export function normaliseFeedContent(text?: string | null): string {
   if (!text) return ""
   let out = text
   for (const [pattern, replacement] of FEED_RULES) out = out.replace(pattern, replacement)
-  return out
+  // After the https upgrade above, so an http:// legacy link is repointed too.
+  return rewriteFeedUrls(out)
 }
 
 /** @deprecated Use normaliseFeedContent — kept so existing call sites keep working. */
 export const normalisePrice = normaliseFeedContent
+
+/**
+ * The <title> for a post, guaranteed unique across the feed.
+ *
+ * `seo_title` is authored in the safestorage.in dashboard, which does not check
+ * it for uniqueness — so two posts can and do carry the same one, and the site
+ * then publishes two URLs declaring themselves the same page. Google picks one
+ * and the other competes with it for the same query.
+ *
+ * When a seo_title is shared, the LOWEST post id keeps it (stable across
+ * renders and across deploys — a rebuild must not reshuffle which post owns the
+ * title) and the others fall back to their own headline, which is what
+ * distinguishes them anyway. Giving both posts a distinct seo_title in the
+ * dashboard remains the real fix; this stops the collision reaching Google in
+ * the meantime.
+ */
+export function uniqueMetaTitle(post: any, rows: any[]): string {
+  const seo = String(post?.seo_title ?? "").trim()
+  const own = String(post?.title ?? "").trim()
+  if (!seo) return own || "Blog"
+
+  const id = Number(post?.post_id) || 0
+  let owner = Infinity
+  for (const r of rows) {
+    if (String(r?.seo_title ?? "").trim() !== seo) continue
+    if (String(r?.status ?? "1") !== "1") continue
+    const rid = Number(r?.post_id) || 0
+    if (rid < owner) owner = rid
+  }
+
+  return owner === Infinity || owner === id ? seo : own || seo
+}
 
 /**
  * Normalise a feed date into a valid ISO 8601 value for a <time dateTime="…">

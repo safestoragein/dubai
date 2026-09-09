@@ -61,9 +61,12 @@ export default function ArLocationsHub() {
         <section className={`${s.section} ${s.wrap}`} style={{ paddingBottom: 24 }}>
           <div className={s.sectionHead}>
             <span className={s.eyebrow}>{AR.serviceAreas}</span>
-            <h2>
+            {/* The page's only h1. It used to open on an h2, so /ar/locations was
+                the one page on the site with no h1 at all — the Arabic hub for
+                four emirates, with nothing telling a crawler what it is. */}
+            <h1>
               نخدم <em>أربع إمارات</em>
-            </h2>
+            </h1>
             <p>
               خدمة تخزين باستلام من باب المنزل من {PRICE_PER_SQFT_AED} درهم للقدم المربع شهرياً شامل الضريبة.
               اختر إمارتك للاطّلاع على المناطق والأسعار وطريقة العمل. تقييم {RATING_VALUE}/5 من{" "}
