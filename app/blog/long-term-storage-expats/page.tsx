@@ -6,7 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: { absolute: "Long-Term Storage Dubai for Expats — Complete Guide & Pricing" },
+  // <title> deliberately differs from the <h1> below. They were byte-identical,
+  // which spends the one line Google shows in the results on the same words the
+  // reader already sees at the top of the page. The h1 and every claim on the
+  // page are untouched; only the search-facing line changed.
+  title: { absolute: "Expat Storage Dubai | Leaving the UAE With Things to Keep" },
   description: "Long-term storage in Dubai for expats. Keep your furniture safely stored while you are abroad, from one month to several years, with no lock-in.",
   keywords: "long term storage dubai expats, expat storage dubai long term, 6 month storage dubai, 12 month storage dubai, year long storage dubai expat, remote storage management dubai",
   openGraph: {

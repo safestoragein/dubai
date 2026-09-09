@@ -6,7 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: { absolute: "Seasonal & Ramadan Storage Dubai — What to Store & When" },
+  // <title> deliberately differs from the <h1> below. They were byte-identical,
+  // which spends the one line Google shows in the results on the same words the
+  // reader already sees at the top of the page. The h1 and every claim on the
+  // page are untouched; only the search-facing line changed.
+  title: { absolute: "Ramadan and Seasonal Storage in Dubai | Space When Needed" },
   description: "Guide to seasonal storage in Dubai including Ramadan storage, Eid clearouts, summer storage, and managing seasonal items in Dubai's unique calendar.",
   keywords: "seasonal storage dubai, ramadan storage dubai, eid storage dubai, seasonal items storage dubai, holiday storage dubai, furniture storage ramadan",
   openGraph: {

@@ -6,7 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: { absolute: "How to Declutter Your Dubai Apartment — Step-by-Step Guide" },
+  // <title> deliberately differs from the <h1> below. They were byte-identical,
+  // which spends the one line Google shows in the results on the same words the
+  // reader already sees at the top of the page. The h1 and every claim on the
+  // page are untouched; only the search-facing line changed.
+  title: { absolute: "Declutter a Dubai Apartment | Sell, Store or Donate" },
   description: "How to declutter a Dubai apartment or villa room by room. What to keep, store, sell or donate — plus where to sell and donate locally.",
   keywords: "how to declutter dubai apartment, declutter dubai home, marie kondo dubai, minimalism dubai apartment, clear out apartment dubai, declutter before moving dubai",
   openGraph: {

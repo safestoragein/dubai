@@ -6,7 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, ArrowRight, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: { absolute: "How Much Does Self Storage Cost in Dubai? 2025 Price Guide" },
+  // <title> deliberately differs from the <h1> below. They were byte-identical,
+  // which spends the one line Google shows in the results on the same words the
+  // reader already sees at the top of the page. The h1 and every claim on the
+  // page are untouched; only the search-facing line changed.
+  title: { absolute: "Self Storage Cost Dubai | What You Actually Pay Per Month" },
   description: "Complete 2025 guide to self storage costs in Dubai. Unit prices by size, what's included, hidden fees to watch for, and how to get the best deal.",
   keywords: "self storage cost dubai, storage unit price dubai, how much is storage dubai, storage unit cost per month dubai, cheap storage dubai, affordable storage dubai 2025",
   openGraph: {

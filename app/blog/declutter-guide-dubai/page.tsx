@@ -6,7 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: { absolute: "Declutter Guide Dubai 2025 — Sell, Store, Donate or Dispose" },
+  // <title> deliberately differs from the <h1> below. They were byte-identical,
+  // which spends the one line Google shows in the results on the same words the
+  // reader already sees at the top of the page. The h1 and every claim on the
+  // page are untouched; only the search-facing line changed.
+  title: { absolute: "Decluttering in Dubai | What to Keep and What to Let Go" },
   description: "A practical Dubai decluttering guide: room-by-room method, where to sell and donate in the UAE, and what is worth putting into storage.",
   keywords: "declutter guide dubai 2025, how to declutter dubai, sell old stuff dubai, donate items dubai, storage declutter dubai, clear out home dubai",
   openGraph: {

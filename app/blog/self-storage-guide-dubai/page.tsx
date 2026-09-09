@@ -6,7 +6,11 @@ import RelatedGuides from "@/components/blog/related-guides"
 import { Phone, CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: { absolute: "Complete Self Storage Guide Dubai 2025 — Everything You Need to Know" },
+  // <title> deliberately differs from the <h1> below. They were byte-identical,
+  // which spends the one line Google shows in the results on the same words the
+  // reader already sees at the top of the page. The h1 and every claim on the
+  // page are untouched; only the search-facing line changed.
+  title: { absolute: "Self Storage in Dubai | A Practical Guide Before You Book" },
   description: "The definitive guide to self storage in Dubai. How it works, what it costs, how to choose, what to look for, and mistakes to avoid. Updated 2025.",
   keywords: "self storage guide dubai, how does self storage work dubai, self storage dubai 2025, choosing storage unit dubai, self storage tips dubai beginners guide",
   openGraph: {
