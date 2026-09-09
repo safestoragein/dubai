@@ -1,3 +1,4 @@
+import { arabicCounterpart } from "@/lib/ar/registry"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import AreaPage from "@/components/locations/area-page"
@@ -39,6 +40,8 @@ export async function generateMetadata({
   if (!area) return {}
 
   const url = `https://safestorage.ae/locations/${emirate.slug}/${area.slug}`
+
+  const ar = arabicCounterpart(emirate.slug, area.slug)
   const title = `Storage in ${area.name}, ${emirate.name} | Collection From Your Door`
   const description = `Self storage for ${area.name}, ${emirate.name} from ${PRICE_PER_SQFT_AED} AED/sqft. We collect from your door, wrap and load. No minimum term, partial retrieval.`
 
@@ -59,11 +62,12 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: url,
-      languages: {
-        "en-AE": url,
-        "ar-AE": `https://safestorage.ae/ar/locations/${emirate.slug}/${area.slug}`,
-        "x-default": url,
-      },
+      // Only claim an Arabic alternate when the Arabic page exists. Fifteen
+      // Dubai areas are English-only, and this used to advertise a 404 for
+      // every one of them.
+      languages: ar
+        ? { "en-AE": url, "ar-AE": `https://safestorage.ae${ar}`, "x-default": url }
+        : { "en-AE": url, "x-default": url },
     },
   }
 }

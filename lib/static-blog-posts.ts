@@ -9,7 +9,9 @@
 //   - components/blog/related-guides.tsx -> lateral links between the posts themselves
 //
 // When a new static post route is added, add it here too or it will be orphaned again.
-// app/sitemap.ts keeps its own hardcoded list of these slugs — update both.
+// app/sitemap.ts now iterates STATIC_POSTS directly, so there is no second list to
+// keep in step — it used to say there was, and the list it referred to had already
+// been deleted, which is how all 15 ended up in no sitemap at all.
 
 import { getRandomBlogImage } from "@/lib/blog-images"
 import type { ListingPost } from "@/lib/blog-listing"

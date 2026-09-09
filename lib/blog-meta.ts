@@ -329,6 +329,30 @@ function rewriteUrlToken(url: string): string {
 const GLUED_HREF = /https?:\/\/(?:www\.)?safestorage\.ae\/[^\s"'<>]*?(https?:\/\/(?:www\.)?safestorage\.ae\/)/gi
 
 /**
+ * Drop anchors whose entire content is whitespace.
+ *
+ * The CMS editor auto-links as you type, and a stray click leaves an <a> around
+ * a single space or &nbsp;. The reader sees nothing — there is no text to click
+ * — but the link is real, it is counted, and it can point anywhere. Two live
+ * examples, both invisible on the page:
+ *
+ *   <a href="http://safestorage.secure"> </a>SafeStorage. Secure warehousing…
+ *       — the editor built a "domain" out of the words either side of it.
+ *   <a href="https://safestorage.ae/self-storage-dubai?utm_source=chatgpt.com">&nbsp;</a>
+ *       — pasted from ChatGPT, tracking parameter and all, so an internal link
+ *         arrived carrying a campaign tag that splits the page's analytics.
+ *
+ * Unwrapping keeps the whitespace exactly where it was, so nothing moves on the
+ * page; only the anchor goes. Anchors around an <img> are untouched — they have
+ * no text either, but they are real links a reader can click.
+ */
+const EMPTY_ANCHOR = /<a\b[^>]*>((?:&nbsp;|&#160;|\s)*)<\/a>/gi
+
+export function stripEmptyAnchors(html: string): string {
+  return html.replace(EMPTY_ANCHOR, "$1")
+}
+
+/**
  * Repoint every one of our own legacy URLs in a block of feed HTML.
  *
  * Only attribute values and whole absolute URLs are considered, so prose that
@@ -348,7 +372,9 @@ export function normaliseFeedContent(text?: string | null): string {
   let out = text
   for (const [pattern, replacement] of FEED_RULES) out = out.replace(pattern, replacement)
   // After the https upgrade above, so an http:// legacy link is repointed too.
-  return rewriteFeedUrls(out)
+  // stripEmptyAnchors last: an anchor with no text is removed whatever its href
+  // turned out to be, so the two passes cannot disagree about it.
+  return stripEmptyAnchors(rewriteFeedUrls(out))
 }
 
 /** @deprecated Use normaliseFeedContent — kept so existing call sites keep working. */

@@ -30,12 +30,13 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: url,
+    // No hreflang pair: this emirate has no Arabic page. The block used to
+    // mirror /ar/locations/{emirate} unconditionally, which pointed Google at a
+    // 404 for Al Ain, Fujairah, Ras Al Khaimah and Umm Al Quwain — and an
+    // hreflang pointing at a 404 invalidates the cluster rather than simply
+    // being absent from it. Add the pair back with the Arabic page, not before.
     languages: {
       "en-AE": url,
-      // Mirrors the Arabic tree at /ar/locations/{emirate}. The English and
-      // Arabic paths now match segment for segment, which is what makes these
-      // hreflang pairs resolve — they did not before the re-path.
-      "ar-AE": `https://safestorage.ae/ar/locations/${emirate.slug}`,
       "x-default": url,
     },
   },

@@ -1,3 +1,4 @@
+import { arabicCounterpart } from "@/lib/ar/registry"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import AreaPage from "@/components/locations/area-page"
@@ -36,6 +37,8 @@ export async function generateMetadata({
   if (!area) return {}
 
   const url = `https://safestorage.ae/locations/sharjah/${area.slug}`
+
+  const ar = arabicCounterpart("sharjah", area.slug)
   const title = `Storage in ${area.name}, Sharjah | Collection From Your Door`
   const description = `Self storage for ${area.name}, Sharjah from ${PRICE_PER_SQFT_AED} AED/sqft. We collect from your door, wrap and load. No minimum term, partial retrieval.`
 
@@ -54,11 +57,11 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: url,
-      languages: {
-        "en-AE": url,
-        "ar-AE": `https://safestorage.ae/ar/locations/sharjah/${area.slug}`,
-        "x-default": url,
-      },
+      // Only claim an Arabic alternate when the Arabic page exists — see
+      // arabicCounterpart in lib/ar/registry.ts.
+      languages: ar
+        ? { "en-AE": url, "ar-AE": `https://safestorage.ae${ar}`, "x-default": url }
+        : { "en-AE": url, "x-default": url },
     },
   }
 }

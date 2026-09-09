@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next"
 import { getTotalPages } from "@/lib/blog-listing"
-import { getBlogFeedSafe } from "@/lib/blog-feed"
+import { getListingPosts } from "@/lib/blog-listing"
+import { STATIC_POSTS } from "@/lib/static-blog-posts"
 import { AR_EMIRATES } from "@/lib/ar/registry"
 import { SILO_PAGES, HAND_WRITTEN } from "@/lib/silo/registry"
 import { allAreaPaths } from "@/lib/areas/registry"
@@ -94,9 +95,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     // Shared memo rather than a fresh 11.7 MB download per sitemap request --
     // `cache: 'no-store'` here is what timed /sitemap.xml out (504) on 13 Aug.
-    const blogs = await getBlogFeedSafe()
+    const blogs = await getListingPosts()
 
-    // Individual post URLs are NOT listed here — they live in
+    // The 15 hand-written posts under app/blog/<slug>/ ARE listed here, because
+    // nothing else lists them. /sitemap-blogs.xml is built from blog_lastmod,
+    // which is built from the safestorage.in feed, and these posts have no feed
+    // row — so when individual post URLs moved out of this file they fell
+    // through the gap between the two sitemaps. Measured 2026-09-09: all 15
+    // returned 200, carried up to 47 inbound internal links, and appeared in
+    // neither sitemap.
+    //
+    // Their <lastmod> is the datePublished their own BlogPosting schema
+    // declares. These are static files in the repo; if one is edited the date
+    // in lib/static-blog-posts.ts is what should move.
+    for (const post of STATIC_POSTS) {
+      blogRoutes.push({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      })
+    }
+
+    // CMS post URLs are NOT listed here — they live in
     // /sitemap-blogs.xml, which publishes a real per-post <lastmod>.
     //
     // They used to be emitted from this loop as
@@ -105,12 +126,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // its publish date and an edit changed nothing a crawler could see. The
     // blog_lastmod table exists to answer that question; see lib/blog-lastmod.ts.
     //
-    // The feed is still fetched here because the listing-page count below
-    // depends on how many posts there are.
+    // The listing is still built here because the page count below depends on
+    // how many posts it actually paginates.
 
     // Paginated listing pages (/blog is already in `routes` as page 1). These carry
     // self-referencing canonicals and are the crawl path to every post, so they
     // belong in the sitemap.
+    // getListingPosts(), not the raw feed. The raw feed counts unpublished rows
+    // and omits the 15 static posts, so this was wrong in both directions —
+    // 293 raw against 303 actually listed, which put /blog/page/7 outside the
+    // sitemap while the listing linked to it from every other page.
     const totalListingPages = getTotalPages(blogs.length)
     for (let page = 2; page <= totalListingPages; page++) {
       blogRoutes.push({

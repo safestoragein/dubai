@@ -11,11 +11,11 @@ import { ABUDHABI_AREAS_AR } from "./areas-abudhabi"
  * warehouse in that emirate, and it points at lib/facilities.ts. Abu Dhabi is
  * null — collection-only — and its copy is written accordingly.
  *
- * ENGLISH COUNTERPARTS (drives hreflang):
- *   dubai      → /locations            (hub; there is no /locations/dubai page)
- *   sharjah    → /locations/sharjah    ✔ area-for-area
- *   ajman      → /locations/ajman      (emirate only; no English area pages)
- *   abu-dhabi  → none                  (Arabic-only for now)
+ * ENGLISH COUNTERPARTS (drives hreflang): the English tree now mirrors this one
+ * segment for segment, so the counterpart of /ar/locations/<x> is /locations/<x>
+ * and englishCounterpart() derives it rather than listing it. See the note on
+ * that function for what the hand-written list here used to claim, and what it
+ * cost once those claims expired.
  */
 export const AR_EMIRATES: ArEmirate[] = [
   {
@@ -186,13 +186,43 @@ export const AR_EMIRATES: ArEmirate[] = [
 
 export const AR_EMIRATE_BY_SLUG = Object.fromEntries(AR_EMIRATES.map((e) => [e.slug, e]))
 
-/** English counterpart path for hreflang, or null when none exists. */
+/**
+ * English counterpart path for hreflang, or null when none exists.
+ *
+ * ⚠ This used to be four hand-written rules asserting that /locations/dubai did
+ * not exist, that Ajman and Abu Dhabi had no English area pages, and that Dubai
+ * areas lived at /locations/<area>. All four were true when they were written
+ * and all four expired with the location restructure — and nothing failed, it
+ * just went quiet. Measured on the live site 2026-09-09: 23 Arabic pages
+ * declared NO English alternate although the English page existed and returned
+ * 200, and 17 more pointed at /locations/<area>, which is now a 308. Google
+ * discards a non-reciprocal or redirecting hreflang, so 40 of the 58 Arabic
+ * pages were annotated for nothing.
+ *
+ * The two trees now mirror each other segment for segment, so the counterpart
+ * is derived. Deriving it is the point: a path this returns can only go stale
+ * if the English page itself moves, and then it moves for every locale at once.
+ */
 export function englishCounterpart(emirate: string, area?: string): string | null {
-  if (emirate === "sharjah") {
-    return area ? `/locations/sharjah/${area}` : "/locations/sharjah"
-  }
-  if (emirate === "ajman" && !area) return "/locations/ajman"
-  if (emirate === "dubai" && !area) return "/locations"
-  if (emirate === "dubai" && area) return `/locations/${area}`
-  return null
+  const e = AR_EMIRATE_BY_SLUG[emirate]
+  if (!e) return null
+  if (!area) return `/locations/${emirate}`
+  return e.areas.some((a) => a.slug === area) ? `/locations/${emirate}/${area}` : null
+}
+
+/**
+ * Arabic counterpart path for an English page, or null when the page has not
+ * been translated.
+ *
+ * The English pages used to template this from their own slug unconditionally,
+ * so 18 of them advertised an Arabic alternate that 404s — 15 Dubai areas that
+ * exist only in English (JLT, Motor City, Al Furjan…) and the four emirates
+ * with no Arabic page at all. An hreflang pointing at a 404 is worse than none:
+ * it invalidates the cluster rather than just missing from it.
+ */
+export function arabicCounterpart(emirate: string, area?: string): string | null {
+  const e = AR_EMIRATE_BY_SLUG[emirate]
+  if (!e) return null
+  if (!area) return `/ar/locations/${emirate}`
+  return e.areas.some((a) => a.slug === area) ? `/ar/locations/${emirate}/${area}` : null
 }
