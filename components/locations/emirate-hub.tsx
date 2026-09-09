@@ -5,6 +5,7 @@ import { emirateFaqs } from "@/lib/emirate-faqs"
 import { storageLocationSentence } from "@/lib/facilities"
 import { SILOS, MONEY_PAGE, HUB_ORDER, moneyAnchor } from "@/lib/silo/silos"
 import type { EmirateDef } from "@/lib/areas/types"
+import { EMIRATES } from "@/lib/areas/registry"
 import {
   PRICE_PER_SQFT_AED,
   PHONE,
@@ -36,6 +37,7 @@ import {
  * why "do you cover my area" works without flattening the silo.
  */
 export default function EmirateHub({ emirate }: { emirate: EmirateDef }) {
+  const others = EMIRATES.filter((e) => e.slug !== emirate.slug)
   const base = `/locations/${emirate.slug}`
   const areas = [
     ...emirate.areas.map((a) => ({ slug: a.slug, name: a.name, blurb: a.blurb })),
@@ -211,6 +213,31 @@ export default function EmirateHub({ emirate }: { emirate: EmirateDef }) {
             </div>
           </div>
         </section>
+
+        {/* The other emirates.
+            Al Ain, Fujairah, Ras Al Khaimah and Umm Al Quwain had exactly ONE
+            inbound internal link each — the /locations index — because they have
+            no area pages feeding them, while Sharjah had 18 and Ajman 14. A page
+            reachable by a single link reads as an unimportant page. Linking the
+            hubs to each other costs nothing and is true: we serve all of them. */}
+        {others.length > 0 && (
+          <section className="border-t bg-white py-12">
+            <div className="container mx-auto px-4">
+              <h2 className="mb-6 text-center text-2xl font-bold">Storage in the other emirates</h2>
+              <div className="flex flex-wrap justify-center gap-3">
+                {others.map((e) => (
+                  <Link
+                    key={e.slug}
+                    href={`/locations/${e.slug}`}
+                    className="rounded-full border px-5 py-2.5 text-sm font-semibold text-dubai-navy hover:bg-gray-50"
+                  >
+                    Storage in {e.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="bg-dubai-navy py-16 text-white">
           <div className="container mx-auto px-4">

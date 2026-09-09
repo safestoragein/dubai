@@ -23,6 +23,7 @@ import {
 import { emirateFontVars } from "@/components/locations/fonts"
 import HeroPreload from "@/components/locations/hero-preload"
 import s from "@/components/locations/emirate-theme.module.css"
+import { EMIRATES } from "@/lib/areas/registry"
 
 /*
  * ONE Sharjah page, not ten.
@@ -677,6 +678,27 @@ export default function SharjahPage() {
         </section>
 
         {/* ---------- closing CTA ---------- */}
+        {/* The other emirates — the same strip EmirateHub renders, so every
+            emirate hub links to every other one. Sharjah and Ajman have their
+            own page files rather than using that component, and would otherwise
+            be the two holes in the ring. */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
+          <div className={s.sectionHead} style={{ marginBottom: 22 }}>
+            <h2 style={{ fontSize: 26 }}>Storage in the <em>other emirates</em></h2>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}>
+            {EMIRATES.filter((e) => e.slug !== "sharjah").map((e) => (
+              <Link
+                key={e.slug}
+                href={`/locations/${e.slug}`}
+                className={`${s.btn} ${s.btnGhost}`}
+              >
+                Storage in {e.name}
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className={s.wrap} style={{ paddingBottom: 72 }}>
           <div className={s.finalCta}>
             <h2>
