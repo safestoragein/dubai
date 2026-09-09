@@ -372,13 +372,51 @@ export function normaliseFeedContent(text?: string | null): string {
   let out = text
   for (const [pattern, replacement] of FEED_RULES) out = out.replace(pattern, replacement)
   // After the https upgrade above, so an http:// legacy link is repointed too.
-  // stripEmptyAnchors last: an anchor with no text is removed whatever its href
-  // turned out to be, so the two passes cannot disagree about it.
-  return stripEmptyAnchors(rewriteFeedUrls(out))
+  // repairExternalLinks then fixes or unwraps outbound links that do not
+  // resolve, and stripEmptyAnchors runs last: an anchor with no text goes
+  // whatever its href turned out to be, so the passes cannot disagree about it.
+  return stripEmptyAnchors(repairExternalLinks(rewriteFeedUrls(out)))
 }
 
 /** @deprecated Use normaliseFeedContent — kept so existing call sites keep working. */
 export const normalisePrice = normaliseFeedContent
+
+/**
+ * External URLs in the feed that do not resolve, and what they were meant to be.
+ *
+ * Kept tiny and explicit on purpose: guessing at somebody else's citation is
+ * worse than leaving it. Each entry here was checked by hand.
+ */
+const BROKEN_EXTERNAL: Record<string, string> = {
+  // A one-character typo of our own domain — and the anchor text is literally
+  // "afestorage.ae", so the author meant to name the site, not link elsewhere.
+  "http://afestorage.ae": "https://safestorage.ae",
+  // u.ae reorganised its business section; this exact page is a 404 and the
+  // parent it moved under answers the same question.
+  "https://u.ae/en/information-and-services/business/small-and-medium-enterprises":
+    "https://u.ae/en/information-and-services/business",
+}
+
+/**
+ * Anchors whose href has a host with no dot in it — `http://vehi`,
+ * `http://jumeirah`.
+ *
+ * These are not links anyone typed. The CMS editor auto-links as you type, and
+ * catching a partial word turns it into a "domain": "vehicle storage" became
+ * `http://vehi`, the place name Jumeirah became `http://jumeirah`. A host with
+ * no dot cannot resolve on the public internet, so there is nothing to repair —
+ * the anchor comes off and the words stay, exactly as with an empty anchor.
+ */
+const HOSTLESS_ANCHOR = /<a\b[^>]*\bhref="https?:\/\/[^"./?#\s]+"[^>]*>([\s\S]*?)<\/a>/gi
+
+export function repairExternalLinks(html: string): string {
+  if (!html) return ""
+  let out = html
+  for (const [from, to] of Object.entries(BROKEN_EXTERNAL)) {
+    out = out.split(`href="${from}"`).join(`href="${to}"`)
+  }
+  return out.replace(HOSTLESS_ANCHOR, "$1")
+}
 
 /**
  * Unwrap links to blog posts that are no longer served.
