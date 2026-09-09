@@ -110,6 +110,17 @@ const pageSchemas = [
     "@type": "SelfStorage",
     "@id": "https://safestorage.ae/self-storage-dubai/local-self-storage#business",
     name: "SafeStorage — Local Self Storage Dubai",
+    // address is REQUIRED on a LocalBusiness subtype, and SelfStorage is one.
+    // Without it the entity is invalid and the local signals on this page — the
+    // money page for "local self storage" — are simply not read.
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Building 23, Warehouse 5, DIP-1",
+      addressLocality: "Dubai",
+      addressRegion: "Dubai",
+      postalCode: "00000",
+      addressCountry: "AE",
+    },
     url: "https://safestorage.ae/self-storage-dubai/local-self-storage",
     telephone: "+971505773388",
     email: "support@safestorage.ae",

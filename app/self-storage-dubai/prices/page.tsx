@@ -176,6 +176,11 @@ const pageSchemas = [
     "@type": "Product",
     "@id": "https://safestorage.ae/self-storage-dubai/prices#product",
     name: "Storage in Dubai — Pricing",
+    // image is REQUIRED on Product — Google drops the whole item without it, and
+    // Semrush reports it as an invalid structured-data item. The two Products the
+    // shared schema emits both carry one; this page-level Product was written
+    // without.
+    image: "https://safestorage.ae/images/storage-facility-background.png",
     description:
       "Door-to-door storage in Dubai from AED 12.65 per square foot per month, with collection, packing materials, transport and a photographed digital inventory included in the quote.",
     brand: { "@type": "Brand", name: "SafeStorage" },

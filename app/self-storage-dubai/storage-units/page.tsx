@@ -117,6 +117,11 @@ const pageSchemas = [
     "@type": "Product",
     "@id": "https://safestorage.ae/self-storage-dubai/storage-units#product",
     name: "Storage Units in Dubai",
+    // image is REQUIRED on Product — Google drops the whole item without it, and
+    // Semrush reports it as an invalid structured-data item. The two Products the
+    // shared schema emits both carry one; this page-level Product was written
+    // without.
+    image: "https://safestorage.ae/images/storage-facility-background.png",
     description:
       "Racked, palletised and barcoded storage units in Dubai from 30 to 270+ sq ft, with door-to-door collection, packing and a photographed digital inventory.",
     brand: { "@type": "Brand", name: "SafeStorage" },

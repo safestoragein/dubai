@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { cache } from "react"
 import { notFound, permanentRedirect } from "next/navigation"
 import { blogImageUrl } from "@/lib/blog-image"
-import { normaliseFeedContent, isRepointedBlogSlug, uniqueMetaTitle } from "@/lib/blog-meta"
+import { normaliseFeedContent, isRepointedBlogSlug, uniqueMetaTitle, unlinkDeadBlogLinks } from "@/lib/blog-meta"
 import { toBlogPost } from "@/lib/blog-post"
 import { getBlogFeedSafe, getBlogFeedFresh, publishedOnly } from "@/lib/blog-feed"
 import { BLOG_AUTHOR, HOURS_DISPLAY } from "@/lib/company-facts"
@@ -214,6 +214,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const canonicalUrl = `https://safestorage.ae/blog/${trueSlug}`
 
+  // Links in this body to posts that have since been unpublished are unwrapped
+  // rather than left pointing at a 404. blogSlug over publishedOnly() is the
+  // same definition of "served" that /blog/[slug] itself uses, so the two cannot
+  // disagree about which posts exist. See unlinkDeadBlogLinks.
+  const liveSlugs = new Set(
+    publishedOnly(await fetchAllBlogs()).map((b: any) =>
+      generateSlug(b.title || b.seo_title || ""),
+    ),
+  )
+  const bodyCleaned = {
+    ...post,
+    description: unlinkDeadBlogLinks(post?.description || "", (s) => liveSlugs.has(s)),
+  }
+
   // Serve the article image from safestorage.ae rather than hotlinking the India
   // domain — this URL is what og:image and the BlogPosting schema publish, so a
   // .in URL here hands the image's SEO value to the wrong domain.
@@ -290,7 +304,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           It used to be handed to the client as a bare slug, which meant the HTML
           served to crawlers was a spinner reading "Loading article…" with a
           visually-hidden H1 standing in for the body — on all 284 posts. */}
-      <BlogPostDetail slug={trueSlug} initialPost={toBlogPost(post, publishedAt)} />
+      <BlogPostDetail slug={trueSlug} initialPost={toBlogPost(bodyCleaned, publishedAt)} />
 
       {/* Static section — server-rendered, boosts word count and internal linking */}
       <section style={{ padding: "48px 24px", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getBlogFeed, publishedOnly } from '@/lib/blog-feed'
+import { unlinkDeadBlogLinks } from '@/lib/blog-meta'
 
 // Cache this route at the Vercel edge for 5 minutes
 export const revalidate = 300
@@ -50,19 +51,32 @@ export async function GET(
 
     console.log('Total blogs to search:', blogs.length)
 
-    // Find blog by slug (generate slug from title since new API doesn't have slug field)
-    const blog = blogs.find((b: any) => {
-      const blogTitle = b.title || b.seo_title || ''
-      const blogPostId = parseInt(b.post_id) || 0
-      const idMatch = targetSlug.match(/^(\d+)-/)
-      if (idMatch) return parseInt(idMatch[1]) === blogPostId
-      return generateSlug(blogTitle) === targetSlug
-    })
-    
+    // TITLE FIRST, id-prefix only as a fallback — the same order /blog/[slug]
+    // uses. This route read it the other way round, and blog-post-detail.tsx
+    // re-fetches through it on mount: a post titled "10 Best Movers and Packers
+    // in Dubai 2026" was served correctly by the server, then `/^(\d+)-/`
+    // matched it to post id 10 here and the client replaced the article with a
+    // different one a moment after the page appeared. Four posts did that.
+    const blog =
+      blogs.find((b: any) => generateSlug(b.title || b.seo_title || '') === targetSlug) ??
+      (() => {
+        const idMatch = targetSlug.match(/^(\d+)-/)
+        if (!idMatch) return undefined
+        const wanted = parseInt(idMatch[1])
+        return blogs.find((b: any) => (parseInt(b.post_id) || 0) === wanted)
+      })()
+
     if (blog) {
+      // `blogs` is publishedOnly(), so this is the same definition of "served"
+      // the page uses. A link to a post that has since been unpublished is
+      // unwrapped rather than handed to the client as a 404.
+      const liveSlugs = new Set(blogs.map((b: any) => generateSlug(b.title || b.seo_title || '')))
       return NextResponse.json({
         status: 'success',
-        data: blog
+        data: {
+          ...blog,
+          description: unlinkDeadBlogLinks(blog.description || '', (s: string) => liveSlugs.has(s)),
+        },
       })
     } else {
       // Return debug info to help troubleshoot

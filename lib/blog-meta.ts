@@ -381,6 +381,38 @@ export function normaliseFeedContent(text?: string | null): string {
 export const normalisePrice = normaliseFeedContent
 
 /**
+ * Unwrap links to blog posts that are no longer served.
+ *
+ * A post is unpublished in the safestorage.in dashboard by flipping its status,
+ * and that is the right way to retire one — but it does nothing to the OTHER
+ * posts whose bodies link to it. Those links keep pointing at a URL that now
+ * correctly 404s, and neither the author nor this repo learns about it.
+ *
+ * Observed 2026-09-09: post 238 was unpublished that morning and six live posts
+ * went on linking to it, which is exactly what Semrush reported as "12 internal
+ * links are broken" hours later. (Six of its twelve were listing pages, which
+ * heal on their own when ISR revalidates; the six in post bodies do not.)
+ *
+ * The anchor TEXT is kept and only the <a> goes, so the sentence still reads as
+ * the author wrote it — "see our guide to secure storage" simply stops being a
+ * link. Deleting the sentence would be editing someone's copy; leaving the link
+ * would be shipping a 404.
+ *
+ * A repointed slug counts as live: LEGACY_PATHS rewrites it to a real post, and
+ * this runs before that rewrite.
+ */
+const BLOG_ANCHOR =
+  /<a\b[^>]*\bhref="(?:https?:\/\/(?:www\.)?safestorage\.ae)?\/blog\/([^"#?]+)[^"]*"[^>]*>([\s\S]*?)<\/a>/gi
+
+export function unlinkDeadBlogLinks(html: string, isLive: (slug: string) => boolean): string {
+  if (!html) return ""
+  return html.replace(BLOG_ANCHOR, (whole, slug: string, inner: string) => {
+    const clean = slug.replace(/\/+$/, "")
+    return isLive(clean) || isRepointedBlogSlug(clean) ? whole : inner
+  })
+}
+
+/**
  * The <title> for a post, guaranteed unique across the feed.
  *
  * `seo_title` is authored in the safestorage.in dashboard, which does not check
