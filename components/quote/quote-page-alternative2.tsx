@@ -2244,7 +2244,16 @@ export default function QuotePage() {
                     whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                     id={currentStep === 2 ? 'quote-step2-continue' : undefined}
                     data-gtm-event={currentStep === 2 ? 'quote_step2_continue' : undefined}
-                    className={`flex items-center gap-2 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold shadow-lg shadow-blue-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed ${currentStep === 2 ? 'gtm-quote-step2-continue' : ''}`}
+                    // dubai_2ndstep_trigger is read by GTM's {{Click Classes}}
+                    // ("Request Quote Trigger"), so it must sit on the element the
+                    // click actually lands on. [&>*]:pointer-events-none is what
+                    // makes that true: the button's children are a <span>Continue</span>
+                    // and an ArrowRight <svg>, and GTM reports the DEEPEST clicked
+                    // element — click the word "Continue" and {{Click Classes}}
+                    // returns the span's classes, not the button's, so the trigger
+                    // would silently miss most real clicks. Making the children
+                    // transparent to hit-testing sends every click to the button.
+                    className={`flex items-center gap-2 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold shadow-lg shadow-blue-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed ${currentStep === 2 ? 'gtm-quote-step2-continue dubai_2ndstep_trigger [&>*]:pointer-events-none' : ''}`}
                   >
                     {isSubmitting && currentStep === 2 ? (
                       <>
