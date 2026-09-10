@@ -147,6 +147,12 @@ export default function RootLayout({
             gtag('js', new Date());
             gtag('config', 'G-EHB5H09SGY');
             gtag('config', 'AW-952888343');
+            // Second Google Ads account, added 2026-09-10. A config line rather
+            // than a second pasted snippet: one gtag.js loader serves any number
+            // of destinations, so re-loading the library and re-declaring
+            // dataLayer/gtag would only fetch the same script twice and fire
+            // gtag('js') again.
+            gtag('config', 'AW-18376343398');
           `}
         </Script>
 
