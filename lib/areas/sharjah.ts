@@ -20,7 +20,7 @@ export const SHARJAH: EmirateDef = {
   hub: {
     title: "Self Storage Sharjah | Collected From Your Door, Stored In Sharjah",
     description:
-      "Self storage in Sharjah from AED 12.65 per sq ft per month. We operate a warehouse in the emirate, collect from fifteen districts, and store locally.",
+      "Self storage in Sharjah from AED 12 per sq ft per month. We operate a warehouse in the emirate, collect from fifteen districts, and store locally.",
     keywords:
       "self storage sharjah, storage sharjah, storage units sharjah, furniture storage sharjah, تخزين الشارقة",
     h1: "Self Storage in Sharjah",
@@ -28,7 +28,7 @@ export const SHARJAH: EmirateDef = {
       "We operate a warehouse in Sharjah, so what we collect in the emirate stays in the emirate. The crew comes to your address, wraps and loads, and brings it back whenever you ask.",
     intro: [
       "Sharjah has plenty of storage units. What it has less of is anyone who will come and take your things there. Most advertised rates assume you will arrive with a truck, carry everything yourself, and repeat the trip whenever you need something back.",
-      "We work the other way round. Tell us roughly what you have, we come to your Sharjah address, wrap and load, and store at our facility in the emirate. Storage is AED 12.65 per square foot per month, VAT included, calculated on the space your things actually occupy.",
+      "We work the other way round. Tell us roughly what you have, we come to your Sharjah address, wrap and load, and store at our facility in the emirate. Storage is AED 12 per square foot per month, VAT excluded, calculated on the space your things actually occupy.",
     ],
     faqs: [
       {

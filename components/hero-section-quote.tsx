@@ -200,7 +200,7 @@ export default function HeroSectionQuote() {
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-full">
                 <Shield className="h-4 w-4 text-dubai-gold" aria-hidden="true" />
-                <span className="text-white text-xs sm:text-sm font-medium">10+ Years Serving Dubai</span>
+                <span className="text-white text-xs sm:text-sm font-medium">10+ Years Global Experience</span>
               </div>
             </div>
 
@@ -244,7 +244,7 @@ export default function HeroSectionQuote() {
             <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto mb-5 leading-relaxed">
               SafeStorage provides secure, clean self-storage units across Dubai with doorstep pickup and delivery.
               Whether you&apos;re renovating your villa, relocating between apartments, or need business inventory storage —
-              we handle everything from your door to our facility. No truck rental needed. Flexible monthly plans from 12.65 AED / sqft.
+              we handle everything from your door to our facility. No truck rental needed. Flexible monthly plans from 12 AED / sqft.
             </p>
 
             {/* Trust features grid */}

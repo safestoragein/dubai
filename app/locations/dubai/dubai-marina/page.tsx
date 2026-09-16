@@ -230,8 +230,8 @@ export default function DubaiMarinaPage() {
           <p className="text-gray-700 mb-4">SafeStorage pricing is transparent, volume-based, and identical across all Dubai areas including premium zones like Marina and JBR. There are no location premiums or surcharges for high-rise access:</p>
           <div className="max-w-xl mx-auto">
             <div className="bg-white rounded-lg p-8 border-2 border-[#0A2463] text-center">
-              <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12.65 AED / sqft</p>
-              <p className="text-sm text-gray-600">VAT-inclusive · all unit sizes · door-to-door pickup & delivery</p>
+              <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12 AED / sqft</p>
+              <p className="text-sm text-gray-600">VAT excluded · all unit sizes · door-to-door pickup & delivery</p>
             </div>
           </div>
         </div>

@@ -43,13 +43,13 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 export const metadata: Metadata = {
   title: { absolute: "Local Self Storage Dubai | Nearest Unit, Door-to-Door" },
   description:
-    "Local self storage across Dubai from AED 12.65/sq ft. We collect from your door in Marina, JVC, Al Barsha + 30 areas. Same-day pickup, no lock-in. Call us.",
+    "Local self storage across Dubai from AED 12/sq ft. We collect from your door in Marina, JVC, Al Barsha + 30 areas. Same-day pickup, no lock-in. Call us.",
   keywords:
     "local self storage, local self storage dubai, local storage near me, storage facility near me, self storage near me, storage units near me, local storage company dubai, nearest storage facility dubai",
   openGraph: {
     title: "Local Self Storage Dubai — We Come to You",
     description:
-      "Door-to-door local self storage across Dubai from AED 12.65/sq ft. Same-day collection, itemised digital inventory, no lock-in.",
+      "Door-to-door local self storage across Dubai from AED 12/sq ft. Same-day collection, itemised digital inventory, no lock-in.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/local-self-storage",
     siteName: "SafeStorage Dubai",
@@ -70,7 +70,7 @@ const faqData = [
   {
     question: "How much does local self storage cost in Dubai?",
     answer:
-      "Rates start at AED 12.65 per square foot per month. A one-bedroom apartment typically needs 60–90 sq ft; a three-bedroom villa around 240–270 sq ft. Collection, packing materials and transport are included in the quote rather than added afterwards.",
+      "Rates start at AED 12 per square foot per month. A one-bedroom apartment typically needs 60–90 sq ft; a three-bedroom villa around 240–270 sq ft. Collection, packing materials and transport are included in the quote rather than added afterwards.",
   },
   {
     question: "Do you have a storage facility near me?",
@@ -124,7 +124,7 @@ const pageSchemas = [
     url: "https://safestorage.ae/self-storage-dubai/local-self-storage",
     telephone: "+971505773388",
     email: "support@safestorage.ae",
-    priceRange: "From AED 12.65 per sq ft",
+    priceRange: "From AED 12 per sq ft",
     currenciesAccepted: "AED",
     openingHoursSpecification: [
       {
@@ -159,7 +159,7 @@ const pageSchemas = [
     serviceType: "Local self storage",
     name: "Local Self Storage in Dubai",
     description:
-      "Door-to-door local self storage across Dubai. We collect from your address, pack, itemise and store, and deliver items back on request. From AED 12.65 per sq ft per month with no lock-in.",
+      "Door-to-door local self storage across Dubai. We collect from your address, pack, itemise and store, and deliver items back on request. From AED 12 per sq ft per month with no lock-in.",
     provider: { "@id": "https://safestorage.ae/self-storage-dubai/local-self-storage#business" },
     areaServed: { "@type": "City", name: "Dubai" },
   },
@@ -341,7 +341,7 @@ export default function LocalSelfStoragePage() {
                 When you want something back, you tell us which item and we deliver it.
               </p>
               <p className="mb-8 text-lg text-white/90">
-                Storage starts at <strong className="text-dubai-gold">AED 12.65 per sq ft</strong> per month. No lock-in,
+                Storage starts at <strong className="text-dubai-gold">AED 12 per sq ft</strong> per month. No lock-in,
                 no deposit games, and the quote you get is the price you pay.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -499,7 +499,7 @@ export default function LocalSelfStoragePage() {
               </div>
 
               <p className="mt-8 text-gray-700">
-                Rate starts at <strong>AED 12.65 per sq ft per month</strong>. Collection, packing materials, loading and
+                Rate starts at <strong>AED 12 per sq ft per month</strong>. Collection, packing materials, loading and
                 inventory are quoted with it, so the number you&rsquo;re given covers the job — not just the shelf.
               </p>
               <p className="mt-4 text-gray-700">

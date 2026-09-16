@@ -33,7 +33,7 @@ const URL = "https://safestorage.ae/locations"
 export const metadata: Metadata = {
   title: { absolute: "Storage Locations Across the UAE | SafeStorage" },
   description:
-    "Every emirate and district we collect from — Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, Umm Al Quwain and Al Ain. Door-to-door collection from AED 12.65 per sq ft.",
+    "Every emirate and district we collect from — Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, Umm Al Quwain and Al Ain. Door-to-door collection from AED 12 per sq ft.",
   keywords:
     "storage locations uae, storage locations dubai, self storage near me uae, storage areas dubai, storage emirates uae",
   openGraph: {
@@ -112,7 +112,7 @@ export default function LocationsPage() {
                 rest is served as a collection service with storage at the nearest facility, and each
                 emirate page says plainly which applies. From{" "}
                 <strong className="text-dubai-gold">AED {PRICE_PER_SQFT_AED} per sq ft per month</strong>,
-                VAT included.
+                VAT excluded.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>

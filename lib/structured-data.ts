@@ -100,7 +100,7 @@ export const localBusinessSchema = {
   url: "https://safestorage.ae",
   telephone: "+971505773388",
   email: "support@safestorage.ae",
-  priceRange: "From 12.65 AED / sqft",
+  priceRange: "From 12 AED / sqft",
   currenciesAccepted: "AED",
   paymentAccepted: "Cash, Credit Card, Debit Card, Bank Transfer, Cheque",
   areaServed: [
@@ -172,7 +172,7 @@ export const localBusinessSchema = {
       "@type": "Offer",
       name: "Storage in Dubai",
       description: "Flexible, secure storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     }
@@ -218,7 +218,7 @@ export const faqSchema = {
       name: "How much does storage cost in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Storage in Dubai starts from 12.65 AED / sqft (VAT-inclusive) at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units are secure, clean, 24/7 CCTV-monitored, with door-to-door pickup & delivery available across Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
+        text: "Storage in Dubai starts from 12 AED / sqft (VAT excluded) at SafeStorage Dubai. We offer flexible storage solutions for all needs - from small boxes to full villa contents. All units are secure, clean, 24/7 CCTV-monitored, with door-to-door pickup & delivery available across Dubai. Contact us at +971505773388 for a personalized quote based on your storage requirements."
       }
     },
     {
@@ -226,7 +226,7 @@ export const faqSchema = {
       name: "What is the cheapest storage option in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The cheapest storage in Dubai is the space you actually use. SafeStorage Dubai charges from 12.65 AED / sqft (VAT-inclusive) and bills only for the volume your items occupy, so storing a few boxes costs a fraction of a full unit. Longer prepaid terms reduce the rate further, and door-to-door pickup means you do not pay separately for a van or a driver. Call +971505773388 for a written quote."
+        text: "The cheapest storage in Dubai is the space you actually use. SafeStorage Dubai charges from 12 AED / sqft (VAT excluded) and bills only for the volume your items occupy, so storing a few boxes costs a fraction of a full unit. Longer prepaid terms reduce the rate further, and door-to-door pickup means you do not pay separately for a van or a driver. Call +971505773388 for a written quote."
       }
     },
     {
@@ -234,7 +234,7 @@ export const faqSchema = {
       name: "Are there any hidden fees for storage in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. SafeStorage Dubai quotes one VAT-inclusive price in writing before you book, and that is what you pay. There is no admin fee, no security deposit, no lock deposit and no charge for access to your own items during operating hours. Billing is month-to-month and you can cancel with no early-termination penalty."
+        text: "No. SafeStorage Dubai quotes one price in writing, excluding VAT, before you book, and that is what you pay. There is no admin fee, no security deposit, no lock deposit and no charge for access to your own items during operating hours. Billing is month-to-month and you can cancel with no early-termination penalty."
       }
     },
     {
@@ -251,7 +251,7 @@ export const faqSchema = {
       name: "What sizes of storage units are available at SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai offers flexible storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use. We also store vehicles such as cars, bikes, and boats. Pricing starts from 12.65 AED / sqft (VAT-inclusive). Call +971505773388 for a quote."
+        text: "SafeStorage Dubai offers flexible storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use. We also store vehicles such as cars, bikes, and boats. Pricing starts from 12 AED / sqft (VAT excluded). Call +971505773388 for a quote."
       }
     },
     {
@@ -259,7 +259,7 @@ export const faqSchema = {
       name: "How do I know what storage unit size I need?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You only pay for the space you use, so there's no need to pick a fixed unit size. Whether you're storing a few boxes or the full contents of a villa or business, our dedicated storage consultants offer free assessments and will work out exactly how much space your items need. Pricing starts from 12.65 AED / sqft (VAT-inclusive). Call +971505773388 for personalized advice."
+        text: "You only pay for the space you use, so there's no need to pick a fixed unit size. Whether you're storing a few boxes or the full contents of a villa or business, our dedicated storage consultants offer free assessments and will work out exactly how much space your items need. Pricing starts from 12 AED / sqft (VAT excluded). Call +971505773388 for personalized advice."
       }
     },
     {
@@ -360,7 +360,7 @@ export const faqSchema = {
       name: "Can I store my car or vehicle in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! SafeStorage Dubai offers secure, indoor vehicle storage starting from 12.65 AED / sqft (VAT-inclusive). We store cars, motorcycles, classic cars, boats, jet skis, and RVs. All vehicles are kept in our secure indoor facility with 24/7 CCTV surveillance. Door-to-Door service available for vehicles too."
+        text: "Yes! SafeStorage Dubai offers secure, indoor vehicle storage starting from 12 AED / sqft (VAT excluded). We store cars, motorcycles, classic cars, boats, jet skis, and RVs. All vehicles are kept in our secure indoor facility with 24/7 CCTV surveillance. Door-to-Door service available for vehicles too."
       }
     },
     // BUSINESS STORAGE
@@ -386,7 +386,7 @@ export const faqSchema = {
       name: "Why should I choose SafeStorage Dubai over other storage companies?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai brings the storage to you. Our own trained team collects from your door, inventories and signs for every item, and delivers it back when you ask — nothing is subcontracted to third-party movers, so one company holds the chain of custody throughout. You pay only for the space your items occupy, from 12.65 AED / sqft VAT-inclusive, quoted in writing with no admin fee or deposit, on a month-to-month contract with no early-termination penalty."
+        text: "SafeStorage Dubai brings the storage to you. Our own trained team collects from your door, inventories and signs for every item, and delivers it back when you ask — nothing is subcontracted to third-party movers, so one company holds the chain of custody throughout. You pay only for the space your items occupy, from 12 AED / sqft VAT excluded, quoted in writing with no admin fee or deposit, on a month-to-month contract with no early-termination penalty."
       }
     },
     {
@@ -444,7 +444,7 @@ export const faqSchema = {
       name: "What is the best storage company in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai holds a 4.9/5 rating across 6,700+ verified Google reviews and is ISO 9001:2015 certified. It operates from a registered facility at Building 23, Warehouse 5, DIP-1, Dubai, with multi-angle CCTV, logged access control and a signed inventory taken at collection. Pricing starts at 12.65 AED / sqft VAT-inclusive, quoted in writing before booking, on month-to-month contracts with no early-termination penalty. Compare on four things: door-to-door collection, a written VAT-inclusive quote, a documented inventory, and contract flexibility."
+        text: "SafeStorage Dubai holds a 4.9/5 rating across 6,700+ verified Google reviews and is ISO 9001:2015 certified. It operates from a registered facility at Building 23, Warehouse 5, DIP-1, Dubai, with multi-angle CCTV, logged access control and a signed inventory taken at collection. Pricing starts at 12 AED / sqft VAT excluded, quoted in writing before booking, on month-to-month contracts with no early-termination penalty. Compare on four things: door-to-door collection, a written quote excluding VAT, a documented inventory, and contract flexibility."
       }
     },
     {
@@ -452,7 +452,7 @@ export const faqSchema = {
       name: "Where can I store my furniture during renovation in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai stores furniture during home and villa renovations, with collection from anywhere in Dubai and delivery back once the work is finished. Our team wraps and loads the furniture at your door, inventories every piece, and stores it in a clean, dust-protected indoor unit at our Dubai Investment Park facility. Because billing is month-to-month, you are not locked in if the renovation over-runs. Storage starts at 12.65 AED / sqft, VAT-inclusive."
+        text: "SafeStorage Dubai stores furniture during home and villa renovations, with collection from anywhere in Dubai and delivery back once the work is finished. Our team wraps and loads the furniture at your door, inventories every piece, and stores it in a clean, dust-protected indoor unit at our Dubai Investment Park facility. Because billing is month-to-month, you are not locked in if the renovation over-runs. Storage starts at 12 AED / sqft, VAT excluded."
       }
     },
     {
@@ -460,7 +460,7 @@ export const faqSchema = {
       name: "How much does it cost to store a car in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Vehicle storage is charged on the same basis as everything else — 12.65 AED / sqft, VAT-inclusive, for the floor space the vehicle occupies, so the cost depends on whether you are storing a motorcycle, a saloon car or a 4x4. Vehicles are kept indoors and away from Dubai's summer heat, under CCTV, with logged access. Call +971505773388 with your vehicle's make and model for an exact written quote."
+        text: "Vehicle storage is charged on the same basis as everything else — 12 AED / sqft, VAT excluded, for the floor space the vehicle occupies, so the cost depends on whether you are storing a motorcycle, a saloon car or a 4x4. Vehicles are kept indoors and away from Dubai's summer heat, under CCTV, with logged access. Call +971505773388 with your vehicle's make and model for an exact written quote."
       }
     }
   ]
@@ -536,7 +536,7 @@ export const serviceSchema = {
       "@type": "Offer",
       name: "Storage in Dubai",
       description: "Flexible, secure storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "12", priceCurrency: "AED", unitText: "per sq ft" },
       priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock"
     }
@@ -549,7 +549,7 @@ export const productSchema = {
   "@type": "Product",
   "@id": "https://safestorage.ae/#product",
   name: "Self Storage Units Dubai",
-  description: "Premium secure indoor storage units in Dubai with door-to-door service. Personal, business, and vehicle storage from 12.65 AED / sqft (VAT-inclusive).",
+  description: "Premium secure indoor storage units in Dubai with door-to-door service. Personal, business, and vehicle storage from 12 AED / sqft (VAT excluded).",
   brand: {
     "@type": "Brand",
     name: "SafeStorage Dubai"
@@ -583,14 +583,14 @@ export const productSchema = {
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "AED",
-    lowPrice: "12.65",
-    highPrice: "12.65",
+    lowPrice: "12",
+    highPrice: "12",
     offerCount: "1",
     offers: [
       {
         "@type": "Offer",
         name: "Storage in Dubai",
-        price: "12.65",
+        price: "12",
         priceCurrency: "AED",
         availability: "https://schema.org/InStock",
         url: "https://safestorage.ae/storage-units-dubai",
@@ -633,7 +633,7 @@ export const howToSchema = {
   estimatedCost: {
     "@type": "MonetaryAmount",
     currency: "AED",
-    value: "12.65"
+    value: "12"
   },
   step: [
     {
@@ -670,7 +670,7 @@ export const itemListSchema = {
   "@type": "ItemList",
   "@id": "https://safestorage.ae/#itemlist",
   name: "Storage in Dubai at SafeStorage Dubai",
-  description: "Flexible storage in Dubai - pay only for the space you use, priced from 12.65 AED / sqft (VAT-inclusive)",
+  description: "Flexible storage in Dubai - pay only for the space you use, priced from 12 AED / sqft (VAT excluded)",
   numberOfItems: 1,
   itemListElement: [
     {
@@ -684,7 +684,7 @@ export const itemListSchema = {
         brand: { "@type": "Brand", name: "SafeStorage Dubai" },
         offers: {
           "@type": "Offer",
-          price: "12.65",
+          price: "12",
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
           url: "https://safestorage.ae/storage-units-dubai",
@@ -765,7 +765,7 @@ export const offerSchema = {
   "@id": "https://safestorage.ae/#offer",
   name: "New Customer Offer - SafeStorage Dubai",
   description: "Get 10% off your first month of storage at SafeStorage Dubai. Includes secure indoor units, with door-to-door service available.",
-  priceSpecification: { "@type": "UnitPriceSpecification", price: "12.65", priceCurrency: "AED", unitText: "per sq ft" },
+  priceSpecification: { "@type": "UnitPriceSpecification", price: "12", priceCurrency: "AED", unitText: "per sq ft" },
   priceValidUntil: "2026-12-31",
   availability: "https://schema.org/InStock",
   validFrom: "2024-01-01",

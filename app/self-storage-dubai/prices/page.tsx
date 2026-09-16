@@ -24,21 +24,21 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
  *   - Volume discounts above 270 sq ft are NOT stated. Unconfirmed.
  *   - Long-term discount TIERS are NOT stated. The FAQ says duration affects the
  *     quote, which is true, without inventing numbers.
- * The AED 12.65/sq ft anchor is used because the site already publishes it
+ * The AED 12/sq ft anchor is used because the site already publishes it
  * sitewide, but it still needs confirming as current — every price on this page
  * derives from it.
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Storage in Dubai Prices | From AED 12.65/sq ft" },
+  title: { absolute: "Storage in Dubai Prices | From AED 12/sq ft" },
   description:
-    "Storage in Dubai prices explained: from AED 12.65 per sq ft a month, what changes a quote, and why cheap storage often costs more. Call 050 577 3388.",
+    "Storage in Dubai prices explained: from AED 12 per sq ft a month, what changes a quote, and why cheap storage often costs more. Call 050 577 3388.",
   keywords:
     "storage in dubai prices, cheap storage dubai, storage cost per month, storage prices dubai, storage cost dubai, affordable storage dubai, low cost storage dubai, how much does storage cost in dubai",
   openGraph: {
     title: "Storage Prices in Dubai — What It Costs and Why Quotes Differ",
     description:
-      "From AED 12.65 per sq ft a month, what changes a quote, and why the cheapest storage quote in Dubai is often the most expensive outcome.",
+      "From AED 12 per sq ft a month, what changes a quote, and why the cheapest storage quote in Dubai is often the most expensive outcome.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/prices",
     siteName: "SafeStorage Dubai",
@@ -52,7 +52,7 @@ const faqData = [
   {
     question: "How much does storage cost per month in Dubai?",
     answer:
-      "From AED 12.65 per square foot per month. A studio at 30 sq ft is the smallest standard booking; a one-bedroom flat needs 60–90 sq ft; a three-bedroom villa 240–270 sq ft. Collection, packing materials, transport and the digital inventory are included in the quote.",
+      "From AED 12 per square foot per month. A studio at 30 sq ft is the smallest standard booking; a one-bedroom flat needs 60–90 sq ft; a three-bedroom villa 240–270 sq ft. Collection, packing materials, transport and the digital inventory are included in the quote.",
   },
   {
     question: "What is the cheapest storage in Dubai?",
@@ -92,10 +92,10 @@ const faqData = [
 ]
 
 const priceRows = [
-  { home: "Studio / 1 RK", space: "~30 sq ft", rate: "from AED 12.65 / sq ft / month" },
-  { home: "1 bedroom", space: "60–90 sq ft", rate: "from AED 12.65 / sq ft / month" },
-  { home: "2 bedrooms", space: "120–150 sq ft", rate: "from AED 12.65 / sq ft / month" },
-  { home: "3 bedrooms", space: "240–270 sq ft", rate: "from AED 12.65 / sq ft / month" },
+  { home: "Studio / 1 RK", space: "~30 sq ft", rate: "from AED 12 / sq ft / month" },
+  { home: "1 bedroom", space: "60–90 sq ft", rate: "from AED 12 / sq ft / month" },
+  { home: "2 bedrooms", space: "120–150 sq ft", rate: "from AED 12 / sq ft / month" },
+  { home: "3 bedrooms", space: "240–270 sq ft", rate: "from AED 12 / sq ft / month" },
   { home: "Villa / commercial", space: "270+ sq ft", rate: "Quoted after survey" },
 ]
 
@@ -182,16 +182,16 @@ const pageSchemas = [
     // without.
     image: "https://safestorage.ae/images/storage-facility-background.png",
     description:
-      "Door-to-door storage in Dubai from AED 12.65 per square foot per month, with collection, packing materials, transport and a photographed digital inventory included in the quote.",
+      "Door-to-door storage in Dubai from AED 12 per square foot per month, with collection, packing materials, transport and a photographed digital inventory included in the quote.",
     brand: { "@type": "Brand", name: "SafeStorage" },
     offers: {
       "@type": "Offer",
       priceCurrency: "AED",
-      price: "12.65",
+      price: "12",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
         priceCurrency: "AED",
-        price: "12.65",
+        price: "12",
         unitText: "square foot per month",
       },
       availability: "https://schema.org/InStock",
@@ -229,7 +229,7 @@ export default function StoragePricesPage() {
                 Storage Prices in Dubai — What It Costs and Why Quotes Differ
               </h1>
               <p className="mb-4 text-lg text-white/90">
-                Storage in Dubai starts at <strong className="text-dubai-gold">AED 12.65 per square foot per month</strong>{" "}
+                Storage in Dubai starts at <strong className="text-dubai-gold">AED 12 per square foot per month</strong>{" "}
                 with us. That&rsquo;s the number, up front, before you scroll.
               </p>
               <p className="mb-4 text-lg text-white/90">

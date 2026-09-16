@@ -137,17 +137,18 @@ export function LandingSteps() {
  * the old why-choose-us grid.
  * ------------------------------------------------------------------ */
 const feats = [
-  { icon: "🚚", title: "Door-to-door service", body: "We come to you anywhere in Dubai — bring the packing materials, load, and deliver back to your door." },
+  { icon: "🚚", title: "Door-to-door", body: "We come to you anywhere in Dubai — bring the packing materials, load, and deliver back to your door." },
   { icon: "📋", title: "Digital inventory", body: "Every item is photographed and catalogued at pickup, so you always know what is stored and where." },
-  { icon: "💬", title: "Dedicated consultant", body: "One named point of contact from booking to retrieval. No call centres, no ticket queues." },
+  { icon: "💬", title: "Named consultant", body: "One named point of contact from booking to retrieval. No call centres, no ticket queues." },
   { icon: "🕑", title: "Flexible tenure", body: "Store for a month or two years. Upgrade, downsize, or cancel with 48 hours' notice — no lock-in." },
+  { icon: "🌡️", title: "Climate controlled", body: "Standard on every booking, not an upgrade tier — indoor, off the floor, out of the Dubai summer." },
 ]
 
 const stats = [
   { v: "100,000+", label: "Customers worldwide" },
   { v: "4.9", suffix: "★", label: "Average Google rating" },
-  { v: "10+", label: "Years serving Dubai" },
-  { v: "12.65", suffix: " AED", label: "Per sqft, VAT included" },
+  { v: "10+", label: "Years global experience" },
+  { v: "12", suffix: " AED", label: "Per sqft, VAT excluded" },
 ]
 
 export function LandingWhy() {
@@ -158,7 +159,7 @@ export function LandingWhy() {
         <h2>
           Storage That Works Around <em>Your Life</em>, Not the Other Way Round
         </h2>
-        <div className={s.featGrid}>
+        <div className={`${s.featGrid} ${s.featGrid5}`}>
           {feats.map((f) => (
             <div className={s.feat} key={f.title}>
               <div className={s.featIcon} aria-hidden="true">

@@ -24,7 +24,7 @@ export const ABU_DHABI: EmirateDef = {
   hub: {
     title: "Self Storage Abu Dhabi | Collected From Your Door",
     description:
-      "Self storage in Abu Dhabi from AED 12.65 per sq ft per month. We collect from your address across ten districts, wrap and load, and store at our nearest facility.",
+      "Self storage in Abu Dhabi from AED 12 per sq ft per month. We collect from your address across ten districts, wrap and load, and store at our nearest facility.",
     keywords:
       "self storage abu dhabi, storage abu dhabi, storage units abu dhabi, furniture storage abu dhabi, self storage near me abu dhabi",
     h1: "Self Storage in Abu Dhabi",
@@ -41,7 +41,7 @@ export const ABU_DHABI: EmirateDef = {
       },
       {
         q: "How much does storage cost in Abu Dhabi?",
-        a: "AED 12.65 per square foot per month, VAT included, on the floor space your goods actually occupy — the same rate as everywhere else we operate. Transport is quoted separately on your address and how the access works.",
+        a: "AED 12 per square foot per month, VAT excluded, on the floor space your goods actually occupy — the same rate as everywhere else we operate. Transport is quoted separately on your address and how the access works.",
       },
       {
         q: "How quickly can I get something back in Abu Dhabi?",

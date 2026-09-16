@@ -85,7 +85,7 @@ export async function POST(request: Request) {
             unit_amount: toFils(amountAed),
             product_data: {
               name: body.description || "SafeStorage dues",
-              description: "Storage charges (VAT included)",
+              description: "Storage charges (VAT excluded)",
             },
           },
         },

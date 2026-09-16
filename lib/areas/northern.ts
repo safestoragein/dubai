@@ -24,7 +24,7 @@ const collectionOnlyFaq = (name: string) => ({
 
 const priceFaq = {
   q: "How much does it cost?",
-  a: "AED 12.65 per square foot per month, VAT included, on the floor space your goods actually occupy — the same rate everywhere we operate. Transport is quoted separately on your address and how the access works, and both numbers are agreed before anything is booked.",
+  a: "AED 12 per square foot per month, VAT excluded, on the floor space your goods actually occupy — the same rate everywhere we operate. Transport is quoted separately on your address and how the access works, and both numbers are agreed before anything is booked.",
 }
 
 export const RAS_AL_KHAIMAH: EmirateDef = {
@@ -37,7 +37,7 @@ export const RAS_AL_KHAIMAH: EmirateDef = {
   hub: {
     title: "Self Storage Ras Al Khaimah | Northern Emirates Collection",
     description:
-      "Self storage for Ras Al Khaimah. We collect from your address across RAK, wrap and load, and store at our nearest facility from AED 12.65 per sq ft per month.",
+      "Self storage for Ras Al Khaimah. We collect from your address across RAK, wrap and load, and store at our nearest facility from AED 12 per sq ft per month.",
     keywords:
       "self storage ras al khaimah, storage rak, northern emirates self storage, storage units ras al khaimah, furniture storage rak",
     h1: "Self Storage in Ras Al Khaimah",
@@ -68,7 +68,7 @@ export const FUJAIRAH: EmirateDef = {
   hub: {
     title: "Self Storage Fujairah | East Coast Collection & Storage",
     description:
-      "Self storage for Fujairah and the east coast. We collect from your address, wrap and load, and store at our nearest facility from AED 12.65 per sq ft per month.",
+      "Self storage for Fujairah and the east coast. We collect from your address, wrap and load, and store at our nearest facility from AED 12 per sq ft per month.",
     keywords:
       "self storage fujairah, storage fujairah, east coast storage uae, furniture storage fujairah, storage dibba",
     h1: "Self Storage in Fujairah",
@@ -99,7 +99,7 @@ export const UMM_AL_QUWAIN: EmirateDef = {
   hub: {
     title: "Self Storage Umm Al Quwain | Collected From Your Door",
     description:
-      "Self storage for Umm Al Quwain. We collect from your address, wrap and load, and store at our nearest facility from AED 12.65 per sq ft per month.",
+      "Self storage for Umm Al Quwain. We collect from your address, wrap and load, and store at our nearest facility from AED 12 per sq ft per month.",
     keywords:
       "self storage umm al quwain, storage umm al quwain, uaq storage, furniture storage umm al quwain",
     h1: "Self Storage in Umm Al Quwain",
@@ -130,7 +130,7 @@ export const AL_AIN: EmirateDef = {
   hub: {
     title: "Self Storage Al Ain | Collected From Your Door",
     description:
-      "Self storage for Al Ain. We collect from your address across the city, wrap and load, and store at our nearest facility from AED 12.65 per sq ft per month.",
+      "Self storage for Al Ain. We collect from your address across the city, wrap and load, and store at our nearest facility from AED 12 per sq ft per month.",
     keywords:
       "self storage al ain, storage al ain, storage units al ain, furniture storage al ain",
     h1: "Self Storage in Al Ain",

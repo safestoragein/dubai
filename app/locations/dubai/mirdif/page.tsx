@@ -8,7 +8,7 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 export const metadata: Metadata = {
   title: "Mirdif Storage Dubai — Villa & Family Storage",
   description:
-    "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Door-to-Door pickup from villas and apartments. Secure, flexible plans from 12.65 AED / sqft.",
+    "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Door-to-Door pickup from villas and apartments. Secure, flexible plans from 12 AED / sqft.",
   keywords:
     "mirdif storage dubai, storage mirdif, mirdif self storage, rashidiya storage dubai, storage near mirdif city centre, east dubai storage, muhaisnah storage",
   openGraph: {
@@ -45,7 +45,7 @@ const mirdifSchemas = [
     "@type": "Service",
     name: "Storage in Mirdif & East Dubai",
     description:
-      "Secure storage for Mirdif, Rashidiya, Muhaisnah, and east Dubai residents. Door-to-Door pickup from villas and apartments. Flexible plans from 12.65 AED / sqft.",
+      "Secure storage for Mirdif, Rashidiya, Muhaisnah, and east Dubai residents. Door-to-Door pickup from villas and apartments. Flexible plans from 12 AED / sqft.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/dubai/mirdif",
     areaServed: [
@@ -65,7 +65,7 @@ const mirdifSchemas = [
     // root layout template appends " | SafeStorage Dubai" to it.
     name: "Mirdif Storage Dubai — Villa & Family Storage | SafeStorage Dubai",
     description:
-      "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Door-to-Door pickup from villas and apartments. Secure, flexible plans from 12.65 AED / sqft.",
+      "Storage in Mirdif, Rashidiya & Muhaisnah Dubai. Door-to-Door pickup from villas and apartments. Secure, flexible plans from 12 AED / sqft.",
     url: "https://safestorage.ae/locations/dubai/mirdif",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",

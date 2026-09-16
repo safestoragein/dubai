@@ -59,7 +59,7 @@ export const AR = {
   call: "اتصل بنا",
   whatsapp: "واتساب",
   perSqft: "درهم / قدم مربع شهرياً",
-  vatIncl: "شامل ضريبة القيمة المضافة",
+  vatIncl: "غير شامل ضريبة القيمة المضافة",
   reviewsWorldwide: "تقييم حول العالم",
   howItWorks: "كيف تعمل الخدمة",
   pricing: "الأسعار",

@@ -4,7 +4,7 @@
 //
 // Dubai version of India's welcome note. Same opening wording; everything that
 // does not exist here is gone — the 3/6/12-month advance discount table, the
-// coupon line, GST (Dubai is VAT-inclusive at 5%).
+// coupon line, GST (Dubai is VAT included at 5%).
 //
 // Deliberately shows PRICES ONLY. No sqft, rate or pallet counts: billing can
 // follow the footprint the warehouse measured rather than the item estimate, and
@@ -71,7 +71,7 @@ function row(k: string, v: string, bold = false, last = false): string {
 }
 
 export function renderWelcomeNoteEmail(d: WelcomeNoteData): string {
-  // Storage is quoted VAT-inclusive, so the tax is backed out of the total
+  // Storage is quoted VAT inclusive, so the tax is backed out of the total
   // rather than added to it.
   const storageEx = d.vatRate > 0 ? d.storageTotalAed / (1 + d.vatRate / 100) : d.storageTotalAed
   const vatAmount = d.storageTotalAed - storageEx

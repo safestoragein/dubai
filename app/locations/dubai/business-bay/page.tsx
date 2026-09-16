@@ -204,7 +204,7 @@ export default function BusinessBayPage() {
           <div>
             <h3 className="text-xl font-semibold text-[#0A2463] mb-3">High-Rise Apartment Storage — Business Bay Towers</h3>
             <p className="text-gray-700 mb-3">Living in a Business Bay high-rise means paying a premium for every square metre of living space. Residents commonly find themselves storing items they rarely use — extra furniture from a previous larger home, seasonal decorations, sports equipment, suitcases, or clothing for a different climate. These items take up valuable space in apartments where storage rooms are often tiny or non-existent.</p>
-            <p className="text-gray-700">SafeStorage solves this by offering flexible, volume-based storage starting from 12.65 AED / sqft (VAT-inclusive). You pay only for the actual volume you store, not a fixed unit size. Our team collects directly from your apartment floor, handles all the carrying and loading, and returns items to your door whenever you need them — usually within 24 hours of a delivery request.</p>
+            <p className="text-gray-700">SafeStorage solves this by offering flexible, volume-based storage starting from 12 AED / sqft (VAT excluded). You pay only for the actual volume you store, not a fixed unit size. Our team collects directly from your apartment floor, handles all the carrying and loading, and returns items to your door whenever you need them — usually within 24 hours of a delivery request.</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Corporate Office Storage — Business Bay &amp; Sheikh Zayed Road</h3>

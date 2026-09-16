@@ -48,7 +48,7 @@ const URL = "https://safestorage.ae/locations/sharjah"
 export const metadata: Metadata = {
   title: { absolute: "Self Storage in Sharjah | Door-to-Door Collection | SafeStorage" },
   // Brief's wording, with the price corrected: "from AED 99/month" is published
-  // nowhere and contradicts company-facts.ts. 12.65 AED/sqft is the figure
+  // nowhere and contradicts company-facts.ts. 12 AED/sqft is the figure
   // /pricing and the JSON-LD Offer already carry.
   description:
     `Storage for Sharjah homes and businesses from ${PRICE_PER_SQFT_AED} AED/sqft. We collect from your door, store securely, deliver back. Free quote in 2 minutes.`,
@@ -164,7 +164,7 @@ export default function SharjahPage() {
               <p>
                 Self storage in Sharjah normally means renting a unit and moving into it yourself. We pick up
                 from your door instead, store it securely in our Sharjah facility, and deliver it back whenever
-                you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month, VAT included — you pay for the space
+                you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month, VAT excluded — you pay for the space
                 your things actually occupy, not a unit size you have to fill.
               </p>
               <div className={s.heroCta}>
@@ -186,7 +186,7 @@ export default function SharjahPage() {
               <div className={`${s.trustIcon} ${s.tOrange}`}>💰</div>
               <strong className={s.vOrange}>{PRICE_PER_SQFT_AED} AED</strong>
               <b>Per sqft, per month</b>
-              <small>VAT included</small>
+              <small>VAT excluded</small>
             </div>
             <div className={s.trustItem}>
               <div className={`${s.trustIcon} ${s.tGold}`}>★</div>
@@ -412,7 +412,7 @@ export default function SharjahPage() {
                 Cheap Storage in Sharjah, <em>Without The Asterisk</em>
               </h2>
               <p>
-                One rate, VAT included, charged on the space you actually use. Transport is quoted separately and
+                One rate, VAT excluded, charged on the space you actually use. Transport is quoted separately and
                 told to you up front rather than added later.
               </p>
               <ul className={s.priceList}>
@@ -430,7 +430,7 @@ export default function SharjahPage() {
               <span>
                 per square foot, per month
                 <br />
-                VAT included
+                VAT excluded
               </span>
             </div>
           </div>
@@ -449,7 +449,7 @@ export default function SharjahPage() {
             <p>
               SafeStorage works the other way round. You tell us roughly what there is, we come to your address in
               Sharjah, wrap it, load it and take it to our Sharjah warehouse. Storage is charged at{" "}
-              {PRICE_PER_SQFT_AED} AED per square foot per month, VAT included, on the floor space your items
+              {PRICE_PER_SQFT_AED} AED per square foot per month, VAT excluded, on the floor space your items
               genuinely occupy. When you want any of it back, we bring it to you.
             </p>
 
@@ -555,7 +555,7 @@ export default function SharjahPage() {
             </table>
           </div>
           <p className={s.tableNote}>
-            Indicative only, at {PRICE_PER_SQFT_AED} AED per sqft per month VAT included. Your actual figure is
+            Indicative only, at {PRICE_PER_SQFT_AED} AED per sqft per month VAT excluded. Your actual figure is
             measured from what we collect, not estimated from the size of your home — two identical flats can
             differ by half if one owns more furniture. Transport from your Sharjah address is quoted separately.
             Nothing is booked until you have agreed both numbers.

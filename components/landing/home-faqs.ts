@@ -1,15 +1,15 @@
-// Homepage FAQ. Answers are deliberately short — one or two sentences each —
+// Homepage FAQ. Answers are capped at 30 words — one or two sentences each —
 // because they sit inside a collapsed accordion where a wall of text is
 // unreadable. Anything needing more room belongs on the silo page it concerns
 // (pricing, unit sizes, coverage), not here.
 export const homeFaqs: { q: string; a: string; links?: { href: string; label: string }[] }[] = [
   {
     q: "What is self-storage?",
-    a: "A secure unit or dedicated space you rent to keep belongings outside your home or office. We run a valet model — we collect from your door, store everything, and deliver it back, so you never visit a warehouse or hire a truck.",
+    a: "A secure space you rent for belongings that will not fit at home. We collect from your door, store them, and deliver them back — no warehouse visit, no truck.",
   },
   {
     q: "How does pickup and delivery work?",
-    a: "Our team comes to your home or office anywhere in Dubai, wraps and collects your items, and transports them to our warehouse. We deliver them back to your address whenever you need them. Sharjah, Ajman and Abu Dhabi are covered too.",
+    a: "We come to your home or office anywhere in Dubai, wrap and collect your items, and deliver them back whenever you need. Sharjah, Ajman and Abu Dhabi covered too.",
   },
   {
     q: "What is the minimum rental period?",
@@ -21,11 +21,11 @@ export const homeFaqs: { q: string; a: string; links?: { href: string; label: st
   },
   {
     q: "Can businesses use SafeStorage Dubai?",
-    a: "Yes — office furniture, retail and e-commerce stock, documents and equipment. Scale your space up or down month to month, with dedicated account management and VAT invoices for every business account.",
+    a: "Yes — office furniture, retail and e-commerce stock, documents and equipment. Scale month to month, with account management and VAT invoices.",
   },
   {
     q: "What areas of Dubai are covered?",
-    a: "Every area, including Business Bay, Downtown Dubai, DIFC, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, Al Quoz, Dubai Investment Park, Deira and Bur Dubai. We also serve Sharjah and the other emirates — call us if you are unsure.",
+    a: "Every area, including Business Bay, Downtown, DIFC, Dubai Marina, Jumeirah, JLT, Al Quoz, DIP and Deira. We also serve Sharjah and the other emirates.",
     links: [
       { href: "/self-storage-dubai/local-self-storage", label: "Local self storage across Dubai" },
       { href: "/locations", label: "All the areas we collect from" },
@@ -37,7 +37,7 @@ export const homeFaqs: { q: string; a: string; links?: { href: string; label: st
   },
   {
     q: "How do I cancel my storage?",
-    a: "Give us 7 days' notice before your next billing date. We schedule the return delivery, billing stops once your items are back, and any unused prepaid period is refunded. No cancellation fees.",
+    a: "Give 7 days' notice before your next billing date. We return your items, billing stops on delivery, and any unused prepaid period is refunded.",
   },
   {
     q: "Can I retrieve specific items without getting everything back?",
@@ -45,11 +45,11 @@ export const homeFaqs: { q: string; a: string; links?: { href: string; label: st
   },
   {
     q: "What unit sizes are available?",
-    a: "From 25 sq ft (a few boxes or one piece of furniture) up to 300+ sq ft (a full 4-bedroom villa). Send us your inventory list or photos and we will recommend the right size.",
+    a: "From 25 sq ft (a few boxes) up to 300+ sq ft (a 4-bedroom villa). Send your list or photos and we will size it for you.",
   },
   {
     q: "How long does the pickup take?",
-    a: "Usually 2–4 hours for a home, depending on volume. Our crew arrives with blankets, bubble wrap, stretch film and corner protectors, and wraps, photographs and inventories each item before loading.",
+    a: "Usually 2–4 hours for a home. Our crew brings blankets, wrap and film, and photographs and inventories each item before loading.",
   },
   {
     q: "Is VAT included in the price?",

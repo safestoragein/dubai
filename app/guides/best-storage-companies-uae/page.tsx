@@ -61,7 +61,7 @@ const structuredData = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "How much does storage cost per month in UAE?", acceptedAnswer: { "@type": "Answer", text: "Storage costs in the UAE vary widely depending on the provider, unit size, and location, with some premium units exceeding AED 2,000/month. SafeStorage UAE starts from 12.65 AED / sqft. Most self-storage facilities in Dubai start from AED 200–350/month for a small unit." } },
+        { "@type": "Question", name: "How much does storage cost per month in UAE?", acceptedAnswer: { "@type": "Answer", text: "Storage costs in the UAE vary widely depending on the provider, unit size, and location, with some premium units exceeding AED 2,000/month. SafeStorage UAE starts from 12 AED / sqft. Most self-storage facilities in Dubai start from AED 200–350/month for a small unit." } },
         { "@type": "Question", name: "Which storage company in UAE serves Abu Dhabi and Sharjah?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage UAE serves customers across all UAE emirates including Dubai, Abu Dhabi, Sharjah, Ajman, and Ras Al Khaimah through their door-to-door service model. Space Keeper also covers Abu Dhabi. Most other UAE storage companies are limited to Dubai." } },
       ],
     },
@@ -372,7 +372,7 @@ export default function Top10StorageCompaniesUAE() {
             <div style={{ marginBottom: "28px" }}>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A2463", marginBottom: "12px" }}>2. Evaluate the True All-In Cost</h3>
               <p style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "15px" }}>
-                The advertised monthly rate is rarely what you end up paying. Ask every provider to quote the total cost of a realistic scenario &mdash; for example, storing a one-bedroom apartment for six months and retrieving it once in the middle. Costs that are commonly excluded from the headline price include collection and delivery, packing materials, labour for loading and unloading, insurance or damage cover, retrieval and re-delivery fees, and VAT. A facility that looks cheaper per square foot often costs more once transport and handling are added, particularly if you have to hire a lorry yourself. SafeStorage UAE quotes are VAT-inclusive and cover door-to-door collection and delivery, so the figure you are quoted is the figure you pay.
+                The advertised monthly rate is rarely what you end up paying. Ask every provider to quote the total cost of a realistic scenario &mdash; for example, storing a one-bedroom apartment for six months and retrieving it once in the middle. Costs that are commonly excluded from the headline price include collection and delivery, packing materials, labour for loading and unloading, insurance or damage cover, retrieval and re-delivery fees, and VAT. A facility that looks cheaper per square foot often costs more once transport and handling are added, particularly if you have to hire a lorry yourself. SafeStorage UAE quotes are VAT excluded and cover door-to-door collection and delivery, so the figure you are quoted is the figure you pay.
               </p>
             </div>
 

@@ -24,7 +24,7 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 export const metadata: Metadata = {
   title: { absolute: "Short Term Storage Dubai | 2 Weeks to 3 Months" },
   description:
-    "Short term storage in Dubai for the gap between Ejari leases. Two weeks to three months, no lock-in, from AED 12.65 per sq ft. Same-day pickup.",
+    "Short term storage in Dubai for the gap between Ejari leases. Two weeks to three months, no lock-in, from AED 12 per sq ft. Same-day pickup.",
   keywords:
     "short term storage dubai, short term storage, temporary storage dubai, monthly storage dubai, storage for 1 month dubai, storage between leases dubai, 2 week storage dubai, interim storage dubai",
   openGraph: {
@@ -54,7 +54,7 @@ const faqData = [
   {
     question: "How much does one month of storage cost in Dubai?",
     answer:
-      "From AED 12.65 per square foot per month. A one-bedroom flat needs 60–90 sq ft, a studio around 30 sq ft. Collection, packing materials, transport and return delivery are included in the quote.",
+      "From AED 12 per square foot per month. A one-bedroom flat needs 60–90 sq ft, a studio around 30 sq ft. Collection, packing materials, transport and return delivery are included in the quote.",
   },
   {
     question: "Can I extend a short term booking?",
@@ -109,16 +109,16 @@ const pageSchemas = [
     serviceType: "Short term storage",
     name: "Short Term Storage in Dubai",
     description:
-      "Short term storage in Dubai from two weeks with no lock-in. Door-to-door collection, packing, itemised inventory and return delivery to the new address, from AED 12.65 per sq ft per month.",
+      "Short term storage in Dubai from two weeks with no lock-in. Door-to-door collection, packing, itemised inventory and return delivery to the new address, from AED 12 per sq ft per month.",
     areaServed: { "@type": "City", name: "Dubai" },
     offers: {
       "@type": "Offer",
       priceCurrency: "AED",
-      price: "12.65",
+      price: "12",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
         priceCurrency: "AED",
-        price: "12.65",
+        price: "12",
         unitText: "square foot per month",
       },
       url: "https://safestorage.ae/self-storage-dubai/short-term",
@@ -166,7 +166,7 @@ export default function ShortTermStoragePage() {
                 We take bookings from <strong className="text-dubai-gold">two weeks</strong>, with no lock-in and no
                 six-month minimum. Our team collects from your building, packs, itemises everything, stores it, and brings
                 it to the new address when you&rsquo;re ready. Rates start at{" "}
-                <strong className="text-dubai-gold">AED 12.65 per sq ft per month</strong>, which is part of the wider{" "}
+                <strong className="text-dubai-gold">AED 12 per sq ft per month</strong>, which is part of the wider{" "}
                 <Link href="/self-storage-dubai" className="underline decoration-dubai-gold underline-offset-4">
                   self storage in Dubai
                 </Link>{" "}
@@ -253,7 +253,7 @@ export default function ShortTermStoragePage() {
             <div className="mx-auto max-w-3xl">
               <h2 className="mb-6 text-3xl font-bold text-dubai-navy">What it costs for a short period</h2>
               <p className="mb-4 text-gray-700">
-                From AED 12.65 per sq ft per month, billed monthly, with a two-week minimum booking.
+                From AED 12 per sq ft per month, billed monthly, with a two-week minimum booking.
               </p>
               <p className="mb-4 text-gray-700">
                 A one-bedroom flat at 75 sq ft for a three-week Ejari gap is a genuinely modest bill compared with the

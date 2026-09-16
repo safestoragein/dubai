@@ -12,7 +12,7 @@ export function LandingHero() {
     <section className={`${s.hero} ${s.wrap}`}>
       <div className={s.heroInner}>
         <div className={s.heroContent}>
-          <span className={s.heroTag}>Serving Dubai &amp; the UAE since 2015</span>
+          <span className={s.heroTag}>Serving Globally Since 2015</span>
           <h1>
             Dubai&apos;s Most Trusted <em>Storage Partner</em>
           </h1>
@@ -21,7 +21,7 @@ export function LandingHero() {
               rental, no heavy lifting, carton-to-villa) is covered by the steps
               and the Why band further down. */}
           <p>
-            Door-to-door pickup and delivery across Dubai. Secure, clean units from 12.65 AED / sqft,
+            Door-to-door pickup and delivery across Dubai. Secure, clean units from 12 AED (VAT excluded),
             with no lock-in.
           </p>
           <div className={s.heroCta}>
@@ -48,10 +48,11 @@ export function LandingHero() {
  * ------------------------------------------------------------------ */
 const badges = [
   { icon: "⭐", tone: s.tGold, value: s.vGold, v: "4.9/5", label: "Google Rating", sub: "6,700+ reviews worldwide" },
-  { icon: "🎖️", tone: s.tOrange, value: s.vOrange, v: "10+", label: "Years Serving Dubai", sub: "Since 2015" },
+  { icon: "🎖️", tone: s.tOrange, value: s.vOrange, v: "10+", label: "Years Global Experience", sub: "Since 2015" },
   { icon: "🛡️", tone: s.tBlue, value: s.vBlue, v: "100,000+", label: "Happy Customers", sub: "Homes & businesses" },
   { icon: "🚚", tone: s.tPurple, value: s.vPurple, v: "Door-to-Door", label: "Pickup & Delivery", sub: "Within Dubai" },
   { icon: "🕑", tone: s.tOrange, value: s.vOrange, v: "15 Min", label: "Average Response", sub: "Quick support guarantee" },
+  { icon: "🌡️", tone: s.tGreen, value: s.vGreen, v: "Climate Controlled", label: "Indoor Units", sub: "Standard on every booking" },
 ]
 
 export function LandingTrust() {
@@ -69,6 +70,7 @@ export function LandingTrust() {
           </div>
         ))}
       </div>
+      <p className={s.scrollHint}>Swipe for more →</p>
       <hr className={s.trustRule} />
     </section>
   )
@@ -114,7 +116,7 @@ export function LandingIntro() {
           <span className={s.eyebrow} style={{ color: "rgba(255,255,255,.6)" }}>
             Pricing
           </span>
-          <h3>Flexible monthly plans from 12.65 AED / sqft, VAT inclusive</h3>
+          <h3>Flexible monthly plans from 12 AED / sqft, VAT excluded</h3>
           <p>
             Units from 25 sq ft to 300+ sq ft. No setup fees, no deposits, no lock-in — and a
             price-match guarantee.

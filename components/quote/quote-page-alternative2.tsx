@@ -177,7 +177,7 @@ const calculateSquareFeet = (pallets: number): number => {
 
 /** Shared-storage rate per sqft, before VAT. */
 const SHARED_RATE_PER_SQFT_AED = 12
-/** UAE VAT. Quoted prices are VAT-inclusive, matching the rest of the site. */
+/** UAE VAT. Quoted prices exclude VAT, matching the rest of the site. */
 const VAT_RATE = 0.05
 
 // Shared space pricing functions
@@ -188,11 +188,11 @@ const calculateSharedSpacePricing = (selectedItems: SelectedItem[]) => {
 
   // No minimum billable area — the customer pays for exactly the space their
   // items occupy. (A 30 sqft floor used to be applied here; it made a 16 sqft
-  // quote bill as 30 sqft, so the quote email's "16 sq ft at AED 12.65" line
+  // quote bill as 30 sqft, so the quote email's "16 sq ft at AED 12" line
   // never reconciled with the headline price.)
   const chargeablesqft = calculatedsqft
 
-  // 12 AED per sqft + 5% VAT = 12.65 AED per sqft inclusive
+  // 12 AED per sqft + 5% VAT = 12 AED per sqft inclusive
   const pricePersqft = SHARED_RATE_PER_SQFT_AED
   const pricePersqftInclVat = pricePersqft * (1 + VAT_RATE)
   const subtotal = chargeablesqft * pricePersqft

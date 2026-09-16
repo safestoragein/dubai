@@ -19,13 +19,13 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 export const metadata: Metadata = {
   title: { absolute: "Storage Units Dubai | Sizes, Security & Prices" },
   description:
-    "Storage units in Dubai from 30 to 270+ sq ft, from AED 12.65 per sq ft a month. Palletised, barcoded, CCTV-monitored. Same-day quote: 050 577 3388.",
+    "Storage units in Dubai from 30 to 270+ sq ft, from AED 12 per sq ft a month. Palletised, barcoded, CCTV-monitored. Same-day quote: 050 577 3388.",
   keywords:
     "storage units dubai, storage units, storage unit dubai, self storage units dubai, storage unit rental dubai, personal storage units, storage facilities",
   openGraph: {
     title: "Storage Units Dubai — Sizes, Security and What Actually Fits",
     description:
-      "Storage units in Dubai from 30 to 270+ sq ft, from AED 12.65 per sq ft a month. Palletised, barcoded and CCTV-monitored.",
+      "Storage units in Dubai from 30 to 270+ sq ft, from AED 12 per sq ft a month. Palletised, barcoded and CCTV-monitored.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/storage-units",
     siteName: "SafeStorage Dubai",
@@ -39,7 +39,7 @@ const faqData = [
   {
     question: "How much do storage units cost in Dubai?",
     answer:
-      "From AED 12.65 per square foot per month. A 30 sq ft unit suits a studio, 60–90 sq ft a one-bedroom flat, and 240–270 sq ft a three-bedroom villa. Collection, packing materials and transport are included in the quoted price.",
+      "From AED 12 per square foot per month. A 30 sq ft unit suits a studio, 60–90 sq ft a one-bedroom flat, and 240–270 sq ft a three-bedroom villa. Collection, packing materials and transport are included in the quoted price.",
   },
   {
     question: "What size storage unit do I need for a one-bedroom apartment?",
@@ -128,11 +128,11 @@ const pageSchemas = [
     offers: {
       "@type": "Offer",
       priceCurrency: "AED",
-      price: "12.65",
+      price: "12",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
         priceCurrency: "AED",
-        price: "12.65",
+        price: "12",
         unitText: "per square foot per month",
       },
       availability: "https://schema.org/InStock",
@@ -241,7 +241,7 @@ export default function StorageUnitsPage() {
                 has the coverage detail.
               </p>
               <p className="mb-8 text-lg text-white/90">
-                Our units start at 30 sq ft, from <strong className="text-dubai-gold">AED 12.65 per sq ft per month</strong>,
+                Our units start at 30 sq ft, from <strong className="text-dubai-gold">AED 12 per sq ft per month</strong>,
                 month to month.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -331,7 +331,7 @@ export default function StorageUnitsPage() {
             <div className="mx-auto max-w-3xl">
               <h2 className="mb-6 text-3xl font-bold text-dubai-navy">What it costs to rent a storage unit in Dubai</h2>
               <p className="mb-4 text-gray-700">
-                Our rate starts at AED 12.65 per sq ft per month. A 1BHK at 75 sq ft is a different monthly number to a
+                Our rate starts at AED 12 per sq ft per month. A 1BHK at 75 sq ft is a different monthly number to a
                 3BHK at 250 sq ft, and both are quoted with collection, packing materials, loading, transport and the
                 digital inventory included.
               </p>

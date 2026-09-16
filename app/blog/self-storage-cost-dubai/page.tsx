@@ -64,7 +64,7 @@ export default function SelfStorageCostDubaiPage() {
         <article className="py-12">
           <div className="container px-4 max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-gray-700">
-              <p className="text-xl leading-relaxed mb-8">Storage costs in Dubai start from <strong>AED 12.65 per sq. ft. per month</strong>. The exact price depends on unit size and what's included in the monthly rate. This guide breaks down exactly what you should expect to pay — and the hidden fees some facilities charge that you should watch out for.</p>
+              <p className="text-xl leading-relaxed mb-8">Storage costs in Dubai start from <strong>AED 12 per sq. ft. per month</strong>. The exact price depends on unit size and what's included in the monthly rate. This guide breaks down exactly what you should expect to pay — and the hidden fees some facilities charge that you should watch out for.</p>
 
               <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">What's Typically Included in Dubai Storage Prices</h2>
               <p className="mb-4">With established Dubai storage providers, these are typically included in the monthly rate:</p>
@@ -111,10 +111,10 @@ export default function SelfStorageCostDubaiPage() {
               <p className="mb-4">In most common Dubai scenarios, storage saves money compared to alternatives:</p>
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 {[
-                  { vs: "vs Keeping apartment for renovation", storage: "from 12.65 AED / sqft", alternative: "AED 3,500–8,000/mo (keeping flat during renovation)" },
-                  { vs: "vs International shipping", storage: "from 12.65 AED / sqft", alternative: "AED 12,000–25,000 (one-way sea freight to UK)" },
-                  { vs: "vs Replacing items abroad", storage: "from 12.65 AED / sqft", alternative: "AED 15,000–30,000 (refurnishing abroad)" },
-                  { vs: "vs Warehouse rental for business", storage: "from 12.65 AED / sqft", alternative: "AED 5,000–15,000/mo (min. 2-3 year warehouse lease)" },
+                  { vs: "vs Keeping apartment for renovation", storage: "from 12 AED / sqft", alternative: "AED 3,500–8,000/mo (keeping flat during renovation)" },
+                  { vs: "vs International shipping", storage: "from 12 AED / sqft", alternative: "AED 12,000–25,000 (one-way sea freight to UK)" },
+                  { vs: "vs Replacing items abroad", storage: "from 12 AED / sqft", alternative: "AED 15,000–30,000 (refurnishing abroad)" },
+                  { vs: "vs Warehouse rental for business", storage: "from 12 AED / sqft", alternative: "AED 5,000–15,000/mo (min. 2-3 year warehouse lease)" },
                 ].map((c) => (
                   <div key={c.vs} className="p-4 border border-gray-200 rounded-xl">
                     <div className="font-semibold text-dubai-navy text-sm mb-2">{c.vs}</div>
@@ -126,7 +126,7 @@ export default function SelfStorageCostDubaiPage() {
 
               <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6 my-8">
                 <h3 className="font-bold text-dubai-navy mb-2">SafeStorage Dubai Pricing</h3>
-                <p className="text-gray-700">Storage starts from <strong>12.65 AED per sq. ft. per month</strong>, VAT included. That rate covers door-to-door collection and delivery anywhere in Dubai, so there is no lorry to hire and no transport fee added at the end. Billing is month-to-month with no lock-in, and longer prepaid plans reduce the effective monthly rate. You get a written cost breakdown before you commit, valid for 14 days.</p>
+                <p className="text-gray-700">Storage starts from <strong>12 AED per sq. ft. per month</strong>, VAT excluded. That rate covers door-to-door collection and delivery anywhere in Dubai, so there is no lorry to hire and no transport fee added at the end. Billing is month-to-month with no lock-in, and longer prepaid plans reduce the effective monthly rate. You get a written cost breakdown before you commit, valid for 14 days.</p>
               </div>
             </div>
 

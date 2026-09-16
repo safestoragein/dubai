@@ -31,13 +31,13 @@ import { SiloHubLinks } from "@/components/silo/silo-links"
 export const metadata: Metadata = {
   title: { absolute: "Moving and Storage Dubai | One Crew, One Job Number" },
   description:
-    "Moving and storage in Dubai from one provider. Packing, moving and storage from AED 12.65/sq ft when your dates don't line up. Same-day quotes.",
+    "Moving and storage in Dubai from one provider. Packing, moving and storage from AED 12/sq ft when your dates don't line up. Same-day quotes.",
   keywords:
     "moving and storage dubai, best movers dubai, movers and packers dubai, moving company dubai, movers dubai, moving and storage services uae, house shifting dubai",
   openGraph: {
     title: "Moving and Storage in Dubai — One Crew, One Job Number",
     description:
-      "Pack, move and store with one provider and one barcoded inventory. Storage from AED 12.65 per sq ft per month when your dates don't line up.",
+      "Pack, move and store with one provider and one barcoded inventory. Storage from AED 12 per sq ft per month when your dates don't line up.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/moving-storage-dubai",
     siteName: "SafeStorage Dubai",
@@ -51,7 +51,7 @@ const faqData = [
   {
     question: "How much does moving and storage cost in Dubai?",
     answer:
-      "Moving is quoted per job on volume, access, packing scope and dismantling, and storage runs from AED 12.65 per sq ft per month — around 60–90 sq ft for a one-bedroom, 240–270 for a three-bedroom villa. Get any quote in writing with crew size, truck count and packing scope stated, or the number will move on the day.",
+      "Moving is quoted per job on volume, access, packing scope and dismantling, and storage runs from AED 12 per sq ft per month — around 60–90 sq ft for a one-bedroom, 240–270 for a three-bedroom villa. Get any quote in writing with crew size, truck count and packing scope stated, or the number will move on the day.",
   },
   {
     question: "Can you store my things between two lease dates?",
@@ -149,7 +149,7 @@ const pageSchemas = [
     serviceType: "Moving and storage",
     name: "Moving and Storage in Dubai",
     description:
-      "Packing, moving and storage in Dubai from one provider, on one barcoded inventory and one job number. Storage from AED 12.65 per sq ft per month with no lock-in.",
+      "Packing, moving and storage in Dubai from one provider, on one barcoded inventory and one job number. Storage from AED 12 per sq ft per month with no lock-in.",
     areaServed: [
       { "@type": "City", name: "Dubai" },
       { "@type": "City", name: "Sharjah" },
@@ -199,7 +199,7 @@ export default function MovingStorageDubaiPage() {
                 We do both halves. <strong className="text-dubai-gold">Moving and storage</strong> with one crew, one
                 inventory and one job number — we pack your home or office, move what&rsquo;s going to the new address,
                 and store whatever needs storing from{" "}
-                <strong className="text-dubai-gold">AED 12.65 per sq ft per month</strong> with no lock-in. If the dates
+                <strong className="text-dubai-gold">AED 12 per sq ft per month</strong> with no lock-in. If the dates
                 change, and in this city they usually do, we hold the goods and re-book the delivery instead of leaving
                 you to find a warehouse on a Thursday afternoon.
               </p>
@@ -300,7 +300,7 @@ export default function MovingStorageDubaiPage() {
                 </table>
               </div>
               <p className="mt-8 text-gray-700">
-                Storage is billed by space and time from AED 12.65 per sq ft per month. As a rough sizing guide: a
+                Storage is billed by space and time from AED 12 per sq ft per month. As a rough sizing guide: a
                 studio&rsquo;s contents need around 30 sq ft, a one-bed 60–90, a two-bed 120–150, a three-bed villa
                 240–270. The{" "}
                 <Link href="/self-storage-dubai/unit-sizes" className="text-dubai-navy underline underline-offset-2">

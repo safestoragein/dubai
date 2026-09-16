@@ -8,7 +8,7 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 export const metadata: Metadata = {
   title: "Dubai Hills Estate Storage — Door-to-door Pickup",
   description:
-    "Storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup service, secure units, flexible plans from 12.65 AED / sqft. Al Quoz also covered.",
+    "Storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup service, secure units, flexible plans from 12 AED / sqft. Al Quoz also covered.",
   keywords:
     "dubai hills estate storage, storage dubai hills, storage near dubai hills mall, al quoz storage, dubai hills villa storage, storage emaar dubai hills",
   openGraph: {
@@ -64,7 +64,7 @@ const dubaiHillsSchemas = [
     // root layout template appends " | SafeStorage Dubai" to it.
     name: "Dubai Hills Estate Storage — Door-to-door Pickup | SafeStorage Dubai",
     description:
-      "Storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup service, secure units, flexible plans from 12.65 AED / sqft. Al Quoz also covered.",
+      "Storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup service, secure units, flexible plans from 12 AED / sqft. Al Quoz also covered.",
     url: "https://safestorage.ae/locations/dubai/dubai-hills",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",

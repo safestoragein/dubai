@@ -16,7 +16,7 @@ export default function TrustBadges() {
     {
       icon: Award,
       value: "10+",
-      label: "Years Serving Dubai",
+      label: "Years Global Experience",
       subtext: "Since 2015",
       color: "text-dubai-gold",
       bgColor: "bg-dubai-gold/10",

@@ -128,7 +128,7 @@ export default function SiloPage({ content }: { content: SiloPageContent }) {
                 </Button>
               </div>
               <p className="mt-6 text-sm text-white/80">
-                {PHONE_DISPLAY} · {EMAIL} · from {PRICE_PER_SQFT_AED} AED per sq ft, VAT included
+                {PHONE_DISPLAY} · {EMAIL} · from {PRICE_PER_SQFT_AED} AED per sq ft, VAT excluded
               </p>
             </div>
           </div>

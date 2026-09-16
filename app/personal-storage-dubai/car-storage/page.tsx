@@ -41,7 +41,7 @@ const schemas = [
 ]
 
 const faqs = [
-  { q: "How much does car storage cost in Dubai?", a: "Car storage in Dubai starts from 12.65 AED / sqft (VAT-inclusive) at SafeStorage Dubai, covering cars, motorcycles, and standard vehicles. Classic cars and larger vehicles are quoted individually. Long-term storage (3+ months) receives significant discounts." },
+  { q: "How much does car storage cost in Dubai?", a: "Car storage in Dubai starts from 12 AED / sqft (VAT excluded) at SafeStorage Dubai, covering cars, motorcycles, and standard vehicles. Classic cars and larger vehicles are quoted individually. Long-term storage (3+ months) receives significant discounts." },
   { q: "Is your car storage indoors and covered?", a: "Yes, all our vehicle storage bays are indoors and under cover. Your vehicle is protected from direct sun, dust, sandstorms, rain, and bird droppings — the outdoor exposure that causes paint oxidation, interior fading, and body damage to cars left parked in the open across Dubai." },
   { q: "Do you offer pickup for vehicle storage?", a: "Yes, we offer drive-in options and can arrange transportation for vehicles that cannot be driven. For motorcycles and smaller vehicles, our team can coordinate transport. Contact us at +971505773388 to discuss your specific vehicle." },
   { q: "Can I access my vehicle while it's in storage?", a: "Yes, you can access your vehicle during our operating hours: Monday–Sunday 8 AM–8 PM. Simply give us 2 hours' notice and your vehicle will be ready. For business customers with special requirements, extended access can be arranged." },
@@ -94,7 +94,7 @@ export default function CarStoragePage() {
                 { value: "4.9★", label: "Google Rating" },
                 { value: "500+", label: "Vehicles Stored" },
                 { value: "Indoor", label: "Covered Storage Bays" },
-                { value: "12.65 AED", label: "Vehicles from / sqft" },
+                { value: "12 AED", label: "Vehicles from / sqft" },
               ].map((s) => (
                 <div key={s.label}>
                   <div className="text-2xl font-bold text-dubai-navy">{s.value}</div>
@@ -162,12 +162,12 @@ export default function CarStoragePage() {
             <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">Vehicles We Store</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { icon: Car, title: "Cars & SUVs", desc: "Sedans, SUVs, sports cars, family vehicles. From hatchbacks to Range Rovers.", price: "From 12.65 AED / sqft" },
-                { icon: Bike, title: "Motorcycles & Scooters", desc: "All makes and models. Harley Davidson, Ducati, Yamaha, delivery scooters.", price: "From 12.65 AED / sqft" },
+                { icon: Car, title: "Cars & SUVs", desc: "Sedans, SUVs, sports cars, family vehicles. From hatchbacks to Range Rovers.", price: "From 12 AED / sqft" },
+                { icon: Bike, title: "Motorcycles & Scooters", desc: "All makes and models. Harley Davidson, Ducati, Yamaha, delivery scooters.", price: "From 12 AED / sqft" },
                 { icon: Trophy, title: "Classic & Luxury Cars", desc: "Ferrari, Lamborghini, Porsche, vintage and collector vehicles with white-glove care.", price: "Quoted individually" },
                 { icon: Ship, title: "Boats & Jet Skis", desc: "Personal watercraft, speedboats, and small leisure vessels.", price: "Quoted individually" },
                 { icon: Truck, title: "Caravans & Motorhomes", desc: "Large recreational vehicles and camper vans with oversized bay options.", price: "Quoted individually" },
-                { icon: Car, title: "Light Commercial Vehicles", desc: "Pickups, vans, and small trucks for businesses between contracts.", price: "From 12.65 AED / sqft" },
+                { icon: Car, title: "Light Commercial Vehicles", desc: "Pickups, vans, and small trucks for businesses between contracts.", price: "From 12 AED / sqft" },
               ].map((v) => (
                 <div key={v.title} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                   <v.icon className="w-10 h-10 text-dubai-gold mb-4" />
@@ -270,7 +270,7 @@ export default function CarStoragePage() {
         <section className="py-16 bg-dubai-gold text-white text-center">
           <div className="container px-4 max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">Ready to Protect Your Vehicle?</h2>
-            <p className="text-xl text-white/90 mb-8">Get a free quote in 2 minutes. Vehicle storage from 12.65 AED / sqft. No commitment required.</p>
+            <p className="text-xl text-white/90 mb-8">Get a free quote in 2 minutes. Vehicle storage from 12 AED / sqft. No commitment required.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="https://safestorage.ae/get-quote">
                 <Button className="bg-white text-dubai-gold hover:bg-gray-100 px-8 py-4 text-lg font-semibold">Get a Free Quote</Button>

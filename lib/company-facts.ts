@@ -3,7 +3,7 @@
 // Why this file exists
 // --------------------
 // An August 2026 SEO audit found the same fact published with different values
-// across the site — price (12.60 vs 12.65), opening hours (three different sets,
+// across the site — price (12.60 vs 12), opening hours (three different sets,
 // two of them on /contact alone), review count (487 / 500 / 6,700 / 10,000 /
 // "1 Lakh+"), and CCTV retention (30 vs 90 days). Contradictions like these are
 // visible to customers, damage E-E-A-T, and make the site unquotable for AI
@@ -13,10 +13,10 @@
 // it belongs here. Import it — never retype it. Anything published in
 // public/llms.txt and in lib/structured-data.ts must agree with these values.
 
-/** Headline storage price. VAT-inclusive, per square foot, per month. */
-export const PRICE_PER_SQFT_AED = "12.65"
+/** Headline storage price. VAT excluded, per square foot, per month. */
+export const PRICE_PER_SQFT_AED = "12"
 export const PRICE_FROM = `From ${PRICE_PER_SQFT_AED} AED / sqft`
-export const PRICE_FROM_VAT = `From ${PRICE_PER_SQFT_AED} AED / sqft (VAT-inclusive)`
+export const PRICE_FROM_VAT = `From ${PRICE_PER_SQFT_AED} AED / sqft (VAT excluded)`
 
 /** Contact. Keep identical to the Google Business Profile record. */
 export const PHONE = "+971505773388"

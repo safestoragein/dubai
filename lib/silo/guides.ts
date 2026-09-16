@@ -45,7 +45,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
     hero: [
       "This is the most-asked question in the category and it is almost always answered badly, because the honest answer has two parts and most quotes only show one. This guide is part of our [storage and moving guides](/guides).",
       "The two parts are **the storage** and **getting it there and back**. A quote that shows a low monthly rate and omits two van journeys is not a cheaper quote; for a short booking it is frequently the more expensive one.",
-      "Our own rate is **AED 12.65 per sq ft per month, VAT included**, charged on the floor space your goods occupy. That is a number to compare against, not a claim that it is the lowest in the market.",
+      "Our own rate is **AED 12 per sq ft per month, VAT excluded**, charged on the floor space your goods occupy. That is a number to compare against, not a claim that it is the lowest in the market.",
     ],
     sections: [
       {
@@ -53,7 +53,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
         h2: "What storage costs by what you are storing",
         intro:
           "Space is the whole of the monthly figure when you are billed on measured floor area. These are real bands from Dubai collections.",
-        columns: ["What you are storing", "Typical space", "Monthly at AED 12.65/sq ft"],
+        columns: ["What you are storing", "Typical space", "Monthly at AED 12/sq ft"],
         rows: [
           ["10–15 cartons", "15–20 sq ft", "Around AED 190–255"],
           ["One room emptied", "25–40 sq ft", "Around AED 315–505"],
@@ -81,7 +81,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
         items: [
           "Total for the whole expected booking, not the monthly rate.",
           "Include both transport journeys — in and out — in both columns.",
-          "Is it VAT-inclusive? A five per cent difference is often the whole apparent gap.",
+          "Is it VAT included? A five per cent difference is often the whole apparent gap.",
           "Fixed unit size or measured space? If fixed, price the size you would actually have to take.",
           "Is there a minimum term, and does your booking exceed it?",
           "What does a retrieval cost, and how many do you realistically expect?",
@@ -104,7 +104,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
     faqs: [
       {
         q: "What is the average cost of storage in Dubai?",
-        a: `There is no meaningful average, because the two variables — how much space and how many transport journeys — swamp the rate. As a reference point, our rate is AED ${PRICE_PER_SQFT_AED} per square foot per month, VAT included, on measured space.`,
+        a: `There is no meaningful average, because the two variables — how much space and how many transport journeys — swamp the rate. As a reference point, our rate is AED ${PRICE_PER_SQFT_AED} per square foot per month, VAT excluded, on measured space.`,
       },
       {
         q: "Is it cheaper to rent a self-storage unit myself?",
@@ -112,7 +112,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
       },
       {
         q: "Why do storage quotes vary so much in Dubai?",
-        a: "Mostly because they are not quoting the same thing. Indoor covered storage versus a yard, measured space versus a fixed unit, VAT-inclusive versus not, transport included versus not — any one of those explains a large gap.",
+        a: "Mostly because they are not quoting the same thing. Indoor covered storage versus a yard, measured space versus a fixed unit, VAT stated versus not, transport included versus not — any one of those explains a large gap.",
       },
       {
         q: "Does storage get cheaper the longer I store?",
@@ -120,11 +120,11 @@ export const GUIDE_PAGES: SiloPageContent[] = [
       },
       {
         q: "How much does it cost to store a one-bedroom flat?",
-        a: "A 1BHK is typically 60 to 90 square feet once racked, which at AED 12.65 per sq ft per month VAT included is roughly AED 760 to 1,140 a month, plus a one-off transport figure quoted on your address and access.",
+        a: "A 1BHK is typically 60 to 90 square feet once racked, which at AED 12 per sq ft per month VAT excluded is roughly AED 760 to 1,140 a month, plus a one-off transport figure quoted on your address and access.",
       },
       {
         q: "Is VAT included in storage prices in Dubai?",
-        a: "Not always, and it is worth checking before comparing. Our figure is VAT-inclusive, so it is the number on the invoice rather than one you add five per cent to.",
+        a: "Not always, and it is worth checking before comparing. Our figure is quoted before VAT, so five per cent is added on the invoice.",
       },
     ],
     cta: {
