@@ -79,44 +79,55 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===================== INTRO ===================== */}
+        {/* ===================== INTRO / JOURNEY ===================== */}
         <section className={`${s.section} ${s["section--lean"]}`}>
           <div className={s.wrap}>
-            <div className={s.intro}>
-              <div>
-                <span className={s.eyebrow}>Our Journey</span>
-                <h2 className={s["section-title"]}>Redefining Storage,<br />One Customer at a Time</h2>
-                <p className={s["intro-sub"]}>A story built on trust, flexibility, and uncompromising security.</p>
-                <div className={s["story-card"]}>
-                  <h3>Why We Started</h3>
-                  <p>SafeStorage was founded on a simple belief — storage should be effortless, secure and built around real customer needs. Traditional options were rigid and unreliable. We knew there had to be a better way.</p>
+            <span className={s.eyebrow}>Our Story</span>
+            <h2 className={s["section-title"]}>Redefining Storage,<br />One Customer at a Time</h2>
+            <p className={s["intro-sub"]}>A story built on trust, flexibility, and uncompromising security.</p>
+
+            <div className={s.journey}>
+              <div className={s.jSteps}>
+                <div className={s.jStep}>
+                  <span className={s.jDot} aria-hidden="true">01</span>
+                  <div className={s.jCard}>
+                    <span className={s.jKicker}>The beginning</span>
+                    <h3>Why We Started</h3>
+                    <p>SafeStorage was founded on a simple belief — storage should be effortless, secure and built around real customer needs. Traditional options were rigid and unreliable. We knew there had to be a better way.</p>
+                  </div>
+                </div>
+
+                <div className={s.jStep}>
+                  <span className={s.jDot} aria-hidden="true">02</span>
+                  <div className={s.jCard}>
+                    <span className={s.jKicker}>The gap</span>
+                    <h3>The Problem We Solved</h3>
+                    <p>Customers faced long lock-ins, poor handling, limited support and unsafe units. Flexibility and peace of mind were missing — exactly where SafeStorage stepped in.</p>
+                  </div>
+                </div>
+
+                <div className={s.jStep}>
+                  <span className={s.jDot} aria-hidden="true">03</span>
+                  <div className={s.jCard}>
+                    <span className={s.jKicker}>Today</span>
+                    <h3>What Makes Us Different Today</h3>
+                    <ul className={s["diff-list"]}>
+                      <li><span className={s.tick} aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14.5 3.5 10l1.6-1.6L8 11.3l6.9-6.9L16.5 6z"/></svg></span>ISO 9001:2015 certified, professionally managed facilities</li>
+                      <li><span className={s.tick} aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14.5 3.5 10l1.6-1.6L8 11.3l6.9-6.9L16.5 6z"/></svg></span>Secure, clean, dust-protected storage units</li>
+                      <li><span className={s.tick} aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14.5 3.5 10l1.6-1.6L8 11.3l6.9-6.9L16.5 6z"/></svg></span>Doorstep pickup &amp; delivery with careful handling</li>
+                      <li><span className={s.tick} aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14.5 3.5 10l1.6-1.6L8 11.3l6.9-6.9L16.5 6z"/></svg></span>Flexible plans with dedicated customer support</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
-              <figure className={s["intro-media"]}>
-                {/* In production: src="/reviews-customer.jpg" */}
+              <figure className={s.jMedia}>
                 <img src="/about/reviews-customer.jpg" alt="Customer leaving a five-star review on a phone" width="880" height="660" loading="lazy" />
+                <figcaption className={s.jMediaCap}>
+                  <b>4.9/5</b> from 6,700+ reviews worldwide
+                </figcaption>
               </figure>
             </div>
-
-
-            <div className={s["story-stack"]}>
-              <div className={s["story-card"]}>
-                <h3>The Problem We Solved</h3>
-                <p>Customers faced long lock-ins, poor handling, limited support and unsafe units. Flexibility and peace of mind were missing — exactly where SafeStorage stepped in.</p>
-              </div>
-
-              <div className={s["story-card"]}>
-                <h3>What Makes Us Different Today</h3>
-                <ul className={s["diff-list"]}>
-                  <li><span className={s.tick} aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14.5 3.5 10l1.6-1.6L8 11.3l6.9-6.9L16.5 6z"/></svg></span>ISO 9001:2015 certified, professionally managed facilities</li>
-                  <li><span className={s.tick} aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14.5 3.5 10l1.6-1.6L8 11.3l6.9-6.9L16.5 6z"/></svg></span>Secure, clean, dust-protected storage units</li>
-                  <li><span className={s.tick} aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14.5 3.5 10l1.6-1.6L8 11.3l6.9-6.9L16.5 6z"/></svg></span>Doorstep pickup &amp; delivery with careful handling</li>
-                  <li><span className={s.tick} aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 14.5 3.5 10l1.6-1.6L8 11.3l6.9-6.9L16.5 6z"/></svg></span>Flexible plans with dedicated customer support</li>
-                </ul>
-              </div>
-            </div>
-
           </div>
         </section>
 
