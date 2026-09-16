@@ -1940,6 +1940,9 @@ a.chip:hover {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 28px 26px;
+  /* positioning context for .stepNum, which is absolute and would otherwise
+     escape to the nearest positioned ancestor. */
+  position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .panelHover:hover {
