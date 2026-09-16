@@ -50,11 +50,15 @@ export default function Header() {
     window.scrollTo(0, 0)
   }, [pathname])
 
-  // A parent counts as active when the current page is one of its children, so
-  // "Services" stays highlighted anywhere inside the three service silos.
+  // A parent counts as active when the current page is inside one of its
+  // children — but only if no top-level item matches the URL exactly. Without
+  // that guard /self-storage-dubai/how-it-works lit up BOTH "Services" (it
+  // starts with /self-storage-dubai/) and "How It Works" (exact match).
+  const hasExactTopLevel = navItems.some((i) => !i.children && pathname === i.href)
   const isActive = (item: NavItem) =>
     pathname === item.href ||
-    (item.children?.some((c) => pathname === c.href || pathname.startsWith(`${c.href}/`)) ?? false)
+    (!hasExactTopLevel &&
+      (item.children?.some((c) => pathname === c.href || pathname.startsWith(`${c.href}/`)) ?? false))
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-dubai-gold/20">

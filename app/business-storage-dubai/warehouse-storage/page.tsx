@@ -125,19 +125,7 @@ const schemas = [
       description: "From 12 AED per sq ft per month, VAT excluded",
     },
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Warehouse Storage Dubai",
-        item: "https://safestorage.ae/business-storage-dubai/warehouse-storage",
-      },
-    ],
-  },
+  
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",

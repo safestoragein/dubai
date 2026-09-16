@@ -71,15 +71,7 @@ const palmJumeirahSchemas = [
     inLanguage: "en-AE",
     dateModified: "2026-04-21",
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
-      { "@type": "ListItem", position: 2, name: "Locations", item: "https://safestorage.ae/locations" },
-      { "@type": "ListItem", position: 3, name: "Palm Jumeirah", item: "https://safestorage.ae/locations/dubai/palm-jumeirah" },
-    ],
-  },
+  
 ]
 
 export default function PalmJumeirahPage() {

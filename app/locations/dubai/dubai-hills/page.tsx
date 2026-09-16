@@ -70,15 +70,7 @@ const dubaiHillsSchemas = [
     inLanguage: "en-AE",
     dateModified: "2026-04-21",
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
-      { "@type": "ListItem", position: 2, name: "Locations", item: "https://safestorage.ae/locations" },
-      { "@type": "ListItem", position: 3, name: "Dubai Hills", item: "https://safestorage.ae/locations/dubai/dubai-hills" },
-    ],
-  },
+  
 ]
 
 export default function DubaiHillsPage() {

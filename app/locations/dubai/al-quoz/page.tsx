@@ -171,15 +171,7 @@ const alQuozSchemas = [
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
-      { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://safestorage.ae/locations' },
-      { '@type': 'ListItem', position: 3, name: 'Al Quoz', item: 'https://safestorage.ae/locations/dubai/al-quoz' },
-    ],
-  },
+  
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',

@@ -40,14 +40,7 @@ const schemas = [
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
-      { "@type": "ListItem", position: 2, name: "Electronics Storage Dubai", item: "https://safestorage.ae/personal-storage-dubai/electronics-storage" },
-    ],
-  },
+  
 ]
 
 const electronicsRisks = [

@@ -46,14 +46,7 @@ const howItWorksSchemas = [
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
-      { '@type': 'ListItem', position: 2, name: 'How It Works', item: 'https://safestorage.ae/self-storage-dubai/how-it-works' },
-    ],
-  },
+  
 ]
 
 const steps = [

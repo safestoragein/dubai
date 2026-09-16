@@ -80,14 +80,7 @@ export default function LocationsPage() {
         url: `https://safestorage.ae/locations/${e.slug}`,
       })),
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
-        { "@type": "ListItem", position: 2, name: "Locations", item: URL },
-      ],
-    },
+    
   ]
 
   return (

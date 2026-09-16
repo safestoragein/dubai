@@ -76,14 +76,7 @@ const pageSchemas = [
     },
     serviceType: 'Self Storage',
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
-      { '@type': 'ListItem', position: 2, name: 'Self Storage Dubai', item: 'https://safestorage.ae/self-storage-dubai' },
-    ],
-  },
+  
 ]
 
 // Titles are kept to one line and bodies to two: a two-line title on card one

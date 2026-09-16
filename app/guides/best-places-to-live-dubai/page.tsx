@@ -152,14 +152,7 @@ const topPlacesSchemas = [
     inLanguage: 'en-AE',
     about: { '@type': 'City', name: 'Dubai' },
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
-      { '@type': 'ListItem', position: 2, name: 'Top Places in Dubai 2026', item: 'https://safestorage.ae/guides/best-places-to-live-dubai' },
-    ],
-  },
+  
 ]
 
 export default function TopPlacesDubai2026() {
