@@ -10,6 +10,7 @@ import { LandingWhy } from "@/components/landing/landing-services"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingConnect } from "@/components/landing/landing-connect"
 import { StoryReel } from "@/components/landing/story-reel"
+import { MilestonesPlayer } from "@/components/landing/milestones-player"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import s from "@/components/landing/landing.module.css"
 
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
 
 const milestones = [
   { Icon: Flag, year: "2015", t: "SafeStorage founded", b: "A full-service, door-to-door storage model." },
-  { Icon: Users, year: "2019", t: "10,000+ customers", b: "Bengaluru, Chennai, Hyderabad, Mumbai · ISO 9001:2015." },
-  { Icon: Globe2, year: "2023", t: "50,000+ customers", b: "Network expanded to 16 cities across India & UAE." },
-  { Icon: Award, year: "2026", t: "100,000+ customers", b: "Rated 4.9★ · 3M+ sq ft of managed space." },
+  { Icon: Users, year: "2019", count: 10000, t: "10,000+ customers", b: "Bengaluru, Chennai, Hyderabad, Mumbai · ISO 9001:2015." },
+  { Icon: Globe2, year: "2023", count: 50000, t: "50,000+ customers", b: "Network expanded to 16 cities across India & UAE." },
+  { Icon: Award, year: "2026", count: 100000, t: "100,000+ customers", b: "Rated 4.9★ · 3M+ sq ft of managed space." },
 ]
 
 const whoWeServe = [
@@ -141,18 +142,29 @@ export default function AboutPage() {
             </div>
             <p>From a single idea in 2015 to 100,000+ customers across India and the UAE.</p>
           </div>
-          <ol className={s.milestones}>
-            {milestones.map(({ Icon, year, t: title, b }) => (
-              <li className={s.milestone} key={year}>
-                <span className={s.milestoneDot} aria-hidden="true">
-                  <Icon />
-                </span>
-                <span className={s.milestoneYear}>{year}</span>
-                <b>{title}</b>
-                <small>{b}</small>
-              </li>
-            ))}
-          </ol>
+          <MilestonesPlayer>
+            <ol className={s.milestones}>
+              {milestones.map(({ Icon, year, count, t: title, b }, i) => (
+                <li className={s.milestone} key={year} style={{ ["--i" as string]: i }}>
+                  <span className={s.milestoneDot} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <span className={s.milestoneYear}>{year}</span>
+                  {count ? (
+                    <b>
+                      <span data-count={count} data-delay={i * 800 + 200}>
+                        {title.split(" ")[0]}
+                      </span>{" "}
+                      {title.split(" ").slice(1).join(" ")}
+                    </b>
+                  ) : (
+                    <b>{title}</b>
+                  )}
+                  <small>{b}</small>
+                </li>
+              ))}
+            </ol>
+          </MilestonesPlayer>
         </section>
 
         {/* WHO WE SERVE */}

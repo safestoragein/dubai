@@ -2157,6 +2157,106 @@
   }
 }
 
+/* ---- milestone animation (armed by MilestonesPlayer; static without JS) ---- */
+.milestones::after {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 12.5%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(238, 88, 36, 0.2), 0 0 16px rgba(238, 88, 36, 0.8);
+  opacity: 0;
+}
+.msArmed .milestones::before {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.msArmed .milestoneDot,
+.msArmed .milestoneYear,
+.msArmed .milestone b,
+.msArmed .milestone small {
+  opacity: 0;
+}
+.msPlaying .milestones::before {
+  animation: msLine calc(var(--ms-step) * 3) cubic-bezier(0.45, 0, 0.25, 1) 0.2s forwards;
+}
+.msPlaying .milestones::after {
+  animation: msLight calc(var(--ms-step) * 3) cubic-bezier(0.45, 0, 0.25, 1) 0.2s forwards;
+}
+.msPlaying .milestoneDot {
+  animation: msPop 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) calc(var(--i) * var(--ms-step) + 0.1s) forwards,
+    msPulse 1.4s ease-out calc(var(--i) * var(--ms-step) + 0.5s) 1;
+}
+.msPlaying .milestoneYear,
+.msPlaying .milestone b,
+.msPlaying .milestone small {
+  animation: msRise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.msPlaying .milestoneYear {
+  animation-delay: calc(var(--i) * var(--ms-step) + 0.3s);
+}
+.msPlaying .milestone b {
+  animation-delay: calc(var(--i) * var(--ms-step) + 0.42s);
+}
+.msPlaying .milestone small {
+  animation-delay: calc(var(--i) * var(--ms-step) + 0.54s);
+}
+.msPlaying .milestoneDot svg {
+  animation: msIcon 0.6s ease calc(var(--i) * var(--ms-step) + 0.4s) 1;
+}
+@keyframes msLine {
+  to { transform: scaleX(1); }
+}
+@keyframes msLight {
+  0% { opacity: 1; left: 12.5%; }
+  94% { opacity: 1; left: 87.5%; }
+  100% { opacity: 0; left: 87.5%; }
+}
+@keyframes msPop {
+  from { opacity: 0; transform: scale(0.3); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes msPulse {
+  0% { box-shadow: 0 0 0 7px #fdeee6, 0 0 0 7px rgba(238, 88, 36, 0.45); }
+  100% { box-shadow: 0 0 0 7px #fdeee6, 0 0 0 26px rgba(238, 88, 36, 0); }
+}
+@keyframes msIcon {
+  50% { transform: rotate(-12deg) scale(1.2); }
+}
+@keyframes msRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@media (max-width: 760px) {
+  .milestones::after {
+    top: 28px;
+    left: 27px;
+    margin-left: -4px;
+  }
+  .msArmed .milestones::before {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  @keyframes msLineV {
+    to { transform: scaleY(1); }
+  }
+  .msPlaying .milestones::before {
+    animation-name: msLineV;
+  }
+  .msPlaying .milestones::after {
+    animation-name: msLightV;
+  }
+  @keyframes msLightV {
+    0% { opacity: 1; top: 28px; }
+    94% { opacity: 1; top: calc(100% - 40px); }
+    100% { opacity: 0; top: calc(100% - 40px); }
+  }
+}
+
 /* ---------- CONTACT PAGE ---------- */
 .contactDuo {
   display: grid;
