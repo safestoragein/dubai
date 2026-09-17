@@ -1,0 +1,379 @@
+/* OUR STORY — a three-chapter reel. Navy "screen", progress bars on top,
+   text on the left, an illustrated scene on the right that plays each time a
+   chapter becomes active (animations live under .sceneOn, so re-adding the
+   class restarts them). */
+.reel {
+  --dur: 7s;
+  --navy: #25315a;
+  --accent: #ee5824;
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  color: #fff;
+  background: radial-gradient(120% 90% at 80% 20%, #34427a 0%, #25315a 45%, #151c38 100%);
+  padding: 26px 34px 22px;
+  box-shadow: 0 30px 70px rgba(21, 28, 56, 0.35);
+}
+/* soft film vignette */
+.reel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(140% 100% at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+/* ---- progress bars ---- */
+.bars {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.bar {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+}
+.barTrack {
+  display: block;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+.barFill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.barDone .barFill {
+  transform: scaleX(1);
+}
+.barOn .barFill {
+  animation: fill var(--dur) linear forwards;
+  animation-play-state: paused;
+}
+.playing .barOn .barFill {
+  animation-play-state: running;
+}
+.barLabel {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.3s;
+}
+.barOn .barLabel,
+.bar:hover .barLabel {
+  color: #fff;
+}
+@keyframes fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ---- stage ---- */
+.stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  margin-top: 18px;
+  min-height: 360px;
+}
+.scene {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+}
+.sceneOn {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease;
+}
+.kicker {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffb48f;
+}
+.title {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 12px;
+  color: #fff;
+}
+.body {
+  margin-top: 16px;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 470px;
+}
+.points {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.points li {
+  position: relative;
+  padding-left: 34px;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+.points li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 800;
+  background: var(--accent);
+  color: #fff;
+}
+/* text enters like titles in a film */
+.sceneOn .kicker,
+.sceneOn .title,
+.sceneOn .body,
+.sceneOn .points li {
+  animation: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.sceneOn .title {
+  animation-delay: 0.15s;
+}
+.sceneOn .body {
+  animation-delay: 0.35s;
+}
+.sceneOn .points li:nth-child(1) { animation-delay: 0.5s; }
+.sceneOn .points li:nth-child(2) { animation-delay: 1.1s; }
+.sceneOn .points li:nth-child(3) { animation-delay: 1.7s; }
+.sceneOn .points li:nth-child(4) { animation-delay: 2.3s; }
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* ---- illustration ---- */
+.art {
+  position: relative;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* slow "camera push" on every scene */
+.sceneOn .svg {
+  animation: push var(--dur) ease-out both;
+}
+@keyframes push {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+.svg * {
+  transform-box: fill-box;
+}
+.ground { stroke: rgba(255, 255, 255, 0.25); stroke-width: 2; }
+.house { fill: #f5f1ea; stroke: #fff; stroke-width: 2; }
+.roof { fill: none; stroke: #ffb48f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.roofBand { fill: #ffb48f; }
+.door { fill: var(--navy); }
+.win { fill: #bcd0f5; }
+.shutter { fill: #dfe3ec; }
+.shutterLines { stroke: #b8bfcf; stroke-width: 2; }
+.sun { fill: rgba(238, 88, 36, 0.28); }
+.box rect { fill: #f6c89f; stroke: #b86a2c; stroke-width: 2; }
+.box path { stroke: var(--accent); stroke-width: 3; }
+.vanBody { fill: #fff; stroke: #dfe3ec; stroke-width: 2; }
+.vanWin { fill: var(--navy); }
+.stripe { fill: var(--accent); }
+.wheel { fill: #111827; stroke: #fff; stroke-width: 3; }
+.glass { fill: #ffd27a; }
+.base { fill: #dfe3ec; }
+.rays { stroke: #ffd27a; stroke-width: 4; stroke-linecap: round; }
+.tile { fill: rgba(255, 255, 255, 0.1); stroke: rgba(255, 255, 255, 0.2); stroke-width: 2; }
+.ink { fill: none; stroke: #fff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.cross path { stroke: #ff6b6b; stroke-width: 4; stroke-linecap: round; }
+.tick circle { fill: #22c07a; }
+.tick path { fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.shield path:first-child { fill: var(--accent); }
+.shieldTick { fill: none; stroke: #fff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.badge rect { fill: #fff; }
+.badge text { font: 800 26px var(--font-sora), "Sora", sans-serif; fill: var(--accent); }
+.spark { fill: #ffd27a; }
+
+/* default (not yet played) states */
+.box, .bulb, .van, .problem, .tick, .shield, .badge, .van2, .spark { opacity: 0; }
+
+/* chapter 1: boxes pile up, the idea lights, the van arrives */
+.sceneOn .b1 { animation: drop 0.6s cubic-bezier(0.3, 1.4, 0.5, 1) 0.4s both; }
+.sceneOn .b2 { animation: drop 0.6s cubic-bezier(0.3, 1.4, 0.5, 1) 0.9s both; }
+.sceneOn .b3 { animation: drop 0.6s cubic-bezier(0.3, 1.4, 0.5, 1) 1.4s both; }
+.sceneOn .bulb { animation: pop 0.6s cubic-bezier(0.3, 1.5, 0.5, 1) 2.2s both; }
+.sceneOn .rays { animation: glow 1.2s ease-in-out 2.8s infinite alternate; }
+.sceneOn .van { animation: driveIn 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) 3.2s both; }
+.sceneOn .van .wheel { animation: spin 0.4s linear 3.2s 4; transform-origin: center; }
+
+/* chapter 2: problems shake in, SafeStorage arrives, problems turn to ticks */
+.sceneOn .p1 { animation: shakeIn 0.7s ease 0.3s both; }
+.sceneOn .p2 { animation: shakeIn 0.7s ease 0.8s both; }
+.sceneOn .p3 { animation: shakeIn 0.7s ease 1.3s both; }
+.sceneOn .crack { animation: crack 0.5s ease 1.4s both; }
+.sceneOn .cross { animation: fadeOut 0.4s ease 3.4s forwards; }
+.sceneOn .shield { animation: rocket 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.2) 2.6s both; }
+.sceneOn .tick { animation: pop 0.5s cubic-bezier(0.3, 1.5, 0.5, 1) both; }
+.sceneOn .p1 .tick { animation-delay: 3.6s; }
+.sceneOn .p2 .tick { animation-delay: 3.9s; }
+.sceneOn .p3 .tick { animation-delay: 4.2s; }
+
+/* chapter 3: warehouse rises, van parks, rating pops, sparkles */
+.sceneOn .warehouse { animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both; }
+.sceneOn .van2 { animation: driveIn 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) 1s both; }
+.sceneOn .van2 .wheel { animation: spin 0.4s linear 1s 4; transform-origin: center; }
+.sceneOn .badge { animation: pop 0.6s cubic-bezier(0.3, 1.5, 0.5, 1) 2.6s both; }
+.sceneOn .s1 { animation: twinkle 1.6s ease-in-out 3s infinite; }
+.sceneOn .s2 { animation: twinkle 1.6s ease-in-out 3.5s infinite; }
+
+@keyframes drop { from { opacity: 0; transform: translateY(-120px); } to { opacity: 1; transform: none; } }
+@keyframes pop { from { opacity: 0; transform: scale(0.3); } to { opacity: 1; transform: none; } }
+@keyframes glow { from { opacity: 0.4; } to { opacity: 1; } }
+@keyframes driveIn { from { opacity: 1; transform: translateX(200px); } to { opacity: 1; transform: none; } }
+@keyframes spin { to { transform: rotate(-360deg); } }
+@keyframes shakeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  50% { opacity: 1; transform: none; }
+  65% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes crack { from { stroke-dasharray: 60; stroke-dashoffset: 60; } to { stroke-dasharray: 60; stroke-dashoffset: 0; } }
+@keyframes fadeOut { to { opacity: 0; } }
+@keyframes rocket { from { opacity: 0; transform: translateY(80px) scale(0.6); } to { opacity: 1; transform: none; } }
+@keyframes twinkle { 0%, 100% { opacity: 0; transform: scale(0.5); } 50% { opacity: 1; transform: scale(1); } }
+
+/* ---- controls ---- */
+.controls {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.ctrl {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.ctrl:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.count {
+  margin-left: auto;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---- phones ---- */
+@media (max-width: 760px) {
+  .reel {
+    padding: 20px 18px 18px;
+    border-radius: 20px;
+  }
+  .bars {
+    gap: 8px;
+  }
+  .barLabel {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+  .stage {
+    min-height: 0;
+  }
+  .scene {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 16px;
+  }
+  .art {
+    order: -1;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .body,
+  .points li {
+    font-size: 14.5px;
+  }
+}
+
+/* reduced motion: no autoplay, no scene animation, everything visible */
+.still * {
+  animation: none !important;
+}
+.still .box,
+.still .bulb,
+.still .van,
+.still .problem,
+.still .tick,
+.still .shield,
+.still .badge,
+.still .van2 {
+  opacity: 1;
+}
+.still .cross {
+  opacity: 0;
+}

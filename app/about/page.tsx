@@ -9,7 +9,7 @@ import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
 import { LandingWhy } from "@/components/landing/landing-services"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingConnect } from "@/components/landing/landing-connect"
-import { UspRail } from "@/components/landing/usp-rail"
+import { StoryReel } from "@/components/landing/story-reel"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import s from "@/components/landing/landing.module.css"
 
@@ -31,28 +31,6 @@ export const metadata: Metadata = {
   },
 }
 
-const story = [
-  {
-    kicker: "The beginning",
-    title: "Why we started",
-    body: "Storage should be effortless, secure and built around real customer needs. Traditional options were rigid and unreliable — we knew there was a better way.",
-  },
-  {
-    kicker: "The gap",
-    title: "The problem we solved",
-    body: "Long lock-ins, poor handling, limited support. Flexibility and peace of mind were missing — exactly where SafeStorage stepped in.",
-  },
-  {
-    kicker: "Today",
-    title: "What makes us different",
-    points: [
-      "ISO 9001:2015 certified, professionally managed facilities",
-      "Secure, clean, dust-protected storage",
-      "Doorstep pickup & delivery with careful handling",
-      "Flexible plans with dedicated support",
-    ],
-  },
-]
 
 const milestones = [
   { Icon: Flag, year: "2015", t: "SafeStorage founded", b: "A full-service, door-to-door storage model." },
@@ -138,40 +116,18 @@ export default function AboutPage() {
 
         <LandingTrust />
 
-        {/* OUR STORY */}
+        {/* OUR STORY — played as a three-chapter reel */}
         <section className={`${s.section} ${s.wrap}`} id="story">
-          <UspRail
-            head={
-              <div className={s.uspHead}>
-                <span className={s.howEyebrow}>Our story</span>
-                <h2>
-                  Redefining storage, <em>one customer at a time.</em>
-                </h2>
-                <p className={s.splitBlurb} style={{ marginBottom: 0 }}>
-                  A story built on trust, flexibility and uncompromising security.
-                </p>
-              </div>
-            }
-          >
-            {story.map((st, i) => (
-              <article className={`${s.usp} ${i === 2 ? s.panelAccent : ""}`} key={st.title}>
-                <span className={s.uspNum} aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className={s.howEyebrow} style={{ fontSize: 11 }}>{st.kicker}</span>
-                <h3 style={{ marginTop: 12 }}>{st.title}</h3>
-                {st.body ? <p>{st.body}</p> : null}
-                {st.points ? (
-                  <ul className={s.checkList}>
-                    {st.points.map((pt) => (
-                      <li key={pt}>{pt}</li>
-                    ))}
-                  </ul>
-                ) : null}
-              </article>
-            ))}
-          </UspRail>
-          <p className={s.scrollHint}>Swipe for more →</p>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Our story</span>
+              <h2>
+                Redefining storage, <em>one customer at a time.</em>
+              </h2>
+            </div>
+            <p>A story built on trust, flexibility and uncompromising security.</p>
+          </div>
+          <StoryReel />
         </section>
 
         {/* JOURNEY */}
