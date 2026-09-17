@@ -64,13 +64,13 @@ export function LandingReviews() {
 
   return (
     <section className={`${s.section} ${s.wrap}`} id="reviews" style={{ paddingBottom: 20 }}>
-      <div className={s.reviewsHead}>
-        <span className={s.eyebrow} style={{ display: "inline-flex", justifyContent: "center" }}>
-          Testimonials
-        </span>
-        <h2>
-          What <em>Clients</em> Say!
-        </h2>
+      <div className={s.howHead}>
+        <div>
+          <span className={s.howEyebrow}>Testimonials</span>
+          <h2>
+            What our <em>clients say.</em>
+          </h2>
+        </div>
         <p>
           Real experiences from the 100,000+ customers SafeStorage serves worldwide — rated 4.9/5
           across 6,700+ Google reviews.

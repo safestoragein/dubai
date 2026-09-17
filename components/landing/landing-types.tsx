@@ -20,8 +20,10 @@ export function LandingTypes() {
     <section className={`${s.section} ${s.wrap}`} id="types">
       <div className={s.split}>
         <div>
-          <span className={s.eyebrow}>Storage types</span>
-          <h2>Our Storage Spans Every Need and Season of Life</h2>
+          <span className={s.howEyebrow}>Storage types</span>
+          <h2>
+            Our storage spans <em>every need and season of life.</em>
+          </h2>
           <p className={s.splitBlurb}>
             Renovating a villa, relocating between emirates, downsizing, or scaling a business —
             there is a storage plan shaped to it, and our team confirms the size before you book.

@@ -40,9 +40,13 @@ const areas = [
 export function LandingInsights() {
   return (
     <section className={`${s.section} ${s.wrap}`} id="insights" style={{ paddingTop: 20 }}>
-      <div className={s.sectionHead}>
-        <span className={s.eyebrow}>Our latest insights</span>
-        <h2>Storage Advice From People Who Store for a Living</h2>
+      <div className={s.howHead}>
+        <div>
+          <span className={s.howEyebrow}>Our latest insights</span>
+          <h2>
+            Storage advice from <em>people who store for a living.</em>
+          </h2>
+        </div>
       </div>
 
       <div className={s.insGrid}>

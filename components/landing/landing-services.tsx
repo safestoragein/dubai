@@ -49,9 +49,13 @@ const services = [
 export function LandingServices() {
   return (
     <section className={`${s.section} ${s.wrap}`} id="services">
-      <div className={s.sectionHead}>
-        <span className={s.eyebrow}>Our services</span>
-        <h2>Storage Solutions for Every Need in Dubai</h2>
+      <div className={s.howHead}>
+        <div>
+          <span className={s.howEyebrow}>Our services</span>
+          <h2>
+            Storage solutions for <em>every need in Dubai.</em>
+          </h2>
+        </div>
         <p>
           Whether you&apos;re a family, a freelancer, or a fast-growing business — every plan includes
           packing, door-to-door transport, and organised, catalogued warehousing.
@@ -352,9 +356,9 @@ export function LandingWhy() {
   return (
     <section className={s.wrap} id="why">
       <div className={s.darkBand}>
-        <span className={s.eyebrow}>Why SafeStorage</span>
+        <span className={s.howEyebrow}>Why SafeStorage</span>
         <h2>
-          Storage That Works Around <em>Your Life</em>, Not the Other Way Round
+          Storage that works around <em>your life</em>, not the other way round.
         </h2>
         <div className={`${s.featGrid} ${s.featGrid5}`}>
           {feats.map((f) => (

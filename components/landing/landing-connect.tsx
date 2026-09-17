@@ -55,8 +55,10 @@ export function LandingConnect() {
     <section className={`${s.section} ${s.wrap}`} id="connect">
       <div className={s.connect}>
         <div className={s.connectForm}>
-          <span className={s.eyebrow}>Let&apos;s connect</span>
-          <h2>Get Your Free Storage Quote</h2>
+          <span className={s.howEyebrow}>Let&apos;s connect</span>
+          <h2>
+            Get your free <em>storage quote.</em>
+          </h2>
           <p className={s.connectIntro}>
             Tell us what you&apos;d like to store and our team will call you back with a tailored plan.
           </p>

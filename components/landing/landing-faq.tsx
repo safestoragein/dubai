@@ -9,9 +9,13 @@ import s from "./landing.module.css"
 export function LandingFaq() {
   return (
     <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 20 }}>
-      <div className={s.sectionHead}>
-        <span className={s.eyebrow}>Good to know</span>
-        <h2>Frequently Asked Questions</h2>
+      <div className={s.howHead}>
+        <div>
+          <span className={s.howEyebrow}>Good to know</span>
+          <h2>
+            Frequently asked <em>questions.</em>
+          </h2>
+        </div>
         <p>Everything customers ask before their first pickup — pricing, notice periods, and access.</p>
       </div>
 
