@@ -441,6 +441,9 @@
   scroll-snap-type: x proximity;
   scrollbar-width: thin;
   padding: 34px 4px 22px;
+  /* Break out of the 1180px .wrap so all six fit without scrolling on a
+     laptop: up to 1400px wide, centred, keeping a 24px gutter. */
+  margin-inline: calc(50% - min(700px, 50vw - 24px));
 }
 /* Every line in these cards is kept to a single line (the copy is trimmed to
    fit the narrowest column), so the five cards align on their own. An earlier
@@ -450,7 +453,7 @@
   background: transparent;
   border: 1px solid transparent;
   border-radius: 16px;
-  padding: 22px 12px;
+  padding: 22px 8px;
   text-align: center;
   display: flex;
   flex-direction: column;
