@@ -4,6 +4,8 @@ import { homePageSchema } from "@/lib/structured-data"
 
 import { manrope, sora } from "@/components/landing/fonts"
 import { LandingHero, LandingTrust, LandingIntro } from "@/components/landing/landing-top"
+import { LandingUsp } from "@/components/landing/landing-usp"
+import { LandingCompare } from "@/components/landing/landing-compare"
 import { LandingServices, LandingSteps, LandingWhy } from "@/components/landing/landing-services"
 import { LandingTypes } from "@/components/landing/landing-types"
 import { LandingReviews } from "@/components/landing/landing-reviews"
@@ -68,6 +70,8 @@ export default function LandingPage() {
       <LandingSteps />
       <LandingWhy />
       <LandingTypes />
+      <LandingUsp />
+      <LandingCompare />
       <LandingReviews />
       <LandingInsights />
       <LandingFaq />
