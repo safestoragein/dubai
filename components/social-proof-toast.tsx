@@ -67,6 +67,7 @@ export default function SocialProofToast() {
 
   return (
     <div
+      data-floating-toast
       style={{
         position: "fixed",
         bottom: "24px",

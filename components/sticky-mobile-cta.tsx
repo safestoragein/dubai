@@ -31,6 +31,7 @@ const WHATSAPP_NUMBER = PHONE.replace(/[^0-9]/g, "") // wa.me wants digits only
 export default function StickyMobileCta() {
   return (
     <div
+      data-sticky-cta
       className="fixed inset-x-0 bottom-0 z-[60] lg:hidden px-3 pointer-events-none"
       style={{ paddingBottom: "calc(8px + env(safe-area-inset-bottom))" }}
     >
