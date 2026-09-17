@@ -2426,6 +2426,39 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+.areaMarquees {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.areaMarquees .marqueeTrack {
+  animation-duration: 38s;
+}
+.marqueeReverse {
+  animation-direction: reverse;
+}
+/* chip rows: no dot separators, just a gap */
+.chipGroup li::after {
+  display: none;
+}
+.chipGroup li {
+  padding-right: 12px;
+}
+.chipGroup .chip,
+.chipGroup a.chip {
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--navy);
+}
+.chipGroup .chipMuted {
+  color: var(--muted);
+}
+.chipGroup a.chip:hover {
+  color: var(--accent);
+}
 @keyframes areasMarquee {
   from {
     transform: translateX(0);

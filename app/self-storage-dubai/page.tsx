@@ -363,19 +363,32 @@ export default function SelfStorageDubaiPage() {
             </div>
             <p>We cover popular neighborhoods across Dubai with door-to-door services.</p>
           </div>
-          <div className={s.chips} style={{ justifyContent: "flex-start", maxWidth: "none", margin: 0 }}>
-            {areas.map(({ area, slug }) =>
-              slug ? (
-                <Link className={s.chip} href={`/locations/dubai/${slug}`} key={area}>
-                  <MapPin size={13} style={{ display: "inline", marginRight: 6, verticalAlign: "-2px", color: "var(--accent)" }} />
-                  {area}
-                </Link>
-              ) : (
-                <span className={`${s.chip} ${s.chipMuted}`} key={area}>
-                  {area}
-                </span>
-              ),
-            )}
+          {/* Two marquee rows running in opposite directions. Each row renders
+              its list twice for a seamless loop; the copy is aria-hidden and
+              out of the tab order. Pauses on hover, static for reduced motion. */}
+          <div className={s.areaMarquees}>
+            {[areas.slice(0, 9), areas.slice(9)].map((row, r) => (
+              <div className={s.marquee} key={r}>
+                <div className={`${s.marqueeTrack} ${r === 1 ? s.marqueeReverse : ""}`}>
+                  {[0, 1].map((copy) => (
+                    <ul className={`${s.marqueeGroup} ${s.chipGroup}`} aria-hidden={copy === 1 || undefined} key={copy}>
+                      {row.map(({ area, slug }) => (
+                        <li key={area}>
+                          {slug ? (
+                            <Link className={s.chip} href={`/locations/dubai/${slug}`} tabIndex={copy === 1 ? -1 : undefined}>
+                              <MapPin size={13} style={{ display: "inline", marginRight: 6, verticalAlign: "-2px", color: "var(--accent)" }} />
+                              {area}
+                            </Link>
+                          ) : (
+                            <span className={`${s.chip} ${s.chipMuted}`}>{area}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
           <p className={s.chipsNote} style={{ textAlign: "left", marginTop: 18 }}>
             Don&apos;t see your area? <Link href="/contact" style={{ color: "var(--accent)", fontWeight: 600 }}>Contact us</Link>{" "}
