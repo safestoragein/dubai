@@ -285,6 +285,14 @@ export function LandingSteps() {
           <span className={j.line} aria-hidden="true">
             <span className={j.fill} />
             <span className={j.light} />
+            {/* phone-only: a parcel that rides down the rail */}
+            <span className={j.mbox}>
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path className={j.mboxSide} d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z" />
+                <path className={j.mboxTop} d="M3 7.5 12 12l9-4.5M12 12v9" />
+                <path className={j.mboxTape} d="M7.5 5.25 16.5 9.75v3" />
+              </svg>
+            </span>
           </span>
           {/* phone-only van that laps the 2x2 grid */}
           <span className={j.van} aria-hidden="true">
