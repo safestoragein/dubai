@@ -1,0 +1,1067 @@
+/* HOW IT WORKS — animated journey.
+   Ported from the SafeStorage UK site (safestoragewebsite.vercel.app).
+   Pure CSS: one 10s run (6s on phones) that starts when the section is 25%
+   visible — JourneyPlayer only adds .isPlaying. Everything is readable before
+   and without the animation (SSR text, prefers-reduced-motion shows the end
+   state), so there is no layout shift and nothing hidden from crawlers. */
+.journey {
+  --jy:10s;
+  --jy-orange:var(--accent,#ee5824);
+  --jy-line-strong:#cfd4db;
+  --jy-peach:#fdeee6;
+  --jy-slate-2:#8a91a3;
+  --jy-slate:var(--muted,#68708a);
+  --jy-navy-3:#34446b;
+  --jy-tint:#eef1f6;
+  --jy-soft:#f1f2f4;
+  --jy-charcoal:#1f2a47;
+  --jy-white:#fff;
+  --jy-shadow-sm:0 1px 2px #1f2a440a,0 4px 12px -4px #1f2a4414;
+  position:relative;
+}
+.scene {
+  width:100%;
+  height:auto;
+  display:none;
+  overflow:visible;
+}
+@media (min-width:900px) {
+  .scene {
+    margin-bottom:-6px;
+    display:block;
+  }
+}
+.scene * {
+  fill:none;
+  stroke:var(--navy);
+  stroke-width:2px;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.jyGround {
+  stroke:var(--jy-line-strong);
+  stroke-width:2px;
+}
+.jySpot {
+  fill:var(--jy-peach);
+  stroke:none;
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:50%;
+}
+.jyPhone {
+  fill:var(--navy);
+  stroke:var(--navy);
+}
+.jyScreen {
+  fill:var(--jy-white);
+  stroke:none;
+}
+.jyLine {
+  fill:var(--jy-line-strong);
+  stroke:none;
+}
+.jyCta {
+  fill:var(--jy-orange);
+  stroke:none;
+}
+.jyCheck circle {
+  fill:var(--jy-orange);
+  stroke:var(--jy-orange);
+}
+.jyCheck path {
+  stroke:var(--jy-white);
+  stroke-width:2.2px;
+}
+.jyCheck {
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:50%;
+}
+.jyHouse {
+  fill:var(--jy-white);
+}
+.jyRoof {
+  stroke:var(--navy);
+  stroke-width:2.4px;
+}
+.jyRoofband,.jyDoor {
+  fill:var(--navy);
+  stroke:var(--navy);
+}
+.jyDoorOpen {
+  fill:var(--jy-navy-3);
+  stroke:var(--jy-navy-3);
+}
+.jyKnob {
+  fill:var(--jy-white);
+  stroke:none;
+}
+.jyWindow {
+  fill:var(--jy-tint);
+  stroke:var(--jy-navy-3);
+  stroke-width:1.6px;
+}
+.jyBoxfill {
+  fill:var(--jy-peach);
+  stroke:var(--jy-orange);
+  stroke-width:1.6px;
+}
+.jyBoxtape {
+  stroke:var(--jy-orange);
+  stroke-width:1.6px;
+}
+.jyBoxes {
+  transform-box:fill-box;
+  transform-origin:bottom;
+}
+.jyShutter {
+  fill:var(--jy-soft);
+  stroke:var(--navy);
+}
+.jyShutterLines {
+  stroke:var(--jy-line-strong);
+  stroke-width:1.5px;
+}
+.jyCam rect,.jyCam path {
+  fill:var(--navy);
+  stroke:var(--navy);
+}
+.jyShield path:first-child {
+  fill:var(--jy-white);
+  stroke:var(--jy-orange);
+}
+.jyShield path:last-child {
+  stroke:var(--jy-orange);
+}
+.jyShield {
+  transform-box:fill-box;
+  transform-origin:50%;
+  opacity:.5;
+}
+.jyDelivered {
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:bottom;
+}
+.jyTick {
+  fill:var(--jy-orange);
+  stroke:var(--jy-orange);
+}
+.jyTickMark {
+  stroke:var(--jy-white);
+  stroke-width:1.8px;
+}
+.jyShadow {
+  fill:#1f2a4424;
+  stroke:none;
+}
+.jyVanShell {
+  fill:var(--jy-white);
+  stroke:var(--navy);
+  stroke-width:2.2px;
+}
+.jyVanWindow {
+  fill:var(--navy);
+  stroke:var(--navy);
+}
+.jyVanStripe {
+  fill:var(--jy-orange);
+  stroke:none;
+}
+.jyWheel {
+  fill:var(--jy-charcoal);
+  stroke:var(--jy-white);
+  stroke-width:1.5px;
+}
+.jyHub {
+  fill:var(--jy-white);
+  stroke:none;
+}
+.jyVan {
+  transform-box:view-box;
+  filter:drop-shadow(0 6px 8px #1f2a441f);
+}
+.jyVanDir,.jyVanBody {
+  transform-box:fill-box;
+  transform-origin:bottom;
+}
+.trackWrap {
+  position:relative;
+}
+.track {
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  display:grid;
+  position:relative;
+}
+.line {
+  background:var(--line);
+  border-radius:2px;
+  height:2px;
+  position:absolute;
+  top:23px;
+  left:12.5%;
+  right:12.5%;
+}
+.fill {
+  background:var(--jy-orange);
+  transform-origin:0;
+  border-radius:2px;
+  position:absolute;
+  inset:0;
+  transform:scaleX(0);
+}
+.light {
+  background:var(--jy-orange);
+  opacity:0;
+  border-radius:50%;
+  width:10px;
+  height:10px;
+  margin:-5px 0 0 -5px;
+  position:absolute;
+  top:50%;
+  left:0;
+  box-shadow:0 0 0 4px #ee58242e,0 0 14px #ee582499;
+}
+.jstep {
+  text-align:center;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  display:flex;
+  position:relative;
+}
+.jstepDot {
+  z-index:1;
+  background:var(--jy-white);
+  border:2px solid var(--jy-line-strong);
+  width:48px;
+  height:48px;
+  color:var(--navy);
+  box-shadow:var(--jy-shadow-sm);
+  border-radius:50%;
+  justify-content:center;
+  align-items:center;
+  display:inline-flex;
+  position:relative;
+}
+.jstepDot svg {
+  width:20px;
+  height:20px;
+}
+.jstepRing {
+  border:2px solid var(--jy-orange);
+  opacity:0;
+  border-radius:50%;
+  position:absolute;
+  inset:-6px;
+  transform:scale(.85);
+}
+.jstepNum {
+  font-family:var(--font-sora),"Sora",sans-serif;
+  letter-spacing:.14em;
+  color:var(--jy-slate-2);
+  margin-top:8px;
+  font-size:11px;
+  font-weight:700;
+}
+.jstepTitle {
+  margin-top:2px;
+  font-family:var(--font-sora),"Sora",sans-serif;
+  letter-spacing:-.01em;
+  color:var(--navy);
+  transform-origin:50%;
+  font-size:17px;
+  font-weight:700;
+}
+.jstepText {
+  color:var(--jy-slate);
+  max-width:28ch;
+  font-size:14px;
+  line-height:1.55;
+}
+.journey.isPlaying .jySpot,.journey.isPlaying .jstepDot,.journey.isPlaying .jstepRing,.journey.isPlaying .jstepDot svg,.journey.isPlaying .jstepNum,.journey.isPlaying .jstepTitle,.journey.isPlaying .jyCheck,.journey.isPlaying .jyBoxes,.journey.isPlaying .jyShield,.journey.isPlaying .jyDelivered,.journey.isPlaying .jyVan,.journey.isPlaying .jyVanDir,.journey.isPlaying .jyVanBody,.journey.isPlaying .jyWheel,.journey.isPlaying .fill,.journey.isPlaying .light {
+  animation-duration:var(--jy);
+  animation-timing-function:linear;
+  animation-iteration-count:1;
+  animation-fill-mode:both;
+}
+.journey.isPlaying .jyVan,.journey.isPlaying .light {
+  animation-timing-function:cubic-bezier(.45,0,.25,1);
+}
+.journey.isPlaying .jyVanDir {
+  animation-timing-function:step-end;
+}
+.journey.isPlaying .jyCheck {
+  animation-name:jyPop;
+}
+.journey.isPlaying .jyBoxes {
+  animation-name:jyLoad;
+}
+.journey.isPlaying .jyShield {
+  animation-name:jyShield;
+}
+.journey.isPlaying .jyDelivered {
+  animation-name:jyDeliver;
+}
+.journey.isPlaying .jyVan {
+  animation-name:jyDrive;
+}
+.journey.isPlaying .jyVanDir {
+  animation-name:jyFace;
+}
+.journey.isPlaying .jyVanBody {
+  animation-name:jySway;
+}
+.journey.isPlaying .jyWheel {
+  transform-box:fill-box;
+  transform-origin:50%;
+  animation-name:jyWheel;
+}
+.journey.isPlaying .fill {
+  animation-name:jyFill;
+}
+.journey.isPlaying .light {
+  animation-name:jyLight;
+}
+.journey.isPlaying .jySpot1 {
+  animation-name:jySpot1;
+}
+.journey.isPlaying .jstep1 .jstepDot {
+  animation-name:jyDot1;
+}
+.journey.isPlaying .jstep1 .jstepRing {
+  animation-name:jyRing1;
+}
+.journey.isPlaying .jstep1 .jstepDot svg {
+  animation-name:jyIcon1;
+}
+.journey.isPlaying .jstep1 .jstepNum {
+  animation-name:jyNum1;
+}
+.journey.isPlaying .jstep1 .jstepTitle {
+  margin-top:2px;
+  animation-name:jyTitle1;
+}
+@keyframes jySpot1 {
+  0%,8% {
+    opacity:0;
+    transform:scale(.7);
+  }
+  12% {
+    opacity:1;
+    transform:scale(1.05);
+  }
+  16%,to {
+    opacity:.75;
+    transform:scale(1);
+  }
+}
+@keyframes jyDot1 {
+  0%,9% {
+    border-color:var(--jy-line-strong);
+    color:var(--navy);
+    box-shadow:var(--jy-shadow-sm);
+    transform:scale(1);
+  }
+  10% {
+    border-color:var(--jy-orange);
+    color:var(--jy-orange);
+    transform:scale(1);
+    box-shadow:0 0 0 5px #ee582429,0 8px 20px -8px #ee58248c;
+  }
+  12% {
+    transform:scale(1.08);
+  }
+  15%,to {
+    border-color:var(--jy-orange);
+    color:var(--jy-orange);
+    transform:scale(1);
+    box-shadow:0 0 0 5px #ee582429,0 8px 20px -8px #ee58248c;
+  }
+}
+@keyframes jyRing1 {
+  0%,9% {
+    opacity:0;
+    transform:scale(.85);
+  }
+  11% {
+    opacity:.9;
+    transform:scale(1);
+  }
+  18%,to {
+    opacity:0;
+    transform:scale(1.4);
+  }
+}
+@keyframes jyIcon1 {
+  0%,9% {
+    transform:none;
+  }
+  12% {
+    transform:translateY(-2px)scale(1.12);
+  }
+  15%,to {
+    transform:none;
+  }
+}
+@keyframes jyNum1 {
+  0%,9% {
+    color:var(--jy-slate-2);
+  }
+  10%,to {
+    color:var(--jy-orange);
+  }
+}
+@keyframes jyTitle1 {
+  0%,9% {
+    transform:scale(1);
+  }
+  10% {
+    transform:scale(1.04);
+  }
+  15%,to {
+    transform:scale(1);
+  }
+}
+.journey.isPlaying .jySpot2 {
+  animation-name:jySpot2;
+}
+.journey.isPlaying .jstep2 .jstepDot {
+  animation-name:jyDot2;
+}
+.journey.isPlaying .jstep2 .jstepRing {
+  animation-name:jyRing2;
+}
+.journey.isPlaying .jstep2 .jstepDot svg {
+  animation-name:jyIcon2;
+}
+.journey.isPlaying .jstep2 .jstepNum {
+  animation-name:jyNum2;
+}
+.journey.isPlaying .jstep2 .jstepTitle {
+  margin-top:2px;
+  animation-name:jyTitle2;
+}
+@keyframes jySpot2 {
+  0%,26% {
+    opacity:0;
+    transform:scale(.7);
+  }
+  30% {
+    opacity:1;
+    transform:scale(1.05);
+  }
+  34%,to {
+    opacity:.75;
+    transform:scale(1);
+  }
+}
+@keyframes jyDot2 {
+  0%,27% {
+    border-color:var(--jy-line-strong);
+    color:var(--navy);
+    box-shadow:var(--jy-shadow-sm);
+    transform:scale(1);
+  }
+  28% {
+    border-color:var(--jy-orange);
+    color:var(--jy-orange);
+    transform:scale(1);
+    box-shadow:0 0 0 5px #ee582429,0 8px 20px -8px #ee58248c;
+  }
+  30% {
+    transform:scale(1.08);
+  }
+  33%,to {
+    border-color:var(--jy-orange);
+    color:var(--jy-orange);
+    transform:scale(1);
+    box-shadow:0 0 0 5px #ee582429,0 8px 20px -8px #ee58248c;
+  }
+}
+@keyframes jyRing2 {
+  0%,27% {
+    opacity:0;
+    transform:scale(.85);
+  }
+  29% {
+    opacity:.9;
+    transform:scale(1);
+  }
+  36%,to {
+    opacity:0;
+    transform:scale(1.4);
+  }
+}
+@keyframes jyIcon2 {
+  0%,27% {
+    transform:none;
+  }
+  30% {
+    transform:translateY(-2px)scale(1.12);
+  }
+  33%,to {
+    transform:none;
+  }
+}
+@keyframes jyNum2 {
+  0%,27% {
+    color:var(--jy-slate-2);
+  }
+  28%,to {
+    color:var(--jy-orange);
+  }
+}
+@keyframes jyTitle2 {
+  0%,27% {
+    transform:scale(1);
+  }
+  28% {
+    transform:scale(1.04);
+  }
+  33%,to {
+    transform:scale(1);
+  }
+}
+.journey.isPlaying .jySpot3 {
+  animation-name:jySpot3;
+}
+.journey.isPlaying .jstep3 .jstepDot {
+  animation-name:jyDot3;
+}
+.journey.isPlaying .jstep3 .jstepRing {
+  animation-name:jyRing3;
+}
+.journey.isPlaying .jstep3 .jstepDot svg {
+  animation-name:jyIcon3;
+}
+.journey.isPlaying .jstep3 .jstepNum {
+  animation-name:jyNum3;
+}
+.journey.isPlaying .jstep3 .jstepTitle {
+  margin-top:2px;
+  animation-name:jyTitle3;
+}
+@keyframes jySpot3 {
+  0%,48% {
+    opacity:0;
+    transform:scale(.7);
+  }
+  52% {
+    opacity:1;
+    transform:scale(1.05);
+  }
+  56%,to {
+    opacity:.75;
+    transform:scale(1);
+  }
+}
+@keyframes jyDot3 {
+  0%,49% {
+    border-color:var(--jy-line-strong);
+    color:var(--navy);
+    box-shadow:var(--jy-shadow-sm);
+    transform:scale(1);
+  }
+  50% {
+    border-color:var(--jy-orange);
+    color:var(--jy-orange);
+    transform:scale(1);
+    box-shadow:0 0 0 5px #ee582429,0 8px 20px -8px #ee58248c;
+  }
+  52% {
+    transform:scale(1.08);
+  }
+  55%,to {
+    border-color:var(--jy-orange);
+    color:var(--jy-orange);
+    transform:scale(1);
+    box-shadow:0 0 0 5px #ee582429,0 8px 20px -8px #ee58248c;
+  }
+}
+@keyframes jyRing3 {
+  0%,49% {
+    opacity:0;
+    transform:scale(.85);
+  }
+  51% {
+    opacity:.9;
+    transform:scale(1);
+  }
+  58%,to {
+    opacity:0;
+    transform:scale(1.4);
+  }
+}
+@keyframes jyIcon3 {
+  0%,49% {
+    transform:none;
+  }
+  52% {
+    transform:translateY(-2px)scale(1.12);
+  }
+  55%,to {
+    transform:none;
+  }
+}
+@keyframes jyNum3 {
+  0%,49% {
+    color:var(--jy-slate-2);
+  }
+  50%,to {
+    color:var(--jy-orange);
+  }
+}
+@keyframes jyTitle3 {
+  0%,49% {
+    transform:scale(1);
+  }
+  50% {
+    transform:scale(1.04);
+  }
+  55%,to {
+    transform:scale(1);
+  }
+}
+.journey.isPlaying .jySpot4 {
+  animation-name:jySpot4;
+}
+.journey.isPlaying .jstep4 .jstepDot {
+  animation-name:jyDot4;
+}
+.journey.isPlaying .jstep4 .jstepRing {
+  animation-name:jyRing4;
+}
+.journey.isPlaying .jstep4 .jstepDot svg {
+  animation-name:jyIcon4;
+}
+.journey.isPlaying .jstep4 .jstepNum {
+  animation-name:jyNum4;
+}
+.journey.isPlaying .jstep4 .jstepTitle {
+  margin-top:2px;
+  animation-name:jyTitle4;
+}
+@keyframes jySpot4 {
+  0%,70% {
+    opacity:0;
+    transform:scale(.7);
+  }
+  74% {
+    opacity:1;
+    transform:scale(1.05);
+  }
+  78%,to {
+    opacity:.75;
+    transform:scale(1);
+  }
+}
+@keyframes jyDot4 {
+  0%,71% {
+    border-color:var(--jy-line-strong);
+    color:var(--navy);
+    box-shadow:var(--jy-shadow-sm);
+    transform:scale(1);
+  }
+  72% {
+    border-color:var(--jy-orange);
+    color:var(--jy-orange);
+    transform:scale(1);
+    box-shadow:0 0 0 5px #ee582429,0 8px 20px -8px #ee58248c;
+  }
+  74% {
+    transform:scale(1.08);
+  }
+  77%,to {
+    border-color:var(--jy-orange);
+    color:var(--jy-orange);
+    transform:scale(1);
+    box-shadow:0 0 0 5px #ee582429,0 8px 20px -8px #ee58248c;
+  }
+}
+@keyframes jyRing4 {
+  0%,71% {
+    opacity:0;
+    transform:scale(.85);
+  }
+  73% {
+    opacity:.9;
+    transform:scale(1);
+  }
+  80%,to {
+    opacity:0;
+    transform:scale(1.4);
+  }
+}
+@keyframes jyIcon4 {
+  0%,71% {
+    transform:none;
+  }
+  74% {
+    transform:translateY(-2px)scale(1.12);
+  }
+  77%,to {
+    transform:none;
+  }
+}
+@keyframes jyNum4 {
+  0%,71% {
+    color:var(--jy-slate-2);
+  }
+  72%,to {
+    color:var(--jy-orange);
+  }
+}
+@keyframes jyTitle4 {
+  0%,71% {
+    transform:scale(1);
+  }
+  72% {
+    transform:scale(1.04);
+  }
+  77%,to {
+    transform:scale(1);
+  }
+}
+@keyframes jyFill {
+  0%,10% {
+    transform:scaleX(0);
+  }
+  28%,32% {
+    transform:scaleX(.3333);
+  }
+  50%,54% {
+    transform:scaleX(.6667);
+  }
+  72%,to {
+    transform:scaleX(1);
+  }
+}
+@keyframes jyLight {
+  0%,9% {
+    opacity:0;
+    left:0;
+  }
+  11% {
+    opacity:1;
+    left:0;
+  }
+  28% {
+    opacity:1;
+    left:33.33%;
+  }
+  29%,31% {
+    opacity:0;
+    left:33.33%;
+  }
+  32% {
+    opacity:1;
+    left:33.33%;
+  }
+  50% {
+    opacity:1;
+    left:66.67%;
+  }
+  51%,53% {
+    opacity:0;
+    left:66.67%;
+  }
+  54% {
+    opacity:1;
+    left:66.67%;
+  }
+  72% {
+    opacity:1;
+    left:100%;
+  }
+  74%,to {
+    opacity:0;
+    left:100%;
+  }
+}
+@keyframes jyDrive {
+  0%,10% {
+    transform:translate(490px);
+  }
+  28%,32% {
+    transform:translate(196px);
+  }
+  50%,54% {
+    transform:translate(490px);
+  }
+  72%,to {
+    transform:translate(800px);
+  }
+}
+@keyframes jyFace {
+  0%,30% {
+    transform:scaleX(-1);
+  }
+  31%,to {
+    transform:scaleX(1);
+  }
+}
+@keyframes jySway {
+  0%,10%,30%,52%,74%,to {
+    transform:none;
+  }
+  12%,34%,56% {
+    transform:rotate(-.8deg);
+  }
+  27%,49%,71% {
+    transform:rotate(.8deg);
+  }
+}
+@keyframes jyWheel {
+  0%,10% {
+    transform:rotate(0);
+  }
+  28%,32% {
+    transform:rotate(-540deg);
+  }
+  50%,54% {
+    transform:rotate(0);
+  }
+  72%,to {
+    transform:rotate(540deg);
+  }
+}
+@keyframes jyPop {
+  0%,7% {
+    opacity:0;
+    transform:scale(.5);
+  }
+  10% {
+    opacity:1;
+    transform:scale(1.15);
+  }
+  12%,to {
+    opacity:1;
+    transform:scale(1);
+  }
+}
+@keyframes jyLoad {
+  0%,29% {
+    opacity:1;
+    transform:none;
+  }
+  32%,to {
+    opacity:0;
+    transform:translateY(-6px)scale(.9);
+  }
+}
+@keyframes jyShield {
+  0%,48% {
+    opacity:.5;
+    transform:scale(1);
+  }
+  52% {
+    opacity:1;
+    transform:scale(1.18);
+  }
+  55%,to {
+    opacity:1;
+    transform:scale(1);
+  }
+}
+@keyframes jyDeliver {
+  0%,72% {
+    opacity:0;
+    transform:translateY(-10px)scale(.9);
+  }
+  76%,to {
+    opacity:1;
+    transform:none;
+  }
+}
+.van {
+  display:none;
+}
+@media (max-width:899px) {
+  .journey {
+    --jy:6s;
+  }
+  .trackWrap {
+    margin:8px 0 4px;
+    position:relative;
+  }
+  .line {
+    border:2px dashed var(--jy-line-strong);
+    background:0 0;
+    border-radius:24px;
+    width:auto;
+    height:auto;
+    inset:24px;
+  }
+  .fill,.light {
+    display:none;
+  }
+  .track {
+    grid-template-rows:1fr 1fr;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    padding:44px 36px;
+    display:grid;
+    position:static;
+  }
+  .jstep {
+    text-align:left;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    gap:3px;
+    min-height:150px;
+    padding:14px 10px 14px 6px;
+    display:flex;
+    position:static;
+  }
+  .jstep1 {
+    grid-area:1/1;
+  }
+  .jstep2 {
+    grid-area:1/2;
+  }
+  .jstep3 {
+    grid-area:2/2;
+  }
+  .jstep4 {
+    grid-area:2/1;
+  }
+  .jstep2,.jstep3 {
+    text-align:right;
+    align-items:flex-end;
+    padding:14px 6px 14px 10px;
+  }
+  .jstepDot {
+    width:46px;
+    height:46px;
+    position:absolute;
+  }
+  .jstepDot svg {
+    width:20px;
+    height:20px;
+  }
+  .jstep1 .jstepDot {
+    top:1px;
+    left:1px;
+  }
+  .jstep2 .jstepDot {
+    top:1px;
+    right:1px;
+  }
+  .jstep3 .jstepDot {
+    bottom:1px;
+    right:1px;
+  }
+  .jstep4 .jstepDot {
+    bottom:1px;
+    left:1px;
+  }
+  .jstepNum {
+    margin-top:0;
+  }
+  .jstepTitle {
+    margin-top:2px;
+    font-size:14.5px;
+  }
+  .jstepText {
+    max-width:none;
+    font-size:12.5px;
+    line-height:1.45;
+  }
+  .van {
+    z-index:1;
+    pointer-events:none;
+    width:46px;
+    height:30px;
+    display:block;
+    position:absolute;
+    top:calc(100% - 62px);
+    left:calc(100% - 24px);
+    transform:translate(-50%,-50%);
+  }
+  .vanBody {
+    filter:drop-shadow(0 2px 2px #1f2a4438);
+    width:100%;
+    height:100%;
+    display:block;
+    overflow:visible;
+  }
+  .van .jyShadow {
+    display:none;
+  }
+  .journey.isPlaying .van {
+    animation:jyVanM var(--jy) cubic-bezier(.45, 0, .25, 1) 1 both;
+  }
+  .journey.isPlaying .vanBody {
+    animation:jyVanMFace var(--jy) steps(1, end) 1 both;
+  }
+  @keyframes jyVanM {
+    0%,10% {
+      top:calc(100% - 62px);
+      left:calc(100% - 24px);
+    }
+    26%,32% {
+      top:62px;
+      left:calc(100% - 24px);
+    }
+    48%,54% {
+      top:calc(100% - 62px);
+      left:calc(100% - 24px);
+    }
+    57% {
+      top:calc(100% - 24px);
+      left:calc(100% - 62px);
+    }
+    72%,to {
+      top:calc(100% - 24px);
+      left:66px;
+    }
+  }
+  @keyframes jyVanMFace {
+    0%,31.9% {
+      transform:rotate(-90deg);
+    }
+    32%,53.9% {
+      transform:rotate(90deg);
+    }
+    54%,to {
+      transform:scaleX(-1);
+    }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    .van {
+      top:calc(100% - 24px);
+      left:66px;
+    }
+    .vanBody {
+      transform:scaleX(-1);
+    }
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  .journey.isPlaying * {
+    animation:none!important;
+  }
+  .fill {
+    transform:none!important;
+  }
+  .jstepDot {
+    border-color:var(--jy-orange);
+    color:var(--jy-orange);
+  }
+  .jyCheck,.jyDelivered,.jyShield {
+    opacity:1;
+  }
+  .jyBoxes {
+    opacity:0;
+  }
+  .jyVan {
+    transform:translate(800px);
+  }
+  .jyVanDir {
+    transform:scaleX(1);
+  }
+}

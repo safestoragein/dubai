@@ -1,5 +1,7 @@
 import Link from "next/link"
 import s from "./landing.module.css"
+import j from "./journey.module.css"
+import { JourneyPlayer } from "./journey-player"
 
 const ArrowUpRight = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -88,130 +90,170 @@ export function LandingServices() {
 }
 
 /* ------------------------------------------------------------------ *
- * HOW IT WORKS — a four-stop timeline: a line illustration per step sits
- * on a grey ground line, an orange rail links the numbered stops below.
- * On phones it folds into a vertical rail (illustrations hidden).
+ * HOW IT WORKS — animated journey (same animation as the UK site).
+ * A van drives between four scenes while an orange rail fills and each
+ * stop lights up. Pure CSS in journey.module.css; JourneyPlayer only starts
+ * it on scroll. Text is server-rendered and never hidden.
  * ------------------------------------------------------------------ */
-const NAVY = "#25315a"
-const ORANGE = "#ee5824"
-
-const IlloPhone = () => (
-  <svg viewBox="0 0 140 110" aria-hidden="true">
-    <circle cx="66" cy="62" r="46" fill="#fdeee6" />
-    <rect x="46" y="18" width="42" height="80" rx="9" fill={NAVY} />
-    <rect x="51" y="27" width="32" height="58" rx="3" fill="#fff" />
-    <path d="M57 38h20M57 46h20M57 54h13" stroke="#c9cdd9" strokeWidth="3" strokeLinecap="round" />
-    <rect x="57" y="66" width="20" height="7" rx="3.5" fill={ORANGE} />
-    <circle cx="89" cy="20" r="10" fill={ORANGE} />
-    <path d="m84.5 20 3 3 6-6" stroke="#fff" strokeWidth="2.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
-
-const IlloHouse = () => (
-  <svg viewBox="0 0 140 110" aria-hidden="true">
-    <circle cx="70" cy="62" r="46" fill="#fdeee6" />
-    <path d="M28 56 70 22l42 34" fill="none" stroke={NAVY} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M38 50v48h64V50" fill="#fff" stroke={NAVY} strokeWidth="4" strokeLinejoin="round" />
-    <rect x="46" y="60" width="13" height="9" rx="1.5" fill="none" stroke={NAVY} strokeWidth="3" />
-    <rect x="81" y="60" width="13" height="9" rx="1.5" fill="none" stroke={NAVY} strokeWidth="3" />
-    <rect x="63" y="70" width="14" height="28" fill={NAVY} />
-    <circle cx="73" cy="85" r="1.6" fill="#fff" />
-  </svg>
-)
-
-const IlloWarehouse = () => (
-  <svg viewBox="0 0 170 110" aria-hidden="true">
-    <circle cx="85" cy="66" r="44" fill="#fdeee6" />
-    <rect x="22" y="36" width="126" height="9" rx="2.5" fill={NAVY} />
-    <path d="M30 45v53h110V45" fill="#fff" stroke={NAVY} strokeWidth="4" strokeLinejoin="round" />
-    <rect x="40" y="54" width="18" height="9" rx="2" fill="none" stroke={NAVY} strokeWidth="3" />
-    <rect x="112" y="54" width="18" height="9" rx="2" fill="none" stroke={NAVY} strokeWidth="3" />
-    <rect x="66" y="60" width="38" height="38" fill="#eef0f5" stroke={NAVY} strokeWidth="3" />
-    <path d="M66 68h38M66 76h38M66 84h38M66 92h38" stroke="#b9bfce" strokeWidth="2" />
-    <path d="M85 6l12 4.5v8.5c0 7-5 11.5-12 14-7-2.5-12-7-12-14v-8.5z" fill="#fff" stroke={ORANGE} strokeWidth="3" strokeLinejoin="round" />
-    <path d="m79.5 18.5 4 4 7-7.5" stroke={ORANGE} strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
-
-const IlloReturn = () => (
-  <svg viewBox="0 0 190 110" aria-hidden="true">
-    <circle cx="128" cy="62" r="44" fill="#fdeee6" />
-    <path d="M8 74h48l12 10v14H8z" fill="#fff" stroke={NAVY} strokeWidth="3.5" strokeLinejoin="round" />
-    <path d="M16 86h30" stroke={ORANGE} strokeWidth="3.5" strokeLinecap="round" />
-    <circle cx="22" cy="99" r="5" fill="#fff" stroke={NAVY} strokeWidth="3" />
-    <circle cx="55" cy="99" r="5" fill="#fff" stroke={NAVY} strokeWidth="3" />
-    <path d="M90 56 128 26l38 30" fill="none" stroke={NAVY} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M98 50v48h60V50" fill="#fff" stroke={NAVY} strokeWidth="4" strokeLinejoin="round" />
-    <rect x="105" y="60" width="12" height="9" rx="1.5" fill="none" stroke={NAVY} strokeWidth="3" />
-    <rect x="139" y="60" width="12" height="9" rx="1.5" fill="none" stroke={NAVY} strokeWidth="3" />
-    <rect x="122" y="70" width="13" height="28" fill={NAVY} />
-    <rect x="164" y="80" width="18" height="18" rx="1.5" fill="#fff" stroke={ORANGE} strokeWidth="3" />
-    <path d="M173 80v18" stroke={ORANGE} strokeWidth="2.5" />
-    <circle cx="180" cy="74" r="7" fill={ORANGE} />
-    <path d="m176.8 74 2.2 2.2 4-4" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
-
 const iconProps = {
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
-  strokeWidth: 2,
+  strokeWidth: 1.6,
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
   "aria-hidden": true,
+  focusable: false,
 }
 const IcoPhone = () => (
   <svg {...iconProps}>
-    <rect x="7" y="2.5" width="10" height="19" rx="2" />
-    <path d="M11 18h2" />
+    <rect x="7" y="3" width="10" height="18" rx="2" />
+    <path d="M11 17.5h2" />
   </svg>
 )
 const IcoDoor = () => (
   <svg {...iconProps}>
-    <path d="M5 21h14M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17" />
-    <path d="M14 12h.01" />
+    <path d="M6 21V4a1 1 0 011-1h10a1 1 0 011 1v17" />
+    <path d="M3 21h18" />
+    <circle cx="14.5" cy="12.5" r="1" />
   </svg>
 )
 const IcoStore = () => (
   <svg {...iconProps}>
-    <path d="M3 21V9l9-5 9 5v12" />
-    <path d="M7 21v-8h10v8M7 17h10" />
-  </svg>
-)
-const IcoReturn = () => (
-  <svg {...iconProps}>
-    <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
-    <path d="M3 3v5h5" />
+    <path d="M3 20V9l9-5 9 5v11" />
+    <path d="M7 20v-7h10v7M7 16.5h10M3 20h18" />
   </svg>
 )
 
 const steps = [
   {
-    illo: <IlloPhone />,
     icon: <IcoPhone />,
     title: "Book Online",
     body: "Tell us what you are storing and pick a pickup date. It takes under two minutes.",
   },
   {
-    illo: <IlloHouse />,
     icon: <IcoDoor />,
     title: "Doorstep Pickup",
     body: "Our team arrives anywhere in Dubai, wraps what needs wrapping and loads everything for you.",
   },
   {
-    illo: <IlloWarehouse />,
     icon: <IcoStore />,
     title: "Secure Storage",
     body: "Kept in a clean, climate-controlled, CCTV-monitored facility, catalogued item by item.",
   },
   {
-    illo: <IlloReturn />,
-    icon: <IcoReturn />,
+    icon: <IcoDoor />,
     title: "Return on Demand",
     body: "Ask for one box or everything back, delivered to your door whenever you are ready.",
   },
 ]
+const stepClass = [j.jstep1, j.jstep2, j.jstep3, j.jstep4]
+
+const VAN_SHELL = "M-42 -4v-30c0-3 2-5 5-5h40l12 10 12 4c3 1 4 3 4 6v15c0 3-2 5-5 5h-63c-3 0-5-2-5-5z"
+
+function JourneyScene() {
+  return (
+    <svg className={j.scene} viewBox="0 0 1200 150" aria-hidden="true" focusable="false">
+      <g transform="translate(600 130) scale(0.86) translate(-600 -130)">
+        <line className={j.jyGround} x1="40" y1="130" x2="1160" y2="130" />
+        <circle className={`${j.jySpot} ${j.jySpot1}`} cx="150" cy="92" r="46" />
+        <circle className={`${j.jySpot} ${j.jySpot2}`} cx="450" cy="92" r="46" />
+        <circle className={`${j.jySpot} ${j.jySpot3}`} cx="750" cy="92" r="46" />
+        <circle className={`${j.jySpot} ${j.jySpot4}`} cx="1050" cy="92" r="46" />
+
+        {/* 1 — phone */}
+        <g transform="translate(150 130)">
+          <rect className={j.jyPhone} x="-20" y="-72" width="40" height="70" rx="7" />
+          <rect className={j.jyScreen} x="-15" y="-64" width="30" height="50" rx="3" />
+          <rect className={j.jyLine} x="-10" y="-56" width="20" height="3" rx="1.5" />
+          <rect className={j.jyLine} x="-10" y="-48" width="14" height="3" rx="1.5" />
+          <rect className={j.jyLine} x="-10" y="-40" width="18" height="3" rx="1.5" />
+          <rect className={j.jyCta} x="-10" y="-28" width="20" height="8" rx="4" />
+          <g transform="translate(20 -70)">
+            <g className={j.jyCheck}>
+              <circle r="9" />
+              <path d="M-4 0l3 3 5-6" />
+            </g>
+          </g>
+        </g>
+
+        {/* 2 — home with boxes waiting */}
+        <g transform="translate(450 130)">
+          <path className={j.jyHouse} d="M-40 0v-46l40-22 40 22v46z" />
+          <path className={j.jyRoof} d="M-46 -44l46-26 46 26" />
+          <rect className={j.jyDoor} x="-9" y="-30" width="18" height="30" rx="2" />
+          <circle className={j.jyKnob} cx="4" cy="-15" r="1.5" />
+          <rect className={j.jyWindow} x="-30" y="-34" width="12" height="10" rx="1.5" />
+          <rect className={j.jyWindow} x="18" y="-34" width="12" height="10" rx="1.5" />
+          <g className={j.jyBoxes}>
+            <rect className={j.jyBoxfill} x="-66" y="-16" width="16" height="16" rx="1.5" />
+            <rect className={j.jyBoxfill} x="-62" y="-30" width="12" height="12" rx="1.5" />
+            <path className={j.jyBoxtape} d="M-58 -16v16M-56 -30v12" />
+          </g>
+        </g>
+
+        {/* 3 — warehouse */}
+        <g transform="translate(750 130)">
+          <rect className={j.jyHouse} x="-70" y="-58" width="140" height="58" rx="2" />
+          <rect className={j.jyRoofband} x="-74" y="-64" width="148" height="8" rx="2" />
+          <rect className={j.jyShutter} x="-24" y="-40" width="48" height="40" rx="2" />
+          <path className={j.jyShutterLines} d="M-24 -32h48M-24 -24h48M-24 -16h48M-24 -8h48" />
+          <rect className={j.jyWindow} x="-58" y="-46" width="20" height="10" rx="1.5" />
+          <rect className={j.jyWindow} x="38" y="-46" width="20" height="10" rx="1.5" />
+          <g className={j.jyCam} transform="translate(58 -58)">
+            <rect x="-7" y="-4" width="10" height="6" rx="2" />
+            <path d="M3 -2l5-2v6l-5-2z" />
+          </g>
+          <g transform="translate(0 -84)">
+            <g className={j.jyShield}>
+              <path d="M0 -11l10 4v7c0 7-4 12-10 14-6-2-10-7-10-14v-7z" />
+              <path d="M-4 1l3 3 6-7" />
+            </g>
+          </g>
+        </g>
+
+        {/* 4 — home, delivered */}
+        <g transform="translate(1050 130)">
+          <path className={j.jyHouse} d="M-40 0v-46l40-22 40 22v46z" />
+          <path className={j.jyRoof} d="M-46 -44l46-26 46 26" />
+          <rect className={`${j.jyDoor} ${j.jyDoorOpen}`} x="-9" y="-30" width="18" height="30" rx="2" />
+          <rect className={j.jyWindow} x="-30" y="-34" width="12" height="10" rx="1.5" />
+          <rect className={j.jyWindow} x="18" y="-34" width="12" height="10" rx="1.5" />
+          <g transform="translate(58 0)">
+            <g className={j.jyDelivered}>
+              <rect className={j.jyBoxfill} x="-9" y="-18" width="18" height="18" rx="1.5" />
+              <path className={j.jyBoxtape} d="M0 -18v18" />
+              <g transform="translate(9 -22)">
+                <circle className={j.jyTick} r="6" />
+                <path className={j.jyTickMark} d="M-2.5 0l2 2 3.5-4" />
+              </g>
+            </g>
+          </g>
+        </g>
+
+        {/* the van */}
+        <g transform="translate(150 130)">
+          <g className={j.jyVan}>
+            <g transform="scale(0.82)">
+              <g className={j.jyVanDir}>
+                <ellipse className={j.jyShadow} cx="-6" cy="1" rx="34" ry="3" />
+                <g className={j.jyVanBody}>
+                  <path className={j.jyVanShell} d={VAN_SHELL} />
+                  <path className={j.jyVanWindow} d="M5 -36h8l10 9H5z" />
+                  <rect className={j.jyVanStripe} x="-38" y="-18" width="42" height="4" rx="2" />
+                  <circle className={j.jyWheel} cx="-24" cy="-1" r="6" />
+                  <circle className={j.jyWheel} cx="18" cy="-1" r="6" />
+                  <circle className={j.jyHub} cx="-24" cy="-1" r="2" />
+                  <circle className={j.jyHub} cx="18" cy="-1" r="2" />
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  )
+}
 
 export function LandingSteps() {
   return (
@@ -229,21 +271,44 @@ export function LandingSteps() {
         </p>
       </div>
 
-      <ol className={s.howTrack}>
-        {steps.map((step, i) => (
-          <li className={s.howStep} key={step.title}>
-            <div className={s.howIllo}>{step.illo}</div>
-            <div className={s.howDot} aria-hidden="true">
-              {step.icon}
-            </div>
-            <div className={s.howText}>
-              <span className={s.howNum}>{String(i + 1).padStart(2, "0")}</span>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <JourneyPlayer>
+        <JourneyScene />
+        <div className={j.trackWrap}>
+          <span className={j.line} aria-hidden="true">
+            <span className={j.fill} />
+            <span className={j.light} />
+          </span>
+          {/* phone-only van that laps the 2x2 grid */}
+          <span className={j.van} aria-hidden="true">
+            <svg className={j.vanBody} viewBox="0 0 44 28" focusable="false">
+              <ellipse className={j.jyShadow} cx="22" cy="26" rx="18" ry="2" />
+              <path
+                className={j.jyVanShell}
+                d="M2 20V6c0-1.7 1.3-3 3-3h20l7 6 7 2.4c1.2.4 2 1.5 2 2.8V20c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2z"
+              />
+              <path className={j.jyVanWindow} d="M26 6h4l5 5h-9z" />
+              <rect className={j.jyVanStripe} x="4" y="13" width="20" height="2.4" rx="1.2" />
+              <circle className={j.jyWheel} cx="11" cy="22" r="3.4" />
+              <circle className={j.jyWheel} cx="33" cy="22" r="3.4" />
+              <circle className={j.jyHub} cx="11" cy="22" r="1.2" />
+              <circle className={j.jyHub} cx="33" cy="22" r="1.2" />
+            </svg>
+          </span>
+          <ol className={j.track} aria-label="The four steps">
+            {steps.map((step, i) => (
+              <li className={`${j.jstep} ${stepClass[i]}`} key={step.title}>
+                <span className={j.jstepDot} aria-hidden="true">
+                  <span className={j.jstepRing} />
+                  {step.icon}
+                </span>
+                <span className={j.jstepNum}>{String(i + 1).padStart(2, "0")}</span>
+                <h3 className={j.jstepTitle}>{step.title}</h3>
+                <p className={j.jstepText}>{step.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </JourneyPlayer>
 
       <div className={s.howCta}>
         <span>Ready to get started?</span>
