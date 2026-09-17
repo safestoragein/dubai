@@ -4,7 +4,6 @@ import {
   Shield, Truck, Clock, CheckCircle2, Package, MapPin, Camera, Flame, Bug, Lightbulb, ShieldCheck,
   Ruler, Layers, CalendarDays, Sparkles, Star, Users, Lock, Boxes,
 } from "lucide-react"
-import Script from "next/script"
 import SchemaScript from "@/components/schema-script"
 import { SiloHubLinks } from "@/components/silo/silo-links"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
@@ -180,8 +179,9 @@ export default function SelfStorageDubaiPage() {
           { name: "Self Storage Dubai" },
         ]}
       />
-      <SchemaScript schema={pageSchemas} />
-      <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      {/* FAQPage rides with the page schemas so it is in the server HTML,
+          not injected after hydration by next/script. */}
+      <SchemaScript schema={[...pageSchemas, faqSchema]} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
         <PageHero
