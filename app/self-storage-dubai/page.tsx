@@ -122,11 +122,11 @@ const why = [
 ]
 
 const sizes = [
-  { size: "1–2 m²", label: "Small", fits: ["8–12 medium boxes", "Hand luggage", "Small appliances", "Documents"] },
-  { size: "3–4 m²", label: "Studio", fits: ["20–30 boxes", "A bicycle", "TV and electronics", "Side tables"] },
-  { size: "5–7 m²", label: "1-bed", fits: ["Mattress and bed frame", "Sofa", "TV unit", "30–40 boxes", "Small wardrobes"] },
-  { size: "8–10 m²", label: "2-bed", fits: ["Large sofa set", "Multiple beds", "Dining table", "White goods", "50–70 boxes"] },
-  { size: "12–15 m²", label: "3-bed", fits: ["Full apartment contents", "Seasonal items", "Sports gear", "Large furniture pieces"] },
+  { size: "10–20 sq ft", label: "Small", fits: ["8–12 medium boxes", "Hand luggage", "Small appliances", "Documents"] },
+  { size: "30–45 sq ft", label: "Studio", fits: ["20–30 boxes", "A bicycle", "TV and electronics", "Side tables"] },
+  { size: "55–75 sq ft", label: "1-bed", fits: ["Mattress and bed frame", "Sofa", "TV unit", "30–40 boxes", "Small wardrobes"] },
+  { size: "85–110 sq ft", label: "2-bed", fits: ["Large sofa set", "Multiple beds", "Dining table", "White goods", "50–70 boxes"] },
+  { size: "130–160 sq ft", label: "3-bed", fits: ["Full apartment contents", "Seasonal items", "Sports gear", "Large furniture pieces"] },
 ]
 
 const security = [
@@ -256,6 +256,9 @@ export default function SelfStorageDubaiPage() {
                 </div>
                 <h3>
                   {u.size} <span style={{ color: "var(--accent)" }}>· {u.label}</span>
+                  <small style={{ display: "block", fontSize: 12, fontWeight: 600, color: "var(--muted)", marginTop: 4 }}>
+                    (Estimated)
+                  </small>
                 </h3>
                 <ul className={s.bulletList}>
                   {u.fits.map((f) => (
