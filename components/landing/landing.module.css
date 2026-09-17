@@ -1233,6 +1233,12 @@
   .stat strong {
     font-size: 19px;
   }
+  .stat span {
+    display: block;
+    margin-top: 4px;
+    font-size: 11.5px;
+    line-height: 1.4;
+  }
 }
 .stat strong i {
   font-style: normal;

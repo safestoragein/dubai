@@ -359,10 +359,11 @@ const feats = [
 ]
 
 const stats = [
-  { v: "100,000+", label: "Customers worldwide" },
-  { v: "4.9", suffix: "★", label: "Average Google rating" },
-  { v: "10+", label: "Years global experience" },
-  { v: "12", suffix: " AED", label: "Per sqft, per month" },
+  // label: [first line, second line] — split so every label is two even lines on phones
+  { v: "100,000+", label: ["Customers", "worldwide"] },
+  { v: "4.9", suffix: "★", label: ["Average Google", "rating"] },
+  { v: "10+", label: ["Years global", "experience"] },
+  { v: "12", suffix: " AED", label: ["Per sqft,", "per month"] },
 ]
 
 export function LandingWhy() {
@@ -404,12 +405,15 @@ export function LandingWhy() {
 
       <div className={s.stats}>
         {stats.map((st) => (
-          <div className={s.stat} key={st.label}>
+          <div className={s.stat} key={st.v}>
             <strong>
               {st.v}
               {st.suffix ? <i>{st.suffix}</i> : null}
             </strong>
-            <span>{st.label}</span>
+            <span>
+              {st.label[0]} <br className={s.mBreak} />
+              {st.label[1]}
+            </span>
           </div>
         ))}
       </div>
