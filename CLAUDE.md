@@ -69,6 +69,7 @@ server, then rebuild + restart (redeploy).
 - **No cancellation-notice periods** (e.g. "7/30 days' notice") in page copy.
 - **No invented testimonials, facts or numbers.** Reuse only testimonials already published on the site.
 - **No VAT wording** in headline prices (there are no prices).
+- **No ISO 9001 / ISO certification claims** anywhere (owner decision 2026-09-17).
 - `/how-it-works` is the common path (old `/self-storage-dubai/how-it-works` 308-redirects to it).
 
 ## 🎨 Design system (every page must look like the homepage)

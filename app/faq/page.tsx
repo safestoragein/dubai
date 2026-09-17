@@ -228,7 +228,7 @@ const faqCategories = [
       },
       {
         question: "What should I compare when choosing a storage company in Dubai?",
-        answer: "Compare four things. First, whether VAT is stated and the price quoted in writing before booking — many quotes exclude VAT, access fees or a deposit. Second, whether collection and delivery are included or billed separately as a moving job. Third, whether you receive a documented inventory signed at collection, which is your only record of what was handed over. Fourth, the contract terms — look for month-to-month billing with no minimum period and no early-termination penalty. SafeStorage Dubai meets all four, and holds a 4.9/5 rating across 6,700+ verified Google reviews with ISO 9001:2015 certification."
+        answer: "Compare four things. First, whether VAT is stated and the price quoted in writing before booking — many quotes exclude VAT, access fees or a deposit. Second, whether collection and delivery are included or billed separately as a moving job. Third, whether you receive a documented inventory signed at collection, which is your only record of what was handed over. Fourth, the contract terms — look for month-to-month billing with no minimum period and no early-termination penalty. SafeStorage Dubai meets all four, and holds a 4.9/5 rating across 6,700+ verified Google reviews."
       },
       {
         question: "Where can I store my furniture during renovation in Dubai?",

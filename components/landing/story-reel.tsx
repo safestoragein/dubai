@@ -30,7 +30,7 @@ const chapters = [
     short: "Today",
     title: "What makes us different",
     points: [
-      "ISO 9001:2015 certified, professionally managed facilities",
+      "Professionally managed facilities",
       "Secure, clean, dust-protected storage",
       "Doorstep pickup & delivery with careful handling",
       "Flexible plans with dedicated support",

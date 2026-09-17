@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 const milestones = [
   { Icon: Flag, year: "2015", t: "SafeStorage founded", b: "A full-service, door-to-door storage model." },
-  { Icon: Users, year: "2019", count: 10000, t: "10,000+ customers", b: "Bengaluru, Chennai, Hyderabad, Mumbai · ISO 9001:2015." },
+  { Icon: Users, year: "2019", count: 10000, t: "10,000+ customers", b: "Bengaluru, Chennai, Hyderabad and Mumbai." },
   { Icon: Globe2, year: "2023", count: 50000, t: "50,000+ customers", b: "Network expanded to 16 cities across India & UAE." },
   { Icon: Award, year: "2026", count: 100000, t: "100,000+ customers", b: "Rated 4.9★ · 3M+ sq ft of managed space." },
 ]
@@ -55,10 +55,6 @@ const aboutFaqs = [
   {
     q: "How many customers has SafeStorage served globally?",
     a: "100,000+ customers worldwide — 10,000 by 2019 and 50,000 by 2023 — with a 4.9/5 average rating.",
-  },
-  {
-    q: "Is SafeStorage ISO certified?",
-    a: "Yes. SafeStorage operates an ISO 9001:2015 certified quality management system, independently audited for service standards and continuous improvement.",
   },
   {
     q: "What makes SafeStorage different from other Dubai storage companies?",

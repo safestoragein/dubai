@@ -442,7 +442,7 @@ export const faqSchema = {
       name: "What is the best storage company in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai holds a 4.9/5 rating across 6,700+ verified Google reviews and is ISO 9001:2015 certified. It operates from a registered facility at Building 23, Warehouse 5, DIP-1, Dubai, with multi-angle CCTV, logged access control and a signed inventory taken at collection. Pricing is quoted in writing before booking, on month-to-month contracts with no early-termination penalty. Compare on four things: door-to-door collection, a written quote excluding VAT, a documented inventory, and contract flexibility."
+        text: "SafeStorage Dubai holds a 4.9/5 rating across 6,700+ verified Google reviews. It operates from a registered facility at Building 23, Warehouse 5, DIP-1, Dubai, with multi-angle CCTV, logged access control and a signed inventory taken at collection. Pricing is quoted in writing before booking, on month-to-month contracts with no early-termination penalty. Compare on four things: door-to-door collection, a written quote excluding VAT, a documented inventory, and contract flexibility."
       }
     },
     {
