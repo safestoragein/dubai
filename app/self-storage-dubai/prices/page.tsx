@@ -223,7 +223,7 @@ export default function StoragePricesPage() {
                 You pay only for the space your items use, with transparent pricing and no hidden fees.
               </p>
               <p className="mb-4 text-lg text-white/90">
-                What it multiplies by is the part people get wrong. Storage is priced by space and by time, so the honest
+                The part people get wrong is volume. Storage is priced by space and by time, so the honest
                 answer to &ldquo;how much does storage cost&rdquo; depends entirely on how much stuff you have — and most
                 people overestimate their own volume.
               </p>
