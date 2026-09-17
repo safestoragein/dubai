@@ -581,23 +581,37 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     padding: 26px 24px 14px;
+    scroll-padding-inline: 24px;
     margin: 0 -24px;
   }
   .trust::-webkit-scrollbar {
     display: none;
   }
+  /* two full cards + half of the third, so the row reads as swipeable:
+     24px lead-in + 2.5 cards + two 12px gaps = the screen width */
   .trustItem {
-    flex: 0 0 190px;
+    flex: 0 0 calc((100vw - 48px) / 2.5);
+    min-width: 0;
     scroll-snap-align: start;
-    padding: 22px 12px;
+    padding: 18px 8px;
     background: var(--paper);
     border-color: var(--line);
   }
-  .trustItem strong {
+  .trustIcon {
+    width: 44px;
+    height: 44px;
     font-size: 19px;
+    margin-bottom: 10px;
+  }
+  .trustItem strong {
+    font-size: 16px;
+    white-space: normal;
   }
   .trustItem b {
-    font-size: 12.5px;
+    font-size: 12px;
+  }
+  .trustItem small {
+    font-size: 11px;
   }
 }
 .trustRule {
