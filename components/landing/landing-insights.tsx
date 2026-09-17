@@ -68,13 +68,29 @@ export function LandingInsights() {
         ))}
       </div>
 
-      <div className={s.logos}>
-        {areas.map((a) => (
-          <Link href={`/locations/dubai/${a.slug}`} key={a.slug}>
-            {a.name}
-          </Link>
-        ))}
-        <Link href="/locations/dubai">All Dubai areas →</Link>
+      {/* Areas marquee: the list is rendered twice and slid by -50% for a
+          seamless loop. The second copy is hidden from screen readers and the
+          tab order, so each area is announced and focusable once. Pure CSS,
+          pauses on hover, static under prefers-reduced-motion. */}
+      <div className={s.areas}>
+        <div className={s.marquee}>
+          <div className={s.marqueeTrack}>
+            {[0, 1].map((copy) => (
+              <ul className={s.marqueeGroup} aria-hidden={copy === 1 || undefined} key={copy}>
+                {areas.map((a) => (
+                  <li key={a.slug}>
+                    <Link href={`/locations/dubai/${a.slug}`} tabIndex={copy === 1 ? -1 : undefined}>
+                      {a.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+        <Link className={s.areasAll} href="/locations/dubai">
+          All Dubai areas →
+        </Link>
       </div>
     </section>
   )
