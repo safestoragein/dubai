@@ -347,6 +347,6 @@ article a {
    bar's own lg:hidden breakpoint. */
 @media (max-width: 1023.98px) {
   body {
-    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+    padding-bottom: calc(68px + env(safe-area-inset-bottom));
   }
 }
