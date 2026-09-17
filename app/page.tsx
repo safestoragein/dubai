@@ -65,7 +65,6 @@ export default function LandingPage() {
       <LandingHero />
       <LandingTrust />
       <LandingServices />
-      <LandingIntro />
       <LandingSteps />
       <LandingWhy />
       <LandingTypes />
@@ -73,6 +72,7 @@ export default function LandingPage() {
       <LandingInsights />
       <LandingFaq />
       <LandingConnect />
+      <LandingIntro />
     </div>
   )
 }
