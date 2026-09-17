@@ -685,8 +685,41 @@
   flex: 0 0 calc((100% - 32px) / 3.2);
   scroll-snap-align: start;
 }
+/* faint watermark per tab, same treatment as the Pricing carton (📦):
+   a delivery van on the white cards, a warehouse on the orange cards */
+.introRail > .introWhite,
+.introRail > .introAccent {
+  overflow: hidden;
+}
+.introRail > .introWhite::after,
+.introRail > .introAccent::after {
+  position: absolute;
+  right: -14px;
+  bottom: -18px;
+  font-size: 110px;
+  line-height: 1;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+.introRail > .introWhite::after {
+  content: "🚚";
+  opacity: 0.1;
+}
+.introRail > .introAccent::after {
+  content: "🏭";
+  opacity: 0.16;
+  filter: grayscale(1) brightness(1.6);
+}
+.introRail > .introCard > * {
+  position: relative;
+  z-index: 1;
+}
 .introAccent .eyebrow {
   color: rgba(255, 255, 255, 0.85);
+}
+.introAccent .eyebrow::before {
+  background: #fff;
+  outline-color: rgba(255, 255, 255, 0.35);
 }
 .introAccent .introFoot small {
   color: rgba(255, 255, 255, 0.9);
