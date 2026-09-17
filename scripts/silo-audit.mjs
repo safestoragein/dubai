@@ -55,7 +55,10 @@ const published = new Set(
 /* ---- what redirects ------------------------------------------------------ */
 
 const cfg = await import("../next.config.mjs")
-const redirects = await cfg.default.redirects()
+// next.config exports a function (per-deploy asset version). Any phase other
+// than "phase-production-build" only READS .deployment-id, never rewrites it.
+const nextCfg = typeof cfg.default === "function" ? cfg.default("phase-audit") : cfg.default
+const redirects = await nextCfg.redirects()
 const redirectSources = new Map()
 for (const r of redirects) {
   // Skip parameterised and host-conditional rules — they cannot be compared
