@@ -38,6 +38,15 @@ import { ADDRESS_FULL, EMAIL, HOURS_DISPLAY } from "@/lib/company-facts"
  * AED/dirham unit, and the URL rewrites only touch our own legacy paths.
  */
 const FEED_RULES: Array<[RegExp, string]> = [
+  // No ISO 9001 / ISO certification claims (owner decision 2026-09-17).
+  [/\bwhich hold ISO certification and\b/gi, "which"],
+  [/\s*,?\s*ISO certification(?=\s+and\s)/gi, ""],
+  [/,\s*ISO-certified facilities(?=,)/gi, ""],
+  [/\bISO[- ]certified\s+(storage\s+facilit)/gi, "secure $1"],
+  [/\bISO\s*9001(?::2015)?[- ]certified\b/gi, "professionally managed"],
+  [/\bwork from ISO-accredited facilities\b/gi, "work from facilities"],
+  [/\bISO-Certified Security\b/g, "Secure Facilities"],
+
 
   // Contact address
   [/safestoragedubai@gmail\.com/gi, EMAIL],
@@ -375,16 +384,17 @@ export function rewriteFeedUrls(html: string): string {
  * Empty elements left behind are removed. Third-party AED figures are untouched:
  * the pattern only matches our 12.6x rate.
  */
-const OWN_PRICE = String.raw`(?:AED\s*(?<![\d.])12(?:\.6[05])?(?![\d.,])|(?<![\d.])12\.6[05]|(?<![\d.,])12(?=\s*AED))\+?\s*(?:AED)?(?:\s*(?:\/|per)\s*(?:sq\.?\s*ft\.?|sqft|square\s+f(?:oo|ee)t|month))?(?:\s*(?:per|a)\s+month)?(?:,?\s*\(?(?:VAT[- ]inclusive|inclusive\s+of\s+VAT|VAT\s+inclusive|incl\.?\s*VAT|\+\s*VAT)\)?)?`
+const OWN_PRICE = String.raw`(?:(?:AED|Dhs?)\s*(?<![\d.])12(?:\.6[05])?(?![\d.,])|(?<![\d.])12\.6[05]|(?<![\d.,])12(?=\s*AED)|(?:AED|Dhs?)\s*(?:99(?:\.00)?|24|9)(?![\d.,])(?:\s*\(\$\s*25\))?)\+?\s*(?:AED)?(?:\s*(?:\/|per|a|for each|each)\s*(?:sq\.?\s*ft\.?|sqft|square\s+f(?:oo|ee)t|month|box))?(?:\s*(?:per|a)\s+month|\s*monthly)?(?:,?\s*\(?(?:VAT[- ]inclusive|inclusive\s+of\s+VAT|VAT\s+inclusive|incl\.?\s*VAT|\+\s*VAT)\)?)?`
+const HAS_OWN_PRICE = /12\.6[05]|AED\s*12(?![\d.,])|(?<![\d.,])12\s*AED|(?:AED|Dhs?)\s*(?:99|24|9)(?![\d.,])/
 const OWN_PRICE_RE = new RegExp(OWN_PRICE, "gi")
 const MARK = "\u0000P\u0000"
 const PRICE_PHRASE_RE = new RegExp(
-  String.raw`\s*(?:[—–|:,-]\s*)?(?:and\s+)?(?:(?:plans?|pricing|prices?|storage|units?|rates?)\s+)?(?:(?:starting|starts?|begins?|begin|priced)\s+)?(?:(?:from|at)\s+)?(?:(?:only|just|as\s+low\s+as|an\s+affordable)\s+)?` + MARK,
+  String.raw`\s*(?:[—–|:,-]\s*)?(?:and\s+)?(?:(?<![A-Za-z])(?:pricing|prices?|rates?)\s+)?(?:(?:starting|starts?|begins?|begin|priced)\s+)?(?:(?:from|at)\s+)?(?:(?:only|just|as\s+low\s+as|an\s+affordable)\s+)?` + MARK,
   "gi",
 )
 
 function scrubPriceText(txt: string): string {
-  if (!/12\.6[05]|AED\s*12(?![\d.,])|(?<![\d.,])12\s*AED/.test(txt)) return txt
+  if (!HAS_OWN_PRICE.test(txt)) return txt
   const marked = txt.replace(/&nbsp;/g, " ").replace(OWN_PRICE_RE, MARK)
   if (!marked.includes(MARK)) return txt
   const sentences = marked.match(/[^.!?]+(?:[.!?]+|$)\s*/g) ?? [marked]
@@ -404,13 +414,13 @@ function scrubPriceText(txt: string): string {
 }
 
 export function stripOwnPrice(text: string): string {
-  if (!/12\.6[05]|AED\s*12(?![\d.,])|(?<![\d.,])12\s*AED/.test(text)) return text
+  if (!HAS_OWN_PRICE.test(text)) return text
   // Inside any block that states the price, unwrap inline formatting first so a
   // sentence split across <strong>…</strong> is removed whole, not half.
   text = text.replace(
     /<(p|li|h[1-6]|td|th|div|blockquote)\b([^>]*)>([^]*?)<\/\1>/gi,
     (m, tag: string, attrs: string, inner: string) =>
-      /12\.6[05]|AED\s*12(?![\d.,])|(?<![\d.,])12\s*AED/.test(inner) ? `<${tag}${attrs}>${inner.replace(/<\/?(?:strong|b|em|i|u|span)\b[^>]*>/gi, "")}</${tag}>` : m,
+      HAS_OWN_PRICE.test(inner) ? `<${tag}${attrs}>${inner.replace(/<\/?(?:strong|b|em|i|u|span)\b[^>]*>/gi, "")}</${tag}>` : m,
   )
   let out = text.includes("<")
     ? text.replace(/>([^<]+)</g, (_m, inner: string) => ">" + scrubPriceText(inner) + "<")
