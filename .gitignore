@@ -26,3 +26,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# per-build asset version, see next.config.mjs
+.deployment-id

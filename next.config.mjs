@@ -1,3 +1,30 @@
+import fs from "node:fs"
+import path from "node:path"
+
+/*
+ * Per-deploy asset version (2026-09-17).
+ * Every CSS/JS/font URL gets ?dpl=<id>, a new id on every build. Safari cached
+ * 500 responses for /_next/static files hit during a deploy restart — those
+ * URLs are "immutable", so the broken copies were reused forever (unstyled
+ * site, dead buttons/forms). A fresh query per deploy means no browser can
+ * ever reuse an asset response from a previous deploy.
+ * The id is generated once at build, written to .deployment-id, and read back
+ * by `next start` so server and client always agree.
+ */
+const DEPLOY_ID_FILE = path.join(process.cwd(), ".deployment-id")
+function deploymentIdFor(phase) {
+  if (process.env.NEXT_DEPLOYMENT_ID) return process.env.NEXT_DEPLOYMENT_ID
+  let id
+  if (phase === "phase-production-build") {
+    id = `d${Date.now().toString(36)}`
+    try { fs.writeFileSync(DEPLOY_ID_FILE, id) } catch {}
+  } else {
+    try { id = fs.readFileSync(DEPLOY_ID_FILE, "utf8").trim() } catch {}
+  }
+  if (id) process.env.NEXT_DEPLOYMENT_ID = id
+  return id || undefined
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -432,4 +459,7 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+export default function config(phase) {
+  const deploymentId = deploymentIdFor(phase)
+  return deploymentId ? { ...nextConfig, deploymentId } : nextConfig
+}
