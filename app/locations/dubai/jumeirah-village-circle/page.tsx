@@ -8,7 +8,7 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 export const metadata: Metadata = {
   title: "JVC Storage Dubai — Jumeirah Village Circle",
   description:
-    "Self-storage for JVC, Dubai. Door-to-door pickup from apartments & townhouses. Secure units starting at 12 AED/sqft. JVT is also fully covered today.",
+    "Self-storage for JVC, Dubai. Door-to-door pickup from apartments & townhouses. Secure units, free itemised quote. JVT is also fully covered today.",
   keywords:
     "JVC storage dubai, jumeirah village circle storage, storage near JVC, JVT storage dubai, self storage jumeirah village, storage pickup JVC dubai",
   openGraph: {
@@ -45,7 +45,7 @@ const jvcSchemas = [
     "@type": "Service",
     name: "Storage in Jumeirah Village Circle (JVC) Dubai",
     description:
-      "Secure storage for JVC and JVT residents. Door-to-Door pickup from apartments and townhouses. Flexible plans from 12 AED / sqft.",
+      "Secure storage for JVC and JVT residents. Door-to-Door pickup from apartments and townhouses. Flexible plans.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/locations/dubai/jumeirah-village-circle",
     areaServed: [
@@ -64,7 +64,7 @@ const jvcSchemas = [
     // root layout template appends " | SafeStorage Dubai" to it.
     name: "JVC Storage Dubai — Jumeirah Village Circle | SafeStorage Dubai",
     description:
-      "Self-storage for JVC, Dubai. Door-to-door pickup from apartments & townhouses. Secure units starting at 12 AED/sqft. JVT is also fully covered today.",
+      "Self-storage for JVC, Dubai. Door-to-door pickup from apartments & townhouses. Secure units, free itemised quote. JVT is also fully covered today.",
     url: "https://safestorage.ae/locations/dubai/jumeirah-village-circle",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -113,7 +113,7 @@ export default function JumeirahVillageCirclePage() {
           </p>
           <p className="text-lg text-gray-700 mb-8">
             As a growing community where many residents are first-time renters or buyers in Dubai, JVC has a strong
-            demand for affordable, flexible storage. SafeStorage&apos;s volume-based pricing — starting from 12 AED / sqft — makes quality storage accessible to all JVC residents, from compact studio apartment dwellers
+            demand for affordable, flexible storage. SafeStorage&apos;s volume-based pricing makes quality storage accessible to all JVC residents, from compact studio apartment dwellers
             to families in spacious JVC townhouses and villas.
           </p>
 
@@ -127,7 +127,7 @@ export default function JumeirahVillageCirclePage() {
                 boxes of belongings from a previous larger home — and reclaim your living space.
               </p>
               <p className="text-gray-700">
-                Our volume-based pricing means JVC studio residents can store just a few boxes from 12 AED / sqft without
+                Our volume-based pricing means JVC studio residents can store just a few boxes without
                 committing to a full storage unit. This makes it financially practical for JVC&apos;s younger,
                 value-conscious residents who need flexible, affordable storage without long-term commitment.
               </p>
@@ -218,7 +218,7 @@ export default function JumeirahVillageCirclePage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What is the cheapest storage option for JVC studio apartment residents?</h3>
-              <p className="text-gray-700">For JVC studio residents, our volume-based storage plan is the most cost-effective option. Rather than renting a full storage unit, you pay only for the space you use — starting from 12 AED / sqft. Whether you are storing a single box or 10–15 items (suitcases, boxes, a small piece of furniture), you pay only for the space they occupy. This is significantly cheaper than renting a storage unit in traditional self-storage facilities, which typically have minimum unit sizes costing AED 400–600/month regardless of how little you store.</p>
+              <p className="text-gray-700">For JVC studio residents, our volume-based storage plan is the most cost-effective option. Rather than renting a full storage unit, you pay only for the space you use. Whether you are storing a single box or 10–15 items (suitcases, boxes, a small piece of furniture), you pay only for the space they occupy. This is significantly cheaper than renting a storage unit in traditional self-storage facilities, which typically have minimum unit sizes costing AED 400–600/month regardless of how little you store.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is JVT (Jumeirah Village Triangle) included in the JVC service area?</h3>

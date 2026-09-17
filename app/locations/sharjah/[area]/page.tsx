@@ -7,7 +7,7 @@ import { locationBusinessSchema } from "@/lib/structured-data"
 import { SHARJAH_AREAS, AREA_BY_SLUG } from "@/lib/sharjah-areas"
 import { SHARJAH } from "@/lib/areas/sharjah"
 import { emirateFaqs } from "@/lib/emirate-faqs"
-import { PRICE_PER_SQFT_AED, CCTV_COVERAGE, FACILITY_ACCESS_NOTE, RETRIEVAL_WINDOW } from "@/lib/company-facts"
+import { CCTV_COVERAGE, FACILITY_ACCESS_NOTE, RETRIEVAL_WINDOW } from "@/lib/company-facts"
 
 /*
  * One dynamic route for the fifteen Sharjah service areas.
@@ -40,7 +40,7 @@ export async function generateMetadata({
 
   const ar = arabicCounterpart("sharjah", area.slug)
   const title = `Storage in ${area.name}, Sharjah | Collection From Your Door`
-  const description = `Self storage for ${area.name}, Sharjah from ${PRICE_PER_SQFT_AED} AED/sqft. We collect from your door, wrap and load. No minimum term, partial retrieval.`
+  const description = `Self storage for ${area.name}, Sharjah. We collect from your door, wrap and load. No minimum term, partial retrieval.`
 
   return {
     title: { absolute: title },

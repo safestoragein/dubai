@@ -6,7 +6,7 @@
 // category despite seven existing. Both are obvious template placeholders to a
 // reader and give Google nothing to differentiate the posts by.
 
-import { ADDRESS_FULL, EMAIL, HOURS_DISPLAY, PRICE_PER_SQFT_AED } from "@/lib/company-facts"
+import { ADDRESS_FULL, EMAIL, HOURS_DISPLAY } from "@/lib/company-facts"
 
 /**
  * Blog bodies and excerpts come from the safestorage.in feed, which is edited
@@ -14,7 +14,7 @@ import { ADDRESS_FULL, EMAIL, HOURS_DISPLAY, PRICE_PER_SQFT_AED } from "@/lib/co
  * contradictions alive and well in feed content, even though every file in this
  * repo has been reconciled:
  *
- *   6 posts   superseded 12.60 AED/sqft rate
+ *   51 posts  our own storage price (the site no longer publishes pricing — see stripOwnPrice)
  *   2 posts   free Gmail address as the contact
  *   2 posts   the old "402-B Wing, Emarat Atrium Building" address
  *   21 posts  "1 lakh" customers (Indian numbering on a .ae domain)
@@ -38,9 +38,6 @@ import { ADDRESS_FULL, EMAIL, HOURS_DISPLAY, PRICE_PER_SQFT_AED } from "@/lib/co
  * AED/dirham unit, and the URL rewrites only touch our own legacy paths.
  */
 const FEED_RULES: Array<[RegExp, string]> = [
-  // Price — only when immediately followed by a currency/unit, so prose that
-  // happens to contain 12.60 for another reason is untouched.
-  [/\b12\.60\b(?=\s*(?:AED|aed|dirham|Dirham|\/|per\s|<))/g, PRICE_PER_SQFT_AED],
 
   // Contact address
   [/safestoragedubai@gmail\.com/gi, EMAIL],
@@ -367,9 +364,68 @@ export function rewriteFeedUrls(html: string): string {
     .replace(/https?:\/\/(?:www\.)?safestorage\.ae\/[^\s"'<>)\]]*/gi, (u) => rewriteUrlToken(u))
 }
 
+/**
+ * The site no longer publishes SafeStorage's own price (2026-09-17). 51 feed
+ * posts still quote "12.65 AED / sqft" in dozens of phrasings, so until they are
+ * edited in the blog admin:
+ *   - in running text, the whole sentence that states the price is dropped, so
+ *     no half-sentence ("plans starting from only") is ever left behind;
+ *   - in a short fragment with no other sentence (a heading, title or summary),
+ *     only the price phrase and its connector ("— From", "starting at") go.
+ * Empty elements left behind are removed. Third-party AED figures are untouched:
+ * the pattern only matches our 12.6x rate.
+ */
+const OWN_PRICE = String.raw`(?:AED\s*(?<![\d.])12(?:\.6[05])?(?![\d.,])|(?<![\d.])12\.6[05]|(?<![\d.,])12(?=\s*AED))\+?\s*(?:AED)?(?:\s*(?:\/|per)\s*(?:sq\.?\s*ft\.?|sqft|square\s+f(?:oo|ee)t|month))?(?:\s*(?:per|a)\s+month)?(?:,?\s*\(?(?:VAT[- ]inclusive|inclusive\s+of\s+VAT|VAT\s+inclusive|incl\.?\s*VAT|\+\s*VAT)\)?)?`
+const OWN_PRICE_RE = new RegExp(OWN_PRICE, "gi")
+const MARK = "\u0000P\u0000"
+const PRICE_PHRASE_RE = new RegExp(
+  String.raw`\s*(?:[—–|:,-]\s*)?(?:and\s+)?(?:(?:plans?|pricing|prices?|storage|units?|rates?)\s+)?(?:(?:starting|starts?|begins?|begin|priced)\s+)?(?:(?:from|at)\s+)?(?:(?:only|just|as\s+low\s+as|an\s+affordable)\s+)?` + MARK,
+  "gi",
+)
+
+function scrubPriceText(txt: string): string {
+  if (!/12\.6[05]|AED\s*12(?![\d.,])|(?<![\d.,])12\s*AED/.test(txt)) return txt
+  const marked = txt.replace(/&nbsp;/g, " ").replace(OWN_PRICE_RE, MARK)
+  if (!marked.includes(MARK)) return txt
+  const sentences = marked.match(/[^.!?]+(?:[.!?]+|$)\s*/g) ?? [marked]
+  const kept = sentences.filter((sn) => !sn.includes(MARK))
+  if (kept.join("").trim()) return kept.join("")
+  // The chunk was a single sentence. A long one is running text: drop it (its
+  // element is removed below). A short one is a heading, title or summary:
+  // cut only the price phrase and keep the rest.
+  const rest = marked.replace(MARK, "").trim()
+  // long, or a lowercase continuation of a sentence begun in a previous tag
+  if (rest.length > 60 || /^[a-z]/.test(rest)) return ""
+  return marked
+    .replace(PRICE_PHRASE_RE, "")
+    .replace(new RegExp(MARK, "g"), "")
+    .replace(/\s*[—–|:,-]\s*$/, "")
+    .replace(/\s{2,}/g, " ")
+}
+
+export function stripOwnPrice(text: string): string {
+  if (!/12\.6[05]|AED\s*12(?![\d.,])|(?<![\d.,])12\s*AED/.test(text)) return text
+  // Inside any block that states the price, unwrap inline formatting first so a
+  // sentence split across <strong>…</strong> is removed whole, not half.
+  text = text.replace(
+    /<(p|li|h[1-6]|td|th|div|blockquote)\b([^>]*)>([^]*?)<\/\1>/gi,
+    (m, tag: string, attrs: string, inner: string) =>
+      /12\.6[05]|AED\s*12(?![\d.,])|(?<![\d.,])12\s*AED/.test(inner) ? `<${tag}${attrs}>${inner.replace(/<\/?(?:strong|b|em|i|u|span)\b[^>]*>/gi, "")}</${tag}>` : m,
+  )
+  let out = text.includes("<")
+    ? text.replace(/>([^<]+)</g, (_m, inner: string) => ">" + scrubPriceText(inner) + "<")
+    : scrubPriceText(text)
+  if (text.includes("<")) {
+    // leading text before the first tag
+    out = out.replace(/^([^<]+)</, (_m, inner: string) => scrubPriceText(inner) + "<")
+    for (let i = 0; i < 2; i++) out = out.replace(/<(p|li|h[1-6]|strong|b|em|span)\b[^>]*>\s*<\/\1>/gi, "")
+  }
+  return out
+}
+
 export function normaliseFeedContent(text?: string | null): string {
   if (!text) return ""
-  let out = text
+  let out = stripOwnPrice(text)
   for (const [pattern, replacement] of FEED_RULES) out = out.replace(pattern, replacement)
   // After the https upgrade above, so an http:// legacy link is repointed too.
   // repairExternalLinks then fixes or unwraps outbound links that do not
@@ -479,7 +535,7 @@ export function uniqueMetaTitle(post: any, rows: any[]): string {
     if (rid < owner) owner = rid
   }
 
-  return owner === Infinity || owner === id ? seo : own || seo
+  return stripOwnPrice(owner === Infinity || owner === id ? seo : own || seo)
 }
 
 /**

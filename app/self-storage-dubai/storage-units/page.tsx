@@ -19,13 +19,13 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 export const metadata: Metadata = {
   title: { absolute: "Storage Units Dubai | Sizes, Security & Prices" },
   description:
-    "Storage units in Dubai from 30 to 270+ sq ft, from AED 12 per sq ft a month. Palletised, barcoded, CCTV-monitored. Same-day quote: 050 577 3388.",
+    "Storage units in Dubai from 30 to 270+ sq ft, billed on the space you use. Palletised, barcoded, CCTV-monitored. Same-day quote: 050 577 3388.",
   keywords:
     "storage units dubai, storage units, storage unit dubai, self storage units dubai, storage unit rental dubai, personal storage units, storage facilities",
   openGraph: {
     title: "Storage Units Dubai — Sizes, Security and What Actually Fits",
     description:
-      "Storage units in Dubai from 30 to 270+ sq ft, from AED 12 per sq ft a month. Palletised, barcoded and CCTV-monitored.",
+      "Storage units in Dubai from 30 to 270+ sq ft, billed on the space you use. Palletised, barcoded and CCTV-monitored.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/storage-units",
     siteName: "SafeStorage Dubai",
@@ -39,7 +39,7 @@ const faqData = [
   {
     question: "How much do storage units cost in Dubai?",
     answer:
-      "From AED 12 per square foot per month. A 30 sq ft unit suits a studio, 60–90 sq ft a one-bedroom flat, and 240–270 sq ft a three-bedroom villa. Collection, packing materials and transport are included in the quoted price.",
+      "It depends on the space you use — you pay only for the space your items occupy. A 30 sq ft unit suits a studio, 60–90 sq ft a one-bedroom flat, and 240–270 sq ft a three-bedroom villa. Collection, packing materials and transport are included in a free, itemised quote.",
   },
   {
     question: "What size storage unit do I need for a one-bedroom apartment?",
@@ -114,30 +114,16 @@ const unitSizes = [
 const pageSchemas = [
   {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": "https://safestorage.ae/self-storage-dubai/storage-units#product",
+    // Service, not Product: a Product without offers/price is an invalid rich
+    // result, and no price is published on this site.
+    "@type": "Service",
+    "@id": "https://safestorage.ae/self-storage-dubai/storage-units#service",
     name: "Storage Units in Dubai",
-    // image is REQUIRED on Product — Google drops the whole item without it, and
-    // Semrush reports it as an invalid structured-data item. The two Products the
-    // shared schema emits both carry one; this page-level Product was written
-    // without.
     image: "https://safestorage.ae/images/storage-facility-background.png",
     description:
       "Racked, palletised and barcoded storage units in Dubai from 30 to 270+ sq ft, with door-to-door collection, packing and a photographed digital inventory.",
-    brand: { "@type": "Brand", name: "SafeStorage" },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "AED",
-      price: "12",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        priceCurrency: "AED",
-        price: "12",
-        unitText: "per square foot per month",
-      },
-      availability: "https://schema.org/InStock",
-      url: "https://safestorage.ae/self-storage-dubai/storage-units",
-    },
+    provider: { "@type": "Organization", name: "SafeStorage" },
+    url: "https://safestorage.ae/self-storage-dubai/storage-units",
   },
   {
     // ItemList over the five sizes so each can surface independently. The "what
@@ -241,8 +227,8 @@ export default function StorageUnitsPage() {
                 has the coverage detail.
               </p>
               <p className="mb-8 text-lg text-white/90">
-                Our units start at 30 sq ft, from <strong className="text-dubai-gold">AED 12 per sq ft per month</strong>,
-                month to month.
+                Our units start at 30 sq ft, and you pay only for{" "}
+                <strong className="text-dubai-gold">the space your items use</strong>, month to month.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>
@@ -331,7 +317,7 @@ export default function StorageUnitsPage() {
             <div className="mx-auto max-w-3xl">
               <h2 className="mb-6 text-3xl font-bold text-dubai-navy">What it costs to rent a storage unit in Dubai</h2>
               <p className="mb-4 text-gray-700">
-                Our rate starts at AED 12 per sq ft per month. A 1BHK at 75 sq ft is a different monthly number to a
+                You pay only for the space your items use, so a 1BHK at 75 sq ft is a different monthly number to a
                 3BHK at 250 sq ft, and both are quoted with collection, packing materials, loading, transport and the
                 digital inventory included.
               </p>

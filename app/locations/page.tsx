@@ -7,7 +7,6 @@ import { EMIRATES } from "@/lib/areas/registry"
 import { SILOS, HUB_ORDER, MONEY_PAGE } from "@/lib/silo/silos"
 import { facilityListSentence, FACILITY_EMIRATES } from "@/lib/facilities"
 import {
-  PRICE_PER_SQFT_AED,
   PHONE,
   PHONE_DISPLAY,
   HOURS_DISPLAY,
@@ -33,7 +32,7 @@ const URL = "https://safestorage.ae/locations"
 export const metadata: Metadata = {
   title: { absolute: "Storage Locations Across the UAE | SafeStorage" },
   description:
-    "Every emirate and district we collect from — Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, Umm Al Quwain and Al Ain. Door-to-door collection from AED 12 per sq ft.",
+    "Every emirate and district we collect from — Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, Umm Al Quwain and Al Ain. Door-to-door collection with a free, itemised quote.",
   keywords:
     "storage locations uae, storage locations dubai, self storage near me uae, storage areas dubai, storage emirates uae",
   openGraph: {
@@ -103,8 +102,7 @@ export default function LocationsPage() {
                 We operate warehouses in{" "}
                 <strong className="text-dubai-gold">{facilityListSentence(FACILITY_EMIRATES)}</strong>. The
                 rest is served as a collection service with storage at the nearest facility, and each
-                emirate page says plainly which applies. From{" "}
-                <strong className="text-dubai-gold">AED {PRICE_PER_SQFT_AED} per sq ft per month</strong>.
+                emirate page says plainly which applies. You pay only for the space your items use.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>

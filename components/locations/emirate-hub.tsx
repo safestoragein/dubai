@@ -7,7 +7,6 @@ import { SILOS, MONEY_PAGE, HUB_ORDER, moneyAnchor } from "@/lib/silo/silos"
 import type { EmirateDef } from "@/lib/areas/types"
 import { EMIRATES } from "@/lib/areas/registry"
 import {
-  PRICE_PER_SQFT_AED,
   PHONE,
   PHONE_DISPLAY,
   RATING_VALUE,
@@ -74,11 +73,8 @@ export default function EmirateHub({ emirate }: { emirate: EmirateDef }) {
               <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">{emirate.hub.h1}</h1>
               <p className="mb-4 text-lg text-white/90">{emirate.hub.blurb}</p>
               <p className="mb-8 text-lg text-white/90">
-                From{" "}
-                <strong className="text-dubai-gold">
-                  AED {PRICE_PER_SQFT_AED} per sq ft per month
-                </strong>
-                , on the space your things actually occupy. No minimum term.
+                You pay only for the space your things actually occupy.{" "}
+                <strong className="text-dubai-gold">No minimum term.</strong>
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>

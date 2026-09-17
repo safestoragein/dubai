@@ -22,7 +22,7 @@ import { SiloLinks } from "@/components/silo/silo-links"
 export const metadata: Metadata = {
   title: "Warehouse Storage Dubai | Space Without a Lease",
   description:
-    "Warehouse storage in Dubai from 12 AED/sqft, VAT incl. Pay for the space you use instead of leasing a whole warehouse — no 3-year lease, no fit-out.",
+    "Warehouse storage in Dubai. Pay for the space you use instead of leasing a whole warehouse — no 3-year lease, no fit-out.",
   keywords:
     "warehouse storage dubai, warehouse dubai, warehouse for rent in dubai, warehouse al quoz, warehouse in dubai, warehouse rent dubai, small warehouse for rent dubai, warehouse space dubai, business storage dubai, jebel ali warehouse",
   alternates: {
@@ -71,7 +71,7 @@ const FAQS = [
   },
   {
     q: "How much does warehouse space cost in Dubai?",
-    a: "SafeStorage warehouse storage starts from 12 AED per sq ft per month, and that rate covers the space, racking, security, utilities and door-to-door collection and delivery. A conventional Dubai warehouse lease is typically quoted per square foot per year, and then adds fit-out, DEWA, chiller, insurance, Ejari and labour on top — costs that usually only become visible after you have signed. For anything under roughly 2,000 sq ft, paying only for the space you use is normally the cheaper option once those extras are counted.",
+    a: "SafeStorage warehouse storage is charged per sq ft per month for the space you use, and that rate covers the space, racking, security, utilities and door-to-door collection and delivery. A conventional Dubai warehouse lease is typically quoted per square foot per year, and then adds fit-out, DEWA, chiller, insurance, Ejari and labour on top — costs that usually only become visible after you have signed. For anything under roughly 2,000 sq ft, paying only for the space you use is normally the cheaper option once those extras are counted.",
   },
   {
     q: "Do you cover Al Quoz, Jebel Ali and Ras Al Khor?",
@@ -102,7 +102,7 @@ const schemas = [
     "@id": "https://safestorage.ae/business-storage-dubai/warehouse-storage#webpage",
     name: "Warehouse Storage Dubai | Space Without a Lease",
     description:
-      "Flexible warehouse storage in Dubai from 12 AED/sqft. Pay for the space you use instead of leasing a whole warehouse.",
+      "Flexible warehouse storage in Dubai. Pay for the space you use instead of leasing a whole warehouse.",
     url: "https://safestorage.ae/business-storage-dubai/warehouse-storage",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     about: { "@id": "https://safestorage.ae/#business" },
@@ -118,12 +118,6 @@ const schemas = [
     areaServed: { "@type": "City", name: "Dubai" },
     url: "https://safestorage.ae/business-storage-dubai/warehouse-storage",
     serviceType: "Warehouse Storage",
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "AED",
-      price: "12",
-      description: "From 12 AED per sq ft per month",
-    },
   },
   
   {
@@ -160,8 +154,8 @@ export default function WarehouseStorageDubaiPage() {
             Warehouse Storage in Dubai — Space Without the Lease
           </h1>
           <p className="text-lg text-white/90 mb-8">
-            Pay for the square footage you actually use, from 100 sq ft upward, at
-            12 AED per sq ft per month including VAT. Racking, security, utilities
+            Pay for the square footage you actually use, from 100 sq ft upward, with
+            transparent pricing and no hidden fees. Racking, security, utilities
             and door-to-door collection are included. No 3-year lease, no fit-out,
             no Ejari.
           </p>
@@ -217,7 +211,7 @@ export default function WarehouseStorageDubaiPage() {
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl font-bold text-[#0A2463] mb-3">Warehouse Space Sizes &amp; What Fits</h2>
           <p className="text-gray-700 mb-8">
-            All sizes are charged from 12 AED per sq ft per month.
+            All sizes are charged per sq ft per month for the space you use.
             Pallet counts assume standard 1.2 × 1.0 m pallets stacked to normal height.
           </p>
           <div className="overflow-x-auto">

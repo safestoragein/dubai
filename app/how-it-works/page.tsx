@@ -193,7 +193,7 @@ export default function HowItWorks() {
             ))}
           </div>
           <div className={s.miniFacts}>
-            <span><CheckCircle2 aria-hidden="true" /> From 12 AED / sqft</span>
+            <span><CheckCircle2 aria-hidden="true" /> Pay only for the space you use</span>
             <span><CheckCircle2 aria-hidden="true" /> No hidden fees</span>
             <span><CheckCircle2 aria-hidden="true" /> Month to month, no lock-in</span>
           </div>

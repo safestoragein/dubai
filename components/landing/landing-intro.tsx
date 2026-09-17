@@ -86,7 +86,7 @@ const tabs: Tab[] = [
     cards: [
       {
         href: "/self-storage-dubai/unit-sizes",
-        title: "Flexible monthly plans from 12 AED / sqft",
+        title: "Flexible monthly plans, no lock-in",
         body: "Units from 25 sq ft to 300+ sq ft, with no lock-in.",
         foot: "25 – 300+ sq ft",
       },

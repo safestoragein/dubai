@@ -60,7 +60,7 @@ const downtownSchemas = [
       "@type": "OfferCatalog",
       name: "Downtown Dubai Storage Plans",
       itemListElement: [
-        { "@type": "Offer", name: "Storage", price: "12", priceCurrency: "AED", description: "Starts from 12 AED / sqft" },
+        { "@type": "Offer", name: "Storage", description: "Volume-based storage — you pay only for the space your items use" },
       ],
     },
   },
@@ -201,7 +201,7 @@ export default function DowntownDubaiPage() {
               </div>
               <div className="space-y-3">
                 <p><strong>Secure indoor storage:</strong> All items are kept in our clean, indoor facility under 24/7 CCTV monitoring. In Downtown Dubai, where apartments often contain premium furniture and electronics, keeping belongings safe and dust-protected is essential.</p>
-                <p><strong>Transparent pricing, no surprises:</strong> Downtown residents pay the same rates as all Dubai customers — from 12 AED / sqft. No location premiums, no high-rise access fees, no surprises at billing.</p>
+                <p><strong>Transparent pricing, no surprises:</strong> Downtown residents pay the same rates as all Dubai customers. No location premiums, no high-rise access fees, no surprises at billing.</p>
               </div>
             </div>
           </div>
@@ -225,7 +225,7 @@ export default function DowntownDubaiPage() {
             <p className="text-gray-700 mb-4">SafeStorage pricing is identical across all Dubai locations — no location premiums for Downtown or DIFC:</p>
             <div className="max-w-xl mx-auto">
               <div className="bg-white rounded-lg p-8 border-2 border-[#0A2463] text-center">
-                <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12 AED / sqft</p>
+                <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Get a free, itemised quote</p>
                 <p className="text-sm text-gray-600">All unit sizes · door-to-door pickup & delivery</p>
               </div>
             </div>
@@ -260,7 +260,7 @@ export default function DowntownDubaiPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">What storage is available for Downtown Dubai apartment renovation?</h3>
-              <p className="text-gray-700">Renovation storage is one of our most common Downtown Dubai requests. The process: we arrive at your apartment, professionally wrap and remove all furniture, transport it to our secure facility, and store it safely while your contractor works. When your renovation is complete, we deliver everything back and our team places items in the rooms you specify. Renovation storage plans start from one week with no minimum contract, and pricing starts from 12 AED / sqft. Call us early to book your renovation pickup date, as Downtown slots fill quickly.</p>
+              <p className="text-gray-700">Renovation storage is one of our most common Downtown Dubai requests. The process: we arrive at your apartment, professionally wrap and remove all furniture, transport it to our secure facility, and store it safely while your contractor works. When your renovation is complete, we deliver everything back and our team places items in the rooms you specify. Renovation storage plans start from one week with no minimum contract, and you pay only for the space your items use. Call us early to book your renovation pickup date, as Downtown slots fill quickly.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I store items from my Sheikh Zayed Road office during relocation?</h3>

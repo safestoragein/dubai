@@ -6,7 +6,7 @@ import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { EMIRATE_BY_SLUG, dynamicAreaParams } from "@/lib/areas/registry"
 import { emirateFaqs, faqPageSchema } from "@/lib/emirate-faqs"
-import { PRICE_PER_SQFT_AED, RETRIEVAL_WINDOW } from "@/lib/company-facts"
+import { RETRIEVAL_WINDOW } from "@/lib/company-facts"
 
 /*
  * District pages for dubai.
@@ -43,7 +43,7 @@ export async function generateMetadata({
 
   const ar = arabicCounterpart(emirate.slug, area.slug)
   const title = `Storage in ${area.name}, ${emirate.name} | Collection From Your Door`
-  const description = `Self storage for ${area.name}, ${emirate.name} from ${PRICE_PER_SQFT_AED} AED/sqft. We collect from your door, wrap and load. No minimum term, partial retrieval.`
+  const description = `Self storage for ${area.name}, ${emirate.name}. We collect from your door, wrap and load. No minimum term, partial retrieval.`
 
   return {
     title: { absolute: title },

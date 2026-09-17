@@ -1,5 +1,4 @@
 import type { SiloPageContent } from "./types"
-import { PRICE_PER_SQFT_AED } from "@/lib/company-facts"
 
 /**
  * GUIDES · /guides/* — the three NEW guides from §5 of the plan.
@@ -45,22 +44,22 @@ export const GUIDE_PAGES: SiloPageContent[] = [
     hero: [
       "This is the most-asked question in the category and it is almost always answered badly, because the honest answer has two parts and most quotes only show one. This guide is part of our [storage and moving guides](/guides).",
       "The two parts are **the storage** and **getting it there and back**. A quote that shows a low monthly rate and omits two van journeys is not a cheaper quote; for a short booking it is frequently the more expensive one.",
-      "Our own rate is **AED 12 per sq ft per month**, charged on the floor space your goods occupy. That is a number to compare against, not a claim that it is the lowest in the market.",
+      "We charge only for the floor space your goods occupy, and every quote is free and itemised, so you can compare it line by line.",
     ],
     sections: [
       {
         kind: "table",
-        h2: "What storage costs by what you are storing",
+        h2: "How much space you need by what you are storing",
         intro:
           "Space is the whole of the monthly figure when you are billed on measured floor area. These are real bands from Dubai collections.",
-        columns: ["What you are storing", "Typical space", "Monthly at AED 12/sq ft"],
+        columns: ["What you are storing", "Typical space"],
         rows: [
-          ["10–15 cartons", "15–20 sq ft", "Around AED 190–255"],
-          ["One room emptied", "25–40 sq ft", "Around AED 315–505"],
-          ["Studio", "~30 sq ft", "Around AED 380"],
-          ["1 bedroom flat", "60–90 sq ft", "Around AED 760–1,140"],
-          ["2 bedroom flat", "120–150 sq ft", "Around AED 1,520–1,900"],
-          ["3 bedroom villa", "240–270 sq ft", "Around AED 3,035–3,415"],
+          ["10–15 cartons", "15–20 sq ft"],
+          ["One room emptied", "25–40 sq ft"],
+          ["Studio", "~30 sq ft"],
+          ["1 bedroom flat", "60–90 sq ft"],
+          ["2 bedroom flat", "120–150 sq ft"],
+          ["3 bedroom villa", "240–270 sq ft"],
         ],
         note: "Transport is quoted separately on your address and access, and it is a one-off rather than monthly. [The full price breakdown](/self-storage-dubai/prices) sets out both halves.",
       },
@@ -104,7 +103,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
     faqs: [
       {
         q: "What is the average cost of storage in Dubai?",
-        a: `There is no meaningful average, because the two variables — how much space and how many transport journeys — swamp the rate. As a reference point, our rate is AED ${PRICE_PER_SQFT_AED} per square foot per month, on measured space.`,
+        a: "There is no meaningful average, because the two variables — how much space and how many transport journeys — swamp the rate. We charge on measured space, so the useful number is a free, itemised quote for what you actually store.",
       },
       {
         q: "Is it cheaper to rent a self-storage unit myself?",
@@ -120,7 +119,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
       },
       {
         q: "How much does it cost to store a one-bedroom flat?",
-        a: "A 1BHK is typically 60 to 90 square feet once racked, which at AED 12 per sq ft per month is roughly AED 760 to 1,140 a month, plus a one-off transport figure quoted on your address and access.",
+        a: "A 1BHK is typically 60 to 90 square feet once racked. You pay only for that measured space each month, plus a one-off transport figure quoted on your address and access — get a free, itemised quote for the exact figure.",
       },
       {
         q: "Is VAT included in storage prices in Dubai?",

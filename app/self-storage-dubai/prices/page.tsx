@@ -24,21 +24,20 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
  *   - Volume discounts above 270 sq ft are NOT stated. Unconfirmed.
  *   - Long-term discount TIERS are NOT stated. The FAQ says duration affects the
  *     quote, which is true, without inventing numbers.
- * The AED 12/sq ft anchor is used because the site already publishes it
- * sitewide, but it still needs confirming as current — every price on this page
- * derives from it.
+ * No SafeStorage rate or price figure is published on this page (owner
+ * decision): it explains what affects the cost and sends people to a free quote.
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Storage in Dubai Prices | From AED 12/sq ft" },
+  title: { absolute: "Storage Prices in Dubai | What Affects the Cost" },
   description:
-    "Storage in Dubai prices explained: from AED 12 per sq ft a month, what changes a quote, and why cheap storage often costs more. Call 050 577 3388.",
+    "What affects the cost of storage in Dubai: space used, duration, floor and lift access, packing, transport distance and extras. Get a free, itemised quote.",
   keywords:
     "storage in dubai prices, cheap storage dubai, storage cost per month, storage prices dubai, storage cost dubai, affordable storage dubai, low cost storage dubai, how much does storage cost in dubai",
   openGraph: {
-    title: "Storage Prices in Dubai — What It Costs and Why Quotes Differ",
+    title: "Storage Prices in Dubai — What Affects the Cost",
     description:
-      "From AED 12 per sq ft a month, what changes a quote, and why the cheapest storage quote in Dubai is often the most expensive outcome.",
+      "What changes a storage quote in Dubai, and why the cheapest storage quote is often the most expensive outcome. Get a free, itemised quote.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/prices",
     siteName: "SafeStorage Dubai",
@@ -52,7 +51,7 @@ const faqData = [
   {
     question: "How much does storage cost per month in Dubai?",
     answer:
-      "From AED 12 per square foot per month. A studio at 30 sq ft is the smallest standard booking; a one-bedroom flat needs 60–90 sq ft; a three-bedroom villa 240–270 sq ft. Collection, packing materials, transport and the digital inventory are included in the quote.",
+      "It depends mainly on how much space your goods use and how long you store them, followed by access, packing, transport distance and any awkward items. You pay only for the space your items use, and collection, packing materials, transport and the digital inventory are included in the quote. Get a free, itemised quote for your exact move.",
   },
   {
     question: "What is the cheapest storage in Dubai?",
@@ -92,38 +91,43 @@ const faqData = [
 ]
 
 const priceRows = [
-  { home: "Studio / 1 RK", space: "~30 sq ft", rate: "from AED 12 / sq ft / month" },
-  { home: "1 bedroom", space: "60–90 sq ft", rate: "from AED 12 / sq ft / month" },
-  { home: "2 bedrooms", space: "120–150 sq ft", rate: "from AED 12 / sq ft / month" },
-  { home: "3 bedrooms", space: "240–270 sq ft", rate: "from AED 12 / sq ft / month" },
-  { home: "Villa / commercial", space: "270+ sq ft", rate: "Quoted after survey" },
+  { home: "Studio / 1 RK", space: "~30 sq ft" },
+  { home: "1 bedroom", space: "60–90 sq ft" },
+  { home: "2 bedrooms", space: "120–150 sq ft" },
+  { home: "3 bedrooms", space: "240–270 sq ft" },
+  { home: "Villa / commercial", space: "270+ sq ft (measured on survey)" },
 ]
 
 const quoteFactors = [
   {
     n: 1,
+    h: "How much space your goods use",
+    p: "Storage is billed on the floor space your goods actually occupy once racked, not on a fixed unit size. More belongings means more space, and dense, well-packed loads take up less of it. This is the biggest single driver of the monthly cost.",
+  },
+  {
+    n: 2,
+    h: "How long you're storing",
+    p: "Short bookings carry more setup cost per month than long ones, so a two-week booking and one running past six months are priced differently for that reason.",
+  },
+  {
+    n: 3,
     h: "Stairs and lifts",
     p: "Carrying a two-seater down four flights in August is a different job to rolling it into a service lift. Older buildings in Deira, Bur Dubai, Karama and parts of Al Barsha often have no goods lift, or one that's booked out. This is the single most common reason a quote moves.",
   },
   {
-    n: 2,
+    n: 4,
     h: "Who packs",
     p: "If you've boxed everything yourself, the crew is faster and the load is denser, which reduces both labour and stored volume. If we pack, that's materials and hours. Counter-intuitively, paying for packing often lowers the monthly bill, because professionally packed goods take up meaningfully less space than loose ones.",
   },
   {
-    n: 3,
+    n: 5,
     h: "Distance and emirate",
     p: "Inside Dubai, collection is in the quote. Sharjah, Ajman and Abu Dhabi carry a transport charge, quoted before we dispatch. Nobody should surprise you with this after the truck is loaded.",
   },
   {
-    n: 4,
-    h: "Awkward items",
+    n: 6,
+    h: "Awkward items and extras",
     p: "A piano, a treadmill, a marble table top, a five-metre corner sofa, a full-height wardrobe that can't be dismantled. These need extra crew, sometimes a hoist, and they consume floor space out of proportion to their volume.",
-  },
-  {
-    n: 5,
-    h: "How long you're storing",
-    p: "Short bookings carry more setup cost per month than long ones, so a two-week booking and one running past six months are priced differently for that reason.",
   },
 ]
 
@@ -173,30 +177,16 @@ const savings = [
 const pageSchemas = [
   {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": "https://safestorage.ae/self-storage-dubai/prices#product",
-    name: "Storage in Dubai — Pricing",
-    // image is REQUIRED on Product — Google drops the whole item without it, and
-    // Semrush reports it as an invalid structured-data item. The two Products the
-    // shared schema emits both carry one; this page-level Product was written
-    // without.
+    // Service, not Product: a Product without offers/price is an invalid rich
+    // result, and no price is published on this page.
+    "@type": "Service",
+    "@id": "https://safestorage.ae/self-storage-dubai/prices#service",
+    name: "Storage in Dubai — What Affects the Cost",
     image: "https://safestorage.ae/images/storage-facility-background.png",
     description:
-      "Door-to-door storage in Dubai from AED 12 per square foot per month, with collection, packing materials, transport and a photographed digital inventory included in the quote.",
-    brand: { "@type": "Brand", name: "SafeStorage" },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "AED",
-      price: "12",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        priceCurrency: "AED",
-        price: "12",
-        unitText: "square foot per month",
-      },
-      availability: "https://schema.org/InStock",
-      url: "https://safestorage.ae/self-storage-dubai/prices",
-    },
+      "Door-to-door storage in Dubai, priced on the space your goods use, with collection, packing materials, transport and a photographed digital inventory included in a free, itemised quote.",
+    provider: { "@type": "Organization", name: "SafeStorage" },
+    url: "https://safestorage.ae/self-storage-dubai/prices",
   },
   {
     "@context": "https://schema.org",
@@ -226,25 +216,25 @@ export default function StoragePricesPage() {
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl">
               <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
-                Storage Prices in Dubai — What It Costs and Why Quotes Differ
+                Storage Prices in Dubai — What Affects the Cost and Why Quotes Differ
               </h1>
               <p className="mb-4 text-lg text-white/90">
-                Storage in Dubai starts at <strong className="text-dubai-gold">AED 12 per square foot per month</strong>{" "}
-                with us. That&rsquo;s the number, up front, before you scroll.
+                Storage in Dubai is priced on <strong className="text-dubai-gold">the space your goods use and how long you store them</strong>.
+                You pay only for the space your items use, with transparent pricing and no hidden fees.
               </p>
               <p className="mb-4 text-lg text-white/90">
                 What it multiplies by is the part people get wrong. Storage is priced by space and by time, so the honest
                 answer to &ldquo;how much does storage cost&rdquo; depends entirely on how much stuff you have — and most
-                people overestimate their own volume by about a third.
+                people overestimate their own volume.
               </p>
               <p className="mb-8 text-lg text-white/90">
                 This page sits under{" "}
                 <Link href="/self-storage-dubai" className="underline decoration-dubai-gold underline-offset-4">
                   self storage in Dubai
                 </Link>{" "}
-                and does three things: gives you a price table you can actually use, explains what makes one quote differ
+                and does three things: shows how much space different homes usually need, explains what makes one quote differ
                 from another, and explains why the cheapest quote in Dubai is quite often the most expensive outcome. If
-                you want to see the service the price buys,{" "}
+                you want to see the service a quote covers,{" "}
                 <Link
                   href="/self-storage-dubai/local-self-storage"
                   className="underline decoration-dubai-gold underline-offset-4"
@@ -255,7 +245,7 @@ export default function StoragePricesPage() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>
-                  <Link href="/get-quote">Get an exact price</Link>
+                  <Link href="/get-quote">Get a free quote</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="border-white bg-white text-black hover:bg-gray-100" asChild>
                   <a href="tel:+971505773388">Call +971 50 577 3388</a>
@@ -268,14 +258,13 @@ export default function StoragePricesPage() {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-4xl">
-              <h2 className="mb-8 text-3xl font-bold text-dubai-navy">Storage prices by home size</h2>
+              <h2 className="mb-8 text-3xl font-bold text-dubai-navy">Space used: the biggest factor in storage cost</h2>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[640px] border-collapse text-left text-sm">
                   <thead>
                     <tr className="border-b-2 border-gray-200">
                       <th className="py-3 pr-4 font-semibold text-dubai-navy">Your place</th>
                       <th className="py-3 pr-4 font-semibold text-dubai-navy">Space usually needed</th>
-                      <th className="py-3 pr-4 font-semibold text-dubai-navy">Rate</th>
                       <th className="py-3 font-semibold text-dubai-navy">What&rsquo;s included</th>
                     </tr>
                   </thead>
@@ -284,7 +273,6 @@ export default function StoragePricesPage() {
                       <tr key={r.home} className="border-b border-gray-100">
                         <td className="py-3 pr-4 font-medium text-dubai-navy">{r.home}</td>
                         <td className="py-3 pr-4 whitespace-nowrap text-gray-700">{r.space}</td>
-                        <td className="py-3 pr-4 whitespace-nowrap text-gray-700">{r.rate}</td>
                         <td className="py-3 text-gray-600">
                           Collection, packing materials, loading, transport, digital inventory
                         </td>
@@ -294,10 +282,10 @@ export default function StoragePricesPage() {
                 </table>
               </div>
               <p className="mt-8 text-gray-700">
-                Two things about that table. The rate is a &ldquo;from&rdquo; rate, because a fourth-floor walk-up in Deira
+                Two things about that table. Space is only part of the cost, because a fourth-floor walk-up in Deira
                 and a Marina tower with a booked service lift are not the same job. And the space is re-measured once your
-                goods are racked, so you&rsquo;re billed on the space actually used rather than the space we guessed on the
-                phone.
+                goods are racked, so you pay only for the space your items actually use rather than the space we guessed
+                on the phone.
               </p>
               <p className="mt-4 text-gray-700">
                 Use the{" "}
@@ -315,7 +303,7 @@ export default function StoragePricesPage() {
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl">
               <h2 className="mb-4 text-3xl font-bold text-dubai-navy">
-                The five things that genuinely change a storage quote in Dubai
+                The six things that genuinely change a storage quote in Dubai
               </h2>
               <p className="mb-8 text-gray-700">
                 Any storage company that gives you a firm price without asking about these is guessing, and the guess will
@@ -451,10 +439,10 @@ export default function StoragePricesPage() {
         <section className="bg-dubai-navy py-16 text-white">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="mb-4 text-3xl font-bold">Get an exact price</h2>
+              <h2 className="mb-4 text-3xl font-bold">Get a free, itemised quote</h2>
               <p className="mb-8 text-white/90">
                 We&rsquo;ll ask about rooms, floor, lift access, dates and whether you&rsquo;re packing. Then you get a
-                fixed figure, usually the same day.
+                clear, itemised quote with no hidden fees, usually the same day.
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
                 <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>

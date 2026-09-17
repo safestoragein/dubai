@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { cache } from "react"
 import { notFound, permanentRedirect } from "next/navigation"
 import { blogImageUrl } from "@/lib/blog-image"
-import { normaliseFeedContent, isRepointedBlogSlug, uniqueMetaTitle, unlinkDeadBlogLinks } from "@/lib/blog-meta"
+import { normaliseFeedContent, isRepointedBlogSlug, uniqueMetaTitle, unlinkDeadBlogLinks, stripOwnPrice } from "@/lib/blog-meta"
 import { toBlogPost } from "@/lib/blog-post"
 import { getBlogFeedSafe, getBlogFeedFresh, publishedOnly } from "@/lib/blog-feed"
 import { BLOG_AUTHOR, HOURS_DISPLAY } from "@/lib/company-facts"
@@ -251,7 +251,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     '@id': `${canonicalUrl}#article`,
-    headline: post?.seo_title || post?.title || '',
+    headline: stripOwnPrice(post?.seo_title || post?.title || ''),
     name: post?.title || '',
     description: normaliseFeedContent(post?.seo_desc).trim() || plainText,
     image: {
@@ -331,10 +331,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </p>
 
           <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#111827", marginBottom: "12px", marginTop: "24px" }}>
-            Flexible Plans Starting from 12 AED / sqft
+            Flexible Plans, Pay Only for the Space You Use
           </h3>
           <p style={{ color: "#374151", lineHeight: "1.75", marginBottom: "24px" }}>
-            There are no long-term lock-ins. Pricing starts from 12 AED / sqft, and you only pay for the space you use. You can start with as little as one week of storage, extend month by month, or book long-term for the best rates. Getting started takes less than two minutes: visit our website, select your unit size, book your pickup slot, and we handle everything else. Most customers have their items picked up within 24 hours of booking.
+            There are no long-term lock-ins, and you only pay for the space you use. You can start with as little as one week of storage, extend month by month, or book long-term for the best rates. Getting started takes less than two minutes: visit our website, select your unit size, book your pickup slot, and we handle everything else. Most customers have their items picked up within 24 hours of booking.
           </p>
 
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
@@ -442,7 +442,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "32px" }}>
             <h3 style={{ fontSize: "1.1rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>9. Review Your Unit Contents Every Six Months</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Long-term storage has a way of accumulating items that are no longer needed. Every six months, take 20 minutes to review your inventory list and ask honestly: do I still need this? Many people find that after a year in storage, a significant portion of their items could be sold, donated, or disposed of — freeing them to downsize to a smaller unit and reduce their monthly costs. SafeStorage Dubai makes this easy: simply schedule a partial retrieval, go through your items, remove what you no longer need, and return the rest. Many of our customers have reduced their unit size after a review and saved hundreds of dirhams per year.
+              Long-term storage has a way of accumulating items that are no longer needed. Every six months, take 20 minutes to review your inventory list and ask honestly: do I still need this? Many people find that after a year in storage, a significant portion of their items could be sold, donated, or disposed of — freeing them to downsize to a smaller unit and reduce their monthly costs. SafeStorage Dubai makes this easy: simply schedule a partial retrieval, go through your items, remove what you no longer need, and return the rest. Many of our customers have reduced their unit size after a review and lowered their monthly bill.
             </p>
           </div>
 
@@ -528,7 +528,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div style={{ marginBottom: "20px" }}>
             <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#111827", marginBottom: "8px" }}>Does SafeStorage Dubai store vehicles?</h3>
             <p style={{ color: "#374151", lineHeight: "1.75" }}>
-              Yes. SafeStorage Dubai offers dedicated indoor covered vehicle storage bays for cars, SUVs, motorcycles, scooters, and classic vehicles. Vehicle storage is indoor and under 24/7 CCTV surveillance. Vehicle storage pricing starts from 12 AED / sqft, so you only pay for the space your vehicle occupies. This is ideal for expats travelling abroad for extended periods, classic car owners who want their vehicle stored safely over summer, or individuals who own a second vehicle they do not use daily. All vehicle storage bays include a complimentary wash before return. Call +971505773388 for vehicle storage availability and pricing.
+              Yes. SafeStorage Dubai offers dedicated indoor covered vehicle storage bays for cars, SUVs, motorcycles, scooters, and classic vehicles. Vehicle storage is indoor and under 24/7 CCTV surveillance. You only pay for the space your vehicle occupies. This is ideal for expats travelling abroad for extended periods, classic car owners who want their vehicle stored safely over summer, or individuals who own a second vehicle they do not use daily. All vehicle storage bays include a complimentary wash before return. Call +971505773388 for vehicle storage availability and pricing.
             </p>
           </div>
 

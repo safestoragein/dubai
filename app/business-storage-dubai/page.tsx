@@ -57,7 +57,7 @@ const includes = [
   { Icon: Tags, t: "Bulk discounts", b: "Multi-space bookings and annual prepayments." },
   { Icon: FileBox, t: "Document archiving", b: "Compliant records storage as an add-on." },
   { Icon: Truck, t: "Door-to-door service", b: "Available across Dubai." },
-  { Icon: Package, t: "From 12 AED / sqft", b: "Pay only for the space you use." },
+  { Icon: Package, t: "Pay per sq ft", b: "Only for the space you use." },
 ]
 
 const industries = [
@@ -76,7 +76,6 @@ const businessStorageSchemas = [
     url: 'https://safestorage.ae/business-storage-dubai',
     areaServed: { '@type': 'City', name: 'Dubai' },
     serviceType: 'Business Storage',
-    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12' },
   },
   {
     '@context': 'https://schema.org',

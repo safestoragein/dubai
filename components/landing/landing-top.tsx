@@ -23,8 +23,8 @@ export function LandingHero() {
               rental, no heavy lifting, carton-to-villa) is covered by the steps
               and the Why band further down. */}
           <p>
-            Door-to-door pickup and delivery across Dubai. Secure, clean units from 12 AED,
-            with no lock-in.
+            Door-to-door pickup and delivery across Dubai. Secure, clean storage with
+            no lock-in.
           </p>
           <div className={s.heroCta}>
             <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">

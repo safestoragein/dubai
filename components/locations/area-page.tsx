@@ -1,7 +1,6 @@
 import Link from "next/link"
 import type { Area, EmirateDef } from "@/lib/areas/types"
 import {
-  PRICE_PER_SQFT_AED,
   PHONE,
   PHONE_DISPLAY,
   HOURS_DISPLAY,
@@ -90,10 +89,10 @@ export default function AreaPage({ area, emirate }: { area: Area; emirate: Emira
       <section className={s.wrap}>
         <div className={s.trust}>
           <div className={s.trustItem}>
-            <div className={`${s.trustIcon} ${s.tOrange}`}>💰</div>
-            <strong className={s.vOrange}>{PRICE_PER_SQFT_AED} AED</strong>
-            <b>Per sqft, per month</b>
-            <small>Starting price</small>
+            <div className={`${s.trustIcon} ${s.tOrange}`}>📏</div>
+            <strong className={s.vOrange}>Pay per sq ft</strong>
+            <b>Only the space you use</b>
+            <small>Free itemised quote</small>
           </div>
           <div className={s.trustItem}>
             <div className={`${s.trustIcon} ${s.tBlue}`}>🚚</div>
@@ -235,9 +234,9 @@ export default function AreaPage({ area, emirate }: { area: Area; emirate: Emira
             </Link>
           </div>
           <div className={s.priceTag}>
-            <strong>{PRICE_PER_SQFT_AED} AED</strong>
+            <strong>Free quote</strong>
             <span>
-              per square foot, per month
+              pay only for the space you use
             </span>
           </div>
         </div>

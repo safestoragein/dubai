@@ -5,7 +5,6 @@ import { emirateFontVars } from "@/components/locations/fonts"
 import HeroPreload from "@/components/locations/hero-preload"
 import s from "@/components/locations/emirate-theme.module.css"
 import {
-  PRICE_PER_SQFT_AED,
   PHONE,
   PHONE_DISPLAY,
   HOURS_DISPLAY,
@@ -65,10 +64,9 @@ export default function ArEmiratePage({ emirate: e }: { emirate: ArEmirate }) {
       <section className={s.wrap}>
         <div className={s.trust}>
           <div className={s.trustItem}>
-            <div className={`${s.trustIcon} ${s.tOrange}`}>💰</div>
-            <strong className={s.vOrange}>{PRICE_PER_SQFT_AED}</strong>
-            <b>{AR.perSqft}</b>
-            <small>{AR.vatIncl}</small>
+            <div className={`${s.trustIcon} ${s.tOrange}`}>📏</div>
+            <strong className={s.vOrange}>{AR.payForSpace}</strong>
+            <b>{AR.freeQuote}</b>
           </div>
           <div className={s.trustItem}>
             <div className={`${s.trustIcon} ${s.tGold}`}>★</div>
@@ -162,11 +160,9 @@ export default function ArEmiratePage({ emirate: e }: { emirate: ArEmirate }) {
             </Link>
           </div>
           <div className={s.priceTag}>
-            <strong>{PRICE_PER_SQFT_AED}</strong>
+            <strong>{AR.freeQuote}</strong>
             <span>
-              {AR.perSqft}
-              <br />
-              {AR.vatIncl}
+              {AR.payForSpace}
             </span>
           </div>
         </div>

@@ -150,11 +150,11 @@ export default function DeclutterGuideDubaiPage() {
                 </div>
               ))}
             </div>
-            <p className="mb-8">Storage solves all of these. From 12 AED / sqft, storing items "for now" while you decide is almost always the financially rational choice compared to disposing and regretting.</p>
+            <p className="mb-8">Storage solves all of these. Because you pay only for the space your items use, storing items "for now" while you decide is almost always the financially rational choice compared to disposing and regretting.</p>
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
               <h2 className="text-2xl font-bold mb-3">Keep Your Options Open While You Decide</h2>
-              <p className="text-white/80 mb-6">Storage from 12 AED / sqft. Door-to-Door pickup. No long-term commitment. Store while you declutter — decide later without pressure.</p>
+              <p className="text-white/80 mb-6">Pay only for the space you use. Door-to-Door pickup. No long-term commitment. Store while you declutter — decide later without pressure.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">
                   <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Free Quote</Button>

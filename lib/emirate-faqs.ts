@@ -1,5 +1,4 @@
 import {
-  PRICE_PER_SQFT_AED,
   RETRIEVAL_WINDOW,
   CCTV_COVERAGE,
   FACILITY_ACCESS_NOTE,
@@ -62,7 +61,7 @@ export function emirateFaqs({
     },
     {
       q: `How much does pickup from ${emirate} cost?`,
-      a: `It is quoted on the actual job — your address in ${here}, how the access works (lift, stairs, parking) and how much there is to move. We do not price transport from a table, because a ground-floor flat with parking outside and a ninth floor with a booked service lift are not the same job. You get the transport figure and the storage figure before anything is booked, and the number you are given is the number you pay. Storage itself is ${PRICE_PER_SQFT_AED} AED per square foot per month.`,
+      a: `It is quoted on the actual job — your address in ${here}, how the access works (lift, stairs, parking) and how much there is to move. We do not price transport from a table, because a ground-floor flat with parking outside and a ninth floor with a booked service lift are not the same job. You get the transport figure and the storage figure before anything is booked, and the number you are given is the number you pay. Storage itself is charged only on the space your items use.`,
     },
     {
       q: `How long does collection from ${sampleDistricts[0]} or ${sampleDistricts[1]} take?`,

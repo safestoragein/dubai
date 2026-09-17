@@ -363,7 +363,7 @@ const stats = [
   { v: "100,000+", label: ["Customers", "worldwide"] },
   { v: "4.9", suffix: "★", label: ["Average Google", "rating"] },
   { v: "10+", label: ["Years global", "experience"] },
-  { v: "12", suffix: " AED", label: ["Per sqft,", "per month"] },
+  { v: "24/7", label: ["Security", "monitoring"] },
 ]
 
 export function LandingWhy() {

@@ -29,13 +29,13 @@ import s from "@/components/landing/landing.module.css"
 export const metadata: Metadata = {
   title: { absolute: "Moving and Storage Dubai | One Crew, One Job Number" },
   description:
-    "Moving and storage in Dubai from one provider. Packing, moving and storage from AED 12/sq ft when your dates don't line up. Same-day quotes.",
+    "Moving and storage in Dubai from one provider. Packing, moving and storage when your dates don't line up. Same-day quotes.",
   keywords:
     "moving and storage dubai, best movers dubai, movers and packers dubai, moving company dubai, movers dubai, moving and storage services uae, house shifting dubai",
   openGraph: {
     title: "Moving and Storage in Dubai — One Crew, One Job Number",
     description:
-      "Pack, move and store with one provider and one barcoded inventory. Storage from AED 12 per sq ft per month when your dates don't line up.",
+      "Pack, move and store with one provider and one barcoded inventory. Storage by the month when your dates don't line up.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/moving-storage-dubai",
     siteName: "SafeStorage Dubai",
@@ -49,7 +49,7 @@ const faqData = [
   {
     question: "How much does moving and storage cost in Dubai?",
     answer:
-      "Moving is quoted per job on volume, access, packing scope and dismantling, and storage runs from AED 12 per sq ft per month — around 60–90 sq ft for a one-bedroom, 240–270 for a three-bedroom villa. Get any quote in writing with crew size, truck count and packing scope stated, or the number will move on the day.",
+      "Moving is quoted per job on volume, access, packing scope and dismantling, and storage is billed monthly on the space your goods occupy — around 60–90 sq ft for a one-bedroom, 240–270 for a three-bedroom villa. Get any quote in writing with crew size, truck count and packing scope stated, or the number will move on the day.",
   },
   {
     question: "Can you store my things between two lease dates?",
@@ -138,7 +138,7 @@ const pageSchemas = [
     serviceType: "Moving and storage",
     name: "Moving and Storage in Dubai",
     description:
-      "Packing, moving and storage in Dubai from one provider, on one barcoded inventory and one job number. Storage from AED 12 per sq ft per month with no lock-in.",
+      "Packing, moving and storage in Dubai from one provider, on one barcoded inventory and one job number. Monthly storage with no lock-in.",
     areaServed: [
       { "@type": "City", name: "Dubai" },
       { "@type": "City", name: "Sharjah" },
@@ -175,7 +175,7 @@ export default function MovingStorageDubaiPage() {
           eyebrow="Moving & storage Dubai"
           title="Moving and Storage in Dubai –"
           titleAccent="One Crew, One Job Number"
-          blurb="We pack, move and store — from AED 12 per sq ft per month when your dates don't line up. No lock-in."
+          blurb="We pack, move and store — with monthly storage when your dates don't line up. No lock-in."
           image="/landing/svc-relocation.jpg"
           imagePosition="center 50%"
           ctaLabel="Get a Moving Quote"
@@ -337,7 +337,7 @@ export default function MovingStorageDubaiPage() {
               </h2>
             </div>
             <p>
-              Storage from AED 12 per sq ft per month: about 30 sq ft for a studio, 60–90 for a 1-bed, 120–150 for a
+              Storage is billed on the space you use: about 30 sq ft for a studio, 60–90 for a 1-bed, 120–150 for a
               2-bed and 240–270 for a 3-bed villa (estimated).
             </p>
           </div>

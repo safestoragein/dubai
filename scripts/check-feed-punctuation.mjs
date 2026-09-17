@@ -57,7 +57,6 @@ const literal = src.slice(open, close + 2)
 // matter for a punctuation test, so any non-empty stand-in works.
 const stub = "X"
 const body = `
-  const PRICE_PER_SQFT_AED = ${JSON.stringify(stub)}
   const EMAIL = ${JSON.stringify(stub)}
   const ADDRESS_FULL = ${JSON.stringify(stub)}
   const HOURS_DISPLAY = ${JSON.stringify(stub)}

@@ -70,7 +70,7 @@ export default function GetQuote() {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Get Your Free Storage Quote in Dubai</h1>
           <p className="text-lg text-white/90 mb-2">
             Tell us what you need to store and we&apos;ll give you a transparent, no-obligation quote in minutes.
-            Storage units start from 12 AED / sqft with door-to-door service across Dubai.
+            Pay only for the space you use, with door-to-door service across Dubai.
           </p>
         </div>
       </section>

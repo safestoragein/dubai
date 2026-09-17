@@ -7,7 +7,7 @@ import { renderRich } from "./rich-text"
 import { SILOS } from "@/lib/silo/silos"
 import { SiloLinks } from "./silo-links"
 import type { Section, SiloPageContent } from "@/lib/silo/types"
-import { PHONE, PHONE_DISPLAY, EMAIL, PRICE_PER_SQFT_AED } from "@/lib/company-facts"
+import { PHONE, PHONE_DISPLAY, EMAIL } from "@/lib/company-facts"
 
 /**
  * The shared renderer for every Silo 1/2/3/5 child page and every guide.
@@ -128,7 +128,7 @@ export default function SiloPage({ content }: { content: SiloPageContent }) {
                 </Button>
               </div>
               <p className="mt-6 text-sm text-white/80">
-                {PHONE_DISPLAY} · {EMAIL} · from {PRICE_PER_SQFT_AED} AED per sq ft
+                {PHONE_DISPLAY} · {EMAIL} · free, itemised quotes
               </p>
             </div>
           </div>
@@ -292,18 +292,6 @@ export function pageSchemas(content: SiloPageContent) {
       provider: { "@id": `${SITE}/#organization` },
       areaServed: { "@type": "City", name: "Dubai" },
       url,
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "AED",
-        price: PRICE_PER_SQFT_AED,
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          priceCurrency: "AED",
-          price: PRICE_PER_SQFT_AED,
-          unitText: "square foot per month",
-        },
-        url,
-      },
     })
   }
 

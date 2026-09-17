@@ -55,7 +55,7 @@ export const STATIC_POSTS: StaticPost[] = [
     slug: "self-storage-cost-dubai",
     title: "How Much Does Self Storage Cost in Dubai? 2025 Price Guide",
     excerpt:
-      "Detailed breakdown of self storage costs in Dubai by unit size. SafeStorage Dubai pricing from 12 AED / sqft. What's included and what to avoid.",
+      "Detailed breakdown of self storage costs in Dubai by unit size. What's included and what to avoid.",
     category: "Storage Tips",
     date: "2025-01-15",
     readTime: "8 min read",

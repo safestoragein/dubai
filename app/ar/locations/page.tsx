@@ -5,14 +5,14 @@ import { AR_EMIRATES } from "@/lib/ar/registry"
 import { AR } from "@/lib/ar/emirates"
 import { emirateFontVars } from "@/components/locations/fonts"
 import s from "@/components/locations/emirate-theme.module.css"
-import { PRICE_PER_SQFT_AED, PHONE, PHONE_DISPLAY, RATING_VALUE, REVIEW_COUNT_DISPLAY } from "@/lib/company-facts"
+import { PHONE, PHONE_DISPLAY, RATING_VALUE, REVIEW_COUNT_DISPLAY } from "@/lib/company-facts"
 
 const BASE = "https://safestorage.ae"
 const URL = `${BASE}/ar/locations`
 
 export const metadata: Metadata = {
   title: { absolute: "مواقع التخزين | دبي والشارقة وعجمان وأبوظبي | سيف ستوريج" },
-  description: `خدمة تخزين باستلام من باب المنزل في دبي والشارقة وعجمان وأبوظبي من ${PRICE_PER_SQFT_AED} درهم للقدم المربع شهرياً. اختر إمارتك واطّلع على المناطق التي نستلم منها.`,
+  description: `خدمة تخزين باستلام من باب المنزل في دبي والشارقة وعجمان وأبوظبي، وتدفع فقط مقابل المساحة التي تشغلها أغراضك. اختر إمارتك واطّلع على المناطق التي نستلم منها.`,
   keywords: "تخزين الامارات, تخزين اثاث دبي, تخزين اثاث الشارقة, تخزين عجمان, تخزين ابوظبي, اماكن تخزين الاثاث, مستودع تخزين",
   openGraph: {
     title: "مواقع التخزين | دبي والشارقة وعجمان وأبوظبي",
@@ -68,7 +68,7 @@ export default function ArLocationsHub() {
               نخدم <em>أربع إمارات</em>
             </h1>
             <p>
-              خدمة تخزين باستلام من باب المنزل من {PRICE_PER_SQFT_AED} درهم للقدم المربع شهرياً شامل الضريبة.
+              خدمة تخزين باستلام من باب المنزل، وتدفع فقط مقابل المساحة التي تشغلها أغراضك.
               اختر إمارتك للاطّلاع على المناطق والأسعار وطريقة العمل. تقييم {RATING_VALUE}/5 من{" "}
               {REVIEW_COUNT_DISPLAY} {AR.reviewsWorldwide}.
             </p>

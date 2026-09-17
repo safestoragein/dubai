@@ -23,7 +23,7 @@ export const DUBAI: EmirateDef = {
   hub: {
     title: "Self Storage Facilities in Dubai | 30 Areas, Door-To-Door",
     description:
-      "Self storage facilities in Dubai covering 30 areas. We collect from your address, wrap and load, and store indoors from AED 12 per sq ft per month.",
+      "Self storage facilities in Dubai covering 30 areas. We collect from your address, wrap and load, and store indoors. You pay only for the space your items use.",
     keywords:
       "self storage facilities in dubai, storage dubai locations, storage areas dubai, self storage dubai areas, storage collection dubai",
     h1: "Self Storage Facilities in Dubai",
@@ -31,7 +31,7 @@ export const DUBAI: EmirateDef = {
       "We collect from thirty areas across Dubai and store at our facility in DIP-1. You do not drive to a unit — the crew comes to your door, wraps what is going, and brings it back when you want it.",
     intro: [
       "Dubai has no shortage of storage yards. What it is short of is anyone who will come and get your things, which is the part of the job that costs you a Sunday, a van hire and a service-lift argument with building management. That is the half we run.",
-      "Every area page below carries the detail that actually matters locally — which towers need lift slots booked, which communities want the crew registered at the gate, where the loading bays are, and what people in that area typically store. The price is the same everywhere: AED 12 per square foot per month, on the space your goods actually occupy.",
+      "Every area page below carries the detail that actually matters locally — which towers need lift slots booked, which communities want the crew registered at the gate, where the loading bays are, and what people in that area typically store. The storage rate is the same everywhere, charged on the space your goods actually occupy.",
     ],
     faqs: [
       {
@@ -44,7 +44,7 @@ export const DUBAI: EmirateDef = {
       },
       {
         q: "Does the price change depending on my area?",
-        a: "The storage rate does not — it is AED 12 per sq ft per month, everywhere. Transport is quoted on your address and how the access works, so a ninth-floor flat with a shared service lift and a ground-floor villa with parking are priced differently even on the same street.",
+        a: "The storage rate does not — it is the same everywhere. Transport is quoted on your address and how the access works, so a ninth-floor flat with a shared service lift and a ground-floor villa with parking are priced differently even on the same street.",
       },
     ],
   },

@@ -10,7 +10,6 @@ import HeroPreload from "@/components/locations/hero-preload"
 import s from "@/components/locations/emirate-theme.module.css"
 import { EMIRATES } from "@/lib/areas/registry"
 import {
-  PRICE_PER_SQFT_AED,
   PHONE,
   PHONE_DISPLAY,
   EMAIL,
@@ -60,12 +59,12 @@ const faqs = emirateFaqs({
 
 export const metadata: Metadata = {
   title: { absolute: "Self Storage Ajman | Storage Space With Door-to-Door Pickup" },
-  description: `Self storage in Ajman from ${PRICE_PER_SQFT_AED} AED/sqft. We collect from Al Nuaimiya, Al Rashidiya, Al Jurf and the Corniche — we wrap, load and store. No minimum term.`,
+  description: `Self storage in Ajman. We collect from Al Nuaimiya, Al Rashidiya, Al Jurf and the Corniche — we wrap, load and store. No minimum term.`,
   keywords:
     "self storage ajman, storage in ajman, storage space in ajman, storage units ajman, cheap storage ajman, furniture storage ajman, household storage ajman, storage near me ajman, SafeStorage Ajman",
   openGraph: {
     title: "Self Storage Ajman | Storage Space With Door-to-Door Pickup",
-    description: `Storage for Ajman homes and businesses from ${PRICE_PER_SQFT_AED} AED/sqft, collected from your door.`,
+    description: `Storage for Ajman homes and businesses, collected from your door. Get a free, itemised quote.`,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage — self storage for Ajman" }],
     url: URL,
     siteName: "SafeStorage Dubai",
@@ -151,7 +150,7 @@ export default function AjmanPage() {
               <p className={s.heroSlogan}>No driving to a unit. No van hire. No lifting.</p>
               <p>
                 We pick up from your door in Ajman, store it securely in our Ajman facility, and deliver it back
-                whenever you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month — billed on the
+                whenever you ask. You are billed on the
                 space your things actually occupy, not a unit size you have to fill.
               </p>
               <div className={s.heroCta}>
@@ -171,9 +170,9 @@ export default function AjmanPage() {
           <div className={s.trust}>
             <div className={s.trustItem}>
               <div className={`${s.trustIcon} ${s.tOrange}`}>💰</div>
-              <strong className={s.vOrange}>{PRICE_PER_SQFT_AED} AED</strong>
-              <b>Per sqft, per month</b>
-              <small>Starting price</small>
+              <strong className={s.vOrange}>Pay per sqft</strong>
+              <b>Only the space you use</b>
+              <small>No hidden fees</small>
             </div>
             <div className={s.trustItem}>
               <div className={`${s.trustIcon} ${s.tGold}`}>★</div>
@@ -342,9 +341,9 @@ export default function AjmanPage() {
               </Link>
             </div>
             <div className={s.priceTag}>
-              <strong>{PRICE_PER_SQFT_AED} AED</strong>
+              <strong>Free quote</strong>
               <span>
-                per square foot, per month
+                itemised, before you commit
               </span>
             </div>
           </div>
@@ -363,8 +362,8 @@ export default function AjmanPage() {
             </p>
             <p>
               We operate a warehouse in Ajman, so goods collected in the emirate are stored in the emirate
-              rather than driven down the coast and back. Storage costs the
-              same {PRICE_PER_SQFT_AED} AED per square foot per month wherever you are, charged on the floor
+              rather than driven down the coast and back. Storage is charged at the
+              same rate wherever you are, on the floor
               space your items actually occupy, and transport is quoted against your real address rather than
               a table.
             </p>

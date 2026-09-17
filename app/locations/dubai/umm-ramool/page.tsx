@@ -353,7 +353,7 @@ export default function UmmRamoolPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is this cheaper than taking extra space near the airport?</h3>
-            <p className="text-gray-700">For anything that sits still, usually by a wide margin. Land beside the terminals commands a premium because of how fast goods move through it, and none of that speed benefits a pallet that has not shifted since March. Charging with us opens at 12 AED per sqft and follows the volume you genuinely occupy, with nothing added for setup and no yearly commitment. Tell us roughly what you are holding and we will work out what it currently costs you in rent versus what it would cost here.</p>
+            <p className="text-gray-700">For anything that sits still, usually by a wide margin. Land beside the terminals commands a premium because of how fast goods move through it, and none of that speed benefits a pallet that has not shifted since March. Charging with us follows the volume you genuinely occupy, with nothing added for setup and no yearly commitment. Tell us roughly what you are holding and we will work out what it currently costs you in rent versus what it would cost here.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I get a specific archived file back?</h3>
@@ -365,7 +365,7 @@ export default function UmmRamoolPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">What does storage cost for an Umm Ramool business?</h3>
-            <p className="text-gray-700">Charging is by volume, starting at 12 AED per sqft, so you pay for the space your goods take up rather than a fixed unit size. Business requirements run from small shared lots up to 1,000 sq ft and beyond. There is no setup fee, no minimum period, and nothing introduced later. A consultant prices against your volume, how often you need access, and collection frequency. Everything is set out on our <a href="/self-storage-dubai/prices" className="text-[#3E92CC] hover:underline">pricing page</a>.</p>
+            <p className="text-gray-700">Charging is by volume, so you pay for the space your goods take up rather than a fixed unit size. Business requirements run from small shared lots up to 1,000 sq ft and beyond. There is no setup fee, no minimum period, and nothing introduced later. A consultant prices against your volume, how often you need access, and collection frequency. Everything is set out on our <a href="/self-storage-dubai/prices" className="text-[#3E92CC] hover:underline">pricing page</a>.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can you store fleet equipment for a car rental company?</h3>

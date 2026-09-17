@@ -61,7 +61,7 @@ const structuredData = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "How much does storage cost per month in UAE?", acceptedAnswer: { "@type": "Answer", text: "Storage costs in the UAE vary widely depending on the provider, unit size, and location, with some premium units exceeding AED 2,000/month. SafeStorage UAE starts from 12 AED / sqft. Most self-storage facilities in Dubai start from AED 200–350/month for a small unit." } },
+        { "@type": "Question", name: "How much does storage cost per month in UAE?", acceptedAnswer: { "@type": "Answer", text: "Storage costs in the UAE vary widely depending on the provider, unit size, and location, with some premium units exceeding AED 2,000/month. SafeStorage UAE charges only for the space your items use and gives a free, itemised quote. Most self-storage facilities in Dubai start from AED 200–350/month for a small unit." } },
         { "@type": "Question", name: "Which storage company in UAE serves Abu Dhabi and Sharjah?", acceptedAnswer: { "@type": "Answer", text: "SafeStorage UAE serves customers across all UAE emirates including Dubai, Abu Dhabi, Sharjah, Ajman, and Ras Al Khaimah through their door-to-door service model. Space Keeper also covers Abu Dhabi. Most other UAE storage companies are limited to Dubai." } },
       ],
     },

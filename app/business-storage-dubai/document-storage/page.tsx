@@ -160,7 +160,7 @@ export default function DocumentStoragePage() {
           eyebrow="Document & records storage"
           title="Document Storage in Dubai –"
           titleAccent="Secure Archive & Records"
-          blurb="Free up office space and stay compliant with UAE retention rules. Secure, access-controlled storage from 12 AED / sqft."
+          blurb="Free up office space and stay compliant with UAE retention rules. Secure, access-controlled storage where you pay only for the space you use."
           image="/landing/svc-document.jpg"
           imagePosition="center 50%"
           ctaLabel="Get a Free Quote"
@@ -200,7 +200,7 @@ export default function DocumentStoragePage() {
           <div className={s.movingTip}>
             <PiggyBank aria-hidden="true" />
             <p>
-              <b>Cost comparison:</b> off-site storage starts from 12 AED / sqft, while the same floor space in a
+              <b>Cost comparison:</b> off-site storage charges only for the space your boxes use, while the same floor space in a
               Business Bay office costs AED 800–1,500 a month — archive boxes rarely deserve prime office space.
             </p>
           </div>

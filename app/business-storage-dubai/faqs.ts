@@ -8,7 +8,7 @@ export const businessFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How is business storage priced in Dubai?",
-    a: "From 12 AED / sqft, based on the space you use. Every plan includes clean indoor storage, 24/7 security, an account manager and door-to-door service.",
+    a: "By the space you use, with a free, itemised quote. Every plan includes clean indoor storage, 24/7 security, an account manager and door-to-door service.",
   },
   {
     q: "Is there a minimum contract period for business storage in Dubai?",

@@ -109,13 +109,13 @@ export default function StorageVsBiggerHomePage() {
                 <div className="bg-green-50 rounded-lg p-4">
                   <div className="font-bold text-green-800 mb-2">Option B: Storage unit + stay in 1BR</div>
                   <div className="space-y-1 text-sm">
-                    <div className="flex justify-between"><span>Medium storage unit</span><span className="font-bold">From 12 AED / sqft</span></div>
-                    <div className="flex justify-between"><span>Door-to-Door pickup + delivery</span><span className="font-bold">AED 0</span></div>
-                    <div className="flex justify-between border-t pt-2 font-bold text-green-700"><span>Year 1 total extra cost</span><span>From 12 AED / sqft</span></div>
+                    <div className="flex justify-between"><span>Medium storage unit</span><span className="font-bold">Only the space you use</span></div>
+                    <div className="flex justify-between"><span>Door-to-Door pickup + delivery</span><span className="font-bold">Included</span></div>
+                    <div className="flex justify-between border-t pt-2 font-bold text-green-700"><span>Year 1 total extra cost</span><span>Free, itemised quote</span></div>
                   </div>
                 </div>
                 <div className="bg-dubai-gold/20 rounded-lg p-4">
-                  <div className="font-bold text-dubai-navy">Annual saving by choosing storage: AED 24,000–51,600</div>
+                  <div className="font-bold text-dubai-navy">Choosing storage avoids the AED 32,000–60,000 upgrade — you pay only for the space your items use.</div>
                 </div>
               </div>
             </div>
@@ -151,12 +151,12 @@ export default function StorageVsBiggerHomePage() {
 
             <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6 mb-8">
               <p className="font-medium text-dubai-navy">
-                <strong>The Dubai reality:</strong> Most people who think they need a bigger flat actually need a declutter and a storage unit. The annual saving of AED 24,000-50,000+ by staying in a 1BR with storage vs upgrading to a 2BR is significant — enough to fund a year of European travel or substantially boost savings.
+                <strong>The Dubai reality:</strong> Most people who think they need a bigger flat actually need a declutter and a storage unit. The annual saving by staying in a 1BR with storage vs upgrading to a 2BR is significant — enough to fund a year of European travel or substantially boost savings.
               </p>
             </div>
 
             <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
-              <h2 className="text-2xl font-bold mb-3">Solve Your Space Problem from 12 AED / sqft</h2>
+              <h2 className="text-2xl font-bold mb-3">Solve Your Space Problem Without Moving</h2>
               <p className="text-white/80 mb-6">Before committing to a more expensive flat, try storage. Door-to-Door pickup, secure units, flexible monthly contracts.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="https://safestorage.ae/get-quote">

@@ -4,7 +4,6 @@ import ArAreaPage from "@/components/ar/ar-area-page"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { AR_EMIRATES, AR_EMIRATE_BY_SLUG, englishCounterpart } from "@/lib/ar/registry"
-import { PRICE_PER_SQFT_AED } from "@/lib/company-facts"
 
 const BASE = "https://safestorage.ae"
 
@@ -26,7 +25,7 @@ export async function generateMetadata({
 
   const url = `${BASE}/ar/locations/${e.slug}/${a.slug}`
   const title = `تخزين أثاث في ${a.name}، ${e.name} | استلام من باب المنزل`
-  const description = `خدمة تخزين في ${a.name} بـ ${PRICE_PER_SQFT_AED} درهم للقدم المربع شهرياً. نأتي إلى بابك، نغلّف ونحمّل ونخزّن. بلا حد أدنى للمدة واسترجاع جزئي.`
+  const description = `خدمة تخزين في ${a.name} مع عرض سعر مجاني ومفصّل. نأتي إلى بابك، نغلّف ونحمّل ونخزّن. بلا حد أدنى للمدة واسترجاع جزئي.`
   const en = englishCounterpart(e.slug, a.slug)
 
   return {
@@ -66,7 +65,7 @@ export default async function Page({
     ...a.faqs,
     {
       q: "كم تكلفة التخزين؟",
-      a: `${PRICE_PER_SQFT_AED} درهم للقدم المربع شهرياً غير شامل ضريبة القيمة المضافة، محسوبة على المساحة التي تشغلها أغراضك. النقل من ${a.name} يُسعَّر بشكل منفصل لأنه يعتمد على العنوان وحجم الحمولة، وتحصل على الرقمين قبل أي التزام.`,
+      a: `تُحسب تكلفة التخزين على المساحة التي تشغلها أغراضك فقط، دون رسوم خفية. النقل من ${a.name} يُسعَّر بشكل منفصل لأنه يعتمد على العنوان وحجم الحمولة، وتحصل على الرقمين قبل أي التزام.`,
     },
   ]
 

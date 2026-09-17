@@ -186,8 +186,8 @@ export default function UnitSizesPage() {
                 >
                   local storage with door-to-door collection
                 </Link>{" "}
-                is the page you want. Sizes run from 30 sq ft upwards, from{" "}
-                <strong className="text-dubai-gold">AED 12 per sq ft per month</strong>.
+                is the page you want. Sizes run from 30 sq ft upwards, and{" "}
+                <strong className="text-dubai-gold">you pay only for the space your items use</strong>.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>

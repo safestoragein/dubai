@@ -7,7 +7,6 @@ import { storageLocationSentence } from "@/lib/facilities"
 import { emirateFaqs } from "@/lib/emirate-faqs"
 import LocalProof from "@/components/locations/local-proof"
 import {
-  PRICE_PER_SQFT_AED,
   PHONE,
   PHONE_DISPLAY,
   EMAIL,
@@ -47,16 +46,14 @@ const URL = "https://safestorage.ae/locations/sharjah"
 
 export const metadata: Metadata = {
   title: { absolute: "Self Storage in Sharjah | Door-to-Door Collection | SafeStorage" },
-  // Brief's wording, with the price corrected: "from AED 99/month" is published
-  // nowhere and contradicts company-facts.ts. 12 AED/sqft is the figure
-  // /pricing and the JSON-LD Offer already carry.
+  // Brief's wording, with pricing removed: the site does not publish our rates.
   description:
-    `Storage for Sharjah homes and businesses from ${PRICE_PER_SQFT_AED} AED/sqft. We collect from your door, store securely, deliver back. Free quote in 2 minutes.`,
+    `Storage for Sharjah homes and businesses. We collect from your door, store securely, deliver back. Free quote in 2 minutes.`,
   keywords:
     "self storage sharjah, storage in sharjah, storage space in sharjah, storage units sharjah, cheap storage sharjah, furniture storage sharjah, household storage sharjah, storage sharjah al nahda, storage al majaz, storage al taawun, storage muwaileh, storage near me sharjah, SafeStorage Sharjah",
   openGraph: {
     title: "Self Storage Sharjah | Storage Units With Door-to-Door Pickup",
-    description: `Storage for Sharjah homes and businesses from ${PRICE_PER_SQFT_AED} AED/sqft, with collection from your door.`,
+    description: `Storage for Sharjah homes and businesses, with collection from your door.`,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage — self storage for Sharjah" }],
     url: URL,
     siteName: "SafeStorage Dubai",
@@ -106,7 +103,7 @@ const schemas = [
     "@type": "WebPage",
     "@id": `${URL}#webpage`,
     name: "Self Storage in Sharjah | Door-to-Door Collection | SafeStorage",
-    description: `Self storage in Sharjah from ${PRICE_PER_SQFT_AED} AED/sqft with door-to-door collection.`,
+    description: `Self storage in Sharjah with door-to-door collection.`,
     url: URL,
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
@@ -164,7 +161,7 @@ export default function SharjahPage() {
               <p>
                 Self storage in Sharjah normally means renting a unit and moving into it yourself. We pick up
                 from your door instead, store it securely in our Sharjah facility, and deliver it back whenever
-                you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month — you pay for the space
+                you ask. You pay only for the space
                 your things actually occupy, not a unit size you have to fill.
               </p>
               <div className={s.heroCta}>
@@ -184,9 +181,9 @@ export default function SharjahPage() {
           <div className={s.trust}>
             <div className={s.trustItem}>
               <div className={`${s.trustIcon} ${s.tOrange}`}>💰</div>
-              <strong className={s.vOrange}>{PRICE_PER_SQFT_AED} AED</strong>
-              <b>Per sqft, per month</b>
-              <small>Starting price</small>
+              <strong className={s.vOrange}>Pay per sqft</strong>
+              <b>Only the space you use</b>
+              <small>No hidden fees</small>
             </div>
             <div className={s.trustItem}>
               <div className={`${s.trustIcon} ${s.tGold}`}>★</div>
@@ -426,9 +423,9 @@ export default function SharjahPage() {
               </Link>
             </div>
             <div className={s.priceTag}>
-              <strong>{PRICE_PER_SQFT_AED} AED</strong>
+              <strong>Free quote</strong>
               <span>
-                per square foot, per month
+                itemised, before you commit
               </span>
             </div>
           </div>
@@ -446,8 +443,7 @@ export default function SharjahPage() {
             </p>
             <p>
               SafeStorage works the other way round. You tell us roughly what there is, we come to your address in
-              Sharjah, wrap it, load it and take it to our Sharjah warehouse. Storage is charged at{" "}
-              {PRICE_PER_SQFT_AED} AED per square foot per month, on the floor space your items
+              Sharjah, wrap it, load it and take it to our Sharjah warehouse. Storage is charged on the floor space your items
               genuinely occupy. When you want any of it back, we bring it to you.
             </p>
 
@@ -499,14 +495,14 @@ export default function SharjahPage() {
              sharjah prices, cheap storage sharjah. */}
         <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
           <div className={s.sectionHead}>
-            <span className={s.eyebrow}>Storage space and rates</span>
+            <span className={s.eyebrow}>Storage space</span>
             <h2>
               How Much Storage Space Do You <em>Actually Need</em> in Sharjah?
             </h2>
             <p>
               Traditional self storage in Sharjah sells you a unit — 25 sqft, 50 sqft, 100 sqft — and you pay
               for all of it whether you fill it or not. We measure what your things occupy and bill that. Here
-              is roughly what different homes work out at.
+              is roughly how much space different homes take up.
             </p>
           </div>
           <div className={s.tableWrap}>
@@ -515,48 +511,41 @@ export default function SharjahPage() {
                 <tr>
                   <th>What you are storing</th>
                   <th>Typical space</th>
-                  <th>Indicative monthly rate</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td><strong>A few boxes and a bicycle</strong><br />Student room, seasonal kit</td>
                   <td>~15–25 sqft</td>
-                  <td>~190–315 AED</td>
                 </tr>
                 <tr>
                   <td><strong>Studio or 1-bed flat</strong><br />Al Nahda, Al Taawun, Abu Shagara towers</td>
                   <td>~40–60 sqft</td>
-                  <td>~505–760 AED</td>
                 </tr>
                 <tr>
                   <td><strong>2-bed flat</strong><br />Al Majaz, Buhaira Corniche, Al Khan</td>
                   <td>~70–90 sqft</td>
-                  <td>~885–1,140 AED</td>
                 </tr>
                 <tr>
                   <td><strong>3-bed flat or small villa</strong><br />Al Qasimia, Al Qulayaah, Maysaloon</td>
                   <td>~100–130 sqft</td>
-                  <td>~1,265–1,645 AED</td>
                 </tr>
                 <tr>
                   <td><strong>Villa or townhouse</strong><br />Muwaileh, Al Zahia, Al Mowaihat</td>
                   <td>~150–220 sqft</td>
-                  <td>~1,900–2,785 AED</td>
                 </tr>
                 <tr>
                   <td><strong>Business stock or archive</strong><br />Rolla, Al Qasimia, Industrial Areas</td>
                   <td>From ~20 sqft</td>
-                  <td>From ~255 AED</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className={s.tableNote}>
-            Indicative only, at {PRICE_PER_SQFT_AED} AED per sqft per month. Your actual figure is
+            Indicative only. Your actual space is
             measured from what we collect, not estimated from the size of your home — two identical flats can
             differ by half if one owns more furniture. Transport from your Sharjah address is quoted separately.
-            Nothing is booked until you have agreed both numbers.
+            Nothing is booked until you have agreed your free, itemised quote.
           </p>
         </section>
 

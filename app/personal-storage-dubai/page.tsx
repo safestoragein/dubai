@@ -24,10 +24,10 @@ export const metadata: Metadata = {
   title: { absolute: "Personal Storage Dubai | Affordable Household storage Units" },
   // Spec wording with two corrections. It reads "starting AED 24/mo", a figure
   // published nowhere else on the site — the only price we publish is
-  // PRICE_PER_SQFT_AED — and "free pickup & delivery", which df0df39 / 166d65a
+  // our own price (the site no longer publishes pricing) — and "free pickup & delivery", which df0df39 / 166d65a
   // removed sitewide because transport is charged.
   description:
-    "Affordable personal storage in Dubai from 12 AED/sqft. Secure storage space with door-to-door pickup & delivery.",
+    "Affordable personal storage in Dubai. Secure storage space with door-to-door pickup & delivery — pay only for the space you use.",
   keywords:
     "Personal storage Dubai, Household storage, Home storage Dubai, Furniture storage, Self storage Dubai, Decluttering storage, Student storage Dubai, Seasonal storage, Short term storage, Long term storage, Luggage storage Dubai, Apartment storage, Storage with pickup, SafeStorage personal",
   openGraph: {
@@ -77,19 +77,18 @@ const personalStorageSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Personal Household Storage Dubai',
-    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with door-to-door pickup from your door. Personal storage from 12 AED / sqft.',
+    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with door-to-door pickup from your door. Pay only for the space you use.',
     provider: { '@id': 'https://safestorage.ae/#organization' },
     url: 'https://safestorage.ae/personal-storage-dubai',
     areaServed: { '@type': 'City', name: 'Dubai' },
     serviceType: 'Personal Storage',
-    offers: { '@type': 'Offer', priceCurrency: 'AED', price: '12' },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': 'https://safestorage.ae/personal-storage-dubai#webpage',
-    name: 'Personal Household Storage Dubai | Furniture & Boxes from 12 AED / sqft',
-    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with door-to-door pickup. Personal storage from 12 AED / sqft.',
+    name: 'Personal Household Storage Dubai | Furniture & Boxes',
+    description: 'Store household furniture, seasonal items, and moving boxes in Dubai with door-to-door pickup. Pay only for the space you use.',
     url: 'https://safestorage.ae/personal-storage-dubai',
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
@@ -122,7 +121,7 @@ export default function PersonalStoragePage() {
           eyebrow="Personal storage Dubai"
           title="Personal Storage in Dubai –"
           titleAccent="Furniture, Boxes & More"
-          blurb="Affordable storage for your home and belongings from 12 AED / sqft, with door-to-door pickup and no hidden fees."
+          blurb="Affordable storage for your home and belongings, with door-to-door pickup and no hidden fees."
           image="/landing/svc-household.jpg"
           imagePosition="center 40%"
           ctaLabel="Get Your Free Quote"
@@ -196,10 +195,10 @@ export default function PersonalStoragePage() {
             <div>
               <span className={s.howEyebrow}>Pricing</span>
               <h2>
-                Starting from just <em>12 AED / sqft.</em>
+                Pay only for <em>the space you use.</em>
               </h2>
             </div>
-            <p>Pay only for the space your belongings use — from a few boxes to a full apartment.</p>
+            <p>From a few boxes to a full apartment — get a free, itemised quote for exactly what you store.</p>
           </div>
 
           <div className={s.miniGrid}>
