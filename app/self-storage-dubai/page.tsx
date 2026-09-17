@@ -5,7 +5,6 @@ import {
   Ruler, Layers, CalendarDays, Sparkles, Star, Users, Lock, Boxes,
 } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
-import { SiloHubLinks } from "@/components/silo/silo-links"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 import { manrope, sora } from "@/components/landing/fonts"
@@ -643,7 +642,6 @@ export default function SelfStorageDubaiPage() {
 
         <LandingConnect />
       </div>
-      <SiloHubLinks silo="s1" />
     </>
   )
 }
