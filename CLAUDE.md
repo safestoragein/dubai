@@ -59,10 +59,10 @@ server, then rebuild + restart (redeploy).
 - `amplify.yml` is unused (Amplify isn't the host) — kept only as leftover; safe to delete.
 
 ## ⚠ Business rules (owner decisions — ALWAYS follow)
-- **NO pricing anywhere.** Never publish SafeStorage's own price ("12 AED / sqft", "12.65", monthly costs per home,
+- **NO pricing anywhere.** Never publish SafeStorage's own price ("12 AED / sqft", "12.65", "AED 99/month", "AED 24 per box", monthly costs per home,
   price ranges) in copy, metadata, JSON-LD (`offers.price`, `priceRange`, `estimatedCost`) or `public/llms.txt`.
   Say "pay only for the space you use" / "free, itemised quote". Third-party figures (rents, competitors, freight) are OK.
-  Blog posts come from the safestorage.in feed; `stripOwnPrice()` in `lib/blog-meta.ts` filters them — keep it.
+  Blog posts come from the safestorage.in feed; `stripOwnPrice()` + `FEED_RULES` in `lib/blog-meta.ts` filter prices and ISO claims out of them — keep it.
   Before every deploy: `grep -rnE "12(\.65)? ?AED|AED ?12\b" app components lib data public` must show only third-party numbers.
 - **No lockers / no private units.** Storage is SHARED space. Don't write "locker", "dedicated unit", "your unit",
   "individually assigned area". Sizes are shown in **sq ft** (never m²) and marked "(Estimated)".
