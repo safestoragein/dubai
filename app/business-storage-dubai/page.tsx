@@ -1,17 +1,19 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Building2, ShieldCheck, Truck, Clock, FileBox, Headphones, Star, Users, Award, ArrowRight } from "lucide-react"
-import TrustBadges from "@/components/trust-badges"
-import Testimonials from "@/components/testimonials"
+import {
+  Building2, ShieldCheck, Truck, Clock, FileBox, Headphones, Package, Store, Boxes, UserCheck, Tags, CheckCircle2,
+} from "lucide-react"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 import { manrope, sora } from "@/components/landing/fonts"
-import PageHero, { CtaBand } from "@/components/landing/page-hero"
-import { LandingTrust } from "@/components/landing/landing-top"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
+import { LandingSteps } from "@/components/landing/landing-services"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingConnect } from "@/components/landing/landing-connect"
+import { UspRail } from "@/components/landing/usp-rail"
+import { FeatScroller } from "@/components/landing/feat-scroller"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import { businessFaqs } from "./faqs"
 import s from "@/components/landing/landing.module.css"
@@ -35,36 +37,33 @@ export const metadata: Metadata = {
 }
 
 const features = [
-  {
-    icon: FileBox,
-    title: "Document Archiving",
-    description: "Secure storage for business records and important documents",
-  },
-  {
-    icon: ShieldCheck,
-    title: "24/7 Security",
-    description: "Round-the-clock surveillance and access control",
-  },
-  {
-    icon: Truck,
-    title: "Door-to-door Service",
-    description: "We collect and deliver your items at your convenience",
-  },
-  {
-    icon: Clock,
-    title: "Flexible Terms",
-    description: "Monthly contracts with no long-term commitments",
-  },
-  {
-    icon: Building2,
-    title: "Secure Enclosed Units",
-    description: "Clean, dust-protected indoor units to keep your assets safe",
-  },
-  {
-    icon: Headphones,
-    title: "Dedicated Support",
-    description: "Personal account manager for your business needs",
-  },
+  { Icon: FileBox, title: "Document Archiving", body: "Secure storage for business records and important documents." },
+  { Icon: ShieldCheck, title: "24/7 Security", body: "Round-the-clock surveillance and access control." },
+  { Icon: Truck, title: "Door-to-door Service", body: "We collect and deliver your items at your convenience." },
+  { Icon: Clock, title: "Flexible Terms", body: "Monthly contracts with no long-term commitments." },
+  { Icon: Building2, title: "Clean, Secure Space", body: "Dust-protected indoor storage that keeps your assets safe." },
+  { Icon: Headphones, title: "Dedicated Support", body: "A personal account manager for your business needs." },
+]
+
+const useCases = [
+  { Icon: Building2, title: "Office clearance & renovation", body: "Same-day or next-day pickups for furniture, IT and fixtures — returned to match your fit-out schedule." },
+  { Icon: Store, title: "Retail & seasonal stock", body: "Scale up for Ramadan, DSF and White Friday, then scale back. Same-day restocking to your store." },
+  { Icon: Boxes, title: "Inventory overflow", body: "More stock than your space allows — no lease, no DEWA, no fit-out. Grow and shrink with demand." },
+]
+
+const includes = [
+  { Icon: Clock, t: "No minimum contract", b: "Scale up or down month to month." },
+  { Icon: UserCheck, t: "Account manager", b: "One contact for pickups and deliveries." },
+  { Icon: Tags, t: "Bulk discounts", b: "Multi-space bookings and annual prepayments." },
+  { Icon: FileBox, t: "Document archiving", b: "Compliant records storage as an add-on." },
+  { Icon: Truck, t: "Door-to-door service", b: "Available across Dubai." },
+  { Icon: Package, t: "From 12 AED / sqft", b: "Pay only for the space you use." },
+]
+
+const industries = [
+  "Retail and fashion brands", "E-commerce and online sellers", "Food and beverage distributors",
+  "Technology and electronics", "Healthcare and pharmaceutical", "Construction and engineering",
+  "Event management", "Real estate and property", "Media and production",
 ]
 
 const businessStorageSchemas = [
@@ -89,7 +88,15 @@ const businessStorageSchemas = [
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
   },
-  
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: businessFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
 ]
 
 export default function BusinessStoragePage() {
@@ -101,159 +108,156 @@ export default function BusinessStoragePage() {
           { name: "Business Storage Dubai" },
         ]}
       />
-    <SchemaScript schema={businessStorageSchemas} />
-    <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-      <PageHero
-        eyebrow="Serving Globally Since 2015"
-        title="Business Storage"
-        titleAccent="Dubai"
-        blurb="Secure, flexible storage for your business documents, inventory, and equipment. Focus on growing your business while we handle the storage."
-        image="/landing/svc-business.jpg"
-        imagePosition="center 55%"
-        stats={[
-          { Icon: Star, label: "4.9/5 (6,700+ reviews worldwide)" },
-          { Icon: Users, label: "Trusted by 100,000+ customers worldwide" },
-          { Icon: Award, label: "10+ Years Global Experience" },
-        ]}
-        ctaLabel="Get Your Free Quote in 2 Minutes"
-      />
+      <SchemaScript schema={businessStorageSchemas} />
 
-      <LandingTrust />
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        <SplitHero
+          eyebrow="Business storage Dubai"
+          title="Business Storage in Dubai –"
+          titleAccent="Stock, Equipment & Records"
+          blurb="Secure, flexible storage for your business. Focus on growing while we handle the storage."
+          image="/landing/svc-business.jpg"
+          imagePosition="center 55%"
+          ctaLabel="Get Your Free Quote"
+        />
 
-      {/* WHY */}
-      <section className={s.wrap} id="why" style={{ paddingTop: 34 }}>
-        <div className={s.darkBand}>
-          <span className={s.eyebrow}>Why choose SafeStorage</span>
-          <h2>
-            Why Choose SafeStorage for <em>Business?</em>
-          </h2>
-          <div className={`${s.featGrid} ${s.featGrid3}`}>
-            {features.map((feature) => (
-              <div className={s.feat} key={feature.title}>
-                <div className={s.featIcon} aria-hidden="true">
-                  <feature.icon strokeWidth={2} />
+        <LandingTrust />
+
+        <LandingSteps />
+
+        {/* WHY */}
+        <section className={s.wrap} id="why">
+          <div className={`${s.darkBand} ${s.whyBand}`}>
+            <div className={`${s.howHead} ${s.bandHead}`}>
+              <div>
+                <span className={s.howEyebrow}>Why SafeStorage</span>
+                <h2>
+                  Why businesses choose <br className={s.mBreak} />
+                  <em>SafeStorage.</em>
+                </h2>
+              </div>
+            </div>
+            <FeatScroller>
+              {features.map(({ Icon, title, body }) => (
+                <div className={s.feat} key={title}>
+                  <div className={s.featIcon} aria-hidden="true">
+                    <Icon size={18} strokeWidth={2} />
+                  </div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
                 </div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
+              ))}
+            </FeatScroller>
+            <p className={s.scrollHint}>Swipe for more →</p>
+          </div>
+        </section>
+
+        {/* WHAT WE STORE */}
+        <section className={`${s.section} ${s.wrap}`} id="what-we-store">
+          <UspRail
+            head={
+              <div className={s.uspHead}>
+                <span className={s.howEyebrow}>What we store</span>
+                <h2>
+                  Storage for <em>Dubai companies.</em>
+                </h2>
+                <p className={s.splitBlurb} style={{ marginBottom: 0 }}>
+                  A flexible alternative to a warehouse lease — pay monthly for the space you use.
+                </p>
+              </div>
+            }
+          >
+            {useCases.map(({ Icon, title, body }, i) => (
+              <article className={s.usp} key={title}>
+                <span className={s.uspNum} aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className={s.uspIcon} aria-hidden="true">
+                  <Icon />
+                </div>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </UspRail>
+          <p className={s.scrollHint}>Swipe for more →</p>
+        </section>
+
+        {/* PLAN INCLUDES + INDUSTRIES */}
+        <section className={`${s.section} ${s.wrap}`} id="includes" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Every plan</span>
+              <h2>
+                What every business <em>plan includes.</em>
+              </h2>
+            </div>
+          </div>
+          <div className={s.miniGrid}>
+            {includes.map(({ Icon, t: title, b }) => (
+              <div className={s.miniCard} key={title}>
+                <span className={s.miniIcon} aria-hidden="true">
+                  <Icon />
+                </span>
+                <div>
+                  <b>{title}</b>
+                  <small>{b}</small>
+                </div>
               </div>
             ))}
           </div>
-          <p className={s.bandNote}>
-            Trusted by businesses across Dubai for secure and reliable storage solutions
-          </p>
-        </div>
-      </section>
 
-      <LandingReviews />
+          <h3 className={s.miniHead}>Industries we serve in Dubai</h3>
+          <div className={s.areaMarquees}>
+            {[industries.slice(0, 5), industries.slice(5)].map((row, r) => (
+              <div className={s.marquee} key={r}>
+                <div className={`${s.marqueeTrack} ${r === 1 ? s.marqueeReverse : ""}`}>
+                  {[0, 1].map((copy) => (
+                    <ul className={`${s.marqueeGroup} ${s.chipGroup}`} aria-hidden={copy === 1 || undefined} key={copy}>
+                      {row.map((industry) => (
+                        <li key={industry}>
+                          <span className={s.chip}>
+                            <CheckCircle2 size={13} style={{ display: "inline", marginRight: 6, verticalAlign: "-2px", color: "var(--accent)" }} />
+                            {industry}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      <CtaBand
-        title="Ready to Simplify Your Business Storage?"
-        blurb="Join the 100,000+ customers who trust SafeStorage worldwide. Get a customized quote in just 2 minutes."
-        ctaLabel="Get Your Free Quote"
-      />
+        <LandingReviews />
 
-      {/* WHAT WE STORE FOR BUSINESSES */}
-      <section className={`${s.section} ${s.wrap}`}>
-        <div className={s.sectionHead}>
-          <span className={s.eyebrow}>What we store</span>
-          <h2>
-            Business Storage for <em>Dubai Companies</em>
-          </h2>
-          <p>
-            A flexible alternative to a warehouse lease — pay for the space you actually use, month by
-            month, and keep it accessible on demand.
-          </p>
-        </div>
-
-        <div className={s.trio}>
-          <div className={`${s.panel} ${s.panelHover}`}>
-            <div className={s.panelIcon} aria-hidden="true">
-              <Building2 strokeWidth={1.9} />
+        {/* FAQ */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Good to know</span>
+              <h2>
+                FAQs: business storage <em>in Dubai.</em>
+              </h2>
             </div>
-            <h3>Office clearance &amp; renovation</h3>
             <p>
-              Same-day or next-day pickups for surplus furniture, IT equipment and fixtures. We dismantle,
-              wrap and transport, then return it floor by floor to match your fit-out schedule.
+              Have more questions? <Link href="/faq" style={{ color: "var(--accent)", fontWeight: 600 }}>View all FAQs →</Link>
             </p>
           </div>
-          <div className={`${s.panel} ${s.panelHover}`}>
-            <div className={s.panelIcon} aria-hidden="true">
-              <Truck strokeWidth={1.9} />
-            </div>
-            <h3>Retail &amp; seasonal stock</h3>
-            <p>
-              Scale up for Ramadan, DSF, White Friday and back-to-school, then scale back. Same-day delivery
-              to your store or mall loading bay when you need restocking.
-            </p>
-          </div>
-          <div className={`${s.panel} ${s.panelHover}`}>
-            <div className={s.panelIcon} aria-hidden="true">
-              <FileBox strokeWidth={1.9} />
-            </div>
-            <h3>Inventory overflow</h3>
-            <p>
-              More stock than your space allows, but not enough to justify a warehouse. No minimum lease,
-              no DEWA connection, no fit-out cost — increase and reduce as demand moves.
-            </p>
-          </div>
-        </div>
+          <FaqAccordion items={businessFaqs} />
+        </section>
 
-        <h3 className={s.chipsHead}>What every business plan includes</h3>
-        <div className={s.duo} style={{ marginTop: 20 }}>
-          <div className={s.panel}>
-            <ul className={s.checkList} style={{ marginTop: 0 }}>
-              <li>
-                <b>No minimum contract</b> — scale up or down month to month
-              </li>
-              <li>
-                <b>Business account manager</b> — one contact for pickups and deliveries
-              </li>
-              <li>
-                <b>Bulk discounts</b> — multi-unit bookings and annual prepayments
-              </li>
-            </ul>
-          </div>
-          <div className={s.panel}>
-            <ul className={s.checkList} style={{ marginTop: 0 }}>
-              <li>
-                <b>Document archiving</b> — compliant records storage as an add-on
-              </li>
-              <li>
-                <b>Door-to-door service</b> — available across Dubai
-              </li>
-              <li>
-                <b>From 12 AED / sqft</b> — 50 to 300+ sq ft units
-              </li>
-            </ul>
-          </div>
-        </div>
+        <CtaBand
+          title="Ready to Simplify Your Business Storage?"
+          blurb="Join the 100,000+ customers who trust SafeStorage worldwide. Get a customized quote in just 2 minutes."
+          ctaLabel="Get Your Free Quote"
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
 
-        <h3 className={s.chipsHead}>Industries we serve in Dubai</h3>
-        <div className={s.chips}>
-          {[
-            "Retail and fashion brands", "E-commerce and online sellers", "Food and beverage distributors",
-            "Technology and electronics", "Healthcare and pharmaceutical", "Construction and engineering",
-            "Event management", "Real estate and property", "Media and production",
-          ].map((industry) => (
-            <span className={`${s.chip} ${s.chipMuted}`} key={industry}>
-              {industry}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className={`${s.section} ${s.wrap}`} id="faq">
-        <div className={s.sectionHead}>
-          <span className={s.eyebrow}>Good to know</span>
-          <h2>Frequently Asked Questions — Business Storage Dubai</h2>
-        </div>
-        <FaqAccordion items={businessFaqs} />
-      </section>
-
-      <LandingConnect />
-    </div>
-
+        <LandingConnect />
+      </div>
     </>
   )
 }
