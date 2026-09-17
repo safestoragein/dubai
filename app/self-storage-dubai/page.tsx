@@ -190,11 +190,6 @@ export default function SelfStorageDubaiPage() {
           blurb="Between apartments, renovating, travelling or decluttering? SafeStorage gives you secure space in Dubai, when and where you need it."
           image="/landing/warehouse-fleet.jpg"
           imagePosition="center 45%"
-          stats={[
-            { Icon: Star, label: "4.9/5 (6,700+ reviews worldwide)" },
-            { Icon: Users, label: "Trusted by 100,000+ customers worldwide" },
-            { Icon: Lock, label: "24/7 CCTV Monitoring" },
-          ]}
           ctaLabel="Get Instant Quote"
           phoneLabel="Call +971 50 577 3388"
         />
