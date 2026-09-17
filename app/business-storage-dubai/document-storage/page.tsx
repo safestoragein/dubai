@@ -68,6 +68,10 @@ const reviews = [
   { name: "Ibrahim S.", role: "Law Firm Partner · DIFC", text: "We store 5 years of closed client files. Boxes are always ready when we arrive, and we turned our old storage room into a meeting room." },
   { name: "Laleh K.", role: "Finance Director · Business Bay", text: "Our VAT audit needed records from 2018–2022. Everything was labelled by year and came back in perfect condition. The auditors were satisfied." },
   { name: "Dr. Mahesh R.", role: "Clinic Owner · Al Quoz", text: "Some patient records must be kept for years. Having them off-site in a secure, access-controlled environment gives me confidence." },
+  // The three below are published elsewhere on the site (homepage reviews and /testimonials).
+  { name: "Sarah Mitchell", role: "Managing Director · Consulting Firm", text: "As a business owner, I needed reliable document storage. Their dedicated consultant understood our compliance needs perfectly." },
+  { name: "Faisal Al Rashid", role: "Palm Jumeirah", text: "We stored over 200 boxes of stock and office equipment. The indexing system made it easy to retrieve specific items. Great for businesses." },
+  { name: "Priya Sharma", role: "Jumeirah", text: "We stored office furniture when we downsized. A consultant assessed the volume, gave a transparent quote and handled everything. Great value for money." },
 ]
 
 const faqs = [
@@ -310,6 +314,7 @@ export default function DocumentStoragePage() {
               </div>
             ))}
           </div>
+          <p className={s.scrollHint}>Swipe for more →</p>
         </section>
 
         {/* FAQ */}
