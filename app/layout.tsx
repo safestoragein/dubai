@@ -111,6 +111,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
+        {/* Self-heal for a missing stylesheet. If a cached page asks for CSS/JS a
+            later deploy removed (or the file simply fails to load), reload ONCE
+            with a cache-busting query instead of showing an unstyled page. The
+            sessionStorage flag stops any reload loop; it is cleared again as soon
+            as a page renders with its CSS. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var K="ss-heal";function heal(){try{if(sessionStorage.getItem(K))return;sessionStorage.setItem(K,"1")}catch(e){return}var u=new URL(location.href);u.searchParams.set("_r",Date.now());location.replace(u.toString())}window.addEventListener("error",function(e){var t=e.target,s=t&&(t.href||t.src)||"";if(t&&(t.tagName==="LINK"||t.tagName==="SCRIPT")&&s.indexOf("/_next/static/")>-1)heal()},true);window.addEventListener("load",function(){var ok=getComputedStyle(document.documentElement).getPropertyValue("--ss-css").trim()==="1";if(!ok)heal();else try{sessionStorage.removeItem(K)}catch(e){}})}catch(e){}})();`,
+          }}
+        />
         {/* Preconnect to critical domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

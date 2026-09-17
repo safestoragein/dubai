@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Stylesheet sentinel: the inline self-heal script in app/layout.tsx reads this
+   to tell whether the site CSS actually loaded. Do not remove. */
+:root {
+  --ss-css: 1;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
