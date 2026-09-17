@@ -15,6 +15,7 @@ import { LandingConnect } from "@/components/landing/landing-connect"
 import { UspRail } from "@/components/landing/usp-rail"
 import { FeatScroller } from "@/components/landing/feat-scroller"
 import FaqAccordion from "@/components/landing/faq-accordion"
+import { MilestonesPlayer } from "@/components/landing/milestones-player"
 import s from "@/components/landing/landing.module.css"
 
 /**
@@ -297,14 +298,15 @@ export default function MovingStorageDubaiPage() {
               handover slips you simply extend.
             </p>
           </div>
+          <MilestonesPlayer>
           <ol className={s.milestones}>
             {[
               { Icon: Package, day: "7th", t: "We pack & clear", b: "The old home, on one barcoded inventory." },
               { Icon: Warehouse, day: "8th–24th", t: "Safely stored", b: "Live out of a suitcase, not around 30 boxes." },
               { Icon: Truck, day: "25th", t: "Delivered", b: "Into the new home, on the day it's ready." },
               { Icon: Hammer, day: "25th", t: "Rebuilt", b: "Furniture reassembled, beds first." },
-            ].map(({ Icon, day, t: title, b }) => (
-              <li className={s.milestone} key={title}>
+            ].map(({ Icon, day, t: title, b }, i) => (
+              <li className={s.milestone} key={title} style={{ ["--i" as string]: i }}>
                 <span className={s.milestoneDot} aria-hidden="true">
                   <Icon />
                 </span>
@@ -314,6 +316,7 @@ export default function MovingStorageDubaiPage() {
               </li>
             ))}
           </ol>
+          </MilestonesPlayer>
           <div className={s.miniFacts}>
             <span><CheckCircle2 aria-hidden="true" /> Partial store while you sell surplus furniture</span>
             <span><CheckCircle2 aria-hidden="true" /> Open-ended hold before shipping abroad</span>
