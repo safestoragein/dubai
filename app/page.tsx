@@ -64,8 +64,8 @@ export default function LandingPage() {
 
       <LandingHero />
       <LandingTrust />
-      <LandingIntro />
       <LandingServices />
+      <LandingIntro />
       <LandingSteps />
       <LandingWhy />
       <LandingTypes />
