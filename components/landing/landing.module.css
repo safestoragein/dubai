@@ -1836,6 +1836,12 @@
   }
 }
 
+/* stacked head: full-width title, intro paragraph underneath (long intros) */
+.headStack > p {
+  max-width: 860px;
+  padding-bottom: 0;
+}
+
 /* ---------- USP RAIL ---------- */
 .uspTop {
   display: flex;

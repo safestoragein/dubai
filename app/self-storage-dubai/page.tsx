@@ -1,13 +1,22 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Shield, Truck, Clock, Lock, ArrowRight, CheckCircle2, Package, MapPin } from "lucide-react"
+import {
+  Shield, Truck, Clock, CheckCircle2, Package, MapPin, Camera, Flame, Bug, Lightbulb, ShieldCheck,
+  Ruler, Layers, CalendarDays, Sparkles, Star, Users, Lock, Boxes,
+} from "lucide-react"
 import Script from "next/script"
 import SchemaScript from "@/components/schema-script"
 import { SiloHubLinks } from "@/components/silo/silo-links"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
+
+import { manrope, sora } from "@/components/landing/fonts"
+import PageHero, { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { LandingConnect } from "@/components/landing/landing-connect"
+import { UspRail } from "@/components/landing/usp-rail"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import s from "@/components/landing/landing.module.css"
 
 export const metadata: Metadata = {
   title: { absolute: "Self Storage Dubai: Flexible Plans & No Lorry | SafeStorage" },
@@ -93,6 +102,75 @@ const pageSchemas = [
   },
 ]
 
+const why = [
+  { Icon: Shield, title: "Security that's visible", body: "24/7 CCTV, controlled entry, individual unit locks, regular patrols." },
+  { Icon: Truck, title: "Door-to-door help", body: "Optional packing, pickup, and re-delivery anywhere in Dubai." },
+  { Icon: Clock, title: "Flexible plans", body: "Short or long stays, monthly billing, easy upgrades." },
+  { Icon: CheckCircle2, title: "Transparent quotes", body: "No hidden fees; our advisors right-size your unit to avoid overpaying." },
+  { Icon: Package, title: "Customer care", body: "WhatsApp support, weekend slots, and photo inventory on request." },
+]
+
+const sizes = [
+  { size: "1–2 m²", label: "Locker / Small", fits: ["8–12 medium boxes", "Hand luggage", "Small appliances", "Documents"] },
+  { size: "3–4 m²", label: "Studio", fits: ["20–30 boxes", "A bicycle", "TV and electronics", "Side tables"] },
+  { size: "5–7 m²", label: "1-bed", fits: ["Mattress and bed frame", "Sofa", "TV unit", "30–40 boxes", "Small wardrobes"] },
+  { size: "8–10 m²", label: "2-bed", fits: ["Large sofa set", "Multiple beds", "Dining table", "White goods", "50–70 boxes"] },
+  { size: "12–15 m²", label: "3-bed", fits: ["Full apartment contents", "Seasonal items", "Sports gear", "Large furniture pieces"] },
+]
+
+const security = [
+  { Icon: Camera, label: "24/7 CCTV surveillance" },
+  { Icon: Flame, label: "Fire protection systems" },
+  { Icon: Bug, label: "Pest management protocols" },
+  { Icon: Lightbulb, label: "Well-lit corridors" },
+  { Icon: ShieldCheck, label: "Regular security patrols" },
+]
+
+const doorToDoor = [
+  { title: "Pack & Move", body: "Trained crews bring branded materials, pack items securely, and transport to the facility." },
+  { title: "Photo Inventory", body: "Request a photo inventory in your customer portal for easy tracking and retrieval." },
+  { title: "Easy Retrieval", body: "Schedule partial or full retrieval—we deliver back to your address when you're ready." },
+]
+
+// Areas with a real location page link to it; the rest stay as plain labels.
+const areas: { area: string; slug?: string }[] = [
+  { area: "Dubai Marina", slug: "dubai-marina" },
+  { area: "JLT" },
+  { area: "JVC", slug: "jumeirah-village-circle" },
+  { area: "Jumeirah", slug: "jumeirah" },
+  { area: "Downtown", slug: "downtown-dubai" },
+  { area: "Business Bay", slug: "business-bay" },
+  { area: "Al Quoz" },
+  { area: "Al Barsha", slug: "al-barsha" },
+  { area: "Deira", slug: "deira" },
+  { area: "Bur Dubai" },
+  { area: "Mirdif", slug: "mirdif" },
+  { area: "Silicon Oasis", slug: "dubai-silicon-oasis" },
+  { area: "Motor City" },
+  { area: "Dubai South" },
+  { area: "DIP", slug: "dubai-investment-park" },
+  { area: "Al Quasis" },
+  { area: "Dubai Hills", slug: "dubai-hills" },
+]
+
+const guideFaqs = [
+  { q: "What is self storage and how does it work in Dubai?", a: "Self storage is a service where individuals or businesses rent a secure, dedicated storage unit to keep their belongings. In Dubai, the most convenient model is door-to-door storage, offered by SafeStorage Dubai, where a team collects your items from your location, stores them in a secure facility, and delivers them back when needed. You pay a monthly fee based on the unit size you use. There are no long-term contracts, no lorry hire, and no heavy lifting required." },
+  { q: "Do I need to transport my items to the storage facility myself?", a: "No. SafeStorage Dubai provides a complete door-to-door service. Our team comes to your home, office, or any Dubai location, loads your items, transports them to our secure facility, and delivers them back when you need them. We offer this door-to-door service across Dubai. You do not need to hire a lorry, arrange your own movers, or make multiple trips to the facility." },
+  { q: "How long can I store my items at SafeStorage Dubai?", a: "There is no maximum storage period. Customers store for as little as one week (for renovation or moving scenarios) or for several years. Many of our long-term customers are expats who left Dubai temporarily or businesses with ongoing archival needs. Month-to-month billing continues indefinitely with no lock-in, and you can cancel at any time with 30 days' notice and no early termination penalty." },
+  { q: "What types of items can I store at SafeStorage Dubai?", a: "SafeStorage accepts all furniture, household appliances, electronics, clothing and textiles, sports equipment (bicycles, golf clubs, surfboards), business inventory, documents and archive files, seasonal decorations, and vehicles in dedicated bays. Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items, as well as flammable liquids, hazardous chemicals, live animals, perishable food, and illegal goods. Call +971505773388 to check any specific item." },
+  { q: "Can businesses use SafeStorage Dubai for commercial storage?", a: "Yes, and we serve a significant number of business customers including e-commerce sellers, trading companies, law firms, marketing agencies, and retail businesses. Business benefits include flexible unit sizes that scale with inventory, UAE-compliant document storage for the mandatory 5-year retention period, and no long-term warehouse lease commitment. Commercial plans include dedicated consultant support for logistics coordination." },
+  { q: "How do I get my items back from SafeStorage Dubai?", a: "Contact your dedicated storage consultant by phone, WhatsApp, or email and specify what you need — your entire unit, specific boxes, or individual items. Our team schedules delivery within 24–48 hours to your Dubai address. Partial retrievals (taking some items while leaving the rest in storage) are fully supported. There is no penalty for early retrieval and no restriction on how many retrievals you can request." },
+  { q: "Does SafeStorage Dubai offer short-term storage?", a: "Yes. SafeStorage Dubai offers short-term storage starting from one week. This is particularly popular for renovation periods, bridge periods between apartment moves, and temporary storage during property handovers. Short-term plans are priced weekly or monthly with the same security standards as long-term plans. There is no minimum commitment beyond the initial week." },
+  { q: "What neighbourhoods in Dubai does SafeStorage serve?", a: "SafeStorage Dubai collects from and delivers to all Dubai neighbourhoods including Business Bay, Downtown, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, JVC, Al Barsha, Motor City, Sports City, Dubai Hills, Arabian Ranches, Mirdif, Deira, Bur Dubai, Al Quoz, Dubai Investment Park, Silicon Oasis, and all other residential and commercial areas across the emirate. If you are unsure about your area, call +971505773388 to confirm." },
+  { q: "Is there a discount for long-term self storage?", a: "Yes. SafeStorage Dubai offers a wide range of discounts for longer prepaid commitments — the longer you prepay, the more you save compared to month-by-month billing. For large units, the saving can be several thousand dirhams. Long-term plans are popular with expats who know they will be away for at least a year and businesses with stable, ongoing inventory storage requirements. Contact us for the best available rate for your storage duration." },
+  { q: "Can I authorise someone else to access my storage unit?", a: "Yes. You can authorise additional persons — family members, employees, or any trusted individual — to access your storage unit. Simply provide their full name, Emirates ID or passport copy, and contact number to your SafeStorage consultant. They will be issued access credentials. You can add or remove authorised users at any time. There is no limit to the number of authorised users per unit." },
+  { q: "Can I upgrade my storage unit size?", a: "Yes. Upgrading to a larger unit is straightforward — contact your consultant, request the upgrade, and we arrange to move your items to the larger unit within 2–3 business days. There is no penalty for upgrading and no admin fee. Pricing adjusts from the date of the move. Many customers upgrade as their circumstances change, for example as e-commerce inventory grows or as additional family items need to be stored during renovation." },
+  { q: "How do I book self storage at SafeStorage Dubai?", a: "Booking takes under five minutes. Get a quote online at safestorage.ae, call +971505773388, or WhatsApp with details about what you need to store. Our consultant recommends the right size, provides a clear price, and schedules a pickup at a time that suits you. Slots are typically available within 24–48 hours. Same-day pickup is available for bookings placed before 12 PM. You sign the storage agreement on pickup day — no paperwork needed in advance." },
+  { q: "Does SafeStorage Dubai store vehicles?", a: "Yes. SafeStorage Dubai offers dedicated indoor vehicle storage bays for cars, SUVs, motorcycles, and classic vehicles. Car storage starts from 12 AED / sqft. This is ideal for expats leaving Dubai for extended periods, classic car owners wanting their vehicles stored properly over summer, and individuals with a second vehicle they do not use regularly. All vehicle bays include 24/7 CCTV monitoring and a complimentary wash before return." },
+  { q: "Does SafeStorage Dubai offer packing services?", a: "Yes. SafeStorage offers both a DIY packing option and a full professional packing service. For DIY, we provide double-walled boxes, bubble wrap, packing paper, stretch film, furniture covers, and mattress bags for purchase. For the full service, our trained team wraps and boxes every item professionally, creates an inventory list, and loads everything. Professional packing is popular for fragile or high-value items and customers who prefer to leave the heavy lifting to someone else." },
+  { q: "What payment methods does SafeStorage Dubai accept?", a: "SafeStorage Dubai accepts credit and debit cards (Visa, Mastercard, American Express), bank transfers, cash at the facility, post-dated cheques for advance payment plans, Apple Pay, and Google Pay. Monthly, quarterly, and annual payment options are available. Longer prepaid cycles unlock a wide range of discounts, with annual plans offering the best per-month rate compared to month-by-month billing. All invoices are provided digitally and can be used for business expense reporting." },
+]
+
 export default function SelfStorageDubaiPage() {
   return (
     <>
@@ -103,706 +181,467 @@ export default function SelfStorageDubaiPage() {
         ]}
       />
       <SchemaScript schema={pageSchemas} />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      
-      <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-dubai-navy to-dubai-blue text-white py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Self Storage in Dubai – Secure Units, Fair Rates, Easy Booking
-              </h1>
-              <p className="text-xl mb-8 text-white/90">
-                Finding reliable self storage in Dubai shouldn't feel complicated. Whether you're between apartments, renovating, traveling, 
-                or simply decluttering a fast-growing household, SafeStorage gives you secure space when and where you need it.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                  <Link href="/get-quote">Get Instant Quote</Link>
-                </Button>
-                <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
-                  <a href="tel:+971505773388">Call +971 50 577 3388</a>
-                </Button>
+      <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        <PageHero
+          eyebrow="Self storage Dubai"
+          title="Self Storage in Dubai –"
+          titleAccent="Secure Units, Fair Rates, Easy Booking"
+          blurb="Finding reliable self storage in Dubai shouldn't feel complicated. Whether you're between apartments, renovating, traveling, or simply decluttering a fast-growing household, SafeStorage gives you secure space when and where you need it."
+          image="/landing/warehouse-fleet.jpg"
+          imagePosition="center 45%"
+          stats={[
+            { Icon: Star, label: "4.9/5 (6,700+ reviews worldwide)" },
+            { Icon: Users, label: "Trusted by 100,000+ customers worldwide" },
+            { Icon: Lock, label: "24/7 CCTV Monitoring" },
+          ]}
+          ctaLabel="Get Instant Quote"
+          phoneLabel="Call +971 50 577 3388"
+        />
+
+        <LandingTrust />
+
+        {/* WHY */}
+        <section className={s.wrap} id="why">
+          <div className={`${s.darkBand} ${s.whyBand}`}>
+            <div className={`${s.howHead} ${s.bandHead}`}>
+              <div>
+                <span className={s.howEyebrow}>Why SafeStorage</span>
+                <h2>
+                  Why Dubai chooses <em>SafeStorage.</em>
+                </h2>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Why Choose Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-dubai-navy">
-              Why Dubai Chooses SafeStorage
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <Shield className="h-10 w-10 text-dubai-gold mb-2" />
-                  <CardTitle>Security that's visible</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">24/7 CCTV, controlled entry, individual unit locks, regular patrols.</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <Truck className="h-10 w-10 text-dubai-gold mb-2" />
-                  <CardTitle>Door-to-door help</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">Optional packing, pickup, and re-delivery anywhere in Dubai.</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <Clock className="h-10 w-10 text-dubai-gold mb-2" />
-                  <CardTitle>Flexible plans</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">Short or long stays, monthly billing, easy upgrades.</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CheckCircle2 className="h-10 w-10 text-dubai-gold mb-2" />
-                  <CardTitle>Transparent quotes</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">No hidden fees; our advisors right-size your unit to avoid overpaying.</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <Package className="h-10 w-10 text-dubai-gold mb-2" />
-                  <CardTitle>Customer care</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">WhatsApp support, weekend slots, and photo inventory on request.</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Sizes & What Fits */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-4 text-dubai-navy">
-              Sizes & What Fits
-            </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-              Choosing the right size is the easiest way to save. Our team helps you select the perfect unit based on your inventory, 
-              ensuring you never pay for space you don't need while having room for everything you want to store.
-            </p>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <Card>
-                <CardHeader>
-                  <CardTitle>1–2 m² (Locker/Small)</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• 8–12 medium boxes</li>
-                    <li>• Hand luggage</li>
-                    <li>• Small appliances</li>
-                    <li>• Documents</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle>3–4 m² (Studio)</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• 20–30 boxes</li>
-                    <li>• A bicycle</li>
-                    <li>• TV and electronics</li>
-                    <li>• Side tables</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle>5–7 m² (1-bed)</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Mattress and bed frame</li>
-                    <li>• Sofa</li>
-                    <li>• TV unit</li>
-                    <li>• 30–40 boxes</li>
-                    <li>• Small wardrobes</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle>8–10 m² (2-bed)</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Large sofa set</li>
-                    <li>• Multiple beds</li>
-                    <li>• Dining table</li>
-                    <li>• White goods</li>
-                    <li>• 50–70 boxes</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle>12–15 m² (3-bed)</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Full apartment contents</li>
-                    <li>• Seasonal items</li>
-                    <li>• Sports gear</li>
-                    <li>• Large furniture pieces</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              
-              <Card className="bg-dubai-gold/5 border-dubai-gold">
-                <CardHeader>
-                  <CardTitle>Need Help Choosing?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">
-                    Use our Storage Unit Size Guide to compare volume and get a precise recommendation.
-                  </p>
-                  <Button variant="outline" className="w-full" asChild>
-                    {/* Link the real page, not /self-storage-dubai/storage-unit-sizes,
-                        which only resolves through a 308 in next.config.mjs. */}
-                    <Link href="/self-storage-dubai/storage-units">
-                      View Size Guide <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Short-Term or Long-Term */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8 text-dubai-navy">
-                Short-Term or Long-Term – Your Choice
-              </h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-dubai-navy">Short-Term Storage</h3>
-                  <p className="text-gray-600 mb-4">
-                    Flying out for summer, renovating your kitchen, or waiting on a handover? Store for a few weeks with flexible renewals. 
-                    Perfect for transitions, moves, and temporary needs.
-                  </p>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Week-to-week or monthly options</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>No long-term commitment</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Easy extension or termination</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-dubai-navy">Long-Term Storage</h3>
-                  <p className="text-gray-600 mb-4">
-                    Need stable, long-term storage? Lock in favorable terms and optional scheduled access. Ideal for businesses, 
-                    extended travel, or permanent downsizing.
-                  </p>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Better rates for longer commitments</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Priority access and support</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Switch plans anytime as needs change</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-dubai-navy">Advanced Security Systems</h3>
-                  <p className="text-gray-600 mb-4">
-                    Your belongings deserve the highest level of protection. Our facilities include:
-                  </p>
-                  <ul className="grid md:grid-cols-2 gap-3 text-gray-600">
-                    <li className="flex items-start">
-                      <Shield className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>24/7 CCTV surveillance</span>
-                    </li>
-                    <li className="flex items-start">
-                      <Shield className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Fire protection systems</span>
-                    </li>
-                    <li className="flex items-start">
-                      <Shield className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Pest management protocols</span>
-                    </li>
-                    <li className="flex items-start">
-                      <Shield className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Well-lit corridors</span>
-                    </li>
-                    <li className="flex items-start">
-                      <Shield className="h-5 w-5 text-dubai-gold mr-2 mt-0.5" />
-                      <span>Regular security patrols</span>
-                    </li>
-                  </ul>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Door-to-Door Convenience */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8 text-dubai-navy">
-                Door-to-Door Convenience
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Skip the driving and lifting. Our comprehensive service takes care of everything from your doorstep to secure storage and back.
-              </p>
-              
-              <div className="grid md:grid-cols-3 gap-6">
-                <Card>
-                  <CardHeader>
-                    <Package className="h-10 w-10 text-dubai-gold mb-2" />
-                    <CardTitle>Pack & Move</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">
-                      Trained crews bring branded materials, pack items securely, and transport to the facility.
-                    </p>
-                  </CardContent>
-                </Card>
-                
-                <Card>
-                  <CardHeader>
-                    <CheckCircle2 className="h-10 w-10 text-dubai-gold mb-2" />
-                    <CardTitle>Photo Inventory</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">
-                      Request a photo inventory in your customer portal for easy tracking and retrieval.
-                    </p>
-                  </CardContent>
-                </Card>
-                
-                <Card>
-                  <CardHeader>
-                    <Truck className="h-10 w-10 text-dubai-gold mb-2" />
-                    <CardTitle>Easy Retrieval</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">
-                      Schedule partial or full retrieval—we deliver back to your address when you're ready.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-              
-              <div className="mt-8 text-center">
-                <Button size="lg" className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                  <Link href="/self-storage-dubai/how-it-works">
-                    See How It Works <ArrowRight className="ml-2" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Areas We Serve */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8 text-dubai-navy text-center">
-                Areas We Serve Across Dubai
-              </h2>
-              <p className="text-center text-gray-600 mb-8">
-                We cover popular neighborhoods across Dubai with door-to-door services.
-              </p>
-              
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {/* These were all `/self-storage-dubai/near/${area}` links. None of
-                    those pages exist — every one 308s straight back to this page,
-                    so seventeen cards were self-referencing redirects. Areas that
-                    have a real location page now link to it; the rest stay as
-                    plain coverage labels rather than links to nowhere. */}
-                {[
-                  { area: "Dubai Marina", slug: "dubai-marina" },
-                  { area: "JLT" },
-                  { area: "JVC", slug: "jumeirah-village-circle" },
-                  { area: "Jumeirah", slug: "jumeirah" },
-                  { area: "Downtown", slug: "downtown-dubai" },
-                  { area: "Business Bay", slug: "business-bay" },
-                  { area: "Al Quoz" },
-                  { area: "Al Barsha", slug: "al-barsha" },
-                  { area: "Deira", slug: "deira" },
-                  { area: "Bur Dubai" },
-                  { area: "Mirdif", slug: "mirdif" },
-                  { area: "Silicon Oasis", slug: "dubai-silicon-oasis" },
-                  { area: "Motor City" },
-                  { area: "Dubai South" },
-                  { area: "DIP", slug: "dubai-investment-park" },
-                  { area: "Al Quasis" },
-                  { area: "Dubai Hills", slug: "dubai-hills" },
-                ].map(({ area, slug }) => {
-                  const card = (
-                    <>
-                      <MapPin className="h-5 w-5 text-dubai-gold mx-auto mb-2" />
-                      <span className="text-gray-700 group-hover:text-dubai-gold transition-colors">
-                        {area}
-                      </span>
-                    </>
-                  )
-                  return slug ? (
-                    <Link
-                      key={area}
-                      href={`/locations/dubai/${slug}`}
-                      className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow text-center group"
-                    >
-                      {card}
-                    </Link>
-                  ) : (
-                    <div key={area} className="bg-white p-4 rounded-lg text-center group">
-                      {card}
-                    </div>
-                  )
-                })}
-              </div>
-              
-              <div className="mt-8 text-center">
-                <p className="text-gray-600">
-                  Don't see your area? <Link href="/contact" className="text-dubai-gold hover:underline">Contact us</Link> - 
-                  we likely serve your location too!
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Factors */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8 text-dubai-navy">
-                Pricing Factors & How Quotes Work
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Storage pricing depends on several factors. Understanding these helps you make informed decisions and avoid surprises.
-              </p>
-              
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div>
-                  <h3 className="font-semibold mb-3 text-dubai-navy">Key Pricing Factors:</h3>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Unit size and capacity</li>
-                    <li>• Floor level and accessibility</li>
-                    <li>• Storage duration and contract terms</li>
-                    <li>• Additional services (packing, pickup)</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="font-semibold mb-3 text-dubai-navy">How to Get Your Quote:</h3>
-                  <ol className="space-y-2 text-gray-600">
-                    <li>1. Share your inventory list or photos</li>
-                    <li>2. Tell us your neighborhood and timeline</li>
-                    <li>3. Select any additional services</li>
-                    <li>4. Receive a clear, itemized quote</li>
-                    <li>5. No hidden fees or surprises</li>
-                  </ol>
-                </div>
-              </div>
-              
-              <Card className="bg-dubai-gold/5 border-dubai-gold">
-                <CardContent className="pt-6">
-                  <p className="text-center mb-4">
-                    Get a tailored quote based on your exact needs - no guesswork, no overpaying.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white" asChild>
-                      <Link href="/self-storage-dubai/prices">View Pricing Guide</Link>
-                    </Button>
-                    <Button variant="outline" asChild>
-                      <Link href="/get-quote">Get Your Quote</Link>
-                    </Button>
+            <FeatScroller>
+              {why.map(({ Icon, title, body }) => (
+                <div className={s.feat} key={title}>
+                  <div className={s.featIcon} aria-hidden="true">
+                    <Icon size={18} strokeWidth={2} />
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQs */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8 text-dubai-navy text-center">
-                FAQs: Self Storage in Dubai
-              </h2>
-              
-              <Accordion type="single" collapsible className="space-y-4">
-                {faqData.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg px-6">
-                    <AccordionTrigger className="text-left hover:text-dubai-gold">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-gray-600">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-              
-              <div className="mt-8 text-center">
-                <p className="text-gray-600 mb-4">Have more questions?</p>
-                <Button variant="outline" asChild>
-                  {/* /self-storage-dubai/faqs does not exist — it 308s to /faq. */}
-                  <Link href="/faq">
-                    View All FAQs <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-dubai-navy to-dubai-blue text-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-4">
-                Ready to Free Up Space?
-              </h2>
-              <p className="text-xl mb-8 text-white/90">
-                Get your personalized storage solution today. Quick quotes, flexible terms, and professional service.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-white text-dubai-navy hover:bg-gray-100" asChild>
-                  <Link href="/get-quote">
-                    Get Quick Quote <ArrowRight className="ml-2" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
-                  <a href="https://wa.me/971505773388" target="_blank" rel="noopener noreferrer nofollow">
-                    WhatsApp Us
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" className="bg-white text-black border-white hover:bg-gray-100" asChild>
-                  <a href="tel:+971505773388">
-                    Call Now
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Static rich-text content for SEO */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Self Storage Dubai — Flexible Plans, No Lorry Needed</h2>
-            <p className="text-lg text-gray-700 mb-6">
-              Self storage in Dubai has evolved significantly in recent years. Rather than renting a lorry,
-              loading everything yourself, and driving to a storage facility, modern self storage in Dubai
-              now means a team comes to your home, collects your items, and delivers them back whenever
-              you need them. SafeStorage pioneered this hassle-free model in Dubai and it remains our most
-              popular service.
-            </p>
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A2463] mb-3">What Makes Self Storage in Dubai Different</h3>
-                <p className="text-gray-700 mb-3">
-                  Dubai&apos;s geography and demographics create unique self storage requirements.
-                  The city&apos;s size and traffic means customers value
-                  providers with door-to-door service. And Dubai&apos;s large expat population means flexible
-                  month-to-month contracts — without long-term lock-ins — are highly valued.
-                </p>
-                <p className="text-gray-700">
-                  SafeStorage addresses all of these factors. Every unit is secure and dedicated to you.
-                  Door-to-Door pickup & delivery is available across Dubai. Contracts are month-to-month with no
-                  cancellation penalties. And pricing is transparent — what you see is what you pay.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Self Storage Plans Available in Dubai</h3>
-                <p className="text-gray-700 mb-3">
-                  SafeStorage offers self storage plans tailored to different needs and budgets:
-                </p>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• <strong>Personal storage:</strong> Starts from 12 AED / sqft for households, students, and individuals</li>
-                  <li>• <strong>Furniture storage:</strong> Specialist plans for renovation and relocation periods</li>
-                  <li>• <strong>Business storage:</strong> Commercial plans for inventory, documents, and equipment</li>
-                  <li>• <strong>Vehicle storage:</strong> Indoor covered bays starting from 12 AED / sqft</li>
-                  <li>• <strong>Student storage:</strong> Affordable short-term plans for semester breaks</li>
-                  <li>• <strong>Expat storage:</strong> Flexible plans for residents leaving or returning to Dubai</li>
-                </ul>
-              </div>
-            </div>
-            <div className="bg-white rounded-xl p-8 border border-gray-200">
-              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Frequently Asked Questions About Self Storage in Dubai</h3>
-              <div className="space-y-4 text-gray-700">
-                <div>
-                  <p className="font-semibold mb-1">Is self storage in Dubai expensive?</p>
-                  <p>Self storage in Dubai starts from 12 AED per sqft per month at SafeStorage. Because you pay only for the space your items actually occupy, a typical one-bedroom apartment&apos;s contents cost far less than renting a larger home to keep them in. There is no truck rental, no deposit for equipment and no hidden handling fee — door-to-door pickup and delivery are part of the service. Longer prepaid plans reduce the effective monthly rate further.</p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-1">Can I get same-day storage in Dubai?</p>
-                  <p>Yes. SafeStorage offers same-day pickup for bookings made before 12 PM. Our team can collect your items and have them stored in our secure facility on the same day you contact us.</p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-1">What is the minimum storage period?</p>
-                  <p>There is no minimum storage period at SafeStorage. We offer month-to-month plans and short-term arrangements starting from one week for renovation and moving scenarios. You can cancel at any time with 7 days&apos; notice.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Extended self storage guide and FAQ — server-rendered for text-to-HTML ratio */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Self Storage Dubai — Complete Guide 2026</h2>
-
-            <p className="text-lg text-gray-700 mb-6">
-              Self storage in Dubai has become an essential service for the city&apos;s fast-moving, transient population. With over
-              3 million residents from more than 200 nationalities, high rates of relocation, frequent apartment moves, and regular
-              renovations, Dubai has one of the highest per-capita
-              demands for storage services in the Middle East. This guide covers everything you need to know about self storage
-              in Dubai in 2026 — from choosing the right provider to understanding pricing, security, and
-              how the modern door-to-door storage model works.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-10">
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Why Self Storage is Essential in Dubai</h3>
-                <p className="text-gray-700 mb-4">
-                  Dubai&apos;s unique combination of factors makes self storage more important here than in almost any other city.
-                  First, space: high property prices and compact apartments mean residents rarely have spare room for seasonal
-                  items, bulky furniture, or belongings they are not currently using. A secure storage unit provides that extra
-                  space without the cost of renting a larger home.
-                </p>
-                <p className="text-gray-700">
-                  Second, mobility: Dubai has one of the highest rates of residential relocation in the world. Residents move
-                  apartments frequently, go back to their home countries for extended periods, relocate within the city for new
-                  jobs, and travel for extended business trips. Self storage bridges all of these transitions, providing a secure
-                  base for belongings that would otherwise need to be sold, shipped, or stored with family in another country.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A2463] mb-3">The SafeStorage Dubai Difference</h3>
-                <p className="text-gray-700 mb-4">
-                  SafeStorage Dubai operates a door-to-door storage model that removes every friction point from the traditional
-                  storage experience. There is no need to hire a lorry, load furniture yourself, or drive to a facility on the
-                  outskirts of the city. Our team comes to your door at the agreed time, professionally loads your belongings,
-                  transports them to our secure facility, and stores them in your dedicated unit. When you want items
-                  back, call or WhatsApp and we deliver within 24–48 hours.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-200 mb-10">
-              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Self Storage Pricing in Dubai — 2026</h3>
-              <div className="grid md:grid-cols-2 gap-6 text-gray-700">
-                <ul className="space-y-2">
-                  <li><strong>Small unit (25–50 sq ft):</strong> starts from 12 AED / sqft</li>
-                  <li><strong>Medium unit (50–100 sq ft):</strong> starts from 12 AED / sqft</li>
-                  <li><strong>Large unit (100–150 sq ft):</strong> starts from 12 AED / sqft</li>
-                  <li><strong>Extra large (150–200+ sq ft):</strong> starts from 12 AED / sqft</li>
-                  <li><strong>Vehicle storage:</strong> starts from 12 AED / sqft</li>
-                </ul>
-                <ul className="space-y-2">
-                  <li><strong>Long-term discount:</strong> a wide range of discounts on prepaid plans — the longer you store, the more you save</li>
-                  <li><strong>No hidden fees:</strong> No admin charges, no deposit, no access fees</li>
-                  <li><strong>Payment:</strong> Card, bank transfer, cash, Apple Pay, Google Pay</li>
-                </ul>
-              </div>
-            </div>
-
-            <h2 className="text-2xl font-bold text-[#0A2463] mb-6">20 Frequently Asked Questions — Self Storage Dubai</h2>
-
-            <div className="space-y-5">
-              {[
-                { q: "What is self storage and how does it work in Dubai?", a: "Self storage is a service where individuals or businesses rent a secure, dedicated storage unit to keep their belongings. In Dubai, the most convenient model is door-to-door storage, offered by SafeStorage Dubai, where a team collects your items from your location, stores them in a secure facility, and delivers them back when needed. You pay a monthly fee based on the unit size you use. There are no long-term contracts, no lorry hire, and no heavy lifting required." },
-                { q: "Do I need to transport my items to the storage facility myself?", a: "No. SafeStorage Dubai provides a complete door-to-door service. Our team comes to your home, office, or any Dubai location, loads your items, transports them to our secure facility, and delivers them back when you need them. We offer this door-to-door service across Dubai. You do not need to hire a lorry, arrange your own movers, or make multiple trips to the facility." },
-                { q: "How long can I store my items at SafeStorage Dubai?", a: "There is no maximum storage period. Customers store for as little as one week (for renovation or moving scenarios) or for several years. Many of our long-term customers are expats who left Dubai temporarily or businesses with ongoing archival needs. Month-to-month billing continues indefinitely with no lock-in, and you can cancel at any time with 30 days' notice and no early termination penalty." },
-                { q: "What types of items can I store at SafeStorage Dubai?", a: "SafeStorage accepts all furniture, household appliances, electronics, clothing and textiles, sports equipment (bicycles, golf clubs, surfboards), business inventory, documents and archive files, seasonal decorations, and vehicles in dedicated bays. Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items, as well as flammable liquids, hazardous chemicals, live animals, perishable food, and illegal goods. Call +971505773388 to check any specific item." },
-                { q: "Can businesses use SafeStorage Dubai for commercial storage?", a: "Yes, and we serve a significant number of business customers including e-commerce sellers, trading companies, law firms, marketing agencies, and retail businesses. Business benefits include flexible unit sizes that scale with inventory, UAE-compliant document storage for the mandatory 5-year retention period, and no long-term warehouse lease commitment. Commercial plans include dedicated consultant support for logistics coordination." },
-                { q: "How do I get my items back from SafeStorage Dubai?", a: "Contact your dedicated storage consultant by phone, WhatsApp, or email and specify what you need — your entire unit, specific boxes, or individual items. Our team schedules delivery within 24–48 hours to your Dubai address. Partial retrievals (taking some items while leaving the rest in storage) are fully supported. There is no penalty for early retrieval and no restriction on how many retrievals you can request." },
-                { q: "Does SafeStorage Dubai offer short-term storage?", a: "Yes. SafeStorage Dubai offers short-term storage starting from one week. This is particularly popular for renovation periods, bridge periods between apartment moves, and temporary storage during property handovers. Short-term plans are priced weekly or monthly with the same security standards as long-term plans. There is no minimum commitment beyond the initial week." },
-                { q: "What neighbourhoods in Dubai does SafeStorage serve?", a: "SafeStorage Dubai collects from and delivers to all Dubai neighbourhoods including Business Bay, Downtown, Dubai Marina, JBR, Jumeirah, Palm Jumeirah, JLT, JVC, Al Barsha, Motor City, Sports City, Dubai Hills, Arabian Ranches, Mirdif, Deira, Bur Dubai, Al Quoz, Dubai Investment Park, Silicon Oasis, and all other residential and commercial areas across the emirate. If you are unsure about your area, call +971505773388 to confirm." },
-                { q: "Is there a discount for long-term self storage?", a: "Yes. SafeStorage Dubai offers a wide range of discounts for longer prepaid commitments — the longer you prepay, the more you save compared to month-by-month billing. For large units, the saving can be several thousand dirhams. Long-term plans are popular with expats who know they will be away for at least a year and businesses with stable, ongoing inventory storage requirements. Contact us for the best available rate for your storage duration." },
-                { q: "Can I authorise someone else to access my storage unit?", a: "Yes. You can authorise additional persons — family members, employees, or any trusted individual — to access your storage unit. Simply provide their full name, Emirates ID or passport copy, and contact number to your SafeStorage consultant. They will be issued access credentials. You can add or remove authorised users at any time. There is no limit to the number of authorised users per unit." },
-                { q: "Can I upgrade my storage unit size?", a: "Yes. Upgrading to a larger unit is straightforward — contact your consultant, request the upgrade, and we arrange to move your items to the larger unit within 2–3 business days. There is no penalty for upgrading and no admin fee. Pricing adjusts from the date of the move. Many customers upgrade as their circumstances change, for example as e-commerce inventory grows or as additional family items need to be stored during renovation." },
-                { q: "How do I book self storage at SafeStorage Dubai?", a: "Booking takes under five minutes. Get a quote online at safestorage.ae, call +971505773388, or WhatsApp with details about what you need to store. Our consultant recommends the right size, provides a clear price, and schedules a pickup at a time that suits you. Slots are typically available within 24–48 hours. Same-day pickup is available for bookings placed before 12 PM. You sign the storage agreement on pickup day — no paperwork needed in advance." },
-                { q: "Does SafeStorage Dubai store vehicles?", a: "Yes. SafeStorage Dubai offers dedicated indoor vehicle storage bays for cars, SUVs, motorcycles, and classic vehicles. Car storage starts from 12 AED / sqft. This is ideal for expats leaving Dubai for extended periods, classic car owners wanting their vehicles stored properly over summer, and individuals with a second vehicle they do not use regularly. All vehicle bays include 24/7 CCTV monitoring and a complimentary wash before return." },
-                { q: "Does SafeStorage Dubai offer packing services?", a: "Yes. SafeStorage offers both a DIY packing option and a full professional packing service. For DIY, we provide double-walled boxes, bubble wrap, packing paper, stretch film, furniture covers, and mattress bags for purchase. For the full service, our trained team wraps and boxes every item professionally, creates an inventory list, and loads everything. Professional packing is popular for fragile or high-value items and customers who prefer to leave the heavy lifting to someone else." },
-                { q: "What payment methods does SafeStorage Dubai accept?", a: "SafeStorage Dubai accepts credit and debit cards (Visa, Mastercard, American Express), bank transfers, cash at the facility, post-dated cheques for advance payment plans, Apple Pay, and Google Pay. Monthly, quarterly, and annual payment options are available. Longer prepaid cycles unlock a wide range of discounts, with annual plans offering the best per-month rate compared to month-by-month billing. All invoices are provided digitally and can be used for business expense reporting." }
-              ].map((faq, i) => (
-                <div key={i} className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                  <h3 className="font-bold text-[#0A2463] mb-2">{faq.q}</h3>
-                  <p className="text-gray-700 leading-relaxed">{faq.a}</p>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
                 </div>
               ))}
-            </div>
+            </FeatScroller>
+            <p className={s.scrollHint}>Swipe for more →</p>
+          </div>
+        </section>
 
-            <div className="mt-12 text-center">
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Link href="/get-quote">
-                  <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg font-semibold">Get a Free Quote</Button>
-                </Link>
-                <a href="tel:+971505773388">
-                  <Button variant="outline" className="px-8 py-3 text-lg border-[#0A2463] text-[#0A2463] hover:bg-[#0A2463] hover:text-white">
-                    Call +971505773388
-                  </Button>
-                </a>
+        {/* SIZES */}
+        <section className={`${s.section} ${s.wrap}`} id="sizes">
+          <UspRail
+            head={
+              <div className={s.uspHead}>
+                <span className={s.howEyebrow}>Sizes &amp; what fits</span>
+                <h2>
+                  The right size is the <em>easiest way to save.</em>
+                </h2>
+                <p className={s.splitBlurb} style={{ marginBottom: 0 }}>
+                  Our team helps you select the perfect unit based on your inventory, so you never pay for
+                  space you don&apos;t need.
+                </p>
               </div>
+            }
+          >
+            {sizes.map((u, i) => (
+              <article className={s.usp} key={u.size}>
+                <span className={s.uspNum} aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className={s.uspIcon} aria-hidden="true">
+                  <Boxes />
+                </div>
+                <h3>
+                  {u.size} <span style={{ color: "var(--accent)" }}>· {u.label}</span>
+                </h3>
+                <ul className={s.bulletList}>
+                  {u.fits.map((f) => (
+                    <li key={f}>{f}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+            <article className={`${s.usp} ${s.panelAccent}`}>
+              <div className={s.uspIcon} aria-hidden="true">
+                <Ruler />
+              </div>
+              <h3>Need help choosing?</h3>
+              <p>Use our Storage Unit Size Guide to compare volume and get a precise recommendation.</p>
+              <p style={{ marginTop: 18 }}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/self-storage-dubai/storage-units">
+                  View Size Guide →
+                </Link>
+              </p>
+            </article>
+          </UspRail>
+          <p className={s.scrollHint}>Swipe for more →</p>
+        </section>
+
+        {/* SHORT OR LONG TERM */}
+        <section className={`${s.section} ${s.wrap}`} id="terms" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Your choice</span>
+              <h2>
+                Short-term or long-term — <em>your choice.</em>
+              </h2>
+            </div>
+          </div>
+          <div className={s.duo}>
+            <div className={`${s.panel} ${s.panelHover}`}>
+              <div className={s.panelIcon} aria-hidden="true">
+                <CalendarDays size={20} color="var(--accent)" />
+              </div>
+              <h3>Short-Term Storage</h3>
+              <p>
+                Flying out for summer, renovating your kitchen, or waiting on a handover? Store for a few weeks with
+                flexible renewals. Perfect for transitions, moves, and temporary needs.
+              </p>
+              <ul className={s.checkList}>
+                <li>Week-to-week or monthly options</li>
+                <li>No long-term commitment</li>
+                <li>Easy extension or termination</li>
+              </ul>
+            </div>
+            <div className={`${s.panel} ${s.panelHover} ${s.panelAccent}`}>
+              <div className={s.panelIcon} aria-hidden="true" style={{ background: "#fff" }}>
+                <Layers size={20} color="var(--accent)" />
+              </div>
+              <h3>Long-Term Storage</h3>
+              <p>
+                Need stable, long-term storage? Lock in favorable terms and optional scheduled access. Ideal for
+                businesses, extended travel, or permanent downsizing.
+              </p>
+              <ul className={s.checkList}>
+                <li>Better rates for longer commitments</li>
+                <li>Priority access and support</li>
+                <li>Switch plans anytime as needs change</li>
+              </ul>
             </div>
           </div>
         </section>
+
+        {/* SECURITY */}
+        <section className={`${s.section} ${s.wrap}`} id="security" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Security</span>
+              <h2>
+                Advanced <em>security systems.</em>
+              </h2>
+            </div>
+            <p>Your belongings deserve the highest level of protection. Our facilities include:</p>
+          </div>
+          <div className={s.tileGrid}>
+            {security.map(({ Icon, label }) => (
+              <div className={s.tile} key={label}>
+                <span className={s.tileIcon} aria-hidden="true">
+                  <Icon />
+                </span>
+                <b>{label}</b>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* DOOR TO DOOR */}
+        <section className={`${s.section} ${s.wrap}`} id="door-to-door" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Door-to-door</span>
+              <h2>
+                Door-to-door <em>convenience.</em>
+              </h2>
+            </div>
+            <p>
+              Skip the driving and lifting. Our comprehensive service takes care of everything from your doorstep
+              to secure storage and back.
+            </p>
+          </div>
+          <div className={s.trio}>
+            {doorToDoor.map((d, i) => (
+              <div className={s.step} key={d.title}>
+                <span className={s.stepNum} aria-hidden="true">
+                  {i + 1}
+                </span>
+                <h3>{d.title}</h3>
+                <p style={{ fontSize: 13.5, color: "var(--muted)", marginTop: 8, lineHeight: 1.7 }}>{d.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className={s.howCta}>
+            <span>Want the full walkthrough?</span>
+            <Link className={`${s.btn} ${s.btnAccent}`} href="/self-storage-dubai/how-it-works">
+              See How It Works →
+            </Link>
+          </div>
+        </section>
+
+        {/* AREAS */}
+        <section className={`${s.section} ${s.wrap}`} id="areas" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Coverage</span>
+              <h2>
+                Areas we serve <em>across Dubai.</em>
+              </h2>
+            </div>
+            <p>We cover popular neighborhoods across Dubai with door-to-door services.</p>
+          </div>
+          <div className={s.chips} style={{ justifyContent: "flex-start", maxWidth: "none", margin: 0 }}>
+            {areas.map(({ area, slug }) =>
+              slug ? (
+                <Link className={s.chip} href={`/locations/dubai/${slug}`} key={area}>
+                  <MapPin size={13} style={{ display: "inline", marginRight: 6, verticalAlign: "-2px", color: "var(--accent)" }} />
+                  {area}
+                </Link>
+              ) : (
+                <span className={`${s.chip} ${s.chipMuted}`} key={area}>
+                  {area}
+                </span>
+              ),
+            )}
+          </div>
+          <p className={s.chipsNote} style={{ textAlign: "left", marginTop: 18 }}>
+            Don&apos;t see your area? <Link href="/contact" style={{ color: "var(--accent)", fontWeight: 600 }}>Contact us</Link>{" "}
+            — we likely serve your location too!
+          </p>
+        </section>
+
+        {/* PRICING */}
+        <section className={`${s.section} ${s.wrap}`} id="pricing" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Pricing</span>
+              <h2>
+                Pricing factors &amp; <em>how quotes work.</em>
+              </h2>
+            </div>
+            <p>
+              Storage pricing depends on several factors. Understanding these helps you make informed decisions and
+              avoid surprises.
+            </p>
+          </div>
+          <div className={s.duo}>
+            <div className={s.panel}>
+              <h3>Key pricing factors</h3>
+              <div className={s.factorList}>
+                {[
+                  { Icon: Boxes, label: "Unit size and capacity" },
+                  { Icon: Layers, label: "Floor level and accessibility" },
+                  { Icon: CalendarDays, label: "Storage duration and contract terms" },
+                  { Icon: Package, label: "Additional services (packing, pickup)" },
+                ].map(({ Icon, label }) => (
+                  <div className={s.factorRow} key={label}>
+                    <span className={s.factorIcon} aria-hidden="true">
+                      <Icon />
+                    </span>
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className={s.panel}>
+              <h3>How to get your quote</h3>
+              <ol className={s.stepper}>
+                {[
+                  "Share your inventory list or photos",
+                  "Tell us your neighborhood and timeline",
+                  "Select any additional services",
+                  "Receive a clear, itemized quote",
+                  "No hidden fees or surprises",
+                ].map((step, i) => (
+                  <li className={s.stepperItem} key={step}>
+                    <span className={s.stepperDot}>{i + 1}</span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+          <div className={s.howCta}>
+            <span>Get a tailored quote — no guesswork, no overpaying.</span>
+            <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+              Get Your Quote →
+            </Link>
+            <Link className={s.howMore} href="/self-storage-dubai/prices">
+              View Pricing Guide
+            </Link>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Good to know</span>
+              <h2>
+                FAQs: self storage <em>in Dubai.</em>
+              </h2>
+            </div>
+            <p>
+              Have more questions? <Link href="/faq" style={{ color: "var(--accent)", fontWeight: 600 }}>View all FAQs →</Link>
+            </p>
+          </div>
+          <FaqAccordion items={faqData.map((f) => ({ q: f.question, a: f.answer }))} />
+        </section>
+
+        <CtaBand
+          title="Ready to Free Up Space?"
+          blurb="Get your personalized storage solution today. Quick quotes, flexible terms, and professional service."
+          ctaLabel="Get Quick Quote"
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
+
+        {/* GUIDE — flexible plans, no lorry needed */}
+        <section className={`${s.section} ${s.wrap}`} id="guide">
+          <div className={`${s.howHead} ${s.bandHead} ${s.headStack}`}>
+            <div>
+              <span className={s.howEyebrow}>The guide</span>
+              <h2>
+                Self Storage Dubai — flexible plans, <em>no lorry needed.</em>
+              </h2>
+            </div>
+            <p>
+              Self storage in Dubai has evolved significantly in recent years. Rather than renting a lorry, loading
+              everything yourself, and driving to a storage facility, modern self storage in Dubai now means a team
+              comes to your home, collects your items, and delivers them back whenever you need them. SafeStorage
+              pioneered this hassle-free model in Dubai and it remains our most popular service.
+            </p>
+          </div>
+          <div className={s.duo}>
+            <div className={s.panel}>
+              <div className={s.panelIcon} aria-hidden="true">
+                <Sparkles size={20} color="var(--accent)" />
+              </div>
+              <h3>What Makes Self Storage in Dubai Different</h3>
+              <p>
+                Dubai&apos;s geography and demographics create unique self storage requirements. The city&apos;s size
+                and traffic means customers value providers with door-to-door service. And Dubai&apos;s large expat
+                population means flexible month-to-month contracts — without long-term lock-ins — are highly valued.
+              </p>
+              <p>
+                SafeStorage addresses all of these factors. Every unit is secure and dedicated to you. Door-to-Door
+                pickup &amp; delivery is available across Dubai. Contracts are month-to-month with no cancellation
+                penalties. And pricing is transparent — what you see is what you pay.
+              </p>
+            </div>
+            <div className={s.panel}>
+              <div className={s.panelIcon} aria-hidden="true">
+                <Boxes size={20} color="var(--accent)" />
+              </div>
+              <h3>Self Storage Plans Available in Dubai</h3>
+              <p>SafeStorage offers self storage plans tailored to different needs and budgets:</p>
+              <ul className={s.bulletList}>
+                <li><strong>Personal storage:</strong> Starts from 12 AED / sqft for households, students, and individuals</li>
+                <li><strong>Furniture storage:</strong> Specialist plans for renovation and relocation periods</li>
+                <li><strong>Business storage:</strong> Commercial plans for inventory, documents, and equipment</li>
+                <li><strong>Vehicle storage:</strong> Indoor covered bays starting from 12 AED / sqft</li>
+                <li><strong>Student storage:</strong> Affordable short-term plans for semester breaks</li>
+                <li><strong>Expat storage:</strong> Flexible plans for residents leaving or returning to Dubai</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 className={s.chipsHead} style={{ textAlign: "left" }}>Frequently Asked Questions About Self Storage in Dubai</h3>
+          <div className={s.guideFaqGrid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
+            <div className={s.guideFaqCard}>
+              <h3>Is self storage in Dubai expensive?</h3>
+              <p>Self storage in Dubai starts from 12 AED per sqft per month at SafeStorage. Because you pay only for the space your items actually occupy, a typical one-bedroom apartment&apos;s contents cost far less than renting a larger home to keep them in. There is no truck rental, no deposit for equipment and no hidden handling fee — door-to-door pickup and delivery are part of the service. Longer prepaid plans reduce the effective monthly rate further.</p>
+            </div>
+            <div className={s.guideFaqCard}>
+              <h3>Can I get same-day storage in Dubai?</h3>
+              <p>Yes. SafeStorage offers same-day pickup for bookings made before 12 PM. Our team can collect your items and have them stored in our secure facility on the same day you contact us.</p>
+            </div>
+            <div className={s.guideFaqCard}>
+              <h3>What is the minimum storage period?</h3>
+              <p>There is no minimum storage period at SafeStorage. We offer month-to-month plans and short-term arrangements starting from one week for renovation and moving scenarios. You can cancel at any time with 7 days&apos; notice.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* COMPLETE GUIDE 2026 */}
+        <section className={`${s.section} ${s.wrap}`} id="complete-guide" style={{ paddingTop: 0 }}>
+          <div className={`${s.howHead} ${s.bandHead} ${s.headStack}`}>
+            <div>
+              <span className={s.howEyebrow}>Complete guide 2026</span>
+              <h2>
+                Self Storage Dubai — <em>complete guide 2026.</em>
+              </h2>
+            </div>
+            <p>
+              Self storage in Dubai has become an essential service for the city&apos;s fast-moving, transient
+              population. With over 3 million residents from more than 200 nationalities, high rates of relocation,
+              frequent apartment moves, and regular renovations, Dubai has one of the highest per-capita demands for
+              storage services in the Middle East. This guide covers everything you need to know about self storage
+              in Dubai in 2026 — from choosing the right provider to understanding pricing, security, and how the
+              modern door-to-door storage model works.
+            </p>
+          </div>
+          <div className={s.duo}>
+            <div className={s.panel}>
+              <h3>Why Self Storage is Essential in Dubai</h3>
+              <p>
+                Dubai&apos;s unique combination of factors makes self storage more important here than in almost any
+                other city. First, space: high property prices and compact apartments mean residents rarely have spare
+                room for seasonal items, bulky furniture, or belongings they are not currently using. A secure storage
+                unit provides that extra space without the cost of renting a larger home.
+              </p>
+              <p>
+                Second, mobility: Dubai has one of the highest rates of residential relocation in the world. Residents
+                move apartments frequently, go back to their home countries for extended periods, relocate within the
+                city for new jobs, and travel for extended business trips. Self storage bridges all of these
+                transitions, providing a secure base for belongings that would otherwise need to be sold, shipped, or
+                stored with family in another country.
+              </p>
+            </div>
+            <div className={`${s.panel} ${s.panelAccent}`}>
+              <h3>The SafeStorage Dubai Difference</h3>
+              <p>
+                SafeStorage Dubai operates a door-to-door storage model that removes every friction point from the
+                traditional storage experience. There is no need to hire a lorry, load furniture yourself, or drive to
+                a facility on the outskirts of the city. Our team comes to your door at the agreed time, professionally
+                loads your belongings, transports them to our secure facility, and stores them in your dedicated unit.
+                When you want items back, call or WhatsApp and we deliver within 24–48 hours.
+              </p>
+            </div>
+          </div>
+
+          <div className={s.proseBox} style={{ marginTop: 16 }}>
+            <h3>Self Storage Pricing in Dubai — 2026</h3>
+            <div className={s.duo} style={{ gap: 24 }}>
+              <ul className={s.bulletList} style={{ marginTop: 0 }}>
+                <li><strong>Small unit (25–50 sq ft):</strong> starts from 12 AED / sqft</li>
+                <li><strong>Medium unit (50–100 sq ft):</strong> starts from 12 AED / sqft</li>
+                <li><strong>Large unit (100–150 sq ft):</strong> starts from 12 AED / sqft</li>
+                <li><strong>Extra large (150–200+ sq ft):</strong> starts from 12 AED / sqft</li>
+                <li><strong>Vehicle storage:</strong> starts from 12 AED / sqft</li>
+              </ul>
+              <ul className={s.bulletList} style={{ marginTop: 0 }}>
+                <li><strong>Long-term discount:</strong> a wide range of discounts on prepaid plans — the longer you store, the more you save</li>
+                <li><strong>No hidden fees:</strong> No admin charges, no deposit, no access fees</li>
+                <li><strong>Payment:</strong> Card, bank transfer, cash, Apple Pay, Google Pay</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* MORE FAQS */}
+        <section className={`${s.section} ${s.wrap}`} id="more-faqs" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>More answers</span>
+              <h2>
+                More questions about <em>self storage in Dubai.</em>
+              </h2>
+            </div>
+          </div>
+          <FaqAccordion items={guideFaqs} openFirst={false} />
+        </section>
+
+        <LandingConnect />
       </div>
       <SiloHubLinks silo="s1" />
     </>
