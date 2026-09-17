@@ -1929,25 +1929,47 @@
   color: var(--navy);
   margin: 34px 0 14px;
 }
+/* horizontal rails on every screen size: ~3.3 cards per view on desktop so
+   the next one peeks in, ~1.2 on phones; thin scrollbar on desktop only */
 .miniGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 4px 2px 14px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(238, 88, 36, 0.45) transparent;
 }
-.miniGrid3 {
-  grid-template-columns: repeat(3, 1fr);
+.miniGrid::-webkit-scrollbar {
+  height: 6px;
+}
+.miniGrid::-webkit-scrollbar-thumb {
+  background: rgba(238, 88, 36, 0.45);
+  border-radius: 999px;
+}
+.miniGrid > .miniCard {
+  flex: 0 0 calc((100% - 3 * 14px) / 3.3);
+  scroll-snap-align: start;
 }
 @media (max-width: 960px) {
-  .miniGrid,
-  .miniGrid3 {
-    grid-template-columns: repeat(2, 1fr);
+  .miniGrid > .miniCard {
+    flex-basis: calc((100% - 14px) / 2.2);
   }
 }
 @media (max-width: 560px) {
-  .miniGrid,
-  .miniGrid3 {
-    grid-template-columns: 1fr;
+  .miniGrid {
+    margin: 0 -24px;
+    padding: 4px 24px 12px;
+    scroll-padding-inline: 24px;
     gap: 10px;
+    scrollbar-width: none;
+  }
+  .miniGrid::-webkit-scrollbar {
+    display: none;
+  }
+  .miniGrid > .miniCard {
+    flex-basis: 82%;
   }
 }
 .miniCard {
