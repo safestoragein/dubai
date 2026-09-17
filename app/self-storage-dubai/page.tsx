@@ -486,121 +486,69 @@ export default function SelfStorageDubaiPage() {
           callLabel="Call Now"
         />
 
-        {/* GUIDE — flexible plans, no lorry needed */}
+        {/* GUIDE — the long-form copy condensed into short icon cards */}
         <section className={`${s.section} ${s.wrap}`} id="guide">
-          <div className={`${s.howHead} ${s.bandHead} ${s.headStack}`}>
+          <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>The guide</span>
               <h2>
-                Self Storage Dubai — flexible plans, <em>no lorry needed.</em>
+                Self storage Dubai — <em>no lorry needed.</em>
               </h2>
             </div>
             <p>
-              Self storage in Dubai has evolved significantly in recent years. Rather than renting a lorry, loading
-              everything yourself, and driving to a storage facility, modern self storage in Dubai now means a team
-              comes to your home, collects your items, and delivers them back whenever you need them. SafeStorage
-              pioneered this hassle-free model in Dubai and it remains our most popular service.
+              A team collects from your door, stores your items securely and delivers them back whenever you need
+              them.
             </p>
           </div>
-          <div className={s.duo}>
-            <div className={s.panel}>
-              <div className={s.panelIcon} aria-hidden="true">
-                <Sparkles size={20} color="var(--accent)" />
+
+          <h3 className={s.miniHead}>Why Dubai needs it</h3>
+          <div className={s.miniGrid}>
+            {[
+              { Icon: Boxes, t: "Short on space", b: "Compact homes, no room for seasonal or spare items." },
+              { Icon: Truck, t: "Always on the move", b: "Lease gaps, relocations and long trips abroad." },
+              { Icon: Shield, t: "No lorry, no lifting", b: "We pack, load and move everything for you." },
+              { Icon: Clock, t: "Back in 24–48 hours", b: "Call or WhatsApp and we deliver to your door." },
+            ].map(({ Icon, t: title, b }) => (
+              <div className={s.miniCard} key={title}>
+                <span className={s.miniIcon} aria-hidden="true">
+                  <Icon />
+                </span>
+                <div>
+                  <b>{title}</b>
+                  <small>{b}</small>
+                </div>
               </div>
-              <h3>What Makes Self Storage in Dubai Different</h3>
-              <p>
-                Dubai&apos;s geography and demographics create unique self storage requirements. The city&apos;s size
-                and traffic means customers value providers with door-to-door service. And Dubai&apos;s large expat
-                population means flexible month-to-month contracts — without long-term lock-ins — are highly valued.
-              </p>
-              <p>
-                SafeStorage addresses all of these factors. Your belongings are catalogued and kept secure in our shared storage space. Door-to-Door
-                pickup &amp; delivery is available across Dubai. Contracts are month-to-month with no cancellation
-                penalties. And pricing is transparent — what you see is what you pay.
-              </p>
-            </div>
-            <div className={s.panel}>
-              <div className={s.panelIcon} aria-hidden="true">
-                <Boxes size={20} color="var(--accent)" />
-              </div>
-              <h3>Self Storage Plans Available in Dubai</h3>
-              <p>SafeStorage offers self storage plans tailored to different needs and budgets:</p>
-              <ul className={s.bulletList}>
-                <li><strong>Personal storage:</strong> Starts from 12 AED / sqft for households, students, and individuals</li>
-                <li><strong>Furniture storage:</strong> Specialist plans for renovation and relocation periods</li>
-                <li><strong>Business storage:</strong> Commercial plans for inventory, documents, and equipment</li>
-                <li><strong>Vehicle storage:</strong> Indoor covered bays starting from 12 AED / sqft</li>
-                <li><strong>Student storage:</strong> Affordable short-term plans for semester breaks</li>
-                <li><strong>Expat storage:</strong> Flexible plans for residents leaving or returning to Dubai</li>
-              </ul>
-            </div>
+            ))}
           </div>
 
-        </section>
-
-        {/* COMPLETE GUIDE 2026 */}
-        <section className={`${s.section} ${s.wrap}`} id="complete-guide" style={{ paddingTop: 0 }}>
-          <div className={`${s.howHead} ${s.bandHead} ${s.headStack}`}>
-            <div>
-              <span className={s.howEyebrow}>Complete guide 2026</span>
-              <h2>
-                Self Storage Dubai — <em>complete guide 2026.</em>
-              </h2>
-            </div>
-            <p>
-              Self storage in Dubai has become an essential service for the city&apos;s fast-moving, transient
-              population. With over 3 million residents from more than 200 nationalities, high rates of relocation,
-              frequent apartment moves, and regular renovations, Dubai has one of the highest per-capita demands for
-              storage services in the Middle East. This guide covers everything you need to know about self storage
-              in Dubai in 2026 — from choosing the right provider to understanding pricing, security, and how the
-              modern door-to-door storage model works.
-            </p>
-          </div>
-          <div className={s.duo}>
-            <div className={s.panel}>
-              <h3>Why Self Storage is Essential in Dubai</h3>
-              <p>
-                Dubai&apos;s unique combination of factors makes self storage more important here than in almost any
-                other city. First, space: high property prices and compact apartments mean residents rarely have spare
-                room for seasonal items, bulky furniture, or belongings they are not currently using. A secure storage
-                unit provides that extra space without the cost of renting a larger home.
-              </p>
-              <p>
-                Second, mobility: Dubai has one of the highest rates of residential relocation in the world. Residents
-                move apartments frequently, go back to their home countries for extended periods, relocate within the
-                city for new jobs, and travel for extended business trips. Self storage bridges all of these
-                transitions, providing a secure base for belongings that would otherwise need to be sold, shipped, or
-                stored with family in another country.
-              </p>
-            </div>
-            <div className={`${s.panel} ${s.panelAccent}`}>
-              <h3>The SafeStorage Dubai Difference</h3>
-              <p>
-                SafeStorage Dubai operates a door-to-door storage model that removes every friction point from the
-                traditional storage experience. There is no need to hire a lorry, load furniture yourself, or drive to
-                a facility on the outskirts of the city. Our team comes to your door at the agreed time, professionally
-                loads your belongings, transports them to our secure facility, and stores them safely in our shared storage space.
-                When you want items back, call or WhatsApp and we deliver within 24–48 hours.
-              </p>
-            </div>
+          <h3 className={s.miniHead}>Plans for every need</h3>
+          <div className={`${s.miniGrid} ${s.miniGrid3}`}>
+            {[
+              { Icon: Package, t: "Personal storage", b: "Households, students and individuals.", href: "/personal-storage-dubai" },
+              { Icon: Layers, t: "Furniture storage", b: "For renovations and relocations.", href: "/personal-storage-dubai/furniture-storage" },
+              { Icon: Boxes, t: "Business storage", b: "Inventory, documents and equipment.", href: "/business-storage-dubai" },
+              { Icon: Truck, t: "Vehicle storage", b: "Covered bays for cars and bikes.", href: "/personal-storage-dubai/car-storage" },
+              { Icon: CalendarDays, t: "Student storage", b: "Short-term plans for semester breaks.", href: "/personal-storage-dubai/student-storage" },
+              { Icon: MapPin, t: "Expat storage", b: "Leaving or returning to Dubai.", href: "/personal-storage-dubai/expat-storage" },
+            ].map(({ Icon, t: title, b, href }) => (
+              <Link className={`${s.miniCard} ${s.miniLink}`} href={href} key={title}>
+                <span className={s.miniIcon} aria-hidden="true">
+                  <Icon />
+                </span>
+                <div>
+                  <b>{title}</b>
+                  <small>{b}</small>
+                </div>
+                <span className={s.miniArrow} aria-hidden="true">→</span>
+              </Link>
+            ))}
           </div>
 
-          <div className={s.proseBox} style={{ marginTop: 16 }}>
-            <h3>Self Storage Pricing in Dubai — 2026</h3>
-            <div className={s.duo} style={{ gap: 24 }}>
-              <ul className={s.bulletList} style={{ marginTop: 0 }}>
-                <li><strong>Small unit (25–50 sq ft):</strong> starts from 12 AED / sqft</li>
-                <li><strong>Medium unit (50–100 sq ft):</strong> starts from 12 AED / sqft</li>
-                <li><strong>Large unit (100–150 sq ft):</strong> starts from 12 AED / sqft</li>
-                <li><strong>Extra large (150–200+ sq ft):</strong> starts from 12 AED / sqft</li>
-                <li><strong>Vehicle storage:</strong> starts from 12 AED / sqft</li>
-              </ul>
-              <ul className={s.bulletList} style={{ marginTop: 0 }}>
-                <li><strong>Long-term discount:</strong> a wide range of discounts on prepaid plans — the longer you store, the more you save</li>
-                <li><strong>No hidden fees:</strong> No admin charges, no deposit, no access fees</li>
-                <li><strong>Payment:</strong> Card, bank transfer, cash, Apple Pay, Google Pay</li>
-              </ul>
-            </div>
+          <div className={s.miniFacts}>
+            <span><CheckCircle2 aria-hidden="true" /> From 12 AED / sqft</span>
+            <span><CheckCircle2 aria-hidden="true" /> No deposit or admin fees</span>
+            <span><CheckCircle2 aria-hidden="true" /> Bigger savings on prepaid plans</span>
+            <span><CheckCircle2 aria-hidden="true" /> Card, bank, cash, Apple &amp; Google Pay</span>
           </div>
         </section>
 
