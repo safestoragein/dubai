@@ -1004,36 +1004,62 @@
 .featGrid5 {
   grid-template-columns: repeat(5, 1fr);
 }
-/* homepage Why band: nine cards, 3 x 3 */
-.featGrid3 {
-  grid-template-columns: repeat(3, 1fr);
+/* homepage Why band: nine cards on a horizontal rail —
+   4 per view on desktop, 2.5 on tablets, ~1.3 on phones */
+.featRailWrap {
+  position: relative;
 }
-@media (max-width: 960px) {
-  .featGrid3 {
-    grid-template-columns: repeat(2, 1fr);
+.featRail {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 6px 0 10px;
+}
+.featRail::-webkit-scrollbar {
+  display: none;
+}
+.featRail > .feat {
+  flex: 0 0 calc((100% - 42px) / 4);
+  scroll-snap-align: start;
+  padding-top: 58px;
+}
+/* arrows sit in the band's side padding, clear of the card text */
+.featRailWrap .featPrev,
+.featRailWrap .featNext {
+  width: 38px;
+  height: 38px;
+}
+.featRailWrap .featPrev {
+  left: -46px;
+}
+.featRailWrap .featNext {
+  right: -46px;
+}
+@media (max-width: 1024px) {
+  .featRail > .feat {
+    flex-basis: calc((100% - 28px) / 2.5);
   }
 }
-@media (max-width: 560px) {
-  .featGrid3 {
-    grid-template-columns: 1fr;
-    gap: 10px;
+@media (max-width: 680px) {
+  .featRail {
+    margin: 0 -26px;
+    padding: 6px 26px 10px;
+    scroll-padding-inline: 26px;
+    gap: 12px;
   }
-  /* phones: compact rows — icon left, title + line right, no badge */
-  .featGrid3 .feat {
-    display: grid;
-    grid-template-columns: 38px 1fr;
-    column-gap: 14px;
-    padding: 16px;
+  .featRail > .feat {
+    flex-basis: 76%;
   }
-  .featGrid3 .featIcon {
-    grid-row: 1 / span 2;
-    margin-bottom: 0;
-  }
-  .featGrid3 .feat h3 {
-    margin-bottom: 4px;
-  }
-  .featGrid3 .featTag {
+  .featRailWrap .featArrow {
     display: none;
+  }
+  .darkBand .scrollHint {
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 10px;
   }
   .bandCta .btn {
     font-size: 13.5px;
@@ -1056,7 +1082,16 @@
   border-radius: 999px;
 }
 .bandHead {
-  margin-bottom: 36px;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+.darkBand .bandHead h2 {
+  max-width: 1000px;
+  font-size: clamp(28px, 3.6vw, 44px);
+}
+.darkBand .bandHead p {
+  max-width: 620px;
 }
 .bandHead h2 {
   margin-bottom: 0;

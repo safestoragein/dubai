@@ -2,6 +2,7 @@ import Link from "next/link"
 import s from "./landing.module.css"
 import j from "./journey.module.css"
 import { JourneyPlayer } from "./journey-player"
+import { FeatScroller } from "./feat-scroller"
 
 const ArrowUpRight = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -380,7 +381,7 @@ export function LandingWhy() {
             belongings safe.
           </p>
         </div>
-        <div className={`${s.featGrid} ${s.featGrid3}`}>
+        <FeatScroller>
           {feats.map((f) => (
             <div className={s.feat} key={f.title}>
               <span className={s.featTag}>{f.tag}</span>
@@ -391,7 +392,8 @@ export function LandingWhy() {
               <p>{f.body}</p>
             </div>
           ))}
-        </div>
+        </FeatScroller>
+        <p className={s.scrollHint}>Swipe for more →</p>
         <div className={s.bandCta}>
           <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
             Join 100,000+ Happy Customers →
