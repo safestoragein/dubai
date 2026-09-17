@@ -13,12 +13,19 @@ export type FaqItem = {
  * Native <details> rather than a JS accordion: it stays a server component,
  * works before hydration, and is keyboard-accessible for free. Answers remain
  * in the DOM when collapsed, so Google still reads them.
+ *
+ * Only one answer is open at a time: every <details> in the list shares a
+ * `name`, which makes the browser close the others natively (exclusive
+ * accordion — Chrome 120+, Safari 17.2+, Firefox 130+; older browsers simply
+ * allow several open). The name is derived from the first question so two
+ * accordions on one page don't close each other.
  */
 export default function FaqAccordion({ items, openFirst = true }: { items: FaqItem[]; openFirst?: boolean }) {
+  const group = `faq-${(items[0]?.q ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40)}`
   return (
     <div className={s.faqList}>
       {items.map((f, i) => (
-        <details className={s.faqItem} key={f.q} open={openFirst && i === 0}>
+        <details className={s.faqItem} key={f.q} name={group} open={openFirst && i === 0}>
           <summary>
             <h3>{f.q}</h3>
             <span className={s.faqIcon} aria-hidden="true">
