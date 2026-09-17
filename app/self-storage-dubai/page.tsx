@@ -11,6 +11,7 @@ import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
 import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
 import { LandingConnect } from "@/components/landing/landing-connect"
+import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingSteps } from "@/components/landing/landing-services"
 import { UspRail } from "@/components/landing/usp-rail"
 import { FeatScroller } from "@/components/landing/feat-scroller"
@@ -415,6 +416,8 @@ export default function SelfStorageDubaiPage() {
             </Link>
           </div>
         </section>
+
+        <LandingReviews />
 
         {/* FAQ */}
         <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
