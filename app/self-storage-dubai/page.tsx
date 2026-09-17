@@ -11,6 +11,7 @@ import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
 import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
 import { LandingConnect } from "@/components/landing/landing-connect"
+import { LandingSteps } from "@/components/landing/landing-services"
 import { UspRail } from "@/components/landing/usp-rail"
 import { FeatScroller } from "@/components/landing/feat-scroller"
 import FaqAccordion from "@/components/landing/faq-accordion"
@@ -124,11 +125,6 @@ const security = [
   { Icon: ShieldCheck, label: "Regular security patrols" },
 ]
 
-const doorToDoor = [
-  { title: "Pack & Move", body: "Trained crews bring branded materials, pack items securely, and transport to the facility." },
-  { title: "Photo Inventory", body: "Request a photo inventory in your customer portal for easy tracking and retrieval." },
-  { title: "Easy Retrieval", body: "Schedule partial or full retrieval—we deliver back to your address when you're ready." },
-]
 
 // Areas with a real location page link to it; the rest stay as plain labels.
 const areas: { area: string; slug?: string }[] = [
@@ -339,38 +335,7 @@ export default function SelfStorageDubaiPage() {
           </div>
         </section>
 
-        {/* DOOR TO DOOR */}
-        <section className={`${s.section} ${s.wrap}`} id="door-to-door" style={{ paddingTop: 0 }}>
-          <div className={s.howHead}>
-            <div>
-              <span className={s.howEyebrow}>Door-to-door</span>
-              <h2>
-                Door-to-door <em>convenience.</em>
-              </h2>
-            </div>
-            <p>
-              Skip the driving and lifting. Our comprehensive service takes care of everything from your doorstep
-              to secure storage and back.
-            </p>
-          </div>
-          <div className={s.trio}>
-            {doorToDoor.map((d, i) => (
-              <div className={s.step} key={d.title}>
-                <span className={s.stepNum} aria-hidden="true">
-                  {i + 1}
-                </span>
-                <h3>{d.title}</h3>
-                <p style={{ fontSize: 13.5, color: "var(--muted)", marginTop: 8, lineHeight: 1.7 }}>{d.body}</p>
-              </div>
-            ))}
-          </div>
-          <div className={s.howCta}>
-            <span>Want the full walkthrough?</span>
-            <Link className={`${s.btn} ${s.btnAccent}`} href="/self-storage-dubai/how-it-works">
-              See How It Works →
-            </Link>
-          </div>
-        </section>
+        <LandingSteps />
 
         {/* AREAS */}
         <section className={`${s.section} ${s.wrap}`} id="areas" style={{ paddingTop: 0 }}>
