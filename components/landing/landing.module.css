@@ -953,6 +953,9 @@
   .darkBand {
     padding: 40px 26px;
   }
+  .darkBand.whyBand {
+    padding: 40px 18px;
+  }
 }
 .darkBand .eyebrow,
 .darkBand .howEyebrow {
@@ -1046,9 +1049,9 @@
 }
 @media (max-width: 680px) {
   .featRail {
-    margin: 0 -26px;
-    padding: 6px 26px 10px;
-    scroll-padding-inline: 26px;
+    margin: 0 -18px;
+    padding: 6px 18px 10px;
+    scroll-padding-inline: 18px;
     gap: 12px;
   }
   .featRail > .feat {
@@ -1092,6 +1095,21 @@
 }
 .darkBand .bandHead p {
   max-width: 620px;
+}
+.mBreak {
+  display: none;
+}
+/* phones: the title is sized to the screen so it always sits on two lines
+   ("Why 100,000+ customers trust" / "SafeStorage worldwide.") */
+@media (max-width: 640px) {
+  .mBreak {
+    display: inline;
+  }
+  .darkBand .bandHead h2 {
+    font-size: calc((100vw - 84px) / 15.4);
+    line-height: 1.15;
+    white-space: nowrap;
+  }
 }
 .bandHead h2 {
   margin-bottom: 0;

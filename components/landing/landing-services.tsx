@@ -368,12 +368,13 @@ const stats = [
 export function LandingWhy() {
   return (
     <section className={s.wrap} id="why">
-      <div className={s.darkBand}>
+      <div className={`${s.darkBand} ${s.whyBand}`}>
         <div className={`${s.howHead} ${s.bandHead}`}>
           <div>
             <span className={s.howEyebrow}>Why choose us</span>
             <h2>
-              Why 100,000+ customers trust <em>SafeStorage worldwide.</em>
+              Why 100,000+ customers trust <br className={s.mBreak} />
+              <em>SafeStorage worldwide.</em>
             </h2>
           </div>
           <p>
