@@ -183,7 +183,7 @@ export default function ContactForm() {
         type="submit"
         size="lg"
         disabled={status === "submitting"}
-        className="w-full bg-[#D8315B] hover:bg-[#c02a50] text-white"
+        className="w-full rounded-full bg-[#EE5824] hover:bg-[#d94c1c] text-white font-semibold"
       >
         {status === "submitting" ? (
           <>
