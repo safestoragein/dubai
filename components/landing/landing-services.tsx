@@ -130,21 +130,25 @@ const steps = [
     icon: <IcoPhone />,
     title: "Book Online",
     body: "Tell us what you are storing and pick a pickup date. It takes under two minutes.",
+    short: "Tell us what to store and pick a date.",
   },
   {
     icon: <IcoDoor />,
     title: "Doorstep Pickup",
     body: "Our team arrives anywhere in Dubai, wraps what needs wrapping and loads everything for you.",
+    short: "We pack and collect from your door.",
   },
   {
     icon: <IcoStore />,
     title: "Secure Storage",
     body: "Kept in a clean, climate-controlled, CCTV-monitored facility, catalogued item by item.",
+    short: "Kept safe, climate-controlled, on CCTV.",
   },
   {
     icon: <IcoDoor />,
     title: "Return on Demand",
     body: "Ask for one box or everything back, delivered to your door whenever you are ready.",
+    short: "Get one box or everything back, anytime.",
   },
 ]
 const stepClass = [j.jstep1, j.jstep2, j.jstep3, j.jstep4]
@@ -304,6 +308,8 @@ export function LandingSteps() {
                 <span className={j.jstepNum}>{String(i + 1).padStart(2, "0")}</span>
                 <h3 className={j.jstepTitle}>{step.title}</h3>
                 <p className={j.jstepText}>{step.body}</p>
+                {/* phone copy — one short line (the full sentence is desktop-only) */}
+                <p className={j.jstepShort}>{step.short}</p>
               </li>
             ))}
           </ol>
