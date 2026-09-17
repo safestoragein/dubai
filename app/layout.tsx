@@ -9,6 +9,7 @@ import Footer from "@/components/footer"
 import FloatingContactButtons from "@/components/floating-contact-buttons"
 import SocialProofToast from "@/components/social-proof-toast"
 import StickyMobileCta from "@/components/sticky-mobile-cta"
+import ViewportZoomReset from "@/components/viewport-zoom-reset"
 import MotionProvider from "@/components/motion-provider"
 import Script from "next/script"
 import { allSchemas } from "@/lib/structured-data"
@@ -218,6 +219,7 @@ export default function RootLayout({
               {/* Fixed bottom CTA bar, phones/tablets only. Server-rendered so it
                   is in the first paint rather than appearing after hydration. */}
               <StickyMobileCta />
+              <ViewportZoomReset />
             </MotionProvider>
           </NavigationGuardProvider>
         </ThemeProvider>
