@@ -7,23 +7,27 @@ import st from "./story.module.css"
  * "Our story" as a short film: three chapters that play one after another.
  * Progress bars drive the timing — when the active bar's CSS fill animation
  * ends we cut to the next chapter — so there is no JS timer to drift. It only
- * starts once the reel is on screen, pauses on hover / the pause button, and
- * under prefers-reduced-motion it does not autoplay at all.
+ * starts from chapter 1 each time the reel comes properly into view (60%
+ * visible), resets when it leaves the screen, pauses only via the pause
+ * button, and under prefers-reduced-motion it does not autoplay at all.
  * Every chapter's text is rendered in the HTML, so crawlers read all three.
  */
 const chapters = [
   {
     kicker: "Chapter 01 · The beginning",
+    short: "The start",
     title: "Why we started",
     body: "Storage should be effortless, secure and built around real customer needs. Traditional options were rigid and unreliable — we knew there was a better way.",
   },
   {
     kicker: "Chapter 02 · The gap",
+    short: "The gap",
     title: "The problem we solved",
     body: "Long lock-ins, poor handling, limited support. Flexibility and peace of mind were missing — exactly where SafeStorage stepped in.",
   },
   {
     kicker: "Chapter 03 · Today",
+    short: "Today",
     title: "What makes us different",
     points: [
       "ISO 9001:2015 certified, professionally managed facilities",
@@ -144,30 +148,45 @@ export function StoryReel() {
   const [active, setActive] = useState(0)
   const [inView, setInView] = useState(false)
   const [paused, setPaused] = useState(false)
-  const [hover, setHover] = useState(false)
   const [reduced, setReduced] = useState(false)
+  // bumped on every entry so the scene + bar animations restart from zero
+  const [run, setRun] = useState(0)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
     const el = ref.current
     if (!el || typeof IntersectionObserver === "undefined") return setInView(true)
-    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting && e.intersectionRatio >= 0.35), {
-      threshold: [0, 0.35],
-    })
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting && e.intersectionRatio >= 0.6) {
+          setInView((was) => {
+            if (!was) {
+              // fresh viewing: always begin at chapter 1
+              setActive(0)
+              setPaused(false)
+              setRun((n) => n + 1)
+            }
+            return true
+          })
+        } else if (!e.isIntersecting) {
+          setInView(false)
+          setActive(0)
+        }
+      },
+      { threshold: [0, 0.6] },
+    )
     io.observe(el)
     return () => io.disconnect()
   }, [])
 
-  const playing = inView && !paused && !hover && !reduced
+  const playing = inView && !paused && !reduced
   const go = (i: number) => setActive((i + chapters.length) % chapters.length)
 
   return (
     <div
       ref={ref}
       className={`${st.reel} ${playing ? st.playing : ""} ${reduced ? st.still : ""}`}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
     >
       <div className={st.bars} role="tablist" aria-label="Our story chapters">
         {chapters.map((c, i) => (
@@ -182,22 +201,25 @@ export function StoryReel() {
             <span className={st.barTrack}>
               <span
                 className={st.barFill}
-                key={i === active ? `on-${active}` : `off-${i}`}
+                key={i === active ? `on-${active}-${run}` : `off-${i}`}
                 onAnimationEnd={i === active ? () => go(active + 1) : undefined}
               />
             </span>
-            <span className={st.barLabel}>{c.title}</span>
+            <span className={st.barLabel}>
+              <span className={st.labelLong}>{c.title}</span>
+              <span className={st.labelShort}>{c.short}</span>
+            </span>
           </button>
         ))}
       </div>
 
-      <div className={st.stage}>
+      <div className={st.stage} key={run}>
         {chapters.map((c, i) => {
           const Scene = scenes[i]
           return (
             <section
               key={c.title}
-              className={`${st.scene} ${i === active ? st.sceneOn : ""}`}
+              className={`${st.scene} ${i === active ? st.sceneShown : ""} ${i === active && inView ? st.sceneOn : ""}`}
               aria-hidden={i !== active}
               role="tabpanel"
             >

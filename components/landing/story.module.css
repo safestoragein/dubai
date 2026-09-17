@@ -30,6 +30,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
+  align-items: start;
+}
+.labelShort {
+  display: none;
 }
 .bar {
   appearance: none;
@@ -104,7 +108,8 @@
   visibility: hidden;
   transition: opacity 0.6s ease, visibility 0s linear 0.6s;
 }
-.sceneOn {
+/* visible chapter; its animations (.sceneOn) only start once the reel is in view */
+.sceneShown {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.6s ease;
@@ -337,8 +342,15 @@
     gap: 8px;
   }
   .barLabel {
-    font-size: 10px;
-    letter-spacing: 0.06em;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .labelLong {
+    display: none;
+  }
+  .labelShort {
+    display: inline;
   }
   .stage {
     min-height: 0;
