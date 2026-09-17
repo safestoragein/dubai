@@ -208,6 +208,8 @@ export default function SelfStorageDubaiPage() {
 
         <LandingTrust />
 
+        <LandingSteps />
+
         {/* WHY */}
         <section className={s.wrap} id="why">
           <div className={`${s.darkBand} ${s.whyBand}`}>
@@ -353,8 +355,6 @@ export default function SelfStorageDubaiPage() {
             ))}
           </div>
         </section>
-
-        <LandingSteps />
 
         {/* AREAS */}
         <section className={`${s.section} ${s.wrap}`} id="areas" style={{ paddingTop: 0 }}>
