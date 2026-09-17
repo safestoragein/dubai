@@ -187,7 +187,7 @@ export default function SelfStorageDubaiPage() {
           eyebrow="Self storage Dubai"
           title="Self Storage in Dubai –"
           titleAccent="Secure Units, Fair Rates, Easy Booking"
-          blurb="Finding reliable self storage in Dubai shouldn't feel complicated. Whether you're between apartments, renovating, traveling, or simply decluttering a fast-growing household, SafeStorage gives you secure space when and where you need it."
+          blurb="Between apartments, renovating, travelling or decluttering? SafeStorage gives you secure space in Dubai, when and where you need it."
           image="/landing/warehouse-fleet.jpg"
           imagePosition="center 45%"
           stats={[

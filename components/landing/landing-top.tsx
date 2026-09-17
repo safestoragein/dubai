@@ -115,7 +115,14 @@ export function SplitHero({
         <div className={s.heroContent}>
           {eyebrow ? <span className={s.heroTag}>{eyebrow}</span> : null}
           <h1>
-            {title} {titleAccent ? <em>{titleAccent}</em> : null}
+            {title}
+            {titleAccent ? (
+              <>
+                {" "}
+                <br className={s.mBreakDesk} />
+                <em>{titleAccent}</em>
+              </>
+            ) : null}
           </h1>
           <p>{blurb}</p>
           <div className={s.heroCta}>

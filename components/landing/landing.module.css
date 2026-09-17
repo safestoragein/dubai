@@ -472,20 +472,38 @@
   background-image: linear-gradient(
       100deg,
       rgba(255, 250, 240, 0.98) 0%,
-      rgba(255, 250, 240, 0.92) 38%,
-      rgba(255, 246, 226, 0.35) 66%,
+      rgba(255, 250, 240, 0.93) 46%,
+      rgba(255, 246, 226, 0.4) 70%,
       rgba(255, 246, 226, 0.05) 100%
     ),
     var(--hero-img);
 }
+/* Title set as two lines on desktop: the part before the accent, then the
+   accent run. Smaller cap + wider column so "Secure Units, Fair Rates, Easy
+   Booking" fits one line. */
 .heroSplit h1 {
-  font-size: clamp(30px, 3.9vw, 46px);
+  font-size: clamp(28px, 3.05vw, 42px);
+}
+.heroSplit h1 em {
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .heroSplit h1 em {
+    white-space: normal;
+  }
+}
+/* phones: sized to the screen so the whole title still lands on two lines */
+@media (max-width: 640px) {
+  .heroSplit h1 {
+    font-size: calc((100vw - 52px) / 16.4);
+    line-height: 1.12;
+  }
 }
 .heroSplit p {
   max-width: 580px;
 }
 .heroSplit .heroContent {
-  max-width: calc(var(--hero-gutter) + 680px);
+  max-width: calc(var(--hero-gutter) + 860px);
 }
 .heroSplitStats {
   display: flex;
@@ -1305,6 +1323,12 @@
 }
 .mBreak {
   display: none;
+}
+/* desktop-only line break (hidden on phones so the title can reflow) */
+@media (max-width: 900px) {
+  .mBreakDesk {
+    display: none;
+  }
 }
 /* phones: the title is sized to the screen so it always sits on two lines
    ("Why 100,000+ customers trust" / "SafeStorage worldwide.") */
