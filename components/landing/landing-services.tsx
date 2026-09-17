@@ -88,44 +88,170 @@ export function LandingServices() {
 }
 
 /* ------------------------------------------------------------------ *
- * HOW IT WORKS — the site's four-step flow, restyled into the comp's
- * card language. Kept because it is the page's highest-value explainer.
+ * HOW IT WORKS — a four-stop timeline: a line illustration per step sits
+ * on a grey ground line, an orange rail links the numbered stops below.
+ * On phones it folds into a vertical rail (illustrations hidden).
  * ------------------------------------------------------------------ */
+const NAVY = "#25315a"
+const ORANGE = "#ee5824"
+
+const IlloPhone = () => (
+  <svg viewBox="0 0 140 110" aria-hidden="true">
+    <circle cx="66" cy="62" r="46" fill="#fdeee6" />
+    <rect x="46" y="18" width="42" height="80" rx="9" fill={NAVY} />
+    <rect x="51" y="27" width="32" height="58" rx="3" fill="#fff" />
+    <path d="M57 38h20M57 46h20M57 54h13" stroke="#c9cdd9" strokeWidth="3" strokeLinecap="round" />
+    <rect x="57" y="66" width="20" height="7" rx="3.5" fill={ORANGE} />
+    <circle cx="89" cy="20" r="10" fill={ORANGE} />
+    <path d="m84.5 20 3 3 6-6" stroke="#fff" strokeWidth="2.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
+const IlloHouse = () => (
+  <svg viewBox="0 0 140 110" aria-hidden="true">
+    <circle cx="70" cy="62" r="46" fill="#fdeee6" />
+    <path d="M28 56 70 22l42 34" fill="none" stroke={NAVY} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M38 50v48h64V50" fill="#fff" stroke={NAVY} strokeWidth="4" strokeLinejoin="round" />
+    <rect x="46" y="60" width="13" height="9" rx="1.5" fill="none" stroke={NAVY} strokeWidth="3" />
+    <rect x="81" y="60" width="13" height="9" rx="1.5" fill="none" stroke={NAVY} strokeWidth="3" />
+    <rect x="63" y="70" width="14" height="28" fill={NAVY} />
+    <circle cx="73" cy="85" r="1.6" fill="#fff" />
+  </svg>
+)
+
+const IlloWarehouse = () => (
+  <svg viewBox="0 0 170 110" aria-hidden="true">
+    <circle cx="85" cy="66" r="44" fill="#fdeee6" />
+    <rect x="22" y="36" width="126" height="9" rx="2.5" fill={NAVY} />
+    <path d="M30 45v53h110V45" fill="#fff" stroke={NAVY} strokeWidth="4" strokeLinejoin="round" />
+    <rect x="40" y="54" width="18" height="9" rx="2" fill="none" stroke={NAVY} strokeWidth="3" />
+    <rect x="112" y="54" width="18" height="9" rx="2" fill="none" stroke={NAVY} strokeWidth="3" />
+    <rect x="66" y="60" width="38" height="38" fill="#eef0f5" stroke={NAVY} strokeWidth="3" />
+    <path d="M66 68h38M66 76h38M66 84h38M66 92h38" stroke="#b9bfce" strokeWidth="2" />
+    <path d="M85 6l12 4.5v8.5c0 7-5 11.5-12 14-7-2.5-12-7-12-14v-8.5z" fill="#fff" stroke={ORANGE} strokeWidth="3" strokeLinejoin="round" />
+    <path d="m79.5 18.5 4 4 7-7.5" stroke={ORANGE} strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
+const IlloReturn = () => (
+  <svg viewBox="0 0 190 110" aria-hidden="true">
+    <circle cx="128" cy="62" r="44" fill="#fdeee6" />
+    <path d="M8 74h48l12 10v14H8z" fill="#fff" stroke={NAVY} strokeWidth="3.5" strokeLinejoin="round" />
+    <path d="M16 86h30" stroke={ORANGE} strokeWidth="3.5" strokeLinecap="round" />
+    <circle cx="22" cy="99" r="5" fill="#fff" stroke={NAVY} strokeWidth="3" />
+    <circle cx="55" cy="99" r="5" fill="#fff" stroke={NAVY} strokeWidth="3" />
+    <path d="M90 56 128 26l38 30" fill="none" stroke={NAVY} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M98 50v48h60V50" fill="#fff" stroke={NAVY} strokeWidth="4" strokeLinejoin="round" />
+    <rect x="105" y="60" width="12" height="9" rx="1.5" fill="none" stroke={NAVY} strokeWidth="3" />
+    <rect x="139" y="60" width="12" height="9" rx="1.5" fill="none" stroke={NAVY} strokeWidth="3" />
+    <rect x="122" y="70" width="13" height="28" fill={NAVY} />
+    <rect x="164" y="80" width="18" height="18" rx="1.5" fill="#fff" stroke={ORANGE} strokeWidth="3" />
+    <path d="M173 80v18" stroke={ORANGE} strokeWidth="2.5" />
+    <circle cx="180" cy="74" r="7" fill={ORANGE} />
+    <path d="m176.8 74 2.2 2.2 4-4" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
+const iconProps = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": true,
+}
+const IcoPhone = () => (
+  <svg {...iconProps}>
+    <rect x="7" y="2.5" width="10" height="19" rx="2" />
+    <path d="M11 18h2" />
+  </svg>
+)
+const IcoDoor = () => (
+  <svg {...iconProps}>
+    <path d="M5 21h14M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17" />
+    <path d="M14 12h.01" />
+  </svg>
+)
+const IcoStore = () => (
+  <svg {...iconProps}>
+    <path d="M3 21V9l9-5 9 5v12" />
+    <path d="M7 21v-8h10v8M7 17h10" />
+  </svg>
+)
+const IcoReturn = () => (
+  <svg {...iconProps}>
+    <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+    <path d="M3 3v5h5" />
+  </svg>
+)
+
 const steps = [
-  { icon: "📝", title: "Tell us what you need" },
-  { icon: "📱", title: "Book online or call us" },
-  { icon: "🚚", title: "We pick up from your door" },
-  { icon: "🔁", title: "Access anytime, return when ready" },
+  {
+    illo: <IlloPhone />,
+    icon: <IcoPhone />,
+    title: "Book Online",
+    body: "Tell us what you are storing and pick a pickup date. It takes under two minutes.",
+  },
+  {
+    illo: <IlloHouse />,
+    icon: <IcoDoor />,
+    title: "Doorstep Pickup",
+    body: "Our team arrives anywhere in Dubai, wraps what needs wrapping and loads everything for you.",
+  },
+  {
+    illo: <IlloWarehouse />,
+    icon: <IcoStore />,
+    title: "Secure Storage",
+    body: "Kept in a clean, climate-controlled, CCTV-monitored facility, catalogued item by item.",
+  },
+  {
+    illo: <IlloReturn />,
+    icon: <IcoReturn />,
+    title: "Return on Demand",
+    body: "Ask for one box or everything back, delivered to your door whenever you are ready.",
+  },
 ]
 
 export function LandingSteps() {
   return (
-    <section className={`${s.section} ${s.wrap}`} id="how-it-works" style={{ paddingTop: 0 }}>
-      <div className={s.sectionHead}>
-        <span className={s.eyebrow}>How it works</span>
-        <h2>
-          Four Steps From Your Door to <em>Our Warehouse</em>
-        </h2>
-        <p>Storage without the truck rental, the lifting, or the paperwork.</p>
+    <section className={`${s.section} ${s.wrap}`} id="how-it-works" style={{ paddingTop: 24 }}>
+      <div className={s.howHead}>
+        <div>
+          <span className={s.howEyebrow}>How it works</span>
+          <h2>
+            Storage made <em>completely effortless.</em>
+          </h2>
+        </div>
+        <p>
+          From doorstep pickup to secure storage and return, we handle the truck, the lifting and
+          the paperwork.
+        </p>
       </div>
 
-      <div className={s.stepGrid}>
+      <ol className={s.howTrack}>
         {steps.map((step, i) => (
-          <div className={s.step} key={step.title}>
-            <span className={s.stepNum} aria-hidden="true">
-              {i + 1}
-            </span>
-            <div className={s.stepIcon} aria-hidden="true">
+          <li className={s.howStep} key={step.title}>
+            <div className={s.howIllo}>{step.illo}</div>
+            <div className={s.howDot} aria-hidden="true">
               {step.icon}
             </div>
-            <h3>{step.title}</h3>
-          </div>
+            <div className={s.howText}>
+              <span className={s.howNum}>{String(i + 1).padStart(2, "0")}</span>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          </li>
         ))}
-      </div>
+      </ol>
 
-      <div className={s.svcCta}>
-        <Link className={`${s.btn} ${s.btnAccent}`} href="/self-storage-dubai/how-it-works">
-          Learn More About Our Process →
+      <div className={s.howCta}>
+        <span>Ready to get started?</span>
+        <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+          Get a Free Quote →
+        </Link>
+        <Link className={s.howMore} href="/self-storage-dubai/how-it-works">
+          See the full process
         </Link>
       </div>
     </section>
