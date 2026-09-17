@@ -620,6 +620,125 @@
   margin: 18px 0 0;
 }
 
+/* ---------- INTRO TABS (Who we are / Milestones / Pricing) ---------- */
+.introTabs {
+  padding-top: 16px;
+  padding-bottom: 70px;
+}
+.introBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.introTabList {
+  display: inline-flex;
+  gap: 4px;
+  padding: 5px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(37, 49, 90, 0.06);
+}
+.introTab {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--muted);
+  padding: 11px 20px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+.introTab:hover {
+  color: var(--navy);
+}
+.introTabOn,
+.introTabOn:hover {
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(37, 49, 90, 0.25);
+}
+.introRail {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 8px 2px 14px;
+  animation: introIn 0.35s ease;
+}
+.introRail[hidden] {
+  display: none;
+}
+.introRail::-webkit-scrollbar {
+  display: none;
+}
+/* 3.2 cards per view so the fourth peeks in and the rail reads as scrollable */
+.introRail > .introCard {
+  flex: 0 0 calc((100% - 32px) / 3.2);
+  scroll-snap-align: start;
+}
+.introAccent .eyebrow {
+  color: rgba(255, 255, 255, 0.85);
+}
+.introAccent .introFoot small {
+  color: rgba(255, 255, 255, 0.9);
+}
+.introNavy .eyebrow {
+  color: rgba(255, 255, 255, 0.6);
+}
+@keyframes introIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 900px) {
+  .introRail > .introCard {
+    flex-basis: calc((100% - 16px) / 2.2);
+  }
+}
+@media (max-width: 640px) {
+  .introBar .uspNav {
+    display: none;
+  }
+  .introTabList {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .introTab {
+    flex: 1;
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  .introRail {
+    margin: 0 -24px;
+    padding: 8px 24px 14px;
+    scroll-padding-inline: 24px;
+    gap: 12px;
+  }
+  .introRail > .introCard {
+    flex-basis: 80%;
+    min-height: 220px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .introRail {
+    animation: none;
+  }
+}
+
 /* ---------- INTRO CARD ROW ---------- */
 .introGrid {
   display: grid;
@@ -852,7 +971,7 @@
 /* ---------- HOW IT WORKS (timeline) ---------- */
 .howHead {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1.55fr 1fr;
   gap: 24px 56px;
   align-items: end;
   margin-bottom: 44px;
@@ -1668,6 +1787,22 @@
 }
 
 /* ---------- LOCATIONS STRIP ---------- */
+/* Section titles never run past two lines. Desktop: the title column is wide
+   enough at the base size. Phones: the size follows the screen width so the
+   longest title ("Storage advice from people who store for a living.") still
+   fits two lines at 360px. */
+.howHead h2,
+.uspHead h2 {
+  text-wrap: balance;
+}
+@media (max-width: 640px) {
+  .howHead h2,
+  .uspTop .uspHead h2 {
+    font-size: min(30px, calc((100vw - 48px) / 14.5));
+    line-height: 1.12;
+  }
+}
+
 /* ---------- USP RAIL ---------- */
 .uspTop {
   display: flex;
