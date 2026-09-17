@@ -9,7 +9,7 @@ import s from "./landing.module.css"
  * ------------------------------------------------------------------ */
 export function LandingHero() {
   return (
-    <section className={`${s.hero} ${s.wrap}`}>
+    <section className={`${s.hero} ${s.heroBleed}`}>
       <div className={s.heroInner}>
         <div className={s.heroContent}>
           <span className={s.heroTag}>Serving Globally Since 2015</span>

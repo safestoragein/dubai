@@ -293,6 +293,40 @@
       url("/landing/hero-dubai-skyline.jpg");
   }
 }
+/* Homepage only: the skyline runs edge to edge instead of sitting in a rounded
+   card inside the 1180px column. Height is capped so a very wide screen doesn't
+   turn it into a wall; copy and rating card stay aligned with the content column. */
+.heroBleed {
+  padding-block: 0 14px;
+}
+.heroBleed .heroInner {
+  --hero-gutter: max(24px, calc((100% - 1180px) / 2 + 24px));
+  border-radius: 0;
+  aspect-ratio: auto;
+  min-height: clamp(460px, 40vw, 640px);
+}
+.heroBleed .heroContent {
+  padding: 36px 24px 56px var(--hero-gutter);
+  max-width: calc(var(--hero-gutter) + 640px);
+}
+.heroBleed .heroRating {
+  right: var(--hero-gutter);
+}
+@media (max-width: 900px) {
+  .heroBleed .heroInner {
+    min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .heroBleed .heroContent {
+    padding: 32px 26px 110px;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .heroBleed p {
+    max-width: 100%;
+  }
+}
 @media (max-width: 640px) {
   .heroRating {
     display: none;
