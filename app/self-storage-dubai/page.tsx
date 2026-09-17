@@ -55,6 +55,18 @@ const faqData = [
   {
     question: "Is there a minimum term?",
     answer: "Month-to-month; ask about promotional offers for longer stays."
+  },
+  {
+    question: "Is self storage in Dubai expensive?",
+    answer: "Self storage in Dubai starts from 12 AED per sqft per month at SafeStorage. Because you pay only for the space your items actually occupy, a typical one-bedroom apartment's contents cost far less than renting a larger home to keep them in. There is no truck rental, no deposit for equipment and no hidden handling fee — door-to-door pickup and delivery are part of the service. Longer prepaid plans reduce the effective monthly rate further."
+  },
+  {
+    question: "Can I get same-day storage in Dubai?",
+    answer: "Yes. SafeStorage offers same-day pickup for bookings made before 12 PM. Our team can collect your items and have them stored in our secure facility on the same day you contact us."
+  },
+  {
+    question: "What is the minimum storage period?",
+    answer: "There is no minimum storage period at SafeStorage. We offer month-to-month plans and short-term arrangements starting from one week for renovation and moving scenarios. You can cancel at any time with 7 days' notice."
   }
 ]
 
@@ -504,21 +516,6 @@ export default function SelfStorageDubaiPage() {
             </div>
           </div>
 
-          <h3 className={s.chipsHead} style={{ textAlign: "left" }}>Frequently Asked Questions About Self Storage in Dubai</h3>
-          <div className={s.guideFaqGrid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
-            <div className={s.guideFaqCard}>
-              <h3>Is self storage in Dubai expensive?</h3>
-              <p>Self storage in Dubai starts from 12 AED per sqft per month at SafeStorage. Because you pay only for the space your items actually occupy, a typical one-bedroom apartment&apos;s contents cost far less than renting a larger home to keep them in. There is no truck rental, no deposit for equipment and no hidden handling fee — door-to-door pickup and delivery are part of the service. Longer prepaid plans reduce the effective monthly rate further.</p>
-            </div>
-            <div className={s.guideFaqCard}>
-              <h3>Can I get same-day storage in Dubai?</h3>
-              <p>Yes. SafeStorage offers same-day pickup for bookings made before 12 PM. Our team can collect your items and have them stored in our secure facility on the same day you contact us.</p>
-            </div>
-            <div className={s.guideFaqCard}>
-              <h3>What is the minimum storage period?</h3>
-              <p>There is no minimum storage period at SafeStorage. We offer month-to-month plans and short-term arrangements starting from one week for renovation and moving scenarios. You can cancel at any time with 7 days&apos; notice.</p>
-            </div>
-          </div>
         </section>
 
         {/* COMPLETE GUIDE 2026 */}
