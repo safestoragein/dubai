@@ -1,17 +1,17 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Home, ShieldCheck, Truck, Clock, Package, Headphones, Star, Users, Sofa, ArrowRight, Boxes, Calendar, Lock } from "lucide-react"
-import TrustBadges from "@/components/trust-badges"
-import Testimonials from "@/components/testimonials"
+import { Home, Truck, Lock, Calendar, Boxes, Headphones, Package, Sofa, CheckCircle2, GraduationCap } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 import { manrope, sora } from "@/components/landing/fonts"
-import PageHero, { CtaBand } from "@/components/landing/page-hero"
-import { LandingTrust } from "@/components/landing/landing-top"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
+import { LandingSteps } from "@/components/landing/landing-services"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingConnect } from "@/components/landing/landing-connect"
+import { UspRail } from "@/components/landing/usp-rail"
+import { FeatScroller } from "@/components/landing/feat-scroller"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import { personalFaqs } from "./faqs"
 import s from "@/components/landing/landing.module.css"
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   // PRICE_PER_SQFT_AED — and "free pickup & delivery", which df0df39 / 166d65a
   // removed sitewide because transport is charged.
   description:
-    "Affordable personal storage in Dubai from 12 AED/sqft. Secure storage units with door-to-door pickup & delivery.",
+    "Affordable personal storage in Dubai from 12 AED/sqft. Secure storage space with door-to-door pickup & delivery.",
   keywords:
     "Personal storage Dubai, Household storage, Home storage Dubai, Furniture storage, Self storage Dubai, Decluttering storage, Student storage Dubai, Seasonal storage, Short term storage, Long term storage, Luggage storage Dubai, Apartment storage, Storage with pickup, SafeStorage personal",
   openGraph: {
@@ -43,59 +43,33 @@ export const metadata: Metadata = {
 }
 
 const features = [
-  {
-    icon: Home,
-    title: "Home Decluttering",
-    description: "Free up space at home by storing seasonal items, extra furniture, and belongings",
-  },
-  {
-    icon: Truck,
-    title: "Door-to-door Service",
-    description: "We collect and deliver your items door-to-door",
-  },
-  {
-    icon: Lock,
-    title: "Secure & Safe",
-    description: "24/7 security surveillance with clean, secure facilities for your peace of mind",
-  },
-  {
-    icon: Calendar,
-    title: "Flexible Duration",
-    description: "Store for as long as you need - no long-term commitments required",
-  },
-  {
-    icon: Boxes,
-    title: "Any Item, Any Size",
-    description: "From boxes and documents to furniture and appliances - we store it all",
-  },
-  {
-    icon: Headphones,
-    title: "Easy Support",
-    description: "Friendly customer service team ready to help you every step of the way",
-  },
+  { Icon: Home, title: "Home Decluttering", body: "Free up space by storing seasonal items, extra furniture and belongings." },
+  { Icon: Truck, title: "Door-to-door Service", body: "We collect and deliver your items door-to-door." },
+  { Icon: Lock, title: "Secure & Safe", body: "24/7 surveillance in a clean, secure facility." },
+  { Icon: Calendar, title: "Flexible Duration", body: "Store for as long as you need — no long-term commitment." },
+  { Icon: Boxes, title: "Any Item, Any Size", body: "From boxes and documents to furniture and appliances." },
+  { Icon: Headphones, title: "Easy Support", body: "A friendly team ready to help at every step." },
 ]
 
 const useCases = [
-  {
-    title: "Moving & Relocation",
-    description: "Store your belongings temporarily during home transitions or renovations",
-    icon: Truck,
-  },
-  {
-    title: "Downsizing",
-    description: "Keep your cherished items safe when moving to a smaller space",
-    icon: Home,
-  },
-  {
-    title: "Student Storage",
-    description: "Perfect for students during summer breaks or semester abroad programs",
-    icon: Package,
-  },
-  {
-    title: "Seasonal Items",
-    description: "Store winter clothes, holiday decorations, and sports equipment until needed",
-    icon: Calendar,
-  },
+  { Icon: Truck, title: "Moving & Relocation", body: "Between leases or renovating? We collect from the old home and deliver to the new one." },
+  { Icon: Home, title: "Downsizing", body: "Keep your cherished items safe when moving to a smaller space." },
+  { Icon: GraduationCap, title: "Student Storage", body: "For summer breaks or a semester abroad." },
+  { Icon: Calendar, title: "Seasonal Items", body: "Winter clothes, decorations and sports gear, stored until you need them." },
+]
+
+const items = [
+  "Sofas and armchairs", "Beds and mattresses", "Dining tables and chairs",
+  "Wardrobes and cabinets", "Appliances", "Clothing and seasonal wear",
+  "Suitcases and travel bags", "Books and personal items", "Holiday decorations",
+  "Children's toys and baby gear", "Sports equipment and bicycles", "Electronics and gadgets",
+  "Artwork and sentimental items", "Rugs and soft furnishings", "Garden and outdoor furniture",
+]
+
+const sizes = [
+  { Icon: Package, size: "25–50 sq ft", label: "Small", fits: "10–20 boxes or a few household items" },
+  { Icon: Sofa, size: "50–100 sq ft", label: "Medium", fits: "A 1–2 bedroom apartment's contents" },
+  { Icon: Home, size: "100–200 sq ft", label: "Large", fits: "A full 3-bedroom apartment" },
 ]
 
 const personalStorageSchemas = [
@@ -120,7 +94,15 @@ const personalStorageSchemas = [
     isPartOf: { '@id': 'https://safestorage.ae/#website' },
     inLanguage: 'en-AE',
   },
-  
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: personalFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
 ]
 
 export default function PersonalStoragePage() {
@@ -132,218 +114,168 @@ export default function PersonalStoragePage() {
           { name: "Personal Storage Dubai" },
         ]}
       />
-    <SchemaScript schema={personalStorageSchemas} />
-    <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-      {/* H1 must carry the target term. It previously read "Personal Storage
-          Made Simple" — no "Dubai", so the page's strongest on-page signal did
-          not match the query it is trying to rank for. */}
-      <PageHero
-        eyebrow="Serving Globally Since 2015"
-        title="Personal Storage Dubai —"
-        titleAccent="Door-to-Door"
-        blurb="Affordable storage for your home, furniture and personal belongings, from 12 AED / sqft. Door-to-Door service, no hidden fees, cancel anytime."
-        image="/landing/svc-household.jpg"
-        imagePosition="center 40%"
-        stats={[
-          { Icon: Star, label: "4.9/5 (6,700+ reviews worldwide)" },
-          { Icon: Users, label: "Trusted by 100,000+ customers worldwide" },
-          { Icon: Lock, label: "24/7 CCTV Monitoring" },
-        ]}
-        ctaLabel="Get Your Free Quote in 2 Minutes"
-      />
+      <SchemaScript schema={personalStorageSchemas} />
 
-      <LandingTrust />
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* H1 carries the target term "Personal Storage Dubai". */}
+        <SplitHero
+          eyebrow="Personal storage Dubai"
+          title="Personal Storage in Dubai –"
+          titleAccent="Furniture, Boxes & More"
+          blurb="Affordable storage for your home and belongings from 12 AED / sqft, with door-to-door pickup and no hidden fees."
+          image="/landing/svc-household.jpg"
+          imagePosition="center 40%"
+          ctaLabel="Get Your Free Quote"
+        />
 
-      {/* WHY */}
-      <section className={s.wrap} id="why" style={{ paddingTop: 34 }}>
-        <div className={s.darkBand}>
-          <span className={s.eyebrow}>Why choose SafeStorage</span>
-          <h2>
-            Storage Built Around <em>Your Home</em>
-          </h2>
-          <div className={`${s.featGrid} ${s.featGrid3}`}>
-            {features.map((feature) => (
-              <div className={s.feat} key={feature.title}>
-                <div className={s.featIcon} aria-hidden="true">
-                  <feature.icon strokeWidth={2} />
+        <LandingTrust />
+
+        <LandingSteps />
+
+        {/* WHY */}
+        <section className={s.wrap} id="why">
+          <div className={`${s.darkBand} ${s.whyBand}`}>
+            <div className={`${s.howHead} ${s.bandHead}`}>
+              <div>
+                <span className={s.howEyebrow}>Why SafeStorage</span>
+                <h2>
+                  Storage built around <br className={s.mBreak} />
+                  <em>your home.</em>
+                </h2>
+              </div>
+            </div>
+            <FeatScroller>
+              {features.map(({ Icon, title, body }) => (
+                <div className={s.feat} key={title}>
+                  <div className={s.featIcon} aria-hidden="true">
+                    <Icon size={18} strokeWidth={2} />
+                  </div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
                 </div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
+              ))}
+            </FeatScroller>
+            <p className={s.scrollHint}>Swipe for more →</p>
+          </div>
+        </section>
+
+        {/* WHO WE HELP */}
+        <section className={`${s.section} ${s.wrap}`} id="who-we-help">
+          <UspRail
+            head={
+              <div className={s.uspHead}>
+                <span className={s.howEyebrow}>Who we help</span>
+                <h2>
+                  Perfect for <em>every situation.</em>
+                </h2>
+                <p className={s.splitBlurb} style={{ marginBottom: 0 }}>
+                  Moving, downsizing, or just need extra space — we&apos;ve got you covered.
+                </p>
+              </div>
+            }
+          >
+            {useCases.map(({ Icon, title, body }, i) => (
+              <article className={s.usp} key={title}>
+                <span className={s.uspNum} aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className={s.uspIcon} aria-hidden="true">
+                  <Icon />
+                </div>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </UspRail>
+          <p className={s.scrollHint}>Swipe for more →</p>
+        </section>
+
+        {/* WHAT YOU CAN STORE + PRICING */}
+        <section className={`${s.section} ${s.wrap}`} id="pricing" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Pricing</span>
+              <h2>
+                Starting from just <em>12 AED / sqft.</em>
+              </h2>
+            </div>
+            <p>Pay only for the space your belongings use — from a few boxes to a full apartment.</p>
+          </div>
+
+          <div className={s.miniGrid}>
+            {sizes.map(({ Icon, size, label, fits }) => (
+              <div className={s.miniCard} key={size}>
+                <span className={s.miniIcon} aria-hidden="true">
+                  <Icon />
+                </span>
+                <div>
+                  <b>
+                    {size} · {label} <span style={{ fontWeight: 600, fontSize: 12, color: "var(--muted)" }}>(Estimated)</span>
+                  </b>
+                  <small>{fits}</small>
+                </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* USE CASES */}
-      <section className={`${s.section} ${s.wrap}`}>
-        <div className={s.sectionHead}>
-          <span className={s.eyebrow}>Who we help</span>
-          <h2>Perfect For Every Situation</h2>
-          <p>Whether you&apos;re moving, downsizing, or just need extra space - we&apos;ve got you covered</p>
-        </div>
-        <div className={s.stepGrid}>
-          {useCases.map((useCase) => (
-            <div className={`${s.panel} ${s.panelHover}`} key={useCase.title}>
-              <div className={s.panelIcon} aria-hidden="true">
-                <useCase.icon strokeWidth={1.9} />
+          <div className={s.miniFacts}>
+            <span><CheckCircle2 aria-hidden="true" /> No setup fees</span>
+            <span><CheckCircle2 aria-hidden="true" /> Door-to-door service</span>
+            <span><CheckCircle2 aria-hidden="true" /> 24/7 security monitoring</span>
+            <span><CheckCircle2 aria-hidden="true" /> Climate controlled as standard</span>
+          </div>
+
+          <h3 className={s.miniHead}>What Dubai residents typically store</h3>
+          <div className={s.areaMarquees}>
+            {[items.slice(0, 8), items.slice(8)].map((row, r) => (
+              <div className={s.marquee} key={r}>
+                <div className={`${s.marqueeTrack} ${r === 1 ? s.marqueeReverse : ""}`}>
+                  {[0, 1].map((copy) => (
+                    <ul className={`${s.marqueeGroup} ${s.chipGroup}`} aria-hidden={copy === 1 || undefined} key={copy}>
+                      {row.map((item) => (
+                        <li key={item}>
+                          <span className={s.chip}>
+                            <CheckCircle2 size={13} style={{ display: "inline", marginRight: 6, verticalAlign: "-2px", color: "var(--accent)" }} />
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
               </div>
-              <h3>{useCase.title}</h3>
-              <p>{useCase.description}</p>
+            ))}
+          </div>
+        </section>
+
+        <LandingReviews />
+
+        {/* FAQ */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Good to know</span>
+              <h2>
+                FAQs: personal storage <em>in Dubai.</em>
+              </h2>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className={`${s.section} ${s.wrap}`} id="how-it-works" style={{ paddingTop: 0 }}>
-        <div className={s.sectionHead}>
-          <span className={s.eyebrow}>How it works</span>
-          <h2>Store Your Items in 3 Simple Steps</h2>
-        </div>
-        <div className={s.trio}>
-          {[
-            { t: "Get a Quote", b: "Tell us what you want to store and get an instant price estimate online" },
-            { t: "Door-to-door Pickup", b: "We'll collect your items from your doorstep at a time that suits you" },
-            { t: "Relax", b: "Your items are stored safely. Request delivery anytime you need them back" },
-          ].map((step, i) => (
-            <div className={s.step} key={step.t}>
-              <span className={s.stepNum} aria-hidden="true">
-                {i + 1}
-              </span>
-              <h3>{step.t}</h3>
-              <p>{step.b}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <LandingReviews />
-
-      {/* PRICING */}
-      <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
-        <div className={s.sectionHead}>
-          <span className={s.eyebrow}>Pricing</span>
-          <h2>
-            Starting from Just <em>12 AED / sqft</em>
-          </h2>
-          <p>No setup fees • Door-to-Door service • Cancel anytime</p>
-        </div>
-        <div className={s.stats} style={{ paddingTop: 0 }}>
-          <div className={s.stat}>
-            <strong>24/7</strong>
-            <span>Security Monitoring</span>
-          </div>
-          <div className={s.stat}>
-            <strong>Door-to-Door</strong>
-            <span>Pickup &amp; Delivery</span>
-          </div>
-          <div className={s.stat}>
-            <strong>
-              12 <i>AED</i>
-            </strong>
-            <span>Starting Price / sqft</span>
-          </div>
-          <div className={s.stat}>
-            <strong>Climate Controlled</strong>
-            <span>Standard on every booking</span>
-          </div>
-        </div>
-        <div className={s.svcCta}>
-          <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
-            Get Your Free Quote Now →
-          </Link>
-        </div>
-      </section>
-
-      <CtaBand
-        title="Ready to Free Up Space at Home?"
-        blurb="Join the 100,000+ customers who trust SafeStorage worldwide. Get your personalized quote in just 2 minutes."
-        ctaLabel="Get Your Free Quote"
-      />
-
-      {/* FAQ */}
-      <section className={`${s.section} ${s.wrap}`} id="faq">
-        <div className={s.sectionHead}>
-          <span className={s.eyebrow}>Good to know</span>
-          <h2>Personal Storage — Frequently Asked Questions</h2>
-        </div>
-        <FaqAccordion items={personalFaqs} />
-      </section>
-
-      {/* HOUSEHOLD STORAGE */}
-      <section className={`${s.section} ${s.wrap}`}>
-        <div className={s.sectionHead}>
-          <span className={s.eyebrow}>Household storage</span>
-          <h2>
-            Personal &amp; Household Storage in <em>Dubai</em>
-          </h2>
-          <p>
-            Extra space at home without the cost of moving to a larger apartment — collected from your
-            door and delivered back when you need it.
-          </p>
-        </div>
-
-        <div className={s.duo}>
-          <div className={`${s.panel} ${s.panelHover}`}>
-            <div className={s.panelIcon} aria-hidden="true">
-              <Truck strokeWidth={1.9} />
-            </div>
-            <h3>Between apartment leases</h3>
             <p>
-              Dubai moves often leave a gap between one lease ending and the next starting. We collect from
-              the old apartment, store everything securely, and deliver it to the new one when you are ready
-              — no storing with friends, no replacing furniture you could not keep.
+              Have more questions? <Link href="/faq" style={{ color: "var(--accent)", fontWeight: 600 }}>View all FAQs →</Link>
             </p>
           </div>
-          <div className={`${s.panel} ${s.panelHover}`}>
-            <div className={s.panelIcon} aria-hidden="true">
-              <Calendar strokeWidth={1.9} />
-            </div>
-            <h3>Seasonal &amp; long-term</h3>
-            <p>
-              Holiday decorations, winter clothing, sports gear, outgrown toys — things you use part of the
-              year but cannot throw away. Store a few boxes for far less than upgrading your apartment, and
-              we deliver them back within 24–48 hours.
-            </p>
-          </div>
-        </div>
+          <FaqAccordion items={personalFaqs} />
+        </section>
 
-        <h3 className={s.chipsHead}>What Dubai residents typically store</h3>
-        <div className={s.chips}>
-          {[
-            "Sofas and armchairs", "Beds and mattresses", "Dining tables and chairs",
-            "Wardrobes and cabinets", "Appliances", "Clothing and seasonal wear",
-            "Suitcases and travel bags", "Books and personal items", "Holiday decorations",
-            "Children's toys and baby gear", "Sports equipment and bicycles", "Electronics and gadgets",
-            "Artwork and sentimental items", "Rugs and soft furnishings", "Garden and outdoor furniture",
-          ].map((item) => (
-            <span className={`${s.chip} ${s.chipMuted}`} key={item}>
-              {item}
-            </span>
-          ))}
-        </div>
+        <CtaBand
+          title="Ready to Free Up Space at Home?"
+          blurb="Join the 100,000+ customers who trust SafeStorage worldwide. Get your personalized quote in just 2 minutes."
+          ctaLabel="Get Your Free Quote"
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
 
-        <h3 className={s.chipsHead}>Personal storage pricing</h3>
-        <p className={s.chipsNote}>From 12 AED / sqft across every unit size.</p>
-        <div className={s.trio}>
-          {[
-            { size: "25–50 sq ft", label: "Small", fits: "10–20 boxes or a small collection of household items" },
-            { size: "50–100 sq ft", label: "Medium", fits: "A 1–2 bedroom apartment's contents" },
-            { size: "100–200 sq ft", label: "Large", fits: "A full 3-bedroom apartment" },
-          ].map((u) => (
-            <div className={`${s.panel} ${s.panelHover}`} key={u.size}>
-              <strong className={s.panelSize}>{u.size}</strong>
-              <h3>{u.label}</h3>
-              <p>{u.fits}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <LandingConnect />
-    </div>
-
+        <LandingConnect />
+      </div>
     </>
   )
 }
