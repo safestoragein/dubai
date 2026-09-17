@@ -31,7 +31,7 @@ export const seoBlogPosts = [
       <p>Secure, clean, dust-protected units for business documents and records, with organized access and audit trails.</p>
       
       <h3>Storage Costs in Dubai</h3>
-      <p>At SafeStorage Dubai, pricing starts from 12 AED / sqft (VAT excluded), and you only pay for the space you use. Your final cost depends on:</p>
+      <p>At SafeStorage Dubai, pricing starts from 12 AED / sqft, and you only pay for the space you use. Your final cost depends on:</p>
       <ul>
         <li>Unit size (pricing starts from 12 AED / sqft)</li>
         <li>Location (premium areas cost more)</li>
@@ -138,7 +138,7 @@ export const seoBlogPosts = [
       </ul>
       
       <h3>Storage Costs for Movers</h3>
-      <p>Budget for storage when planning your move. At SafeStorage Dubai, pricing starts from 12 AED / sqft (VAT excluded), and you only pay for the space you use:</p>
+      <p>Budget for storage when planning your move. At SafeStorage Dubai, pricing starts from 12 AED / sqft, and you only pay for the space you use:</p>
       <ul>
         <li><strong>Small units (25-50 sq ft):</strong> from 12 AED / sqft - Perfect for boxes and small items</li>
         <li><strong>Medium units (50-100 sq ft):</strong> from 12 AED / sqft - Ideal for 1-bedroom apartment</li>
