@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import {
   Building2, Home, Briefcase, MapPinned, Package, Plane, ClipboardList, Boxes, Layers, Wrench, Route, CalendarClock,
-  Warehouse, Video, FileText, KeyRound, Truck, Hammer, ListChecks, ShieldCheck, PhoneCall, CheckCircle2, AlertTriangle,
+  Warehouse, Video, FileText, Truck, Hammer, ListChecks, ShieldCheck, PhoneCall, CheckCircle2, AlertTriangle,
 } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
@@ -106,7 +106,6 @@ const priceDrivers = [
 const steps = [
   { Icon: Video, title: "Survey", body: "A video walkthrough or site visit to size the truck and crew — and spot the wall unit that won't come apart." },
   { Icon: FileText, title: "Written quote", body: "Crew size, vehicles, packing, dismantling, storage and date — on one page." },
-  { Icon: KeyRound, title: "Permits & access", body: "We book the service lift and move permit with building management at both ends." },
   { Icon: Package, title: "Pack", body: "Cartons, wrap and wardrobe boxes, every box labelled by room, fragile items wrapped one by one." },
   { Icon: Truck, title: "Move or store", body: "To the new address, into storage with a photographed inventory, or split between the two." },
   { Icon: Hammer, title: "Reassemble", body: "What we dismantled, we rebuild — beds first, because the first night matters." },
@@ -263,7 +262,7 @@ export default function MovingStorageDubaiPage() {
                   How our <em>moves run.</em>
                 </h2>
                 <p className={s.splitBlurb} style={{ marginBottom: 0 }}>
-                  Six steps from first call to the last shelf back on the wall.
+                  Five steps from first call to the last shelf back on the wall.
                 </p>
               </div>
             }
