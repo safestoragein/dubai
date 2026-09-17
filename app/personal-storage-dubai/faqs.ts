@@ -8,7 +8,7 @@ export const personalFaqs: { q: string; a: string }[] = [
   },
   {
     q: "What is the minimum unit size available for personal storage?",
-    a: "A 25 sq ft locker, roughly a large wardrobe. It holds 10–15 boxes, bedding and soft items. Call us and we will size it from your list.",
+    a: "About 25 sq ft of shared storage space, roughly a large wardrobe. It holds 10–15 boxes, bedding and soft items. Call us and we will size it from your list.",
   },
   {
     q: "Can I store seasonal clothing and winter wear in Dubai?",

@@ -101,7 +101,7 @@ const pageSchemas = [
 ]
 
 const why = [
-  { Icon: Shield, title: "Security that's visible", body: "24/7 CCTV, controlled entry, individual unit locks, regular patrols." },
+  { Icon: Shield, title: "Security that's visible", body: "24/7 CCTV, controlled entry, logged access, regular patrols." },
   { Icon: Truck, title: "Door-to-door help", body: "Optional packing, pickup, and re-delivery anywhere in Dubai." },
   { Icon: Clock, title: "Flexible plans", body: "Short or long stays, monthly billing, easy upgrades." },
   { Icon: CheckCircle2, title: "Transparent quotes", body: "No hidden fees; our advisors right-size your unit to avoid overpaying." },
@@ -109,7 +109,7 @@ const why = [
 ]
 
 const sizes = [
-  { size: "1–2 m²", label: "Locker / Small", fits: ["8–12 medium boxes", "Hand luggage", "Small appliances", "Documents"] },
+  { size: "1–2 m²", label: "Small", fits: ["8–12 medium boxes", "Hand luggage", "Small appliances", "Documents"] },
   { size: "3–4 m²", label: "Studio", fits: ["20–30 boxes", "A bicycle", "TV and electronics", "Side tables"] },
   { size: "5–7 m²", label: "1-bed", fits: ["Mattress and bed frame", "Sofa", "TV unit", "30–40 boxes", "Small wardrobes"] },
   { size: "8–10 m²", label: "2-bed", fits: ["Large sofa set", "Multiple beds", "Dining table", "White goods", "50–70 boxes"] },
@@ -517,7 +517,7 @@ export default function SelfStorageDubaiPage() {
                 population means flexible month-to-month contracts — without long-term lock-ins — are highly valued.
               </p>
               <p>
-                SafeStorage addresses all of these factors. Every unit is secure and dedicated to you. Door-to-Door
+                SafeStorage addresses all of these factors. Your belongings are catalogued and kept secure in our shared storage space. Door-to-Door
                 pickup &amp; delivery is available across Dubai. Contracts are month-to-month with no cancellation
                 penalties. And pricing is transparent — what you see is what you pay.
               </p>
@@ -597,7 +597,7 @@ export default function SelfStorageDubaiPage() {
                 SafeStorage Dubai operates a door-to-door storage model that removes every friction point from the
                 traditional storage experience. There is no need to hire a lorry, load furniture yourself, or drive to
                 a facility on the outskirts of the city. Our team comes to your door at the agreed time, professionally
-                loads your belongings, transports them to our secure facility, and stores them in your dedicated unit.
+                loads your belongings, transports them to our secure facility, and stores them safely in our shared storage space.
                 When you want items back, call or WhatsApp and we deliver within 24–48 hours.
               </p>
             </div>
