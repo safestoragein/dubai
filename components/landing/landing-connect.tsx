@@ -122,7 +122,7 @@ export function LandingConnect() {
             )}
             {status === "idle" && (
               <p className={s.formNote}>
-                Door-to-door pickup anywhere in Dubai · No long-term contract · VAT excluded pricing
+                Door-to-door pickup anywhere in Dubai · No long-term contract · Pricing
               </p>
             )}
           </form>

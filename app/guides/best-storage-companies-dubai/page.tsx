@@ -556,7 +556,7 @@ export default function Top10StorageCompaniesDubai() {
             <div style={{ marginBottom: "28px" }}>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A2463", marginBottom: "12px" }}>3. Pricing Transparency — No Hidden Fees, No Surprises</h3>
               <p style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "15px" }}>
-                SafeStorage Dubai quotes a single VAT excluded rate from 12 AED per sqft that already includes door-to-door collection and delivery. There is no separate transport charge added at the end, no mandatory packing-materials bundle, and no admin or exit fee. You receive a written breakdown showing the monthly storage fee, any optional add-ons you asked for and the VAT before you commit to anything, and that quote stays valid for 14 days. Billing is month-to-month, you can cancel with 30 days&apos; notice without penalty, and rates do not change mid-term. The price you are quoted is the price you pay.
+                SafeStorage Dubai quotes a single rate from 12 AED per sqft that already includes door-to-door collection and delivery. There is no separate transport charge added at the end, no mandatory packing-materials bundle, and no admin or exit fee. You receive a written breakdown showing the monthly storage fee, any optional add-ons you asked for and the VAT before you commit to anything, and that quote stays valid for 14 days. Billing is month-to-month, you can cancel with 30 days&apos; notice without penalty, and rates do not change mid-term. The price you are quoted is the price you pay.
               </p>
             </div>
 

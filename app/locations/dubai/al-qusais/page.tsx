@@ -354,7 +354,7 @@ export default function AlQusaisPage() {
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is storing cheaper than keeping a bigger flat or a second unit?</h3>
-            <p className="text-gray-700">For most people here, comfortably so. Paying rent on an extra bedroom or a second industrial unit purely to hold things is expensive by any measure. Our rate opens at 12 AED per sqft with VAT excluded and applies only to the volume you actually use, with no setup charge and no annual commitment. Give us a rough idea of what you are holding — photographs are easiest — and we will tell you what it would cost here so you can weigh it against your rent.</p>
+            <p className="text-gray-700">For most people here, comfortably so. Paying rent on an extra bedroom or a second industrial unit purely to hold things is expensive by any measure. Our rate opens at 12 AED per sqft and applies only to the volume you actually use, with no setup charge and no annual commitment. Give us a rough idea of what you are holding — photographs are easiest — and we will tell you what it would cost here so you can weigh it against your rent.</p>
           </div>
           <div className="bg-white rounded-xl p-6 border border-gray-200">
             <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I get a stored file back?</h3>

@@ -129,7 +129,7 @@ export default function DeiraPage() {
               </p>
               <p className="text-gray-700">
                 SafeStorage&apos;s volume-based pricing is ideal for Deira and Bur Dubai residents who want to store
-                specific items rather than pay for an entire storage unit. Starting from 12 AED / sqft (VAT excluded),
+                specific items rather than pay for an entire storage unit. Starting from 12 AED / sqft,
                 residents can store just what they need and pay only for that — no wasted space, no fixed unit costs.
               </p>
             </div>
@@ -235,7 +235,7 @@ export default function DeiraPage() {
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage handle shared room or flatshare storage in Deira?</h3>
-              <p className="text-gray-700">Yes. Many Deira residents live in shared accommodation where they have personal belongings but limited private space. SafeStorage can store an individual&apos;s personal items — clothes, electronics, personal boxes — under a single account even from a shared living situation. For small volumes, our pricing from 12 AED / sqft (VAT excluded) makes storage accessible for individuals rather than requiring a full apartment clearance. Simply list or photograph your specific items and we will store them separately from any shared household contents.</p>
+              <p className="text-gray-700">Yes. Many Deira residents live in shared accommodation where they have personal belongings but limited private space. SafeStorage can store an individual&apos;s personal items — clothes, electronics, personal boxes — under a single account even from a shared living situation. For small volumes, our pricing from 12 AED / sqft makes storage accessible for individuals rather than requiring a full apartment clearance. Simply list or photograph your specific items and we will store them separately from any shared household contents.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage serve the Oud Metha and Al Jaddaf areas?</h3>

@@ -123,7 +123,7 @@ export default function ExpatLeavingUAEPage() {
             </div>
             <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6">
               <p className="text-dubai-navy font-medium text-lg">
-                <strong>Real example:</strong> A 2-bedroom apartment's furniture shipped to the UK costs AED 18,000–22,000 in sea freight. The same items stored at SafeStorage Dubai cost from 12 AED / sqft (VAT excluded). Even if you store for 2 full years, you're still ahead — and you have the flexibility to return or sell locally.
+                <strong>Real example:</strong> A 2-bedroom apartment's furniture shipped to the UK costs AED 18,000–22,000 in sea freight. The same items stored at SafeStorage Dubai cost from 12 AED / sqft. Even if you store for 2 full years, you're still ahead — and you have the flexibility to return or sell locally.
               </p>
             </div>
           </div>
@@ -186,7 +186,7 @@ export default function ExpatLeavingUAEPage() {
                     </div>
                   ))}
                 </div>
-                <p className="text-white/70 text-sm mt-6">Pricing starts from 12 AED / sqft (VAT excluded). We offer a wide range of discounts on long-term and prepaid plans — contact us for the best available rate.</p>
+                <p className="text-white/70 text-sm mt-6">Pricing starts from 12 AED / sqft. We offer a wide range of discounts on long-term and prepaid plans — contact us for the best available rate.</p>
               </div>
             </div>
           </div>
@@ -239,7 +239,7 @@ export default function ExpatLeavingUAEPage() {
             <div className="space-y-6">
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does long-term expat storage cost in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Long-term expat storage at SafeStorage Dubai starts from 12 AED / sqft (VAT excluded). You pay only for the space your belongings actually occupy, so the cost scales naturally with your volume — from a few boxes to the full contents of a 1–2 bedroom apartment including furniture. If you prepay several months upfront, you receive a wide range of discounts, making long-term storage even more economical compared to international shipping costs.</p>
+                <p className="text-gray-700 leading-relaxed">Long-term expat storage at SafeStorage Dubai starts from 12 AED / sqft. You pay only for the space your belongings actually occupy, so the cost scales naturally with your volume — from a few boxes to the full contents of a 1–2 bedroom apartment including furniture. If you prepay several months upfront, you receive a wide range of discounts, making long-term storage even more economical compared to international shipping costs.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I retrieve my items after leaving the UAE?</h3>
@@ -259,11 +259,11 @@ export default function ExpatLeavingUAEPage() {
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">Is there a discount for long-term expat storage plans?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage offers a wide range of prepaid discounts for expats who know they will be abroad for an extended period — the longer you prepay, the more you save off the standard rate. With pricing from 12 AED / sqft (VAT excluded), prepaying for a longer term is the most cost-effective option and eliminates the need for monthly transaction management. Contact us for the best available rate for your storage duration.</p>
+                <p className="text-gray-700 leading-relaxed">SafeStorage offers a wide range of prepaid discounts for expats who know they will be abroad for an extended period — the longer you prepay, the more you save off the standard rate. With pricing from 12 AED / sqft, prepaying for a longer term is the most cost-effective option and eliminates the need for monthly transaction management. Contact us for the best available rate for your storage duration.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">How do I compare storage costs versus international shipping?</h3>
-                <p className="text-gray-700 leading-relaxed">The comparison almost always favours storage for expats who are uncertain about their plans. International sea freight from Dubai to the UK or Europe for a 2–3 bedroom apartment typically costs AED 12,000–25,000 for a full container, with transit times of 4–8 weeks and no recourse if circumstances change. Air freight is even more expensive. By contrast, storing the same volume at SafeStorage costs from 12 AED / sqft (VAT excluded). Even after two full years of storage, you have spent less than most one-way shipping costs — and you retain the option to return to Dubai, sell items locally, or decide what to ship once you have settled abroad and know exactly what you need.</p>
+                <p className="text-gray-700 leading-relaxed">The comparison almost always favours storage for expats who are uncertain about their plans. International sea freight from Dubai to the UK or Europe for a 2–3 bedroom apartment typically costs AED 12,000–25,000 for a full container, with transit times of 4–8 weeks and no recourse if circumstances change. Air freight is even more expensive. By contrast, storing the same volume at SafeStorage costs from 12 AED / sqft. Even after two full years of storage, you have spent less than most one-way shipping costs — and you retain the option to return to Dubai, sell items locally, or decide what to ship once you have settled abroad and know exactly what you need.</p>
               </div>
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-dubai-navy mb-2">What documents do I need to cancel my storage contract?</h3>

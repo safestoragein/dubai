@@ -41,7 +41,7 @@ export const ABU_DHABI: EmirateDef = {
       },
       {
         q: "How much does storage cost in Abu Dhabi?",
-        a: "AED 12 per square foot per month, VAT excluded, on the floor space your goods actually occupy — the same rate as everywhere else we operate. Transport is quoted separately on your address and how the access works.",
+        a: "AED 12 per square foot per month, on the floor space your goods actually occupy — the same rate as everywhere else we operate. Transport is quoted separately on your address and how the access works.",
       },
       {
         q: "How quickly can I get something back in Abu Dhabi?",

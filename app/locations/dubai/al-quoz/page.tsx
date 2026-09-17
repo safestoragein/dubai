@@ -87,7 +87,7 @@ const FAQS: { q: string; a: AnswerPart[] }[] = [
   {
     q: "What does it cost?",
     a: [
-      "From 12 AED per sqft, VAT excluded. You pay for the space you use rather than a fixed unit size, so a few boxes costs a few boxes. Business Storage starts from 100 sq ft to 1,000+ sq ft. With zero setup fees and hidden charges; no lengthy contracts involved. Contact us at +971505773388 or fill out our ",
+      "From 12 AED per sqft. You pay for the space you use rather than a fixed unit size, so a few boxes costs a few boxes. Business Storage starts from 100 sq ft to 1,000+ sq ft. With zero setup fees and hidden charges; no lengthy contracts involved. Contact us at +971505773388 or fill out our ",
       { text: "quote form", href: "/get-quote" },
       ".",
     ],

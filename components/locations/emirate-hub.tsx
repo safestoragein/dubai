@@ -76,7 +76,7 @@ export default function EmirateHub({ emirate }: { emirate: EmirateDef }) {
               <p className="mb-8 text-lg text-white/90">
                 From{" "}
                 <strong className="text-dubai-gold">
-                  AED {PRICE_PER_SQFT_AED} per sq ft per month, VAT excluded
+                  AED {PRICE_PER_SQFT_AED} per sq ft per month
                 </strong>
                 , on the space your things actually occupy. No minimum term.
               </p>

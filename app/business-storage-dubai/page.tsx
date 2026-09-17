@@ -222,7 +222,7 @@ export default function BusinessStoragePage() {
                 <b>Door-to-door service</b> — available across Dubai
               </li>
               <li>
-                <b>From 12 AED / sqft</b> — VAT excluded, 50 to 300+ sq ft units
+                <b>From 12 AED / sqft</b> — 50 to 300+ sq ft units
               </li>
             </ul>
           </div>

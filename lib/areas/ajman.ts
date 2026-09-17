@@ -31,7 +31,7 @@ export const AJMAN: EmirateDef = {
       "We operate a warehouse in Ajman, so what we collect in the emirate stays in the emirate. The crew comes to your address, wraps and loads, and brings it back whenever you ask.",
     intro: [
       "Ajman is where a great many people who work in Dubai and Sharjah actually live, and the flats reflect that: affordable, compact, and short of anywhere to put things. What is scarcer here than storage space is anyone who will come and collect — most published rates assume you will arrive with a truck and do the carrying yourself.",
-      "We run it the other way round. Tell us roughly what you have, we come to your Ajman address, wrap and load, and store it at our facility in the emirate. Storage is AED 12 per square foot per month, VAT excluded, on the floor space your things actually occupy — and when you want any of it back, we bring it to you.",
+      "We run it the other way round. Tell us roughly what you have, we come to your Ajman address, wrap and load, and store it at our facility in the emirate. Storage is AED 12 per square foot per month, on the floor space your things actually occupy — and when you want any of it back, we bring it to you.",
     ],
     faqs: [
       {

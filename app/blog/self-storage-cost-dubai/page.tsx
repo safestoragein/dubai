@@ -126,7 +126,7 @@ export default function SelfStorageCostDubaiPage() {
 
               <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6 my-8">
                 <h3 className="font-bold text-dubai-navy mb-2">SafeStorage Dubai Pricing</h3>
-                <p className="text-gray-700">Storage starts from <strong>12 AED per sq. ft. per month</strong>, VAT excluded. That rate covers door-to-door collection and delivery anywhere in Dubai, so there is no lorry to hire and no transport fee added at the end. Billing is month-to-month with no lock-in, and longer prepaid plans reduce the effective monthly rate. You get a written cost breakdown before you commit, valid for 14 days.</p>
+                <p className="text-gray-700">Storage starts from <strong>12 AED per sq. ft. per month</strong>. That rate covers door-to-door collection and delivery anywhere in Dubai, so there is no lorry to hire and no transport fee added at the end. Billing is month-to-month with no lock-in, and longer prepaid plans reduce the effective monthly rate. You get a written cost breakdown before you commit, valid for 14 days.</p>
               </div>
             </div>
 

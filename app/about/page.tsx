@@ -268,7 +268,7 @@ export default function AboutPage() {
                 <span className={s.ribbon}>No Hidden Fees</span>
                 <span className={s.ico} aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 7v10M14.6 9.4c-.6-.8-1.6-1.2-2.6-1.2-1.5 0-2.6.8-2.6 2s1 1.7 2.6 2.1 2.7.9 2.7 2.1-1.2 2-2.7 2c-1.1 0-2.1-.4-2.7-1.3"/></svg></span>
                 <h3>Transparent Pricing</h3>
-                <p>What we quote is what you pay. From 12 AED / sq ft (VAT excluded), price-match guaranteed.</p>
+                <p>What we quote is what you pay. From 12 AED / sq ft, price-match guaranteed.</p>
                 <span className={s.avail}><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.7a8.3 8.3 0 1 0 0 16.6 8.3 8.3 0 0 0 0-16.6zm-1.2 12L5 9.9l1.5-1.5 2.3 2.3 5-5L15.3 7z"/></svg>Available with SafeStorage</span>
               </article>
               <article className={s.why}>

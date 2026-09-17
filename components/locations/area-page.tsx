@@ -93,7 +93,7 @@ export default function AreaPage({ area, emirate }: { area: Area; emirate: Emira
             <div className={`${s.trustIcon} ${s.tOrange}`}>💰</div>
             <strong className={s.vOrange}>{PRICE_PER_SQFT_AED} AED</strong>
             <b>Per sqft, per month</b>
-            <small>VAT excluded</small>
+            <small>Starting price</small>
           </div>
           <div className={s.trustItem}>
             <div className={`${s.trustIcon} ${s.tBlue}`}>🚚</div>
@@ -238,8 +238,6 @@ export default function AreaPage({ area, emirate }: { area: Area; emirate: Emira
             <strong>{PRICE_PER_SQFT_AED} AED</strong>
             <span>
               per square foot, per month
-              <br />
-              VAT excluded
             </span>
           </div>
         </div>

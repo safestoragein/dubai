@@ -247,7 +247,7 @@ export default function Contact() {
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h3 className="text-lg font-bold text-[#0A2463] mb-2">4. Can I store my vehicle at SafeStorage Dubai?</h3>
-              <p className="text-gray-700">Yes. SafeStorage offers covered vehicle storage bays for cars, motorcycles, boats, jet skis, and caravans. Vehicle storage starts from 12 AED / sqft (VAT excluded) and includes 24/7 CCTV monitoring, covered shelter from Dubai&apos;s sun and sandstorms, and optional battery maintenance and tire pressure checks for long-term vehicle storage. Our facility is popular among expats leaving Dubai temporarily, classic car collectors, and owners of seasonal recreational vehicles.</p>
+              <p className="text-gray-700">Yes. SafeStorage offers covered vehicle storage bays for cars, motorcycles, boats, jet skis, and caravans. Vehicle storage starts from 12 AED / sqft and includes 24/7 CCTV monitoring, covered shelter from Dubai&apos;s sun and sandstorms, and optional battery maintenance and tire pressure checks for long-term vehicle storage. Our facility is popular among expats leaving Dubai temporarily, classic car collectors, and owners of seasonal recreational vehicles.</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">

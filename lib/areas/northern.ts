@@ -24,7 +24,7 @@ const collectionOnlyFaq = (name: string) => ({
 
 const priceFaq = {
   q: "How much does it cost?",
-  a: "AED 12 per square foot per month, VAT excluded, on the floor space your goods actually occupy — the same rate everywhere we operate. Transport is quoted separately on your address and how the access works, and both numbers are agreed before anything is booked.",
+  a: "AED 12 per square foot per month, on the floor space your goods actually occupy — the same rate everywhere we operate. Transport is quoted separately on your address and how the access works, and both numbers are agreed before anything is booked.",
 }
 
 export const RAS_AL_KHAIMAH: EmirateDef = {

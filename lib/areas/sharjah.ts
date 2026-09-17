@@ -28,7 +28,7 @@ export const SHARJAH: EmirateDef = {
       "We operate a warehouse in Sharjah, so what we collect in the emirate stays in the emirate. The crew comes to your address, wraps and loads, and brings it back whenever you ask.",
     intro: [
       "Sharjah has plenty of storage units. What it has less of is anyone who will come and take your things there. Most advertised rates assume you will arrive with a truck, carry everything yourself, and repeat the trip whenever you need something back.",
-      "We work the other way round. Tell us roughly what you have, we come to your Sharjah address, wrap and load, and store at our facility in the emirate. Storage is AED 12 per square foot per month, VAT excluded, calculated on the space your things actually occupy.",
+      "We work the other way round. Tell us roughly what you have, we come to your Sharjah address, wrap and load, and store at our facility in the emirate. Storage is AED 12 per square foot per month, calculated on the space your things actually occupy.",
     ],
     faqs: [
       {

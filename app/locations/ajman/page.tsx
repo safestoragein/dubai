@@ -151,7 +151,7 @@ export default function AjmanPage() {
               <p className={s.heroSlogan}>No driving to a unit. No van hire. No lifting.</p>
               <p>
                 We pick up from your door in Ajman, store it securely in our Ajman facility, and deliver it back
-                whenever you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month, VAT excluded — billed on the
+                whenever you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month — billed on the
                 space your things actually occupy, not a unit size you have to fill.
               </p>
               <div className={s.heroCta}>
@@ -173,7 +173,7 @@ export default function AjmanPage() {
               <div className={`${s.trustIcon} ${s.tOrange}`}>💰</div>
               <strong className={s.vOrange}>{PRICE_PER_SQFT_AED} AED</strong>
               <b>Per sqft, per month</b>
-              <small>VAT excluded</small>
+              <small>Starting price</small>
             </div>
             <div className={s.trustItem}>
               <div className={`${s.trustIcon} ${s.tGold}`}>★</div>
@@ -345,8 +345,6 @@ export default function AjmanPage() {
               <strong>{PRICE_PER_SQFT_AED} AED</strong>
               <span>
                 per square foot, per month
-                <br />
-                VAT excluded
               </span>
             </div>
           </div>

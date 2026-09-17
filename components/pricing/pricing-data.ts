@@ -12,7 +12,7 @@ export const pricingFaqs = [
   {
     question: "How much does storage cost?",
     answer:
-      "Our storage starts from 12 AED / sqft (VAT excluded). It is one simple, transparent price for any unit size.",
+      "Our storage starts from 12 AED / sqft. It is one simple, transparent price for any unit size.",
   },
   {
     question: "Can I upgrade or downgrade my plan?",

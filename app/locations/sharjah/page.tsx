@@ -164,7 +164,7 @@ export default function SharjahPage() {
               <p>
                 Self storage in Sharjah normally means renting a unit and moving into it yourself. We pick up
                 from your door instead, store it securely in our Sharjah facility, and deliver it back whenever
-                you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month, VAT excluded — you pay for the space
+                you ask. From {PRICE_PER_SQFT_AED} AED per sqft per month — you pay for the space
                 your things actually occupy, not a unit size you have to fill.
               </p>
               <div className={s.heroCta}>
@@ -186,7 +186,7 @@ export default function SharjahPage() {
               <div className={`${s.trustIcon} ${s.tOrange}`}>💰</div>
               <strong className={s.vOrange}>{PRICE_PER_SQFT_AED} AED</strong>
               <b>Per sqft, per month</b>
-              <small>VAT excluded</small>
+              <small>Starting price</small>
             </div>
             <div className={s.trustItem}>
               <div className={`${s.trustIcon} ${s.tGold}`}>★</div>
@@ -412,7 +412,7 @@ export default function SharjahPage() {
                 Cheap Storage in Sharjah, <em>Without The Asterisk</em>
               </h2>
               <p>
-                One rate, VAT excluded, charged on the space you actually use. Transport is quoted separately and
+                One rate, charged on the space you actually use. Transport is quoted separately and
                 told to you up front rather than added later.
               </p>
               <ul className={s.priceList}>
@@ -429,8 +429,6 @@ export default function SharjahPage() {
               <strong>{PRICE_PER_SQFT_AED} AED</strong>
               <span>
                 per square foot, per month
-                <br />
-                VAT excluded
               </span>
             </div>
           </div>
@@ -449,7 +447,7 @@ export default function SharjahPage() {
             <p>
               SafeStorage works the other way round. You tell us roughly what there is, we come to your address in
               Sharjah, wrap it, load it and take it to our Sharjah warehouse. Storage is charged at{" "}
-              {PRICE_PER_SQFT_AED} AED per square foot per month, VAT excluded, on the floor space your items
+              {PRICE_PER_SQFT_AED} AED per square foot per month, on the floor space your items
               genuinely occupy. When you want any of it back, we bring it to you.
             </p>
 
@@ -555,7 +553,7 @@ export default function SharjahPage() {
             </table>
           </div>
           <p className={s.tableNote}>
-            Indicative only, at {PRICE_PER_SQFT_AED} AED per sqft per month VAT excluded. Your actual figure is
+            Indicative only, at {PRICE_PER_SQFT_AED} AED per sqft per month. Your actual figure is
             measured from what we collect, not estimated from the size of your home — two identical flats can
             differ by half if one owns more furniture. Transport from your Sharjah address is quoted separately.
             Nothing is booked until you have agreed both numbers.

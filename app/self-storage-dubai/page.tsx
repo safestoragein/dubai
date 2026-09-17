@@ -72,7 +72,7 @@ const pageSchemas = [
       '@type': 'Offer',
       priceCurrency: 'AED',
       price: '12',
-      description: 'Starts from 12 AED / sqft (VAT excluded)',
+      description: 'Starts from 12 AED / sqft',
     },
     serviceType: 'Self Storage',
   },

@@ -223,7 +223,7 @@ export default function DubaiMarinaPage() {
           <div className="max-w-xl mx-auto">
             <div className="bg-white rounded-lg p-8 border-2 border-[#0A2463] text-center">
               <p className="text-2xl md:text-3xl font-bold text-[#0A2463] mb-2">Pricing starts from 12 AED / sqft</p>
-              <p className="text-sm text-gray-600">VAT excluded · all unit sizes · door-to-door pickup & delivery</p>
+              <p className="text-sm text-gray-600">All unit sizes · door-to-door pickup & delivery</p>
             </div>
           </div>
         </div>

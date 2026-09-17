@@ -46,7 +46,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
     hero: [
       "Emptying a whole home is a different job from storing a few boxes, and it is the most common booking we take. It is the core of [personal storage in Dubai](/personal-storage-dubai): the crew arrives, the property is cleared, and everything is held until you have somewhere to put it.",
       "Whole-home bookings are usually driven by a date rather than a want — a tenancy ending, a handover slipping, a sale completing, a posting starting. That means the collection has to happen on a specific day, and the day is usually not negotiable.",
-      "Storage is **AED 12 per sq ft per month, VAT excluded**, on the floor space your goods occupy. A one-bedroom is typically 60–90 sq ft, a two-bedroom 120–150, a three-bedroom villa 240–270.",
+      "Storage is **AED 12 per sq ft per month**, on the floor space your goods occupy. A one-bedroom is typically 60–90 sq ft, a two-bedroom 120–150, a three-bedroom villa 240–270.",
     ],
     sections: [
       {
@@ -143,7 +143,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
     hero: [
       "A Dubai apartment has exactly the storage the developer drew and nothing else — no loft, no basement, no garage, no under-stairs cupboard. That structural fact is why so much of [personal storage in Dubai](/personal-storage-dubai) is tower flats rather than villas.",
       "The other half of the problem is access. Most towers require the service lift to be booked in advance, many restrict moves to a fixed window, and some want the crew registered with building management first. **We arrange all of that** — it is the part that derails a self-drive move.",
-      "Storage runs from **AED 12 per sq ft per month, VAT excluded**, on measured space. A studio is around 30 sq ft, a one-bedroom 60–90, a two-bedroom 120–150.",
+      "Storage runs from **AED 12 per sq ft per month**, on measured space. A studio is around 30 sq ft, a one-bedroom 60–90, a two-bedroom 120–150.",
     ],
     sections: [
       {
@@ -251,7 +251,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
     h1: "Villa Storage in Dubai",
     hero: [
       "A villa collection is not just a bigger flat collection. It has three areas a flat does not — the garage, the garden and usually a maid's room — and between them they routinely account for a third of the volume. Underestimating them is the most common quoting error in [personal storage in Dubai](/personal-storage-dubai).",
-      "A three-bedroom villa's contents typically occupy **240–270 sq ft** in storage, and four bedrooms and above is quoted on survey. At **AED 12 per sq ft per month, VAT excluded**, that is the whole of the monthly figure.",
+      "A three-bedroom villa's contents typically occupy **240–270 sq ft** in storage, and four bedrooms and above is quoted on survey. At **AED 12 per sq ft per month**, that is the whole of the monthly figure.",
       "Villa collections are usually a full day and sometimes two. Access is generally easier than a tower — a driveway rather than a service lift — but gated communities need the vehicle and crew registered with security in advance.",
     ],
     sections: [
@@ -525,7 +525,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
       },
       {
         q: "How much does luggage storage cost?",
-        a: "It is billed on the space the bags occupy at AED 12 per sq ft per month VAT excluded, which for a handful of suitcases is a small monthly figure. Transport is quoted separately on the addresses involved.",
+        a: "It is billed on the space the bags occupy at AED 12 per sq ft per month, which for a handful of suitcases is a small monthly figure. Transport is quoted separately on the addresses involved.",
       },
       {
         q: "Can you deliver to the airport?",
@@ -628,7 +628,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
       },
       {
         q: "How much does a small seasonal booking cost?",
-        a: "It is billed on the space used at AED 12 per sq ft per month VAT excluded. A camping set, a barbecue and six cartons is typically 15 to 25 square feet.",
+        a: "It is billed on the space used at AED 12 per sq ft per month. A camping set, a barbecue and six cartons is typically 15 to 25 square feet.",
       },
       {
         q: "When are the busy weeks?",
@@ -773,7 +773,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
     hero: [
       "The Dubai home gym has a predictable arc: bought in January, used enthusiastically until March, and then occupying a quarter of a bedroom until somebody decides what to do about it. Storage is what people decide, and it is one of the more cheerful bookings in [personal storage in Dubai](/personal-storage-dubai).",
       "Beyond that there is the seasonal half — dive gear, paddleboards, kayaks and desert kit that gets used between October and April and then has nowhere to be for five months.",
-      "It is all bulky and low value per cubic foot, which makes it exactly the wrong thing to keep in a Dubai flat and exactly the right thing to store at **AED 12 per sq ft per month, VAT excluded**.",
+      "It is all bulky and low value per cubic foot, which makes it exactly the wrong thing to keep in a Dubai flat and exactly the right thing to store at **AED 12 per sq ft per month**.",
     ],
     sections: [
       {

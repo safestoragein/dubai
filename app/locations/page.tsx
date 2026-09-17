@@ -104,8 +104,7 @@ export default function LocationsPage() {
                 <strong className="text-dubai-gold">{facilityListSentence(FACILITY_EMIRATES)}</strong>. The
                 rest is served as a collection service with storage at the nearest facility, and each
                 emirate page says plainly which applies. From{" "}
-                <strong className="text-dubai-gold">AED {PRICE_PER_SQFT_AED} per sq ft per month</strong>,
-                VAT excluded.
+                <strong className="text-dubai-gold">AED {PRICE_PER_SQFT_AED} per sq ft per month</strong>.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>

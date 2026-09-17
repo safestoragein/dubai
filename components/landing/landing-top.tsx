@@ -21,7 +21,7 @@ export function LandingHero() {
               rental, no heavy lifting, carton-to-villa) is covered by the steps
               and the Why band further down. */}
           <p>
-            Door-to-door pickup and delivery across Dubai. Secure, clean units from 12 AED (VAT excluded),
+            Door-to-door pickup and delivery across Dubai. Secure, clean units from 12 AED,
             with no lock-in.
           </p>
           <div className={s.heroCta}>
@@ -116,7 +116,7 @@ export function LandingIntro() {
           <span className={s.eyebrow} style={{ color: "rgba(255,255,255,.6)" }}>
             Pricing
           </span>
-          <h3>Flexible monthly plans from 12 AED / sqft, VAT excluded</h3>
+          <h3>Flexible monthly plans from 12 AED / sqft</h3>
           <p>
             Units from 25 sq ft to 300+ sq ft. No setup fees, no deposits, no lock-in — and a
             price-match guarantee.

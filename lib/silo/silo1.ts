@@ -42,7 +42,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
     hero: [
       "Almost everyone typing self storage near me is trying to solve a transport problem, not a location problem. You want the shortest possible distance between your flat and wherever your things end up, because you are the one who has to drive it. That is the part of [self storage in Dubai](/self-storage-dubai) we removed.",
       "Our crew comes to your address, wraps your furniture, carries it down and loads it. You do not hire a van, you do not book a Sunday, and you do not drive to Al Quoz twice. Once that is true, how far the warehouse is stops being a number you have to care about.",
-      "Storage is **AED 12 per sq ft per month, VAT excluded**, charged on the floor space your items actually occupy. Transport is quoted separately on your address and access, and both numbers are agreed before anything is booked.",
+      "Storage is **AED 12 per sq ft per month**, charged on the floor space your items actually occupy. Transport is quoted separately on your address and access, and both numbers are agreed before anything is booked.",
     ],
     sections: [
       {
@@ -119,7 +119,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
       },
       {
         q: "Is collected storage more expensive than a unit near me?",
-        a: "The storage rate is AED 12 per sq ft per month, VAT excluded, and you pay for the space you use rather than a fixed unit size. Against a nearby yard, the rate can look similar or slightly higher; the total for the job is usually lower once van hire, fuel, your time and the return trip are in the same column.",
+        a: "The storage rate is AED 12 per sq ft per month, and you pay for the space you use rather than a fixed unit size. Against a nearby yard, the rate can look similar or slightly higher; the total for the job is usually lower once van hire, fuel, your time and the return trip are in the same column.",
       },
       {
         q: "How quickly can you collect?",
@@ -164,7 +164,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
     hero: [
       "A long booking is not a short booking that went on longer. It is packed differently, racked differently and priced differently, and getting that wrong at collection is what people regret eighteen months later. This is the long-stay end of [self storage in Dubai](/self-storage-dubai).",
       "Most long bookings here start the same way: a posting abroad, a property sold before the next one is bought, a family splitting a move across two countries, or a business holding records it is legally required to keep. What they share is that nobody wants to think about it again for a year.",
-      "There is no maximum term and no renewal to renegotiate. Billing stays monthly at **AED 12 per sq ft, VAT excluded**, on the space your goods occupy, and you can end it or change it at any point without a penalty.",
+      "There is no maximum term and no renewal to renegotiate. Billing stays monthly at **AED 12 per sq ft**, on the space your goods occupy, and you can end it or change it at any point without a penalty.",
     ],
     sections: [
       {
@@ -209,7 +209,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
         kind: "table",
         h2: "What a long booking costs to hold",
         intro:
-          "The rate does not change with the term — AED 12 per sq ft per month, VAT excluded, on the space used. What changes is that the transport becomes a small share of the total.",
+          "The rate does not change with the term — AED 12 per sq ft per month, on the space used. What changes is that the transport becomes a small share of the total.",
         columns: ["Home size", "Typical space", "Transport as a share of a 2-year total"],
         rows: [
           ["Studio", "~30 sq ft", "Meaningful — worth packing tightly"],
@@ -241,7 +241,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
       },
       {
         q: "Is long term storage cheaper per month?",
-        a: "The rate is the same, AED 12 per sq ft per month VAT excluded. What makes a long booking cheaper in practice is that the one-off transport cost is spread over many more months, and that a well-packed long booking usually occupies less floor space than a hurried short one.",
+        a: "The rate is the same, AED 12 per sq ft per month. What makes a long booking cheaper in practice is that the one-off transport cost is spread over many more months, and that a well-packed long booking usually occupies less floor space than a hurried short one.",
       },
       {
         q: "Can I get things out during a long booking?",
@@ -286,14 +286,14 @@ export const SILO1_PAGES: SiloPageContent[] = [
     navBlurb: "Space by the square foot, without renting a warehouse you half fill.",
     title: "Storage Space For Rent in Dubai | Pay By The Square Foot",
     description:
-      "Storage space for rent in Dubai from AED 12 per sq ft per month, VAT excluded. Rent the space your goods occupy rather than a fixed unit, with no lease and no minimum term.",
+      "Storage space for rent in Dubai from AED 12 per sq ft per month. Rent the space your goods occupy rather than a fixed unit, with no lease and no minimum term.",
     keywords:
       "storage space for rent in dubai, storage space for rent, rent storage space dubai, storage space dubai, warehouse space for rent dubai small, storage area for rent dubai",
     ogTitle: "Storage Space For Rent in Dubai — By The Square Foot",
     h1: "Storage Space For Rent in Dubai",
     hero: [
       "Renting storage space in Dubai normally means signing for a fixed area whether or not you fill it, usually with a lease attached. We rent it by the square foot your goods actually occupy — which is the part of [self storage in Dubai](/self-storage-dubai) that people find hardest to believe until they see the first invoice.",
-      "There is no lease, no Ejari, no deposit against a unit and no minimum term. You are billed monthly on measured floor space at **AED 12 per sq ft, VAT excluded**, and that figure moves when what you store moves.",
+      "There is no lease, no Ejari, no deposit against a unit and no minimum term. You are billed monthly on measured floor space at **AED 12 per sq ft**, and that figure moves when what you store moves.",
       "It suits two groups in particular: households who need more than a cupboard and much less than a warehouse, and small businesses whose stock volume changes every quarter and who do not want to sign a year for their peak.",
     ],
     sections: [
@@ -396,14 +396,14 @@ export const SILO1_PAGES: SiloPageContent[] = [
     navBlurb: "Rent storage month to month, with nothing to cancel and no lock-in.",
     title: "Rent Storage in Dubai Monthly | No Lock-In, No Minimum",
     description:
-      "Rent storage in Dubai month to month from AED 12 per sq ft, VAT excluded. Billed on the space used, cancel any month, no deposit and no minimum term.",
+      "Rent storage in Dubai month to month from AED 12 per sq ft. Billed on the space used, cancel any month, no deposit and no minimum term.",
     keywords:
       "rent storage dubai, monthly storage dubai, storage monthly rental dubai, month to month storage dubai, storage per month dubai, rent a storage unit monthly dubai",
     ogTitle: "Rent Storage in Dubai — Month To Month",
     h1: "Rent Storage in Dubai, Month To Month",
     hero: [
       "Month-to-month is how every booking here works, not an option you upgrade to. There is no minimum term, no lock-in period and no cancellation fee anywhere in [self storage in Dubai](/self-storage-dubai) as we run it.",
-      "You are billed monthly on the floor space your goods occupy at **AED 12 per sq ft, VAT excluded**. If you take half of it back in March, April is billed on what is left. If you end it entirely, you tell us and it ends.",
+      "You are billed monthly on the floor space your goods occupy at **AED 12 per sq ft**. If you take half of it back in March, April is billed on what is left. If you end it entirely, you tell us and it ends.",
       "That matters more in this city than most, because Dubai timelines slip. Handovers move, visas take longer than promised, and a job start date shifts by three weeks. A storage contract that punishes you for that is a storage contract that was designed for the operator.",
     ],
     sections: [
@@ -421,7 +421,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
         kind: "table",
         h2: "What a month costs, by what you are storing",
         intro:
-          "One rate throughout, VAT excluded, on measured space. Transport is separate and quoted on your address and access.",
+          "One rate throughout, on measured space. Transport is separate and quoted on your address and access.",
         columns: ["What you are storing", "Typical space", "What decides the final figure"],
         rows: [
           ["10–20 cartons", "15–25 sq ft", "How well they stack — sealed cartons stack, loose items do not"],
@@ -509,7 +509,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
     h1: "A Storage Room in Dubai — Without Renting A Bigger Flat",
     hero: [
       "Most people searching for a storage room in Dubai are running a quiet arithmetic: the flat is one room short, and the next size up costs tens of thousands of dirhams a year more. Storage is the cheaper half of that equation, and it is the everyday use of [self storage in Dubai](/self-storage-dubai).",
-      "You do not rent a room. You store the contents of one — the guest bed nobody sleeps in, the second sofa, the boxes in the hallway, the suitcases stacked on the wardrobe — and get the floor space back at **AED 12 per sq ft per month, VAT excluded**.",
+      "You do not rent a room. You store the contents of one — the guest bed nobody sleeps in, the second sofa, the boxes in the hallway, the suitcases stacked on the wardrobe — and get the floor space back at **AED 12 per sq ft per month**.",
       "A room's worth of contents is typically 25 to 40 square feet of stored space. Compare that monthly figure against the annual rent difference between a one-bed and a two-bed in your building, and the decision usually makes itself.",
     ],
     sections: [
@@ -635,7 +635,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
     hero: [
       "In most cities climate control is an upgrade. In Dubai it is the difference between getting your furniture back and getting a lesson in what 48°C does to veneer, and it is standard on every booking in [self storage in Dubai](/self-storage-dubai) rather than a tier you select.",
       "Goods are stored indoors in a covered, managed warehouse and racked off the floor — not in a yard, not in a shipping container, and not under a shade structure. Those three are what most cheap storage in this region actually is, and in July they are ovens.",
-      "The rate is the same **AED 12 per sq ft per month, VAT excluded**, whether you are storing a sofa or a server. There is no climate-controlled surcharge because there is no non-climate-controlled option to compare it against.",
+      "The rate is the same **AED 12 per sq ft per month**, whether you are storing a sofa or a server. There is no climate-controlled surcharge because there is no non-climate-controlled option to compare it against.",
     ],
     sections: [
       {
@@ -704,7 +704,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
     faqs: [
       {
         q: "Is climate controlled storage more expensive?",
-        a: "Not here — the rate is AED 12 per sq ft per month, VAT excluded, for everything, because indoor covered storage is the only thing on offer rather than a premium tier.",
+        a: "Not here — the rate is AED 12 per sq ft per month, for everything, because indoor covered storage is the only thing on offer rather than a premium tier.",
       },
       {
         q: "What temperature is the facility kept at?",
@@ -1202,7 +1202,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
     hero: [
       "Because we bill on the floor space your goods occupy rather than on a fixed unit, working out that number in advance is genuinely useful — it is the whole of your monthly cost. This is how to estimate it before anybody quotes you anything, within [self storage in Dubai](/self-storage-dubai).",
       "The short method: start from your home size, then adjust for the four things people always get wrong. A studio is around **30 sq ft**, a one-bedroom **60–90**, a two-bedroom **120–150**, a three-bedroom villa **240–270**.",
-      "At **AED 12 per sq ft per month, VAT excluded**, multiplying your estimate by the rate gives you the monthly figure directly. Transport is separate and depends on your address and access.",
+      "At **AED 12 per sq ft per month**, multiplying your estimate by the rate gives you the monthly figure directly. Transport is separate and depends on your address and access.",
     ],
     sections: [
       {

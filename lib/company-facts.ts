@@ -16,7 +16,7 @@
 /** Headline storage price. VAT excluded, per square foot, per month. */
 export const PRICE_PER_SQFT_AED = "12"
 export const PRICE_FROM = `From ${PRICE_PER_SQFT_AED} AED / sqft`
-export const PRICE_FROM_VAT = `From ${PRICE_PER_SQFT_AED} AED / sqft (VAT excluded)`
+export const PRICE_FROM_VAT = `From ${PRICE_PER_SQFT_AED} AED / sqft`
 
 /** Contact. Keep identical to the Google Business Profile record. */
 export const PHONE = "+971505773388"

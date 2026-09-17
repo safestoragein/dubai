@@ -111,7 +111,7 @@ export const SILO3_PAGES: SiloPageContent[] = [
       },
       {
         q: "How much does a large archive cost?",
-        a: "It is billed on space at AED 12 per sq ft per month, VAT excluded. Four hundred boxes is roughly 160 square feet. For volumes above that we would rather survey and review the index than quote from a box count.",
+        a: "It is billed on space at AED 12 per sq ft per month. Four hundred boxes is roughly 160 square feet. For volumes above that we would rather survey and review the index than quote from a box count.",
       },
       {
         q: "Can we add to the archive each year?",
@@ -453,7 +453,7 @@ export const SILO3_PAGES: SiloPageContent[] = [
     hero: [
       "A stockroom in a Dubai mall is the most expensive storage in the country, and most of what is in it has not moved for months. Getting the slow half of it out is one of the highest-return uses of [business storage in Dubai](/business-storage-dubai).",
       "The arrangement is straightforward: **seasonal and slow-moving ranges go offsite**, the backroom holds only what replenishes the floor this week, and stock is called forward as the season turns.",
-      "Storage is **AED 12 per sq ft per month, VAT excluded** — a figure worth putting directly next to your rent per square foot, because the comparison is usually not close.",
+      "Storage is **AED 12 per sq ft per month** — a figure worth putting directly next to your rent per square foot, because the comparison is usually not close.",
     ],
     sections: [
       {
@@ -658,7 +658,7 @@ export const SILO3_PAGES: SiloPageContent[] = [
     hero: [
       "Contractors, trades and event businesses all share a problem: the kit is expensive, it is needed intermittently, and between jobs it lives in a van, a villa garage or a corner of somebody's office. Storing it properly is one of the plainer uses of [business storage in Dubai](/business-storage-dubai).",
       "Two rules govern almost everything here and both are safety rather than preference: **nothing with fuel in it**, and **lithium batteries must be raised before booking**. Petrol tools, generators and gas equipment cannot be stored, and a degraded lithium pack in a hot warehouse is a genuine fire risk.",
-      "Everything else — hand tools, corded power tools, scaffolding, staging, cabling, test equipment, catering kit — stores straightforwardly, indoors and racked, at **AED 12 per sq ft per month, VAT excluded**.",
+      "Everything else — hand tools, corded power tools, scaffolding, staging, cabling, test equipment, catering kit — stores straightforwardly, indoors and racked, at **AED 12 per sq ft per month**.",
     ],
     sections: [
       {

@@ -20,7 +20,7 @@ export const businessFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How is business storage priced in Dubai?",
-    a: "From 12 AED / sqft (VAT excluded), by unit size. Every plan includes clean indoor units, 24/7 security, an account manager and door-to-door service.",
+    a: "From 12 AED / sqft, by unit size. Every plan includes clean indoor units, 24/7 security, an account manager and door-to-door service.",
   },
   {
     q: "Can SafeStorage help with document archiving as part of a business storage plan?",

@@ -68,7 +68,7 @@ export default function LongTermStorageExpatsPage() {
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">When Long-Term Storage Makes Sense for Dubai Expats</h2>
             <div className="space-y-4 mb-8">
               {[
-                { scenario: "You're not sure you're coming back", desc: "88% of expats who leave Dubai say they'd consider returning. If there's a 30%+ chance you'll be back within 2 years, storage often beats shipping. With pricing from 12 AED / sqft (VAT excluded), storing a unit long-term costs far less than one-way shipping — and a fraction of shipping both ways." },
+                { scenario: "You're not sure you're coming back", desc: "88% of expats who leave Dubai say they'd consider returning. If there's a 30%+ chance you'll be back within 2 years, storage often beats shipping. With pricing from 12 AED / sqft, storing a unit long-term costs far less than one-way shipping — and a fraction of shipping both ways." },
                 { scenario: "Your new country housing is uncertain", desc: "You don't know if you'll have space for Dubai furniture abroad. Store here, ship only what you need once you've seen the new accommodation — rather than shipping everything and discovering it doesn't fit." },
                 { scenario: "Job contract has a fixed term", desc: "On a 12-month secondment or project contract? Storing in Dubai costs less than shipping and returning items. Keep your Dubai belongings safe while you complete the contract, then decide." },
                 { scenario: "Children's school year timing", desc: "Many expat families time moves around school years. Summer departure with September re-entry is a 3-month storage window. Academic year timing means 9-12 month storage for families that take the full school year abroad." },
@@ -85,7 +85,7 @@ export default function LongTermStorageExpatsPage() {
 
             <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Long-Term Storage Cost: Full Breakdown</h2>
             <div className="bg-dubai-gold/10 border border-dubai-gold/30 rounded-xl p-6 mb-6">
-              <p className="text-dubai-navy font-medium">Long-term storage starts from <strong>12 AED / sqft</strong> (VAT excluded). Whether you store for 3 months over summer or 2 years on secondment, you pay the same straightforward per-square-foot rate for the space you reserve.</p>
+              <p className="text-dubai-navy font-medium">Long-term storage starts from <strong>12 AED / sqft</strong>. Whether you store for 3 months over summer or 2 years on secondment, you pay the same straightforward per-square-foot rate for the space you reserve.</p>
             </div>
             <p className="text-sm text-gray-500 mb-8">* Long-term discounts may apply for 6-month and 12-month commitments — ask at time of booking.</p>
 

@@ -71,7 +71,7 @@ const FAQS = [
   },
   {
     q: "How much does warehouse space cost in Dubai?",
-    a: "SafeStorage warehouse storage starts from 12 AED per sq ft per month, VAT excluded, and that rate covers the space, racking, security, utilities and door-to-door collection and delivery. A conventional Dubai warehouse lease is typically quoted per square foot per year, and then adds fit-out, DEWA, chiller, insurance, Ejari and labour on top — costs that usually only become visible after you have signed. For anything under roughly 2,000 sq ft, paying only for the space you use is normally the cheaper option once those extras are counted.",
+    a: "SafeStorage warehouse storage starts from 12 AED per sq ft per month, and that rate covers the space, racking, security, utilities and door-to-door collection and delivery. A conventional Dubai warehouse lease is typically quoted per square foot per year, and then adds fit-out, DEWA, chiller, insurance, Ejari and labour on top — costs that usually only become visible after you have signed. For anything under roughly 2,000 sq ft, paying only for the space you use is normally the cheaper option once those extras are counted.",
   },
   {
     q: "Do you cover Al Quoz, Jebel Ali and Ras Al Khor?",
@@ -102,7 +102,7 @@ const schemas = [
     "@id": "https://safestorage.ae/business-storage-dubai/warehouse-storage#webpage",
     name: "Warehouse Storage Dubai | Space Without a Lease",
     description:
-      "Flexible warehouse storage in Dubai from 12 AED/sqft, VAT excluded. Pay for the space you use instead of leasing a whole warehouse.",
+      "Flexible warehouse storage in Dubai from 12 AED/sqft. Pay for the space you use instead of leasing a whole warehouse.",
     url: "https://safestorage.ae/business-storage-dubai/warehouse-storage",
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     about: { "@id": "https://safestorage.ae/#business" },
@@ -122,7 +122,7 @@ const schemas = [
       "@type": "Offer",
       priceCurrency: "AED",
       price: "12",
-      description: "From 12 AED per sq ft per month, VAT excluded",
+      description: "From 12 AED per sq ft per month",
     },
   },
   
@@ -217,7 +217,7 @@ export default function WarehouseStorageDubaiPage() {
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl font-bold text-[#0A2463] mb-3">Warehouse Space Sizes &amp; What Fits</h2>
           <p className="text-gray-700 mb-8">
-            All sizes are charged from 12 AED per sq ft per month, VAT excluded.
+            All sizes are charged from 12 AED per sq ft per month.
             Pallet counts assume standard 1.2 × 1.0 m pallets stacked to normal height.
           </p>
           <div className="overflow-x-auto">

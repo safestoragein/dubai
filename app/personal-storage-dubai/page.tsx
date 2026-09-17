@@ -141,7 +141,7 @@ export default function PersonalStoragePage() {
         eyebrow="Serving Globally Since 2015"
         title="Personal Storage Dubai —"
         titleAccent="Door-to-Door"
-        blurb="Affordable storage for your home, furniture and personal belongings, from 12 AED / sqft (VAT excluded). Door-to-Door service, no hidden fees, cancel anytime."
+        blurb="Affordable storage for your home, furniture and personal belongings, from 12 AED / sqft. Door-to-Door service, no hidden fees, cancel anytime."
         image="/landing/svc-household.jpg"
         imagePosition="center 40%"
         stats={[
@@ -325,7 +325,7 @@ export default function PersonalStoragePage() {
         </div>
 
         <h3 className={s.chipsHead}>Personal storage pricing</h3>
-        <p className={s.chipsNote}>From 12 AED / sqft (VAT excluded) across every unit size.</p>
+        <p className={s.chipsNote}>From 12 AED / sqft across every unit size.</p>
         <div className={s.trio}>
           {[
             { size: "25–50 sq ft", label: "Small", fits: "10–20 boxes or a small collection of household items" },

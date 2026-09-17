@@ -34,7 +34,7 @@ const schemas = [
 ]
 
 const faqs = [
-  { q: "How much does car storage cost in Dubai?", a: "Car storage in Dubai starts from 12 AED / sqft (VAT excluded) at SafeStorage Dubai, covering cars, motorcycles, and standard vehicles. Classic cars and larger vehicles are quoted individually. Long-term storage (3+ months) receives significant discounts." },
+  { q: "How much does car storage cost in Dubai?", a: "Car storage in Dubai starts from 12 AED / sqft at SafeStorage Dubai, covering cars, motorcycles, and standard vehicles. Classic cars and larger vehicles are quoted individually. Long-term storage (3+ months) receives significant discounts." },
   { q: "Is your car storage indoors and covered?", a: "Yes, all our vehicle storage bays are indoors and under cover. Your vehicle is protected from direct sun, dust, sandstorms, rain, and bird droppings — the outdoor exposure that causes paint oxidation, interior fading, and body damage to cars left parked in the open across Dubai." },
   { q: "Do you offer pickup for vehicle storage?", a: "Yes, we offer drive-in options and can arrange transportation for vehicles that cannot be driven. For motorcycles and smaller vehicles, our team can coordinate transport. Contact us at +971505773388 to discuss your specific vehicle." },
   { q: "Can I access my vehicle while it's in storage?", a: "Yes, you can access your vehicle during our operating hours: Monday–Sunday 8 AM–8 PM. Simply give us 2 hours' notice and your vehicle will be ready. For business customers with special requirements, extended access can be arranged." },
