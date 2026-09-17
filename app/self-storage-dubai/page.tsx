@@ -8,8 +8,8 @@ import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 import { manrope, sora } from "@/components/landing/fonts"
-import PageHero, { CtaBand } from "@/components/landing/page-hero"
-import { LandingTrust } from "@/components/landing/landing-top"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
 import { LandingConnect } from "@/components/landing/landing-connect"
 import { UspRail } from "@/components/landing/usp-rail"
 import { FeatScroller } from "@/components/landing/feat-scroller"
@@ -183,7 +183,7 @@ export default function SelfStorageDubaiPage() {
       <SchemaScript schema={[...pageSchemas, faqSchema]} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        <PageHero
+        <SplitHero
           eyebrow="Self storage Dubai"
           title="Self Storage in Dubai –"
           titleAccent="Secure Units, Fair Rates, Easy Booking"

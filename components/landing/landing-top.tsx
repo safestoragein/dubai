@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react"
+import type { LucideIcon } from "lucide-react"
 import Link from "next/link"
 import { env } from "@/lib/env"
 import s from "./landing.module.css"
@@ -72,6 +74,74 @@ export function LandingTrust() {
       </div>
       <p className={s.scrollHint}>Swipe for more →</p>
       <hr className={s.trustRule} />
+    </section>
+  )
+}
+
+/* ------------------------------------------------------------------ *
+ * SPLIT HERO — the home hero's look (light wash from the left, copy
+ * left-aligned, rating card top right) with a page's own photo and copy.
+ * ------------------------------------------------------------------ */
+export function SplitHero({
+  eyebrow,
+  title,
+  titleAccent,
+  blurb,
+  image,
+  imagePosition = "center",
+  stats,
+  ctaLabel = "Get Your Free Quote",
+  ctaHref = "/get-quote",
+  phoneLabel = "Call: 050-577-3388",
+}: {
+  eyebrow?: string
+  title: string
+  titleAccent?: string
+  blurb: string
+  image: string
+  imagePosition?: string
+  stats?: { Icon: LucideIcon; label: string }[]
+  ctaLabel?: string
+  ctaHref?: string
+  phoneLabel?: string
+}) {
+  const style = {
+    "--hero-img": `url("${image}")`,
+    backgroundPosition: imagePosition,
+  } as CSSProperties
+  return (
+    <section className={`${s.hero} ${s.heroBleed} ${s.heroSplit}`}>
+      <div className={s.heroInner} style={style}>
+        <div className={s.heroContent}>
+          {eyebrow ? <span className={s.heroTag}>{eyebrow}</span> : null}
+          <h1>
+            {title} {titleAccent ? <em>{titleAccent}</em> : null}
+          </h1>
+          <p>{blurb}</p>
+          <div className={s.heroCta}>
+            <Link className={`${s.btn} ${s.btnAccent}`} href={ctaHref}>
+              {ctaLabel} →
+            </Link>
+            <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+              <span className={s.phIco}>📞</span> {phoneLabel}
+            </a>
+          </div>
+          {stats?.length ? (
+            <div className={s.heroSplitStats}>
+              {stats.map(({ Icon, label }) => (
+                <span key={label}>
+                  <Icon strokeWidth={2} aria-hidden="true" />
+                  {label}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </div>
+        <div className={s.heroRating}>
+          <strong>4.9★</strong>
+          <span>6,700+ Google reviews</span>
+        </div>
+      </div>
     </section>
   )
 }
