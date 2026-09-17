@@ -1,31 +1,28 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import {
+  Building2, Home, Briefcase, MapPinned, Package, Plane, ClipboardList, Boxes, Layers, Wrench, Route, CalendarClock,
+  Warehouse, Video, FileText, KeyRound, Truck, Hammer, ListChecks, ShieldCheck, PhoneCall, CheckCircle2, AlertTriangle,
+} from "lucide-react"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
-import { SiloHubLinks } from "@/components/silo/silo-links"
+
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
+import { LandingReviews } from "@/components/landing/landing-reviews"
+import { LandingConnect } from "@/components/landing/landing-connect"
+import { UspRail } from "@/components/landing/usp-rail"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import s from "@/components/landing/landing.module.css"
 
 /**
- * ★★ SILO 5 HUB · /moving-storage-dubai/ — owns `moving and storage dubai`
- * (1,900/mo, KD 43, CPC AED 6.98).
- *
- * The single biggest untapped term in the plan: safestorage.ae had NO page for
- * it at all. This SERP is full of movers who don't store and storage companies
- * who don't move, so the wedge is being the one provider that does both under
- * one job number — and being visibly honest about price drivers, which movers
- * in this market are famously not.
- *
- * ⚠ The routing section deliberately does NOT link to the six Silo 5 children
- * (/apartment-movers/, /villa-movers/, /office-movers/, /packing-services/,
- * /inter-emirate-moving/, /leaving-uae-checklist/). They are not built. A hub
- * whose links 404 is worse than a hub that describes the routes in prose and
- * gains the links when the children land.
- *
- * ⚠ [VERIFY] in the source copy: exact permit notice periods and deposits vary
- * per building. The page says permits are normally required and that we arrange
- * them, keeps "typically 24-48 hours" as the hedged figure it is, and makes no
- * claim about deposit amounts.
+ * SILO 5 HUB · /moving-storage-dubai — owns `moving and storage dubai`.
+ * Rebuilt on the shared landing design. The wedge is unchanged: one provider
+ * for both halves of the job, and honest about what drives the price.
+ * The six planned Silo 5 children are still not built, so move types are
+ * described without links to them (only live pages are linked).
  */
 
 export const metadata: Metadata = {
@@ -81,64 +78,56 @@ const faqData = [
 ]
 
 const moveTypes = [
-  {
-    h: "Moving out of an apartment",
-    p: "Marina, JLT, Downtown, JVC, Business Bay — tower moves live and die on the service lift booking, the move permit and the hours the building allows.",
-  },
-  {
-    h: "Moving a villa",
-    p: "Arabian Ranches, Dubai Hills, DAMAC Hills, Town Square, Al Barsha. Multiple trucks, garden furniture, curtains and split AC units.",
-  },
-  {
-    h: "Moving an office",
-    p: "Desks, IT, files, two sets of building permits and a fit-out that isn't finished.",
-  },
-  {
-    h: "Moving to another emirate",
-    p: "Dubai to Abu Dhabi, Sharjah, Ajman or Al Ain — different traffic, different building rules, occasionally different paperwork.",
-  },
-  {
-    h: "Just need the packing done",
-    p: "Some people move themselves and only want the fragile items wrapped properly. We supply materials and pack what matters.",
-  },
+  { Icon: Building2, t: "Apartment moves", b: "Marina, JLT, Downtown, JVC — service lift and move permit sorted." },
+  { Icon: Home, t: "Villa moves", b: "Multiple trucks, garden furniture, curtains and AC units." },
+  { Icon: Briefcase, t: "Office moves", b: "Desks, IT and files, with permits at both buildings." },
+  { Icon: MapPinned, t: "To another emirate", b: "Abu Dhabi, Sharjah, Ajman or Al Ain." },
+  { Icon: Package, t: "Packing only", b: "You move, we wrap what matters." },
+  { Icon: Plane, t: "Leaving the UAE", b: "Ship, fly, or store while you decide.", href: "/moving-storage-dubai/international-relocation" },
 ]
 
 const savings = [
-  {
-    h: "One inventory, not two",
-    p: "When a mover hands your goods to a storage company, your belongings get counted twice by two firms with two lists and two liability positions. Anything missing sits in the gap between them. With one provider there's one barcoded inventory from your old flat to your new one.",
-  },
-  {
-    h: "No double handling",
-    p: "Every extra load and unload is a chance for a scratch. Goods going into storage get loaded once, stored, and delivered once.",
-  },
-  {
-    h: "Flexible dates without a penalty",
-    p: "Your handover moves. It nearly always moves. On a month-to-month storage account you extend by a week; with a separate mover you're re-booking a truck at short notice at whatever price is available.",
-  },
-  {
-    h: "One number to call when something goes wrong",
-    p: "Not two companies each explaining that it's the other one's part of the job.",
-  },
+  { Icon: ListChecks, title: "One inventory, not two", body: "One barcoded list from your old home to your new one — nothing lost between two companies." },
+  { Icon: Boxes, title: "No double handling", body: "Loaded once, stored, delivered once. Fewer chances for a scratch." },
+  { Icon: CalendarClock, title: "Dates can move", body: "Handover slips? Extend storage by a week instead of re-booking a truck." },
+  { Icon: PhoneCall, title: "One number to call", body: "No two companies blaming each other when something goes wrong." },
 ]
 
 const priceDrivers = [
-  ["Volume", "Rooms and furniture count, not floor area. A sparsely furnished 3BHK can be a smaller job than a full 1BHK."],
-  ["Floors and lift access", "A tower with a booked service lift is straightforward. Four flights of stairs in an older Bur Dubai building is a different crew size."],
-  ["Packing scope", "Full pack, fragile-only, or you've packed everything yourself. This is the biggest single variable."],
-  ["Dismantling", "Wardrobes, bunk beds, wall units, curtains, TV brackets, split AC units."],
-  ["Distance", "Within Dubai, to Sharjah or Ajman, or down to Abu Dhabi."],
-  ["Timing", "Weekend and evening slots and end-of-month dates are the busiest windows in Dubai and they price accordingly."],
-  ["Storage", "Whether any of it needs storing, and for how long."],
+  { Icon: Boxes, t: "Volume", b: "Rooms and furniture count, not floor area." },
+  { Icon: Layers, t: "Floors & lift access", b: "Service lift vs four flights of stairs." },
+  { Icon: Package, t: "Packing scope", b: "Full, fragile-only or self-packed — the biggest variable." },
+  { Icon: Wrench, t: "Dismantling", b: "Wardrobes, bunk beds, wall units, TV brackets." },
+  { Icon: Route, t: "Distance", b: "Within Dubai, Sharjah, Ajman or Abu Dhabi." },
+  { Icon: CalendarClock, t: "Timing", b: "Weekends and month-ends are the busiest slots." },
+  { Icon: Warehouse, t: "Storage", b: "Whether anything needs storing, and for how long." },
 ]
 
 const steps = [
-  { n: 1, h: "Survey", p: "Video walkthrough or a site visit. Ten minutes for an apartment. We're sizing the truck and the crew, and looking for the things that catch people out — a wall unit that won't come apart, a sofa that came in through a window, a lift that's out of service." },
-  { n: 2, h: "Written quote", p: "Crew size, vehicles, packing scope, dismantling, storage if needed, and the date. On one page." },
-  { n: 3, h: "Permits and access", p: "We book the service lift and the move permit with building management at both ends. Most towers in Marina, JLT, Business Bay and Downtown need 24–48 hours' notice and restrict move hours." },
-  { n: 4, h: "Pack", p: "Cartons, wrap, blankets, wardrobe boxes for hanging clothes. Every box labelled by room. Fragile items wrapped individually, not layered into a carton and hoped for." },
-  { n: 5, h: "Move or store", p: "Delivered to the new address, or into storage with a photographed digital inventory, or split between the two — which is what most of our jobs actually are." },
-  { n: 6, h: "Reassemble", p: "What we dismantled, we rebuild. Beds made accessible first, because the first night matters more than the last box." },
+  { Icon: Video, title: "Survey", body: "A video walkthrough or site visit to size the truck and crew — and spot the wall unit that won't come apart." },
+  { Icon: FileText, title: "Written quote", body: "Crew size, vehicles, packing, dismantling, storage and date — on one page." },
+  { Icon: KeyRound, title: "Permits & access", body: "We book the service lift and move permit with building management at both ends." },
+  { Icon: Package, title: "Pack", body: "Cartons, wrap and wardrobe boxes, every box labelled by room, fragile items wrapped one by one." },
+  { Icon: Truck, title: "Move or store", body: "To the new address, into storage with a photographed inventory, or split between the two." },
+  { Icon: Hammer, title: "Reassemble", body: "What we dismantled, we rebuild — beds first, because the first night matters." },
+]
+
+const areas = [
+  "Dubai Marina", "JBR", "Palm Jumeirah", "JLT", "Downtown", "Business Bay", "DIFC", "Jumeirah", "Umm Suqeim",
+  "Al Barsha", "Barsha Heights", "JVC", "JVT", "Dubai Hills", "Arabian Ranches", "DAMAC Hills", "Town Square",
+  "Motor City", "Sports City", "Al Furjan", "Discovery Gardens", "Mirdif", "Al Warqa", "Deira", "Bur Dubai",
+  "Karama", "Al Qusais", "Silicon Oasis", "International City", "DIP", "Dubai South", "Sharjah", "Ajman", "Abu Dhabi",
+]
+
+const explore = [
+  { Icon: Warehouse, t: "Self storage Dubai", b: "Space, access and security.", href: "/self-storage-dubai" },
+  { Icon: Home, t: "Personal storage", b: "Household and long-stay storage.", href: "/personal-storage-dubai" },
+  { Icon: Briefcase, t: "Business storage", b: "Stock, equipment and records.", href: "/business-storage-dubai" },
+  { Icon: CalendarClock, t: "Short-term storage", b: "For a gap you already know about.", href: "/self-storage-dubai/short-term" },
+  { Icon: Layers, t: "Space size guide", b: "Sq ft by home size.", href: "/self-storage-dubai/unit-sizes" },
+  { Icon: ClipboardList, t: "Storage prices", b: "What storage really costs per month.", href: "/self-storage-dubai/prices" },
+  { Icon: Plane, t: "International relocation", b: "Leaving Dubai: options and timelines.", href: "/moving-storage-dubai/international-relocation" },
+  { Icon: MapPinned, t: "Moving to Dubai guide", b: "Visa, housing and shipping in order.", href: "/guides/moving-to-dubai" },
 ]
 
 const pageSchemas = [
@@ -175,295 +164,299 @@ const pageSchemas = [
 ]
 
 export default function MovingStorageDubaiPage() {
+  const faqs = faqData.map((f) => ({ q: f.question, a: f.answer }))
   return (
     <>
+      <SiloBreadcrumb trail={[{ name: "Home", href: "/" }, { name: "Moving and Storage Dubai" }]} />
       <SchemaScript schema={pageSchemas} />
-      <SiloBreadcrumb
-        trail={[{ name: "Home", href: "/" }, { name: "Moving and Storage Dubai" }]}
-      />
 
-      <main className="min-h-screen">
-        <section className="bg-dubai-navy py-16 text-white md:py-20">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">Moving and Storage in Dubai</h1>
-              <p className="mb-4 text-lg text-white/90">
-                Most Dubai moves need storage and most people don&rsquo;t find that out until two weeks before the truck.
-              </p>
-              <p className="mb-4 text-lg text-white/90">
-                The lease ends on the 8th. The new place is available from the 25th. Or the villa handover slips, or
-                you&rsquo;re going from a three-bedroom in Mirdif to a two-bedroom in JVC and a third of the furniture has
-                nowhere to go. Seventeen days with your entire home in a hotel room isn&rsquo;t a plan.
-              </p>
-              <p className="mb-4 text-lg text-white/90">
-                We do both halves. <strong className="text-dubai-gold">Moving and storage</strong> with one crew, one
-                inventory and one job number — we pack your home or office, move what&rsquo;s going to the new address,
-                and store whatever needs storing from{" "}
-                <strong className="text-dubai-gold">AED 12 per sq ft per month</strong> with no lock-in. If the dates
-                change, and in this city they usually do, we hold the goods and re-book the delivery instead of leaving
-                you to find a warehouse on a Thursday afternoon.
-              </p>
-              <p className="mb-8 text-lg text-white/90">
-                That&rsquo;s the practical difference between a mover and a moving-and-storage company. A mover&rsquo;s job
-                ends when the truck is empty.
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>
-                  <Link href="/get-quote">Get a moving quote</Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-white bg-white text-black hover:bg-gray-100" asChild>
-                  <a href="tel:+971505773388">Call +971 50 577 3388</a>
-                </Button>
-              </div>
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        <SplitHero
+          eyebrow="Moving & storage Dubai"
+          title="Moving and Storage in Dubai –"
+          titleAccent="One Crew, One Job Number"
+          blurb="We pack, move and store — from AED 12 per sq ft per month when your dates don't line up. No lock-in."
+          image="/landing/svc-relocation.jpg"
+          imagePosition="center 50%"
+          ctaLabel="Get a Moving Quote"
+        />
+
+        <LandingTrust />
+
+        {/* MOVE TYPES */}
+        <section className={`${s.section} ${s.wrap}`} id="move-types">
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Your move</span>
+              <h2>
+                The kind of move <em>you&apos;re making.</em>
+              </h2>
             </div>
+            <p>
+              Arriving rather than leaving? Start with our{" "}
+              <Link href="/guides/moving-to-dubai" style={{ color: "var(--accent)", fontWeight: 600 }}>
+                moving to Dubai guide →
+              </Link>
+            </p>
+          </div>
+          <div className={s.miniGrid}>
+            {moveTypes.map(({ Icon, t: title, b, href }) => {
+              const inner = (
+                <>
+                  <span className={s.miniIcon} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <div>
+                    <b>{title}</b>
+                    <small>{b}</small>
+                  </div>
+                </>
+              )
+              return href ? (
+                <Link className={`${s.miniCard} ${s.miniLink}`} href={href} key={title}>
+                  {inner}
+                  <span className={s.miniArrow} aria-hidden="true">→</span>
+                </Link>
+              ) : (
+                <div className={s.miniCard} key={title}>
+                  {inner}
+                </div>
+              )
+            })}
           </div>
         </section>
 
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
-              <h2 className="mb-8 text-3xl font-bold text-dubai-navy">The kind of move you&rsquo;re making</h2>
-              <div className="grid gap-5 md:grid-cols-2">
-                {moveTypes.map((m) => (
-                  <div key={m.h} className="rounded-lg border border-gray-200 p-5">
-                    <h3 className="mb-2 font-semibold text-dubai-navy">{m.h}</h3>
-                    <p className="text-sm text-gray-600">{m.p}</p>
+        {/* WHY ONE PROVIDER */}
+        <section className={s.wrap} id="why">
+          <div className={`${s.darkBand} ${s.whyBand}`}>
+            <div className={`${s.howHead} ${s.bandHead}`}>
+              <div>
+                <span className={s.howEyebrow}>Why one provider</span>
+                <h2>
+                  What moving + storage <br className={s.mBreak} />
+                  <em>together saves you.</em>
+                </h2>
+              </div>
+            </div>
+            <FeatScroller>
+              {savings.map(({ Icon, title, body }) => (
+                <div className={s.feat} key={title}>
+                  <div className={s.featIcon} aria-hidden="true">
+                    <Icon size={18} strokeWidth={2} />
                   </div>
-                ))}
-                <div className="rounded-lg border border-gray-200 p-5">
-                  <h3 className="mb-2 font-semibold text-dubai-navy">Leaving the UAE</h3>
-                  <p className="text-sm text-gray-600">
-                    Sea freight, air freight, or store here while you decide.{" "}
-                    <Link href="/moving-storage-dubai/international-relocation" className="text-dubai-navy underline underline-offset-2">
-                      International relocation from Dubai
-                    </Link>{" "}
-                    explains the options and the real timelines.
-                  </p>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </div>
+              ))}
+            </FeatScroller>
+            <p className={s.scrollHint}>Swipe for more →</p>
+          </div>
+        </section>
+
+        {/* HOW MOVES RUN */}
+        <section className={`${s.section} ${s.wrap}`} id="process">
+          <UspRail
+            head={
+              <div className={s.uspHead}>
+                <span className={s.howEyebrow}>How it works</span>
+                <h2>
+                  How our <em>moves run.</em>
+                </h2>
+                <p className={s.splitBlurb} style={{ marginBottom: 0 }}>
+                  Six steps from first call to the last shelf back on the wall.
+                </p>
+              </div>
+            }
+          >
+            {steps.map(({ Icon, title, body }, i) => (
+              <article className={s.usp} key={title}>
+                <span className={s.uspNum} aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className={s.uspIcon} aria-hidden="true">
+                  <Icon />
+                </div>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </UspRail>
+          <p className={s.scrollHint}>Swipe for more →</p>
+        </section>
+
+        {/* WHEN DATES DON'T LINE UP */}
+        <section className={`${s.section} ${s.wrap}`} id="dates" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Between two leases</span>
+              <h2>
+                When your dates <em>don&apos;t line up.</em>
+              </h2>
+            </div>
+            <p>
+              Ejari ends on the 8th, the new place is ready on the 25th. Storage is billed monthly, so if the
+              handover slips you simply extend.
+            </p>
+          </div>
+          <ol className={s.milestones}>
+            {[
+              { Icon: Package, day: "7th", t: "We pack & clear", b: "The old home, on one barcoded inventory." },
+              { Icon: Warehouse, day: "8th–24th", t: "Safely stored", b: "Live out of a suitcase, not around 30 boxes." },
+              { Icon: Truck, day: "25th", t: "Delivered", b: "Into the new home, on the day it's ready." },
+              { Icon: Hammer, day: "25th", t: "Rebuilt", b: "Furniture reassembled, beds first." },
+            ].map(({ Icon, day, t: title, b }) => (
+              <li className={s.milestone} key={title}>
+                <span className={s.milestoneDot} aria-hidden="true">
+                  <Icon />
+                </span>
+                <span className={s.milestoneYear}>{day}</span>
+                <b>{title}</b>
+                <small>{b}</small>
+              </li>
+            ))}
+          </ol>
+          <div className={s.miniFacts}>
+            <span><CheckCircle2 aria-hidden="true" /> Partial store while you sell surplus furniture</span>
+            <span><CheckCircle2 aria-hidden="true" /> Open-ended hold before shipping abroad</span>
+            <span>
+              <CheckCircle2 aria-hidden="true" /> Storage only?{" "}
+              <Link href="/self-storage-dubai/short-term" style={{ color: "var(--accent)" }}>Short-term storage →</Link>
+            </span>
+          </div>
+        </section>
+
+        {/* PRICE DRIVERS */}
+        <section className={`${s.section} ${s.wrap}`} id="pricing" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Pricing</span>
+              <h2>
+                What a Dubai move costs — <em>and what changes it.</em>
+              </h2>
+            </div>
+            <p>
+              Storage from AED 12 per sq ft per month: about 30 sq ft for a studio, 60–90 for a 1-bed, 120–150 for a
+              2-bed and 240–270 for a 3-bed villa (estimated).
+            </p>
+          </div>
+          <div className={s.miniGrid}>
+            {priceDrivers.map(({ Icon, t: title, b }) => (
+              <div className={s.miniCard} key={title}>
+                <span className={s.miniIcon} aria-hidden="true">
+                  <Icon />
+                </span>
+                <div>
+                  <b>{title}</b>
+                  <small>{b}</small>
                 </div>
               </div>
-              <p className="mt-8 text-gray-700">
-                Arriving rather than leaving? If this is your first move into the country, our{" "}
-                <Link href="/guides/moving-to-dubai" className="text-dubai-navy underline underline-offset-2">
-                  moving to Dubai guide
-                </Link>{" "}
-                covers the visa, housing and shipping sequence before any of the above applies to you.
-              </p>
-            </div>
+            ))}
+          </div>
+          <div className={s.movingTip}>
+            <AlertTriangle aria-hidden="true" />
+            <p>
+              <b>Two tips with any mover:</b> get the quote in writing with crew size, truck count and packing scope —
+              &ldquo;AED X for a 2BHK&rdquo; is not a quote. And be wary of a price far below everyone else&apos;s; that gap
+              usually comes back on the day.
+            </p>
           </div>
         </section>
 
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-4 text-3xl font-bold text-dubai-navy">
-                What &ldquo;moving and storage&rdquo; together actually saves you
+        {/* COVERAGE */}
+        <section className={`${s.section} ${s.wrap}`} id="areas" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Coverage</span>
+              <h2>
+                Where <em>we move.</em>
               </h2>
-              <p className="mb-8 text-gray-700">It isn&rsquo;t just convenience. There are four concrete differences.</p>
-              <div className="grid gap-5 md:grid-cols-2">
-                {savings.map((s) => (
-                  <div key={s.h} className="rounded-lg bg-white p-5 shadow-sm">
-                    <h3 className="mb-2 font-semibold text-dubai-navy">{s.h}</h3>
-                    <p className="text-sm text-gray-600">{s.p}</p>
-                  </div>
-                ))}
-              </div>
             </div>
+            <p>
+              Across Dubai, plus Sharjah, Ajman and Abu Dhabi with transport quoted upfront. See every area in our{" "}
+              <Link href="/locations" style={{ color: "var(--accent)", fontWeight: 600 }}>locations directory →</Link>
+            </p>
+          </div>
+          <div className={s.areaMarquees}>
+            {[areas.slice(0, 17), areas.slice(17)].map((row, r) => (
+              <div className={s.marquee} key={r}>
+                <div className={`${s.marqueeTrack} ${r === 1 ? s.marqueeReverse : ""}`}>
+                  {[0, 1].map((copy) => (
+                    <ul className={`${s.marqueeGroup} ${s.chipGroup}`} aria-hidden={copy === 1 || undefined} key={copy}>
+                      {row.map((a) => (
+                        <li key={a}>
+                          <span className={s.chip}>{a}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={s.movingTip} style={{ marginTop: 22 }}>
+            <ShieldCheck aria-hidden="true" />
+            <p>
+              <b>The honest limitation:</b> we&apos;re a storage company that moves. That&apos;s a real advantage whenever
+              there&apos;s a storage leg or an uncertain date. For a simple same-day move with no storage, a good local
+              mover will serve you just as well — we&apos;ll still quote it.
+            </p>
           </div>
         </section>
 
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
-              <h2 className="mb-4 text-3xl font-bold text-dubai-navy">
-                What a Dubai move actually costs, and what changes it
+        <LandingReviews />
+
+        {/* FAQ */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Good to know</span>
+              <h2>
+                Moving &amp; storage <em>questions.</em>
               </h2>
-              <p className="mb-8 text-gray-700">
-                Nobody can quote a house move accurately from a web page, and anyone who gives you a firm price without
-                asking these questions is going to revise it on the day. Here&rsquo;s what genuinely drives the number.
-              </p>
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[560px] border-collapse text-left text-sm">
-                  <thead>
-                    <tr className="border-b-2 border-gray-200">
-                      <th className="py-3 pr-4 font-semibold text-dubai-navy">Factor</th>
-                      <th className="py-3 font-semibold text-dubai-navy">Why it changes the price</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {priceDrivers.map(([f, w]) => (
-                      <tr key={f} className="border-b border-gray-100">
-                        <td className="py-3 pr-4 whitespace-nowrap font-medium text-dubai-navy">{f}</td>
-                        <td className="py-3 text-gray-700">{w}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="mt-8 text-gray-700">
-                Storage is billed by space and time from AED 12 per sq ft per month. As a rough sizing guide: a
-                studio&rsquo;s contents need around 30 sq ft, a one-bed 60–90, a two-bed 120–150, a three-bed villa
-                240–270. The{" "}
-                <Link href="/self-storage-dubai/unit-sizes" className="text-dubai-navy underline underline-offset-2">
-                  unit size guide
-                </Link>{" "}
-                and the{" "}
-                <Link href="/self-storage-dubai/prices" className="text-dubai-navy underline underline-offset-2">
-                  storage price breakdown
-                </Link>{" "}
-                cover the storage half properly.
-              </p>
-              <div className="mt-6 border-l-4 border-dubai-gold bg-gray-50 p-5">
-                <p className="text-gray-700">
-                  Two warnings that will save you money with any company in this market. First, get the quote in writing
-                  with the crew size, truck count and packing scope stated — &ldquo;AED X for a 2BHK&rdquo; is not a quote.
-                  Second, be wary of a price that&rsquo;s far below everyone else&rsquo;s, because in Dubai&rsquo;s moving
-                  market that gap gets recovered on the day through packing materials, &ldquo;stairs charges&rdquo; or a
-                  smaller crew that takes twice as long.
-                </p>
-              </div>
             </div>
+            <p>
+              More answers? <Link href="/faq" style={{ color: "var(--accent)", fontWeight: 600 }}>View all FAQs →</Link>
+            </p>
+          </div>
+          <FaqAccordion items={faqs} />
+        </section>
+
+        {/* EXPLORE */}
+        <section className={`${s.section} ${s.wrap}`} id="explore" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Explore</span>
+              <h2>
+                Storage for <em>every step of the move.</em>
+              </h2>
+            </div>
+          </div>
+          <div className={s.miniGrid}>
+            {explore.map(({ Icon, t: title, b, href }) => (
+              <Link className={`${s.miniCard} ${s.miniLink}`} href={href} key={href}>
+                <span className={s.miniIcon} aria-hidden="true">
+                  <Icon />
+                </span>
+                <div>
+                  <b>{title}</b>
+                  <small>{b}</small>
+                </div>
+                <span className={s.miniArrow} aria-hidden="true">→</span>
+              </Link>
+            ))}
           </div>
         </section>
 
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
-              <h2 className="mb-8 text-3xl font-bold text-dubai-navy">How our moves run</h2>
-              <ol className="grid gap-5 md:grid-cols-2">
-                {steps.map((s) => (
-                  <li key={s.n} className="flex gap-4 rounded-lg bg-white p-5 shadow-sm">
-                    <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-dubai-navy text-sm font-semibold text-white">
-                      {s.n}
-                    </span>
-                    <div>
-                      <h3 className="mb-1 font-semibold text-dubai-navy">{s.h}</h3>
-                      <p className="text-sm text-gray-600">{s.p}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </section>
+        <CtaBand
+          title="Get a moving and storage quote"
+          blurb="Tell us the two addresses, the date, and whether anything needs storing. Same-day written quote."
+          ctaLabel="Get a Moving Quote"
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
 
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-6 text-3xl font-bold text-dubai-navy">When your dates don&rsquo;t line up</h2>
-              <p className="mb-4 text-gray-700">
-                This is the situation we&rsquo;re built for, so it&rsquo;s worth spelling out what actually happens.
-              </p>
-              <p className="mb-4 text-gray-700">
-                Say your Ejari ends on the 8th and the new place is handed over on the 25th. We pack and clear the old flat
-                on the 7th, everything goes into storage on one barcoded inventory, and on the 25th we deliver it into the
-                new place and rebuild the furniture. You live out of a suitcase for seventeen days instead of living around
-                thirty boxes.
-              </p>
-              <p className="mb-4 text-gray-700">
-                Two variations come up constantly. The first is a partial store: most of it goes to the new address and the
-                surplus furniture stays with us while you decide whether to sell it. Downsizing from a villa to an apartment
-                almost always ends up here. The second is an open-ended hold, where you&rsquo;re leaving the country and the
-                shipment isn&rsquo;t booked yet.
-              </p>
-              <p className="text-gray-700">
-                Both work because storage is billed monthly, not by contract term. If the handover slips a fortnight — and
-                Dubai handovers slip — you pay for a fortnight. Nobody renegotiates anything. For a gap you already know
-                about,{" "}
-                <Link href="/self-storage-dubai/short-term" className="text-dubai-navy underline underline-offset-2">
-                  short term storage
-                </Link>{" "}
-                covers the storage-only version.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-6 text-3xl font-bold text-dubai-navy">Where we move, and where we don&rsquo;t</h2>
-              <p className="mb-4 text-gray-700">
-                Across Dubai — Marina, JBR, Palm Jumeirah, JLT, Downtown, Business Bay, DIFC, Jumeirah, Umm Suqeim, Al
-                Barsha, Barsha Heights, JVC, JVT, Dubai Hills, Arabian Ranches, DAMAC Hills, Town Square, Motor City,
-                Sports City, Al Furjan, Discovery Gardens, Mirdif, Al Warqa, Deira, Bur Dubai, Karama, Al Qusais, Silicon
-                Oasis, International City, DIP, Dubai South. Plus Sharjah, Ajman and Abu Dhabi, with transport quoted
-                upfront. The full list is in our{" "}
-                <Link href="/locations" className="text-dubai-navy underline underline-offset-2">
-                  locations directory
-                </Link>
-                .
-              </p>
-              <div className="my-6 border-l-4 border-dubai-gold bg-white p-5">
-                <p className="text-gray-700">
-                  <strong className="text-dubai-navy">The honest limitation:</strong> we&rsquo;re a storage company that
-                  moves, not a moving company that happens to have a warehouse. That&rsquo;s an advantage on anything with
-                  a storage leg or an uncertain date, and it&rsquo;s a neutral on a straightforward same-day move where a
-                  good local mover will serve you just as well. If your move is a one-bedroom from JVC to Al Furjan on a
-                  fixed date with no storage at all, get three quotes and pick on price and reviews. We&rsquo;ll still
-                  quote it, but we won&rsquo;t pretend we&rsquo;re structurally different for that job.
-                </p>
-              </div>
-              <p className="text-gray-700">
-                For storage without a move, the{" "}
-                <Link href="/self-storage-dubai" className="text-dubai-navy underline underline-offset-2">
-                  self storage hub
-                </Link>{" "}
-                covers sizes, access and security. Household and long-stay storage sits under{" "}
-                {/* PHASE-2 LINK: → /personal-storage-dubai/ */}
-                <Link href="/personal-storage-dubai" className="text-dubai-navy underline underline-offset-2">
-                  personal storage
-                </Link>
-                , and commercial jobs are on{" "}
-                {/* PHASE-2 LINK: → /business-storage-dubai/ */}
-                <Link href="/business-storage-dubai" className="text-dubai-navy underline underline-offset-2">
-                  business storage
-                </Link>
-                .
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-8 text-3xl font-bold text-dubai-navy">Common questions</h2>
-              <Accordion type="single" collapsible className="w-full">
-                {faqData.map((item, i) => (
-                  <AccordionItem key={item.question} value={`item-${i}`}>
-                    <AccordionTrigger className="text-left font-medium text-dubai-navy">{item.question}</AccordionTrigger>
-                    <AccordionContent className="text-gray-600">{item.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-dubai-navy py-16 text-white">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="mb-4 text-3xl font-bold">Get a moving and storage quote</h2>
-              <p className="mb-8 text-white/90">
-                Tell us the two addresses, the date, and whether anything needs storing in between. Same-day written quote,
-                and in most of Dubai we can move inside 48 hours if you&rsquo;re up against a handover.
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>
-                  <Link href="/get-quote">Get a moving quote</Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-white bg-white text-black hover:bg-gray-100" asChild>
-                  <a href="https://wa.me/971505773388" target="_blank" rel="noopener noreferrer">
-                    WhatsApp us
-                  </a>
-                </Button>
-              </div>
-              <p className="mt-6 text-sm text-white/80">+971 50 577 3388 · support@safestorage.ae</p>
-            </div>
-          </div>
-        </section>
-      </main>
-      <SiloHubLinks silo="s5" />
+        <LandingConnect />
+      </div>
     </>
   )
 }
