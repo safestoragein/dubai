@@ -990,6 +990,71 @@
 .featGrid5 {
   grid-template-columns: repeat(5, 1fr);
 }
+/* homepage Why band: nine cards, 3 x 3 */
+.featGrid3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 960px) {
+  .featGrid3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .featGrid3 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  /* phones: compact rows — icon left, title + line right, no badge */
+  .featGrid3 .feat {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    column-gap: 14px;
+    padding: 16px;
+  }
+  .featGrid3 .featIcon {
+    grid-row: 1 / span 2;
+    margin-bottom: 0;
+  }
+  .featGrid3 .feat h3 {
+    margin-bottom: 4px;
+  }
+  .featGrid3 .featTag {
+    display: none;
+  }
+  .bandCta .btn {
+    font-size: 13.5px;
+    padding: 13px 18px;
+    white-space: nowrap;
+  }
+}
+.featTag {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffc3a2;
+  background: rgba(238, 88, 36, 0.16);
+  border: 1px solid rgba(238, 88, 36, 0.35);
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+.bandHead {
+  margin-bottom: 36px;
+}
+.bandHead h2 {
+  margin-bottom: 0;
+}
+.darkBand .bandHead p {
+  color: rgba(255, 255, 255, 0.72);
+}
+.bandCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
 @media (max-width: 1100px) {
   .featGrid5 {
     grid-template-columns: repeat(3, 1fr);

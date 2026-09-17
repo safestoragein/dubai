@@ -346,11 +346,15 @@ export function LandingSteps() {
  * the old why-choose-us grid.
  * ------------------------------------------------------------------ */
 const feats = [
-  { icon: "🚚", title: "Door-to-door", body: "We come to you anywhere in Dubai — bring the packing materials, load, and deliver back to your door." },
-  { icon: "📋", title: "Digital inventory", body: "Every item is photographed and catalogued at pickup, so you always know what is stored and where." },
-  { icon: "💬", title: "Named consultant", body: "One named point of contact from booking to retrieval. No call centres, no ticket queues." },
-  { icon: "🕑", title: "Flexible tenure", body: "Store for a month or two years. Upgrade, downsize, or cancel with 48 hours' notice — no lock-in." },
-  { icon: "🌡️", title: "Climate controlled", body: "Standard on every booking, not an upgrade tier — indoor, off the floor, out of the Dubai summer." },
+  { icon: "🚚", tag: "Anywhere Dubai", title: "Door-to-door Service", body: "We pack, load and move your items. No van hire, no heavy lifting." },
+  { icon: "👤", tag: "Personal Expert", title: "Dedicated Storage Consultant", body: "One personal contact from booking to retrieval. No call centres." },
+  { icon: "🏷️", tag: "No Hidden Fees", title: "Transparent Pricing", body: "What we quote is what you pay, backed by a price-match guarantee." },
+  { icon: "⚡", tag: "Book by 12 PM", title: "Same-Day Pickup Available", body: "Confirm before 12 PM and we collect the same day across Dubai." },
+  { icon: "📅", tag: "No Lock-In", title: "Flexible Monthly Plans", body: "Store for a month or two years. Change plans with 48 hours' notice." },
+  { icon: "📹", tag: "Round the Clock", title: "24/7 CCTV Monitoring", body: "Cameras watch every entry, corridor and storage zone, day and night." },
+  { icon: "📍", tag: "All Areas", title: "Multiple Dubai Locations", body: "Facilities across the UAE, with pickup and delivery in every Dubai area." },
+  { icon: "✨", tag: "Certified Clean", title: "Pest-Free, Clean Environment", body: "Regular pest control and sealed units keep out dust and moisture." },
+  { icon: "📋", tag: "Full Visibility", title: "Inventory Management", body: "Every item photographed at pickup. Check your list anytime on WhatsApp." },
 ]
 
 const stats = [
@@ -364,13 +368,22 @@ export function LandingWhy() {
   return (
     <section className={s.wrap} id="why">
       <div className={s.darkBand}>
-        <span className={s.howEyebrow}>Why SafeStorage</span>
-        <h2>
-          Storage that works around <em>your life</em>, not the other way round.
-        </h2>
-        <div className={`${s.featGrid} ${s.featGrid5}`}>
+        <div className={`${s.howHead} ${s.bandHead}`}>
+          <div>
+            <span className={s.howEyebrow}>Why choose us</span>
+            <h2>
+              Why 100,000+ customers trust <em>SafeStorage worldwide.</em>
+            </h2>
+          </div>
+          <p>
+            We&apos;re not just a storage facility — we&apos;re your trusted partner in keeping your
+            belongings safe.
+          </p>
+        </div>
+        <div className={`${s.featGrid} ${s.featGrid3}`}>
           {feats.map((f) => (
             <div className={s.feat} key={f.title}>
+              <span className={s.featTag}>{f.tag}</span>
               <div className={s.featIcon} aria-hidden="true">
                 {f.icon}
               </div>
@@ -378,6 +391,11 @@ export function LandingWhy() {
               <p>{f.body}</p>
             </div>
           ))}
+        </div>
+        <div className={s.bandCta}>
+          <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+            Join 100,000+ Happy Customers →
+          </Link>
         </div>
       </div>
 
