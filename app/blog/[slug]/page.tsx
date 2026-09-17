@@ -354,7 +354,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Get a Free Quote
             </a>
             <a
-              href="https://safestorage.ae/self-storage-dubai/how-it-works"
+              href="https://safestorage.ae/how-it-works"
               style={{
                 display: "inline-block",
                 background: "#fff",

@@ -334,7 +334,7 @@ export function LandingSteps() {
         <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
           Get a Free Quote →
         </Link>
-        <Link className={s.howMore} href="/self-storage-dubai/how-it-works">
+        <Link className={s.howMore} href="/how-it-works">
           See the full process
         </Link>
       </div>

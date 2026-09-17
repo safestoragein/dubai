@@ -29,7 +29,7 @@ const navItems: NavItem[] = [
       { href: "/personal-storage-dubai", label: "Personal Storage" },
     ],
   },
-  { href: "/self-storage-dubai/how-it-works", label: "How It Works" },
+  { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact Us" },
 ]
@@ -52,8 +52,8 @@ export default function Header() {
 
   // A parent counts as active when the current page is inside one of its
   // children — but only if no top-level item matches the URL exactly. Without
-  // that guard /self-storage-dubai/how-it-works lit up BOTH "Services" (it
-  // starts with /self-storage-dubai/) and "How It Works" (exact match).
+  // that guard a child URL that is also a top-level item would light up BOTH
+  // its parent and the top-level item.
   const hasExactTopLevel = navItems.some((i) => !i.children && pathname === i.href)
   const isActive = (item: NavItem) =>
     pathname === item.href ||

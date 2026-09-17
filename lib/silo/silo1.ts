@@ -52,7 +52,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
           "The self-storage yards clustered in Al Quoz, Ras Al Khor, DIP and Umm Ramool are cheap per square foot for a reason: they sit in industrial zones because that is where warehouse land is affordable. That is fine for the operator. It is less fine at 7am on a Friday when you are the one making the trip.",
           "Price the whole job, not the rate. A one-bedroom move to a self-drive unit is typically a van hire, fuel, a Salik crossing or two, one or two friends who now expect lunch, and most of a day. Then repeat a shortened version of it every time you need something back, and again at the end. Against a rate difference of a dirham or two per square foot, the trips are the larger number almost every time.",
           "There is a second cost specific to this city. Most Dubai towers require the service lift to be booked in advance, some only permit moves in a fixed window, and gated communities want the vehicle and crew registered with security first. Arranging that yourself, on a day you have also hired a van for, is where self-drive storage stops being cheap.",
-          "So the honest version of the answer: if you want a unit you hold a key to and can visit unannounced at midnight, a nearby yard genuinely suits you better and we would rather say so. If what you want is your things out of the flat and safely somewhere, [how the collection service works](/self-storage-dubai/how-it-works) is the shorter path.",
+          "So the honest version of the answer: if you want a unit you hold a key to and can visit unannounced at midnight, a nearby yard genuinely suits you better and we would rather say so. If what you want is your things out of the flat and safely somewhere, [how the collection service works](/how-it-works) is the shorter path.",
         ],
       },
       {
@@ -142,7 +142,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
     siblings: [
       "/self-storage-dubai/local-self-storage",
       "/self-storage-dubai/prices",
-      "/self-storage-dubai/how-it-works",
+      "/self-storage-dubai/secure-storage",
       "/self-storage-dubai/storage-room",
     ],
   },
@@ -562,7 +562,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
           ["Sell it", "Nothing, and you get some back", "Right answer for some of it. Rarely all of it"],
           ["Collected storage room", "From AED 12 per sq ft per month", "Access is arranged in advance, not unannounced"],
         ],
-        note: "Being honest about the last row: you do not hold a key and you do not drop in. In exchange nobody carries a mattress down a service lift. [How the service works](/self-storage-dubai/how-it-works) sets out the trade in full.",
+        note: "Being honest about the last row: you do not hold a key and you do not drop in. In exchange nobody carries a mattress down a service lift. [How the service works](/how-it-works) sets out the trade in full.",
       },
       {
         kind: "steps",
@@ -883,7 +883,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
         paras: [
           "Because your goods are not in a unit you rent. They are racked in a working warehouse alongside other customers' goods, which is the reason you are billed for the space your things occupy rather than for a fixed unit you have to fill.",
           "That trade is what makes the service cheaper and removes the van hire, and the cost of it is precisely this: somebody has to bring your items to you rather than you walking to them. When you tell us in advance, that person has already done it before you arrive. When you turn up unannounced, they have not.",
-          "If unaccompanied access genuinely matters more to you than the collection service — if you need to get to your things at midnight without telling anyone — a self-storage yard with individual units is the better product and we would rather say so on this page than sell you the wrong thing. [How the service works](/self-storage-dubai/how-it-works) sets out the full trade.",
+          "If unaccompanied access genuinely matters more to you than the collection service — if you need to get to your things at midnight without telling anyone — a self-storage yard with individual units is the better product and we would rather say so on this page than sell you the wrong thing. [How the service works](/how-it-works) sets out the full trade.",
         ],
       },
       {
@@ -1260,7 +1260,7 @@ export const SILO1_PAGES: SiloPageContent[] = [
           { h: "Subtract what is not going", p: "This is the only step that reduces the number, and it is the most valuable one. Decide by room, not by item." },
           {
             h: "Send us the photos",
-            p: "A rough figure plus photographs gets you a real quote the same day, and photographs beat any list you can write. [What happens next](/self-storage-dubai/how-it-works).",
+            p: "A rough figure plus photographs gets you a real quote the same day, and photographs beat any list you can write. [What happens next](/how-it-works).",
           },
         ],
       },

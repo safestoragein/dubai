@@ -223,7 +223,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
           "Be present for the first twenty minutes and the last ten. The start is pointing at what goes; the end is signing the list.",
           "Keep your signed inventory copy somewhere that is not a box.",
         ],
-        note: "For what happens after the van leaves, [how the storage service works](/self-storage-dubai/how-it-works) covers the rest.",
+        note: "For what happens after the van leaves, [how the storage service works](/how-it-works) covers the rest.",
       },
     ],
     faqs: [

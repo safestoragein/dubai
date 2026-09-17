@@ -70,11 +70,6 @@ export const HAND_WRITTEN: Record<string, { silo: SiloKey; label: string; blurb:
     label: "Unit sizes",
     blurb: "Square footage by home size, with what fits in each.",
   },
-  "/self-storage-dubai/how-it-works": {
-    silo: "s1",
-    label: "How it works",
-    blurb: "The four steps from first call to delivered back.",
-  },
   "/self-storage-dubai/prohibited-items": {
     silo: "s1",
     label: "What you can and cannot store",

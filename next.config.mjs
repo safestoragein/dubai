@@ -112,7 +112,7 @@ const nextConfig = {
       { source: '/storage-units-dubai',       destination: '/self-storage-dubai/storage-units',      permanent: true },
       { source: '/storage-size-guide',        destination: '/self-storage-dubai/unit-sizes',         permanent: true },
       { source: '/short-term-storage-dubai',  destination: '/self-storage-dubai/short-term',         permanent: true },
-      { source: '/how-it-works',              destination: '/self-storage-dubai/how-it-works',       permanent: true },
+      { source: '/self-storage-dubai/how-it-works', destination: '/how-it-works',              permanent: true },
       { source: '/prohibited-items',          destination: '/self-storage-dubai/prohibited-items',   permanent: true },
       // /pricing and /cheap-storage-dubai MERGE into one page deliberately.
       // Seven of this site's own URLs competed for `storage cost per month`,
@@ -226,7 +226,7 @@ const nextConfig = {
       { source: '/storage-dubai/warehouse-storage',    destination: '/business-storage-dubai/warehouse-storage',    permanent: true },
       { source: '/storage-dubai/long-term-storage',    destination: '/self-storage-dubai/long-term',                permanent: true },
       { source: '/storage-dubai/pricing-cost-guide',   destination: '/self-storage-dubai/prices',                   permanent: true },
-      { source: '/storage-dubai/self-vs-full-service', destination: '/self-storage-dubai/how-it-works',             permanent: true },
+      { source: '/storage-dubai/self-vs-full-service', destination: '/how-it-works',             permanent: true },
       { source: '/services/climate-controlled',        destination: '/self-storage-dubai/climate-controlled',       permanent: true },
       { source: '/services/document-storage',          destination: '/business-storage-dubai/document-storage',     permanent: true },
       { source: '/services/ecommerce-storage',         destination: '/business-storage-dubai/ecommerce-fulfilment', permanent: true },

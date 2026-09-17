@@ -549,7 +549,7 @@ export default function LocalSelfStoragePage() {
               </ol>
               <p className="mt-8 text-gray-700">
                 Longer version on the{" "}
-                <Link href="/self-storage-dubai/how-it-works" className="text-dubai-navy underline underline-offset-2">
+                <Link href="/how-it-works" className="text-dubai-navy underline underline-offset-2">
                   how it works page
                 </Link>
                 .

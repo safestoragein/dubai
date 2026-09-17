@@ -59,6 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     p("/moving-storage-dubai", 0.9, "weekly"),
     p("/locations", 0.9, "weekly"),
     p("/guides", 0.8, "weekly"),
+    p("/how-it-works", 0.85, "monthly"),
 
     // THE money page. `local self storage` is 2,400/mo at KD 16 and this is
     // the one URL designated to receive the site's internal link equity.

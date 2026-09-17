@@ -27,7 +27,7 @@ const tabs: Tab[] = [
         foot: "Since 2015",
       },
       {
-        href: "/self-storage-dubai/how-it-works",
+        href: "/how-it-works",
         title: "One accountable team, from pickup to delivery",
         body: "Our own trained team wraps, collects and delivers back — nothing is handed to third-party movers.",
         foot: "In-house team",
