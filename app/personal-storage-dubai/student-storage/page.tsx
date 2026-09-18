@@ -1,14 +1,32 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import {
+  FileText, Truck, ShieldCheck, Home, MapPin, Ruler, Tags, Clock, Users, Globe, Wallet, Luggage, Hourglass,
+  EyeOff, ShoppingCart, Check, X, AlertCircle, Info, Wind, Shirt, User, Sun, Plane, Sofa, Building2,
+  ClipboardCheck, CheckCircle2,
+} from "lucide-react"
 import SchemaScript from "@/components/schema-script"
-import { GraduationCap, CheckCircle2, Star, Phone, ArrowRight, Package, Shield, Clock } from "lucide-react"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
-import { SiloLinks } from "@/components/silo/silo-links"
+
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
+import { LandingConnect } from "@/components/landing/landing-connect"
+import { UspRail } from "@/components/landing/usp-rail"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import { MilestonesPlayer } from "@/components/landing/milestones-player"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import s from "@/components/landing/landing.module.css"
+import r from "./reveal.module.css"
+import Reveal from "./Reveal"
+import c from "./compare.module.css"
+import CompareToggle from "./CompareToggle"
 
 export const metadata: Metadata = {
   title: "Student Storage Dubai — Budget Plans",
-  description: "Cheap, safe student storage in Dubai. Store your belongings between semesters, summer holidays or graduation. Get a free, itemised quote.",
+  description:
+    "Safe, flexible student storage in Dubai between semesters, summer holidays or graduation. Door-to-door pickup from your accommodation. Get a free, itemised quote.",
   keywords: "student storage dubai, university storage dubai, semester storage dubai, summer student storage dubai, student accommodation storage, UAEU student storage, AUD student storage",
   openGraph: {
     images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
@@ -20,12 +38,128 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://safestorage.ae/personal-storage-dubai/student-storage" },
 }
 
+// When students store — carried over from the previous version of this page.
+const situations = [
+  { emoji: "☀️", title: "Summer holiday break", body: "Dubai universities break for around three months. Store across summer instead of paying for an empty room." },
+  { emoji: "📅", title: "Between academic years", body: "Lease ended and next year's housing not confirmed? Bridge the gap and search without rushing." },
+  { emoji: "✈️", title: "Semester abroad", body: "Heading off on exchange? Store your room and come back to the same things — nothing to replace." },
+  { emoji: "🎓", title: "Graduation", body: "Job search or visa transition? Keep everything safe until you're settled." },
+  { emoji: "📦", title: "Moving to a smaller room", body: "Store the overflow instead of throwing out things you'll want later." },
+  { emoji: "💼", title: "Internship in another emirate", body: "Interning in Abu Dhabi or Sharjah? Stop paying for your Dubai room and store the lot." },
+]
+
+const steps = [
+  { Icon: FileText, when: "Day 1", t: "Message us", b: "WhatsApp your address, a rough list and your date." },
+  { Icon: Truck, when: "Pickup", t: "We collect", b: "From your accommodation — protective materials included." },
+  { Icon: ShieldCheck, when: "While away", t: "Stored safely", b: "Every item logged, with 24/7 security." },
+  { Icon: Home, when: "You're back", t: "Delivered", b: "To your new place with 24–48 hours' notice." },
+]
+
+const why = [
+  { Icon: MapPin, title: "Pickup near every campus", body: "Door-to-door from student accommodation across Dubai — no car or van needed." },
+  { Icon: Ruler, title: "Pay for the space you use", body: "Shared, racked storage billed on the space your things take — never an empty room." },
+  { Icon: Tags, title: "No hidden fees", body: "What we quote is what you pay. No admin charges, no surprises on the invoice." },
+  { Icon: Clock, title: "Visit 7 days a week", body: "Need something mid-break? Collect it 8 AM–8 PM with your ID and booking reference." },
+  { Icon: Users, title: "Share with friends", body: "Each student's items labelled separately, with split invoices and separate returns." },
+  { Icon: Globe, title: "Manage it from abroad", body: "Authorise someone in Dubai and pay by international card while you're away." },
+]
+
+// Storage vs keeping your room — `tone` = [icon colour, tile tint]
+const roomHassles = [
+  { Icon: Wallet, t: "Rent on an empty room", b: "Months of rent while you're away", partly: false, tone: ["#e11d48", "#ffe4e9"] },
+  { Icon: Luggage, t: "Haul it all home", b: "Or leave things behind", partly: false, tone: ["#d97706", "#fef3c7"] },
+  { Icon: Hourglass, t: "Rushed housing choice", b: "Signing the next place in a hurry", partly: true, tone: ["#4f46e5", "#e0e7ff"] },
+  { Icon: EyeOff, t: "Left unattended", b: "Nobody watching your things", partly: false, tone: ["#7c3aed", "#ede9fe"] },
+  { Icon: Truck, t: "Move it back yourself", b: "Your car, your time", partly: false, tone: ["#ea580c", "#ffedd5"] },
+  { Icon: ShoppingCart, t: "Rebuy what you sold", b: "Replacing it all next term", partly: false, tone: ["#0891b2", "#cffafe"] },
+]
+
+const storageWins = [
+  { t: "Pay only for space used", b: "Not rent for an empty room" },
+  { t: "Door-to-door pickup", b: "From your accommodation" },
+  { t: "No rush to find housing", b: "Store while you search" },
+  { t: "24/7 security", b: "Safe while you're away" },
+  { t: "Delivered back to you", b: "To your new place, on your date" },
+  { t: "Manage it from abroad", b: "Authorise someone in Dubai" },
+]
+
+// each item with a small colour emoji (owner's choice, as on the category cards)
+const items = [
+  { e: "💻", t: "Laptop and chargers" }, { e: "📚", t: "Books and textbooks" }, { e: "👕", t: "Clothes and shoes" },
+  { e: "🛏️", t: "Bedding and pillows" }, { e: "📺", t: "Small TV or monitor" }, { e: "🍳", t: "Kitchen appliances" },
+  { e: "🧊", t: "Mini fridge" }, { e: "🪑", t: "Study desk and chair" }, { e: "🧥", t: "Wardrobe" },
+  { e: "⚽", t: "Sports equipment" }, { e: "🎸", t: "Musical instruments" }, { e: "🎨", t: "Art supplies and portfolios" },
+  { e: "🚲", t: "Bike or scooter" }, { e: "🧳", t: "Suitcases and bags" },
+]
+
+// `anim` = how the icon acts out the tip (see reveal.module.css)
+const tips = [
+  { Icon: Tags, t: "Label boxes by category", b: "BOOKS, CLOTHES, KITCHEN — take back only what you need.", anim: "swing" },
+  { Icon: Wind, t: "Vacuum-bag your bedding", b: "Duvets and pillows shrink to a fraction of their size.", anim: "squeeze" },
+  { Icon: Shirt, t: "Pad fragile items with clothes", b: "Fewer boxes, and breakables stay protected.", anim: "bounce" },
+] as const
+
+const universities = [
+  "American University in Dubai", "University of Wollongong Dubai", "Heriot-Watt University Dubai", "Middlesex University Dubai",
+  "Zayed University", "Canadian University Dubai", "British University in Dubai", "SP Jain School of Global Management",
+  "BITS Pilani Dubai Campus", "Manipal Academy of Higher Education Dubai",
+]
+const areas = [
+  "Dubai Silicon Oasis", "Academic City", "Knowledge Park", "Knowledge Village", "Media City", "DIFC",
+  "JVC", "Al Barsha", "Sports City", "Jumeirah",
+]
+
+// Student reviews already published on this page.
+const reviews = [
+  { initials: "YK", name: "Yasmin K.", role: "American University in Dubai · DIFC", text: "Going back to Lebanon for 3 months summer. My Dubai room was AED 2,500/mo — I wasn't going to keep paying it empty. SafeStorage stored all my stuff. Saved over AED 7,000 vs keeping the room. Came back and everything was exactly as I left it." },
+  { initials: "SP", name: "Siddharth P.", role: "University of Wollongong Dubai · Dubai Silicon Oasis", text: "Exchange semester in Australia — stored all my Dubai apartment contents with SafeStorage. The pickup was super easy, they came to my building. When I came back 5 months later, collected everything in one go. No damage, no missing items. Exactly what I needed." },
+  { initials: "EL", name: "Emma L.", role: "Middlesex University Dubai · JVC", text: "Graduated in May and had a month before my visa expired. Stored everything with SafeStorage — they picked up from student residence. Had all my belongings safely stored while I sorted out my employment visa. Way less stressful than trying to move everything at once." },
+]
+
+const faqs = [
+  {
+    q: "How do I book pickup from my accommodation?",
+    a: "WhatsApp or call us with your address, a rough list of what you're storing and your preferred date. We confirm a time, give you an estimate and send a team — we cover Dubai Silicon Oasis, DIFC, Al Barsha, JVC, Jumeirah, Sports City and every other student area.",
+  },
+  {
+    q: "How quickly can I get my things back before term starts?",
+    a: "Standard delivery needs 24–48 hours' notice, and same-day requests made before 12 PM are accommodated where possible. Late August to September is our busiest time, so book your return about a week ahead.",
+  },
+  {
+    q: "Can I share storage with other students?",
+    a: "Yes. Each student's items are labelled separately at pickup, invoices can be split, and everyone can collect their own things independently — even if you return at different times.",
+  },
+  {
+    q: "Can someone else manage my storage while I'm abroad?",
+    a: "Yes. Authorise a friend or family member when you book and they can access or collect on your behalf. We can also coordinate with shipping companies to send specific items to you abroad.",
+  },
+  {
+    q: "Do international students need a UAE residency visa?",
+    a: "No. A valid student ID, your passport and a UAE contact number are enough, and you can pay by international credit or debit card.",
+  },
+  {
+    q: "What can't I store?",
+    a: "Hazardous materials, perishables, live animals and anything prohibited under UAE law. Everything else in a typical student room — furniture, electronics, books, bikes — is fine.",
+  },
+]
+
+const explore = [
+  { Icon: User, t: "Personal storage Dubai", b: "All personal storage services.", href: "/personal-storage-dubai" },
+  { Icon: Luggage, t: "Luggage storage", b: "Suitcases and bags between trips.", href: "/personal-storage-dubai/luggage-storage" },
+  { Icon: Sun, t: "Seasonal storage", b: "Out-of-season items stored.", href: "/personal-storage-dubai/seasonal-storage" },
+  { Icon: Plane, t: "Expat storage", b: "Storage while you're overseas.", href: "/personal-storage-dubai/expat-storage" },
+  { Icon: Sofa, t: "Furniture storage", b: "Beds, desks and wardrobes.", href: "/personal-storage-dubai/furniture-storage" },
+  { Icon: Building2, t: "Apartment storage", b: "A whole apartment, between leases.", href: "/personal-storage-dubai/apartment-storage" },
+  { Icon: MapPin, t: "Local self storage", b: "Storage near you across Dubai.", href: "/self-storage-dubai/local-self-storage" },
+  { Icon: ClipboardCheck, t: "How it works", b: "From first call to delivery back.", href: "/how-it-works" },
+]
+
 const schemas = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Student Storage Dubai",
-    description: "Affordable student storage in Dubai for semester breaks, summer holidays and graduation. Small units with door-to-door pickup near universities.",
+    description: "Student storage in Dubai for semester breaks, summer holidays and graduation. Shared, secure storage with door-to-door pickup from student accommodation.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/personal-storage-dubai/student-storage",
     areaServed: { "@type": "City", name: "Dubai" },
@@ -40,8 +174,56 @@ const schemas = [
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
   },
-  
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
 ]
+
+/** Stagger index for a revealed card. */
+const idx = (i: number) => ({ ["--i" as string]: i }) as CSSProperties
+
+type Chip = string | { e: string; t: string }
+
+/** Two chip rows sliding in opposite directions; a chip shows its emoji, or a tick. */
+function Marquee({ rows }: { rows: Chip[][] }) {
+  return (
+    <div className={s.areaMarquees}>
+      {rows.map((row, ri) => (
+        <div className={s.marquee} key={ri}>
+          <div className={`${s.marqueeTrack} ${ri === 1 ? s.marqueeReverse : ""}`}>
+            {[0, 1].map((copy) => (
+              <ul className={`${s.marqueeGroup} ${s.chipGroup}`} aria-hidden={copy === 1 || undefined} key={copy}>
+                {row.map((chip) => {
+                  const label = typeof chip === "string" ? chip : chip.t
+                  return (
+                    <li key={label}>
+                      <span className={s.chip}>
+                        {typeof chip === "string" ? (
+                          <CheckCircle2 size={13} style={{ display: "inline", marginRight: 6, verticalAlign: "-2px", color: "var(--accent)" }} />
+                        ) : (
+                          <span className={r.chipEmoji} style={{ marginRight: 7 }} aria-hidden="true">
+                            {chip.e}
+                          </span>
+                        )}
+                        {label}
+                      </span>
+                    </li>
+                  )
+                })}
+              </ul>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export default function StudentStoragePage() {
   return (
@@ -54,253 +236,338 @@ export default function StudentStoragePage() {
         ]}
       />
       <SchemaScript schema={schemas} />
-      <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-r from-dubai-navy to-dubai-blue text-white py-20">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 bg-dubai-gold/20 text-dubai-gold px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-                <GraduationCap className="w-4 h-4" /> Student Storage Specialists
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Student Storage Dubai — Affordable Storage Between Semesters</h1>
-              <p className="text-xl text-white/85 mb-8">Going home for summer or between semesters in Dubai? Don't haul everything back and forth or pay for an empty room. SafeStorage Dubai offers affordable student storage — door-to-door pickup near your university, flexible contracts, and easy access when you return.</p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="https://safestorage.ae/get-quote">
-                  <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Student Quote</Button>
-                </Link>
-                <a href="tel:+971505773388">
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-dubai-navy px-8 py-4 text-lg">
-                    <Phone className="w-5 h-5 mr-2" /> +971505773388
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section className="py-10 bg-dubai-gold/10 border-y border-dubai-gold/20">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              {[
-                { stat: "No", label: "Hidden fees" },
-                { stat: "1 Month", label: "Minimum contract" },
-                { stat: "Door-to-Door", label: "Pickup near universities" },
-                { stat: "7 Days", label: "Access per week" },
-              ].map((s) => (
-                <div key={s.label}>
-                  <div className="text-3xl font-bold text-dubai-navy">{s.stat}</div>
-                  <div className="text-sm text-gray-600 mt-1">{s.label}</div>
+      {/* --cream override: the softer cream (#FAF7F0) used on the redesigned silo pages */}
+      <div
+        className={`${s.page} ${sora.variable} ${manrope.variable}`}
+        style={{ ["--cream" as string]: "#faf7f0" } as CSSProperties}
+      >
+        {/* wrapper only swaps the hero wash for a lighter one (see reveal.module.css) */}
+        <div className={r.heroVivid}>
+          <SplitHero
+            eyebrow="Student storage Dubai"
+            title="Student Storage in Dubai"
+            titleAccent="between semesters."
+            blurb="Going home for summer or a semester abroad? We collect from your accommodation — pay only for the space you use."
+            image="/landing/svc-student-hero.webp"
+            imagePosition="center 30%"
+            ctaLabel="Get a Student Quote"
+          />
+        </div>
+
+        <LandingTrust />
+
+        {/* WHEN STUDENTS STORE */}
+        <section className={`${s.section} ${s.wrap}`} id="when">
+          <Reveal>
+            <UspRail
+              head={
+                <div className={s.uspHead}>
+                  <span className={s.howEyebrow}>When students store</span>
+                  <h2>
+                    Storage for every <em>break and move.</em>
+                  </h2>
                 </div>
+              }
+            >
+              {situations.map(({ emoji, title, body }, i) => (
+                <article className={`${s.usp} ${r.card}`} style={idx(i)} key={title}>
+                  <span className={r.emoji} aria-hidden="true">
+                    {emoji}
+                  </span>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </article>
               ))}
-            </div>
-          </div>
+            </UspRail>
+            <p className={s.scrollHint}>Swipe for more →</p>
+          </Reveal>
         </section>
 
-        <section className="py-16 bg-white">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">When Students Need Storage in Dubai</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { title: "Summer Holiday Break", desc: "Most Dubai universities have 3-month summer breaks (May-August). Rather than paying for accommodation through summer or hauling everything home, store across the break and pay only for the space you use.", icon: "☀️" },
-                { title: "Between Academic Years", desc: "Lease ended, next-year housing not confirmed? Bridge the gap with 4-8 weeks of storage. Don't rush into a bad housing decision — store comfortably while you search.", icon: "📅" },
-                { title: "Studying Abroad Semester", desc: "Heading abroad for an exchange semester? Store your Dubai room contents safely. Return to the same items — avoid the cost and hassle of replacing everything on return.", icon: "✈️" },
-                { title: "Graduation Transition", desc: "Graduated but not leaving Dubai immediately? Job search, visa transition, staying with friends? Don't take all your belongings between temporary accommodation. Store until settled.", icon: "🎓" },
-                { title: "Downsizing Room", desc: "Sharing from studio to shared villa or moving to smaller room? Can't fit everything? Store the overflow without disposing of items you'll want later.", icon: "📦" },
-                { title: "Internship in Another Emirate", desc: "Internship in Abu Dhabi or Sharjah while enrolled in Dubai? Don't keep paying Dubai accommodation. Store everything and relocate cost-effectively.", icon: "💼" },
-              ].map((s) => (
-                <div key={s.title} className="bg-slate-50 rounded-xl p-6 border border-gray-200">
-                  <div className="text-3xl mb-3">{s.icon}</div>
-                  <h3 className="font-bold text-dubai-navy mb-2">{s.title}</h3>
-                  <p className="text-gray-600 text-sm">{s.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-slate-50">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-4">Student Storage Pricing</h2>
-            <p className="text-center text-gray-600 mb-10">Transparent monthly storage pricing. No hidden fees, no admin charges, no long-term commitment.</p>
-            <div className="max-w-xl mx-auto">
-              <div className="bg-white rounded-2xl p-10 border-2 border-dubai-gold shadow-lg text-center">
-                <h3 className="text-2xl md:text-3xl font-bold text-dubai-navy mb-3">You pay only for the space your items use</h3>
-                <p className="text-gray-600">All unit sizes · door-to-door pickup & delivery</p>
-              </div>
-            </div>
-            <p className="text-center text-sm text-gray-500 mt-6">* Not sure what size you need? Call us and we'll advise based on your inventory.</p>
-          </div>
-        </section>
-
-        <section className="py-16 bg-white">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">What Students Typically Store</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+        {/* HOW IT WORKS */}
+        <section className={`${s.section} ${s.wrap}`} id="process" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <div className={s.howHead}>
               <div>
-                <h3 className="text-xl font-bold text-dubai-navy mb-4">Common Student Items</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {["Laptop and chargers", "Books and textbooks", "Clothes and shoes", "Bedding and pillows", "Small TV or monitor", "Kitchen appliances", "Mini fridge", "Study desk and chair", "Wardrobe", "Sports equipment", "Musical instruments", "Art supplies and portfolios", "Bike or scooter", "Suitcases and bags"].map((item) => (
-                    <div key={item} className="flex items-center gap-2 text-gray-700 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-dubai-gold flex-shrink-0" />{item}
-                    </div>
-                  ))}
+                <span className={s.howEyebrow}>How it works</span>
+                <h2>
+                  From your room to storage <em>and back.</em>
+                </h2>
+              </div>
+              <p>Book on WhatsApp, we collect, and everything comes back when you do.</p>
+            </div>
+            <MilestonesPlayer>
+              <ol className={s.milestones}>
+                {steps.map(({ Icon, when, t: title, b }, i) => (
+                  <li className={s.milestone} key={title} style={{ ["--i" as string]: i }}>
+                    <span className={s.milestoneDot} aria-hidden="true">
+                      <Icon />
+                    </span>
+                    <span className={s.milestoneYear}>{when}</span>
+                    <b>{title}</b>
+                    <small>{b}</small>
+                  </li>
+                ))}
+              </ol>
+            </MilestonesPlayer>
+          </Reveal>
+        </section>
+
+        {/* WHY */}
+        <section className={s.wrap} id="why">
+          <Reveal>
+            <div className={`${s.darkBand} ${s.whyBand}`}>
+              <div className={`${s.howHead} ${s.bandHead}`}>
+                <div>
+                  <span className={s.howEyebrow}>Why students choose us</span>
+                  <h2>
+                    Built around your <br className={s.mBreak} />
+                    <em>academic calendar.</em>
+                  </h2>
                 </div>
               </div>
-              <div className="bg-dubai-navy/5 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-4">Packing Tips for Students</h3>
-                <div className="space-y-4">
-                  {[
-                    { tip: "Label boxes by category", desc: "Use clear labels: BOOKS, CLOTHES, KITCHEN, ELECTRONICS. When you return, you can pick exactly what you need without unpacking everything." },
-                    { tip: "Use vacuum bags for bedding", desc: "Duvets and pillows take up huge amounts of space. Vacuum bags compress them to 1/4 the size — worth the AED 20 investment from any supermarket." },
-                    { tip: "Put fragile items in clothes", desc: "Use clothes and soft items as padding around breakable items. Reduces the number of boxes needed and protects fragile contents." },
-                  ].map((t) => (
-                    <div key={t.tip} className="flex gap-3">
-                      <Package className="w-5 h-5 text-dubai-gold flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-semibold text-dubai-navy text-sm">{t.tip}</div>
-                        <div className="text-gray-600 text-sm">{t.desc}</div>
+              <FeatScroller>
+                {why.map(({ Icon, title, body }, i) => (
+                  <div className={`${s.feat} ${r.card}`} style={idx(i)} key={title}>
+                    <div className={s.featIcon} aria-hidden="true">
+                      <Icon size={18} strokeWidth={2} />
+                    </div>
+                    <h3>{title}</h3>
+                    <p>{body}</p>
+                  </div>
+                ))}
+              </FeatScroller>
+              <p className={s.scrollHint}>Swipe for more →</p>
+            </div>
+          </Reveal>
+        </section>
+
+        {/* COMPARE */}
+        <section className={`${s.section} ${s.wrap}`} id="compare">
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>Compare</span>
+                <h2>
+                  Storage vs <em>keeping your room.</em>
+                </h2>
+              </div>
+              <p>Why students store over the break instead of paying for a room they&apos;re not in.</p>
+            </div>
+
+            <CompareToggle>
+              {/* KEEPING YOUR ROOM */}
+              <div className={`${c.card} ${c.them}`}>
+                <div className={c.cardHead}>
+                  <div>
+                    <b>Your room</b>
+                    <small>Kept empty</small>
+                  </div>
+                  <span className={c.pill}>6 hassles</span>
+                </div>
+                <ul className={c.list}>
+                  {roomHassles.map(({ Icon, t: title, b, partly, tone }) => (
+                    <li className={c.row} key={title}>
+                      <div className={c.ic} style={{ color: tone[0], background: tone[1] }} aria-hidden="true">
+                        <Icon strokeWidth={2} />
                       </div>
-                    </div>
+                      <div>
+                        <b>{title}</b>
+                        <span>{b}</span>
+                      </div>
+                      <div className={`${c.cross} ${partly ? c.crossPartly : ""}`} aria-label={partly ? "Partly" : "Not included"}>
+                        {partly ? <AlertCircle strokeWidth={2.6} aria-hidden="true" /> : <X strokeWidth={3} aria-hidden="true" />}
+                      </div>
+                    </li>
                   ))}
+                </ul>
+              </div>
+
+              {/* SAFESTORAGE */}
+              <div className={`${c.card} ${c.us}`}>
+                <span className={c.badge}>RECOMMENDED</span>
+                <div className={c.cardHead}>
+                  <div>
+                    <b>SafeStorage</b>
+                    <small>Dubai</small>
+                  </div>
+                  <span className={c.pill}>All 6 included</span>
                 </div>
+                <ul className={c.list}>
+                  {storageWins.map(({ t: title, b }) => (
+                    <li className={c.row} key={title}>
+                      <div>
+                        <b>{title}</b>
+                        <span>{b}</span>
+                      </div>
+                      <div className={c.tick} aria-label="Included">
+                        <Check strokeWidth={3} aria-hidden="true" />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-          </div>
-        </section>
+            </CompareToggle>
 
-        <section className="py-16 bg-slate-50">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">Student Reviews</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { name: "Yasmin K.", location: "DIFC", university: "American University in Dubai", text: "Going back to Lebanon for 3 months summer. My Dubai room was AED 2,500/mo — I wasn't going to keep paying it empty. SafeStorage stored all my stuff. Saved over AED 7,000 vs keeping the room. Came back and everything was exactly as I left it.", rating: 5 },
-                { name: "Siddharth P.", location: "Dubai Silicon Oasis", university: "University of Wollongong Dubai", text: "Exchange semester in Australia — stored all my Dubai apartment contents with SafeStorage. The pickup was super easy, they came to my building. When I came back 5 months later, collected everything in one go. No damage, no missing items. Exactly what I needed.", rating: 5 },
-                { name: "Emma L.", location: "JVC", university: "Middlesex University Dubai", text: "Graduated in May and had a month before my visa expired. Stored everything with SafeStorage — they picked up from student residence. Had all my belongings safely stored while I sorted out my employment visa. Way less stressful than trying to move everything at once.", rating: 5 },
-              ].map((t) => (
-                <div key={t.name} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                  <div className="flex mb-3">{[...Array(t.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-dubai-gold text-dubai-gold" />)}</div>
-                  <p className="text-gray-700 mb-4 italic">"{t.text}"</p>
-                  <div className="font-bold text-dubai-navy">{t.name}</div>
-                  <div className="text-sm text-gray-500">{t.location} · {t.university}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-white">
-          <div className="container px-4 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-10">Student Storage FAQs</h2>
-            <div className="space-y-4">
-              {[
-                { q: "Is there a student discount available?", a: "We offer competitive pricing for students and can provide flexible payment options. Call us at +971505773388 and mention you're a student — we'll make sure you get the best available rate for your storage period. Short-term packages for semester breaks are available at reduced monthly rates." },
-                { q: "How do I book pickup from my university accommodation?", a: "Call or WhatsApp us with your address and an approximate list of what you're storing. We'll confirm a date and time, provide an estimate, and send a team to collect. We cover all Dubai areas including Dubai Silicon Oasis, DIFC, Al Barsha, JVC, Jumeirah and Sports City where most Dubai universities are located." },
-                { q: "Can my parents in another country manage my storage if I need items shipped?", a: "Yes. You can authorise another person to access or make decisions about your storage remotely — just complete our authorisation form when you sign up. We can also coordinate with international shipping companies to send specific items from your unit to your location abroad." },
-                { q: "What's the minimum storage period?", a: "1 month is our minimum. For students, we offer semester-based packages — typically 3 months (summer break) or 5 months (semester abroad). These packages are priced slightly lower than month-to-month rates. Contact us to discuss the package that matches your academic calendar." },
-                { q: "Can I access my items during the storage period?", a: "Yes — access is included. Visit during business hours (8 AM–8 PM, 7 days a week) to add items, collect specific things, or reorganise your unit. There's no charge for access visits. Just come during business hours and present your ID and booking reference." },
-              ].map((faq) => (
-                <details key={faq.q} className="border border-gray-200 rounded-xl p-6 group">
-                  <summary className="font-semibold text-dubai-navy cursor-pointer list-none flex justify-between items-center">
-                    {faq.q}<ArrowRight className="w-4 h-4 text-dubai-gold transition-transform group-open:rotate-90" />
-                  </summary>
-                  <p className="mt-4 text-gray-600 leading-relaxed">{faq.a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-gray-50">
-          <div className="container px-4 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-10">Student Storage — Frequently Asked Questions</h2>
-            <div className="space-y-6">
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">How much does student storage cost in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Student storage at SafeStorage Dubai is priced on the space you use. About 25 sq ft of shared storage space holds 10–15 boxes, suitcases, bags, and bedding. A small unit accommodates a full student room including a single bed, desk, chair, wardrobe, and 20–30 boxes of personal belongings — the most popular option for students storing between semesters. For students sharing a larger apartment or storing a bicycle and additional equipment, a medium unit provides more space. The price includes 24/7 security. Door-to-door pickup from your accommodation is available. There are no hidden charges and no long-term contracts required.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">What is the minimum storage period for students?</h3>
-                <p className="text-gray-700 leading-relaxed">The minimum storage period at SafeStorage is one month. For students, this means you can store for exactly the duration of your break — whether that is 3 months for a summer holiday, 5 months for a semester abroad, or just 6 weeks between the end of one tenancy and the start of the next academic year. We also offer semester-based packages specifically priced for 3-month and 5-month periods, which provide slightly better rates than pure month-to-month billing. Contact us when booking to confirm which package aligns best with your academic calendar and departure/return dates.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">Which universities near SafeStorage facilities does the service cover?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai provides door-to-door pickup from student accommodation near all major Dubai universities and higher education institutions. This includes American University in Dubai (AUD) in Media City, University of Wollongong Dubai and Heriot-Watt University Dubai in Dubai Knowledge Park, Middlesex University Dubai in Knowledge Village, Zayed University in Academic City, Canadian University Dubai in Bur Dubai, British University in Dubai in Oud Metha, SP Jain School of Global Management, BITS Pilani Dubai Campus, and Manipal Academy of Higher Education Dubai. We cover all Dubai areas including Dubai Silicon Oasis, Academic City, Knowledge Park, DIFC, JVC, Al Barsha, and all surrounding student residential areas.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store my belongings during the summer holiday period?</h3>
-                <p className="text-gray-700 leading-relaxed">Summer holiday storage is the most popular student storage use case at SafeStorage Dubai. Dubai&apos;s university summer break typically runs from May through August — three months during which most students return to their home countries or travel. Rather than paying AED 2,000–4,000 per month to maintain accommodation through the summer, or hauling everything to an airport and shipping it home, storing in Dubai is dramatically more cost-effective. Most students save AED 5,000–10,000 or more by storing instead of keeping their room. We pick up before you depart and deliver back to your new accommodation when you return in September.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">How is pickup arranged near university accommodation?</h3>
-                <p className="text-gray-700 leading-relaxed">Arranging pickup from university accommodation is straightforward. Contact us via WhatsApp or phone with your address, an approximate list of items (or a rough room description), and your preferred pickup date. We confirm the date and time, provide a price estimate, and send our collection team to your building. Our team brings all necessary protective materials and handles all loading — you do not need a vehicle or any equipment. If your building requires prior notice or registration of contractors, let us know in advance and we will handle the coordination. We are familiar with most student accommodation buildings in Dubai and can advise if any specific access requirements apply.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">What items can students store at SafeStorage?</h3>
-                <p className="text-gray-700 leading-relaxed">Students typically store their complete room contents, which SafeStorage handles in full. This includes single or double beds and mattresses, study desks and chairs, wardrobes, shelving units, small kitchen appliances (mini fridge, microwave, kettle), TVs and monitors, laptops and electronics with their accessories, textbooks and notebooks, clothing and seasonal wear, bedding and pillows, suitcases and bags, sports equipment including bicycles and scooters, musical instruments, art supplies, and personal items. The only items not accepted are hazardous materials, perishables, live animals, and items prohibited under UAE law. A typical student room fits comfortably in our small unit.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">How quickly can I retrieve my items before the new term starts?</h3>
-                <p className="text-gray-700 leading-relaxed">Retrieval of your stored items can be arranged with 24–48 hours&apos; notice for standard deliveries. For urgent same-day delivery requests made before 12 PM, we do our best to accommodate. We strongly recommend booking your return delivery at least one week before your new term starts or your new accommodation is ready, as the start-of-term period (late August to September) is our busiest time for student storage deliveries. Giving us early notice ensures you get your preferred delivery date and time slot. We deliver to all Dubai addresses and can coordinate with building management where required for delivery access.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">Is there a student discount available?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage offers student-specific pricing and semester packages. When you contact us, mention that you are a student and your university, and we will ensure you receive our best available rate for your storage period. Our semester-based packages (3-month summer or 5-month semester abroad) are priced at better-than-monthly rates to reflect the predictable storage duration typical of student use. We also accommodate group storage arrangements where multiple students share a unit with split billing, which can reduce the individual cost further. Call +971505773388 or WhatsApp us to discuss current student rates.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I share a storage unit with another student?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes. Shared storage units for 2–4 students are a popular and cost-effective option at SafeStorage. Each student&apos;s items are labelled separately at intake, giving each individual a clear record of their belongings. Billing can be split, with each student receiving their own invoice for their share. Access authorisation is set up for all participating students. When it is time to retrieve items, each student can request their own belongings independently — we locate and prepare the specific labelled items for each individual, which means students returning at different times do not need to be present at the same time. Shared units reduce per-student cost by 40–50% compared to individual units.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">Can I store my bicycle in student storage?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes. Bicycles are stored regularly by students at SafeStorage Dubai. We recommend a basic clean before storage and slightly deflating the tyres to prevent stress on the tubes during long-term storage. Bicycles are stored securely in your unit and do not require special handling beyond standard care. For students with expensive road or mountain bikes, our clean, secure indoor units provide better protection than leaving the bicycle outdoors or in an exposed space during Dubai&apos;s summer, keeping it dust-protected and away from the elements over a 3-month period. If you are storing a bicycle alongside other student belongings, ensure your unit size accounts for the bicycle&apos;s floor footprint.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">What happens if I extend my study period or stay abroad longer?</h3>
-                <p className="text-gray-700 leading-relaxed">If your stay abroad extends beyond your original storage booking — whether due to an extended exchange semester, a summer internship abroad, or a change in academic plans — your storage simply continues on a month-to-month basis with no penalty. Contact us by WhatsApp or email to inform us of the extension, and billing continues automatically. There is no upper time limit on storage duration, and many students end up storing for an additional semester or year beyond their original plan. Extending storage is a much simpler decision than trying to arrange early return shipping or finding someone in Dubai to manage your belongings on short notice.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">How do I book student storage at SafeStorage Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Booking student storage is quick and can be done entirely via phone or WhatsApp. Contact us at +971505773388 with your name, accommodation address, an approximate list of items, and your preferred pickup date. We provide a price estimate within a few hours and confirm your booking. For group bookings with other students, it is easiest for one person to coordinate the booking and then provide us with the other students&apos; details. We recommend booking at least one week before your departure date to ensure pickup scheduling. During peak end-of-semester periods (December–January and May–June), booking 2 weeks ahead is advisable due to high demand.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">Are packing boxes and materials provided for student storage?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage can supply packing boxes and materials at cost price — just request them when booking your storage. Standard boxes, heavy-duty boxes for books and electronics, wardrobe boxes with hanging rails for clothing, bubble wrap, packing tape, and foam wrap are all available. Alternatively, supermarkets, IKEA, and Carrefour in Dubai sell affordable packing boxes. Our team brings protective materials (furniture covers, foam pads, stretch wrap) for your furniture items on collection day — you do not need to provide these. If you have fragile or high-value items requiring specialised packing, let us know in advance so we can bring appropriate materials.</p>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-dubai-navy mb-2">Can international students from outside the UAE use the service?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes. SafeStorage serves students from all nationalities studying in Dubai. International students do not need a UAE residency visa to store with us — a valid student ID, passport, and UAE contact number are sufficient. Payments can be made by international credit or debit cards, making it easy for students whose bank accounts are in their home country. For students whose storage period extends beyond their UAE student visa, we can continue the storage relationship with remote management from abroad, including payments by international card and retrieval managed by an authorised contact in Dubai. Our service is specifically designed to accommodate the international nature of Dubai&apos;s student population.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-white">
-          <div className="container px-4 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy mb-6">About Student Storage at SafeStorage Dubai</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">Dubai has grown into a significant higher education hub in the Middle East, home to over 30 international universities and higher education institutions serving tens of thousands of international students. The academic calendar creates predictable storage demand at the end of each semester — particularly the summer break from May to September, when most students return to their home countries and face the practical problem of what to do with their Dubai belongings. SafeStorage has developed a specific student storage service that addresses this need with affordable monthly pricing, door-to-door pickup from university accommodation areas, and flexible contracts designed around semester timing rather than standard commercial storage contracts.</p>
-            <p className="text-gray-700 leading-relaxed mb-6">The financial case for student storage is compelling. A student paying AED 2,500 per month for accommodation faces a choice between maintaining their lease through a 3-month summer (costing AED 7,500) or storing their belongings and sublet or vacating. With SafeStorage, the same student can store a full room&apos;s contents over the summer and pay only for the space those belongings use. For students completing a semester abroad or spending more than one month away from Dubai, the cost saving is substantial enough to fund a significant portion of the travel or living costs abroad. Most students who use storage for the first summer continue the practice every year of their studies.</p>
-            <p className="text-gray-700 leading-relaxed mb-6">Shared student storage offers even better value. Two students sharing a medium unit can store both rooms&apos; worth of belongings and split the cost between them. With individual item labelling and the option for independent retrieval, each student maintains full control of their belongings without being dependent on their storage partner&apos;s return timeline. SafeStorage manages the logistics of split access, and billing can be divided between the students independently. Roommates, friends in the same year group, or even students in the same building who organise collectively can all benefit from this arrangement.</p>
-            <p className="text-gray-700 leading-relaxed">For students approaching graduation, storage provides a particularly valuable transitional service. Graduation in Dubai often leaves students in a period of uncertainty — waiting for employment visa approvals, job offers, or visa changes. Having belongings safely stored at a low monthly cost removes the urgency of deciding immediately whether to ship, sell, or carry belongings home. Many graduates keep items in storage for 2–4 months post-graduation while their professional situation clarifies, then retrieve everything to a new Dubai apartment, arrange international shipping for items they will need abroad, or sell items they no longer need. This flexibility is impossible if you are hauling everything home the day after graduation or paying for empty accommodation to store things on-site.</p>
-          </div>
-        </section>
-
-        <section className="py-16 bg-dubai-gold text-white text-center">
-          <div className="container px-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Store Smart This Semester Break</h2>
-            <p className="text-xl text-white/90 mb-8">Don't haul everything home or pay for an empty room. Get a free student storage quote — we'll pick up from your accommodation.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="https://safestorage.ae/get-quote">
-                <Button className="bg-white text-dubai-gold hover:bg-gray-100 px-8 py-4 text-lg font-semibold">Get a Student Quote</Button>
+            <div className={c.strip}>
+              <p>
+                Pack up, go home, come back to everything.
+                <span>Pay only for the space you use.</span>
+              </p>
+              <Link className={`${s.btn} ${s.btnAccent} ${c.stripBtn}`} href="/get-quote">
+                Get a student quote →
               </Link>
-              <a href="tel:+971505773388">
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-dubai-gold px-8 py-4 text-lg">
-                  <Phone className="w-5 h-5 mr-2" /> +971505773388
-                </Button>
-              </a>
             </div>
-          </div>
+          </Reveal>
         </section>
+
+        {/* WHAT STUDENTS STORE */}
+        <section className={`${s.section} ${s.wrap}`} id="items" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>What students store</span>
+                <h2>
+                  Your whole room, <em>packed and safe.</em>
+                </h2>
+              </div>
+              <p>From a few boxes to a full room — bed, desk, wardrobe and all.</p>
+            </div>
+            <Marquee rows={[items.slice(0, 7), items.slice(7)]} />
+
+            <h3 className={s.miniHead}>Packing tips for students</h3>
+            <div className={s.miniGrid}>
+              {tips.map(({ Icon, t: title, b, anim }, i) => (
+                <div className={`${s.miniCard} ${r.card} ${r.tip}`} style={idx(i)} key={title}>
+                  <span className={`${s.miniIcon} ${r.tipIcon} ${r[anim]}`} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <div>
+                    <b>{title}</b>
+                    <small>{b}</small>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className={s.movingTip}>
+              <Info aria-hidden="true" />
+              <p>
+                <b>Rough guide:</b> about 25 sq ft (Estimated) of shared space holds 10–15 boxes, suitcases, bags and
+                bedding. A full room with bed, desk and wardrobe needs more — we confirm it in your free quote.
+              </p>
+            </div>
+          </Reveal>
+        </section>
+
+        {/* CAMPUSES */}
+        <section className={`${s.section} ${s.wrap}`} id="campuses" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>Near your campus</span>
+                <h2>
+                  Pickup from student areas <em>across Dubai.</em>
+                </h2>
+              </div>
+              <p>We collect from accommodation near every major Dubai university.</p>
+            </div>
+            <Marquee rows={[universities, areas]} />
+          </Reveal>
+        </section>
+
+        {/* REVIEWS */}
+        <section className={`${s.section} ${s.wrap}`} id="reviews" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>Testimonials</span>
+                <h2>
+                  What students <em>say.</em>
+                </h2>
+              </div>
+            </div>
+            {/* extra bottom room so the hover shadow isn't clipped by the scroller */}
+            <div className={`${s.revTrack} ${r.revFill}`} style={{ paddingTop: 14, paddingBottom: 56, marginBottom: -30 }}>
+              {reviews.map((rv, i) => (
+                <div className={`${s.revCard} ${r.card}`} style={idx(i)} key={rv.name}>
+                  <div className={s.revTop}>
+                    <span className={`${s.revAvatar} ${i % 2 ? s.revAvatarAlt : ""}`} aria-hidden="true">
+                      {rv.initials}
+                    </span>
+                    <div>
+                      <div className={s.revName}>{rv.name}</div>
+                      <div className={s.revRole}>{rv.role}</div>
+                    </div>
+                  </div>
+                  <p className={s.revText}>&ldquo;{rv.text}&rdquo;</p>
+                  <div className={s.revStars} aria-label="Rated 5 out of 5">
+                    ★★★★★
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className={s.scrollHint}>Swipe for more →</p>
+          </Reveal>
+        </section>
+
+        {/* FAQ */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>Good to know</span>
+                <h2>
+                  Student storage <em>questions.</em>
+                </h2>
+              </div>
+              <p>
+                More answers? <Link href="/faq" style={{ color: "var(--accent)", fontWeight: 600 }}>View all FAQs →</Link>
+              </p>
+            </div>
+            <FaqAccordion items={faqs} />
+          </Reveal>
+        </section>
+
+        {/* EXPLORE */}
+        <section className={`${s.section} ${s.wrap}`} id="explore" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>Explore</span>
+                <h2>
+                  More in <em>personal storage.</em>
+                </h2>
+              </div>
+            </div>
+            <div className={s.miniGrid}>
+              {explore.map(({ Icon, t: title, b, href }, i) => (
+                <Link className={`${s.miniCard} ${s.miniLink} ${r.card}`} style={idx(i)} href={href} key={href}>
+                  <span className={s.miniIcon} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <div>
+                    <b>{title}</b>
+                    <small>{b}</small>
+                  </div>
+                  <span className={s.miniArrow} aria-hidden="true">→</span>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+
+        <Reveal>
+          <CtaBand
+            title="Store smart this semester break."
+            blurb="Don't haul everything home or pay for an empty room. Free student quote — we collect from your accommodation."
+            ctaLabel="Get a Student Quote"
+            whatsAppLabel="WhatsApp Us"
+            callLabel="Call Now"
+          />
+        </Reveal>
+
+        <LandingConnect />
       </div>
-      <SiloLinks path="/personal-storage-dubai/student-storage" />
     </>
   )
 }

@@ -1,0 +1,191 @@
+/* Page-local styles for /personal-storage-dubai/student-storage.
+   Scroll reveal (see Reveal.tsx), the hero wash, and the emoji cards.
+   Uses animation with `backwards` fill so nothing is held after it ends —
+   the landing hover transforms keep working on revealed cards. */
+
+.armed:not(.in) {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.in {
+  animation: sectionIn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+.armed:not(.in) .card {
+  opacity: 0;
+}
+.in .card {
+  animation: cardIn 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  animation-delay: calc(0.15s + var(--i, 0) * 0.07s);
+}
+
+/* Hero: the shared split-hero wash keeps ~40% cream over the photo; here it
+   fades to fully clear so the photo stays as vivid as the original. Targets
+   SplitHero's inner div (the one carrying --hero-img); `[style]` lifts
+   specificity above the shared `.heroSplit .heroInner`. */
+.heroVivid section > div[style] {
+  background-image: linear-gradient(
+      100deg,
+      rgba(255, 250, 240, 0.97) 0%,
+      rgba(255, 250, 240, 0.92) 42%,
+      rgba(255, 248, 236, 0.55) 53%,
+      rgba(255, 246, 226, 0) 63%
+    ),
+    var(--hero-img);
+}
+/* phones/tablets: shared wash, and a lighter (visually identical) copy of the
+   photo so phones don't download the 1.3 MB lossless desktop file */
+@media (max-width: 900px) {
+  .heroVivid section > div[style] {
+    background-image: linear-gradient(
+        172deg,
+        rgba(255, 250, 240, 0.98) 0%,
+        rgba(255, 250, 240, 0.94) 50%,
+        rgba(255, 246, 226, 0.55) 78%,
+        rgba(255, 246, 226, 0.15) 100%
+      ),
+      url("/landing/svc-student-hero-m.webp");
+  }
+}
+
+/* Emoji cards (one-row rail), as on the e-commerce page */
+.emoji {
+  display: inline-block;
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 16px;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.4);
+}
+.card:hover .emoji {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+/* Items marquee: small colour emoji in each chip, about the size of the tick
+   icon it replaces; pops a little on hover (the marquee itself pauses) */
+.chipEmoji {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1;
+  vertical-align: -2px;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.3, 1.4);
+}
+li:hover .chipEmoji {
+  transform: scale(1.2) rotate(-6deg);
+}
+@media (max-width: 480px) {
+  .chipEmoji {
+    font-size: 13px;
+  }
+}
+
+/* Reviews: only three, so on desktop they share the full width instead of
+   leaving an empty gap; phones keep the swipe row */
+.revFill > div {
+  flex: 1 1 0;
+  min-width: 0;
+}
+@media (max-width: 760px) {
+  .revFill > div {
+    flex: 0 0 84vw;
+  }
+}
+
+/* Packing tips: cards pop up in turn (via .card), lift on hover, and each
+   icon acts out its tip — the tag swings, the vacuum bag squeezes, the
+   shirt bounces. Loops pause while the section is armed but not yet in view. */
+.tip {
+  cursor: default;
+}
+.tip:hover {
+  transform: translateY(-4px);
+  border-color: rgba(238, 88, 36, 0.4);
+  box-shadow: 0 14px 30px rgba(37, 49, 90, 0.11);
+}
+.tip:hover .tipIcon {
+  background: var(--accent);
+  color: #fff;
+}
+.in .tip {
+  animation-name: tipIn;
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.3, 1.25);
+}
+.tipIcon svg {
+  animation-duration: 3.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: calc(0.8s + var(--i, 0) * 0.35s);
+}
+.armed:not(.in) .tipIcon svg {
+  animation-play-state: paused;
+}
+.swing svg {
+  transform-origin: 70% 20%;
+  animation-name: tagSwing;
+}
+.squeeze svg {
+  animation-name: vacSqueeze;
+}
+.bounce svg {
+  animation-name: shirtBounce;
+}
+@keyframes tipIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+  }
+}
+@keyframes tagSwing {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  12% { transform: rotate(-16deg); }
+  26% { transform: rotate(11deg); }
+  38% { transform: rotate(-6deg); }
+  48% { transform: rotate(3deg); }
+}
+@keyframes vacSqueeze {
+  0%, 55%, 100% { transform: scale(1, 1); }
+  15% { transform: scale(1.12, 0.62); }
+  30% { transform: scale(0.78, 0.78); }
+  42% { transform: scale(1.06, 1.06); }
+}
+@keyframes shirtBounce {
+  0%, 60%, 100% { transform: translateY(0) scale(1, 1); }
+  14% { transform: translateY(-6px) scale(0.96, 1.05); }
+  28% { transform: translateY(0) scale(1.08, 0.9); }
+  40% { transform: translateY(-2px) scale(1, 1); }
+}
+
+@keyframes sectionIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover .emoji,
+  .tip:hover,
+  li:hover .chipEmoji {
+    transform: none;
+  }
+  .tipIcon svg {
+    animation: none;
+  }
+  .armed:not(.in),
+  .armed:not(.in) .card {
+    opacity: 1;
+    transform: none;
+  }
+  .in,
+  .in .card {
+    animation: none;
+  }
+}
