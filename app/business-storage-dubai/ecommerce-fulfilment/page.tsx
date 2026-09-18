@@ -1,14 +1,34 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import {
+  FileText, Truck, ClipboardCheck, Send, CalendarX, Ruler, Tags, ShieldCheck, Store,
+  ShoppingCart, Instagram, Sparkles, Ship, Gift, Layers, Briefcase, Warehouse, Boxes, Package, MapPin,
+  AlertTriangle, ShoppingBag, CalendarDays, Plug, TrendingUp,
+  Shirt, Smartphone, Sofa, HeartPulse, BookOpen, Dumbbell, X, AlertCircle, Check,
+  FileSignature, Hammer, Lock, PackageX,
+} from "lucide-react"
 import SchemaScript from "@/components/schema-script"
-import { ShoppingBag, CheckCircle2, Star, Phone, ArrowRight, Package, Truck, BarChart3 } from "lucide-react"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
-import { SiloLinks } from "@/components/silo/silo-links"
+
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
+import { LandingConnect } from "@/components/landing/landing-connect"
+import { UspRail } from "@/components/landing/usp-rail"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import { MilestonesPlayer } from "@/components/landing/milestones-player"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import s from "@/components/landing/landing.module.css"
+import r from "./reveal.module.css"
+import Reveal from "./Reveal"
+import c from "./compare.module.css"
+import CompareToggle from "./CompareToggle"
 
 export const metadata: Metadata = {
   title: { absolute: "E-commerce Storage & Fulfilment Dubai | SafeStorage UAE" },
-  description: "Flexible e-commerce storage in Dubai for Amazon & Noon sellers. Secure Storage units with inventory management.",
+  description:
+    "Flexible e-commerce storage in Dubai for Amazon & noon sellers. Stock collected, counted in and sent out on request — no warehouse lease, pay only for the space you use.",
   keywords: "E-commerce storage Dubai, Inventory management Dubai, Warehouse for rent Dubai, Small business storage, Bulk storage Dubai, Inventory tracking UAE, Scalable business storage, SafeStorage fulfilment",
   openGraph: {
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
@@ -20,12 +40,116 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://safestorage.ae/business-storage-dubai/ecommerce-fulfilment" },
 }
 
+const steps = [
+  { Icon: FileText, when: "Day 1", t: "Free quote", b: "Tell us your products and rough volume — same-day quote." },
+  { Icon: Truck, when: "Collection", t: "We collect", b: "From your home, supplier or current store." },
+  { Icon: ClipboardCheck, when: "Intake", t: "Counted in", b: "Logged against your own SKU list; mismatches flagged." },
+  { Icon: Send, when: "Every day", t: "Sent out on request", b: "Same day if you ask before 12 PM." },
+]
+
+const why = [
+  { Icon: CalendarX, title: "No warehouse lease", body: "No yearly lease, cheques, DEWA deposit or fit-out. Start in days, not months." },
+  { Icon: Ruler, title: "Pay for the space you use", body: "Flexible storage: your stock grows or shrinks, and so does the space you pay for." },
+  { Icon: Truck, title: "Door-to-door collection", body: "We pick up from your supplier, home or old store anywhere in Dubai." },
+  { Icon: Tags, title: "Your SKUs, your references", body: "Stock is counted in and released against the codes your own system uses." },
+  { Icon: ShieldCheck, title: "Clean, shared storage", body: "Indoor, dust-protected shared space with CCTV and logged access control." },
+  { Icon: Store, title: "Visit when you need", body: "Check or pick stock yourself, 8 AM–8 PM, seven days a week." },
+]
+
+// Storage vs warehouse lease — two versus cards.
+// `tone` = [icon colour, tile tint] — softer than the SafeStorage tiles
+const leaseHassles = [
+  { Icon: FileSignature, t: "Multi-year lease", b: "Locked in before you're ready", partly: false, tone: ["#e11d48", "#ffe4e9"] },
+  { Icon: Hammer, t: "Fit-out & DEWA deposit", b: "Build and connect it yourself", partly: false, tone: ["#d97706", "#fef3c7"] },
+  { Icon: Warehouse, t: "Pay for the whole floor", b: "Even the half you don't use", partly: false, tone: ["#4f46e5", "#e0e7ff"] },
+  { Icon: Lock, t: "Fixed size in peak season", b: "Partly flexible, often not", partly: true, tone: ["#7c3aed", "#ede9fe"] },
+  { Icon: Truck, t: "You collect the stock", b: "Your van, your time", partly: false, tone: ["#ea580c", "#ffedd5"] },
+  { Icon: PackageX, t: "You move stock out", b: "No release service", partly: false, tone: ["#0891b2", "#cffafe"] },
+]
+
+// `tone` = the icon tile's colour (gradient from tone[0] to tone[1])
+const storageWins = [
+  { Icon: CalendarDays, t: "No long lease", b: "Month to month, not years", tone: ["#3b82f6", "#60a5fa"] },
+  { Icon: Plug, t: "No fit-out or DEWA deposit", b: "Nothing to build or connect", tone: ["#f59e0b", "#fbbf24"] },
+  { Icon: Ruler, t: "Pay only for space used", b: "Not a whole floor you half fill", tone: ["#10b981", "#34d399"] },
+  { Icon: TrendingUp, t: "Scale for peak seasons", b: "Ramadan, White Friday, DSF", tone: ["#8b5cf6", "#a78bfa"] },
+  { Icon: Truck, t: "Door-to-door collection", b: "We fetch stock from suppliers", tone: ["#ee5824", "#ff8a54"] },
+  { Icon: Package, t: "Stock delivered out", b: "Released to you on request", tone: ["#06b6d4", "#22d3ee"] },
+]
+
+const sellers = [
+  { Icon: ShoppingCart, title: "Amazon & noon sellers", body: "Stock for FBM orders and FBA replenishment runs, released when you need it." },
+  { Icon: Instagram, title: "Instagram & TikTok shops", body: "Get the boxes out of your home — keep a few days' stock to hand, the rest with us." },
+  { Icon: Sparkles, title: "D2C brands", body: "Launch stock and seasonal collections held safely until they go on sale." },
+  { Icon: Ship, title: "Importers & distributors", body: "Shipments counted in on arrival and released in batches to your buyers." },
+  { Icon: Gift, title: "Subscription boxes", body: "Bulk components stored and sent out for each packing cycle." },
+  { Icon: Layers, title: "Multi-channel sellers", body: "One stock location serving every marketplace you sell on." },
+]
+
+// Categories and items as published on the previous version of this page.
+// `tone` = the icon tile's gradient.
+const categories = [
+  { Icon: Shirt, title: "Fashion & Apparel", tone: ["#3b82f6", "#60a5fa"], items: ["Clothing and accessories", "Bags and footwear", "Seasonal collections", "Sample inventory", "Return stock"] },
+  { Icon: Smartphone, title: "Electronics & Gadgets", tone: ["#6366f1", "#a78bfa"], items: ["Consumer electronics", "Accessories and cables", "Smart home devices", "Phone cases and peripherals", "Refurbished devices"] },
+  { Icon: Sofa, title: "Home & Living", tone: ["#f97316", "#fbbf24"], items: ["Home décor", "Kitchenware", "Bedding and linens", "Cleaning products", "Small appliances"] },
+  { Icon: HeartPulse, title: "Health & Beauty", tone: ["#ec4899", "#f472b6"], items: ["Cosmetics and skincare", "Wellness products", "Fitness equipment", "Nutritional supplements", "Medical devices"] },
+  { Icon: BookOpen, title: "Books & Media", tone: ["#10b981", "#34d399"], items: ["Books and textbooks", "DVD/Blu-ray inventory", "Educational materials", "Print media stock", "Digital products packaged"] },
+  { Icon: Dumbbell, title: "Sports & Outdoor", tone: ["#0ea5e9", "#22d3ee"], items: ["Sports equipment", "Outdoor gear", "Fitness accessories", "Water sports items", "Camping equipment"] },
+]
+
+// Testimonials already published on the site (homepage reviews and /testimonials).
+const reviews = [
+  { initials: "MT", name: "Mark Thompson", role: "E-commerce Business Owner", text: "Best storage solution in Dubai! We store our e-commerce inventory here. The flexible terms and easy access make managing stock so much easier. Highly recommend for small businesses!" },
+  { initials: "FA", name: "Faisal Al Rashid", role: "Palm Jumeirah", text: "SafeStorage handled our company's warehouse clearance efficiently. We stored over 200 boxes of stock and office equipment, and the team was professional and fast. The indexing system made it easy to retrieve specific items. Great for businesses." },
+  { initials: "PS", name: "Priya Sharma", role: "Jumeirah", text: "I used SafeStorage to store my office furniture when we downsized our team. The process was simple — they sent a consultant to assess the volume, gave me a transparent quote, and handled everything from packing to storage. Great value for money." },
+  { initials: "FA", name: "Fatima Al-Rashid", role: "Apartment Resident, JLT", text: "Moving from JLT to Business Bay, I needed short-term storage. The team was incredibly professional, handled everything with care, and the pricing was transparent with no hidden fees!" },
+  { initials: "JL", name: "Jennifer Lee", role: "Expat, Downtown Dubai", text: "I left Dubai for eight months and needed somewhere safe for my whole apartment. They packed everything, sent me the inventory, and delivered it all back the week I returned — not a single item missing or damaged." },
+]
+
+const faqs = [
+  {
+    q: "Can I send stock out every day for orders?",
+    a: "Yes. Ask before 12 PM and your stock is delivered the same day; requests by 5 PM go out the next business day. High-volume sellers can set up a scheduled daily collection.",
+  },
+  {
+    q: "Do you offer pick, pack and ship?",
+    a: "Our standard service is storage with releases on request, not full per-order 3PL. You can also visit 8 AM–8 PM, seven days a week, to check or pick stock yourself.",
+  },
+  {
+    q: "Can suppliers deliver stock straight to you?",
+    a: "Yes, by prior arrangement. Tell us before the first delivery and we receive it during business hours and count it in against your SKU list.",
+  },
+  {
+    q: "How do you keep track of my inventory?",
+    a: "Stock is counted in and released against your own SKU references, and any mismatch is flagged at intake. Your own system — Shopify, a marketplace account or a spreadsheet — stays the master record.",
+  },
+  {
+    q: "What if my stock grows quickly?",
+    a: "You pay for the space you use, so more stock simply means more space — no new lease. Tell us ahead of peaks like White Friday and Ramadan so the space is ready.",
+  },
+  {
+    q: "Which products can't be stored?",
+    a: "Flammable, explosive, corrosive or other dangerous goods, and perishable food that needs cold storage. Not sure? Send the product sheet and we'll confirm before you book.",
+  },
+]
+
+const explore = [
+  { Icon: Briefcase, t: "Business storage Dubai", b: "All business storage services.", href: "/business-storage-dubai" },
+  { Icon: Warehouse, t: "3PL services", b: "When full fulfilment is worth it.", href: "/business-storage-dubai/3pl-services" },
+  { Icon: Boxes, t: "Inventory storage", b: "Stock counted and reconciled.", href: "/business-storage-dubai/inventory-storage" },
+  { Icon: Package, t: "Pallet storage", b: "Palletised goods by the pallet.", href: "/business-storage-dubai/pallet-storage" },
+  { Icon: ShoppingBag, t: "Retail stock storage", b: "Seasonal and overflow shop stock.", href: "/business-storage-dubai/retail-stock-storage" },
+  { Icon: Warehouse, t: "Warehouse storage", b: "Warehouse space without the lease.", href: "/business-storage-dubai/warehouse-storage" },
+  { Icon: MapPin, t: "Local self storage", b: "Storage near you across Dubai.", href: "/self-storage-dubai/local-self-storage" },
+  { Icon: ClipboardCheck, t: "How it works", b: "From first call to delivery back.", href: "/how-it-works" },
+]
+
 const schemas = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "E-Commerce & Inventory Storage Dubai",
-    description: "Flexible inventory and e-commerce storage in Dubai. Monthly contracts, no warehouse lease required. Scale up or down as your business needs change.",
+    description: "Flexible inventory and e-commerce storage in Dubai. No warehouse lease required — stock collected, counted in and sent out on request. Scale up or down as your business needs change.",
     provider: { "@id": "https://safestorage.ae/#organization" },
     url: "https://safestorage.ae/business-storage-dubai/ecommerce-fulfilment",
     areaServed: { "@type": "City", name: "Dubai" },
@@ -40,17 +164,19 @@ const schemas = [
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
   },
-  
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
 ]
 
-const comparison = [
-  { aspect: "Minimum commitment", storage: "1 month", warehouse: "2-3 year lease" },
-  { aspect: "Monthly cost", storage: "Pay only for space used", warehouse: "AED 5,000–15,000+" },
-  { aspect: "Setup time", storage: "Same week", warehouse: "2-3 months" },
-  { aspect: "Scaling up", storage: "Next day", warehouse: "New lease or negotiation" },
-  { aspect: "Scaling down", storage: "30 days notice", warehouse: "Lease break fees" },
-  { aspect: "Access", storage: "Business hours + scheduled", warehouse: "24/7 typically" },
-]
+/** Stagger index for a revealed card. */
+const idx = (i: number) => ({ ["--i" as string]: i }) as CSSProperties
 
 export default function EcommerceStoragePage() {
   return (
@@ -63,265 +189,335 @@ export default function EcommerceStoragePage() {
         ]}
       />
       <SchemaScript schema={schemas} />
-      <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-r from-dubai-navy to-dubai-blue text-white py-20">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 bg-dubai-gold/20 text-dubai-gold px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-                <ShoppingBag className="w-4 h-4" /> E-Commerce Inventory Storage
+
+      {/* --cream override: this page's softer cream (#FAF7F0) */}
+      <div
+        className={`${s.page} ${sora.variable} ${manrope.variable}`}
+        style={{ ["--cream" as string]: "#faf7f0" } as CSSProperties}
+      >
+        <SplitHero
+          eyebrow="E-commerce inventory storage"
+          title="E-commerce Storage Dubai"
+          titleAccent="that grows with you."
+          blurb="Flexible inventory space for online sellers — no warehouse lease. Pay only for the space you use."
+          image="/landing/svc-ecommerce.jpg"
+          imagePosition="72% 40%"
+          ctaLabel="Get a Business Quote"
+        />
+
+        <LandingTrust />
+
+        {/* PROCESS */}
+        <section className={`${s.section} ${s.wrap}`} id="process">
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>How it works</span>
+                <h2>
+                  Supplier to customer, <em>no warehouse.</em>
+                </h2>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">E-Commerce Storage Dubai — Flexible Inventory Storage Without Warehouse Leases</h1>
-              <p className="text-xl text-white/85 mb-8">Growing your Dubai e-commerce business shouldn't mean committing to a 3-year warehouse lease. SafeStorage Dubai provides flexible monthly inventory storage — scale up or down as your business demands. Pay only for the space you use, with no long-term commitment.</p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="https://safestorage.ae/get-quote">
-                  <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Business Quote</Button>
-                </Link>
-                <a href="tel:+971505773388">
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-dubai-navy px-8 py-4 text-lg">
-                    <Phone className="w-5 h-5 mr-2" /> +971505773388
-                  </Button>
-                </a>
-              </div>
+              <p>We hold your stock and send it out when orders come in — you focus on selling.</p>
             </div>
-          </div>
+            <MilestonesPlayer>
+              <ol className={s.milestones}>
+                {steps.map(({ Icon, when, t: title, b }, i) => (
+                  <li className={s.milestone} key={title} style={{ ["--i" as string]: i }}>
+                    <span className={s.milestoneDot} aria-hidden="true">
+                      <Icon />
+                    </span>
+                    <span className={s.milestoneYear}>{when}</span>
+                    <b>{title}</b>
+                    <small>{b}</small>
+                  </li>
+                ))}
+              </ol>
+            </MilestonesPlayer>
+          </Reveal>
         </section>
 
-        <section className="py-10 bg-dubai-gold/10 border-y border-dubai-gold/20">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              {[
-                { stat: "1 Month", label: "Minimum contract" },
-                { stat: "No", label: "Setup fees" },
-                { stat: "24hrs", label: "Scale up time" },
-                { stat: "Door-to-Door", label: "Initial inventory pickup" },
-              ].map((s) => (
-                <div key={s.label}>
-                  <div className="text-3xl font-bold text-dubai-navy">{s.stat}</div>
-                  <div className="text-sm text-gray-600 mt-1">{s.label}</div>
+        {/* WHY */}
+        <section className={s.wrap} id="why">
+          <Reveal>
+            <div className={`${s.darkBand} ${s.whyBand}`}>
+              <div className={`${s.howHead} ${s.bandHead}`}>
+                <div>
+                  <span className={s.howEyebrow}>Why sellers choose us</span>
+                  <h2>
+                    Built for growing <br className={s.mBreak} />
+                    <em>online stores.</em>
+                  </h2>
                 </div>
-              ))}
+              </div>
+              <FeatScroller>
+                {why.map(({ Icon, title, body }, i) => (
+                  <div className={`${s.feat} ${r.card}`} style={idx(i)} key={title}>
+                    <div className={s.featIcon} aria-hidden="true">
+                      <Icon size={18} strokeWidth={2} />
+                    </div>
+                    <h3>{title}</h3>
+                    <p>{body}</p>
+                  </div>
+                ))}
+              </FeatScroller>
+              <p className={s.scrollHint}>Swipe for more →</p>
             </div>
-          </div>
+          </Reveal>
         </section>
 
-        <section className="py-16 bg-white">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy mb-8">Storage vs Warehouse: Why Growing Dubai Sellers Choose Storage</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-dubai-navy text-white">
-                    <th className="text-left p-4 rounded-tl-lg">Comparison</th>
-                    <th className="text-left p-4 bg-dubai-gold">SafeStorage Dubai</th>
-                    <th className="text-left p-4 rounded-tr-lg">Traditional Warehouse</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map((row, i) => (
-                    <tr key={row.aspect} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
-                      <td className="p-4 font-semibold text-dubai-navy">{row.aspect}</td>
-                      <td className="p-4 text-green-700 font-medium bg-green-50/50">{row.storage}</td>
-                      <td className="p-4 text-gray-600">{row.warehouse}</td>
-                    </tr>
+        {/* COMPARE */}
+        <section className={`${s.section} ${s.wrap}`} id="compare">
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>Compare</span>
+                <h2>
+                  Storage vs <em>Warehouse Lease</em>
+                </h2>
+              </div>
+              <p>Why growing Dubai sellers hold stock with us before committing to a warehouse of their own.</p>
+            </div>
+
+            <CompareToggle>
+              {/* WAREHOUSE LEASE */}
+              <div className={`${c.card} ${c.them}`}>
+                <div className={c.cardHead}>
+                  <div>
+                    <b>Warehouse</b>
+                    <small>Lease</small>
+                  </div>
+                  <span className={c.pill}>6 hassles</span>
+                </div>
+                <ul className={c.list}>
+                  {leaseHassles.map(({ Icon, t: title, b, partly, tone }) => (
+                    <li className={c.row} key={title}>
+                      <div
+                        className={c.ic}
+                        style={{ color: tone[0], background: tone[1] }}
+                        aria-hidden="true"
+                      >
+                        <Icon strokeWidth={2} />
+                      </div>
+                      <div>
+                        <b>{title}</b>
+                        <span>{b}</span>
+                      </div>
+                      <div className={`${c.cross} ${partly ? c.crossPartly : ""}`} aria-label={partly ? "Partly" : "Not included"}>
+                        {partly ? <AlertCircle strokeWidth={2.6} aria-hidden="true" /> : <X strokeWidth={3} aria-hidden="true" />}
+                      </div>
+                    </li>
                   ))}
-                </tbody>
-              </table>
+                </ul>
+              </div>
+
+              {/* SAFESTORAGE */}
+              <div className={`${c.card} ${c.us}`}>
+                <span className={c.badge}>RECOMMENDED</span>
+                <div className={c.cardHead}>
+                  <div>
+                    <b>SafeStorage</b>
+                    <small>Dubai</small>
+                  </div>
+                  <span className={c.pill}>All 6 included</span>
+                </div>
+                <ul className={c.list}>
+                  {storageWins.map(({ Icon, t: title, b, tone }) => (
+                    <li className={c.row} key={title}>
+                      <div
+                        className={c.ic}
+                        style={{ ["--tone" as string]: tone[0], ["--tone2" as string]: tone[1] } as CSSProperties}
+                        aria-hidden="true"
+                      >
+                        <Icon strokeWidth={2} />
+                      </div>
+                      <div>
+                        <b>{title}</b>
+                        <span>{b}</span>
+                      </div>
+                      <div className={c.tick} aria-label="Included">
+                        <Check strokeWidth={3} aria-hidden="true" />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </CompareToggle>
+
+            <div className={c.strip}>
+              <p>
+                Start in days — no lease to sign.
+                <span>Pay only for the space you use.</span>
+              </p>
+              <Link className={`${s.btn} ${s.btnAccent} ${c.stripBtn}`} href="/get-quote">
+                Get a free quote →
+              </Link>
             </div>
-          </div>
+          </Reveal>
         </section>
 
-        <section className="py-16 bg-slate-50">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">What E-Commerce Businesses Store with Us</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { category: "Fashion & Apparel", icon: "👗", items: ["Clothing and accessories", "Bags and footwear", "Seasonal collections", "Sample inventory", "Return stock"] },
-                { category: "Electronics & Gadgets", icon: "📱", items: ["Consumer electronics", "Accessories and cables", "Smart home devices", "Phone cases and peripherals", "Refurbished devices"] },
-                { category: "Home & Living", icon: "🏠", items: ["Home décor", "Kitchenware", "Bedding and linens", "Cleaning products", "Small appliances"] },
-                { category: "Health & Beauty", icon: "💄", items: ["Cosmetics and skincare", "Wellness products", "Fitness equipment", "Nutritional supplements", "Medical devices"] },
-                { category: "Books & Media", icon: "📚", items: ["Books and textbooks", "DVD/Blu-ray inventory", "Educational materials", "Print media stock", "Digital products packaged"] },
-                { category: "Sports & Outdoor", icon: "⚽", items: ["Sports equipment", "Outdoor gear", "Fitness accessories", "Water sports items", "Camping equipment"] },
-              ].map((cat) => (
-                <div key={cat.category} className="bg-white rounded-xl p-6 border border-gray-200">
-                  <div className="text-3xl mb-3">{cat.icon}</div>
-                  <h3 className="font-bold text-dubai-navy mb-3">{cat.category}</h3>
-                  <ul className="space-y-1.5">
-                    {cat.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-gray-600 text-sm">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-dubai-gold flex-shrink-0" />{item}
-                      </li>
+        {/* WHAT E-COMMERCE BUSINESSES STORE */}
+        <section className={`${s.section} ${s.wrap}`} id="products" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>What you can store</span>
+                <h2>
+                  What E-Commerce Businesses <em>Store with Us</em>
+                </h2>
+              </div>
+              <p>Boxed or on pallets, one SKU or hundreds — tell us what you sell and we&apos;ll confirm.</p>
+            </div>
+            <div className={s.trio}>
+              {categories.map(({ Icon, title, items, tone }, i) => (
+                <div className={`${s.panel} ${s.panelHover} ${r.card}`} style={idx(i)} key={title}>
+                  <div
+                    className={`${s.panelIcon} ${r.tone}`}
+                    style={{ ["--tone" as string]: tone[0], ["--tone2" as string]: tone[1] } as CSSProperties}
+                    aria-hidden="true"
+                  >
+                    <Icon size={22} color="#fff" strokeWidth={2} />
+                  </div>
+                  <h3>{title}</h3>
+                  <ul className={s.checkList}>
+                    {items.map((item) => (
+                      <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </div>
               ))}
             </div>
-          </div>
+            <div className={s.movingTip}>
+              <AlertTriangle aria-hidden="true" />
+              <p>
+                <b>Not accepted:</b> flammable, explosive, corrosive or other dangerous goods, and perishable food that needs
+                cold storage. Unsure about a product? Send us its product sheet first.
+              </p>
+            </div>
+          </Reveal>
         </section>
 
-        <section className="py-16 bg-white">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">How Our E-Commerce Storage Works</h2>
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { step: "01", title: "Get a Quote", desc: "Tell us your inventory volume and type. We provide a same-day quote for the right unit size and access schedule." },
-                { step: "02", title: "We Pick Up Your Stock", desc: "Our team collects inventory from your home, supplier, or existing location. Documented and photographed on intake." },
-                { step: "03", title: "Access to Pick & Pack", desc: "Visit your unit during business hours to pick orders, add new stock, or reorganise. Coordinate scheduled access for regular pack runs." },
-                { step: "04", title: "Scale as You Grow", desc: "Upgrade to a larger unit in 24-48 hours as your business grows. No lease renegotiations, no broker fees — just call us." },
-              ].map((s) => (
-                <div key={s.step} className="text-center p-5">
-                  <div className="w-14 h-14 bg-dubai-gold rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">{s.step}</div>
-                  <h3 className="font-bold text-dubai-navy mb-2">{s.title}</h3>
-                  <p className="text-gray-600 text-sm">{s.desc}</p>
+        {/* WHO IT'S FOR */}
+        <section className={`${s.section} ${s.wrap}`} id="sellers" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <UspRail
+              head={
+                <div className={s.uspHead}>
+                  <span className={s.howEyebrow}>Who it&apos;s for</span>
+                  <h2>
+                    Storage for every <em>kind of seller.</em>
+                  </h2>
+                </div>
+              }
+            >
+              {sellers.map(({ Icon, title, body }, i) => (
+                <article className={`${s.usp} ${r.card}`} style={idx(i)} key={title}>
+                  <span className={s.uspNum} aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className={s.uspIcon} aria-hidden="true">
+                    <Icon />
+                  </div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </article>
+              ))}
+            </UspRail>
+            <p className={s.scrollHint}>Swipe for more →</p>
+          </Reveal>
+        </section>
+
+        {/* REVIEWS */}
+        <section className={`${s.section} ${s.wrap}`} id="reviews" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>Testimonials</span>
+                <h2>
+                  What our <em>customers say.</em>
+                </h2>
+              </div>
+            </div>
+            {/* extra bottom room so the hover shadow isn't clipped by the scroller */}
+            <div className={s.revTrack} style={{ paddingTop: 14, paddingBottom: 56, marginBottom: -30 }}>
+              {reviews.map((rv, i) => (
+                <div className={`${s.revCard} ${r.card}`} style={idx(i)} key={rv.name}>
+                  <div className={s.revTop}>
+                    <span className={`${s.revAvatar} ${i % 2 ? s.revAvatarAlt : ""}`} aria-hidden="true">
+                      {rv.initials}
+                    </span>
+                    <div>
+                      <div className={s.revName}>{rv.name}</div>
+                      <div className={s.revRole}>{rv.role}</div>
+                    </div>
+                  </div>
+                  <p className={s.revText}>&ldquo;{rv.text}&rdquo;</p>
+                  <div className={s.revStars} aria-label="Rated 5 out of 5">
+                    ★★★★★
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
+            <p className={s.scrollHint}>Swipe for more →</p>
+          </Reveal>
         </section>
 
-        <section className="py-16 bg-slate-50">
-          <div className="container px-4 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-12">Business Customer Reviews</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { name: "Lina M.", location: "Al Barsha", business: "Online Fashion Retailer", text: "I started with a medium unit and within 3 months needed to upgrade to large. SafeStorage made it seamless — same building, same access system, just a bigger space. For a small business without the capital to commit to a warehouse lease, this is the only sensible solution.", rating: 5 },
-                { name: "Khaled R.", location: "DIP", business: "Electronics Reseller", text: "I store and ship electronics for Amazon UAE and noon.com. SafeStorage's clean, secure units keep my stock dust-protected and in sellable condition, and the access hours work perfectly for my pick-and-pack schedule.", rating: 5 },
-                { name: "Nour H.", location: "Business Bay", business: "Home Décor Brand", text: "Tried 2 traditional storage facilities before SafeStorage. Both were cramped and access was a battle. SafeStorage is what a business storage solution should look like. Professional, accessible, clean and secure. My product photography is even done in the parking area before items go in.", rating: 5 },
-              ].map((t) => (
-                <div key={t.name} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                  <div className="flex mb-3">{[...Array(t.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-dubai-gold text-dubai-gold" />)}</div>
-                  <p className="text-gray-700 mb-4 italic">"{t.text}"</p>
-                  <div className="font-bold text-dubai-navy">{t.name}</div>
-                  <div className="text-sm text-gray-500">{t.location} · {t.business}</div>
-                </div>
+        {/* FAQ */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>Good to know</span>
+                <h2>
+                  E-commerce storage <em>questions.</em>
+                </h2>
+              </div>
+              <p>
+                More answers? <Link href="/faq" style={{ color: "var(--accent)", fontWeight: 600 }}>View all FAQs →</Link>
+              </p>
+            </div>
+            <FaqAccordion items={faqs} />
+          </Reveal>
+        </section>
+
+        {/* EXPLORE */}
+        <section className={`${s.section} ${s.wrap}`} id="explore" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <div className={s.howHead}>
+              <div>
+                <span className={s.howEyebrow}>Explore</span>
+                <h2>
+                  More in <em>business storage.</em>
+                </h2>
+              </div>
+            </div>
+            <div className={s.miniGrid}>
+              {explore.map(({ Icon, t: title, b, href }, i) => (
+                <Link className={`${s.miniCard} ${s.miniLink} ${r.card}`} style={idx(i)} href={href} key={href}>
+                  <span className={s.miniIcon} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <div>
+                    <b>{title}</b>
+                    <small>{b}</small>
+                  </div>
+                  <span className={s.miniArrow} aria-hidden="true">→</span>
+                </Link>
               ))}
             </div>
-          </div>
+          </Reveal>
         </section>
 
-        <section className="py-16 bg-white">
-          <div className="container px-4 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy text-center mb-10">E-Commerce Storage FAQs</h2>
-            <div className="space-y-4">
-              {[
-                { q: "Can I access my unit daily for order fulfilment?", a: "Yes. Our standard access hours are 8 AM–8 PM, 7 days a week. For sellers needing very high-frequency access (daily or multiple times per day), we can arrange dedicated access schedules to accommodate your fulfilment workflow. Call us to discuss your specific needs." },
-                { q: "Do you offer pick, pack and ship services?", a: "SafeStorage is primarily a storage facility — we don't operate a full 3PL (third-party logistics) service. However, you can use your unit as your pack station. You access the unit, pick orders, pack on-site, and arrange collection by your courier. Many of our e-commerce customers use DHL, Aramex or FedEx to collect directly from our facility." },
-                { q: "What if my inventory grows quickly and I need more space?", a: "Contact us and we can typically upgrade your unit within 24-48 hours. We aim to have units available in the next size up. If you grow beyond our largest unit, we can discuss partitioned sections or multiple units in the same facility for easy access management." },
-                { q: "Can I have parcels delivered directly to my SafeStorage unit?", a: "This depends on your access arrangement. We can accept deliveries during business hours by arrangement — the delivery must be addressed correctly and a staff member can receive and place in your unit. Contact us to set up a delivery arrangement before your first incoming delivery." },
-                { q: "Do you store hazardous or flammable products?", a: "We cannot store flammable, explosive, corrosive or Class 1-9 dangerous goods as defined by IATA/UAE transport regulations. Most standard consumer goods (cosmetics, electronics, clothing, food supplements) are fine. If unsure about a specific product, contact us before booking and we will advise." },
-              ].map((faq) => (
-                <details key={faq.q} className="border border-gray-200 rounded-xl p-6 group">
-                  <summary className="font-semibold text-dubai-navy cursor-pointer list-none flex justify-between items-center">
-                    {faq.q}<ArrowRight className="w-4 h-4 text-dubai-gold transition-transform group-open:rotate-90" />
-                  </summary>
-                  <p className="mt-4 text-gray-600 leading-relaxed">{faq.a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Reveal>
+          <CtaBand
+            title="Start in days — no lease to sign."
+            blurb="Flexible storage for your e-commerce business. Pay only for the space you use."
+            ctaLabel="Get a free quote"
+            callLabel="Call: 050-577-3388"
+          />
+        </Reveal>
 
-        <section className="py-16 bg-dubai-navy text-white text-center">
-          <div className="container px-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Ready to Scale Your Dubai E-Commerce Business?</h2>
-            <p className="text-xl text-white/85 mb-8">Get a free business storage quote today. No warehouse lease required — start in days, scale as you grow.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="https://safestorage.ae/get-quote">
-                <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-4 text-lg font-semibold">Get a Business Quote</Button>
-              </Link>
-              <a href="tel:+971505773388">
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-dubai-navy px-8 py-4 text-lg">
-                  <Phone className="w-5 h-5 mr-2" /> +971505773388
-                </Button>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-gray-50">
-          <div className="container px-4 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-dubai-navy mb-8">About Our E-Commerce Storage Service in Dubai</h2>
-            <div className="space-y-4 text-gray-700 leading-relaxed text-lg mb-12">
-              <p>SafeStorage Dubai&apos;s e-commerce storage service is designed specifically for online sellers, D2C brands, and growing businesses that need flexible inventory space without the financial and legal commitments of a traditional warehouse lease. Unlike warehouse rentals that require 2&ndash;3 year minimum commitments, deposits equivalent to 3&ndash;6 months&apos; rent, and significant fit-out costs, our storage units are available on a month-to-month basis with no setup fees and no penalty for scaling up or down. This model is particularly valuable in Dubai&apos;s e-commerce market, where rapid growth, seasonal demand peaks, and category pivots are common, and where locking into a large warehouse before your business is ready creates financial risk that can threaten the entire venture.</p>
-              <p>We serve a wide range of Dubai e-commerce businesses including Amazon UAE and noon.com sellers, Instagram and TikTok shop operators, direct-to-consumer brands, importers and distributors, subscription box companies, and businesses selling across multiple platforms simultaneously. Our units range from small (suitable for high-value, low-volume categories like electronics or luxury goods) to large (suitable for high-volume fashion, electronics, or home goods sellers). Scaling from one unit size to the next can happen within 24&ndash;48 hours, giving you a responsive infrastructure that matches your business growth. Call us at +971505773388 to discuss your specific inventory needs and get a same-day business quote.</p>
-            </div>
-
-            <h2 className="text-3xl font-bold text-dubai-navy mb-8">Comprehensive E-Commerce Storage FAQs</h2>
-            <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What types of products can be stored for e-commerce fulfilment?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai accommodates virtually all standard e-commerce product categories including fashion and apparel, footwear and accessories, consumer electronics and accessories, home d&eacute;cor and furnishings, kitchenware, health and beauty products, cosmetics and skincare, nutritional supplements, books and media, sporting goods, outdoor equipment, toys, stationery, pet products, and small appliances. Products should be properly packaged and labelled before storage. We cannot store flammable goods (aerosols above regulated thresholds, petrol products), explosives, corrosive materials, live animals, or perishable food items requiring cold chain storage. If you are unsure whether your products qualify, call us at +971505773388 before booking and we will confirm suitability.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">How does pick-and-pack work at SafeStorage?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai is primarily a storage facility rather than a full 3PL (third-party logistics) operator. Pick-and-pack means you access your storage unit yourself, select the products for individual orders, pack them in your shipping materials, label them with your shipping labels, and then arrange collection by your courier partner (DHL, Aramex, FedEx, Emirates Post, or any other). Many of our e-commerce customers bring their packing materials to the unit, conduct packing runs daily or several times per week, and coordinate courier collection from our facility&apos;s loading area. This gives you full control over your order quality while avoiding the cost of a full 3PL service fee on every order. Our access hours of 8 AM&ndash;8 PM, seven days a week, support most fulfilment workflows.</p>
-              </div>
-
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What are the access hours for e-commerce customers?</h3>
-                <p className="text-gray-700 leading-relaxed">Standard access hours at SafeStorage Dubai are Monday to Sunday, 8 AM to 8 PM. These hours are designed to accommodate most business fulfilment schedules, including morning order reviews, afternoon packing runs, and evening courier cut-off times. For sellers with particularly high order volumes or unusual dispatch windows &mdash; for example, those fulfilling marketplace same-day delivery orders with early morning courier collections &mdash; we can discuss extended or pre-arranged early access options. The goal is to ensure that your access schedule never becomes a constraint on your fulfilment capability. Please discuss any access requirements outside standard hours with us when booking your unit.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">How is inventory tracked in a SafeStorage unit?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai provides the physical storage space &mdash; inventory management and tracking is managed by you using your own systems. Most of our e-commerce customers use a spreadsheet, an inventory management app (such as Shopify&apos;s built-in inventory, Linnworks, Cin7, or similar), or their marketplace seller account&apos;s inventory system to track stock levels. You are responsible for your own stock counts, SKU management, and inventory reconciliation. When you bring new stock in or remove items for orders, you update your own records. This approach gives you full flexibility to use whichever inventory system fits your business without being locked into our platform. We can advise on practical inventory organisation within your unit during onboarding.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I receive supplier deliveries at the storage facility?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes, by prior arrangement. We can accept deliveries to the facility on your behalf during business hours &mdash; stock from suppliers, goods imported through Dubai customs, or transfers from other storage locations. Deliveries must be pre-arranged with our team (not simply addressed to the facility without notice) and correctly addressed with your name and unit reference. A staff member will receive the delivery, photograph it, and place it in your unit or hold it at reception until you arrive to take it in. We charge a small receiving fee for deliveries accepted on your behalf. If you receive deliveries frequently, we can set up a regular receiving arrangement as part of your storage plan. Contact us to confirm logistics before your first incoming delivery.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What is the minimum storage duration for e-commerce businesses?</h3>
-                <p className="text-gray-700 leading-relaxed">The minimum storage duration is one month. This is ideal for businesses that need short-term overflow space during peak seasons, businesses testing a new product category before committing to larger volumes, or sellers who are in the early growth phase and want to maintain maximum flexibility. There is no penalty for ending storage after the minimum period &mdash; just 30 days&apos; written notice. For businesses with predictable seasonal patterns, we recommend booking ahead to guarantee unit availability during high-demand periods such as White Friday, Ramadan, and the end-of-year holiday season when demand for storage increases significantly across Dubai. Early booking secures your preferred unit size and location within the facility.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">How does this compare to warehouse rental in Dubai?</h3>
-                <p className="text-gray-700 leading-relaxed">Traditional warehouse rental in Dubai typically requires a 2&ndash;3 year minimum lease, a deposit equivalent to 3&ndash;6 months of rent, legal costs for the lease agreement, fit-out costs for racking and infrastructure, and a minimum space commitment far larger than most growing businesses actually need. Monthly costs for a modest 1,000 sq ft warehouse in Al Quoz, DIP, or Jebel Ali typically range from AED 5,000 to AED 15,000+. SafeStorage provides an equivalent effective storage area on a month-to-month basis, with no setup costs, no deposit beyond the first month, and the ability to scale up or down in 24 hours. For businesses with annual revenue below AED 5 million, warehouse rental is almost never the right solution.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">How are products kept in good condition in storage?</h3>
-                <p className="text-gray-700 leading-relaxed">All SafeStorage Dubai units are clean, enclosed indoor spaces that keep your stock dust-protected and away from the rain, direct sun, and outdoor elements. Boxes and pallets are kept off the floor and organised so products stay orderly and in sellable condition. We do not offer cold-chain refrigerated storage for perishable food items requiring below-ambient temperatures &mdash; if your products have specific temperature requirements, contact us to discuss suitability before booking. For the vast majority of e-commerce product categories, our secure indoor units provide the clean, protected environment your inventory needs.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Can I use SafeStorage for Amazon UAE or noon.com fulfilment?</h3>
-                <p className="text-gray-700 leading-relaxed">Yes, many of our e-commerce customers use SafeStorage as their primary inventory location for Amazon UAE (Fulfillment by Merchant, or FBM orders) and noon.com seller operations. You store your inventory with us, visit the unit to pick and pack orders as they come in, and arrange courier collection for dispatch to buyers or for periodic replenishment of Amazon FBA warehouses. Our clean, secure units help sellers keep products dust-protected and in the condition needed to meet Amazon&apos;s standards. We can discuss storage and access arrangements that specifically support Amazon or noon seller workflows &mdash; including regular replenishment runs and return stock management.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What happens during peak seasons like White Friday or Ramadan?</h3>
-                <p className="text-gray-700 leading-relaxed">Dubai&apos;s e-commerce calendar has well-defined peak periods &mdash; White Friday (UAE&apos;s equivalent of Black Friday), Ramadan, and the December holiday season typically see order volumes 3&ndash;5x above normal levels for many sellers. To prepare for peak seasons, we recommend booking additional storage space 4&ndash;6 weeks before the peak period begins, as demand for units increases significantly. We can accommodate temporary unit upgrades or additional units for the peak period only. On the fulfilment side, we can discuss extended access arrangements during peak periods to support morning-to-night packing operations if needed. Planning ahead with your account manager at SafeStorage ensures you have the space and access schedule you need when your business is at its most critical point.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">How are returns handled by e-commerce businesses using storage?</h3>
-                <p className="text-gray-700 leading-relaxed">Return management is entirely managed by you as the seller. Returned items are typically sent back to your home address or directly to your SafeStorage unit (by arrangement for direct courier delivery). Once returns arrive, you inspect them, process refunds or exchanges through your marketplace, and either restock the item in your unit or dispose of it. Many sellers designate a specific area of their unit for returns processing, keeping returned items separate from new stock until they have been inspected and graded. For high return-rate categories like fashion, having a dedicated returns processing area within your unit makes the workflow significantly more efficient. We do not inspect, process, or make decisions about returned items on your behalf.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">Is there a weight limit per storage unit?</h3>
-                <p className="text-gray-700 leading-relaxed">Our storage units have standard floor load ratings of 750 kg per square metre, which is sufficient for the vast majority of e-commerce inventory categories. For particularly heavy items &mdash; such as machinery, large appliances, gym equipment, or dense palletised loads &mdash; please advise us at booking so we can confirm the appropriate unit and ensure floor load limits are not exceeded. We can advise on shelving and racking configurations that distribute weight safely across the unit floor. Most standard consumer goods in boxes and on shelving are well within our weight ratings. If you have a specific heavy inventory category, share the details and we will confirm suitability before you book.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">What about hazardous goods &mdash; can any be stored?</h3>
-                <p className="text-gray-700 leading-relaxed">SafeStorage Dubai cannot store goods classified as hazardous under IATA or UAE transport regulations, including flammable liquids and aerosols above regulated thresholds, compressed gases, explosives, oxidising materials, toxic chemicals, corrosives, and radioactive materials. Most standard consumer goods &mdash; cosmetics, electronics, clothing, food supplements, household goods, books, and sporting goods &mdash; are not classified as hazardous and are perfectly acceptable. Some products that appear innocent (certain aerosol sprays, lithium battery devices in bulk quantities, or specific cleaning products) may require classification checks. If you are unsure whether your specific product qualifies, share the Safety Data Sheet (SDS) or product specification with us and we will advise before booking.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-bold text-dubai-navy mb-3">How do I scale up my storage as my business grows?</h3>
-                <p className="text-gray-700 leading-relaxed">Scaling up at SafeStorage Dubai is designed to be fast and frictionless. When your current unit is approaching capacity, call us at +971505773388 and we will check availability in the next unit size up or adjacent units that could be used together. Unit upgrades typically take 24&ndash;48 hours to arrange, with a smooth transfer of your inventory &mdash; either you move your stock yourself or we can assist with internal transfer. Your monthly fee is adjusted to the new unit size from the effective upgrade date with no penalty or administrative fee for changing unit size. For businesses growing rapidly, we recommend discussing a growth plan with us at onboarding so we can proactively manage unit availability as your inventory expands.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <LandingConnect />
       </div>
-      <SiloLinks path="/business-storage-dubai/ecommerce-fulfilment" />
     </>
   )
 }

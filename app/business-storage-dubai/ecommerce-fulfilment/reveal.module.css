@@ -1,0 +1,61 @@
+/* Scroll reveal for this page only (see Reveal.tsx).
+   Uses animation with `backwards` fill so nothing is held after it ends —
+   the landing hover transforms keep working on revealed cards. */
+
+.armed:not(.in) {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.in {
+  animation: sectionIn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+.armed:not(.in) .card {
+  opacity: 0;
+}
+.in .card {
+  animation: cardIn 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  animation-delay: calc(0.15s + var(--i, 0) * 0.07s);
+}
+
+/* Colour icon tile (category cards). `.card .tone` outranks the shared
+   .panelIcon tint; colours come in as --tone / --tone2. */
+.card .tone {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--tone), var(--tone2));
+  box-shadow: 0 10px 20px -10px var(--tone), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.4);
+}
+.card:hover .tone {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+@keyframes sectionIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover .tone {
+    transform: none;
+  }
+  .armed:not(.in),
+  .armed:not(.in) .card {
+    opacity: 1;
+    transform: none;
+  }
+  .in,
+  .in .card {
+    animation: none;
+  }
+}
