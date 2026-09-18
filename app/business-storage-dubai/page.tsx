@@ -1,7 +1,8 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import {
-  Building2, ShieldCheck, Truck, Clock, FileBox, Headphones, Package, Store, Boxes, UserCheck, Tags, CheckCircle2,
+  Building2, ShieldCheck, Truck, Clock, FileBox, Headphones, Package, Store, Boxes, UserCheck, Tags,
 } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
@@ -17,6 +18,8 @@ import { FeatScroller } from "@/components/landing/feat-scroller"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import { businessFaqs } from "./faqs"
 import s from "@/components/landing/landing.module.css"
+import h from "./hero.module.css"
+import Reveal from "./Reveal"
 
 export const metadata: Metadata = {
   title: { absolute: "Business Storage Solutions in Dubai & UAE | Safe Storage" },
@@ -51,19 +54,21 @@ const useCases = [
   { Icon: Boxes, title: "Inventory overflow", body: "More stock than your space allows — no lease, no DEWA, no fit-out. Grow and shrink with demand." },
 ]
 
+// `anim` = how the icon acts out the point (see hero.module.css)
 const includes = [
-  { Icon: Clock, t: "No minimum contract", b: "Scale up or down month to month." },
-  { Icon: UserCheck, t: "Account manager", b: "One contact for pickups and deliveries." },
-  { Icon: Tags, t: "Bulk discounts", b: "Multi-space bookings and annual prepayments." },
-  { Icon: FileBox, t: "Document archiving", b: "Compliant records storage as an add-on." },
-  { Icon: Truck, t: "Door-to-door service", b: "Available across Dubai." },
-  { Icon: Package, t: "Pay per sq ft", b: "Only for the space you use." },
-]
+  { Icon: Clock, t: "No minimum contract", b: "Scale up or down month to month.", anim: "spin" },
+  { Icon: UserCheck, t: "Account manager", b: "One contact for pickups and deliveries.", anim: "nod" },
+  { Icon: Tags, t: "Bulk discounts", b: "Multi-space bookings and annual prepayments.", anim: "swing" },
+  { Icon: FileBox, t: "Document archiving", b: "Compliant records storage as an add-on.", anim: "drop" },
+  { Icon: Truck, t: "Door-to-door service", b: "Available across Dubai.", anim: "drive" },
+  { Icon: Package, t: "Pay per sq ft", b: "Only for the space you use.", anim: "squeeze" },
+] as const
 
+// each industry with a small colour emoji (owner's choice, as on the personal page)
 const industries = [
-  "Retail and fashion brands", "E-commerce and online sellers", "Food and beverage distributors",
-  "Technology and electronics", "Healthcare and pharmaceutical", "Construction and engineering",
-  "Event management", "Real estate and property", "Media and production",
+  { e: "👗", t: "Retail and fashion brands" }, { e: "🛒", t: "E-commerce and online sellers" }, { e: "🍎", t: "Food and beverage distributors" },
+  { e: "💻", t: "Technology and electronics" }, { e: "💊", t: "Healthcare and pharmaceutical" }, { e: "🏗️", t: "Construction and engineering" },
+  { e: "🎉", t: "Event management" }, { e: "🏢", t: "Real estate and property" }, { e: "🎬", t: "Media and production" },
 ]
 
 const businessStorageSchemas = [
@@ -110,15 +115,18 @@ export default function BusinessStoragePage() {
       <SchemaScript schema={businessStorageSchemas} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        <SplitHero
-          eyebrow="Business storage Dubai"
-          title="Business Storage in Dubai –"
-          titleAccent="Stock, Equipment & Records"
-          blurb="Secure, flexible storage for your business. Focus on growing while we handle the storage."
-          image="/landing/svc-business.jpg"
-          imagePosition="center 55%"
-          ctaLabel="Get Your Free Quote"
-        />
+        {/* wrapper only swaps the hero wash for a lighter one (see hero.module.css) */}
+        <div className={h.heroVivid}>
+          <SplitHero
+            eyebrow="Business storage Dubai"
+            title="Business Storage in Dubai –"
+            titleAccent="Stock, Equipment & Records"
+            blurb="Secure, flexible storage for your business. Focus on growing while we handle the storage."
+            image="/landing/svc-business-hero.webp"
+            imagePosition="center 30%"
+            ctaLabel="Get Your Free Quote"
+          />
+        </div>
 
         <LandingTrust />
 
@@ -192,19 +200,25 @@ export default function BusinessStoragePage() {
               </h2>
             </div>
           </div>
-          <div className={s.miniGrid}>
-            {includes.map(({ Icon, t: title, b }) => (
-              <div className={s.miniCard} key={title}>
-                <span className={s.miniIcon} aria-hidden="true">
-                  <Icon />
-                </span>
-                <div>
-                  <b>{title}</b>
-                  <small>{b}</small>
+          <Reveal>
+            <div className={s.miniGrid}>
+              {includes.map(({ Icon, t: title, b, anim }, i) => (
+                <div
+                  className={`${s.miniCard} ${h.plan}`}
+                  style={{ ["--i" as string]: i } as CSSProperties}
+                  key={title}
+                >
+                  <span className={`${s.miniIcon} ${h.planIcon} ${h[anim]}`} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <div>
+                    <b>{title}</b>
+                    <small>{b}</small>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
 
           <h3 className={s.miniHead}>Industries we serve in Dubai</h3>
           <div className={s.areaMarquees}>
@@ -213,10 +227,12 @@ export default function BusinessStoragePage() {
                 <div className={`${s.marqueeTrack} ${r === 1 ? s.marqueeReverse : ""}`}>
                   {[0, 1].map((copy) => (
                     <ul className={`${s.marqueeGroup} ${s.chipGroup}`} aria-hidden={copy === 1 || undefined} key={copy}>
-                      {row.map((industry) => (
+                      {row.map(({ e, t: industry }) => (
                         <li key={industry}>
                           <span className={s.chip}>
-                            <CheckCircle2 size={13} style={{ display: "inline", marginRight: 6, verticalAlign: "-2px", color: "var(--accent)" }} />
+                            <span className={h.chipEmoji} aria-hidden="true">
+                              {e}
+                            </span>
                             {industry}
                           </span>
                         </li>

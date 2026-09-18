@@ -1,0 +1,149 @@
+/* Hero for /business-storage-dubai only (same treatment as the e-commerce and
+   student pages). The shared split-hero wash keeps ~40% cream over the photo;
+   here it fades to fully clear so the photo stays as vivid as the original.
+   Targets SplitHero's inner div (the one carrying --hero-img); `[style]` lifts
+   specificity above the shared `.heroSplit .heroInner`. */
+.heroVivid section > div[style] {
+  background-image: linear-gradient(
+      100deg,
+      rgba(255, 250, 240, 0.97) 0%,
+      rgba(255, 250, 240, 0.92) 42%,
+      rgba(255, 248, 236, 0.55) 53%,
+      rgba(255, 246, 226, 0) 63%
+    ),
+    var(--hero-img);
+}
+/* Items marquee: small colour emoji in each chip, about the size of the tick
+   icon it replaces; pops a little on hover (the marquee itself pauses) */
+.chipEmoji {
+  display: inline-block;
+  margin-right: 7px;
+  font-size: 15px;
+  line-height: 1;
+  vertical-align: -2px;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.3, 1.4);
+}
+li:hover .chipEmoji {
+  transform: scale(1.2) rotate(-6deg);
+}
+@media (max-width: 480px) {
+  .chipEmoji {
+    font-size: 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  li:hover .chipEmoji {
+    transform: none;
+  }
+}
+
+/* phones/tablets: shared wash, and a lighter (visually identical) copy of the
+   photo so phones don't download the 1.2 MB lossless desktop file */
+@media (max-width: 900px) {
+  .heroVivid section > div[style] {
+    background-image: linear-gradient(
+        172deg,
+        rgba(255, 250, 240, 0.98) 0%,
+        rgba(255, 250, 240, 0.94) 50%,
+        rgba(255, 246, 226, 0.55) 78%,
+        rgba(255, 246, 226, 0.15) 100%
+      ),
+      url("/landing/svc-business-hero-m.webp");
+  }
+}
+
+/* "What every business plan includes": cards pop up in turn once in view
+   (Reveal.tsx adds .armed/.in), lift on hover, and each icon acts out its
+   point — clock spins, manager nods, tag swings, file box drops in, van
+   drives, box squeezes. Content stays visible without JS. */
+.armed:not(.in) .plan {
+  opacity: 0;
+}
+.in .plan {
+  animation: planIn 0.6s cubic-bezier(0.2, 0.8, 0.3, 1.25) backwards;
+  animation-delay: calc(0.1s + var(--i, 0) * 0.08s);
+}
+.plan {
+  cursor: default;
+}
+.plan:hover {
+  transform: translateY(-4px);
+  border-color: rgba(238, 88, 36, 0.4);
+  box-shadow: 0 14px 30px rgba(37, 49, 90, 0.11);
+}
+.plan:hover .planIcon {
+  background: var(--accent);
+  color: #fff;
+}
+.planIcon svg {
+  animation-duration: 3.6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: calc(0.9s + var(--i, 0) * 0.3s);
+}
+.armed:not(.in) .planIcon svg {
+  animation-play-state: paused;
+}
+.spin svg { animation-name: clockSpin; }
+.nod svg { transform-origin: 50% 90%; animation-name: managerNod; }
+.swing svg { transform-origin: 70% 20%; animation-name: tagSwing; }
+.drop svg { animation-name: boxDrop; }
+.drive svg { animation-name: vanDrive; }
+.squeeze svg { animation-name: boxSqueeze; }
+
+@keyframes planIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+  }
+}
+@keyframes clockSpin {
+  0%, 45%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(360deg); }
+}
+@keyframes managerNod {
+  0%, 50%, 100% { transform: rotate(0deg); }
+  12% { transform: rotate(-10deg); }
+  24% { transform: rotate(8deg); }
+  36% { transform: rotate(-3deg); }
+}
+@keyframes tagSwing {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  12% { transform: rotate(-16deg); }
+  26% { transform: rotate(11deg); }
+  38% { transform: rotate(-6deg); }
+  48% { transform: rotate(3deg); }
+}
+@keyframes boxDrop {
+  0%, 55%, 100% { transform: translateY(0) scale(1, 1); }
+  10% { transform: translateY(-8px) scale(1, 1); }
+  22% { transform: translateY(0) scale(1.12, 0.86); }
+  32% { transform: translateY(-2px) scale(0.97, 1.03); }
+  42% { transform: translateY(0) scale(1, 1); }
+}
+@keyframes vanDrive {
+  0%, 55%, 100% { transform: translateX(0); opacity: 1; }
+  22% { transform: translateX(14px); opacity: 0; }
+  23% { transform: translateX(-14px); opacity: 0; }
+  42% { transform: translateX(0); opacity: 1; }
+}
+@keyframes boxSqueeze {
+  0%, 55%, 100% { transform: scale(1, 1); }
+  15% { transform: scale(1.14, 0.8); }
+  30% { transform: scale(0.9, 1.1); }
+  42% { transform: scale(1.03, 0.98); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .armed:not(.in) .plan {
+    opacity: 1;
+  }
+  .in .plan,
+  .planIcon svg {
+    animation: none;
+  }
+  .plan:hover {
+    transform: none;
+  }
+}
