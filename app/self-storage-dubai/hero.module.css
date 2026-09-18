@@ -1,0 +1,168 @@
+/* Page-local styles for /self-storage-dubai (same treatment as the e-commerce,
+   student, personal and business pages). */
+
+/* Hero: the shared split-hero wash keeps ~40% cream over the photo; here it
+   fades to fully clear so the photo stays as vivid as the original. Targets
+   SplitHero's inner div (the one carrying --hero-img); `[style]` lifts
+   specificity above the shared `.heroSplit .heroInner`. */
+/* This page's orange title line is long ("Secure Units, Fair Rates, Easy
+   Booking" reaches ~66% of the hero), so the cream holds a little further
+   than on the other pages before clearing. */
+.heroVivid section > div[style] {
+  background-image: linear-gradient(
+      100deg,
+      rgba(255, 250, 240, 0.97) 0%,
+      rgba(255, 250, 240, 0.93) 50%,
+      rgba(255, 249, 238, 0.82) 62%,
+      rgba(255, 247, 232, 0.45) 68%,
+      rgba(255, 246, 226, 0) 76%
+    ),
+    var(--hero-img);
+}
+/* phones/tablets: shared wash, and a lighter (visually identical) copy of the
+   photo so phones don't download the 1.2 MB lossless desktop file */
+@media (max-width: 900px) {
+  .heroVivid section > div[style] {
+    background-image: linear-gradient(
+        172deg,
+        rgba(255, 250, 240, 0.98) 0%,
+        rgba(255, 250, 240, 0.94) 50%,
+        rgba(255, 246, 226, 0.55) 78%,
+        rgba(255, 246, 226, 0.15) 100%
+      ),
+      url("/landing/svc-self-hero-m.webp");
+  }
+}
+
+/* Icon cards ("Why Dubai needs it", security tiles, "Plans for every need"):
+   pop up in turn once in view (Reveal.tsx adds .armed/.in) and each icon loops
+   a small move that acts out its meaning. Content stays visible without JS. */
+.armed:not(.in) .plan {
+  opacity: 0;
+}
+.in .plan {
+  animation: planIn 0.6s cubic-bezier(0.2, 0.8, 0.3, 1.25) backwards;
+  animation-delay: calc(0.1s + var(--i, 0) * 0.08s);
+}
+.lift {
+  cursor: default;
+}
+.lift:hover {
+  transform: translateY(-4px);
+  border-color: rgba(238, 88, 36, 0.4);
+  box-shadow: 0 14px 30px rgba(37, 49, 90, 0.11);
+}
+.lift:hover .planIcon {
+  background: var(--accent);
+  color: #fff;
+}
+.planIcon svg,
+.planIcon .emoji {
+  animation-duration: 3.6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: calc(0.9s + var(--i, 0) * 0.3s);
+}
+.armed:not(.in) .planIcon svg,
+.armed:not(.in) .planIcon .emoji {
+  animation-play-state: paused;
+}
+.squeeze svg { animation-name: boxSqueeze; }
+.drive svg { animation-name: vanDrive; }
+.drop svg { animation-name: boxDrop; }
+.spin svg { animation-name: clockSpin; }
+.pan svg { transform-origin: 50% 60%; animation-name: camPan; }
+.flicker svg { transform-origin: 50% 100%; animation-name: flameFlicker; }
+.wiggle svg { animation-name: bugWiggle; }
+.glow svg { animation-name: bulbGlow; }
+.pulse svg { animation-name: shieldPulse; }
+
+/* "Plans for every need": colour emoji in the icon box, gently hopping in turn */
+.emoji {
+  display: inline-block;
+  font-size: 21px;
+  line-height: 1;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  animation-name: emojiHop;
+}
+
+@keyframes planIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+  }
+}
+@keyframes boxSqueeze {
+  0%, 55%, 100% { transform: scale(1, 1); }
+  15% { transform: scale(1.14, 0.8); }
+  30% { transform: scale(0.9, 1.1); }
+  42% { transform: scale(1.03, 0.98); }
+}
+@keyframes vanDrive {
+  0%, 55%, 100% { transform: translateX(0); opacity: 1; }
+  22% { transform: translateX(14px); opacity: 0; }
+  23% { transform: translateX(-14px); opacity: 0; }
+  42% { transform: translateX(0); opacity: 1; }
+}
+@keyframes boxDrop {
+  0%, 55%, 100% { transform: translateY(0) scale(1, 1); }
+  10% { transform: translateY(-8px) scale(1, 1); }
+  22% { transform: translateY(0) scale(1.12, 0.86); }
+  32% { transform: translateY(-2px) scale(0.97, 1.03); }
+  42% { transform: translateY(0) scale(1, 1); }
+}
+@keyframes clockSpin {
+  0%, 45%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(360deg); }
+}
+@keyframes camPan {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  15% { transform: rotate(-14deg); }
+  35% { transform: rotate(14deg); }
+  50% { transform: rotate(0deg); }
+}
+@keyframes flameFlicker {
+  0%, 60%, 100% { transform: scale(1, 1); }
+  10% { transform: scale(0.94, 1.12); }
+  20% { transform: scale(1.06, 0.92); }
+  30% { transform: scale(0.96, 1.1); }
+  42% { transform: scale(1.02, 0.97); }
+}
+@keyframes bugWiggle {
+  0%, 60%, 100% { transform: translateX(0) rotate(0deg); }
+  10% { transform: translateX(-3px) rotate(-10deg); }
+  20% { transform: translateX(3px) rotate(10deg); }
+  30% { transform: translateX(-2px) rotate(-6deg); }
+  40% { transform: translateX(0) rotate(0deg); }
+}
+@keyframes bulbGlow {
+  0%, 55%, 100% { transform: scale(1); filter: none; }
+  20% { transform: scale(1.18); filter: drop-shadow(0 0 6px rgba(238, 88, 36, 0.8)); }
+  38% { transform: scale(1); filter: none; }
+}
+@keyframes shieldPulse {
+  0%, 55%, 100% { transform: scale(1); }
+  18% { transform: scale(1.2); }
+  32% { transform: scale(0.95); }
+  44% { transform: scale(1.03); }
+}
+@keyframes emojiHop {
+  0%, 50%, 100% { transform: translateY(0) rotate(0deg); }
+  15% { transform: translateY(-5px) rotate(-8deg); }
+  30% { transform: translateY(0) rotate(4deg); }
+  40% { transform: translateY(-1px) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .armed:not(.in) .plan {
+    opacity: 1;
+  }
+  .in .plan,
+  .planIcon svg,
+  .planIcon .emoji {
+    animation: none;
+  }
+  .lift:hover {
+    transform: none;
+  }
+}

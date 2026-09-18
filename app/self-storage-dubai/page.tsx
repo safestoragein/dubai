@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import {
@@ -17,6 +18,8 @@ import { UspRail } from "@/components/landing/usp-rail"
 import { FeatScroller } from "@/components/landing/feat-scroller"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import s from "@/components/landing/landing.module.css"
+import h from "./hero.module.css"
+import Reveal from "./Reveal"
 
 export const metadata: Metadata = {
   title: { absolute: "Self Storage Dubai: Flexible Plans & No Lorry | SafeStorage" },
@@ -99,13 +102,34 @@ const sizes = [
   { size: "130–160 sq ft", label: "3-bed", fits: ["Full apartment contents", "Seasonal items", "Sports gear", "Large furniture pieces"] },
 ]
 
+// `anim` = how the icon acts out the point (see hero.module.css)
 const security = [
-  { Icon: Camera, label: "24/7 CCTV surveillance" },
-  { Icon: Flame, label: "Fire protection systems" },
-  { Icon: Bug, label: "Pest management protocols" },
-  { Icon: Lightbulb, label: "Well-lit corridors" },
-  { Icon: ShieldCheck, label: "Regular security patrols" },
+  { Icon: Camera, label: "24/7 CCTV surveillance", anim: "pan" },
+  { Icon: Flame, label: "Fire protection systems", anim: "flicker" },
+  { Icon: Bug, label: "Pest management protocols", anim: "wiggle" },
+  { Icon: Lightbulb, label: "Well-lit corridors", anim: "glow" },
+  { Icon: ShieldCheck, label: "Regular security patrols", anim: "pulse" },
+] as const
+
+const needs = [
+  { Icon: Boxes, t: "Short on space", b: "Compact homes, no room for seasonal or spare items.", anim: "squeeze" },
+  { Icon: Truck, t: "Always on the move", b: "Lease gaps, relocations and long trips abroad.", anim: "drive" },
+  { Icon: Shield, t: "No lorry, no lifting", b: "We pack, load and move everything for you.", anim: "drop" },
+  { Icon: Clock, t: "Back in 24–48 hours", b: "Call or WhatsApp and we deliver to your door.", anim: "spin" },
+] as const
+
+// colour emoji per plan (owner's choice: "real images" on these cards)
+const plans = [
+  { e: "🏠", t: "Personal storage", b: "Households, students and individuals.", href: "/personal-storage-dubai" },
+  { e: "🛋️", t: "Furniture storage", b: "For renovations and relocations.", href: "/personal-storage-dubai/furniture-storage" },
+  { e: "🏢", t: "Business storage", b: "Inventory, documents and equipment.", href: "/business-storage-dubai" },
+  { e: "🚗", t: "Vehicle storage", b: "Covered bays for cars and bikes.", href: "/personal-storage-dubai/car-storage" },
+  { e: "🎓", t: "Student storage", b: "Short-term plans for semester breaks.", href: "/personal-storage-dubai/student-storage" },
+  { e: "✈️", t: "Expat storage", b: "Leaving or returning to Dubai.", href: "/personal-storage-dubai/expat-storage" },
 ]
+
+/** Stagger index for an animated card. */
+const idx = (i: number) => ({ ["--i" as string]: i }) as CSSProperties
 
 
 // Areas with a real location page link to it; the rest stay as plain labels.
@@ -144,16 +168,19 @@ export default function SelfStorageDubaiPage() {
       <SchemaScript schema={[...pageSchemas, faqSchema]} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        <SplitHero
-          eyebrow="Self storage Dubai"
-          title="Self Storage in Dubai –"
-          titleAccent="Secure Units, Fair Rates, Easy Booking"
-          blurb="Between apartments, renovating, travelling or decluttering? SafeStorage gives you secure space in Dubai, when and where you need it."
-          image="/landing/warehouse-fleet.jpg"
-          imagePosition="center 45%"
-          ctaLabel="Get Instant Quote"
-          phoneLabel="Call +971 50 577 3388"
-        />
+        {/* wrapper only swaps the hero wash for a lighter one (see hero.module.css) */}
+        <div className={h.heroVivid}>
+          <SplitHero
+            eyebrow="Self storage Dubai"
+            title="Self Storage in Dubai –"
+            titleAccent="Secure Units, Fair Rates, Easy Booking"
+            blurb="Between apartments, renovating, travelling or decluttering? SafeStorage gives you secure space in Dubai, when and where you need it."
+            image="/landing/svc-self-hero.webp"
+            imagePosition="center 30%"
+            ctaLabel="Get Instant Quote"
+            phoneLabel="Call +971 50 577 3388"
+          />
+        </div>
 
         <LandingTrust />
 
@@ -293,16 +320,18 @@ export default function SelfStorageDubaiPage() {
             </div>
             <p>Your belongings deserve the highest level of protection. Our facilities include:</p>
           </div>
-          <div className={s.tileGrid}>
-            {security.map(({ Icon, label }) => (
-              <div className={s.tile} key={label}>
-                <span className={s.tileIcon} aria-hidden="true">
-                  <Icon />
-                </span>
-                <b>{label}</b>
-              </div>
-            ))}
-          </div>
+          <Reveal>
+            <div className={s.tileGrid}>
+              {security.map(({ Icon, label, anim }, i) => (
+                <div className={`${s.tile} ${h.plan}`} style={idx(i)} key={label}>
+                  <span className={`${s.tileIcon} ${h.planIcon} ${h[anim]}`} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <b>{label}</b>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </section>
 
         {/* AREAS */}
@@ -453,47 +482,39 @@ export default function SelfStorageDubaiPage() {
           </div>
 
           <h3 className={s.miniHead}>Why Dubai needs it</h3>
-          <div className={s.miniGrid}>
-            {[
-              { Icon: Boxes, t: "Short on space", b: "Compact homes, no room for seasonal or spare items." },
-              { Icon: Truck, t: "Always on the move", b: "Lease gaps, relocations and long trips abroad." },
-              { Icon: Shield, t: "No lorry, no lifting", b: "We pack, load and move everything for you." },
-              { Icon: Clock, t: "Back in 24–48 hours", b: "Call or WhatsApp and we deliver to your door." },
-            ].map(({ Icon, t: title, b }) => (
-              <div className={s.miniCard} key={title}>
-                <span className={s.miniIcon} aria-hidden="true">
-                  <Icon />
-                </span>
-                <div>
-                  <b>{title}</b>
-                  <small>{b}</small>
+          <Reveal>
+            <div className={s.miniGrid}>
+              {needs.map(({ Icon, t: title, b, anim }, i) => (
+                <div className={`${s.miniCard} ${h.plan} ${h.lift}`} style={idx(i)} key={title}>
+                  <span className={`${s.miniIcon} ${h.planIcon} ${h[anim]}`} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <div>
+                    <b>{title}</b>
+                    <small>{b}</small>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
 
           <h3 className={s.miniHead}>Plans for every need</h3>
-          <div className={`${s.miniGrid} ${s.miniGrid3}`}>
-            {[
-              { Icon: Package, t: "Personal storage", b: "Households, students and individuals.", href: "/personal-storage-dubai" },
-              { Icon: Layers, t: "Furniture storage", b: "For renovations and relocations.", href: "/personal-storage-dubai/furniture-storage" },
-              { Icon: Boxes, t: "Business storage", b: "Inventory, documents and equipment.", href: "/business-storage-dubai" },
-              { Icon: Truck, t: "Vehicle storage", b: "Covered bays for cars and bikes.", href: "/personal-storage-dubai/car-storage" },
-              { Icon: CalendarDays, t: "Student storage", b: "Short-term plans for semester breaks.", href: "/personal-storage-dubai/student-storage" },
-              { Icon: MapPin, t: "Expat storage", b: "Leaving or returning to Dubai.", href: "/personal-storage-dubai/expat-storage" },
-            ].map(({ Icon, t: title, b, href }) => (
-              <Link className={`${s.miniCard} ${s.miniLink}`} href={href} key={title}>
-                <span className={s.miniIcon} aria-hidden="true">
-                  <Icon />
-                </span>
-                <div>
-                  <b>{title}</b>
-                  <small>{b}</small>
-                </div>
-                <span className={s.miniArrow} aria-hidden="true">→</span>
-              </Link>
-            ))}
-          </div>
+          <Reveal>
+            <div className={`${s.miniGrid} ${s.miniGrid3}`}>
+              {plans.map(({ e, t: title, b, href }, i) => (
+                <Link className={`${s.miniCard} ${s.miniLink} ${h.plan}`} style={idx(i)} href={href} key={title}>
+                  <span className={`${s.miniIcon} ${h.planIcon}`} aria-hidden="true">
+                    <span className={h.emoji}>{e}</span>
+                  </span>
+                  <div>
+                    <b>{title}</b>
+                    <small>{b}</small>
+                  </div>
+                  <span className={s.miniArrow} aria-hidden="true">→</span>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
 
           <div className={s.miniFacts}>
             <span><CheckCircle2 aria-hidden="true" /> Pay only for the space you use</span>
