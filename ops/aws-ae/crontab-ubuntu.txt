@@ -1,0 +1,4 @@
+*/10 * * * * /bin/bash /home/ubuntu/dubai/scripts/blog-lastmod.sh >> /home/ubuntu/blog-lastmod.log 2>&1
+*/5 * * * * /bin/bash /home/ubuntu/dubai/scripts/seo-index.sh >> /home/ubuntu/seo-index.log 2>&1
+*/5 * * * * /bin/bash /home/ubuntu/dubai/scripts/sync-blogs.sh >> /home/ubuntu/blog-sync.log 2>&1
+*/3 * * * * /bin/bash /home/ubuntu/bin/asset-guard.sh

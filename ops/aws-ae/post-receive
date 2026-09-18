@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+# SafeStorage AE — release-directory deploy (2026-09-17).
+#
+# WHY: the old hook ran `next build` inside the directory the live server was
+# serving from. For the ~3 minutes of every build the live CSS/JS chunks were
+# deleted underneath the running site, so anyone loading a page mid-deploy got
+# an unstyled/broken page (and Safari cached it).
+#
+# NOW every deploy:
+#   1. checks the commit out into a NEW folder  releases/<time>-<rev>
+#   2. installs + builds THERE (the live site is never touched)
+#   3. carries the previous build's hashed static files forward
+#   4. smoke-tests the new build on port 3101: homepage + EVERY css/js it uses
+#   5. only then flips  current -> new release  and restarts (a few seconds;
+#      nginx shows the "updating" page meanwhile)
+#   6. re-checks live; on failure flips back to the previous release
+# /home/ubuntu/dubai is a symlink to /home/ubuntu/current, so crons, systemd
+# and scripts keep their paths. Last 3 releases are kept.
+set -uo pipefail
+
+BASE=/home/ubuntu
+GITDIR=$BASE/dubai.git
+RELEASES=$BASE/releases
+CURRENT=$BASE/current
+SHARED=$BASE/shared
+APPLINK=$BASE/dubai
+BRANCH=main
+KEEP=3
+TEST_PORT=3101
+LIVE=http://127.0.0.1:3000
+export PATH=/usr/local/bin:/usr/bin:/bin:$PATH
+export HOME=$BASE NEXT_TELEMETRY_DISABLED=1
+unset GIT_DIR GIT_WORK_TREE GIT_INDEX_FILE
+
+# homepage 200 and every /_next/static css/js it references 200
+assets_ok() {
+  local html list a
+  html=$(curl -sf --max-time 30 "$1/") || { echo "      homepage failed"; return 1; }
+  list=$(printf '%s' "$html" | grep -oE '/_next/static/[^"'"'"' <>]+\.(css|js)' | sort -u)
+  [ -n "$list" ] || { echo "      no assets referenced"; return 1; }
+  for a in $list; do
+    curl -sf -o /dev/null --max-time 15 "$1$a" || { echo "      missing $a"; return 1; }
+  done
+}
+wait_ok() { # $1 url, $2 tries
+  local i
+  for i in $(seq 1 "${2:-30}"); do assets_ok "$1" >/dev/null 2>&1 && return 0; sleep 2; done
+  assets_ok "$1"
+}
+switch_to() { # atomic symlink flip
+  ln -sfn "$1" "$CURRENT.tmp" && mv -Tf "$CURRENT.tmp" "$CURRENT"
+}
+
+while read -r oldrev newrev ref; do
+  [ "$ref" = "refs/heads/$BRANCH" ] || { echo "  [skip] $ref"; continue; }
+  REV=${newrev:0:8}
+  NEW=$RELEASES/$(date +%Y%m%d%H%M%S)-$REV
+  mkdir -p "$RELEASES" "$SHARED"
+
+  # the release currently live (first run: the legacy real directory)
+  if [ -L "$CURRENT" ]; then PREV=$(readlink -f "$CURRENT"); else PREV=$(readlink -f "$APPLINK"); fi
+
+  echo "==> 1/6  Checking out $REV into $NEW"
+  mkdir -p "$NEW"
+  git --git-dir="$GITDIR" archive "$newrev" | tar -x -C "$NEW" || { echo "CHECKOUT FAILED"; rm -rf "$NEW"; exit 1; }
+  [ -f "$SHARED/.env.local" ] && ln -sfn "$SHARED/.env.local" "$NEW/.env.local"
+
+  echo "==> 2/6  npm install (live site untouched)"
+  [ -d "$PREV/node_modules" ] && cp -a --reflink=auto "$PREV/node_modules" "$NEW/node_modules"
+  if ! (cd "$NEW" && npm install --legacy-peer-deps --no-audit --no-fund) >/tmp/deploy-install.log 2>&1; then
+    echo "NPM INSTALL FAILED:"; tail -25 /tmp/deploy-install.log; rm -rf "$NEW"; echo "    live site unchanged."; exit 1
+  fi
+
+  echo "==> 3/6  next build (live site untouched)"
+  if ! (cd "$NEW" && npm run build) >/tmp/deploy-build.log 2>&1; then
+    echo "BUILD FAILED:"; tail -30 /tmp/deploy-build.log; rm -rf "$NEW"; echo "    live site unchanged."; exit 1
+  fi
+  echo "    build OK"
+  if [ -d "$PREV/.next/static" ]; then
+    cp -a -n "$PREV/.next/static/." "$NEW/.next/static/" 2>/dev/null || true
+    find "$NEW/.next/static" -type f -mtime +14 -delete 2>/dev/null || true
+    echo "    previous static assets carried forward"
+  fi
+
+  echo "==> 4/6  Smoke test on :$TEST_PORT"
+  fuser -k $TEST_PORT/tcp >/dev/null 2>&1 || true
+  (cd "$NEW" && NODE_ENV=production PORT=$TEST_PORT exec node node_modules/.bin/next start -p $TEST_PORT) >/tmp/deploy-smoke.log 2>&1 &
+  SMOKE=$!
+  if ! wait_ok "http://127.0.0.1:$TEST_PORT" 45; then
+    kill $SMOKE 2>/dev/null; fuser -k $TEST_PORT/tcp >/dev/null 2>&1 || true
+    echo "SMOKE TEST FAILED:"; tail -15 /tmp/deploy-smoke.log; rm -rf "$NEW"; echo "    live site unchanged."; exit 1
+  fi
+  kill $SMOKE 2>/dev/null; fuser -k $TEST_PORT/tcp >/dev/null 2>&1 || true
+  echo "    new build serves every css/js it references"
+
+  echo "==> 5/6  Switching live to $REV"
+  LEGACY=""
+  if [ ! -L "$APPLINK" ] && [ -d "$APPLINK" ]; then   # one-time migration
+    LEGACY=$BASE/dubai.legacy-$(date +%Y%m%d%H%M%S)
+    mv "$APPLINK" "$LEGACY"
+    PREV=$LEGACY
+  fi
+  switch_to "$NEW"
+  [ -L "$APPLINK" ] || ln -sfn "$CURRENT" "$APPLINK"
+  sudo systemctl restart safestorage.service
+
+  echo "==> 6/6  Verifying live"
+  if ! wait_ok "$LIVE" 30; then
+    echo "    !! live check failed -- rolling back"
+    if [ -n "$LEGACY" ]; then
+      rm -f "$APPLINK" "$CURRENT"; mv "$LEGACY" "$APPLINK"
+    else
+      switch_to "$PREV"
+    fi
+    sudo systemctl restart safestorage.service
+    wait_ok "$LIVE" 30 && echo "    !! ROLLED BACK -- previous build is live" || echo "    !! ROLLBACK FAILED -- needs a human NOW"
+    exit 1
+  fi
+
+  # keep the newest $KEEP releases (never the live one)
+  LIVE_REAL=$(readlink -f "$CURRENT")
+  ls -1dt "$RELEASES"/*/ 2>/dev/null | sed 's#/$##' | tail -n +$((KEEP + 1)) | while read -r old; do
+    [ "$old" = "$LIVE_REAL" ] || rm -rf "$old"
+  done
+  echo "    service: $(systemctl is-active safestorage.service), every page asset: OK"
+  echo "==> Deployed $REV -> https://safestorage.ae"
+done
