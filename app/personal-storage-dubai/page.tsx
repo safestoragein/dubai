@@ -15,6 +15,7 @@ import { FeatScroller } from "@/components/landing/feat-scroller"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import { personalFaqs } from "./faqs"
 import s from "@/components/landing/landing.module.css"
+import h from "./hero.module.css"
 
 export const metadata: Metadata = {
   // `absolute` so the root template does not append a second brand; the full
@@ -58,12 +59,13 @@ const useCases = [
   { Icon: Calendar, title: "Seasonal Items", body: "Winter clothes, decorations and sports gear, stored until you need them." },
 ]
 
+// each item with a small colour emoji (owner's choice, as on the student page)
 const items = [
-  "Sofas and armchairs", "Beds and mattresses", "Dining tables and chairs",
-  "Wardrobes and cabinets", "Appliances", "Clothing and seasonal wear",
-  "Suitcases and travel bags", "Books and personal items", "Holiday decorations",
-  "Children's toys and baby gear", "Sports equipment and bicycles", "Electronics and gadgets",
-  "Artwork and sentimental items", "Rugs and soft furnishings", "Garden and outdoor furniture",
+  { e: "🛋️", t: "Sofas and armchairs" }, { e: "🛏️", t: "Beds and mattresses" }, { e: "🍽️", t: "Dining tables and chairs" },
+  { e: "🚪", t: "Wardrobes and cabinets" }, { e: "🧺", t: "Appliances" }, { e: "👕", t: "Clothing and seasonal wear" },
+  { e: "🧳", t: "Suitcases and travel bags" }, { e: "📚", t: "Books and personal items" }, { e: "🎄", t: "Holiday decorations" },
+  { e: "🧸", t: "Children's toys and baby gear" }, { e: "🚲", t: "Sports equipment and bicycles" }, { e: "💻", t: "Electronics and gadgets" },
+  { e: "🖼️", t: "Artwork and sentimental items" }, { e: "🧶", t: "Rugs and soft furnishings" }, { e: "🪴", t: "Garden and outdoor furniture" },
 ]
 
 const sizes = [
@@ -116,16 +118,19 @@ export default function PersonalStoragePage() {
       <SchemaScript schema={personalStorageSchemas} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        {/* H1 carries the target term "Personal Storage Dubai". */}
-        <SplitHero
-          eyebrow="Personal storage Dubai"
-          title="Personal Storage in Dubai –"
-          titleAccent="Furniture, Boxes & More"
-          blurb="Affordable storage for your home and belongings, with door-to-door pickup and no hidden fees."
-          image="/landing/svc-household.jpg"
-          imagePosition="center 40%"
-          ctaLabel="Get Your Free Quote"
-        />
+        {/* H1 carries the target term "Personal Storage Dubai". The wrapper only
+            swaps the hero wash for a lighter one (see hero.module.css). */}
+        <div className={h.heroVivid}>
+          <SplitHero
+            eyebrow="Personal storage Dubai"
+            title="Personal Storage in Dubai –"
+            titleAccent="Furniture, Boxes & More"
+            blurb="Affordable storage for your home and belongings, with door-to-door pickup and no hidden fees."
+            image="/landing/svc-personal-hero.webp"
+            imagePosition="center 30%"
+            ctaLabel="Get Your Free Quote"
+          />
+        </div>
 
         <LandingTrust />
 
@@ -231,10 +236,12 @@ export default function PersonalStoragePage() {
                 <div className={`${s.marqueeTrack} ${r === 1 ? s.marqueeReverse : ""}`}>
                   {[0, 1].map((copy) => (
                     <ul className={`${s.marqueeGroup} ${s.chipGroup}`} aria-hidden={copy === 1 || undefined} key={copy}>
-                      {row.map((item) => (
+                      {row.map(({ e, t: item }) => (
                         <li key={item}>
                           <span className={s.chip}>
-                            <CheckCircle2 size={13} style={{ display: "inline", marginRight: 6, verticalAlign: "-2px", color: "var(--accent)" }} />
+                            <span className={h.chipEmoji} aria-hidden="true">
+                              {e}
+                            </span>
                             {item}
                           </span>
                         </li>
