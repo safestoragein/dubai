@@ -18,18 +18,59 @@
   animation-delay: calc(0.15s + var(--i, 0) * 0.07s);
 }
 
-/* Colour icon tile (category cards). `.card .tone` outranks the shared
-   .panelIcon tint; colours come in as --tone / --tone2. */
-.card .tone {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--tone), var(--tone2));
-  box-shadow: 0 10px 20px -10px var(--tone), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+/* Hero (this page only): the shared split-hero wash keeps ~40% cream over the
+   photo; here it fades to fully clear so the photo stays as vivid as the
+   original. Targets SplitHero's inner div (the one carrying --hero-img);
+   `[style]` lifts specificity above the shared `.heroSplit .heroInner`. */
+.heroVivid section > div[style] {
+  background-image: linear-gradient(
+      100deg,
+      rgba(255, 250, 240, 0.97) 0%,
+      rgba(255, 250, 240, 0.92) 42%,
+      rgba(255, 248, 236, 0.55) 53%,
+      rgba(255, 246, 226, 0) 63%
+    ),
+    var(--hero-img);
+}
+/* phones/tablets: same wash as the shared hero (text sits over the photo) */
+@media (max-width: 900px) {
+  .heroVivid section > div[style] {
+    background-image: linear-gradient(
+        172deg,
+        rgba(255, 250, 240, 0.98) 0%,
+        rgba(255, 250, 240, 0.94) 50%,
+        rgba(255, 246, 226, 0.55) 78%,
+        rgba(255, 246, 226, 0.15) 100%
+      ),
+      var(--hero-img);
+  }
+}
+
+/* Category cards (one-row rail): emoji on top as on the old page, then the
+   title and a plain item list */
+.emoji {
+  display: inline-block;
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 16px;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
   transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.4);
 }
-.card:hover .tone {
-  transform: rotate(-8deg) scale(1.08);
+.card:hover .emoji {
+  transform: rotate(-8deg) scale(1.1);
+}
+.card .itemList {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.card .itemList li {
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: var(--muted);
 }
 
 @keyframes sectionIn {
@@ -46,7 +87,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card:hover .tone {
+  .card:hover .emoji {
     transform: none;
   }
   .armed:not(.in),

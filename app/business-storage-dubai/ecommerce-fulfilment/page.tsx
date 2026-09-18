@@ -4,8 +4,8 @@ import Link from "next/link"
 import {
   FileText, Truck, ClipboardCheck, Send, CalendarX, Ruler, Tags, ShieldCheck, Store,
   ShoppingCart, Instagram, Sparkles, Ship, Gift, Layers, Briefcase, Warehouse, Boxes, Package, MapPin,
-  AlertTriangle, ShoppingBag, CalendarDays, Plug, TrendingUp,
-  Shirt, Smartphone, Sofa, HeartPulse, BookOpen, Dumbbell, X, AlertCircle, Check,
+  AlertTriangle, ShoppingBag,
+  X, AlertCircle, Check,
   FileSignature, Hammer, Lock, PackageX,
 } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
@@ -67,14 +67,14 @@ const leaseHassles = [
   { Icon: PackageX, t: "You move stock out", b: "No release service", partly: false, tone: ["#0891b2", "#cffafe"] },
 ]
 
-// `tone` = the icon tile's colour (gradient from tone[0] to tone[1])
+// SafeStorage side: text + green tick only (no icon tiles — owner's choice)
 const storageWins = [
-  { Icon: CalendarDays, t: "No long lease", b: "Month to month, not years", tone: ["#3b82f6", "#60a5fa"] },
-  { Icon: Plug, t: "No fit-out or DEWA deposit", b: "Nothing to build or connect", tone: ["#f59e0b", "#fbbf24"] },
-  { Icon: Ruler, t: "Pay only for space used", b: "Not a whole floor you half fill", tone: ["#10b981", "#34d399"] },
-  { Icon: TrendingUp, t: "Scale for peak seasons", b: "Ramadan, White Friday, DSF", tone: ["#8b5cf6", "#a78bfa"] },
-  { Icon: Truck, t: "Door-to-door collection", b: "We fetch stock from suppliers", tone: ["#ee5824", "#ff8a54"] },
-  { Icon: Package, t: "Stock delivered out", b: "Released to you on request", tone: ["#06b6d4", "#22d3ee"] },
+  { t: "No long lease", b: "Month to month, not years" },
+  { t: "No fit-out or DEWA deposit", b: "Nothing to build or connect" },
+  { t: "Pay only for space used", b: "Not a whole floor you half fill" },
+  { t: "Scale for peak seasons", b: "Ramadan, White Friday, DSF" },
+  { t: "Door-to-door collection", b: "We fetch stock from suppliers" },
+  { t: "Stock delivered out", b: "Released to you on request" },
 ]
 
 const sellers = [
@@ -87,14 +87,14 @@ const sellers = [
 ]
 
 // Categories and items as published on the previous version of this page.
-// `tone` = the icon tile's gradient.
+// Emoji icons as on the old page (owner's choice for this section).
 const categories = [
-  { Icon: Shirt, title: "Fashion & Apparel", tone: ["#3b82f6", "#60a5fa"], items: ["Clothing and accessories", "Bags and footwear", "Seasonal collections", "Sample inventory", "Return stock"] },
-  { Icon: Smartphone, title: "Electronics & Gadgets", tone: ["#6366f1", "#a78bfa"], items: ["Consumer electronics", "Accessories and cables", "Smart home devices", "Phone cases and peripherals", "Refurbished devices"] },
-  { Icon: Sofa, title: "Home & Living", tone: ["#f97316", "#fbbf24"], items: ["Home décor", "Kitchenware", "Bedding and linens", "Cleaning products", "Small appliances"] },
-  { Icon: HeartPulse, title: "Health & Beauty", tone: ["#ec4899", "#f472b6"], items: ["Cosmetics and skincare", "Wellness products", "Fitness equipment", "Nutritional supplements", "Medical devices"] },
-  { Icon: BookOpen, title: "Books & Media", tone: ["#10b981", "#34d399"], items: ["Books and textbooks", "DVD/Blu-ray inventory", "Educational materials", "Print media stock", "Digital products packaged"] },
-  { Icon: Dumbbell, title: "Sports & Outdoor", tone: ["#0ea5e9", "#22d3ee"], items: ["Sports equipment", "Outdoor gear", "Fitness accessories", "Water sports items", "Camping equipment"] },
+  { emoji: "👗", title: "Fashion & Apparel", items: ["Clothing and accessories", "Bags and footwear", "Seasonal collections", "Sample inventory", "Return stock"] },
+  { emoji: "📱", title: "Electronics & Gadgets", items: ["Consumer electronics", "Accessories and cables", "Smart home devices", "Phone cases and peripherals", "Refurbished devices"] },
+  { emoji: "🏠", title: "Home & Living", items: ["Home décor", "Kitchenware", "Bedding and linens", "Cleaning products", "Small appliances"] },
+  { emoji: "💄", title: "Health & Beauty", items: ["Cosmetics and skincare", "Wellness products", "Fitness equipment", "Nutritional supplements", "Medical devices"] },
+  { emoji: "📚", title: "Books & Media", items: ["Books and textbooks", "DVD/Blu-ray inventory", "Educational materials", "Print media stock", "Digital products packaged"] },
+  { emoji: "⚽", title: "Sports & Outdoor", items: ["Sports equipment", "Outdoor gear", "Fitness accessories", "Water sports items", "Camping equipment"] },
 ]
 
 // Testimonials already published on the site (homepage reviews and /testimonials).
@@ -195,15 +195,18 @@ export default function EcommerceStoragePage() {
         className={`${s.page} ${sora.variable} ${manrope.variable}`}
         style={{ ["--cream" as string]: "#faf7f0" } as CSSProperties}
       >
-        <SplitHero
-          eyebrow="E-commerce inventory storage"
-          title="E-commerce Storage Dubai"
-          titleAccent="that grows with you."
-          blurb="Flexible inventory space for online sellers — no warehouse lease. Pay only for the space you use."
-          image="/landing/svc-ecommerce.jpg"
-          imagePosition="72% 40%"
-          ctaLabel="Get a Business Quote"
-        />
+        {/* wrapper only swaps the hero wash for a lighter one (see reveal.module.css) */}
+        <div className={r.heroVivid}>
+          <SplitHero
+            eyebrow="E-commerce inventory storage"
+            title="E-commerce Storage Dubai"
+            titleAccent="that grows with you."
+            blurb="Flexible inventory space for online sellers — no warehouse lease. Pay only for the space you use."
+            image="/landing/svc-ecommerce-hero.webp"
+            imagePosition="72% 40%"
+            ctaLabel="Get a Business Quote"
+          />
+        </div>
 
         <LandingTrust />
 
@@ -321,15 +324,8 @@ export default function EcommerceStoragePage() {
                   <span className={c.pill}>All 6 included</span>
                 </div>
                 <ul className={c.list}>
-                  {storageWins.map(({ Icon, t: title, b, tone }) => (
+                  {storageWins.map(({ t: title, b }) => (
                     <li className={c.row} key={title}>
-                      <div
-                        className={c.ic}
-                        style={{ ["--tone" as string]: tone[0], ["--tone2" as string]: tone[1] } as CSSProperties}
-                        aria-hidden="true"
-                      >
-                        <Icon strokeWidth={2} />
-                      </div>
                       <div>
                         <b>{title}</b>
                         <span>{b}</span>
@@ -358,34 +354,35 @@ export default function EcommerceStoragePage() {
         {/* WHAT E-COMMERCE BUSINESSES STORE */}
         <section className={`${s.section} ${s.wrap}`} id="products" style={{ paddingTop: 0 }}>
           <Reveal>
-            <div className={s.howHead}>
-              <div>
-                <span className={s.howEyebrow}>What you can store</span>
-                <h2>
-                  What E-Commerce Businesses <em>Store with Us</em>
-                </h2>
-              </div>
-              <p>Boxed or on pallets, one SKU or hundreds — tell us what you sell and we&apos;ll confirm.</p>
-            </div>
-            <div className={s.trio}>
-              {categories.map(({ Icon, title, items, tone }, i) => (
-                <div className={`${s.panel} ${s.panelHover} ${r.card}`} style={idx(i)} key={title}>
-                  <div
-                    className={`${s.panelIcon} ${r.tone}`}
-                    style={{ ["--tone" as string]: tone[0], ["--tone2" as string]: tone[1] } as CSSProperties}
-                    aria-hidden="true"
-                  >
-                    <Icon size={22} color="#fff" strokeWidth={2} />
-                  </div>
+            {/* all 6 categories in one swipeable row (owner's choice: less height) */}
+            <UspRail
+              head={
+                <div className={s.uspHead}>
+                  <span className={s.howEyebrow}>What you can store</span>
+                  <h2>
+                    What E-Commerce Businesses <em>Store with Us</em>
+                  </h2>
+                  <p className={s.splitBlurb} style={{ marginBottom: 0 }}>
+                    Boxed or on pallets, one SKU or hundreds — tell us what you sell and we&apos;ll confirm.
+                  </p>
+                </div>
+              }
+            >
+              {categories.map(({ emoji, title, items }, i) => (
+                <article className={`${s.usp} ${r.card}`} style={idx(i)} key={title}>
+                  <span className={r.emoji} aria-hidden="true">
+                    {emoji}
+                  </span>
                   <h3>{title}</h3>
-                  <ul className={s.checkList}>
+                  <ul className={r.itemList}>
                     {items.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                </div>
+                </article>
               ))}
-            </div>
+            </UspRail>
+            <p className={s.scrollHint}>Swipe for more →</p>
             <div className={s.movingTip}>
               <AlertTriangle aria-hidden="true" />
               <p>
