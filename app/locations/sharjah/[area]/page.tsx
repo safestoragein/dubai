@@ -49,7 +49,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `SafeStorage — storage for ${area.name}, Sharjah` }],
+      images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: `SafeStorage — storage for ${area.name}, Sharjah` }],
       url,
       siteName: "SafeStorage Dubai",
       locale: "en_AE",

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "Storage & Moving Guides | SafeStorage Dubai",
     description:
       "Practical guides to storing, moving and living in Dubai, written from ten years of doing it.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: URL,
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

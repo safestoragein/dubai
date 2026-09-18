@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Storage Locations Across the UAE | SafeStorage",
     description:
       "Every emirate and district we collect from, with the local access detail that actually matters.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage — UAE coverage" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage — UAE coverage" }],
     url: URL,
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

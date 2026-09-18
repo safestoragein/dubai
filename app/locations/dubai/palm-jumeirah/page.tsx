@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords:
     "palm jumeirah storage, storage palm jumeirah dubai, villa storage palm jumeirah, furniture storage palm fronds, palm jumeirah self storage, storage near palm jumeirah",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/palm-jumeirah",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

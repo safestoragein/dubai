@@ -833,7 +833,7 @@ export const locationBusinessSchema = (area: {
   telephone: "+971505773388",
   email: "support@safestorage.ae",
   priceRange: "AED",
-  image: "https://safestorage.ae/og-image.jpg",
+  image: "https://safestorage.ae/og-cover-2026.jpg",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Building 23, Warehouse 5, DIP-1",

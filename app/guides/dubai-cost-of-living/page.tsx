@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "SafeStorage Dubai",
     images: [
       {
-        url: "/og-dubai-cost-2026.jpg",
+        url: "/og-cover-2026.jpg",
         width: 1200,
         height: 630,
         alt: "Dubai Cost of Living 2026"
@@ -251,7 +251,7 @@ const costOfLivingSchemas = [
     headline: 'Dubai Cost of Living 2026: Complete Budget Guide',
     description: 'How much does it cost to live in Dubai in 2026? Complete breakdown of rent, food, transport, utilities & more. Real prices in AED.',
     url: 'https://safestorage.ae/guides/dubai-cost-of-living',
-    image: 'https://safestorage.ae/og-image.jpg',
+    image: 'https://safestorage.ae/og-cover-2026.jpg',
     datePublished: '2026-01-01',
     dateModified: '2026-03-01',
     author: { '@type': 'Organization', name: 'SafeStorage Dubai', url: 'https://safestorage.ae' },

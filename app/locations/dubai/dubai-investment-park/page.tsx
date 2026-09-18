@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   keywords:
     "Storage Dubai Investment Park, Dubai Investment Park storage units, Motor City storage, Dubai Production City storage, Sports City storage, Warehouse storage DIP, Business storage Dubai, Personal storage DIP, Secure storage units, Storage with pickup, E-commerce storage DIP, Household storage DIP, SafeStorage DIP, Inventory storage Dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/dubai-investment-park",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

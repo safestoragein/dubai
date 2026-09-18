@@ -210,7 +210,7 @@ export function metadataFor(content: SiloPageContent): Metadata {
     openGraph: {
       title: content.ogTitle ?? content.title,
       description: content.ogDescription ?? content.description,
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+      images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
       url,
       siteName: "SafeStorage Dubai",
       locale: "en_AE",

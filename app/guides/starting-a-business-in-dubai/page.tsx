@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   keywords: "starting business dubai, dubai business setup, free zone dubai, mainland company dubai, business license dubai, entrepreneur dubai, company formation uae, dubai startup guide",
   openGraph: {
     url: "https://safestorage.ae/guides/starting-a-business-in-dubai",
-    images: ["https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&h=800&fit=crop&q=80"],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
   },
   alternates: {
     canonical: "https://safestorage.ae/guides/starting-a-business-in-dubai",
@@ -261,7 +261,7 @@ export default function StartingBusinessDubai2026() {
       headline: 'Starting a Business in Dubai 2026 — Complete Guide',
       description: 'How to start a business in Dubai in 2026. Mainland vs Freezone, costs, visas, and step-by-step setup guide.',
       url: 'https://safestorage.ae/guides/starting-a-business-in-dubai',
-      image: 'https://safestorage.ae/og-image.jpg',
+      image: 'https://safestorage.ae/og-cover-2026.jpg',
       datePublished: '2026-01-01',
       dateModified: '2026-03-01',
       author: { '@type': 'Organization', name: 'SafeStorage Dubai', url: 'https://safestorage.ae' },

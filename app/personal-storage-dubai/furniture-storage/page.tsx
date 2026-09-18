@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Furniture storage in Dubai with door-to-door pickup and professional wrapping. Sofas, beds, wardrobes and appliances stored safely. Get a free, itemised quote.",
   keywords: "furniture storage dubai, sofa storage dubai, bed storage dubai, wardrobe storage dubai, dining table storage dubai, moving furniture storage dubai, apartment furniture storage dubai, villa furniture storage",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/personal-storage-dubai/furniture-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

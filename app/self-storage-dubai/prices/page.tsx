@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: "Storage Prices in Dubai — What Affects the Cost",
     description:
       "What changes a storage quote in Dubai, and why the cheapest storage quote is often the most expensive outcome. Get a free, itemised quote.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/prices",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

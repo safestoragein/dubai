@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "SafeStorage Dubai",
     images: [
       {
-        url: "/og-dubai-shopping-2026.jpg",
+        url: "/og-cover-2026.jpg",
         width: 1200,
         height: 630,
         alt: "Dubai Shopping Guide 2026"
@@ -361,7 +361,7 @@ const shoppingGuideSchemas = [
     headline: 'Dubai Shopping Guide 2026',
     description: 'Complete guide to shopping in Dubai 2026 — malls, souks, luxury brands, and must-buy items.',
     url: 'https://safestorage.ae/guides/dubai-shopping-guide',
-    image: 'https://safestorage.ae/og-image.jpg',
+    image: 'https://safestorage.ae/og-cover-2026.jpg',
     datePublished: '2026-01-01',
     dateModified: '2026-03-01',
     author: { '@type': 'Organization', name: 'SafeStorage Dubai', url: 'https://safestorage.ae' },

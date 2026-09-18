@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Moving back home from Dubai? SafeStorage offers expat-friendly long-term storage — keep belongings safely stored while you decide what to ship.",
   keywords: "expat leaving uae storage, leaving dubai storage, storage for expats dubai, moving out dubai storage, expat storage dubai long term, leaving dubai checklist, repatriation storage dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/personal-storage-dubai/expat-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

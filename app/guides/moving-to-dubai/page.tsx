@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "SafeStorage Dubai",
     images: [
       {
-        url: "/og-moving-dubai-2026.jpg",
+        url: "/og-cover-2026.jpg",
         width: 1200,
         height: 630,
         alt: "Moving to Dubai 2026 Complete Guide"
@@ -191,7 +191,7 @@ const movingToDubaiSchemas = [
     headline: 'Moving to Dubai 2026 — Complete Relocation Guide',
     description: 'Everything you need to know about moving to Dubai in 2026 — visas, housing, cost of living, schools & more.',
     url: 'https://safestorage.ae/guides/moving-to-dubai',
-    image: 'https://safestorage.ae/og-image.jpg',
+    image: 'https://safestorage.ae/og-cover-2026.jpg',
     datePublished: '2026-01-01',
     dateModified: '2026-03-01',
     author: { '@type': 'Organization', name: 'SafeStorage Dubai', url: 'https://safestorage.ae' },

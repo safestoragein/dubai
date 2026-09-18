@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Complete 2025 guide to self storage costs in Dubai. How storage is priced, what's included, hidden fees to watch for, and how to get the best deal.",
   keywords: "self storage cost dubai, storage unit price dubai, how much is storage dubai, storage unit cost per month dubai, cheap storage dubai, affordable storage dubai 2025",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/self-storage-cost-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

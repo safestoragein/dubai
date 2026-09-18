@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   keywords:
     "prohibited items storage dubai, what can i store dubai, restricted items self storage, storage rules dubai, items not allowed storage uae",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/prohibited-items",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

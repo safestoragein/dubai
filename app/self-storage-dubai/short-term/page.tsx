@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Short Term Storage in Dubai — From Two Weeks, No Lock-In",
     description:
       "Storage for the gap between leases. Two weeks to three months, no lock-in, same-day collection across most of Dubai.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/short-term",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

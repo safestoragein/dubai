@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Cheap, safe student storage in Dubai. Store your belongings between semesters, summer holidays or graduation. Get a free, itemised quote.",
   keywords: "student storage dubai, university storage dubai, semester storage dubai, summer student storage dubai, student accommodation storage, UAEU student storage, AUD student storage",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/personal-storage-dubai/student-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

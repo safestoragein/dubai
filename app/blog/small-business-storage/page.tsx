@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Dubai small businesses use self-storage to skip long warehouse leases. Scale seamlessly as you grow with zero long-term commitments and flexible monthly plans.",
   keywords: "small business storage dubai, business storage solution dubai, warehouse alternative dubai, inventory storage small business dubai, office storage dubai, retail storage dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/small-business-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

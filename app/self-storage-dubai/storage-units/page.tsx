@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Storage Units Dubai — Sizes, Security and What Actually Fits",
     description:
       "Storage units in Dubai from 30 to 270+ sq ft, billed on the space you use. Palletised, barcoded and CCTV-monitored.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/storage-units",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

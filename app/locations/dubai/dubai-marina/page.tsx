@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   keywords:
     "Storage Dubai Marina, Self storage Marina, JBR storage, Marina Walk storage, Bluewaters storage, Household storage Marina, Furniture storage Dubai, Secure storage units, Storage with pickup, Personal storage Dubai, Apartment storage Marina, Short term storage, Business storage Marina, SafeStorage Marina",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/dubai-marina",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

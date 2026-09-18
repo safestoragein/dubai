@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Long-term storage in Dubai for expats. Keep your furniture safely stored while you are abroad, from one month to several years, with no lock-in.",
   keywords: "long term storage dubai expats, expat storage dubai long term, 6 month storage dubai, 12 month storage dubai, year long storage dubai expat, remote storage management dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/long-term-storage-expats",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

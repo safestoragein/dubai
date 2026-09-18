@@ -30,11 +30,11 @@ export const metadata: Metadata = {
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Contact SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "Contact SafeStorage Dubai" }],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/twitter-image.jpg"],
+    images: ["/og-cover-2026.jpg"],
   },
 }
 

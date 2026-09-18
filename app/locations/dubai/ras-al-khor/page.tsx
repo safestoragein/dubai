@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords:
     "Storage Ras Al Khor, Ras Al Khor storage units, Ras Al Khor Industrial storage, furniture storage Ras Al Khor, warehouse storage Ras Al Khor, Nad Al Sheba storage, Al Aweer storage, International City storage, Dragon Mart trader storage, Nad Al Hamar storage, Al Warqa storage, business storage Ras Al Khor, showroom stock storage Dubai, SafeStorage Ras Al Khor",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/ras-al-khor",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   keywords:
     "al barsha storage dubai, storage al barsha 1, storage al barsha 2, storage near mall of the emirates, barsha heights storage, tecom storage dubai, al barsha self storage",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/al-barsha",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   keywords:
     "Personal storage Dubai, Household storage, Home storage Dubai, Furniture storage, Self storage Dubai, Decluttering storage, Student storage Dubai, Seasonal storage, Short term storage, Long term storage, Luggage storage Dubai, Apartment storage, Storage with pickup, SafeStorage personal",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/personal-storage-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

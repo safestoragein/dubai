@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "How to choose the best movers in Dubai: what to check before booking, typical costs, red flags to avoid, and when storage beats moving twice.",
   keywords: "best movers dubai 2025, how to choose movers dubai, dubai moving company guide, professional movers dubai, moving tips dubai, trusted movers dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/best-movers-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "A practical Dubai decluttering guide: room-by-room method, where to sell and donate in the UAE, and what is worth putting into storage.",
   keywords: "declutter guide dubai 2025, how to declutter dubai, sell old stuff dubai, donate items dubai, storage declutter dubai, clear out home dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/declutter-guide-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

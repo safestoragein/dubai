@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Moving and Storage in Dubai — One Crew, One Job Number",
     description:
       "Pack, move and store with one provider and one barcoded inventory. Storage by the month when your dates don't line up.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/moving-storage-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

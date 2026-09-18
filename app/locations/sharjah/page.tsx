@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Self Storage Sharjah | Storage Units With Door-to-Door Pickup",
     description: `Storage for Sharjah homes and businesses, with collection from your door.`,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage — self storage for Sharjah" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage — self storage for Sharjah" }],
     url: URL,
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

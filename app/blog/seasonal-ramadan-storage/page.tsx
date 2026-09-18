@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Guide to seasonal storage in Dubai including Ramadan storage, Eid clearouts, summer storage, and managing seasonal items in Dubai's unique calendar.",
   keywords: "seasonal storage dubai, ramadan storage dubai, eid storage dubai, seasonal items storage dubai, holiday storage dubai, furniture storage ramadan",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/seasonal-ramadan-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

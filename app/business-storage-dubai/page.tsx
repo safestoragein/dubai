@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   keywords:
     "Business Storage Facilities, Business Storage Solutions, Commercial Storage Dubai, Self Storage, Storage in Dubai, Business Storage Dubai, Office Storage Solutions Dubai, Warehouse Storage For Companies Dubai, Corporate Storage Unit Rental Dubai, Storage For Business Inventory Dubai, Affordable Business Storage Dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/business-storage-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

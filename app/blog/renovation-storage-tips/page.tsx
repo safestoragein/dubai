@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Planning a Dubai renovation? Learn how to store furniture, what to pack first, and simple ways to protect your belongings from dust damage.",
   keywords: "renovation storage dubai, furniture storage during renovation dubai, apartment renovation storage dubai, villa renovation storage, moving out for renovation dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/renovation-storage-tips",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

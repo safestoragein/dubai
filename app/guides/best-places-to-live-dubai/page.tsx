@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "SafeStorage Dubai",
     images: [
       {
-        url: "/og-dubai-places-2026.jpg",
+        url: "/og-cover-2026.jpg",
         width: 1200,
         height: 630,
         alt: "Top Places to Visit in Dubai 2026"
@@ -143,7 +143,7 @@ const topPlacesSchemas = [
     headline: 'Top Places to Visit in Dubai 2026',
     description: 'Best places to visit in Dubai in 2026 — attractions, restaurants, beaches, and hidden gems.',
     url: 'https://safestorage.ae/guides/best-places-to-live-dubai',
-    image: 'https://safestorage.ae/og-image.jpg',
+    image: 'https://safestorage.ae/og-cover-2026.jpg',
     datePublished: '2026-01-01',
     dateModified: '2026-03-01',
     author: { '@type': 'Organization', name: 'SafeStorage Dubai', url: 'https://safestorage.ae' },

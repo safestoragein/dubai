@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Moving internationally from Dubai? Store your belongings affordably while you settle abroad. Avoid costly international shipping. Get a free, itemised quote.",
   keywords: "international relocation storage dubai, moving abroad from dubai storage, dubai international moving storage, shipping vs storage dubai, expat relocation dubai, moving overseas dubai storage",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/moving-storage-dubai/international-relocation",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

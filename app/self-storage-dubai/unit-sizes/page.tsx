@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Storage Unit Sizes — How Much Space You Actually Need",
     description:
       "Storage unit sizes in Dubai from 30 to 270+ sq ft, what fits in each, and a four-step method to estimate your own load in ten minutes.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/unit-sizes",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

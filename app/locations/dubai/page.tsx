@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: emirate.hub.title,
     description: emirate.hub.description,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `SafeStorage — ${emirate.name}` }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: `SafeStorage — ${emirate.name}` }],
     url,
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

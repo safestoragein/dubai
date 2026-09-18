@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "Flexible e-commerce storage in Dubai for Amazon & noon sellers. Stock collected, counted in and sent out on request — no warehouse lease, pay only for the space you use.",
   keywords: "E-commerce storage Dubai, Inventory management Dubai, Warehouse for rent Dubai, Small business storage, Bulk storage Dubai, Inventory tracking UAE, Scalable business storage, SafeStorage fulfilment",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/business-storage-dubai/ecommerce-fulfilment",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

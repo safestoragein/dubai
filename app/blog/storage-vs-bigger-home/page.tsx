@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Should you rent a bigger Dubai apartment or use a storage unit? Complete cost comparison and analysis for Dubai residents in 2025. The numbers may surprise you.",
   keywords: "storage vs bigger apartment dubai, storage unit vs moving bigger dubai, cost storage vs apartment dubai, do I need bigger home or storage dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/storage-vs-bigger-home",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

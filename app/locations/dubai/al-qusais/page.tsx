@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords:
     "Storage Al Qusais, Al Qusais storage units, Al Qusais Industrial storage, Al Nahda storage, storage near Sharjah border, Dubai Sharjah moving storage, printing press storage Dubai, packaging storage Al Qusais, school storage Dubai, staff accommodation storage, Muhaisnah storage, Al Twar storage, Abu Hail storage, SafeStorage Al Qusais",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/al-qusais",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

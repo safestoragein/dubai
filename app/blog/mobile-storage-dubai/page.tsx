@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Mobile storage in Dubai: We pick up your items, store them safely, and deliver them back whenever you are ready. Easy door-to-door pickup across Dubai.",
   keywords: "mobile storage dubai, door to door storage dubai, pickup storage dubai, collect and store dubai, storage with pickup and delivery dubai, valet storage dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/mobile-storage-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

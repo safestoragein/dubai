@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "SafeStorage Dubai",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-cover-2026.jpg",
         width: 1200,
         height: 630,
         alt: "SafeStorage Dubai Facility",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/twitter-image.jpg"],
+    images: ["/og-cover-2026.jpg"],
   },
   alternates: {
     canonical: "https://safestorage.ae",

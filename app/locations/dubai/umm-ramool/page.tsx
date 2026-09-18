@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords:
     "Storage Umm Ramool, Umm Ramool storage units, airport storage Dubai, Al Garhoud storage, DAFZA storage, Cargo Village storage, freight forwarder storage Dubai, cabin crew storage Dubai, airline staff storage, car rental fleet storage Dubai, Al Qusais storage, Al Rashidiya storage, business storage Umm Ramool, SafeStorage Umm Ramool",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/umm-ramool",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

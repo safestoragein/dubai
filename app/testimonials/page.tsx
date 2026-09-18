@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   // merging into it, so declaring one drops the root's images.
   openGraph: {
     url: "https://safestorage.ae/testimonials",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
   },
 }
 

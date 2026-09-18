@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Complete guide to moving a Dubai villa. 8-week checklist, what to store, how to manage the logistics, and how to avoid the most expensive mistakes.",
   keywords: "villa moving dubai, moving out of villa dubai, dubai villa move checklist, how to move villa dubai, moving large house dubai, villa relocation dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/villa-moving-guide-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

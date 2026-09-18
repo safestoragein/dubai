@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Self Storage Ajman | Storage Space With Door-to-Door Pickup",
     description: `Storage for Ajman homes and businesses, collected from your door. Get a free, itemised quote.`,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage — self storage for Ajman" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage — self storage for Ajman" }],
     url: URL,
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

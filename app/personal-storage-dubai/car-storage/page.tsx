@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Secure indoor motorcycle and bike storage in Dubai. Vehicle Storage units protect from heat. 24/7 security & CCTV.",
   keywords: "Motorcycle storage Dubai, Bike storage Dubai, Motorbike storage UAE, Secure motorcycle parking, Indoor bike storage, Motorcycle winter storage, Superbike storage Dubai, Bicycle storage Dubai, Motorcycle safety storage, Two wheeler storage, Motorbike parking Dubai, Long term bike storage, SafeStorage vehicles, Motorcycle protection Dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/personal-storage-dubai/car-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

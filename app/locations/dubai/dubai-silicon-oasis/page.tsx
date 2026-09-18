@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords:
     "dubai silicon oasis storage, DSO storage dubai, academic city storage, international city storage dubai, storage near DSO, dubai silicon oasis self storage",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/dubai-silicon-oasis",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -31,7 +31,7 @@ export async function generateMetadata({
     openGraph: {
       title: e.title,
       description: e.description,
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `سيف ستوريج — تخزين في ${e.name}` }],
+      images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: `سيف ستوريج — تخزين في ${e.name}` }],
       url,
       siteName: "SafeStorage",
       locale: "ar_AE",

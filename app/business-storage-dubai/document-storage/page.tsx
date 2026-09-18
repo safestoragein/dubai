@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: "Secure Commercial and document storage in Dubai. Professional archival for legal, medical, and business records.",
   keywords: "Document storage Dubai, Business record storage, Legal document storage, Medical record storage, File storage Dubai, Confidential storage, Office document storage, Paper storage Dubai, Storage for compliance, SafeStorage archival",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/business-storage-dubai/document-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

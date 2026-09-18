@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "The definitive guide to self storage in Dubai. How it works, what it costs, how to choose, what to look for, and mistakes to avoid. Updated 2025.",
   keywords: "self storage guide dubai, how does self storage work dubai, self storage dubai 2025, choosing storage unit dubai, self storage tips dubai beginners guide",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/blog/self-storage-guide-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

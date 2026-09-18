@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Local Self Storage Dubai — We Come to You",
     description:
       "Door-to-door local self storage across Dubai. Pay only for the space you use. Same-day collection, itemised digital inventory, no lock-in.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/self-storage-dubai/local-self-storage",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

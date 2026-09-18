@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   keywords:
     "Privacy policy, Storage Dubai, Self Storage privacy policy, Storage company in Dubai, Safe Storage Dubai privacy policy, privacy policy for storage services Dubai, secure storage data protection Dubai, personal storage privacy Dubai, household storage privacy policy UAE, storage facility privacy Dubai",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: 'https://safestorage.ae/privacy-policy',
   },
   alternates: {

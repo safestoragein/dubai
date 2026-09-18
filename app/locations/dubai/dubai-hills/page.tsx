@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords:
     "dubai hills estate storage, storage dubai hills, storage near dubai hills mall, al quoz storage, dubai hills villa storage, storage emaar dubai hills",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/dubai-hills",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

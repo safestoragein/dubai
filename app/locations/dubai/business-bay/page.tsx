@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords:
     "Storage Business Bay, Business Bay storage, Downtown Dubai storage, DIFC storage units, Office storage Dubai, Document archiving Dubai, Personal storage units, Secure storage Dubai, Storage with pickup, Furniture storage Dubai, Commercial storage UAE, Self storage Business Bay, SafeStorage Dubai, High-rise apartment storage",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/business-bay",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: "https://safestorage.ae/guides/best-storage-companies-dubai",
     siteName: "SafeStorage Dubai",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Top 10 Storage Companies in Dubai 2026" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "Top 10 Storage Companies in Dubai 2026" }],
     locale: "en_AE",
     type: "article",
   },
@@ -29,7 +29,7 @@ const structuredData = {
       "@id": "https://safestorage.ae/guides/best-storage-companies-dubai#article",
       headline: "Top 10 Storage Companies in Dubai (2026)",
       description: "Comprehensive guide to the best storage companies in Dubai, ranked by overall score across price, security, convenience, and customer satisfaction.",
-      image: "https://safestorage.ae/og-image.jpg",
+      image: "https://safestorage.ae/og-cover-2026.jpg",
       author: { "@type": "Organization", name: "SafeStorage Dubai", url: "https://safestorage.ae" },
       publisher: {
         "@type": "Organization",

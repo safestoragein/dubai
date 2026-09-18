@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords:
     "storage downtown dubai, storage near burj khalifa, DIFC storage dubai, downtown dubai self storage, storage units downtown dubai, burj khalifa district storage",
   openGraph: {
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
     url: "https://safestorage.ae/locations/dubai/downtown-dubai",
     siteName: "SafeStorage Dubai",
     locale: "en_AE",

@@ -149,7 +149,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         url: canonicalUrl,
         siteName: "SafeStorage Dubai",
         type: "article",
-        images: imageUrl ? [{ url: imageUrl, width: 1200, height: 630, alt: metaTitle }] : [],
+        // A post with no image of its own used to ship an EMPTY images array, so
+        // the share card fell back to whatever the platform scraped. Use the site
+        // OG card instead, so every blog URL shares with branding.
+        images: imageUrl
+          ? [{ url: imageUrl, width: 1200, height: 630, alt: metaTitle }]
+          : [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
       },
     }
   } catch (error) {
