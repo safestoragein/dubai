@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Home, Truck, Lock, Calendar, Boxes, Headphones, Package, Sofa, CheckCircle2, GraduationCap } from "lucide-react"
@@ -16,6 +17,7 @@ import FaqAccordion from "@/components/landing/faq-accordion"
 import { personalFaqs } from "./faqs"
 import s from "@/components/landing/landing.module.css"
 import h from "./hero.module.css"
+import Reveal from "./Reveal"
 
 export const metadata: Metadata = {
   // `absolute` so the root template does not append a second brand; the full
@@ -68,11 +70,12 @@ const items = [
   { e: "🖼️", t: "Artwork and sentimental items" }, { e: "🧶", t: "Rugs and soft furnishings" }, { e: "🪴", t: "Garden and outdoor furniture" },
 ]
 
+// `anim` = how the icon acts out the size (see hero.module.css)
 const sizes = [
-  { Icon: Package, size: "25–50 sq ft", label: "Small", fits: "10–20 boxes or a few household items" },
-  { Icon: Sofa, size: "50–100 sq ft", label: "Medium", fits: "A 1–2 bedroom apartment's contents" },
-  { Icon: Home, size: "100–200 sq ft", label: "Large", fits: "A full 3-bedroom apartment" },
-]
+  { Icon: Package, size: "25–50 sq ft", label: "Small", fits: "10–20 boxes or a few household items", anim: "squeeze" },
+  { Icon: Sofa, size: "50–100 sq ft", label: "Medium", fits: "A 1–2 bedroom apartment's contents", anim: "bounce" },
+  { Icon: Home, size: "100–200 sq ft", label: "Large", fits: "A full 3-bedroom apartment", anim: "grow" },
+] as const
 
 const personalStorageSchemas = [
   {
@@ -206,21 +209,27 @@ export default function PersonalStoragePage() {
             <p>From a few boxes to a full apartment — get a free, itemised quote for exactly what you store.</p>
           </div>
 
-          <div className={s.miniGrid}>
-            {sizes.map(({ Icon, size, label, fits }) => (
-              <div className={s.miniCard} key={size}>
-                <span className={s.miniIcon} aria-hidden="true">
-                  <Icon />
-                </span>
-                <div>
-                  <b>
-                    {size} · {label} <span style={{ fontWeight: 600, fontSize: 12, color: "var(--muted)" }}>(Estimated)</span>
-                  </b>
-                  <small>{fits}</small>
+          <Reveal>
+            <div className={s.miniGrid}>
+              {sizes.map(({ Icon, size, label, fits, anim }, i) => (
+                <div
+                  className={`${s.miniCard} ${h.plan}`}
+                  style={{ ["--i" as string]: i } as CSSProperties}
+                  key={size}
+                >
+                  <span className={`${s.miniIcon} ${h.planIcon} ${h[anim]}`} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <div>
+                    <b>
+                      {size} · {label} <span style={{ fontWeight: 600, fontSize: 12, color: "var(--muted)" }}>(Estimated)</span>
+                    </b>
+                    <small>{fits}</small>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
 
           <div className={s.miniFacts}>
             <span><CheckCircle2 aria-hidden="true" /> No setup fees</span>

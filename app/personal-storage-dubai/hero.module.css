@@ -52,3 +52,77 @@ li:hover .chipEmoji {
       url("/landing/svc-personal-hero-m.webp");
   }
 }
+
+/* Size cards (Small / Medium / Large): pop up in turn once in view
+   (Reveal.tsx adds .armed/.in), lift on hover, and each icon acts out its
+   size — the box squeezes, the sofa bounces, the home grows. Same pattern as
+   the business "every plan includes" cards. Content stays visible without JS. */
+.armed:not(.in) .plan {
+  opacity: 0;
+}
+.in .plan {
+  animation: planIn 0.6s cubic-bezier(0.2, 0.8, 0.3, 1.25) backwards;
+  animation-delay: calc(0.1s + var(--i, 0) * 0.1s);
+}
+.plan {
+  cursor: default;
+}
+.plan:hover {
+  transform: translateY(-4px);
+  border-color: rgba(238, 88, 36, 0.4);
+  box-shadow: 0 14px 30px rgba(37, 49, 90, 0.11);
+}
+.plan:hover .planIcon {
+  background: var(--accent);
+  color: #fff;
+}
+.planIcon svg {
+  animation-duration: 3.4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: calc(0.9s + var(--i, 0) * 0.35s);
+}
+.armed:not(.in) .planIcon svg {
+  animation-play-state: paused;
+}
+.squeeze svg { animation-name: boxSqueeze; }
+.bounce svg { animation-name: sofaBounce; }
+.grow svg { transform-origin: 50% 90%; animation-name: homeGrow; }
+
+@keyframes planIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+  }
+}
+@keyframes boxSqueeze {
+  0%, 55%, 100% { transform: scale(1, 1); }
+  15% { transform: scale(1.14, 0.8); }
+  30% { transform: scale(0.9, 1.1); }
+  42% { transform: scale(1.03, 0.98); }
+}
+@keyframes sofaBounce {
+  0%, 60%, 100% { transform: translateY(0) scale(1, 1); }
+  14% { transform: translateY(-6px) scale(0.96, 1.05); }
+  28% { transform: translateY(0) scale(1.08, 0.9); }
+  40% { transform: translateY(-2px) scale(1, 1); }
+}
+@keyframes homeGrow {
+  0%, 55%, 100% { transform: scale(1); }
+  20% { transform: scale(1.22); }
+  34% { transform: scale(0.94); }
+  44% { transform: scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .armed:not(.in) .plan {
+    opacity: 1;
+  }
+  .in .plan,
+  .planIcon svg {
+    animation: none;
+  }
+  .plan:hover {
+    transform: none;
+  }
+}
