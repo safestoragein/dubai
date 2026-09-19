@@ -435,3 +435,25 @@ h2.longH2 {
     font-size: calc((100vw - 52px) / 18.5);
   }
 }
+/* full-width hero: phones get the plain photo, title held to 2 lines */
+@media (max-width: 900px) {
+  .heroVivid section > div[style] {
+    background-image: linear-gradient(
+        172deg,
+        rgba(255, 250, 240, 0.98) 0%,
+        rgba(255, 250, 240, 0.94) 50%,
+        rgba(255, 246, 226, 0.55) 78%,
+        rgba(255, 246, 226, 0.15) 100%
+      ),
+      url("/landing/car-storage-hero-m.webp");
+    background-position: 70% 50% !important;
+  }
+}
+.heroVivid h1 {
+  font-size: clamp(24px, 2.6vw, 38px) !important;
+}
+@media (max-width: 640px) {
+  .heroVivid h1 {
+    font-size: calc((100vw - 52px) / 19.5) !important;
+  }
+}

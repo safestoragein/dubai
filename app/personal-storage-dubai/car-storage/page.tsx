@@ -8,11 +8,11 @@ import { SiloLinks } from "@/components/silo/silo-links"
 
 import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
+import { SplitHero } from "@/components/landing/landing-top"
 import { UspRail } from "@/components/landing/usp-rail"
 import { FeatScroller } from "@/components/landing/feat-scroller"
 import { MilestonesPlayer } from "@/components/landing/milestones-player"
 import FaqAccordion from "@/components/landing/faq-accordion"
-import { env } from "@/lib/env"
 import s from "@/components/landing/landing.module.css"
 import h from "./hero.module.css"
 import Reveal from "./Reveal"
@@ -42,7 +42,6 @@ const faqs = [
   { q: "Do you offer pickup for vehicle storage?", a: "Yes, we offer drive-in options and can arrange transportation for vehicles that cannot be driven. For motorcycles and smaller vehicles, our team can coordinate transport. Contact us at +971505773388 to discuss your specific vehicle." },
   { q: "Can I access my vehicle while it's in storage?", a: "Yes, you can access your vehicle during our operating hours: Monday–Sunday 8 AM–8 PM. Simply give us 2 hours' notice and your vehicle will be ready. For business customers with special requirements, extended access can be arranged." },
   { q: "What do you do to maintain my vehicle during storage?", a: "Our team conducts regular visual inspections of stored vehicles, checks tire pressure monthly, and monitors the storage environment 24/7. For classic or long-term storage (6+ months), we recommend our premium care package which includes battery trickle charging, regular engine start-ups, and detailed condition reporting." },
-  { q: "Can you store oversized vehicles like caravans or trucks?", a: "Yes, we accommodate oversized vehicles including caravans, motorhomes, light commercial vehicles and boats on a case-by-case basis. Please contact us with your vehicle's dimensions so we can confirm availability and pricing." },
 ]
 
 // owner: only 5 of the longer Q&As
@@ -145,40 +144,20 @@ export default function CarStoragePage() {
       <SchemaScript schema={schemas} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        {/* HERO — copy left, owner's photo right (never behind the letters) */}
-        <section className={`${s.hero} ${s.wrap} ${h.split2}`}>
-          <div className={h.split2Inner}>
-            <div className={`${s.heroContent} ${h.split2Copy}`}>
-              <span className={s.heroTag}>Vehicle Storage Specialists</span>
-              <h1>
-                Car Storage Dubai —{" "}
-                <em>Secure Covered Indoor Vehicle Storage</em>
-              </h1>
-              <div className={s.heroCta} style={{ marginTop: 22 }}>
-                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
-                  Get a Free Quote →
-                </Link>
-                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
-                  <span className={s.phIco}>📞</span> +971505773388
-                </a>
-              </div>
-            </div>
-            <div className={h.split2Photo}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/landing/car-storage-hero.webp"
-                alt="SafeStorage covered indoor car storage facility in Dubai"
-                width={1093}
-                height={907}
-                fetchPriority="high"
-              />
-              <div className={s.heroRating}>
-                <strong>4.9★</strong>
-                <span>6,700+ Google reviews</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* HERO — full width like the business page; photo shifted right so the
+            people sit beside the text, never washed out under it */}
+        <div className={h.heroVivid}>
+          <SplitHero
+            eyebrow="Vehicle Storage Specialists"
+            title="Car Storage Dubai —"
+            titleAccent="Secure Covered Indoor Vehicle Storage"
+            blurb="You pay only for the space your vehicle uses."
+            image="/landing/car-storage-hero-wide.webp"
+            imagePosition="right 30%"
+            ctaLabel="Get a Free Quote"
+            phoneLabel="+971505773388"
+          />
+        </div>
 
         {/* STATS */}
         <section className={s.wrap} style={{ paddingBlock: "10px 0" }}>
