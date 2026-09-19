@@ -95,10 +95,10 @@ export default function SmallBusinessStoragePage() {
             <div className={h.split2Photo}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/landing/small-business-hero.webp"
+                src="/landing/small-business-hero-v2.webp"
                 alt="SafeStorage team helping a Dubai small business pack and store stock"
-                width={1242}
-                height={941}
+                width={1263}
+                height={907}
                 fetchPriority="high"
               />
               <div className={s.heroRating}>
