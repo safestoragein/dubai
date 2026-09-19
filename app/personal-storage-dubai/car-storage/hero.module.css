@@ -1,0 +1,437 @@
+/* Page-local styles for /personal-storage-dubai/car-storage (same treatment as the
+   other redesigned pages). */
+
+/* Hero: the shared split-hero wash keeps ~40% cream over the photo; here it
+   fades to fully clear so the photo stays as vivid as the original. Targets
+   SplitHero's inner div (the one carrying --hero-img); `[style]` lifts
+   specificity above the shared `.heroSplit .heroInner`. */
+.heroVivid section > div[style] {
+  background-image: linear-gradient(
+      100deg,
+      rgba(255, 250, 240, 0.97) 0%,
+      rgba(255, 250, 240, 0.93) 50%,
+      rgba(255, 249, 238, 0.82) 62%,
+      rgba(255, 247, 232, 0.45) 68%,
+      rgba(255, 246, 226, 0) 76%
+    ),
+    var(--hero-img);
+}
+/* Icon cards ("Why Dubai needs it", security tiles, "Plans for every need"):
+   pop up in turn once in view (Reveal.tsx adds .armed/.in) and each icon loops
+   a small move that acts out its meaning. Content stays visible without JS. */
+.armed:not(.in) .plan {
+  opacity: 0;
+}
+.in .plan {
+  animation: planIn 0.6s cubic-bezier(0.2, 0.8, 0.3, 1.25) backwards;
+  animation-delay: calc(0.1s + var(--i, 0) * 0.08s);
+}
+.lift {
+  cursor: default;
+}
+.lift:hover {
+  transform: translateY(-4px);
+  border-color: rgba(238, 88, 36, 0.4);
+  box-shadow: 0 14px 30px rgba(37, 49, 90, 0.11);
+}
+.lift:hover .planIcon {
+  background: var(--accent);
+  color: #fff;
+}
+.planIcon svg,
+.planIcon .emoji {
+  animation-duration: 3.6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: calc(0.9s + var(--i, 0) * 0.3s);
+}
+.armed:not(.in) .planIcon svg,
+.armed:not(.in) .planIcon .emoji {
+  animation-play-state: paused;
+}
+.squeeze svg { animation-name: boxSqueeze; }
+.drive svg { animation-name: vanDrive; }
+.drop svg { animation-name: boxDrop; }
+.spin svg { animation-name: clockSpin; }
+.pan svg { transform-origin: 50% 60%; animation-name: camPan; }
+.flicker svg { transform-origin: 50% 100%; animation-name: flameFlicker; }
+.wiggle svg { animation-name: bugWiggle; }
+.glow svg { animation-name: bulbGlow; }
+.pulse svg { animation-name: shieldPulse; }
+.hop svg { animation-name: iconHop; }
+.flip svg { animation-name: calFlip; }
+.bounce svg { animation-name: sofaBounce; }
+.grow svg { transform-origin: 50% 90%; animation-name: homeGrow; }
+.fly svg { animation-name: planeFly; }
+.tap svg { transform-origin: 70% 80%; animation-name: hammerTap; }
+.loop svg { animation-name: loopTurn; }
+
+/* "Plans for every need": colour emoji in the icon box, gently hopping in turn */
+.emoji {
+  display: inline-block;
+  font-size: 21px;
+  line-height: 1;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  animation-name: emojiHop;
+}
+
+@keyframes planIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+  }
+}
+@keyframes boxSqueeze {
+  0%, 55%, 100% { transform: scale(1, 1); }
+  15% { transform: scale(1.14, 0.8); }
+  30% { transform: scale(0.9, 1.1); }
+  42% { transform: scale(1.03, 0.98); }
+}
+@keyframes vanDrive {
+  0%, 55%, 100% { transform: translateX(0); opacity: 1; }
+  22% { transform: translateX(14px); opacity: 0; }
+  23% { transform: translateX(-14px); opacity: 0; }
+  42% { transform: translateX(0); opacity: 1; }
+}
+@keyframes boxDrop {
+  0%, 55%, 100% { transform: translateY(0) scale(1, 1); }
+  10% { transform: translateY(-8px) scale(1, 1); }
+  22% { transform: translateY(0) scale(1.12, 0.86); }
+  32% { transform: translateY(-2px) scale(0.97, 1.03); }
+  42% { transform: translateY(0) scale(1, 1); }
+}
+@keyframes clockSpin {
+  0%, 45%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(360deg); }
+}
+@keyframes camPan {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  15% { transform: rotate(-14deg); }
+  35% { transform: rotate(14deg); }
+  50% { transform: rotate(0deg); }
+}
+@keyframes flameFlicker {
+  0%, 60%, 100% { transform: scale(1, 1); }
+  10% { transform: scale(0.94, 1.12); }
+  20% { transform: scale(1.06, 0.92); }
+  30% { transform: scale(0.96, 1.1); }
+  42% { transform: scale(1.02, 0.97); }
+}
+@keyframes bugWiggle {
+  0%, 60%, 100% { transform: translateX(0) rotate(0deg); }
+  10% { transform: translateX(-3px) rotate(-10deg); }
+  20% { transform: translateX(3px) rotate(10deg); }
+  30% { transform: translateX(-2px) rotate(-6deg); }
+  40% { transform: translateX(0) rotate(0deg); }
+}
+@keyframes bulbGlow {
+  0%, 55%, 100% { transform: scale(1); filter: none; }
+  20% { transform: scale(1.18); filter: drop-shadow(0 0 6px rgba(238, 88, 36, 0.8)); }
+  38% { transform: scale(1); filter: none; }
+}
+@keyframes shieldPulse {
+  0%, 55%, 100% { transform: scale(1); }
+  18% { transform: scale(1.2); }
+  32% { transform: scale(0.95); }
+  44% { transform: scale(1.03); }
+}
+@keyframes calFlip {
+  0%, 55%, 100% { transform: rotateX(0deg); }
+  25% { transform: rotateX(180deg); }
+  40% { transform: rotateX(360deg); }
+}
+@keyframes iconHop {
+  0%, 50%, 100% { transform: translateY(0); }
+  15% { transform: translateY(-6px); }
+  30% { transform: translateY(0); }
+  40% { transform: translateY(-2px); }
+}
+@keyframes sofaBounce {
+  0%, 60%, 100% { transform: translateY(0) scale(1, 1); }
+  14% { transform: translateY(-6px) scale(0.96, 1.05); }
+  28% { transform: translateY(0) scale(1.08, 0.9); }
+  40% { transform: translateY(-2px) scale(1, 1); }
+}
+@keyframes homeGrow {
+  0%, 55%, 100% { transform: scale(1); }
+  20% { transform: scale(1.22); }
+  34% { transform: scale(0.94); }
+  44% { transform: scale(1.04); }
+}
+@keyframes planeFly {
+  0%, 55%, 100% { transform: translate(0, 0); opacity: 1; }
+  22% { transform: translate(12px, -10px); opacity: 0; }
+  23% { transform: translate(-12px, 10px); opacity: 0; }
+  42% { transform: translate(0, 0); opacity: 1; }
+}
+@keyframes hammerTap {
+  0%, 55%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-24deg); }
+  18% { transform: rotate(6deg); }
+  26% { transform: rotate(-18deg); }
+  34% { transform: rotate(4deg); }
+}
+@keyframes loopTurn {
+  0%, 45%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(180deg); }
+}
+@keyframes emojiHop {
+  0%, 50%, 100% { transform: translateY(0) rotate(0deg); }
+  15% { transform: translateY(-5px) rotate(-8deg); }
+  30% { transform: translateY(0) rotate(4deg); }
+  40% { transform: translateY(-1px) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .armed:not(.in) .plan {
+    opacity: 1;
+  }
+  .in .plan,
+  .planIcon svg,
+  .planIcon .emoji {
+    animation: none;
+  }
+  .lift:hover {
+    transform: none;
+  }
+}
+/* ---------- HERO ----------
+   Owner's choice: text on the left, photo on the right in its own frame —
+   the picture never sits behind the letters. Page-local markup (not the shared
+   SplitHero); it reuses the landing .hero typography, tag, buttons and rating
+   card. The photo is the owner's car-storage picture. */
+.split2 {
+  padding-block: 30px 18px;
+}
+.split2Inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+.split2 .split2Copy {
+  padding: 0;
+  max-width: none;
+}
+.split2 h1 {
+  font-size: clamp(24px, 2.3vw, 34px);
+  line-height: 1.12;
+}
+.split2Photo {
+  position: relative;
+  aspect-ratio: 1.3 / 1;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #eef3f9;
+  box-shadow: 0 26px 60px rgba(37, 49, 90, 0.16);
+}
+.split2Photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.split2Photo > div {
+  right: 18px;
+  top: 18px;
+}
+@media (max-width: 900px) {
+  .split2 {
+    padding-block: 22px 10px;
+  }
+  .split2Inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+  .split2Photo {
+    aspect-ratio: 4 / 3;
+  }
+}
+@media (max-width: 640px) {
+  .split2 h1 {
+    font-size: calc((100vw - 52px) / 16.4);
+  }
+  .split2Photo {
+    border-radius: 20px;
+  }
+  .split2Photo > div {
+    right: 12px;
+    top: 12px;
+    padding: 10px 13px;
+  }
+}
+
+/* rating card sits bottom-right so it doesn't cover the calendars in the photo */
+.split2Photo > div {
+  top: auto;
+  bottom: 18px;
+}
+/* live copy: extra hero paragraphs + panels keep the landing text styles */
+.lead {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #44507a;
+  margin: 0 0 12px;
+}
+.lead b,
+.panelText b {
+  color: var(--navy);
+}
+.panelText {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+.panelText + .panelText {
+  margin-top: 10px;
+}
+.panelText a,
+.lead a {
+  color: var(--accent);
+  font-weight: 600;
+}
+@media (max-width: 640px) {
+  .split2Photo > div {
+    bottom: 12px;
+  }
+}
+
+/* "The honest limitation": catch vs fix cards with a big colour emoji */
+.pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.pairCard {
+  position: relative;
+  border-radius: 22px;
+  padding: 26px 26px 28px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.1), box-shadow 0.3s;
+}
+.pairCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(37, 49, 90, 0.12);
+}
+.pairCatch {
+  background: linear-gradient(160deg, #fff6f1, #fff);
+  border-color: rgba(238, 88, 36, 0.28);
+}
+.pairFix {
+  background: linear-gradient(160deg, #effbf4, #fff);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+.pairTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.pairCatch .pairTag {
+  color: var(--accent);
+}
+.pairFix .pairTag {
+  color: #16a34a;
+}
+.pairEmoji,
+.needEmoji {
+  display: inline-block;
+  line-height: 1;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+.pairEmoji {
+  font-size: 34px;
+  animation: emojiHop 3.6s ease-in-out infinite;
+  animation-delay: calc(0.8s + var(--i, 0) * 0.4s);
+}
+.needEmoji {
+  font-size: 21px;
+}
+@media (max-width: 760px) {
+  .pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pairEmoji {
+    animation: none;
+  }
+  .pairCard:hover {
+    transform: none;
+  }
+}
+
+/* car page: rating card bottom-left (the cars fill the bottom-right) */
+.split2Photo > div {
+  right: auto;
+  left: 18px;
+}
+@media (max-width: 640px) {
+  .split2Photo > div {
+    left: 12px;
+  }
+}
+/* big colour emoji on rail cards (who needs it / vehicles we store) */
+.bigEmoji {
+  display: inline-block;
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 16px;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.4);
+}
+.plan:hover .bigEmoji {
+  transform: rotate(-8deg) scale(1.1);
+}
+.pricePill {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #ffe9dd;
+  color: var(--navy);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+/* three reviews share the full width on desktop; phones keep the swipe row */
+.revFill > div {
+  flex: 1 1 0;
+  min-width: 0;
+}
+@media (max-width: 760px) {
+  .revFill > div {
+    flex: 0 0 84vw;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plan:hover .bigEmoji {
+    transform: none;
+  }
+}
+/* this page's live titles are long: slightly smaller so each fits 2 lines */
+.split2 h1 {
+  font-size: clamp(22px, 2.05vw, 31px);
+}
+.howHead h2.longH2,
+h2.longH2 {
+  font-size: clamp(22px, 2.6vw, 34px);
+  line-height: 1.12;
+}
+@media (max-width: 640px) {
+  h2.longH2 {
+    font-size: calc((100vw - 48px) / 17.5);
+  }
+}
+@media (max-width: 640px) {
+  .split2 h1 {
+    font-size: calc((100vw - 52px) / 18.5);
+  }
+}
