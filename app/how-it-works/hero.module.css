@@ -1,0 +1,294 @@
+/* Page-local styles for /how-it-works. */
+
+/* ---------- HERO ----------
+   Owner's choice: text on the left, photo on the right in its own frame —
+   the picture never sits behind the letters. Page-local markup (not the shared
+   SplitHero); it reuses the landing .hero typography, tag, buttons and rating
+   card. The photo is the delivery scene from the owner's "steps" picture. */
+.split2 {
+  padding-block: 30px 18px;
+}
+.split2Inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+.split2 .split2Copy {
+  padding: 0;
+  max-width: none;
+}
+.split2 h1 {
+  font-size: clamp(24px, 2.3vw, 34px);
+  line-height: 1.12;
+}
+.split2Photo {
+  position: relative;
+  aspect-ratio: 1.3 / 1;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #eef3f9;
+  box-shadow: 0 26px 60px rgba(37, 49, 90, 0.16);
+}
+.split2Photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 60% 100%;
+}
+.split2Photo > div {
+  right: 18px;
+  top: 18px;
+}
+@media (max-width: 900px) {
+  .split2 {
+    padding-block: 22px 10px;
+  }
+  .split2Inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+  .split2Photo {
+    aspect-ratio: 4 / 3;
+  }
+}
+@media (max-width: 640px) {
+  .split2 h1 {
+    font-size: calc((100vw - 52px) / 16.4);
+  }
+  .split2Photo {
+    border-radius: 20px;
+  }
+  .split2Photo > div {
+    right: 12px;
+    top: 12px;
+    padding: 10px 13px;
+  }
+}
+
+/* ---------- PHOTO STEPS ----------
+   Four photo cards in a row on desktop with arrow connectors, a swipe row on
+   phones (next card peeking). */
+.photoSteps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+.photoStep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  overflow: visible;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.1), box-shadow 0.3s, border-color 0.3s;
+}
+.photoStep:hover {
+  transform: translateY(-6px);
+  border-color: rgba(238, 88, 36, 0.4);
+  box-shadow: 0 22px 44px rgba(37, 49, 90, 0.14);
+}
+/* arrow connector to the next card (desktop only) */
+.photoStep:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 118px;
+  right: -22px;
+  z-index: 3;
+  width: 32px;
+  height: 32px;
+  margin-right: -5px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  box-shadow: 0 6px 14px rgba(238, 88, 36, 0.4);
+}
+.photoFrame {
+  position: relative;
+  margin: 10px 10px 0;
+  aspect-ratio: 5 / 5.4;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f1ece3;
+}
+.photoFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.photoStep:hover .photoFrame img {
+  transform: scale(1.07);
+}
+.stepBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 6px 14px rgba(238, 88, 36, 0.4);
+}
+.stepBody {
+  padding: 16px 18px 20px;
+}
+.stepBody h3 {
+  margin: 0;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy);
+}
+@media (max-width: 1100px) {
+  .photoSteps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .photoStep:not(:last-child)::after {
+    display: none;
+  }
+}
+@media (max-width: 680px) {
+  .photoSteps {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 4px 2px 18px;
+    scrollbar-width: none;
+  }
+  .photoSteps::-webkit-scrollbar {
+    display: none;
+  }
+  .photoStep {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+  }
+}
+
+/* ---------- REVEAL + ICON ANIMATIONS ----------
+   Cards pop up in turn once in view (Reveal.tsx adds .armed/.in); the step
+   badges ping in sequence; each promise icon acts out its point. */
+.armed:not(.in) .plan {
+  opacity: 0;
+}
+.in .plan {
+  animation: planIn 0.65s cubic-bezier(0.2, 0.8, 0.3, 1.2) backwards;
+  animation-delay: calc(0.1s + var(--i, 0) * 0.12s);
+}
+.stepBadge {
+  animation: badgePing 4s ease-in-out infinite;
+  animation-delay: calc(1s + var(--i, 0) * 0.5s);
+}
+.armed:not(.in) .stepBadge {
+  animation-play-state: paused;
+}
+.lift {
+  cursor: default;
+}
+.lift:hover {
+  transform: translateY(-4px);
+  border-color: rgba(238, 88, 36, 0.4);
+  box-shadow: 0 14px 30px rgba(37, 49, 90, 0.11);
+}
+.lift:hover .planIcon {
+  background: var(--accent);
+  color: #fff;
+}
+.planIcon svg {
+  animation-duration: 3.6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: calc(0.9s + var(--i, 0) * 0.3s);
+}
+.armed:not(.in) .planIcon svg {
+  animation-play-state: paused;
+}
+.spin svg { animation-name: clockSpin; }
+.drive svg { animation-name: vanDrive; }
+.swing svg { transform-origin: 70% 20%; animation-name: tagSwing; }
+.pulse svg { animation-name: shieldPulse; }
+.flip svg { animation-name: calFlip; }
+.drop svg { animation-name: pinDrop; }
+
+@keyframes planIn {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.95);
+  }
+}
+@keyframes badgePing {
+  0%, 60%, 100% { transform: scale(1); }
+  12% { transform: scale(1.18); }
+  24% { transform: scale(0.95); }
+  34% { transform: scale(1.03); }
+}
+@keyframes clockSpin {
+  0%, 45%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(360deg); }
+}
+@keyframes vanDrive {
+  0%, 55%, 100% { transform: translateX(0); opacity: 1; }
+  22% { transform: translateX(14px); opacity: 0; }
+  23% { transform: translateX(-14px); opacity: 0; }
+  42% { transform: translateX(0); opacity: 1; }
+}
+@keyframes tagSwing {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  12% { transform: rotate(-16deg); }
+  26% { transform: rotate(11deg); }
+  38% { transform: rotate(-6deg); }
+  48% { transform: rotate(3deg); }
+}
+@keyframes shieldPulse {
+  0%, 55%, 100% { transform: scale(1); }
+  18% { transform: scale(1.2); }
+  32% { transform: scale(0.95); }
+  44% { transform: scale(1.03); }
+}
+@keyframes calFlip {
+  0%, 55%, 100% { transform: rotateX(0deg); }
+  25% { transform: rotateX(180deg); }
+  40% { transform: rotateX(360deg); }
+}
+@keyframes pinDrop {
+  0%, 55%, 100% { transform: translateY(0) scale(1, 1); }
+  10% { transform: translateY(-8px) scale(1, 1); }
+  22% { transform: translateY(0) scale(1.12, 0.86); }
+  32% { transform: translateY(-2px) scale(0.97, 1.03); }
+  42% { transform: translateY(0) scale(1, 1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .armed:not(.in) .plan {
+    opacity: 1;
+  }
+  .in .plan,
+  .stepBadge,
+  .planIcon svg {
+    animation: none;
+  }
+  .photoStep:hover,
+  .lift:hover,
+  .photoStep:hover .photoFrame img {
+    transform: none;
+  }
+}
