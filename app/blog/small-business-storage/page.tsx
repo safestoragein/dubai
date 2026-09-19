@@ -1,9 +1,21 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Info } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
 import RelatedGuides from "@/components/blog/related-guides"
-import { Phone, CheckCircle2 } from "lucide-react"
+
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { UspRail } from "@/components/landing/usp-rail"
+import s from "@/components/landing/landing.module.css"
+import h from "./hero.module.css"
+import Reveal from "./Reveal"
+
+/* 2026-09-19 redesign (owner's request): the live copy is kept word for word,
+   only laid out in the landing design system — side-photo hero (bigger photo
+   and title, owner's choice), emoji swipe rails, animations. The live page's
+   empty "Cost Comparison: Storage vs Warehouse" heading (no content under it)
+   is not repeated. */
 
 export const metadata: Metadata = {
   title: { absolute: "Dubai Small Business Storage: Flexible Warehouse Alternative" },
@@ -44,95 +56,168 @@ const schemas = [
   },
 ]
 
+const problems = [
+  { e: "📜", problem: "Minimum 2-3 year lease", impact: "You're committed regardless of whether the business grows, shrinks, or pivots. Breaking a commercial lease in Dubai can cost months of rent in penalties." },
+  { e: "💰", problem: "High upfront costs", impact: "Security deposits, fit-out costs, and first/last month payments can total AED 50,000-150,000 before you store a single item." },
+  { e: "📐", problem: "Larger than you need", impact: "Minimum warehouse sizes in Dubai typically start at 1,000 sq ft. A small business may need only 200-500 sq ft — they're forced to pay for wasted space." },
+  { e: "⏳", problem: "Long lead times", impact: "Securing a warehouse in Dubai typically takes 2-4 months from search to occupancy. Storage is available in days." },
+]
+
+const businesses = [
+  { e: "🛒", business: "E-commerce and online retailers", useCase: "Store inventory, pack orders on-site, scale the unit as product range grows. Many Dubai noon.com and Amazon UAE sellers start with a medium unit and graduate to large as their catalogue grows — without warehouse lease exposure." },
+  { e: "🎪", business: "Event and exhibition companies", useCase: "Store display stands, promotional materials, branded equipment and event infrastructure between events. No need to lease permanent warehouse space for items only actively used 10-15 times per year." },
+  { e: "🛋️", business: "Interior design and contractor firms", useCase: "Store client furnishings, fabric samples, decorative inventory, and tools between projects. Scale storage up during busy delivery periods, down in quieter months." },
+  { e: "🍽️", business: "Food and hospitality businesses", useCase: "Store non-perishable supplies, packaging, branded merchandise, equipment, and catering materials in a secure, clean unit between service periods." },
+  { e: "🏢", business: "Real estate and property management", useCase: "Store model apartment furniture, marketing materials, photography equipment, and maintenance inventory across a portfolio of properties without needing a central office warehouse." },
+]
+
+const storageRight = ["You need under 500 sq ft", "Your volume fluctuates seasonally", "You're a startup without 2-year revenue certainty", "You don't need 24/7 access", "Your business may pivot in the next 12 months", "You want to test a market before committing"]
+const warehouseBetter = ["You consistently need 1,000+ sq ft", "You need 24/7 unrestricted access", "You have staff working on-site daily", "You have loading dock requirements", "Your business model requires it legally", "You have 3+ years of stable revenue"]
+
+/** Stagger index for an animated card. */
+const idx = (i: number) => ({ ["--i" as string]: i }) as CSSProperties
+
 export default function SmallBusinessStoragePage() {
   return (
     <>
       <SchemaScript schema={schemas} />
-      <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-r from-dubai-navy to-dubai-blue text-white py-16">
-          <div className="container px-4 max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-dubai-gold/20 text-dubai-gold px-3 py-1 rounded-full text-sm mb-4">Business Guide</div>
-            <h1 className="text-4xl font-bold mb-4">Small Business Storage Dubai — The Smart Alternative to Warehouse Rental</h1>
-            <p className="text-white/80">Updated April 2025 · 9 min read · By SafeStorage Dubai</p>
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* HERO — copy left, owner's photo right (bigger, owner's choice) */}
+        <section className={`${s.hero} ${s.wrap} ${h.split2}`}>
+          <div className={h.split2Inner}>
+            <div className={`${s.heroContent} ${h.split2Copy}`}>
+              <span className={s.heroTag}>Business Guide</span>
+              <h1>
+                Small Business Storage Dubai — <em>The Smart Alternative to Warehouse Rental</em>
+              </h1>
+              <p className={h.metaLine}>Updated April 2025 · 9 min read · By SafeStorage Dubai</p>
+            </div>
+            <div className={h.split2Photo}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/landing/small-business-hero.webp"
+                alt="SafeStorage team helping a Dubai small business pack and store stock"
+                width={1242}
+                height={941}
+                fetchPriority="high"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
+              </div>
+            </div>
           </div>
         </section>
 
-        <article className="py-12">
-          <div className="container px-4 max-w-4xl mx-auto prose prose-lg max-w-none text-gray-700">
-            <p className="text-xl leading-relaxed mb-8">Dubai's traditional warehouse market requires minimum 2-3 year leases, large capital commitments, and long setup times — completely misaligned with the needs of growing small businesses. Thousands of Dubai SMEs and entrepreneurs now use self storage as a flexible, cost-effective alternative that scales with their business without the risk of a long-term lease.</p>
+        {/* INTRO */}
+        <section className={s.wrap} style={{ paddingBlock: "8px 0" }}>
+          <div className={s.movingTip} style={{ marginTop: 0 }}>
+            <Info aria-hidden="true" />
+            <p>
+              Dubai&apos;s traditional warehouse market requires minimum 2-3 year leases, large capital commitments, and
+              long setup times — completely misaligned with the needs of growing small businesses. Thousands of Dubai
+              SMEs and entrepreneurs now use self storage as a flexible, cost-effective alternative that scales with
+              their business without the risk of a long-term lease.
+            </p>
+          </div>
+        </section>
 
-            <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">The Warehouse Problem for Dubai Small Businesses</h2>
-            <div className="space-y-4 mb-8">
-              {[
-                { problem: "Minimum 2-3 year lease", impact: "You're committed regardless of whether the business grows, shrinks, or pivots. Breaking a commercial lease in Dubai can cost months of rent in penalties." },
-                { problem: "High upfront costs", impact: "Security deposits, fit-out costs, and first/last month payments can total AED 50,000-150,000 before you store a single item." },
-                { problem: "Larger than you need", impact: "Minimum warehouse sizes in Dubai typically start at 1,000 sq ft. A small business may need only 200-500 sq ft — they're forced to pay for wasted space." },
-                { problem: "Long lead times", impact: "Securing a warehouse in Dubai typically takes 2-4 months from search to occupancy. Storage is available in days." },
-              ].map((p) => (
-                <div key={p.problem} className="flex gap-4 p-4 bg-red-50 border border-red-200 rounded-xl">
-                  <span className="text-red-500 font-bold flex-shrink-0">⚠</span>
-                  <div>
-                    <div className="font-semibold text-red-800">{p.problem}</div>
-                    <div className="text-sm text-gray-700 mt-1">{p.impact}</div>
-                  </div>
+        {/* THE WAREHOUSE PROBLEM */}
+        <section className={`${s.section} ${s.wrap}`} id="problem">
+          <Reveal>
+            <UspRail
+              head={
+                <div className={s.uspHead}>
+                  <span className={s.howEyebrow}>The problem</span>
+                  <h2>
+                    The Warehouse Problem for <em>Dubai Small Businesses</em>
+                  </h2>
                 </div>
+              }
+            >
+              {problems.map(({ e, problem, impact }, i) => (
+                <article className={`${s.usp} ${h.plan}`} style={idx(i)} key={problem}>
+                  <span className={h.bigEmoji} aria-hidden="true">
+                    {e}
+                  </span>
+                  <h3>{problem}</h3>
+                  <p>{impact}</p>
+                </article>
               ))}
-            </div>
+            </UspRail>
+            <p className={s.scrollHint}>Swipe for more →</p>
+          </Reveal>
+        </section>
 
-            <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">How Dubai SMEs Are Using Storage Instead</h2>
-            <div className="space-y-6 mb-8">
-              {[
-                { business: "E-commerce and online retailers", useCase: "Store inventory, pack orders on-site, scale the unit as product range grows. Many Dubai noon.com and Amazon UAE sellers start with a medium unit and graduate to large as their catalogue grows — without warehouse lease exposure." },
-                { business: "Event and exhibition companies", useCase: "Store display stands, promotional materials, branded equipment and event infrastructure between events. No need to lease permanent warehouse space for items only actively used 10-15 times per year." },
-                { business: "Interior design and contractor firms", useCase: "Store client furnishings, fabric samples, decorative inventory, and tools between projects. Scale storage up during busy delivery periods, down in quieter months." },
-                { business: "Food and hospitality businesses", useCase: "Store non-perishable supplies, packaging, branded merchandise, equipment, and catering materials in a secure, clean unit between service periods." },
-                { business: "Real estate and property management", useCase: "Store model apartment furniture, marketing materials, photography equipment, and maintenance inventory across a portfolio of properties without needing a central office warehouse." },
-              ].map((b) => (
-                <div key={b.business} className="p-5 border border-gray-200 rounded-xl bg-slate-50">
-                  <h3 className="font-bold text-dubai-navy mb-2">{b.business}</h3>
-                  <p className="text-gray-600 text-sm">{b.useCase}</p>
+        {/* HOW SMEs USE STORAGE */}
+        <section className={`${s.section} ${s.wrap}`} id="smes" style={{ paddingTop: 0 }}>
+          <Reveal>
+            <UspRail
+              head={
+                <div className={s.uspHead}>
+                  <span className={s.howEyebrow}>Use cases</span>
+                  <h2>
+                    How Dubai SMEs Are Using <em>Storage Instead</em>
+                  </h2>
                 </div>
+              }
+            >
+              {businesses.map(({ e, business, useCase }, i) => (
+                <article className={`${s.usp} ${h.plan}`} style={idx(i)} key={business}>
+                  <span className={h.bigEmoji} aria-hidden="true">
+                    {e}
+                  </span>
+                  <h3>{business}</h3>
+                  <p>{useCase}</p>
+                </article>
               ))}
-            </div>
+            </UspRail>
+            <p className={s.scrollHint}>Swipe for more →</p>
+          </Reveal>
+        </section>
 
-            <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">Cost Comparison: Storage vs Warehouse</h2>
-
-            <h2 className="text-2xl font-bold text-dubai-navy mt-10 mb-4">When Storage Makes Sense vs When to Get a Warehouse</h2>
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-green-50 border border-green-200 rounded-xl p-5">
-                <h3 className="font-bold text-green-800 mb-3">Storage is right for you if:</h3>
-                <ul className="space-y-2">
-                  {["You need under 500 sq ft", "Your volume fluctuates seasonally", "You're a startup without 2-year revenue certainty", "You don't need 24/7 access", "Your business may pivot in the next 12 months", "You want to test a market before committing"].map((item) => (
-                    <li key={item} className="flex gap-2 text-sm text-gray-700"><CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
-                <h3 className="font-bold text-blue-800 mb-3">Warehouse is better when:</h3>
-                <ul className="space-y-2">
-                  {["You consistently need 1,000+ sq ft", "You need 24/7 unrestricted access", "You have staff working on-site daily", "You have loading dock requirements", "Your business model requires it legally", "You have 3+ years of stable revenue"].map((item) => (
-                    <li key={item} className="flex gap-2 text-sm text-gray-700"><CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-dubai-navy text-white rounded-2xl p-8 text-center">
-              <h2 className="text-2xl font-bold mb-3">Start Your Business Storage Plan</h2>
-              <p className="text-white/80 mb-6">Get a free business storage quote. No warehouse commitment — flexible, scalable, available in days.</p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Link href="https://safestorage.ae/get-quote">
-                  <Button className="bg-dubai-gold hover:bg-dubai-darkgold text-white px-8 py-3 text-lg">Get a Business Quote</Button>
-                </Link>
-                <a href="tel:+971505773388">
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-dubai-navy px-8 py-3">
-                    <Phone className="w-5 h-5 mr-2" /> +971505773388
-                  </Button>
-                </a>
-              </div>
+        {/* STORAGE OR WAREHOUSE */}
+        <section className={`${s.section} ${s.wrap}`} id="decide" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Decide</span>
+              <h2>
+                When Storage Makes Sense vs <em>When to Get a Warehouse</em>
+              </h2>
             </div>
           </div>
-        </article>
+          <Reveal>
+            <div className={h.pair}>
+              <div className={`${h.pairCard} ${h.pairFix} ${h.plan}`} style={idx(0)}>
+                <h3 className={h.panelTitle}>
+                  <span aria-hidden="true">📦</span> Storage is right for you if:
+                </h3>
+                <ul className={s.checkList}>
+                  {storageRight.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className={`${h.pairCard} ${h.pairCatch} ${h.plan}`} style={idx(1)}>
+                <h3 className={h.panelTitle}>
+                  <span aria-hidden="true">🏭</span> Warehouse is better when:
+                </h3>
+                <ul className={s.checkList}>
+                  {warehouseBetter.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
+        <CtaBand
+          title="Start Your Business Storage Plan"
+          blurb="Get a free business storage quote. No warehouse commitment — flexible, scalable, available in days."
+          ctaLabel="Get a Business Quote"
+          callLabel="+971505773388"
+        />
 
         <RelatedGuides currentSlug="small-business-storage" />
       </div>
