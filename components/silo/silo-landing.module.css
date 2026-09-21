@@ -1,0 +1,65 @@
+/* Landing-style skin for the long silo pages (owner, 2026-09-21).
+   The page keeps its own markup and every word of its copy; these rules give
+   it the homepage's type, colour and card look so it matches the rest of the
+   redesigned site. */
+
+.body :global(section) {
+  padding-block: 56px;
+}
+.body :global(.container) {
+  max-width: 1180px;
+}
+.body :global(h2) {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+.body :global(h3) {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  color: var(--navy);
+}
+.body :global(p),
+.body :global(li),
+.body :global(td),
+.body :global(th) {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+}
+.body :global(p) {
+  font-size: 16px;
+  line-height: 1.65;
+}
+/* cards and tables pick up the landing card look */
+.body :global(.rounded-lg),
+.body :global(.rounded-xl),
+.body :global([class*="border-gray-200"]) {
+  border-radius: 18px;
+}
+.body :global(table) {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+}
+.body :global(table th) {
+  background: rgba(238, 88, 36, 0.06);
+  padding: 14px 16px !important;
+  font-family: var(--font-sora), "Sora", sans-serif;
+}
+.body :global(table td) {
+  padding: 14px 16px !important;
+}
+/* the old navy bands are not needed: the page ends with the shared CTA band */
+.body :global(.bg-gray-50) {
+  background: transparent;
+}
+
+/* inline links inside the copy keep the orange underline */
+.inlineLink {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: rgba(238, 88, 36, 0.6);
+  text-underline-offset: 4px;
+}

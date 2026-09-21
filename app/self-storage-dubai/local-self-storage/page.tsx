@@ -6,6 +6,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { MapPin, Truck, ClipboardList, ShieldCheck, PackageOpen, Phone } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
+import { manrope, sora } from "@/components/landing/fonts"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { CtaBand } from "@/components/landing/page-hero"
+import { env } from "@/lib/env"
+import ls from "@/components/landing/landing.module.css"
+import lp from "@/components/locations/location-landing.module.css"
+import sk from "@/components/silo/silo-landing.module.css"
 
 /**
  * ★ MONEY PAGE — Silo 1 · /self-storage-dubai/local-self-storage/
@@ -316,49 +323,59 @@ export default function LocalSelfStoragePage() {
         ]}
       />
 
-      <main className="min-h-screen">
-        {/* Hero */}
-        <section className="bg-dubai-navy py-16 text-white md:py-20">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
-                Local Self Storage in Dubai — We Come to You
+      <main className={`min-h-screen ${ls.page} ${sora.variable} ${manrope.variable} ${sk.body}`}>
+        {/* Hero — copy left, the owner's photo right */}
+        <section className={`${ls.hero} ${ls.wrap} ${lp.split2}`}>
+          <div className={lp.split2Inner}>
+            <div className={`${ls.heroContent} ${lp.split2Copy}`}>
+              <span className={ls.heroTag}>Local self storage</span>
+              <h1>
+                Local Self Storage in Dubai — <em>We Come to You</em>
               </h1>
-              <p className="mb-4 text-lg text-white/90">
+              <p>
                 Most people searching for local self storage want one thing: a unit close enough that dropping something
                 off doesn't eat a Saturday. Fair enough. But in Dubai, &ldquo;close&rdquo; is a strange idea. The
                 affordable storage facilities sit in Al Quoz, Ras Al Khor and DIP — industrial areas most residents only
                 see from Sheikh Zayed Road. The genuinely convenient ones charge for that convenience.
               </p>
-              <p className="mb-4 text-lg text-white/90">
+              <p>
                 SafeStorage solves it from the other end. We&rsquo;re a{" "}
-                <Link href="/self-storage-dubai" className="underline decoration-dubai-gold underline-offset-4">
+                <Link href="/self-storage-dubai" className={sk.inlineLink}>
                   local self storage
                 </Link>{" "}
                 operator that doesn&rsquo;t ask you to drive anywhere. Our team comes to your building, packs what needs
                 packing, itemises every box, and moves it to a secured facility. You get a photo inventory on your phone.
                 When you want something back, you tell us which item and we deliver it.
               </p>
-              <p className="mb-8 text-lg text-white/90">
-                You pay only for <strong className="text-dubai-gold">the space your items use</strong>. No lock-in,
+              <p>
+                You pay only for <strong>the space your items use</strong>. No lock-in,
                 no deposit games, and the quote you get is the price you pay.
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>
-                  <Link href="/get-quote">Get a storage quote</Link>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white bg-white text-black hover:bg-gray-100"
-                  asChild
-                >
-                  <a href="tel:+971505773388">Call +971 50 577 3388</a>
-                </Button>
+              <div className={ls.heroCta}>
+                <Link className={`${ls.btn} ${ls.btnAccent}`} href="/get-quote">
+                  Get a storage quote →
+                </Link>
+                <a className={`${ls.btn} ${ls.btnGhost} ${ls.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={ls.phIco}>📞</span> Call +971 50 577 3388
+                </a>
+              </div>
+            </div>
+            <div className={lp.split2Photo} style={{ aspectRatio: "1774 / 887" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/landing/local-self-storage-photo.webp"
+                alt="SafeStorage team collecting and packing a home in Dubai"
+                fetchPriority="high"
+              />
+              <div className={ls.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
               </div>
             </div>
           </div>
         </section>
+
+        <LandingTrust />
 
         {/* What "local" actually means */}
         <section className="py-16">
@@ -685,7 +702,7 @@ export default function LocalSelfStoragePage() {
             <div className="mx-auto max-w-3xl">
               <h2 className="mb-8 text-3xl font-bold text-dubai-navy">Common questions</h2>
               <Accordion type="single" collapsible className="w-full">
-                {faqData.map((item, i) => (
+                {faqData.slice(0, 5).map((item, i) => (
                   <AccordionItem key={item.question} value={`item-${i}`}>
                     <AccordionTrigger className="text-left font-medium text-dubai-navy">
                       {item.question}
@@ -706,36 +723,14 @@ export default function LocalSelfStoragePage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-dubai-navy py-16 text-white">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="mb-4 text-3xl font-bold">Get a quote today</h2>
-              <p className="mb-8 text-white/90">
-                Two things and we can price it: how big the place is, and roughly when you want it gone. Most of Dubai
-                gets a collection slot inside 24 hours.
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>
-                  <Link href="/get-quote">Get a storage quote</Link>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white bg-white text-black hover:bg-gray-100"
-                  asChild
-                >
-                  <a href="https://wa.me/971505773388" target="_blank" rel="noopener noreferrer">
-                    WhatsApp us
-                  </a>
-                </Button>
-              </div>
-              <p className="mt-6 text-sm text-white/80">
-                +971 50 577 3388 · support@safestorage.ae
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Get a quote today */}
+        <CtaBand
+          title="Get a quote today"
+          blurb="Two things and we can price it: how big the place is, and roughly when you want it gone. Most of Dubai gets a collection slot inside 24 hours."
+          ctaLabel="Get a storage quote"
+          whatsAppLabel="WhatsApp us"
+          callLabel="+971 50 577 3388"
+        />
       </main>
     </>
   )
