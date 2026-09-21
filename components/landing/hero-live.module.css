@@ -1,0 +1,145 @@
+/* Homepage hero only (LandingHero): the owner's picture, untouched.
+   Desktop shows the WHOLE picture (its own headline, buttons and rating card are
+   printed in it), so the hero takes the picture's 1747:757 shape and the page's
+   own copy is hidden from sight but kept for search engines; two invisible links
+   sit over the printed buttons. Phones keep the old treatment: the right-hand
+   part of the picture (nothing is printed there) with the page's copy over it. */
+
+/* desktop: the hero is exactly the shape of the picture, so none of it is cut */
+.full.full {
+  aspect-ratio: 1747 / 757;
+  min-height: 0;
+}
+
+.live {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  container-type: size;
+}
+
+/* the photo, always covering the hero (like background-size: cover), kept
+   to the BOTTOM edge so the road and the truck are never cut off on a short
+   window (the owner's laptop lost the truck when this was anchored to the top) */
+.stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+}
+.stage picture,
+.stage picture > img,
+.stage > img,
+.stage > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* the page's own copy: kept in the markup for search engines, out of sight on
+   desktop because the picture already carries it */
+.copy.copy {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.ratingPhone {
+  display: none;
+}
+/* invisible links over the buttons printed in the picture (% of the picture) */
+.hot {
+  position: absolute;
+  display: block;
+  pointer-events: auto;
+  border-radius: 999px;
+}
+.hotQuote {
+  left: 4.6%;
+  top: 58.5%;
+  width: 24.2%;
+  height: 8.6%;
+}
+.hotCall {
+  left: 28.8%;
+  top: 58.5%;
+  width: 17.6%;
+  height: 8.6%;
+}
+
+/* no wash over the photo (owner: keep it clear) — the copy uses colours
+   that stand out from what's behind it instead: navy + white on the light
+   sunset sky (desktop), white + orange over the towers (phones, below) */
+.full.full h1 {
+  color: #141c44;
+  text-shadow: 0 0 22px rgba(255, 255, 255, 0.85), 0 0 4px rgba(255, 255, 255, 0.7);
+}
+.full.full h1 em {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(20, 28, 68, 0.8), 0 1px 2px rgba(20, 28, 68, 0.7);
+}
+.full.full .sloganOnPhoto,
+.full.full p {
+  color: #141c44;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+.full.full p {
+  font-weight: 600;
+}
+
+/* phones: copy on top; the photo is moved so the truck and the Burj sit in
+   view below it, with the copy in white over it */
+@media (max-width: 900px) {
+  /* phones: back to the old treatment — the right-hand part of the picture with
+     the page's own copy over it (nothing is printed in the picture there) */
+  .full.full {
+    aspect-ratio: auto;
+    min-height: max(540px, calc(100svh - 100px));
+  }
+  .copy.copy {
+    position: relative;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    padding: 36px 24px 56px var(--hero-gutter);
+  }
+  .hot {
+    display: none;
+  }
+  .ratingPhone {
+    display: revert;
+  }
+  .stage {
+    bottom: 0;
+    top: auto;
+    width: max(100cqw, calc(100cqh * 847 / 597));
+    aspect-ratio: 847 / 597;
+    /* the phone crop carries no printed copy, so it is simply centred */
+    transform: translateX(-50%);
+  }
+  .full.full h1 {
+    color: #fff;
+    text-shadow: 0 2px 14px rgba(10, 16, 40, 0.8), 0 1px 3px rgba(10, 16, 40, 0.7);
+  }
+  .full.full h1 em {
+    color: #ff8a4c;
+    text-shadow: 0 2px 14px rgba(10, 16, 40, 0.8), 0 1px 3px rgba(10, 16, 40, 0.7);
+  }
+  .full.full .sloganOnPhoto,
+  .full.full p {
+    color: #fff;
+    text-shadow: 0 1px 8px rgba(10, 16, 40, 0.9);
+  }
+  .full.full .tagOnPhoto {
+    color: #fff;
+    background: rgba(20, 28, 60, 0.35);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+}

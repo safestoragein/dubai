@@ -1,17 +1,20 @@
+import type { CSSProperties } from "react"
 import Link from "next/link"
 import s from "./landing.module.css"
+import f from "./home-fx.module.css"
+import HomeReveal from "./home-reveal"
 
 /* ------------------------------------------------------------------ *
  * WHO WE HELP — the old "Who Uses SafeStorage in Dubai?" use cases and
  * links, in the split + skyline-card design, one short line per row.
  * ------------------------------------------------------------------ */
 const types = [
-  { href: "/self-storage-dubai/short-term", title: "Villa & Apartment Renovations", sub: "Stored safely for 2 weeks to 6 months" },
-  { href: "/personal-storage-dubai", title: "Expats Relocating or Travelling", sub: "Monthly storage between moves or leases" },
-  { href: "/business-storage-dubai/ecommerce-fulfilment", title: "E-commerce & Small Businesses", sub: "Stock and office items, no warehouse lease" },
-  { href: "/personal-storage-dubai", title: "Downsizing & Decluttering", sub: "Keep what you love, from just 25 sq ft" },
-  { href: "/personal-storage-dubai/student-storage", title: "Students Between Semesters", sub: "Stored over the break, delivered back" },
-  { href: "/personal-storage-dubai/car-storage", title: "Seasonal Vehicle Storage", sub: "Covered, CCTV-watched bays for vehicles" },
+  { emoji: "🏗️", href: "/self-storage-dubai/short-term", title: "Villa & Apartment Renovations", sub: "Stored safely for 2 weeks to 6 months" },
+  { emoji: "✈️", href: "/personal-storage-dubai", title: "Expats Relocating or Travelling", sub: "Monthly storage between moves or leases" },
+  { emoji: "🛒", href: "/business-storage-dubai/ecommerce-fulfilment", title: "E-commerce & Small Businesses", sub: "Stock and office items, no warehouse lease" },
+  { emoji: "📦", href: "/personal-storage-dubai", title: "Downsizing & Decluttering", sub: "Keep what you love, from just 25 sq ft" },
+  { emoji: "🎓", href: "/personal-storage-dubai/student-storage", title: "Students Between Semesters", sub: "Stored over the break, delivered back" },
+  { emoji: "🚗", href: "/personal-storage-dubai/car-storage", title: "Seasonal Vehicle Storage", sub: "Covered, CCTV-watched bays for vehicles" },
 ]
 
 export function LandingTypes() {
@@ -27,11 +30,20 @@ export function LandingTypes() {
             From families renovating villas to e-commerce sellers outgrowing their apartments —
             SafeStorage serves every kind of storage need across Dubai.
           </p>
-          <div className={s.skylineCard} role="img" aria-label="SafeStorage warehouse and delivery fleet in Dubai" />
+          {/* the owner's picture, exactly as they saved it (2026-09-21): no crop, no edit */}
+          <div
+            className={s.skylineCard}
+            style={{ backgroundImage: 'url("/landing/who-uses-cut.webp")', backgroundPosition: "center", aspectRatio: "1434 / 907" }}
+            role="img"
+            aria-label="Residents, business owners, expat families, students, vehicle owners and travellers who use SafeStorage in Dubai"
+          />
         </div>
-        <div className={s.typeList}>
-          {types.map((t) => (
-            <Link className={s.typeRow} href={t.href} key={t.title}>
+        <HomeReveal className={`${s.typeList} ${f.in}`}>
+          {types.map((t, i) => (
+            <Link className={s.typeRow} href={t.href} key={t.title} style={{ ["--i" as string]: i } as CSSProperties}>
+              <span className={f.rowEmoji} aria-hidden="true">
+                {t.emoji}
+              </span>
               <h3>
                 {t.title}
                 <small>{t.sub}</small>
@@ -39,7 +51,7 @@ export function LandingTypes() {
               <span className={s.circleBtn}>↗</span>
             </Link>
           ))}
-        </div>
+        </HomeReveal>
       </div>
 
       {/* PROOF — comp section 7: featured testimonial + customer story */}

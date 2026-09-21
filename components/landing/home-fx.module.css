@@ -1,0 +1,241 @@
+/* Homepage redesign (owner, 2026-09-21): the same treatment the service pages
+   already use — real-colour emoji on the cards and rows, and cards that pop up
+   in turn when they scroll into view. Copy is untouched; CSS only, and it all
+   stops for prefers-reduced-motion. */
+
+.in > * {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+}
+.armed.in > * {
+  animation: pop 0.55s cubic-bezier(0.2, 0.7, 0.3, 1.3) forwards;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+@keyframes pop {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* colour emoji badge sitting on a service card's picture */
+.svcEmoji {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  line-height: 1;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 20px rgba(37, 49, 90, 0.18);
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.4);
+}
+a:hover > .svcEmoji,
+a:focus-visible > .svcEmoji {
+  transform: translateY(-3px) rotate(-8deg) scale(1.08);
+}
+
+/* big colour emoji on the USP cards, in place of the old line icon */
+.uspEmoji {
+  display: block;
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 14px;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
+/* colour emoji in front of each "who we help" row */
+.rowEmoji {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  line-height: 1;
+  border-radius: 14px;
+  background: rgba(238, 88, 36, 0.08);
+  margin-right: 14px;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.4), background 0.25s;
+}
+a:hover > .rowEmoji {
+  transform: rotate(-8deg) scale(1.08);
+  background: rgba(238, 88, 36, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .in > *,
+  .armed.in > * {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .svcEmoji,
+  .uspEmoji,
+  .rowEmoji {
+    transition: none;
+  }
+}
+
+/* ---- how-it-works cards (homepage) ---- */
+.stepGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  position: relative;
+  margin-top: 8px;
+}
+.stepCard {
+  position: relative;
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 22px;
+  padding: 26px 22px 24px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.stepCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(238, 88, 36, 0.45);
+  box-shadow: 0 20px 44px rgba(37, 49, 90, 0.14);
+}
+.stepEmoji {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
+  background: rgba(238, 88, 36, 0.09);
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 16px;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+.stepNum {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: rgba(37, 49, 90, 0.1);
+  line-height: 1;
+}
+.stepCard h3 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.stepCard p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+/* the line that joins the four cards */
+.stepGrid::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 56px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(238, 88, 36, 0.45) 0 10px, transparent 10px 20px);
+}
+@media (max-width: 900px) {
+  .stepGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stepGrid::before {
+    display: none;
+  }
+}
+@media (max-width: 560px) {
+  .stepGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .stepCard {
+    padding: 20px 18px;
+  }
+}
+
+/* the four step cards: each emoji acts out its step, and the dotted line
+   between them flows from card to card (owner asked for animation here) */
+.stepGrid .stepEmoji {
+  animation: stepIcon 2.4s ease-in-out infinite;
+  transform-origin: 50% 65%;
+}
+.stepCard:nth-child(1) .stepEmoji {
+  animation-name: tap;
+}
+.stepCard:nth-child(2) .stepEmoji {
+  animation-name: drive;
+}
+.stepCard:nth-child(3) .stepEmoji {
+  animation-name: settle;
+}
+.stepCard:nth-child(4) .stepEmoji {
+  animation-name: deliver;
+}
+@keyframes tap {
+  0%, 48%, 100% { transform: none }
+  56% { transform: scale(0.84) rotate(-8deg) }
+  66% { transform: scale(1.16) rotate(6deg) }
+  76% { transform: scale(1) rotate(0deg) }
+}
+@keyframes drive {
+  0% { transform: translateX(-10px) }
+  50% { transform: translateX(10px) rotate(-3deg) }
+  56% { transform: translateX(10px) rotate(2deg) }
+  100% { transform: translateX(-10px) }
+}
+@keyframes settle {
+  0%, 100% { transform: translateY(0) scale(1) }
+  50% { transform: translateY(-10px) scale(1.06) }
+}
+@keyframes deliver {
+  0%, 40%, 100% { transform: none }
+  55% { transform: translateY(-14px) rotate(-12deg) }
+  70% { transform: translateY(2px) rotate(8deg) }
+  84% { transform: translateY(0) rotate(0deg) }
+}
+.stepGrid::before {
+  background-size: 20px 2px;
+  animation: flow 1.6s linear infinite;
+}
+@keyframes flow {
+  to {
+    background-position: 20px 0;
+  }
+}
+/* the card itself lifts gently in turn, so the row feels alive */
+.stepCard {
+  animation: breathe 3.6s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.45s);
+}
+@keyframes breathe {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+  }
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 0 26px 46px rgba(37, 49, 90, 0.16);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stepGrid .stepEmoji,
+  .stepGrid::before,
+  .stepCard {
+    animation: none;
+  }
+}

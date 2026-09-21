@@ -1,5 +1,8 @@
+import type { CSSProperties } from "react"
 import Link from "next/link"
 import s from "./landing.module.css"
+import f from "./home-fx.module.css"
+import HomeReveal from "./home-reveal"
 import j from "./journey.module.css"
 import { JourneyPlayer } from "./journey-player"
 import { FeatScroller } from "./feat-scroller"
@@ -19,6 +22,7 @@ const ArrowUpRight = () => (
 const services = [
   {
     href: "/personal-storage-dubai",
+    emoji: "🏠",
     img: "/landing/svc-household.jpg",
     pos: "center 32%",
     title: "Household Storage",
@@ -26,6 +30,7 @@ const services = [
   },
   {
     href: "/business-storage-dubai",
+    emoji: "🏢",
     img: "/landing/svc-business.jpg",
     pos: "center 55%",
     title: "Business Storage",
@@ -33,6 +38,7 @@ const services = [
   },
   {
     href: "/moving-storage-dubai",
+    emoji: "🚚",
     img: "/landing/svc-relocation.jpg",
     pos: "center 62%",
     title: "Relocation Storage",
@@ -40,6 +46,7 @@ const services = [
   },
   {
     href: "/business-storage-dubai/document-storage",
+    emoji: "🗄️",
     img: "/landing/svc-document.jpg",
     pos: "center 40%",
     title: "Document Storage",
@@ -63,9 +70,12 @@ export function LandingServices() {
         </p>
       </div>
 
-      <div className={s.svcGrid}>
-        {services.map((svc) => (
-          <Link className={s.card} href={svc.href} key={svc.href}>
+      <HomeReveal className={`${s.svcGrid} ${f.in}`}>
+        {services.map((svc, i) => (
+          <Link className={s.card} href={svc.href} key={svc.href} style={{ ["--i" as string]: i } as CSSProperties}>
+            <span className={f.svcEmoji} aria-hidden="true">
+              {svc.emoji}
+            </span>
             <div
               className={s.svcMedia}
               style={{ backgroundImage: `url(${svc.img})`, backgroundPosition: svc.pos }}
@@ -83,7 +93,7 @@ export function LandingServices() {
             </div>
           </Link>
         ))}
-      </div>
+      </HomeReveal>
 
       <div className={s.svcCta}>
         <Link className={`${s.btn} ${s.btnNavy}`} href="/self-storage-dubai">
