@@ -92,7 +92,7 @@ export default function SiloPage({ content }: { content: SiloPageContent }) {
               <div className="mx-auto max-w-3xl">
                 <h2 className="mb-8 text-3xl font-bold text-dubai-navy">Common questions</h2>
                 <Accordion type="single" collapsible className="w-full">
-                  {content.faqs.map((f, i) => (
+                  {content.faqs.slice(0, 5).map((f, i) => (
                     <AccordionItem key={f.q} value={`faq-${i}`}>
                       <AccordionTrigger className="text-left font-medium text-dubai-navy">{f.q}</AccordionTrigger>
                       <AccordionContent className="text-gray-600">{f.a}</AccordionContent>
@@ -314,7 +314,7 @@ export function pageSchemas(content: SiloPageContent) {
     schemas.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: content.faqs.map((f) => ({
+      mainEntity: content.faqs.slice(0, 5).map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },

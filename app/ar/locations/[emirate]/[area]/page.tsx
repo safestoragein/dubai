@@ -104,7 +104,7 @@ export default async function Page({
       "@context": "https://schema.org",
       "@type": "FAQPage",
       inLanguage: "ar-AE",
-      mainEntity: faqs.map((f) => ({
+      mainEntity: faqs.slice(0, 5).map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },

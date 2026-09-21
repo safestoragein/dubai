@@ -481,7 +481,7 @@ function FaqAccordion() {
 
   return (
     <div className="space-y-4">
-      {faqs.map((faq, index) => (
+      {faqs.slice(0, 5).map((faq, index) => (
         <m.div
           key={index}
           initial={{ opacity: 0, y: 20 }}

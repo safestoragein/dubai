@@ -161,7 +161,7 @@ export default function EmirateHub({ emirate }: { emirate: EmirateDef }) {
                 Questions from {emirate.name}
               </h2>
               <div className="space-y-6">
-                {faqs.map((f) => (
+                {faqs.slice(0, 5).map((f) => (
                   <article key={f.q} className="rounded-lg border border-gray-200 p-6">
                     <h3 className="mb-2 font-semibold text-dubai-navy">{f.q}</h3>
                     <p className="text-gray-700">{f.a}</p>

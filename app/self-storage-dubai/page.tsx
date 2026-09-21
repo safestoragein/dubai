@@ -52,7 +52,7 @@ const allFaqs = [
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: allFaqs.map(item => ({
+  mainEntity: allFaqs.slice(0, 5).map(item => ({
     "@type": "Question",
     name: item.q,
     acceptedAnswer: {

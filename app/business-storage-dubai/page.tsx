@@ -95,7 +95,7 @@ const businessStorageSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: businessFaqs.map((f) => ({
+    mainEntity: businessFaqs.slice(0, 5).map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },

@@ -141,7 +141,7 @@ const pageSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqData.map((f) => ({
+    mainEntity: faqData.slice(0, 5).map((f) => ({
       "@type": "Question",
       name: f.question,
       acceptedAnswer: { "@type": "Answer", text: f.answer },

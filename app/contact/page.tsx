@@ -87,7 +87,7 @@ const contactSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: contactFaqs.map((f) => ({
+    mainEntity: contactFaqs.slice(0, 5).map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },

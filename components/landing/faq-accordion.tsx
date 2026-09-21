@@ -20,7 +20,13 @@ export type FaqItem = {
  * allow several open). The name is derived from the first question so two
  * accordions on one page don't close each other.
  */
-export default function FaqAccordion({ items, openFirst = true }: { items: FaqItem[]; openFirst?: boolean }) {
+/* Owner's rule (2026-09-21): never more than five questions on a page, so the
+   cap lives here rather than in forty page files. The FAQPage schema on each
+   page is capped to the same five. */
+const MAX_FAQS = 5
+
+export default function FaqAccordion({ items: all, openFirst = true }: { items: FaqItem[]; openFirst?: boolean }) {
+  const items = all.slice(0, MAX_FAQS)
   const group = `faq-${(items[0]?.q ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40)}`
   return (
     <div className={s.faqList}>

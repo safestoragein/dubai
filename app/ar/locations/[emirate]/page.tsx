@@ -87,7 +87,7 @@ export default async function Page({ params }: { params: Promise<{ emirate: stri
       "@context": "https://schema.org",
       "@type": "FAQPage",
       inLanguage: "ar-AE",
-      mainEntity: e.faqs.map((f) => ({
+      mainEntity: e.faqs.slice(0, 5).map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },

@@ -125,7 +125,7 @@ export default async function SharjahAreaPage({
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: faqs.map((f) => ({
+      mainEntity: faqs.slice(0, 5).map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },

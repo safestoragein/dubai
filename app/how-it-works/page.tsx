@@ -114,7 +114,7 @@ const howItWorksSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: processFaqs.map((f) => ({
+    mainEntity: processFaqs.slice(0, 5).map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },

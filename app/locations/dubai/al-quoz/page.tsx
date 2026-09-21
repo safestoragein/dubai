@@ -176,7 +176,7 @@ const alQuozSchemas = [
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     '@id': 'https://safestorage.ae/locations/dubai/al-quoz#faq',
-    mainEntity: FAQS.map((f) => ({
+    mainEntity: FAQS.slice(0, 5).map((f) => ({
       '@type': 'Question',
       name: f.q,
       acceptedAnswer: { '@type': 'Answer', text: answerText(f.a) },

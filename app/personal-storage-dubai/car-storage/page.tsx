@@ -45,13 +45,6 @@ const faqs = [
 ]
 
 // owner: only 5 of the longer Q&As
-const moreFaqs = [
-  { q: "What vehicles can be stored at SafeStorage Dubai?", a: "SafeStorage Dubai stores a comprehensive range of vehicles including standard cars and SUVs, sports cars, luxury vehicles (Ferrari, Lamborghini, Porsche, Rolls-Royce, Bentley), classic and vintage cars, motorcycles and scooters of all makes and models, jet skis, speedboats and small leisure vessels, caravans, motorhomes, and light commercial vehicles including pickups and vans. Classic and luxury vehicles receive our white-glove care protocol with additional handling precautions and dedicated covered bays. Oversized vehicles including caravans and larger boats are accommodated on a case-by-case basis — contact us with your vehicle's dimensions so we can confirm availability and appropriate bay allocation." },
-  { q: "What is the minimum storage period for a vehicle?", a: "The minimum storage period at SafeStorage Dubai is one month. This flexibility is important for our customers who may be taking a short international trip, managing a temporary vehicle surplus, or waiting for export paperwork to be finalised. There is no maximum storage period — many customers store vehicles for 6 months, 12 months, or longer. For storage commitments of 3 months or more, we offer progressive discounts that make long-term storage significantly more cost-effective. We aim to make vehicle storage as flexible as your schedule requires." },
-  { q: "How are vehicles protected in your storage facility?", a: "Our vehicles are stored in a clean, enclosed indoor facility, under cover and out of the elements. Storing your vehicle indoors keeps it away from the direct sun and UV that oxidise and fade paint, the blowing sand and dust that scratch bodywork and clog vents, the rain that pools and stains, and the bird droppings and tree sap that etch exposed surfaces. Because your car sits in a secure, controlled-access building rather than open public parking, it is also protected from kerbside knocks, trolley dents, and theft. For classic and long-term storage, our premium care package adds battery trickle-charging and periodic engine starts so a car that would otherwise sit unattended stays mechanically healthy." },
-  { q: "What happens to the car battery during long-term storage?", a: "Car batteries are one of the most common points of failure during extended vehicle storage in Dubai, where heat accelerates battery self-discharge and degradation. In exposed outdoor parking, a car battery can drain completely within 4–6 weeks of non-use during summer. For short-term storage (1–3 months), no additional intervention is typically needed. For longer periods, our premium care package includes battery trickle-charging using an approved maintenance charger that keeps the battery at an optimal charge level without overcharging. We can also disconnect the battery on request for very long-term storage." },
-  { q: "What preparation is needed before storing my vehicle?", a: "To get your vehicle ready for storage, we recommend the following steps: (1) Wash and wax the exterior to create a protective layer on the paintwork. (2) Clean the interior thoroughly, including removing any food items that could attract pests. (3) Complete any outstanding servicing — oil change, brake check, and fluid top-ups. (4) Inflate tyres to the manufacturer's recommended pressure (slightly higher than normal for long-term storage to prevent flat spots). (5) Fill the fuel tank to near-full to prevent fuel system condensation. (6) Remove any toll tags (Salik), dashcams, or personal valuables from the vehicle. Our team will advise on any additional preparation specific to your vehicle type during the booking process." },
-]
 
 const stats = [
   { e: "⭐", value: "4.9★", label: "Google Rating" },
@@ -120,7 +113,7 @@ const schemas = [
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: faqs.slice(0, 5).map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -407,15 +400,6 @@ export default function CarStoragePage() {
               repairs.
             </p>
           </div>
-          <div className={s.howHead}>
-            <div>
-              <span className={s.howEyebrow}>More answers</span>
-              <h2>
-                Comprehensive Vehicle Storage <em>FAQs</em>
-              </h2>
-            </div>
-          </div>
-          <FaqAccordion items={moreFaqs} />
         </section>
       </div>
       <SiloLinks path="/personal-storage-dubai/car-storage" />

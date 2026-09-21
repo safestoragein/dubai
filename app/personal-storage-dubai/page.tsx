@@ -101,7 +101,7 @@ const personalStorageSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: personalFaqs.map((f) => ({
+    mainEntity: personalFaqs.slice(0, 5).map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },

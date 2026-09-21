@@ -44,7 +44,7 @@ const faqPageSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "@id": "https://safestorage.ae/#faq",
-  mainEntity: faqs.map((faq) => ({
+  mainEntity: faqs.slice(0, 5).map((faq) => ({
     "@type": "Question",
     name: faq.question,
     acceptedAnswer: { "@type": "Answer", text: faq.answer },
@@ -79,7 +79,7 @@ export default function FAQSection() {
           className="max-w-3xl mx-auto"
         >
           <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
+            {faqs.slice(0, 5).map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="text-lg font-medium text-left">{faq.question}</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
