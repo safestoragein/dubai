@@ -169,10 +169,12 @@ export const localBusinessSchema = {
   makesOffer: [
     {
       "@type": "Offer",
-      name: "Storage in Dubai",
-      description: "Flexible, secure storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock"
+      availability: "https://schema.org/InStock",
+      itemOffered: {
+        "@type": "Service",
+        name: "Storage in Dubai",
+        description: "Flexible, secure storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use"
+      }
     }
   ]
 }
@@ -532,87 +534,22 @@ export const serviceSchema = {
   offers: [
     {
       "@type": "Offer",
-      name: "Storage in Dubai",
-      description: "Flexible, secure storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock"
+      availability: "https://schema.org/InStock",
+      itemOffered: {
+        "@type": "Service",
+        name: "Storage in Dubai",
+        description: "Flexible, secure storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use"
+      }
     }
   ]
 }
 
-// 6. PRODUCT SCHEMA - Product Rich Snippets
-export const productSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": "https://safestorage.ae/#product",
-  name: "Self Storage Units Dubai",
-  description: "Premium secure indoor storage units in Dubai with door-to-door service. Personal, business, and vehicle storage.",
-  brand: {
-    "@type": "Brand",
-    name: "SafeStorage Dubai"
-  },
-  image: [
-    {
-      "@type": "ImageObject",
-      "@id": "https://safestorage.ae/#product-image-main",
-      url: "https://safestorage.ae/images/storage-facility-background.png",
-      width: 1658,
-      height: 949,
-      caption: "SafeStorage Dubai - Premium Secure Storage Facility"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://safestorage.ae/#product-image-warehouse",
-      url: "https://safestorage.ae/organized-warehouse-space.png",
-      width: 1024,
-      height: 632,
-      caption: "Organized Storage Units at SafeStorage Dubai"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://safestorage.ae/#product-image-expansive",
-      url: "https://safestorage.ae/expansive-storage.png",
-      width: 1024,
-      height: 728,
-      caption: "Expansive Storage Space at SafeStorage Dubai"
-    }
-  ],
-  offers: {
-    "@type": "AggregateOffer",
-    offerCount: "1",
-    offers: [
-      {
-        "@type": "Offer",
-        name: "Storage in Dubai",
-        availability: "https://schema.org/InStock",
-        url: "https://safestorage.ae/storage-units-dubai",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 1658, height: 949 },
-        shippingDetails: {
-          "@type": "OfferShippingDetails",
-          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "AED" },
-          shippingDestination: { "@type": "DefinedRegion", addressCountry: "AE", addressRegion: "Dubai" },
-          deliveryTime: {
-            "@type": "ShippingDeliveryTime",
-            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
-            transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" }
-          }
-        },
-        hasMerchantReturnPolicy: {
-          "@type": "MerchantReturnPolicy",
-          applicableCountry: "AE",
-          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-          merchantReturnDays: 30,
-          returnMethod: "https://schema.org/ReturnByMail",
-          returnFees: "https://schema.org/ReturnFeesCustomerResponsibility"
-        }
-      }
-    ]
-  },
-  // aggregateRating / review omitted for the same reason as localBusinessSchema
-  // above: the 4.9 / 6,700 figure is the group's worldwide Google rating, not a
-  // rating of this product or this UAE entity, and the single Review below it
-  // was site copy rather than a verified review.
-}
+// 6. PRODUCT SCHEMA — removed 2026-09-21.
+// A Product/Offer node makes Google validate the page as a Merchant Listing,
+// which REQUIRES offers.price + priceCurrency. The AE site publishes no prices
+// (owner decision 2026-09-17), so every URL failed with "Either price or
+// priceSpecification should be specified". Services are described by
+// serviceSchema / localBusinessSchema instead. Do not re-add a Product node.
 
 // 7. HOWTO SCHEMA - How-to Rich Snippets
 export const howToSchema = {
@@ -651,69 +588,7 @@ export const howToSchema = {
   ]
 }
 
-// 8. ITEM LIST SCHEMA - List Rich Results
-export const itemListSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "@id": "https://safestorage.ae/#itemlist",
-  name: "Storage in Dubai at SafeStorage Dubai",
-  description: "Flexible storage in Dubai - pay only for the space you use",
-  numberOfItems: 1,
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      item: {
-        "@type": "Product",
-        name: "Storage in Dubai",
-        description: "Flexible, secure storage for everything from a few boxes to full villa or business inventory - you pay only for the space you use",
-        image: { "@type": "ImageObject", url: "https://safestorage.ae/images/storage-facility-background.png", width: 1658, height: 949 },
-        brand: { "@type": "Brand", name: "SafeStorage Dubai" },
-        offers: {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-          url: "https://safestorage.ae/storage-units-dubai",
-          shippingDetails: {
-            "@type": "OfferShippingDetails",
-            shippingRate: {
-              "@type": "MonetaryAmount",
-              value: "0",
-              currency: "AED"
-            },
-            shippingDestination: {
-              "@type": "DefinedRegion",
-              addressCountry: "AE",
-              addressRegion: "Dubai"
-            },
-            deliveryTime: {
-              "@type": "ShippingDeliveryTime",
-              handlingTime: {
-                "@type": "QuantitativeValue",
-                minValue: 1,
-                maxValue: 2,
-                unitCode: "DAY"
-              },
-              transitTime: {
-                "@type": "QuantitativeValue",
-                minValue: 0,
-                maxValue: 1,
-                unitCode: "DAY"
-              }
-            }
-          },
-          hasMerchantReturnPolicy: {
-            "@type": "MerchantReturnPolicy",
-            applicableCountry: "AE",
-            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-            merchantReturnDays: 30,
-            returnMethod: "https://schema.org/ReturnByMail",
-            returnFees: "https://schema.org/ReturnFeesCustomerResponsibility"
-          }
-        }
-      }
-    }
-  ]
-}
+// 8. ITEM LIST SCHEMA — removed 2026-09-21 (it wrapped a price-less Product; see 6).
 
 // 9. HOMEPAGE WEBPAGE SCHEMA (incl. speakable for voice search)
 //
@@ -914,7 +789,5 @@ export const allSchemas = [
   localBusinessSchema,
   webSiteSchema,
   serviceSchema,
-  productSchema,
-  itemListSchema,
   offerSchema,
 ]
