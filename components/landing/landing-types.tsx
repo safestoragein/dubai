@@ -33,7 +33,7 @@ export function LandingTypes() {
           {/* the owner's picture, exactly as they saved it (2026-09-21): no crop, no edit */}
           <div
             className={s.skylineCard}
-            style={{ backgroundImage: 'url("/landing/who-uses-cut.webp")', backgroundPosition: "center", aspectRatio: "1434 / 907" }}
+            style={{ backgroundImage: 'url("/landing/who-uses-plain-v2.webp")', backgroundPosition: "center", aspectRatio: "1434 / 907" }}
             role="img"
             aria-label="Residents, business owners, expat families, students, vehicle owners and travellers who use SafeStorage in Dubai"
           />

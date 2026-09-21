@@ -5,10 +5,14 @@
    sit over the printed buttons. Phones keep the old treatment: the right-hand
    part of the picture (nothing is printed there) with the page's copy over it. */
 
-/* desktop: the hero is exactly the shape of the picture, so none of it is cut */
+/* desktop: the hero is as tall as the window under the header and the whole
+   picture is fitted inside it — nothing of the picture is cut, and the truck at
+   the bottom is in view without scrolling (owner, 2026-09-21) */
 .full.full {
-  aspect-ratio: 1747 / 757;
-  min-height: 0;
+  aspect-ratio: auto;
+  height: calc(100svh - 104px);
+  min-height: 520px;
+  max-height: 860px;
 }
 
 .live {
@@ -18,15 +22,29 @@
   pointer-events: none;
   overflow: hidden;
   container-type: size;
+  display: grid;
+  place-items: center;
+  background: #fdf6ec;
+}
+/* the strips either side of the fitted picture carry a soft blurred copy of it,
+   so the hero still reaches both edges */
+.live::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background: var(--hero-blur) center / cover no-repeat;
+  filter: blur(26px) saturate(1.05);
+  opacity: 0.95;
 }
 
 /* the photo, always covering the hero (like background-size: cover), kept
    to the BOTTOM edge so the road and the truck are never cut off on a short
    window (the owner's laptop lost the truck when this was anchored to the top) */
 .stage {
-  position: absolute;
-  inset: 0;
-  width: 100%;
+  position: relative;
+  width: min(100cqw, calc(100cqh * 1747 / 757));
+  aspect-ratio: 1747 / 757;
+  max-height: 100cqh;
 }
 .stage picture,
 .stage picture > img,

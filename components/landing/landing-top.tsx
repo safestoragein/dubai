@@ -18,19 +18,19 @@ import l from "./hero-live.module.css"
  *  exactly over the printed ones (positioned in % of the picture, so they stay put
  *  at every width). Phones show the right-hand part of the picture, where nothing
  *  is printed, with the page's own copy over it as before. */
-const HERO_PHOTO = "/landing/home-hero-dubai-v9.webp"
+const HERO_PHOTO = "/landing/home-hero-dubai-v18.webp"
 
 export function LandingHero() {
   return (
     <section className={`${s.hero} ${s.heroBleed}`}>
       <div className={`${s.heroInner} ${l.full}`} style={{ ["--hero-img" as string]: "none" } as CSSProperties}>
         {/* the owner's picture, full screen (homepage only) */}
-        <div className={l.live}>
+        <div className={l.live} style={{ ["--hero-blur" as string]: `url(${HERO_PHOTO})` } as CSSProperties}>
           <div className={l.stage}>
             <picture>
               {/* phones get the right-hand crop of the same picture — city, road and
                   truck, with none of the copy printed in it */}
-              <source media="(max-width: 900px)" srcSet="/landing/home-hero-dubai-phone.webp" />
+              <source media="(max-width: 900px)" srcSet="/landing/home-hero-dubai-phone-v8.webp" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={HERO_PHOTO}
