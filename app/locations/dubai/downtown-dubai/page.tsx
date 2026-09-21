@@ -119,7 +119,7 @@ export default function DowntownDubaiPage() {
       <SchemaScript schema={downtownSchemas} />
       <LocationLanding
         name="Downtown Dubai"
-        heroImage="/landing/downtown-dubai-photo.webp"
+        heroImage="/landing/downtown-dubai-photo-v2.webp"
         heroPosition="center"
         heroAspect="1746 / 901"
         eyebrow="Downtown Dubai"

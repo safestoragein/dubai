@@ -235,7 +235,7 @@ export default function LocationLanding({
                   {u.e}
                 </span>
                 <h3>{u.title}</h3>
-                <p>{u.text}</p>
+                {u.text ? <p>{u.text}</p> : null}
               </article>
             ))}
           </UspRail>
