@@ -51,6 +51,13 @@ export type LocationLandingProps = {
 
 const idx = (i: number) => ({ ["--i" as string]: i }) as CSSProperties
 
+/** The owner wants these pages short: the opening paragraph is kept to its first
+ *  two sentences, which reads as four or five lines. */
+const shorten = (t: string, sentences = 2) => {
+  const parts = t.match(/[^.!?]+[.!?]+/g)
+  return parts && parts.length > sentences ? parts.slice(0, sentences).join("").trim() : t
+}
+
 export default function LocationLanding({
   name,
   heroImage,
@@ -194,19 +201,21 @@ export default function LocationLanding({
             </h2>
           </div>
         </div>
-        {lead.paras.map((t) => (
+        {/* owner, 2026-09-21: the page opens with one short paragraph, not three */}
+        {lead.paras.slice(0, 1).map((t) => (
           <p className={p.panelText} key={t.slice(0, 40)}>
-            {t}
+            {shorten(t)}
           </p>
         ))}
 
         <HomeReveal className={p.pair}>
-          {panels.map((panel, i) => (
+          {/* two panels is enough — the owner asked for less text on these pages */}
+          {panels.slice(0, 2).map((panel, i) => (
             <div className={`${p.panel} ${p.plan}`} style={idx(i)} key={panel.title}>
               <h3 className={p.panelTitle}>
                 <span aria-hidden="true">{panel.e}</span> {panel.title}
               </h3>
-              {panel.paras.map((t) => (
+              {panel.paras.slice(0, 1).map((t) => (
                 <p className={p.panelText} key={t.slice(0, 40)}>
                   {t}
                 </p>

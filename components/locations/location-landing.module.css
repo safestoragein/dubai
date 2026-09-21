@@ -245,3 +245,95 @@ h2.longH2 {
 .toneGreen:hover {
   border-color: rgba(28, 154, 106, 0.5);
 }
+
+/* "what are you storing" cards, redesigned (owner, 2026-09-21): the heading sits
+   on its own line above the text, with a big colour emoji and the arrow in the
+   corner — the old two-column card squeezed the titles into a narrow strip */
+.siloGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.siloCard {
+  position: relative;
+  display: block;
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 20px;
+  padding: 24px 22px 22px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.siloCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px rgba(37, 49, 90, 0.14);
+}
+.siloEmoji {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  font-size: 28px;
+  line-height: 1;
+  margin-bottom: 14px;
+  background: rgba(37, 49, 90, 0.06);
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+.siloCard h3 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.siloCard p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+}
+.siloArrow {
+  position: absolute;
+  right: 18px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(37, 49, 90, 0.06);
+  color: var(--navy);
+  font-size: 14px;
+  transition: transform 0.25s, background 0.25s, color 0.25s;
+}
+.siloCard:hover .siloArrow {
+  transform: rotate(45deg);
+  background: var(--accent);
+  color: #fff;
+}
+@media (max-width: 1000px) {
+  .siloGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .siloGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* sky blue for the "what are you storing" cards (owner, 2026-09-21) */
+.toneSky h3 {
+  color: #1893d2;
+}
+.toneSky .siloEmoji {
+  background: rgba(24, 147, 210, 0.12);
+}
+.toneSky:hover {
+  border-color: rgba(24, 147, 210, 0.55);
+}
+.toneSky:hover .siloArrow {
+  background: #1893d2;
+}

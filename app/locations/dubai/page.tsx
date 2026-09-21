@@ -60,8 +60,9 @@ export const metadata: Metadata = {
   },
 }
 
-/* one colour per silo card heading, from the palette the trust strip uses */
-const SILO_TONE = [p.toneOrange, p.toneBlue, p.tonePurple, p.toneGreen]
+/* the owner asked for sky blue on all four cards */
+const SILO_TONE = [p.toneSky, p.toneSky, p.toneSky, p.toneSky]
+const SILO_EMOJI = ["📦", "🏠", "🏢", "🚚"]
 
 const features = [
   { Icon: Truck, title: "Door-to-door Service", text: "We collect from your Dubai address and deliver back when needed" },
@@ -237,12 +238,15 @@ export default function Page() {
               </h2>
             </div>
           </div>
-          <div className={s.miniGrid}>
+          <div className={p.siloGrid}>
             {HUB_ORDER.filter((k) => k !== "s4").map((k, i) => (
-              <Link className={`${s.miniCard} ${s.miniLink} ${SILO_TONE[i % SILO_TONE.length]}`} href={SILOS[k].hub} key={SILOS[k].hub}>
+              <Link className={`${p.siloCard} ${SILO_TONE[i % SILO_TONE.length]}`} href={SILOS[k].hub} key={SILOS[k].hub}>
+                <span className={p.siloEmoji} aria-hidden="true">
+                  {SILO_EMOJI[i % SILO_EMOJI.length]}
+                </span>
                 <h3>{SILOS[k].name}</h3>
                 <p>{SILOS[k].blurb}</p>
-                <span className={s.miniArrow} aria-hidden="true">
+                <span className={p.siloArrow} aria-hidden="true">
                   ↗
                 </span>
               </Link>
