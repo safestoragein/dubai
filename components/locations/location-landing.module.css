@@ -207,3 +207,41 @@ h2.longH2 {
     padding: 10px 13px;
   }
 }
+
+/* area names in the moving line: they are links, so they get the pill's hover */
+.areaChip {
+  text-decoration: none;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.areaChip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(238, 88, 36, 0.5);
+  box-shadow: 0 12px 24px rgba(37, 49, 90, 0.12);
+}
+
+/* "what are you storing" cards: a colour per heading, with the card's border and
+   icon tint following it */
+.toneOrange h3 {
+  color: #e2621f;
+}
+.toneOrange:hover {
+  border-color: rgba(226, 98, 31, 0.5);
+}
+.toneBlue h3 {
+  color: #1f6fd0;
+}
+.toneBlue:hover {
+  border-color: rgba(31, 111, 208, 0.5);
+}
+.tonePurple h3 {
+  color: #7a4bd0;
+}
+.tonePurple:hover {
+  border-color: rgba(122, 75, 208, 0.5);
+}
+.toneGreen h3 {
+  color: #1c9a6a;
+}
+.toneGreen:hover {
+  border-color: rgba(28, 154, 106, 0.5);
+}
