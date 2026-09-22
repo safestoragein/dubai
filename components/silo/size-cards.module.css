@@ -1,0 +1,213 @@
+/* Unit-sizes page (owner, 2026-09-22): the five standard sizes as cards instead
+   of a table row each, and the four estimating steps as numbered cards. The
+   pop-in on scroll comes from HomeReveal / home-fx; this file is the layout and
+   the small motion each card carries on its own. */
+.sizeGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+@media (max-width: 1080px) {
+  .sizeGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .sizeGrid {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    margin: 22px -24px 0;
+    padding: 4px 24px 14px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .sizeGrid::-webkit-scrollbar {
+    display: none;
+  }
+  .sizeGrid > * {
+    flex: 0 0 76%;
+    scroll-snap-align: start;
+  }
+}
+
+.sizeCard {
+  position: relative;
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 20px;
+  padding: 22px 20px 20px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.sizeCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(238, 88, 36, 0.45);
+  box-shadow: 0 22px 44px rgba(37, 49, 90, 0.14);
+}
+.sizeEmoji {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  font-size: 27px;
+  line-height: 1;
+  margin-bottom: 14px;
+  background: rgba(24, 147, 210, 0.12);
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+.sizeCard h3 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.sizeNamed {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1893d2;
+  background: rgba(24, 147, 210, 0.1);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-bottom: 12px;
+}
+.sizeFacts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+.sizeFacts div {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.sizeFacts b {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(37, 49, 90, 0.5);
+  margin-bottom: 1px;
+}
+
+/* the four estimating steps */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+@media (max-width: 1000px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.step {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 20px;
+  padding: 22px 20px 20px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.step:hover {
+  transform: translateY(-5px);
+  border-color: rgba(238, 88, 36, 0.45);
+  box-shadow: 0 22px 44px rgba(37, 49, 90, 0.14);
+}
+.stepNum {
+  position: absolute;
+  right: 6px;
+  top: -14px;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 84px;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(37, 49, 90, 0.06);
+  pointer-events: none;
+}
+.stepEmoji {
+  display: inline-block;
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 12px;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+.step h3 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.22;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.step p {
+  font-size: 14.5px;
+  line-height: 1.58;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* each emoji keeps acting out its own card */
+.moves > *:nth-child(1) .sizeEmoji,
+.moves > *:nth-child(1) .stepEmoji {
+  animation: bob 3.2s ease-in-out infinite;
+}
+.moves > *:nth-child(2) .sizeEmoji,
+.moves > *:nth-child(2) .stepEmoji {
+  animation: sway 3.6s ease-in-out infinite;
+}
+.moves > *:nth-child(3) .sizeEmoji,
+.moves > *:nth-child(3) .stepEmoji {
+  animation: grow 3.4s ease-in-out infinite;
+}
+.moves > *:nth-child(4) .sizeEmoji,
+.moves > *:nth-child(4) .stepEmoji {
+  animation: bob 3.8s ease-in-out infinite;
+}
+.moves > *:nth-child(5) .sizeEmoji {
+  animation: sway 4s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0) }
+  50% { transform: translateY(-6px) }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(0) }
+  50% { transform: rotate(-8deg) }
+}
+@keyframes grow {
+  0%, 100% { transform: scale(1) }
+  50% { transform: scale(1.1) }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moves > * .sizeEmoji,
+  .moves > * .stepEmoji,
+  .sizeCard,
+  .step {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* "How Much Space You Actually Need" is a long accent line, so this hero runs a
+   notch smaller than the shared one and stays on two lines at every width. */
+.tightHead.tightHead h1 {
+  font-size: clamp(25px, 2.05vw, 32px);
+}
