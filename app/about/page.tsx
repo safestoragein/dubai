@@ -1,17 +1,23 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
-import { CheckCircle2, Flag, Users, Award, Globe2, Plane, Home, Briefcase, GraduationCap } from "lucide-react"
+import { CheckCircle2, Flag, Users, Award, Globe2 } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
-import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { env } from "@/lib/env"
+import Link from "next/link"
 import { LandingWhy } from "@/components/landing/landing-services"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingConnect } from "@/components/landing/landing-connect"
 import { StoryReel } from "@/components/landing/story-reel"
+import HomeReveal from "@/components/landing/home-reveal"
+import fx from "@/components/about/about-fx.module.css"
 import { MilestonesPlayer } from "@/components/landing/milestones-player"
 import FaqAccordion from "@/components/landing/faq-accordion"
+import p from "@/components/locations/location-landing.module.css"
 import s from "@/components/landing/landing.module.css"
 
 export const metadata: Metadata = {
@@ -41,10 +47,10 @@ const milestones = [
 ]
 
 const whoWeServe = [
-  { Icon: Plane, t: "Expats", b: "Flexible storage without long-term commitments." },
-  { Icon: Home, t: "Families", b: "Space during renovations and moves." },
-  { Icon: Briefcase, t: "Businesses", b: "Scalable storage without warehouse overhead." },
-  { Icon: GraduationCap, t: "Students", b: "Affordable storage over semester breaks." },
+  { e: "✈️", t: "Expats", b: "Flexible storage without long-term commitments." },
+  { e: "🏠", t: "Families", b: "Space during renovations and moves." },
+  { e: "🏢", t: "Businesses", b: "Scalable storage without warehouse overhead." },
+  { e: "🎓", t: "Students", b: "Affordable storage over semester breaks." },
 ]
 
 const aboutFaqs = [
@@ -101,15 +107,42 @@ export default function AboutPage() {
       <SchemaScript schema={aboutSchemas} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        <SplitHero
-          eyebrow="About SafeStorage"
-          title="Dubai's Most Trusted"
-          titleAccent="Storage Partner Since 2015"
-          blurb="Not just a storage facility — your trusted partner in keeping your belongings safe, secure and within reach."
-          image="/about/hero-warehouse.jpg"
-          imagePosition="center 50%"
-          ctaLabel="Get a Free Quote"
-        />
+        {/* hero — copy left, the owner's photo right (owner, 2026-09-22) */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy}`}>
+              <span className={s.heroTag}>About SafeStorage</span>
+              <h1>
+                Dubai&apos;s Most Trusted <br className={s.mBreakDesk} />
+                <em>Storage Partner Since 2015</em>
+              </h1>
+              <p>
+                Not just a storage facility — your trusted partner in keeping your belongings safe, secure
+                and within reach.
+              </p>
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a Free Quote →
+                </Link>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
+                </a>
+              </div>
+            </div>
+            <div className={p.split2Photo} style={{ aspectRatio: "1677 / 938" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/landing/about-photo.webp"
+                alt="The SafeStorage Dubai team packing and loading a customer's home"
+                fetchPriority="high"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <LandingTrust />
 
@@ -177,11 +210,11 @@ export default function AboutPage() {
               dedicated service for every customer.
             </p>
           </div>
-          <div className={s.miniGrid}>
-            {whoWeServe.map(({ Icon, t: title, b }) => (
-              <div className={s.miniCard} key={title}>
-                <span className={s.miniIcon} aria-hidden="true">
-                  <Icon />
+          <HomeReveal className={`${s.miniGrid} ${fx.cards}`}>
+            {whoWeServe.map(({ e, t: title, b }, i) => (
+              <div className={s.miniCard} key={title} style={{ ["--i" as string]: i } as CSSProperties}>
+                <span className={p.bigEmoji} aria-hidden="true">
+                  {e}
                 </span>
                 <div>
                   <b>{title}</b>
@@ -189,7 +222,7 @@ export default function AboutPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </HomeReveal>
           <div className={s.miniFacts}>
             <span><CheckCircle2 aria-hidden="true" /> Never lift a heavy box</span>
             <span><CheckCircle2 aria-hidden="true" /> Never rent a van</span>

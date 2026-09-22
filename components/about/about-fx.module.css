@@ -1,0 +1,64 @@
+/* The "Built for everyone in Dubai" boxes: the whole card animates, not just the
+   emoji (owner, 2026-09-22). They pop up one after another when scrolled to,
+   lift on hover, and each emoji keeps acting out its own idea. */
+.cards > * {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+}
+.armed.in > * {
+  animation: pop 0.55s cubic-bezier(0.2, 0.7, 0.3, 1.3) forwards;
+  animation-delay: calc(var(--i, 0) * 110ms);
+}
+@keyframes pop {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.cards > *:hover {
+  transform: translateY(-6px);
+  border-color: rgba(238, 88, 36, 0.45);
+  box-shadow: 0 22px 44px rgba(37, 49, 90, 0.14);
+}
+.cards > * {
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+/* each emoji acts out its own card */
+.cards > *:nth-child(1) span:first-child {
+  animation: fly 4s ease-in-out infinite;
+}
+.cards > *:nth-child(2) span:first-child {
+  animation: settle 3.4s ease-in-out infinite;
+}
+.cards > *:nth-child(3) span:first-child {
+  animation: rise 3.6s ease-in-out infinite;
+}
+.cards > *:nth-child(4) span:first-child {
+  animation: toss 3.8s ease-in-out infinite;
+}
+@keyframes fly {
+  0%, 100% { transform: translate(0, 0) rotate(0) }
+  50% { transform: translate(8px, -7px) rotate(8deg) }
+}
+@keyframes settle {
+  0%, 100% { transform: translateY(0) }
+  50% { transform: translateY(-7px) }
+}
+@keyframes rise {
+  0%, 100% { transform: scale(1) }
+  50% { transform: scale(1.12) }
+}
+@keyframes toss {
+  0%, 60%, 100% { transform: rotate(0) }
+  70% { transform: rotate(-14deg) translateY(-5px) }
+  85% { transform: rotate(10deg) }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cards > *,
+  .armed.in > *,
+  .cards > * span:first-child {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
