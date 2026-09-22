@@ -105,6 +105,22 @@ const nextConfig = {
   // relying on these, so this block catches external links and bookmarks.
   async redirects() {
     return [
+      // ---------------------------------------------------------------------
+      // Retitled auto-published posts (2026-09-22). These went live under the
+      // bare-keyword H1 the content machine used to emit; the slug is derived
+      // from the title, so the new click-worthy H1 moved the URL. Old -> new,
+      // single hop. The DB title and this redirect ship together.
+      // ---------------------------------------------------------------------
+      {
+        source: '/blog/self-storage-dubai-in-dubai',
+        destination: '/blog/self-storage-dubai-doorstep-pickup-space-sizes-and-how-it-works',
+        permanent: true,
+      },
+      {
+        source: '/blog/self-storage',
+        destination: '/blog/self-storage-in-the-uae-whats-included-space-sizes-and-pickup',
+        permanent: true,
+      },
       // =====================================================================
       // SILO 1 — /self-storage-dubai/*
       // =====================================================================
