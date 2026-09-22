@@ -22,11 +22,21 @@ export type FaqItem = {
  */
 /* Owner's rule (2026-09-21): never more than five questions on a page, so the
    cap lives here rather than in forty page files. The FAQPage schema on each
-   page is capped to the same five. */
+   page is capped to the same five.
+   `max` is only raised by /faq itself, which is the FAQ hub — its questions are
+   split into named categories and each category stays within the five. */
 const MAX_FAQS = 5
 
-export default function FaqAccordion({ items: all, openFirst = true }: { items: FaqItem[]; openFirst?: boolean }) {
-  const items = all.slice(0, MAX_FAQS)
+export default function FaqAccordion({
+  items: all,
+  openFirst = true,
+  max = MAX_FAQS,
+}: {
+  items: FaqItem[]
+  openFirst?: boolean
+  max?: number
+}) {
+  const items = all.slice(0, max)
   const group = `faq-${(items[0]?.q ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40)}`
   return (
     <div className={s.faqList}>

@@ -1,0 +1,24 @@
+/* /faq category headings (owner, 2026-09-22): smaller than the standard section
+   title, with a smaller icon, because there are thirteen of them down the page
+   and the full-size heading made each one shout. */
+.catTitle.catTitle {
+  font-size: clamp(18px, 1.7vw, 24px);
+  line-height: 1.2;
+}
+/* fixed-width box so every category title starts at the same x, whatever the
+   emoji glyph measures */
+.catEmoji {
+  display: inline-block;
+  width: 1.5em;
+  font-size: 0.85em;
+  line-height: 1;
+  margin-right: 6px;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
+/* the "not allowed" column: a tick beside a banned item reads as approval, so
+   this list swaps the marker for a cross */
+.xList li::before {
+  content: "✕";
+  color: #d23b2e;
+}

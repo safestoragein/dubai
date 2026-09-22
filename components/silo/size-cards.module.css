@@ -211,3 +211,36 @@
 .tightHead.tightHead h1 {
   font-size: clamp(25px, 2.05vw, 32px);
 }
+
+/* five steps in one line (the FAQ pickup walk-through), scrolling sideways on
+   narrow screens with the next card peeking, the same as the other rails */
+.steps5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+@media (max-width: 1100px) {
+  .steps5 {
+    display: flex;
+    overflow-x: auto;
+    gap: 14px;
+    margin: 22px -24px 0;
+    padding: 4px 24px 14px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .steps5::-webkit-scrollbar {
+    display: none;
+  }
+  .steps5 > * {
+    flex: 0 0 42%;
+    scroll-snap-align: start;
+  }
+}
+@media (max-width: 700px) {
+  .steps5 > * {
+    flex-basis: 76%;
+  }
+}
+/* the fifth card's emoji gets its own motion too */
+.moves > *:nth-child(5) .stepEmoji {
+  animation: grow 3.6s ease-in-out infinite;
+}
