@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import WorkingPlacesAutocomplete from "@/components/ui/working-places-autocomplete"
 import { sanitizePhoneInput, validatePhone } from "@/lib/phone"
+import { getAdAttribution } from "@/lib/ad-attribution"
 import {
   calculateTransportPrice,
   transportEstimateRange,
@@ -771,6 +772,8 @@ export default function QuotePage() {
             customer_contact1: formData.phone,
             pickup_address: formData.address,
             customer_local_city: formData.emirate,
+            // gclid / UTM / Ads account captured on landing (lib/ad-attribution.ts)
+            ...getAdAttribution(),
           }),
         })
 
