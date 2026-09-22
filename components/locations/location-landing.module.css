@@ -337,3 +337,13 @@ h2.longH2 {
 .toneSky:hover .siloArrow {
   background: #1893d2;
 }
+
+/* Some area photos carry the SafeStorage sign in their own top-right corner
+   (Mirdif), so the rating card moves to the opposite corner rather than sitting
+   on top of the logo. */
+.split2Photo.ratingBL > div {
+  right: auto;
+  top: auto;
+  left: 18px;
+  bottom: 18px;
+}

@@ -28,6 +28,8 @@ export type LocationLandingProps = {
   heroImage: string
   heroPosition?: string
   heroAspect?: string
+  /** Move the 4.9★ card off the top-right when the photo already has a logo there. */
+  ratingBottomLeft?: boolean
   eyebrow: string
   title: string
   titleAccent: string
@@ -63,6 +65,7 @@ export default function LocationLanding({
   heroImage,
   heroPosition = "right 45%",
   heroAspect,
+  ratingBottomLeft = false,
   eyebrow,
   title,
   titleAccent,
@@ -104,7 +107,10 @@ export default function LocationLanding({
               </a>
             </div>
           </div>
-          <div className={p.split2Photo} style={heroAspect ? ({ aspectRatio: heroAspect } as CSSProperties) : undefined}>
+          <div
+            className={`${p.split2Photo} ${ratingBottomLeft ? p.ratingBL : ""}`}
+            style={heroAspect ? ({ aspectRatio: heroAspect } as CSSProperties) : undefined}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={heroImage} alt={`SafeStorage team collecting boxes in ${name}`} style={{ objectPosition: heroPosition }} fetchPriority="high" />
             <div className={s.heroRating}>
