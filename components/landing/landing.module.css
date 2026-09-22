@@ -1550,11 +1550,21 @@
 .typeRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 17px 6px;
   border-bottom: 1px solid var(--line);
   cursor: pointer;
   transition: background 0.15s, padding 0.15s;
+}
+/* The title takes the middle column so every row starts its text at the same
+   point. With space-between it floated on its own width, so each title began a
+   few pixels further in than the one above it. */
+.typeRow h3 {
+  flex: 1;
+  min-width: 0;
+}
+.typeRow .circleBtn {
+  flex: none;
+  margin-left: 14px;
 }
 .typeRow:hover {
   background: #fff;

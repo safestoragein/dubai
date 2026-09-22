@@ -7,8 +7,7 @@ import { LandingHero, LandingTrust } from "@/components/landing/landing-top"
 import { LandingIntro } from "@/components/landing/landing-intro"
 import { LandingUsp } from "@/components/landing/landing-usp"
 import { LandingCompare } from "@/components/landing/landing-compare"
-import { LandingServices, LandingWhy } from "@/components/landing/landing-services"
-import { HomeSteps } from "@/components/landing/home-steps"
+import { LandingServices, LandingSteps, LandingWhy } from "@/components/landing/landing-services"
 import { LandingTypes } from "@/components/landing/landing-types"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingInsights } from "@/components/landing/landing-insights"
@@ -69,7 +68,7 @@ export default function LandingPage() {
       <LandingHero />
       <LandingTrust />
       <LandingServices />
-      <HomeSteps />
+      <LandingSteps />
       <LandingWhy />
       <LandingTypes />
       <LandingUsp />
