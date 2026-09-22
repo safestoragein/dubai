@@ -1,17 +1,21 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Phone, MessageCircle, Mail, MapPin, Clock, CheckCircle2 } from "lucide-react"
+import { MapPin, Clock, CheckCircle2 } from "lucide-react"
 import ContactForm from "@/components/contact/contact-form"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
-import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
+import { LandingTrust } from "@/components/landing/landing-top"
 import FaqAccordion from "@/components/landing/faq-accordion"
+import HomeReveal from "@/components/landing/home-reveal"
 import { env } from "@/lib/env"
 import { ADDRESS_FULL, EMAIL, HOURS_DISPLAY, PHONE_DISPLAY } from "@/lib/company-facts"
 import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
+import fx from "@/components/contact/contact-fx.module.css"
 
 export const metadata: Metadata = {
   title: { absolute: "Contact The Self Storage Services in Dubai | Safe Storage" },
@@ -66,10 +70,10 @@ const contactFaqs = [
 ]
 
 const channels = [
-  { Icon: Phone, t: "Call us", b: PHONE_DISPLAY, href: env.PHONE_LINK },
-  { Icon: MessageCircle, t: "WhatsApp", b: "Send photos, get a quote fast", href: env.WHATSAPP_LINK, external: true },
-  { Icon: Mail, t: "Email", b: EMAIL, href: `mailto:${EMAIL}` },
-  { Icon: MapPin, t: "Visit us", b: "DIP-1, Dubai — call ahead", href: "https://maps.app.goo.gl/eimPkShrQADHTq3N7", external: true },
+  { e: "📞", t: "Call us", b: PHONE_DISPLAY, href: env.PHONE_LINK },
+  { e: "💬", t: "WhatsApp", b: "Send photos, get a quote fast", href: env.WHATSAPP_LINK, external: true },
+  { e: "✉️", t: "Email", b: EMAIL, href: `mailto:${EMAIL}` },
+  { e: "📍", t: "Visit us", b: "DIP-1, Dubai — call ahead", href: "https://maps.app.goo.gl/eimPkShrQADHTq3N7", external: true },
 ]
 
 const contactSchemas = [
@@ -107,16 +111,39 @@ export default function Contact() {
       <SchemaScript schema={contactSchemas} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        <SplitHero
-          eyebrow="Contact us"
-          title="Contact SafeStorage Dubai –"
-          titleAccent="We Reply in 15 Minutes"
-          blurb="A free quote, storage advice or a quick question — call, WhatsApp or send us a message."
-          image="/landing/warehouse-fleet.jpg"
-          imagePosition="center 45%"
-          ctaLabel="Get a Free Quote"
-          phoneLabel={`Call: ${PHONE_DISPLAY}`}
-        />
+        {/* hero — copy left, the owner's photo right (owner, 2026-09-22) */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2} ${fx.tightHead}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy}`}>
+              <span className={s.heroTag}>Contact us</span>
+              <h1>
+                Contact SafeStorage Dubai <br className={s.mBreakDesk} />
+                <em>We Reply in 15 Minutes</em>
+              </h1>
+              <p>A free quote, storage advice or a quick question — call, WhatsApp or send us a message.</p>
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a Free Quote →
+                </Link>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call: {PHONE_DISPLAY}
+                </a>
+              </div>
+            </div>
+            <div className={p.split2Photo} style={{ aspectRatio: "1672 / 941" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/landing/contact-photo.webp"
+                alt="A SafeStorage Dubai consultant helping a customer at the front desk"
+                fetchPriority="high"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* WAYS TO REACH US */}
         <section className={`${s.section} ${s.wrap}`} id="reach-us" style={{ paddingBottom: 30 }}>
@@ -129,16 +156,17 @@ export default function Contact() {
             </div>
             <p>{HOURS_DISPLAY}. Pick whichever is easiest for you.</p>
           </div>
-          <div className={s.miniGrid}>
-            {channels.map(({ Icon, t: title, b, href, external }) => (
+          <HomeReveal className={`${s.miniGrid} ${fx.channels}`}>
+            {channels.map(({ e, t: title, b, href, external }, i) => (
               <a
                 className={`${s.miniCard} ${s.miniLink}`}
                 href={href}
                 key={title}
+                style={{ ["--i"]: i } as CSSProperties}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
-                <span className={s.miniIcon} aria-hidden="true">
-                  <Icon />
+                <span className={`${p.bigEmoji} ${fx.rowEmoji}`} aria-hidden="true">
+                  {e}
                 </span>
                 <div>
                   <b>{title}</b>
@@ -147,7 +175,7 @@ export default function Contact() {
                 <span className={s.miniArrow} aria-hidden="true">→</span>
               </a>
             ))}
-          </div>
+          </HomeReveal>
         </section>
 
         <LandingTrust />

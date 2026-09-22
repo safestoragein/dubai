@@ -1,0 +1,66 @@
+/* Contact page skin (owner, 2026-09-22). The pop-in on scroll comes from
+   HomeReveal / home-fx; this file only gives each contact card its own emoji
+   motion and a matching hover lift, the same idea as the About boxes. */
+.channels > * {
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.channels > *:hover {
+  transform: translateY(-6px);
+  border-color: rgba(238, 88, 36, 0.45);
+  box-shadow: 0 22px 44px rgba(37, 49, 90, 0.14);
+}
+/* each emoji acts out its own card: the phone rings, the bubble bounces,
+   the envelope lifts, the pin drops */
+.channels > *:nth-child(1) span:first-child {
+  animation: ring 3.2s ease-in-out infinite;
+}
+.channels > *:nth-child(2) span:first-child {
+  animation: bounce 2.8s ease-in-out infinite;
+}
+.channels > *:nth-child(3) span:first-child {
+  animation: lift 3.4s ease-in-out infinite;
+}
+.channels > *:nth-child(4) span:first-child {
+  animation: drop 3.6s ease-in-out infinite;
+}
+@keyframes ring {
+  0%, 55%, 100% { transform: rotate(0) }
+  62% { transform: rotate(-16deg) }
+  70% { transform: rotate(14deg) }
+  78% { transform: rotate(-10deg) }
+  86% { transform: rotate(6deg) }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) scale(1) }
+  50% { transform: translateY(-6px) scale(1.06) }
+}
+@keyframes lift {
+  0%, 100% { transform: translateY(0) rotate(0) }
+  50% { transform: translateY(-5px) rotate(-6deg) }
+}
+@keyframes drop {
+  0%, 60%, 100% { transform: translateY(0) }
+  72% { transform: translateY(-8px) }
+  84% { transform: translateY(2px) }
+}
+
+/* the emoji sits in the row, not above it, so the card stays one line tall */
+.rowEmoji.rowEmoji {
+  margin-bottom: 0;
+  font-size: 30px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .channels > *,
+  .channels > * span:first-child {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* "Contact SafeStorage Dubai" is a long first line, so this hero runs a notch
+   smaller than the shared one — it keeps the title to two lines at every width
+   instead of breaking into three on wide screens. */
+.tightHead.tightHead h1 {
+  font-size: clamp(27px, 2.55vw, 40px);
+}
