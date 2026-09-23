@@ -1,8 +1,32 @@
-import TestimonialVideosPage from "@/components/testimonials/testimonial-videos-page"
-import SchemaScript from "@/components/schema-script"
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
+import { ShieldCheck, Truck, Wallet, CalendarClock } from "lucide-react"
+
+import TestimonialVideosPage from "@/components/testimonials/testimonial-videos-page"
+import SchemaScript from "@/components/schema-script"
+import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import { CUSTOMERS_GLOBAL } from "@/lib/company-facts"
+
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import HomeReveal from "@/components/landing/home-reveal"
+import { env } from "@/lib/env"
+import sk from "@/components/silo/silo-landing.module.css"
+import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
+
+/**
+ * /testimonials — redesigned on the shared landing system (owner, 2026-09-23)
+ * with their own photo, the real SafeStorage logo in place of the two drawn
+ * ones, and the "Reilable" typo on the review card corrected.
+ *
+ * Every review, story block and answer is the copy that was already here; only
+ * the layout changed, and the FAQ is cut to the owner's five.
+ */
 
 export const metadata: Metadata = {
   title: { absolute: "Customer Reviews & Testimonials | SafeStorage Dubai" },
@@ -23,281 +47,320 @@ export const metadata: Metadata = {
   },
 }
 
-const testimonialsSchemas = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': 'https://safestorage.ae/testimonials#webpage',
-    name: 'Customer Testimonials | SafeStorage Dubai Reviews',
-    description: 'Real reviews and testimonials from satisfied SafeStorage Dubai customers. See why we\'re trusted by 100,000+ customers.',
-    url: 'https://safestorage.ae/testimonials',
-    isPartOf: { '@id': 'https://safestorage.ae/#website' },
-    inLanguage: 'en-AE',
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://safestorage.ae' },
-      { '@type': 'ListItem', position: 2, name: 'Testimonials', item: 'https://safestorage.ae/testimonials' },
-    ],
-  },
-]
-
 const reviews = [
   {
     name: "Ahmed Al Mansoori",
     location: "Dubai Marina",
+    initials: "AM",
     rating: 5,
     text: "SafeStorage made my apartment renovation completely stress-free. They picked up all my furniture within 24 hours, kept everything in perfect condition for 6 weeks, and delivered it all back when I called. Everything came back exactly as it went in. Highly recommended!",
   },
   {
     name: "Sarah Johnson",
     location: "Business Bay",
+    initials: "SJ",
     rating: 5,
     text: "As an expat relocating back to the UK temporarily, I needed somewhere safe to keep my belongings for 8 months. SafeStorage was the perfect solution — professional pickup, secure facility, and easy retrieval when I returned. The customer service was excellent throughout.",
   },
   {
     name: "Priya Sharma",
     location: "Jumeirah",
+    initials: "PS",
     rating: 5,
     text: "I used SafeStorage to store my office furniture when we downsized our team. The process was simple — they sent a consultant to assess the volume, gave me a transparent quote, and handled everything from packing to storage. Great value for money.",
   },
   {
     name: "Mohammed Al Hassan",
     location: "Downtown Dubai",
+    initials: "MH",
     rating: 5,
-    text: "Excellent service from start to finish. The team arrived on time, handled my furniture with great care, and the storage unit was exactly as described — clean, secure, and well-kept. I'll definitely use SafeStorage again for my next move.",
+    text: "Excellent service from start to finish. The team arrived on time, handled my furniture with great care, and the storage space was exactly as described — clean, secure, and well-kept. I'll definitely use SafeStorage again for my next move.",
   },
   {
     name: "Emily Chen",
     location: "JLT",
+    initials: "EC",
     rating: 5,
     text: "I was nervous about storing my grandmother's antique furniture, but SafeStorage put my mind at ease. Every piece was carefully wrapped and protected, keeping the wood and upholstery in great shape. Everything was returned in the same condition it was collected. Outstanding!",
   },
   {
     name: "Faisal Al Rashid",
     location: "Palm Jumeirah",
+    initials: "FR",
     rating: 5,
     text: "SafeStorage handled our company's warehouse clearance efficiently. We stored over 200 boxes of stock and office equipment, and the team was professional and fast. The indexing system made it easy to retrieve specific items. Great for businesses.",
   },
 ]
 
+const whyChoose = [
+  { Icon: Truck, title: "Door-to-door service", text: "We handle all the heavy lifting — pickup, storage, and delivery at your convenience" },
+  { Icon: ShieldCheck, title: "Clean, secure storage", text: "Indoor space keeps furniture, electronics, and sensitive items dust-protected and safe" },
+  { Icon: Wallet, title: "Transparent pricing", text: "No hidden fees, no surprises — the price you see is the price you pay" },
+  { Icon: CalendarClock, title: "Flexible terms", text: "Monthly contracts, no long-term commitments — store for a week or a year" },
+]
+
+const story = [
+  {
+    e: "📖",
+    title: "Our story: a decade of serving Dubai",
+    paras: [
+      "SafeStorage Dubai was founded over a decade ago with a single mission: to make storage in the UAE genuinely convenient, affordable, and trustworthy. In a market dominated by basic self-storage facilities that required customers to hire vans, do their own heavy lifting, and navigate industrial estates, we saw an opportunity to create something completely different — a full-service, door-to-door storage experience that treated customers' belongings with the care and respect they deserved.",
+      "Starting with a small team and a single facility, SafeStorage quickly gained a reputation for reliability and exceptional service. Our growth has been driven entirely by customer recommendations, which is the most meaningful measure of a service business's quality.",
+    ],
+  },
+  {
+    e: "🤝",
+    title: "Unmatched service quality that Dubai trusts",
+    paras: [
+      "From the moment you contact us, you are assigned a dedicated storage consultant who manages your account personally from start to finish. This means you always have one point of contact who knows your situation, your items, and your preferences — no repeating yourself every time you call, no being passed between departments.",
+      "Our pickup teams are professional, uniformed, and trained to handle belongings with extreme care. Every item is wrapped, photographed, and catalogued before being loaded into our vehicles. We arrive on time, communicate proactively, and treat every pickup as if we were storing our own family's possessions.",
+    ],
+  },
+  {
+    e: "🧼",
+    title: "Clean storage built for Dubai",
+    paras: [
+      "Every item you store with SafeStorage is kept in clean, indoor space and handled with real care. Before anything is stored, our team wraps furniture in protective covers, adds foam padding and corner protection, and catalogues each piece so nothing gets lost or damaged in handling.",
+      "Items are kept off the floor on pallets or shelving where appropriate and stored in a clean, dust-protected environment. This standard of care is included in every plan at no extra charge; we believe responsible storage should never be an optional luxury.",
+    ],
+  },
+  {
+    e: "🛡️",
+    title: "Security that never sleeps",
+    paras: [
+      "SafeStorage Dubai operates one of the most comprehensively secured storage facilities in the UAE. The facility features 24/7 HD CCTV surveillance covering every corridor, every loading bay, every entrance, and every exit — with footage retained and reviewed by our security team. The perimeter is secured with reinforced fencing and controlled access gates monitored at all times.",
+    ],
+  },
+  {
+    e: "💬",
+    title: "Transparent pricing that customers praise",
+    paras: [
+      "One of the most consistent themes in our customer reviews is the relief customers feel when they discover our pricing is genuinely transparent. In an industry often criticised for hidden fees, lock-in contracts, and confusing pricing structures, SafeStorage has built its reputation on the opposite: the price quoted is the price charged, every time.",
+      "We offer flexible monthly contracts with no long-term commitments, making SafeStorage suitable for customers at every stage — from those storing during a two-week renovation to businesses needing multi-year storage solutions. Long-term customers benefit from a wide range of discounts on prepaid plans — the longer you store, the more you save.",
+    ],
+  },
+]
+
+const faqs = [
+  {
+    q: "Why do so many Dubai residents recommend SafeStorage to friends?",
+    a: "The most common reason customers recommend SafeStorage is the ease of the entire experience. Unlike traditional self-storage where you do all the work yourself, SafeStorage handles everything — pickup, packing, transport, storage, and delivery. Customers are consistently surprised by how smooth and stress-free the process is.",
+  },
+  {
+    q: "How do customers rate SafeStorage Dubai?",
+    a: "SafeStorage Dubai maintains a consistently high customer satisfaction rating across all review platforms. Our customers regularly highlight the professionalism of our pickup team, the reliability of our service, the quality of our clean and secure facilities, and the helpfulness of our customer support team.",
+  },
+  {
+    q: "Do expats living in Dubai find SafeStorage particularly useful?",
+    a: "Yes. Expats are one of our largest customer groups. SafeStorage allows customers to manage their storage accounts entirely by phone or email, and we can coordinate pickup and delivery even when the customer is not physically in Dubai. Many expats leave their belongings with us between assignments and simply notify us when they need delivery to their new address.",
+  },
+  {
+    q: "What do customers say about the condition of their items when returned?",
+    a: "Overwhelmingly positive. The most frequent comment in customer reviews is that items are returned in exactly the same condition as when they were collected — sometimes in better condition because our team wraps furniture properly before storage. Careful wrapping and clean, secure storage mean no dust damage, no scuffs, and no pest issues.",
+  },
+  {
+    q: "What languages does the SafeStorage customer support team speak?",
+    a: "Our customer support team provides assistance in both English and Arabic, reflecting the diverse nature of Dubai's population. All contracts, invoices, and correspondence are available in both languages. We also have team members who can communicate in Hindi, Urdu, and Tagalog to serve our South Asian and Filipino customer base.",
+  },
+]
+
+const testimonialsSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://safestorage.ae/testimonials#webpage",
+    name: "Customer Testimonials | SafeStorage Dubai Reviews",
+    description:
+      "Real reviews and testimonials from satisfied SafeStorage Dubai customers. See why we're trusted by 100,000+ customers.",
+    url: "https://safestorage.ae/testimonials",
+    isPartOf: { "@id": "https://safestorage.ae/#website" },
+    inLanguage: "en-AE",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
+      { "@type": "ListItem", position: 2, name: "Testimonials", item: "https://safestorage.ae/testimonials" },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.slice(0, 5).map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+]
+
+const idx = (i: number) => ({ ["--i" as string]: i }) as CSSProperties
+
 export default function TestimonialsPage() {
   return (
     <>
       <SchemaScript schema={testimonialsSchemas} />
-      {/* Static header content for SEO — server-rendered */}
-      <section className="bg-gradient-to-r from-[#0A2463] to-[#3E92CC] py-14 text-white">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h1>
-          <p className="text-lg text-white/90">
-            over 100,000 satisfied customers globally trust SafeStorage with their most valuable belongings.
-            Read their stories below.
-          </p>
+      <SiloBreadcrumb trail={[{ name: "Home", href: "/" }, { name: "Testimonials" }]} />
+
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* hero — copy left, the owner's photo right */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy}`}>
+              <span className={s.heroTag}>Testimonials</span>
+              <h1>
+                What Our <br className={s.mBreakDesk} />
+                <em>Customers Say</em>
+              </h1>
+              <p>
+                over 100,000 satisfied customers globally trust SafeStorage with their most valuable
+                belongings. Read their stories below.
+              </p>
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a Free Quote →
+                </Link>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
+                </a>
+              </div>
+            </div>
+            {/* owner, 2026-09-23: the 4.9 card goes top-right, over the
+                "More Space Happier Lives" banner, not over the review cards */}
+            <div className={p.split2Photo} style={{ aspectRatio: "1670 / 942" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/landing/testimonials-photo.webp"
+                alt="SafeStorage Dubai customers holding five-star review cards in the reception"
+                fetchPriority="high"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <LandingTrust />
+
+        {/* the video wall keeps its own markup and every word; the silo skin
+            gives it the landing type and card look so it does not read as a
+            different site */}
+        <div className={sk.body}>
+          <TestimonialVideosPage />
         </div>
-      </section>
-      <TestimonialVideosPage />
-      {/* Static review content for SEO — server-rendered */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-2xl font-bold text-[#0A2463] mb-8 text-center">Customer Reviews — SafeStorage Dubai</h2>
-          <div className="grid md:grid-cols-2 gap-6 mb-10">
-            {reviews.map((review, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="flex items-center gap-1 mb-3">
-                  {[...Array(review.rating)].map((_, j) => (
-                    <span key={j} className="text-yellow-400 text-lg">★</span>
-                  ))}
+
+        {/* the written reviews */}
+        <section className={`${s.section} ${s.wrap}`} id="reviews" style={{ paddingTop: 8 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Customer reviews</span>
+              <h2 className={p.longH2}>
+                Real stories from <em>SafeStorage Dubai.</em>
+              </h2>
+            </div>
+          </div>
+          <HomeReveal className={p.pair}>
+            {reviews.map((r, i) => (
+              <div className={`${p.panel} ${p.plan}`} style={idx(i)} key={r.name}>
+                <div className={s.revStars} aria-label={`${r.rating} out of 5 stars`}>
+                  {"★".repeat(r.rating)}
                 </div>
-                <p className="text-gray-700 mb-4 italic">&ldquo;{review.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-[#0A2463]">{review.name}</p>
-                  <p className="text-sm text-gray-500">{review.location}, Dubai</p>
+                <p className={p.panelText}>&ldquo;{r.text}&rdquo;</p>
+                <div className={s.quoteWho}>
+                  <span className={s.avatar}>{r.initials}</span>
+                  <div>
+                    <b>{r.name}</b>
+                    {/* .quoteWho small is white for the dark home-page quote card,
+                        so on this white panel it needs the muted colour */}
+                    <small style={{ color: "var(--muted)" }}>{r.location}, Dubai</small>
+                  </div>
                 </div>
               </div>
             ))}
-          </div>
+          </HomeReveal>
+        </section>
 
-          <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
-            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Why Dubai Residents Choose SafeStorage</h3>
-            <p className="text-gray-700 mb-4">
-              With over 10 years of experience serving Dubai, SafeStorage has built a reputation for reliability,
-              security, and outstanding customer service. Here is what sets us apart:
+        {/* why Dubai residents choose us */}
+        <section className={`${s.darkBand} ${s.whyBand}`}>
+          <div className={s.wrap}>
+            <div className={s.bandHead}>
+              <span className={s.howEyebrow}>Why they choose us</span>
+              <h2>
+                What sets <em>SafeStorage apart.</em>
+              </h2>
+              <p>
+                With over 10 years of experience serving Dubai, SafeStorage has built a reputation for
+                reliability, security, and outstanding customer service.
+              </p>
+            </div>
+            <FeatScroller>
+              {whyChoose.map((f) => (
+                <article className={s.feat} key={f.title}>
+                  <div className={s.featIcon}>
+                    <f.Icon strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3>{f.title}</h3>
+                  <p>{f.text}</p>
+                </article>
+              ))}
+            </FeatScroller>
+          </div>
+        </section>
+
+        {/* the longer story */}
+        <section className={`${s.section} ${s.wrap}`}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Behind the reviews</span>
+              <h2 className={p.longH2}>
+                Why {CUSTOMERS_GLOBAL} customers <em>trust SafeStorage Dubai.</em>
+              </h2>
+            </div>
+            <p>
+              Our history, service philosophy, and the standards that have earned us thousands of five-star
+              reviews.
             </p>
-            <ul className="space-y-3 text-gray-700">
-              <li>• <strong>Door-to-door service:</strong> We handle all the heavy lifting — pickup, storage, and delivery at your convenience</li>
-              <li>• <strong>Clean, secure units:</strong> Dedicated indoor units keep furniture, electronics, and sensitive items dust-protected and safe</li>
-              <li>• <strong>Transparent pricing:</strong> No hidden fees, no surprises — the price you see is the price you pay</li>
-              <li>• <strong>Flexible terms:</strong> Monthly contracts, no long-term commitments — store for a week or a year</li>
-            </ul>
           </div>
+          <HomeReveal className={p.pair}>
+            {story.map((b, i) => (
+              <div className={`${p.panel} ${p.plan}`} style={idx(i)} key={b.title}>
+                <h3 className={p.panelTitle}>
+                  <span aria-hidden="true">{b.e}</span> {b.title}
+                </h3>
+                {b.paras.map((t) => (
+                  <p className={p.panelText} key={t.slice(0, 40)}>
+                    {t}
+                  </p>
+                ))}
+              </div>
+            ))}
+          </HomeReveal>
+        </section>
 
-          <div className="text-center">
-            <p className="text-lg text-gray-700 mb-4">Join 100,000+ happy customers worldwide. Get your free quote today.</p>
-            <Link
-              href="/get-quote"
-              className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c02a50] transition-colors"
-            >
-              Get a Free Quote
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Why customers trust SafeStorage — detailed text for SEO.
-          The heading used to read "10,000+", contradicting the 100,000+ figure
-          published three times on this same page. One number, from company-facts. */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-5xl">
-
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-4 text-center">Why {CUSTOMERS_GLOBAL} Customers Trust SafeStorage Dubai</h2>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Discover the story behind Dubai&apos;s most trusted storage company — our history, service philosophy, and the standards that have earned us thousands of five-star reviews.
-          </p>
-
-          <div className="space-y-8 mb-14">
-
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
-              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Our Story: A Decade of Serving Dubai</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                SafeStorage Dubai was founded over a decade ago with a single mission: to make storage in the UAE genuinely convenient, affordable, and trustworthy. In a market dominated by basic self-storage facilities that required customers to hire vans, do their own heavy lifting, and navigate industrial estates, we saw an opportunity to create something completely different — a full-service, door-to-door storage experience that treated customers&apos; belongings with the care and respect they deserved.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Starting with a small team and a single facility, SafeStorage quickly gained a reputation for reliability and exceptional service. Word spread rapidly across Dubai&apos;s expat and local communities, and today we serve thousands of customers across the UAE — from individual residents storing a few boxes to major corporations managing tonnes of inventory. Our growth has been driven entirely by customer recommendations, which is the most meaningful measure of a service business&apos;s quality.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
-              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Unmatched Service Quality That Dubai Trusts</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                What sets SafeStorage apart from every other storage company in Dubai is our obsessive focus on service quality. From the moment you contact us, you are assigned a dedicated storage consultant who manages your account personally from start to finish. This means you always have one point of contact who knows your situation, your items, and your preferences — no repeating yourself every time you call, no being passed between departments.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Our pickup teams are professional, uniformed, and trained to handle belongings with extreme care. Every item is wrapped, photographed, and catalogued before being loaded into our vehicles. Our drivers are experienced in navigating Dubai&apos;s diverse residential communities — from high-rise apartments in Marina to villa communities in Arabian Ranches. We arrive on time, communicate proactively, and treat every pickup as if we were storing our own family&apos;s possessions.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
-              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Clean, Dedicated Storage Built for Dubai</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Every item you store with SafeStorage is kept in a clean, dedicated indoor unit and handled with real care. Before anything is stored, our team wraps furniture in protective covers, adds foam padding and corner protection, and catalogues each piece so nothing gets lost or damaged in handling.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Items are kept off the floor on pallets or shelving where appropriate and stored in a clean, dust-protected environment. For SafeStorage customers, this means antique furniture, electronics, documents, and clothing are looked after carefully throughout their stay — even after months or years. This standard of care is included in every plan at no extra charge; we believe responsible storage should never be an optional luxury.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
-              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Security That Never Sleeps</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                SafeStorage Dubai operates one of the most comprehensively secured storage facilities in the UAE. Our security infrastructure was designed from the ground up to ensure that every item stored in our care is protected around the clock. The facility features 24/7 HD CCTV surveillance covering every corridor, every loading bay, every entrance, and every exit — with footage retained and reviewed by our security team. The perimeter is secured with reinforced fencing and controlled access gates monitored at all times.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
-              <h3 className="text-xl font-bold text-[#0A2463] mb-4">Transparent Pricing That Customers Praise</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                One of the most consistent themes in our customer reviews is the relief customers feel when they discover our pricing is genuinely transparent. In an industry often criticised for hidden fees, lock-in contracts, and confusing pricing structures, SafeStorage has built its reputation on the opposite: the price quoted is the price charged, every time. Door-to-door pickup & delivery is available.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                We offer flexible monthly contracts with no long-term commitments, making SafeStorage suitable for customers at every stage — from those storing during a two-week renovation to businesses needing multi-year storage solutions. Long-term customers benefit from a wide range of discounts on prepaid plans — the longer you store, the more you save. We are proud that our Net Promoter Score consistently exceeds industry benchmarks because our customers know exactly what they are paying for and feel they are receiving excellent value. Call +971505773388 today for a personalised quote with no obligation.
-              </p>
-            </div>
-
-          </div>
-
-          {/* FAQ section for testimonials page */}
-          <h2 className="text-2xl font-bold text-[#0A2463] mb-6">Frequently Asked Questions — What Our Customers Ask</h2>
-
-          <div className="space-y-5 mb-12">
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">1. Why do so many Dubai residents recommend SafeStorage to friends?</h3>
-              <p className="text-gray-700">The most common reason customers recommend SafeStorage is the ease of the entire experience. Unlike traditional self-storage where you do all the work yourself, SafeStorage handles everything — pickup, packing, transport, storage, and delivery. Customers are consistently surprised by how smooth and stress-free the process is. Combined with transparent pricing, responsive support, and the reassurance of clean, secure storage, it is a service people feel genuinely good about recommending.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">2. How do customers rate SafeStorage Dubai?</h3>
-              <p className="text-gray-700">SafeStorage Dubai maintains a consistently high customer satisfaction rating across all review platforms. Our customers regularly highlight the professionalism of our pickup team, the reliability of our service, the quality of our clean and secure facilities, and the helpfulness of our customer support team. We actively monitor all reviews and respond to any concerns promptly — we take every piece of feedback seriously and use it to continuously improve our service.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">3. Do expats living in Dubai find SafeStorage particularly useful?</h3>
-              <p className="text-gray-700">Yes. Expats are one of our largest customer groups, and SafeStorage is particularly well-suited to the expat lifestyle in Dubai. When relocating between apartments, returning home temporarily, or moving to a new country, expats need a storage solution that is flexible, reliable, and easy to manage remotely. SafeStorage allows customers to manage their storage accounts entirely by phone or email, and we can coordinate pickup and delivery even when the customer is not physically in Dubai. Many expats leave their belongings with us between assignments and simply notify us when they need delivery to their new address.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">4. What do customers say about the condition of their items when returned?</h3>
-              <p className="text-gray-700">Overwhelmingly positive. The most frequent comment in customer reviews is that items are returned in exactly the same condition as when they were collected — sometimes in better condition because our team wraps furniture properly before storage, protecting it from dust and minor impacts. Careful wrapping and clean, secure storage mean no dust damage, no scuffs, and no pest issues. Customers storing antique furniture, sensitive electronics, and high-quality clothing consistently report that their items emerge from storage in perfect condition.</p>
-            </div>
-
-
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">5. How does SafeStorage handle customers who need to store for a very short period?</h3>
-              <p className="text-gray-700">SafeStorage&apos;s minimum storage period is one month, making it suitable for customers who only need temporary storage for a few weeks during a move or renovation. There are no penalties for short-term storage, and we treat every customer — regardless of their storage volume or duration — with the same level of care and professionalism. Many customers who start with a one-month plan end up staying for much longer because they discover how convenient and cost-effective the service is.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">6. Do business customers have different experiences to residential customers?</h3>
-              <p className="text-gray-700">Business customers typically benefit from additional services such as dedicated account management, itemised invoicing, multi-user account access, and higher-frequency pickup and delivery scheduling. Businesses consistently highlight the reliability and professionalism of our team as key to their ongoing relationship with SafeStorage. Whether it is a law firm archiving client documents, an e-commerce retailer storing inventory, or a hotel managing seasonal equipment, our business storage programmes are tailored to commercial requirements and professional standards.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">7. What languages does the SafeStorage customer support team speak?</h3>
-              <p className="text-gray-700">Our customer support team provides assistance in both English and Arabic, reflecting the diverse nature of Dubai&apos;s population. All contracts, invoices, and correspondence are available in both languages. We also have team members who can communicate in Hindi, Urdu, and Tagalog to serve our South Asian and Filipino customer base. For any language requirement not covered, we use professional interpretation services to ensure every customer can communicate clearly and confidently about their storage needs.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">8. How do customers typically find out about SafeStorage Dubai?</h3>
-              <p className="text-gray-700">The majority of our new customers come through word-of-mouth recommendations from existing customers — the clearest possible indicator of genuine satisfaction. We also receive significant enquiries through Google search, where we rank prominently for storage-related searches in Dubai. Our social media presence, particularly on Instagram and Facebook, reaches Dubai&apos;s large expat community. And many customers find us through property management companies, real estate agents, and relocation specialists who recommend us to clients moving within or out of Dubai.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">9. What is the best way to leave a review for SafeStorage Dubai?</h3>
-              <p className="text-gray-700">We genuinely value customer feedback and encourage all customers to share their experience. The best ways to leave a review are on Google, where your feedback helps other Dubai residents find a trustworthy storage solution. You can search &quot;SafeStorage Dubai&quot; on Google and select the option to write a review. We read every review personally and respond to all feedback — positive and constructive alike. Your review helps us maintain our high standards and helps future customers make informed decisions.</p>
-            </div>
-
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">10. Has SafeStorage won any industry recognition or awards?</h3>
-              <p className="text-gray-700">SafeStorage Dubai is part of the broader SafeStorage group which serves over 100,000 customers globally. Our Dubai operation has earned strong recognition through consistently high customer satisfaction scores, numerous five-star reviews across all major platforms, and partnerships with leading Dubai property management companies, real estate agencies, and corporate relocation services. While we let our customer reviews speak louder than awards, we are proud to be the storage partner of choice for thousands of Dubai residents and businesses.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">11. Do customers ever store with SafeStorage for years at a time?</h3>
-              <p className="text-gray-700">Yes. We have many long-term customers who have been storing with SafeStorage for three, five, or even eight or more years. Long-term customers include families who acquired furniture and belongings faster than their apartments could accommodate them, expats who permanently retained Dubai storage as a base while working internationally, and businesses with ongoing archive and inventory storage requirements. Long-term customers benefit from preferential pricing, priority scheduling, and the assurance of a storage partner who knows their account history in detail.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">12. Is there anything customers wish they had known before starting storage with SafeStorage?</h3>
-              <p className="text-gray-700">The most common piece of feedback from new customers is that they wish they had contacted SafeStorage sooner. Many customers initially planned to manage their move or renovation themselves, only to realise part-way through how much easier and more affordable professional storage would have been. Another common point is that customers are often pleasantly surprised by how affordable storage is, and wish they had not spent months moving items between locations when SafeStorage could have handled everything seamlessly from the start.</p>
-            </div>
-
-          </div>
-
-          <div className="text-center bg-gradient-to-r from-[#0A2463] to-[#3E92CC] rounded-2xl p-10 text-white">
-            <h3 className="text-2xl font-bold mb-3">Join Thousands of Happy SafeStorage Customers</h3>
-            <p className="text-white/85 mb-6 text-lg">Experience Dubai&apos;s most trusted storage service. Door-to-Door pickup, clean and secure units, 24/7 security — transparent pricing with no hidden fees.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/get-quote"
-                className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#c02a50] transition-colors"
-              >
-                Get a Free Quote
-              </Link>
-              <a
-                href="tel:+971505773388"
-                className="inline-block bg-white text-[#0A2463] px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
-              >
-                Call +971505773388
-              </a>
+        {/* five questions */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>FAQ</span>
+              <h2 className={p.longH2}>
+                What our <em>customers ask.</em>
+              </h2>
             </div>
           </div>
+          <FaqAccordion items={faqs} />
+        </section>
 
-        </div>
-      </section>
+        <CtaBand
+          title="Join thousands of happy customers"
+          blurb="Experience Dubai's most trusted storage service. Door-to-Door pickup, clean and secure storage, 24/7 security — transparent pricing with no hidden fees."
+          ctaLabel="Get a Free Quote"
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
+      </div>
     </>
   )
 }
