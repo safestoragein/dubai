@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ShieldCheck, Truck, Wallet, CalendarClock } from "lucide-react"
 
-import TestimonialVideosPage from "@/components/testimonials/testimonial-videos-page"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import { CUSTOMERS_GLOBAL } from "@/lib/company-facts"
@@ -11,13 +10,16 @@ import { CUSTOMERS_GLOBAL } from "@/lib/company-facts"
 import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
 import { LandingTrust } from "@/components/landing/landing-top"
+import { UspRail } from "@/components/landing/usp-rail"
 import { FeatScroller } from "@/components/landing/feat-scroller"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import HomeReveal from "@/components/landing/home-reveal"
 import { env } from "@/lib/env"
-import sk from "@/components/silo/silo-landing.module.css"
 import s from "@/components/landing/landing.module.css"
 import p from "@/components/locations/location-landing.module.css"
+import rv from "@/components/testimonials/reviews.module.css"
+import z from "@/components/silo/size-cards.module.css"
+import fx from "@/components/landing/home-fx.module.css"
 
 /**
  * /testimonials — redesigned on the shared landing system (owner, 2026-09-23)
@@ -102,42 +104,28 @@ const whyChoose = [
 const story = [
   {
     e: "📖",
-    title: "Our story: a decade of serving Dubai",
-    paras: [
-      "SafeStorage Dubai was founded over a decade ago with a single mission: to make storage in the UAE genuinely convenient, affordable, and trustworthy. In a market dominated by basic self-storage facilities that required customers to hire vans, do their own heavy lifting, and navigate industrial estates, we saw an opportunity to create something completely different — a full-service, door-to-door storage experience that treated customers' belongings with the care and respect they deserved.",
-      "Starting with a small team and a single facility, SafeStorage quickly gained a reputation for reliability and exceptional service. Our growth has been driven entirely by customer recommendations, which is the most meaningful measure of a service business's quality.",
-    ],
+    title: "A decade of serving Dubai",
+    text: "Founded over a decade ago to make storage in the UAE convenient, affordable and trustworthy.",
   },
   {
     e: "🤝",
-    title: "Unmatched service quality that Dubai trusts",
-    paras: [
-      "From the moment you contact us, you are assigned a dedicated storage consultant who manages your account personally from start to finish. This means you always have one point of contact who knows your situation, your items, and your preferences — no repeating yourself every time you call, no being passed between departments.",
-      "Our pickup teams are professional, uniformed, and trained to handle belongings with extreme care. Every item is wrapped, photographed, and catalogued before being loaded into our vehicles. We arrive on time, communicate proactively, and treat every pickup as if we were storing our own family's possessions.",
-    ],
+    title: "Service quality Dubai trusts",
+    text: "You are assigned a dedicated storage consultant who manages your account personally.",
   },
   {
     e: "🧼",
     title: "Clean storage built for Dubai",
-    paras: [
-      "Every item you store with SafeStorage is kept in clean, indoor space and handled with real care. Before anything is stored, our team wraps furniture in protective covers, adds foam padding and corner protection, and catalogues each piece so nothing gets lost or damaged in handling.",
-      "Items are kept off the floor on pallets or shelving where appropriate and stored in a clean, dust-protected environment. This standard of care is included in every plan at no extra charge; we believe responsible storage should never be an optional luxury.",
-    ],
+    text: "Every item is kept in clean, indoor space, off the floor on pallets or shelving, and handled with real care.",
   },
   {
     e: "🛡️",
     title: "Security that never sleeps",
-    paras: [
-      "SafeStorage Dubai operates one of the most comprehensively secured storage facilities in the UAE. The facility features 24/7 HD CCTV surveillance covering every corridor, every loading bay, every entrance, and every exit — with footage retained and reviewed by our security team. The perimeter is secured with reinforced fencing and controlled access gates monitored at all times.",
-    ],
+    text: "24/7 HD CCTV covers every corridor, loading bay, entrance and exit, reviewed by our security team.",
   },
   {
     e: "💬",
-    title: "Transparent pricing that customers praise",
-    paras: [
-      "One of the most consistent themes in our customer reviews is the relief customers feel when they discover our pricing is genuinely transparent. In an industry often criticised for hidden fees, lock-in contracts, and confusing pricing structures, SafeStorage has built its reputation on the opposite: the price quoted is the price charged, every time.",
-      "We offer flexible monthly contracts with no long-term commitments, making SafeStorage suitable for customers at every stage — from those storing during a two-week renovation to businesses needing multi-year storage solutions. Long-term customers benefit from a wide range of discounts on prepaid plans — the longer you store, the more you save.",
-    ],
+    title: "Transparent pricing",
+    text: "The price quoted is the price charged, every time. Flexible monthly contracts, no long-term commitments.",
   },
 ]
 
@@ -245,41 +233,41 @@ export default function TestimonialsPage() {
 
         <LandingTrust />
 
-        {/* the video wall keeps its own markup and every word; the silo skin
-            gives it the landing type and card look so it does not read as a
-            different site */}
-        <div className={sk.body}>
-          <TestimonialVideosPage />
-        </div>
-
         {/* the written reviews */}
         <section className={`${s.section} ${s.wrap}`} id="reviews" style={{ paddingTop: 8 }}>
-          <div className={s.howHead}>
-            <div>
-              <span className={s.howEyebrow}>Customer reviews</span>
-              <h2 className={p.longH2}>
-                Real stories from <em>SafeStorage Dubai.</em>
-              </h2>
-            </div>
-          </div>
-          <HomeReveal className={p.pair}>
+          <HomeReveal>
+            <UspRail
+              head={
+                <div className={s.uspHead}>
+                  <span className={s.howEyebrow}>Customer reviews</span>
+                  <h2 className={p.longH2}>
+                    Real stories from <em>SafeStorage Dubai.</em>
+                  </h2>
+                </div>
+              }
+            >
             {reviews.map((r, i) => (
-              <div className={`${p.panel} ${p.plan}`} style={idx(i)} key={r.name}>
-                <div className={s.revStars} aria-label={`${r.rating} out of 5 stars`}>
+              <article className={`${rv.card} ${rv.railCard}`} style={idx(i)} key={r.name}>
+                <span className={rv.mark} aria-hidden="true">
+                  &ldquo;
+                </span>
+                <div className={rv.stars} aria-label={`${r.rating} out of 5 stars`}>
                   {"★".repeat(r.rating)}
                 </div>
-                <p className={p.panelText}>&ldquo;{r.text}&rdquo;</p>
-                <div className={s.quoteWho}>
-                  <span className={s.avatar}>{r.initials}</span>
+                <p className={rv.text}>{r.text}</p>
+                <div className={rv.who}>
+                  <span className={rv.avatar} aria-hidden="true">
+                    {r.initials}
+                  </span>
                   <div>
-                    <b>{r.name}</b>
-                    {/* .quoteWho small is white for the dark home-page quote card,
-                        so on this white panel it needs the muted colour */}
-                    <small style={{ color: "var(--muted)" }}>{r.location}, Dubai</small>
+                    <b className={rv.name}>{r.name}</b>
+                    <span className={rv.place}>{r.location}, Dubai</span>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
+            </UspRail>
+            <p className={s.scrollHint}>Swipe for more →</p>
           </HomeReveal>
         </section>
 
@@ -324,17 +312,14 @@ export default function TestimonialsPage() {
               reviews.
             </p>
           </div>
-          <HomeReveal className={p.pair}>
+          <HomeReveal className={`${z.steps} ${z.steps5} ${z.moves}`}>
             {story.map((b, i) => (
-              <div className={`${p.panel} ${p.plan}`} style={idx(i)} key={b.title}>
-                <h3 className={p.panelTitle}>
-                  <span aria-hidden="true">{b.e}</span> {b.title}
-                </h3>
-                {b.paras.map((t) => (
-                  <p className={p.panelText} key={t.slice(0, 40)}>
-                    {t}
-                  </p>
-                ))}
+              <div className={`${z.step} ${fx.floatBox}`} style={idx(i)} key={b.title}>
+                <span className={z.stepEmoji} aria-hidden="true">
+                  {b.e}
+                </span>
+                <h3>{b.title}</h3>
+                <p>{b.text}</p>
               </div>
             ))}
           </HomeReveal>

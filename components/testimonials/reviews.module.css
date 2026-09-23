@@ -1,0 +1,119 @@
+/* Testimonials page (owner, 2026-09-23): the written reviews are the page now
+   that the video wall is gone, so they get their own card rather than the
+   generic two-column panel. Pop-in on scroll comes from HomeReveal / home-fx. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 680px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 22px;
+  padding: 26px 24px 22px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(238, 88, 36, 0.45);
+  box-shadow: 0 24px 46px rgba(37, 49, 90, 0.14);
+}
+/* the opening quote mark, sitting behind the text like a watermark */
+.mark {
+  position: absolute;
+  right: 20px;
+  top: 4px;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 84px;
+  line-height: 1;
+  font-weight: 800;
+  color: rgba(238, 88, 36, 0.12);
+  pointer-events: none;
+}
+.stars {
+  color: #f5a623;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0 0 20px;
+  flex: 1;
+}
+.who {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(37, 49, 90, 0.08);
+}
+.avatar {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+.name {
+  display: block;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.place {
+  display: block;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}
+
+/* owner, 2026-09-23: the reviews run as one line with arrows, the same rail the
+   other pages use, instead of a stacked grid */
+.railCard {
+  flex: 0 0 calc((100% - 2 * 18px) / 2.6);
+  scroll-snap-align: start;
+}
+@media (max-width: 1000px) {
+  .railCard {
+    flex-basis: calc((100% - 18px) / 1.8);
+  }
+}
+@media (max-width: 680px) {
+  .railCard {
+    flex-basis: 86%;
+  }
+}
