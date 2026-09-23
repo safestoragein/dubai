@@ -133,12 +133,22 @@ export default function LocationLanding({
             </h2>
           </div>
         </div>
-        <div className={p.areaPills}>
-          {areas.map((a) => (
-            <span className={p.areaPill} key={a}>
-              <span aria-hidden="true">📍</span> {a}
-            </span>
-          ))}
+        {/* owner, 2026-09-23: the areas run as one moving line of round pills,
+            the same as the Dubai hub, instead of wrapping over several rows */}
+        <div className={s.areaMarquees}>
+          <div className={s.marquee}>
+            <div className={s.marqueeTrack}>
+              {[0, 1].map((copy) => (
+                <div className={`${s.marqueeGroup} ${s.chipGroup}`} key={copy} aria-hidden={copy === 1}>
+                  {areas.map((a) => (
+                    <span className={`${s.chip} ${p.areaChip}`} key={a}>
+                      <span aria-hidden="true">📍</span> {a}
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         <div className={s.movingTip}>
           <Info aria-hidden="true" />
