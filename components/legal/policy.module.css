@@ -1,0 +1,187 @@
+/* Legal pages (owner, 2026-09-24): the policy keeps every word and its own
+   markup; these rules give it the landing type and card look. Each numbered
+   section becomes a card so a long document stays readable. */
+.doc {
+  display: grid;
+  gap: 18px;
+  margin-top: 8px;
+}
+.doc :global(section),
+.doc > :global(div) {
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 20px;
+  padding: 26px 26px 24px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.07);
+  transition: box-shadow 0.25s, border-color 0.25s;
+}
+.doc :global(section):hover,
+.doc > :global(div):hover {
+  border-color: rgba(238, 88, 36, 0.3);
+  box-shadow: 0 20px 40px rgba(37, 49, 90, 0.11);
+}
+.doc :global(h2) {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: clamp(18px, 1.7vw, 23px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 0 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(37, 49, 90, 0.1);
+}
+.doc :global(h3) {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 18px 0 8px;
+}
+.doc :global(h3):first-of-type {
+  margin-top: 0;
+}
+.doc :global(p) {
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.doc :global(p):last-child {
+  margin-bottom: 0;
+}
+/* the global reset strips list markers, so they are restored here */
+.doc :global(ol) {
+  list-style: decimal outside;
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+.doc :global(ul) {
+  list-style: disc outside;
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+.doc :global(li) {
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.doc :global(li)::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+.doc :global(strong) {
+  color: var(--navy);
+}
+.doc :global(a) {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: rgba(238, 88, 36, 0.6);
+  text-underline-offset: 4px;
+}
+
+/* the contact card at the end of the document */
+.contact {
+  display: grid;
+  gap: 10px;
+  margin-top: 4px;
+}
+.contact span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+}
+.stamp {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doc :global(section),
+  .doc > :global(div) {
+    transition: none;
+  }
+}
+
+/* phones: clause headings sit on two lines rather than three */
+@media (max-width: 640px) {
+  .doc :global(h2) {
+    font-size: 16px;
+  }
+  .doc :global(section),
+  .doc > :global(div) {
+    padding: 22px 20px 20px;
+  }
+}
+
+/* the short summary that opens the page */
+.summary {
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 22px;
+  padding: 28px 28px 26px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.07);
+  margin-top: 8px;
+}
+.summary p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+}
+.summary strong {
+  color: var(--navy);
+}
+
+/* the full legal text, folded away so the page stays short */
+.full {
+  margin-top: 18px;
+}
+.full > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.12);
+  border-radius: 18px;
+  padding: 18px 22px;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--navy);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.full > summary::-webkit-details-marker {
+  display: none;
+}
+.full > summary:hover {
+  border-color: rgba(238, 88, 36, 0.45);
+  box-shadow: 0 12px 26px rgba(37, 49, 90, 0.1);
+}
+.full > summary span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 50%;
+  background: rgba(238, 88, 36, 0.1);
+  color: var(--accent);
+  font-weight: 800;
+  transition: transform 0.25s;
+}
+.full[open] > summary span {
+  transform: rotate(45deg);
+}
+.full[open] > summary {
+  margin-bottom: 18px;
+}
