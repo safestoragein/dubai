@@ -347,3 +347,19 @@ h2.longH2 {
   left: 18px;
   bottom: 18px;
 }
+
+/* a three-across variant of the silo cards (the expat ship/store/sell
+   comparison), stacking the same way the four-across grid does */
+.siloGrid.trio {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 900px) {
+  .siloGrid.trio {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  .siloGrid.trio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

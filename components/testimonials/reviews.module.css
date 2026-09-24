@@ -117,3 +117,10 @@
     flex-basis: 86%;
   }
 }
+
+/* a "cons" list: the shared checkList shows a tick, which reads as a positive,
+   so the drawbacks column swaps the marker for a cross */
+.consList li::before {
+  content: "✕";
+  color: #d23b2e;
+}

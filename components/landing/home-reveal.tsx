@@ -1,12 +1,21 @@
 "use client"
 
-import { useEffect, useRef, type ReactNode } from "react"
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react"
 import f from "./home-fx.module.css"
 
 /* Pops the cards inside it up, one after another, the first time they scroll
    into view (homepage redesign, owner 2026-09-21). Same approach as the service
    pages. Server-rendered children, so nothing is hidden from crawlers. */
-export default function HomeReveal({ children, className = "" }: { children: ReactNode; className?: string }) {
+export default function HomeReveal({
+  children,
+  className = "",
+  style,
+}: {
+  children: ReactNode
+  className?: string
+  /** passed through for one-off grid overrides; optional, so existing callers are unchanged */
+  style?: CSSProperties
+}) {
   const el = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -28,7 +37,7 @@ export default function HomeReveal({ children, className = "" }: { children: Rea
   }, [])
 
   return (
-    <div ref={el} className={className}>
+    <div ref={el} className={className} style={style}>
       {children}
     </div>
   )
