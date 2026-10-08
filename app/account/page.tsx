@@ -1,14 +1,10 @@
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
-import {
-  CalendarDays, CheckCircle2, CreditCard, HelpCircle, LayoutDashboard, Mail, MapPin, Package,
-  Phone, Receipt, Truck, UserRound,
-} from "lucide-react"
+import { CheckCircle2, CreditCard, Mail, MapPin, Package, Phone, Receipt, Truck, UserRound } from "lucide-react"
 import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
-import { EMAIL } from "@/lib/company-facts"
 import c from "./account.module.css"
-import LogoutButton from "./logout-button"
+import AccountShell from "./shell"
 
 export const metadata: Metadata = {
   title: { absolute: "My Account | Safe Storage Dubai" },
@@ -63,36 +59,7 @@ export default async function AccountPage() {
   }
 
   return (
-    <div className={c.page}>
-      <div className={c.shell}>
-        {/* ---------------- sidebar ---------------- */}
-        <aside className={c.side}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className={c.logo} src="/images/design-mode/logo.png" alt="SafeStorage Dubai" />
-          <nav className={c.nav} aria-label="Account">
-            <a className={`${c.navItem} ${c.navActive}`} href="#top"><LayoutDashboard aria-hidden="true" /> Dashboard</a>
-            <a className={c.navItem} href="#orders"><Package aria-hidden="true" /> Orders{orders.length > 0 && <span className={c.badge}>{orders.length}</span>}</a>
-            <a className={c.navItem} href="#payments"><CreditCard aria-hidden="true" /> Payments{hasDue && <span className={c.badge}>{dues!.count}</span>}</a>
-            <a className={c.navItem} href="#details"><UserRound aria-hidden="true" /> My details</a>
-            <div className={c.navSep} />
-            <a className={c.navItem} href={`mailto:${EMAIL}`}><HelpCircle aria-hidden="true" /> Help &amp; Support</a>
-          </nav>
-          <div className={c.sideBottom}>
-            <LogoutButton />
-          </div>
-        </aside>
-
-        {/* ---------------- main ---------------- */}
-        <div className={c.main} id="top">
-          <div className={c.top}>
-            <div className={c.crumb}><LayoutDashboard aria-hidden="true" /> My account</div>
-            <div className={c.topRight}>
-              <span className={c.chip}><CalendarDays aria-hidden="true" /> {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</span>
-              <span className={c.avatar} title={name}>{first.charAt(0).toUpperCase()}</span>
-            </div>
-          </div>
-
-          <div className={c.content}>
+    <AccountShell active="dashboard" name={name} orderCount={orders.length} dueCount={dues?.count ?? 0} crumb="My account">
             <div className={c.heading}>
               <div>
                 <h1>Welcome back, {first}</h1>
@@ -222,9 +189,6 @@ export default async function AccountPage() {
                 </div>
               </>
             )}
-          </div>
-        </div>
-      </div>
-    </div>
+    </AccountShell>
   )
 }
