@@ -8,6 +8,7 @@ import c from "../account.module.css"
 type Item = { id: number; quotation: string; barcode: string; name: string; type: string; qty: number }
 type Opt = { slug: string; name: string }
 export type Options = {
+  has_dues: boolean
   rules: { min_date: string; max_date: string; blocked_days: number[]; booked_dates: string[] }
   items: Item[]
   max_partial: number
@@ -224,7 +225,8 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
       <div className={c.rtTypes} role="radiogroup" aria-label="Retrieval type">
         {TYPES.map((t) => {
           const Icon = t.icon
-          const disabled = noItems || blocked || (t.key === "partial" && opts.max_partial < 1)
+          const dueBlock = t.key === "partial" && opts.has_dues
+          const disabled = noItems || blocked || dueBlock || (t.key === "partial" && opts.max_partial < 1)
           const on = type === t.key
           return (
             <button key={t.key} type="button" role="radio" aria-checked={on} disabled={disabled}
@@ -233,7 +235,7 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
               <span className={c.rtIcon}><Icon aria-hidden="true" /></span>
               <span className={c.rtTypeText}>
                 <b>{t.title}</b>
-                <small>{t.key === "partial" && opts.max_partial < 1 && !noItems ? "Needs at least 2 stored items" : t.text}</small>
+                <small>{dueBlock ? "Pay your due bills first (Pay now at the top), or contact our support team." : t.key === "partial" && opts.max_partial < 1 && !noItems ? "Needs at least 2 stored items" : t.text}</small>
               </span>
             </button>
           )

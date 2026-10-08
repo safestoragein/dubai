@@ -82,6 +82,7 @@ class Dubai_retrieval extends MY_Controller {
             'open_orders' => $openList,
             'floors' => $floors, 'timeslots' => $slots,
             'rules' => $this->_date_rules($c),
+            'has_dues' => $this->_unpaid_count($c->customer_id) > 0,
             'defaults' => array(
                 'address' => (string) $c->pickup_address, 'lat' => $c->pickup_lat, 'lng' => $c->pickup_lang,
                 'floor' => (string) $c->pickup_floor, 'lift' => (string) $c->pickup_lift, 'phone' => (string) $c->customer_contact1,
@@ -387,6 +388,13 @@ class Dubai_retrieval extends MY_Controller {
     }
 
     // ---------------------------------------------------------------- helpers
+    /** Number of unpaid bills. The Indian get_retrieval_info_partial refuses a partial retrieval while any exist (_check_unpaid_dues). */
+    private function _unpaid_count($cid)
+    {
+        return (int) $this->db->query("SELECT COUNT(*) AS n FROM ss_customer_payment WHERE customer_id = ? AND payment_status = 'Unpaid'", array($cid))->row()->n;
+    }
+    const DUE_MSG = 'We have noted that your due payment is pending. Please pay it first (use Pay now at the top of the page) or contact our support team.';
+
     /** The signed-in customer, as the caller says it: must be an active Dubai customer with a login. */
     private function _customer()
     {
@@ -421,6 +429,7 @@ class Dubai_retrieval extends MY_Controller {
 
         $active = $this->_active_items($c->customer_id);
         if (!$active) $this->_err('You have no stored items to retrieve.');
+        if ($type === 'partial' && $this->_unpaid_count($c->customer_id) > 0) $this->_err(self::DUE_MSG);
         $activeIds = array(); foreach ($active as $a) $activeIds[] = $a['id'];
 
         if ($type === 'partial') {
