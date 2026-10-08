@@ -5,6 +5,7 @@ import { callBack } from "@/lib/customer-back"
 import c from "../account.module.css"
 import AccountShell from "../shell"
 import PayBanner from "../pay-banner"
+import ItemsToggle from "./items-toggle"
 
 export const metadata: Metadata = {
   title: { absolute: "My Quotations | Safe Storage Dubai" },
@@ -83,19 +84,7 @@ export default async function QuotationsPage() {
                 <span className={c.qChip}>Floor {x.floor || "—"}</span>
                 <span className={c.qChip}>Lift {x.lift ? x.lift.charAt(0).toUpperCase() + x.lift.slice(1) : "—"}</span>
               </div>
-              {x.items.length > 0 && (
-                <div className={c.qItems}>
-                  <table className={c.table}>
-                    <thead><tr><th>#</th><th>Item</th><th>Qty</th><th>AED / unit</th><th>Subtotal</th></tr></thead>
-                    <tbody>
-                      {x.items.map((it, i) => (
-                        <tr key={i}><td>{i + 1}</td><td>{it.name}</td><td>{it.qty}</td><td>{aed(it.unit)}</td><td>{aed(it.subtotal)}</td></tr>
-                      ))}
-                    </tbody>
-                    <tfoot><tr><td colSpan={4} style={{ textAlign: "right", fontWeight: 600 }}>Items subtotal</td><td style={{ fontWeight: 600 }}>{aed(x.items_subtotal)}</td></tr></tfoot>
-                  </table>
-                </div>
-              )}
+              {x.items.length > 0 && <ItemsToggle items={x.items} subtotal={x.items_subtotal} />}
             </article>
           ))}
         </div>

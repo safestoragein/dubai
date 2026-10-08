@@ -609,3 +609,10 @@ th.sumAmt { text-align: right; }
 .qPick { margin: 0 22px 14px; padding: 10px 14px; border-radius: 10px; background: #eaf6ef; color: #1a6a45; font-size: 13px; }
 .qItems { padding: 0 22px 18px; overflow-x: auto; }
 @media (max-width: 760px) { .qTiles { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px 14px; } .qHead, .qTotal, .qChips, .qItems { padding-left: 14px; padding-right: 14px; } .qPick { margin: 0 14px 14px; } .qTotal b { font-size: 24px; } }
+.qItemsWrap { padding: 0 22px 18px; }
+.qItemsWrap .qItems { padding: 10px 0 0; }
+.qToggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; padding: 12px 14px; border: 1px solid #e6e9ed; border-radius: 10px; background: #fafbfc; font: inherit; font-size: 14px; font-weight: 600; color: var(--ss-ink); cursor: pointer; }
+.qToggle:hover { background: #f4f6f9; }
+.qToggle svg { width: 18px; height: 18px; color: #7a8497; transition: transform .18s; }
+.qToggle svg.qChevOpen { transform: rotate(180deg); }
+@media (max-width: 760px) { .qItemsWrap { padding-left: 14px; padding-right: 14px; } }
