@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowLeft, ArrowRight, CalendarDays, Check, Clock, MapPin, PackageCheck, PackageOpen, Truck, Boxes } from "lucide-react"
+import { ArrowLeft, ArrowRight, CalendarDays, Check, MapPin, PackageCheck, PackageOpen, Truck, Boxes } from "lucide-react"
 import { loadGoogleMapsScript } from "@/lib/google-maps-loader"
 import c from "../account.module.css"
 
@@ -88,7 +88,6 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
   const [step, setStep] = useState<1 | 2>(1)
   const [picked, setPicked] = useState<number[]>([])
   const [date, setDate] = useState("")
-  const [slot, setSlot] = useState("")
   const [address, setAddress] = useState(opts.defaults.address || "")
   const [lat, setLat] = useState(opts.defaults.lat || "")
   const [lng, setLng] = useState(opts.defaults.lng || "")
@@ -149,7 +148,7 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
     try {
       const res = await fetch("/api/customer/retrieval/create", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type, date: toDMY(date), lat, lng, floor, lift, timeslot: slot, address, phone, note, inventory_id: type === "partial" ? picked : [] }),
+        body: JSON.stringify({ type, date: toDMY(date), lat, lng, floor, lift, address, phone, note, inventory_id: type === "partial" ? picked : [] }),
       })
       const d = await res.json().catch(() => ({}))
       if (res.ok && d.ref) { setDone(d.ref); window.scrollTo({ top: 0, behavior: "smooth" }) } else setErr(d.error || "Could not send your request. Please try again.")
@@ -175,7 +174,6 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
   const noItems = opts.items.length === 0
   const blocked = opts.open_orders.length > 0
   const cur = TYPES.find((t) => t.key === type)
-  const slotName = opts.timeslots.find((x) => x.slug === slot)?.name
   const floorName = opts.floors.find((x) => x.slug === floor)?.name
 
   return (
@@ -271,15 +269,6 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                   <div className={c.formGrid}>
                     <div className={c.fLabel}><span><CalendarDays aria-hidden="true" /> Date</span>
                       <RtCalendar value={date} onChange={(v) => setDate(v)} min={opts.rules.min_date} max={opts.rules.max_date} blocked={opts.rules.blocked_days} /></div>
-                    <div className={c.fLabel}><span><Clock aria-hidden="true" /> Time slot</span>
-                      <div className={c.slotChips} role="radiogroup" aria-label="Time slot">
-                        {opts.timeslots.map((t) => (
-                          <button key={t.slug} type="button" role="radio" aria-checked={slot === t.slug} disabled={!date}
-                            className={`${c.slotChip} ${slot === t.slug ? c.slotChipOn : ""}`} onClick={() => setSlot(t.slug)}>{t.name}</button>
-                        ))}
-                      </div>
-                      {!date && <em className={c.fHint} style={{ color: "#8b93a0" }}>Choose a date first.</em>}
-                    </div>
                     <label className={`${c.fLabel} ${c.fWide}`}><span><MapPin aria-hidden="true" /> Delivery address</span>
                       <input ref={addrRef} type="text" value={address} placeholder="Start typing and pick your address"
                         onChange={(e) => { setAddress(e.target.value); setLat(""); setLng("") }} />
@@ -307,7 +296,6 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                     <li><span>Type</span><b>{cur.title}</b></li>
                     <li><span>Items</span><b>{itemsForType.length}</b></li>
                     <li><span>Date</span><b>{date ? toDMY(date) : "—"}</b></li>
-                    <li><span>Time</span><b>{slotName || "—"}</b></li>
                     <li><span>Floor / lift</span><b>{floorName ? `${floorName} · ${lift === "yes" ? "lift" : lift === "no" ? "no lift" : "—"}` : "—"}</b></li>
                   </ul>
 
@@ -353,10 +341,10 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
 
                   {err && <div className={c.notice} style={{ margin: "12px 0 0" }}>{err}</div>}
                   <button type="button" className={c.rtPrimary} style={{ width: "100%", justifyContent: "center", marginTop: 14 }}
-                    disabled={busy || !ready || !slot || !phone || !address || (type !== "intercity" && !est)} onClick={submit}>
+                    disabled={busy || !ready || !phone || !address || (type !== "intercity" && !est)} onClick={submit}>
                     {busy ? "Sending…" : "Request retrieval"}
                   </button>
-                  <p className={c.rtMuted} style={{ textAlign: "center", margin: "8px 0 0" }}>No payment is taken now.</p>
+                  <p className={c.rtMuted} style={{ textAlign: "center", margin: "8px 0 0" }}>No payment is taken now. Our team will confirm the delivery time with you.</p>
                 </aside>
               </div>
               <footer className={c.rtFoot}>

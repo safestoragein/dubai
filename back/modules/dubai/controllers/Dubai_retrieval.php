@@ -256,14 +256,14 @@ class Dubai_retrieval extends MY_Controller {
                     'lat' => $lat, 'lng' => $lng, 'floor' => $floor, 'lift' => $lift);
 
         if ($forCreate) {
+            // No slot is chosen by the customer: the team confirms the time with them.
             $slot = (string) $this->input->post('timeslot');
-            $row = $this->db->query("SELECT timeslot FROM ss_timeslot WHERE status = '0' AND timeslot_slug = ? LIMIT 1", array($slot))->row();
-            if (!$row) $this->_err('Choose a time slot.');
+            $row = $slot !== '' ? $this->db->query("SELECT timeslot FROM ss_timeslot WHERE status = '0' AND timeslot_slug = ? LIMIT 1", array($slot))->row() : null;
             $addr = trim((string) $this->input->post('address'));
             if ($addr === '' || strlen($addr) > 400) $this->_err('Enter your delivery address.');
             $phone = trim((string) $this->input->post('phone'));
             if (!preg_match('/^[0-9+\s\-]{6,20}$/', $phone)) $this->_err('Enter a valid phone number.');
-            $in['timeslot_name'] = $row->timeslot;
+            $in['timeslot_name'] = $row ? $row->timeslot : 'To be confirmed by our team';
             $in['address'] = $addr;
             $in['phone'] = $phone;
             $in['note'] = substr(trim((string) $this->input->post('note')), 0, 500);
