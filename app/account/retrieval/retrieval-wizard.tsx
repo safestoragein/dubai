@@ -106,31 +106,38 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
   const [done, setDone] = useState<string | null>(null)
   const addrRef = useRef<HTMLInputElement>(null)
 
-  // Google address suggestions → text + coordinates (the price depends on the location)
+  // Google address suggestions → text + coordinates (the price depends on the location).
+  // The address box only exists on step 2, so the suggestions are attached when that step opens.
+  const [typed, setTyped] = useState(false)          // true once the customer edits the address by hand
+  const [placesErr, setPlacesErr] = useState(false)
   useEffect(() => {
+    if (step !== 2) return
     let off = false
+    let ac: google.maps.places.Autocomplete | null = null
     loadGoogleMapsScript().then(() => {
-      if (off || !addrRef.current || !window.google?.maps?.places) return
-      const ac = new window.google.maps.places.Autocomplete(addrRef.current, {
-        fields: ["formatted_address", "geometry"],
+      if (off || !addrRef.current) return
+      if (!window.google?.maps?.places) { setPlacesErr(true); return }
+      ac = new window.google.maps.places.Autocomplete(addrRef.current, {
+        fields: ["formatted_address", "geometry", "name"],
         ...(type === "intercity" ? {} : { componentRestrictions: { country: "ae" } }),
       })
       ac.addListener("place_changed", () => {
-        const p = ac.getPlace()
+        const p = ac?.getPlace()
         if (p?.geometry?.location) {
-          setAddress(p.formatted_address || addrRef.current?.value || "")
+          setAddress(p.formatted_address || p.name || addrRef.current?.value || "")
           setLat(String(p.geometry.location.lat()))
           setLng(String(p.geometry.location.lng()))
+          setTyped(false)
         }
       })
-    }).catch(() => {})
-    return () => { off = true }
-  }, [type])
+    }).catch(() => setPlacesErr(true))
+    return () => { off = true; if (ac) window.google?.maps?.event?.clearInstanceListeners(ac) }
+  }, [step, type])
 
   // A saved address has no coordinates yet: look it up ourselves so the charges can be worked out
   // without the customer having to re-pick the address from the suggestions.
   useEffect(() => {
-    if (step !== 2 || !address || lat) return
+    if (step !== 2 || !address || lat || typed) return
     let off = false
     const t = setTimeout(async () => {
       try {
@@ -144,7 +151,7 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
       } catch { /* the hint below tells the customer to pick a suggestion */ }
     }, 600)
     return () => { off = true; clearTimeout(t) }
-  }, [step, address, lat])
+  }, [step, address, lat, typed])
 
   const itemsForType = type === "partial" ? picked : opts.items.map((i) => i.id)
   const ready = !!type && !!date && !!address && !!floor && !!lift && (type === "intercity" || (lat && lng)) && itemsForType.length > 0
@@ -301,8 +308,9 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                     <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} /></label>
                   <label className={`${c.fLabel} ${c.fWide}`}><span><MapPin aria-hidden="true" /> Delivery address</span>
                     <input ref={addrRef} type="text" value={address} placeholder="Start typing and pick your address"
-                      onChange={(e) => { setAddress(e.target.value); setLat(""); setLng("") }} />
-                    {type !== "intercity" && address && !lat && <em className={c.fHint}>Finding your address on the map…</em>}
+                      onChange={(e) => { setAddress(e.target.value); setLat(""); setLng(""); setTyped(true) }} />
+                    {placesErr ? <em className={c.fHint}>Address suggestions are not available right now. Please type your full address.</em>
+                      : type !== "intercity" && address && !lat && (typed ? <em className={c.fHint}>Choose your address from the suggestions to see the charges.</em> : <em className={c.fHint}>Finding your address on the map…</em>)}
                   </label>
                   <label className={c.fLabel}><span>Floor</span>
                     <select value={floor} onChange={(e) => setFloor(e.target.value)}>
@@ -348,6 +356,7 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                             <tr><td colSpan={2} style={{ whiteSpace: "normal" }}>{type === "intercity" ? "Our team will quote the intercity delivery price and confirm it with you." : `This address is ${est.distance_km} km away, outside our 60 km delivery area. Our team will quote the transport price.`}</td></tr>
                           ) : (
                             <>
+                              {est.distance_km !== null && <tr><td>Delivery distance (from our nearest hub)</td><td className={c.inAmt}>{est.distance_km} km</td></tr>}
                               <tr><td>Transport Cost</td><td className={c.inAmt}>{money(est.transport_base)}</td></tr>
                               <tr><td>Handling Charges</td><td className={c.inAmt}>{money(est.transport_surcharge)}</td></tr>
                               <tr><td>Transport Charges (Note: Without packing consumables)</td><td className={c.inAmt}>{money(est.transport_base + est.transport_surcharge)}</td></tr>
