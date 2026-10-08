@@ -19,7 +19,8 @@ type OptReply = Options & { status?: string }
 const nameCase = (v: string) =>
   (v || "").trim().split(/\s+/).filter(Boolean).map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(" ")
 
-export default async function RetrievalPage() {
+export default async function RetrievalPage({ searchParams }: { searchParams: Promise<{ paid?: string }> }) {
+  const { paid } = await searchParams
   const me = await getCustomerSession()
   if (!me) redirect("/back/customer_login")
 
@@ -42,6 +43,9 @@ export default async function RetrievalPage() {
       </div>
 
       {(a?.dues?.count ?? 0) > 0 && (a?.dues?.total ?? 0) > 0 && <PayBanner total={a!.dues!.total} count={a!.dues!.count} />}
+
+      {paid === "1" && <div className={`${c.notice} ${c.noticeOk}`} style={{ margin: "0 0 24px" }}>Thank you. Your payment was received and your retrieval request is with our team. You will see it under Orders shortly, and we will confirm the delivery time with you.</div>}
+      {paid === "0" && <div className={c.notice} style={{ margin: "0 0 24px" }}>The payment was cancelled and nothing was charged. Your chosen date stays held for a few minutes if you want to try again.</div>}
 
       {!o ? (
         <div className={c.error}>Retrieval is not available right now. Please try again in a moment, or call us.</div>

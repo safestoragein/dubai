@@ -23,6 +23,7 @@ type Estimate = {
   monthly_amount: number; storage_till_date: number; storage_from: string; storage_to: string
   unpaid_dues: number; wallet: number; storage_due: number; storage_return: number
   final_payable_amt: number; final_return_amt: number
+  plan: { mode: "pay" | "request"; why: string; unpaid_dues: number; storage: number; transport: number; bills_total: number; wallet_used: number; amount_due_now: number }
 }
 type Kind = "partial" | "full" | "intercity"
 
@@ -166,11 +167,17 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
 
   async function submit() {
     setBusy(true); setErr("")
+    const payload = { type, date: toDMY(date), lat, lng, floor, lift, address, phone, note, inventory_id: type === "partial" ? picked : [] }
     try {
-      const res = await fetch("/api/customer/retrieval/create", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type, date: toDMY(date), lat, lng, floor, lift, address, phone, note, inventory_id: type === "partial" ? picked : [] }),
-      })
+      // 1. is there something to pay online? (this also holds the date for 30 minutes)
+      if (est?.plan.mode === "pay") {
+        const res = await fetch("/api/customer/retrieval/pay", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
+        const d = await res.json().catch(() => ({}))
+        if (res.ok && d.mode === "pay" && d.url) { window.location.href = d.url; return }
+        if (!(res.ok && d.mode === "request")) { setErr(d.error || "Could not start the payment. Please try again."); setBusy(false); return }
+      }
+      // 2. nothing to pay online here: send the request to our team
+      const res = await fetch("/api/customer/retrieval/create", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
       const d = await res.json().catch(() => ({}))
       if (res.ok && d.ref) { setDone(d.ref); window.scrollTo({ top: 0, behavior: "smooth" }) } else setErr(d.error || "Could not send your request. Please try again.")
     } catch { setErr("Could not reach the server. Please check your connection.") }
@@ -332,10 +339,9 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                         <p className={c.rtChargeTitle}>Storage charges</p>
                         <ul className={c.estList}>
                           <li><span>Monthly storage</span><b>{aed(est.monthly_amount)}</b></li>
-                          <li><span>Storage till {est.storage_to || "date"}</span><b>{aed(est.storage_till_date)}</b></li>
-                          {est.unpaid_dues > 0 && <li><span>Unpaid bills</span><b>{aed(est.unpaid_dues)}</b></li>}
-                          {est.wallet > 0 && <li><span>Wallet credit</span><b>− {aed(est.wallet)}</b></li>}
-                          <li className={c.estSub}><span>{est.storage_return > 0 ? "Storage refund" : "Storage balance due"}</span><b>{aed(est.storage_return > 0 ? est.storage_return : est.storage_due)}</b></li>
+                          {est.plan.unpaid_dues > 0 && <li><span>Bills already due</span><b>{aed(est.plan.unpaid_dues)}</b></li>}
+                          <li><span>Storage till {est.storage_to || "the retrieval date"}</span><b>{aed(est.plan.storage)}</b></li>
+                          {est.storage_return > 0 && <li><span>Prepaid storage coming back</span><b>{aed(est.storage_return)}</b></li>}
                         </ul>
 
                         <p className={c.rtChargeTitle} style={{ marginTop: 16 }}>Transport charges</p>
@@ -350,12 +356,17 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                         )}
 
                         <ul className={c.estList} style={{ marginTop: 14 }}>
+                          <li className={c.estSub}><span>Total charges</span><b>{aed(est.plan.bills_total)}</b></li>
+                          {est.plan.wallet_used > 0 && <li><span>Wallet credit used</span><b>− {aed(est.plan.wallet_used)}</b></li>}
                           <li className={c.estTotal}>
-                            <span>{est.final_return_amt > 0 ? "Refund to you" : "Estimated total"}</span>
-                            <b>{aed(est.final_return_amt > 0 ? est.final_return_amt : est.final_payable_amt)}</b>
+                            <span>{est.plan.mode === "pay" ? "To pay now" : est.final_return_amt > 0 ? "Refund to you" : "Estimated total"}</span>
+                            <b>{aed(est.plan.mode === "pay" ? est.plan.amount_due_now : est.final_return_amt > 0 ? est.final_return_amt : est.plan.amount_due_now)}</b>
                           </li>
                         </ul>
-                        <p className={c.rtMuted} style={{ marginTop: 8 }}>{est.team_quote ? "Storage only; transport is added once our team quotes it. " : ""}An estimate. Our team confirms the final amount before anything is billed.</p>
+                        <p className={c.rtMuted} style={{ marginTop: 8 }}>
+                          {est.plan.mode === "pay" ? "You pay by card, then your request goes to our team, who confirm the delivery time." : (est.plan.why || "") + " "}
+                          Final amounts are confirmed by our team.
+                        </p>
                       </>
                     )}
                   </div>
@@ -363,9 +374,9 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                   {err && <div className={c.notice} style={{ margin: "12px 0 0" }}>{err}</div>}
                   <button type="button" className={c.rtPrimary} style={{ width: "100%", justifyContent: "center", marginTop: 14 }}
                     disabled={busy || !ready || !phone || !address || (type !== "intercity" && !est)} onClick={submit}>
-                    {busy ? "Sending…" : "Request retrieval"}
+                    {busy ? "Please wait…" : est?.plan.mode === "pay" ? `Pay ${aed(est.plan.amount_due_now)} & request` : "Request retrieval"}
                   </button>
-                  <p className={c.rtMuted} style={{ textAlign: "center", margin: "8px 0 0" }}>No payment is taken now. Our team will confirm the delivery time with you.</p>
+                  <p className={c.rtMuted} style={{ textAlign: "center", margin: "8px 0 0" }}>{est?.plan.mode === "pay" ? "Secure card payment. Our team will confirm the delivery time with you." : "No payment is taken now. Our team will confirm the delivery time with you."}</p>
                 </aside>
               </div>
               <footer className={c.rtFoot}>

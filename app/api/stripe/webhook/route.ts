@@ -101,6 +101,37 @@ export async function POST(request: Request) {
 
     const amountAed = (session.amount_total ?? 0) / 100
 
+    // ---- Retrieval payment (customer portal): the request is only created once the money is confirmed ----
+    // The pending request was saved on safestorage.in before the redirect (an "intent"); settling it creates the
+    // order, the bills, marks them Paid through the existing settlement and uses the wallet credit. Idempotent there.
+    if (session.metadata?.purpose === "retrieval_payment") {
+      const paymentRef =
+        typeof session.payment_intent === "string" ? session.payment_intent : session.id
+      let result = ""
+      try {
+        const res = await fetch("https://safestorage.in/back/dubai/dubai_retrieval/settle", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-Dubai-Key": process.env.DUBAI_BACK_KEY ?? "",
+          },
+          body: new URLSearchParams({
+            customer_id: String(session.metadata.customer_id ?? ""),
+            intent_id: String(session.metadata.intent_id ?? ""),
+            payment_ref: paymentRef,
+            amount_aed: String(amountAed),
+          }).toString(),
+        })
+        result = (await res.text()).slice(0, 300)
+      } catch (error) {
+        // Network failure: answer 500 so Stripe retries — the settle call is idempotent.
+        console.error("[webhook] retrieval_payment settle call failed:", error)
+        return NextResponse.json({ received: false }, { status: 500 })
+      }
+      console.log("[webhook] retrieval_payment:", result)
+      return NextResponse.json({ received: true, purpose: "retrieval_payment" })
+    }
+
     // ---- Due payment (UAE customer paying storage dues from the CRM link) ----
     // A different kind of session entirely: there is no quotation to finalise and no
     // order to create, only existing ss_customer_payment rows to mark Paid. Handled
