@@ -616,3 +616,14 @@ th.sumAmt { text-align: right; }
 .qToggle svg { width: 18px; height: 18px; color: #7a8497; transition: transform .18s; }
 .qToggle svg.qChevOpen { transform: rotate(180deg); }
 @media (max-width: 760px) { .qItemsWrap { padding-left: 14px; padding-right: 14px; } }
+
+/* phone menu: arrow + fade on the side that still has more tabs */
+.navHint { display: none; }
+@media (max-width: 760px) {
+  .navHint { position: fixed; bottom: 0; z-index: 55; display: grid; place-items: center; width: 44px; height: calc(64px + env(safe-area-inset-bottom)); padding: 0 0 env(safe-area-inset-bottom); border: 0; cursor: pointer; color: var(--ss-orange); }
+  .navHint svg { width: 22px; height: 22px; filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.9)); }
+  .navHintR { right: 0; background: linear-gradient(270deg, #fff 45%, rgba(255, 255, 255, 0)); justify-items: end; padding-right: 6px; animation: navNudgeR 1.4s ease-in-out infinite; }
+  .navHintL { left: 0; background: linear-gradient(90deg, #fff 45%, rgba(255, 255, 255, 0)); justify-items: start; padding-left: 6px; }
+}
+@keyframes navNudgeR { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-4px); } }
+@media (prefers-reduced-motion: reduce) { .navHintR { animation: none; } }
