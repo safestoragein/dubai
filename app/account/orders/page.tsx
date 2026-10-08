@@ -37,7 +37,7 @@ export default async function OrdersPage() {
   const name = nameCase(a?.profile?.name || me.name) || "There"
 
   return (
-    <AccountShell active="orders" name={name} orderCount={orders.length} dueCount={a?.dues?.count ?? 0} crumb="Orders">
+    <AccountShell active="orders" name={name} customerId={undefined} orderCount={orders.length} dueCount={a?.dues?.count ?? 0} crumb="Orders">
       <div className={c.heading}>
         <div>
           <h1>My orders</h1>

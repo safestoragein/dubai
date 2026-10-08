@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
-import { CheckCircle2, CreditCard, Mail, MapPin, Package, Phone, Receipt, Truck, UserRound } from "lucide-react"
+import { CalendarDays, CheckCircle2, CreditCard, Package, PackageCheck, Receipt, Truck } from "lucide-react"
 import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
 import c from "./account.module.css"
@@ -25,9 +25,13 @@ const aed = (n: number) => `AED ${n.toLocaleString("en-AE", { maximumFractionDig
 const nameCase = (v: string) =>
   (v || "").trim().split(/\s+/).filter(Boolean).map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(" ")
 const label = (v: string) => (v ? v.replace(/_/g, " ").replace(/^\w/, (ch) => ch.toUpperCase()) : "—")
-const day = (v: string) => {
+const parse = (v: string) => {
   const d = new Date(String(v).replace(" ", "T"))
-  return Number.isNaN(d.getTime()) ? v || "—" : d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
+  return Number.isNaN(d.getTime()) ? null : d
+}
+const day = (v: string) => {
+  const d = parse(v)
+  return d ? d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : v || "—"
 }
 type Kind = "done" | "open" | "bad" | "other"
 const kind = (s: string): Kind => {
@@ -52,143 +56,164 @@ export default async function AccountPage() {
   const dues = a?.dues
   const hasDue = !!dues?.count
   const latest = orders[0]
-  const mix = {
-    done: orders.filter((o) => kind(o.status) === "done").length,
-    open: orders.filter((o) => kind(o.status) === "open").length,
-    other: orders.filter((o) => ["bad", "other"].includes(kind(o.status))).length,
-  }
+  const cid = a?.profile?.customer_unique_id
+
+  const nDone = orders.filter((o) => kind(o.status) === "done").length
+  const nOpen = orders.filter((o) => kind(o.status) === "open").length
+  const nRest = orders.length - nDone - nOpen
+  const pct = (n: number) => (orders.length ? Math.round((n / orders.length) * 100) : 0)
+  const pDone = pct(nDone)
+  const pOpen = pct(nOpen)
+  const ringBg = orders.length
+    ? `conic-gradient(#ee5824 0 ${pDone}%, #ffac88 ${pDone}% ${pDone + pOpen}%, #edf0f4 ${pDone + pOpen}%)`
+    : "#edf0f4"
+
+  // Recent activity, built from the customer's real orders and unpaid bills.
+  const activity = [
+    ...orders.slice(0, 3).map((o) => ({
+      icon: kind(o.status) === "done" ? PackageCheck : Truck,
+      title: `${label(o.type)} ${kind(o.status) === "done" ? "completed" : label(o.status).toLowerCase()}`,
+      sub: o.sub_type && o.sub_type !== o.type ? label(o.sub_type) : "Your order",
+      when: day(o.date),
+    })),
+    ...(dues?.items ?? []).slice(0, 2).map((d) => ({
+      icon: Receipt, title: "Payment due", sub: `${d.note || "Storage charges"} · ${aed(d.amount)}`, when: day(d.billing_date),
+    })),
+  ]
 
   return (
-    <AccountShell active="dashboard" name={name} orderCount={orders.length} dueCount={dues?.count ?? 0} crumb="My account">
-            <div className={c.heading}>
-              <div>
-                <h1>Welcome back, {first}</h1>
-                <p>Your storage orders, payments and details in one place.</p>
-              </div>
-              {a?.profile?.customer_unique_id && (
-                <span className={c.idPill}><UserRound aria-hidden="true" /> Customer ID: {a.profile.customer_unique_id}</span>
-              )}
+    <AccountShell active="overview" name={name} customerId={cid} orderCount={orders.length} dueCount={dues?.count ?? 0} crumb="Overview">
+      <div className={c.heading}>
+        <div>
+          <h1>Welcome back, {first}</h1>
+          <p>A clear view of your storage orders and payments.</p>
+        </div>
+        <div className={c.actions}>
+          <span className={c.button}><CalendarDays aria-hidden="true" /> {new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</span>
+          <a className={`${c.button} ${c.buttonOrange}`} href="/account/orders"><Package aria-hidden="true" /> View orders</a>
+        </div>
+      </div>
+
+      {!a ? (
+        <div className={c.error}>We could not load your account details right now. Please try again in a moment.</div>
+      ) : (
+        <>
+          <div className={c.kpis}>
+            <div className={`${c.card} ${c.kpi}`}>
+              <div className={c.kpiHead}><p className={c.kpiLabel}>Total orders</p><span className={c.tileIcon}><Package aria-hidden="true" /></span></div>
+              <p className={c.kpiValue}>{orders.length}</p>
+              <p className={c.kpiNote}><b>{nDone}</b>completed · {nOpen} upcoming</p>
             </div>
+            <div className={`${c.card} ${c.kpi}`}>
+              <div className={c.kpiHead}><p className={c.kpiLabel}>Amount due</p><span className={c.tileIcon}><CreditCard aria-hidden="true" /></span></div>
+              <p className={c.kpiValue}>{hasDue ? aed(dues!.total) : aed(0)}</p>
+              <p className={c.kpiNote}>{hasDue ? <><span className="warn" style={{ color: "#d45f50", fontWeight: 500, marginRight: 6 }}>Payment pending</span>on your unpaid bills</> : <><b>All paid</b>nothing outstanding</>}</p>
+            </div>
+            <div className={`${c.card} ${c.kpi}`}>
+              <div className={c.kpiHead}><p className={c.kpiLabel}>Unpaid bills</p><span className={c.tileIcon}><Receipt aria-hidden="true" /></span></div>
+              <p className={c.kpiValue}>{dues?.count ?? 0}</p>
+              <p className={c.kpiNote}>{hasDue ? "Please settle to avoid late fees" : "You are all caught up"}</p>
+            </div>
+            <div className={`${c.card} ${c.kpi}`}>
+              <div className={c.kpiHead}><p className={c.kpiLabel}>Latest order</p><span className={c.tileIcon}><Truck aria-hidden="true" /></span></div>
+              <p className={`${c.kpiValue} ${c.kpiValueSm}`}>{latest ? label(latest.type) : "—"}
+                {latest && <span className={`${c.status} ${pill[kind(latest.status)]}`}>{label(latest.status)}</span>}
+              </p>
+              <p className={c.kpiNote}>{latest ? day(latest.date) : "No orders yet"}</p>
+            </div>
+          </div>
 
-            {!a ? (
-              <div className={c.error}>We could not load your account details right now. Please try again in a moment.</div>
-            ) : (
-              <>
-                {/* KPI cards */}
-                <div className={c.kpis}>
-                  <div className={`${c.card} ${c.kpi}`}>
-                    <div className={c.kpiHead}><p className={c.kpiLabel}>Orders</p><Package className={`${c.kpiIcon} ${c.cBlue}`} aria-hidden="true" /></div>
-                    <p className={c.kpiValue}>{orders.length}</p>
-                    <p className={c.kpiNote}>Latest {orders.length === 1 ? "order" : "orders"} on your account</p>
-                  </div>
-                  <div className={`${c.card} ${c.kpi}`}>
-                    <div className={c.kpiHead}><p className={c.kpiLabel}>Amount due</p><CreditCard className={`${c.kpiIcon} ${hasDue ? c.cOrange : c.cGreen}`} aria-hidden="true" /></div>
-                    <p className={`${c.kpiValue} ${c.kpiValueSm}`}>
-                      {hasDue ? aed(dues!.total) : aed(0)}
-                      <span className={`${c.delta} ${hasDue ? c.dOrange : c.dGreen}`}>{hasDue ? "Due" : "Paid up"}</span>
-                    </p>
-                    <p className={c.kpiNote}>{hasDue ? "Across your unpaid bills" : "Nothing outstanding"}</p>
-                  </div>
-                  <div className={`${c.card} ${c.kpi}`}>
-                    <div className={c.kpiHead}><p className={c.kpiLabel}>Unpaid bills</p><Receipt className={`${c.kpiIcon} ${hasDue ? c.cRed : c.cGreen}`} aria-hidden="true" /></div>
-                    <p className={c.kpiValue}>{dues?.count ?? 0}</p>
-                    <p className={c.kpiNote}>{hasDue ? "Please settle to avoid late fees" : "You are all caught up"}</p>
-                  </div>
-                  <div className={`${c.card} ${c.kpi}`}>
-                    <div className={c.kpiHead}><p className={c.kpiLabel}>Latest order</p><Truck className={`${c.kpiIcon} ${c.cOrange}`} aria-hidden="true" /></div>
-                    <p className={`${c.kpiValue} ${c.kpiValueSm}`}>
-                      {latest ? label(latest.type) : "—"}
-                    </p>
-                    <p className={c.kpiNote}>
-                      {latest ? <><span className={`${c.status} ${pill[kind(latest.status)]}`}>{label(latest.status)}</span> · {day(latest.date)}</> : "No orders yet"}
-                    </p>
-                  </div>
+          <div className={c.grid2}>
+            <section className={`${c.panel} ${c.tablePanel}`}>
+              <div className={c.panelHead}>
+                <div><h2 className={c.panelTitle}>Recent orders</h2><p className={c.panelSub}>The latest activity on your account</p></div>
+                <a className={c.link} href="/account/orders">View all orders</a>
+              </div>
+              {orders.length ? (
+                <div className={c.tableWrap}>
+                  <table className={c.table}>
+                    <thead><tr><th>Order</th><th>Date</th><th>Status</th></tr></thead>
+                    <tbody>
+                      {orders.map((o, i) => (
+                        <tr key={i}>
+                          <td><span className={c.cellMain}><span className={c.cellIcon}><Truck aria-hidden="true" /></span>
+                            <span>{label(o.type)}{o.sub_type && o.sub_type !== o.type ? ` · ${label(o.sub_type)}` : ""}</span></span></td>
+                          <td>{day(o.date)}</td>
+                          <td><span className={`${c.status} ${pill[kind(o.status)]}`}>{label(o.status)}</span></td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
+              ) : <p className={c.empty}>No orders yet.</p>}
+            </section>
 
-                <div className={c.row}>
-                  <div className={c.col}>
-                    {/* order status mix */}
-                    <section className={c.card}>
-                      <div className={c.panelHead}><h2 className={c.panelTitle}>Order status</h2></div>
-                      <div className={c.mix}>
-                        <div className={c.mixItem} style={{ ["--bar" as string]: "#1f8a56" }}><p className={c.mixNum}>{mix.done}</p><p className={c.mixLabel}>Completed</p><div className={c.mixBar} /></div>
-                        <div className={c.mixItem} style={{ ["--bar" as string]: "#f26a1b" }}><p className={c.mixNum}>{mix.open}</p><p className={c.mixLabel}>In progress</p><div className={c.mixBar} /></div>
-                        <div className={c.mixItem} style={{ ["--bar" as string]: "#3b6fe0" }}><p className={c.mixNum}>{mix.other}</p><p className={c.mixLabel}>Other</p><div className={c.mixBar} /></div>
-                      </div>
-                    </section>
-
-                    {/* orders table */}
-                    <section className={c.card} id="orders">
-                      <div className={c.panelHead}>
-                        <h2 className={c.panelTitle}>Recent orders</h2>
-                        {orders.length > 0 && <span className={c.count}>{orders.length} latest</span>}
-                      </div>
-                      {orders.length ? (
-                        <div className={c.tableWrap}>
-                          <table className={c.table}>
-                            <thead><tr><th>Order</th><th>Date</th><th>Status</th></tr></thead>
-                            <tbody>
-                              {orders.map((o, i) => (
-                                <tr key={i}>
-                                  <td>
-                                    <span className={c.cellMain}>
-                                      <span className={c.cellIcon}><Truck aria-hidden="true" /></span>
-                                      {label(o.type)}{o.sub_type && o.sub_type !== o.type ? ` · ${label(o.sub_type)}` : ""}
-                                    </span>
-                                  </td>
-                                  <td className={c.muted}>{day(o.date)}</td>
-                                  <td><span className={`${c.status} ${pill[kind(o.status)]}`}>{label(o.status)}</span></td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
-                      ) : <p className={c.empty}>No orders yet.</p>}
-                    </section>
-                  </div>
-
-                  <div className={c.col}>
-                    {/* payments */}
-                    <section className={c.card} id="payments">
-                      <div className={c.panelHead}><h2 className={c.panelTitle}>Payments due</h2></div>
-                      {hasDue ? (
-                        <>
-                          <p className={c.dueTotal}><b>{aed(dues!.total)}</b><span>{dues!.count} unpaid</span></p>
-                          <ul className={c.dues}>
-                            {dues!.items.map((d, i) => (
-                              <li key={i} className={c.due}>
-                                <div>
-                                  <div className={c.dueNote}>{d.note || "Storage charges"}</div>
-                                  <div className={c.dueDate}>{day(d.billing_date)}</div>
-                                </div>
-                                <span className={c.dueAmt}>{aed(d.amount)}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      ) : (
-                        <div className={c.clearBox}>
-                          <span className={c.clearRing}><CheckCircle2 aria-hidden="true" /></span>
-                          <b>All clear</b>
-                          <span>Nothing is due. Thank you!</span>
-                        </div>
-                      )}
-                    </section>
-
-                    {/* details */}
-                    <section className={c.card} id="details">
-                      <div className={c.panelHead}><h2 className={c.panelTitle}>Your details</h2></div>
-                      <ul className={c.details}>
-                        <li className={c.detail}><span className={c.detailIcon}><UserRound aria-hidden="true" /></span><div><p className={c.detailLabel}>Name</p><p className={c.detailValue}>{name}</p></div></li>
-                        <li className={c.detail}><span className={c.detailIcon}><Mail aria-hidden="true" /></span><div><p className={c.detailLabel}>Email</p><p className={c.detailValue}>{a.profile?.email || "—"}</p></div></li>
-                        <li className={c.detail}><span className={c.detailIcon}><Phone aria-hidden="true" /></span><div><p className={c.detailLabel}>Phone</p><p className={c.detailValue}>{a.profile?.phone || "—"}</p></div></li>
-                        <li className={c.detail}><span className={c.detailIcon}><MapPin aria-hidden="true" /></span><div><p className={c.detailLabel}>City</p><p className={c.detailValue}>{label(a.profile?.city || "")}</p></div></li>
-                      </ul>
-                    </section>
-                  </div>
+            <section className={c.panel}>
+              <div className={c.panelHead}>
+                <div><h2 className={c.panelTitle}>Order status</h2><p className={c.panelSub}>Across your recent orders</p></div>
+              </div>
+              <div className={c.ringWrap}>
+                <div className={c.ring} style={{ background: ringBg }}><strong>{orders.length}<span>Orders</span></strong></div>
+                <div className={c.ringLabels}>
+                  <div><i className={c.dot} style={{ background: "#ee5824" }} />Completed<b>{pDone}%</b></div>
+                  <div><i className={c.dot} style={{ background: "#ffac88" }} />Upcoming<b>{pOpen}%</b></div>
+                  <div><i className={c.dot} style={{ background: "#edf0f4" }} />Other<b>{orders.length ? 100 - pDone - pOpen : 0}%</b></div>
                 </div>
-              </>
-            )}
+              </div>
+              <div className={c.capacity}><span>Completed <b>{nDone}</b></span><span>Upcoming <b>{nOpen}</b></span><span>Other <b>{nRest}</b></span></div>
+            </section>
+          </div>
+
+          <div className={c.grid2} id="payments">
+            <section className={`${c.panel} ${c.tablePanel}`}>
+              <div className={c.panelHead}>
+                <div><h2 className={c.panelTitle}>Payments</h2><p className={c.panelSub}>Bills waiting to be paid</p></div>
+                {hasDue && <span className={c.count}>{dues!.count} unpaid · {aed(dues!.total)}</span>}
+              </div>
+              {hasDue ? (
+                <div className={c.tableWrap}>
+                  <table className={c.table}>
+                    <thead><tr><th>Bill date</th><th>Description</th><th>Amount</th><th>Status</th></tr></thead>
+                    <tbody>
+                      {dues!.items.map((d, i) => (
+                        <tr key={i}>
+                          <td>{day(d.billing_date)}</td>
+                          <td style={{ color: "#344050" }}>{d.note || "Storage charges"}</td>
+                          <td><b>{aed(d.amount)}</b></td>
+                          <td><span className={`${c.status} ${c.sBad}`}>Unpaid</span></td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <p className={c.empty}><CheckCircle2 aria-hidden="true" style={{ width: 22, height: 22, color: "#268968", verticalAlign: "-5px", marginRight: 8 }} />Nothing is due. Thank you!</p>
+              )}
+            </section>
+
+            <section className={c.panel}>
+              <div className={c.panelHead}><h2 className={c.panelTitle}>Recent activity</h2></div>
+              {activity.length ? activity.map((x, i) => (
+                <div key={i} className={c.activity}>
+                  <span className={c.tileIcon}><x.icon aria-hidden="true" /></span>
+                  <div><b>{x.title}</b><p>{x.sub}</p></div>
+                  <time>{x.when}</time>
+                </div>
+              )) : <p className={c.panelSub}>Nothing to show yet.</p>}
+              <div className={`${c.notice} ${hasDue ? "" : c.noticeOk}`}>{hasDue ? `You have ${dues!.count} unpaid ${dues!.count === 1 ? "bill" : "bills"}.` : "Your account is up to date."}</div>
+            </section>
+          </div>
+
+          <section className={c.panel} id="details">
+            <div className={c.panelHead}><div><h2 className={c.panelTitle}>Your details</h2><p className={c.panelSub}>The information we have on file</p></div></div>
+            <div className={c.fields}>
+              {([["Name", name], ["Customer ID", cid || "—"], ["Email", a.profile?.email || "—"], ["Phone", a.profile?.phone || "—"], ["City", label(a.profile?.city || "")]] as [string, string][]).map(([k, v]) => (
+                <div key={k} className={c.field}><span>{k}</span><b>{v}</b></div>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
     </AccountShell>
   )
 }
