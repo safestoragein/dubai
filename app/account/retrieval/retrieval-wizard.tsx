@@ -348,7 +348,7 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                             <tr><td colSpan={2} style={{ whiteSpace: "normal" }}>{type === "intercity" ? "Our team will quote the intercity delivery price and confirm it with you." : `This address is ${est.distance_km} km away, outside our 60 km delivery area. Our team will quote the transport price.`}</td></tr>
                           ) : (
                             <>
-                              <tr><td>Transport Cost ({est.pallets} {est.pallets === 1 ? "pallet" : "pallets"} · {est.tier})</td><td className={c.inAmt}>{money(est.transport_base)}</td></tr>
+                              <tr><td>Transport Cost</td><td className={c.inAmt}>{money(est.transport_base)}</td></tr>
                               <tr><td>Handling Charges</td><td className={c.inAmt}>{money(est.transport_surcharge)}</td></tr>
                               <tr><td>Transport Charges (Note: Without packing consumables)</td><td className={c.inAmt}>{money(est.transport_base + est.transport_surcharge)}</td></tr>
                               <tr><td>Tax (0%)</td><td className={c.inAmt}>{money(0)}</td></tr>
