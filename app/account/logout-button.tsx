@@ -7,12 +7,12 @@ import c from "./account.module.css"
 export default function LogoutButton() {
   const router = useRouter()
   return (
-    <button type="button" className={c.signout} onClick={async () => {
+    <button type="button" className={c.navItem} onClick={async () => {
       await fetch("/api/customer/logout", { method: "POST" })
       router.push("/back/customer_login")
       router.refresh()
     }}>
-      <LogOut size={15} aria-hidden="true" style={{ verticalAlign: "-2px", marginRight: 6 }} />
+      <LogOut aria-hidden="true" />
       Sign out
     </button>
   )
