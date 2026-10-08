@@ -162,7 +162,7 @@
   .caption, .user, .navSep { display: none; }
   /* phones: the menu becomes a bottom tab bar (all 7 pages visible, thumb-reachable) */
   .side { padding: 10px 16px; }
-  .nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); margin: 0; padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid #e5e8ed; box-shadow: 0 -6px 20px rgba(20, 33, 61, 0.08); }
+  .nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); margin: 0; padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid #e5e8ed; box-shadow: 0 -6px 20px rgba(20, 33, 61, 0.08); }
   .navItem { flex-direction: column; justify-content: center; gap: 3px; width: auto; min-width: 0; padding: 6px 2px; font-size: 10px; line-height: 1.15; text-align: center; border-radius: 10px; }
   .navActive::after, .badge { display: none; }
   .navItem svg { width: 20px; height: 20px; }
@@ -588,3 +588,24 @@ th.sumAmt { text-align: right; }
   .content { padding: 18px 14px; }
 }
 @media (max-width: 400px) { .navItem { font-size: 9px; padding: 6px 0; letter-spacing: -0.1px; } .nav { padding-left: 2px; padding-right: 2px; } .navItem svg { width: 19px; height: 19px; } }
+
+/* quotations (read only) */
+.qList { display: grid; gap: 18px; }
+.qCard { background: #fff; border: 1px solid var(--ss-line); border-radius: 14px; overflow: hidden; }
+.qHead { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 16px 22px; border-bottom: 1px solid #eef1f4; }
+.qId { margin: 0; font-size: 16px; font-weight: 650; color: var(--ss-ink); }
+.qWhen { margin: 3px 0 0; font-size: 12px; color: #959ca7; }
+.qBadge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 99px; background: #fff0e9; color: #e85120; font-size: 12px; font-weight: 600; }
+.qBadgeOn { background: #e8f1ff; color: #1f4fbf; }
+.qTotal { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; padding: 18px 22px 6px; }
+.qTotal small { display: block; font-size: 11px; letter-spacing: .6px; text-transform: uppercase; color: #959ca7; }
+.qTotal b { font-size: 28px; font-weight: 650; color: #14213d; letter-spacing: -0.6px; }
+.qTiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 12px 22px; }
+.qTile { background: #f6f8fb; border-radius: 10px; padding: 12px 14px; }
+.qTile small { display: block; font-size: 11px; color: #959ca7; text-transform: uppercase; letter-spacing: .5px; }
+.qTile b { font-size: 18px; font-weight: 600; color: var(--ss-ink); }
+.qChips { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 22px 14px; }
+.qChip { padding: 6px 12px; border-radius: 99px; border: 1px solid #e6e9ed; font-size: 12px; color: #5f6978; }
+.qPick { margin: 0 22px 14px; padding: 10px 14px; border-radius: 10px; background: #eaf6ef; color: #1a6a45; font-size: 13px; }
+.qItems { padding: 0 22px 18px; overflow-x: auto; }
+@media (max-width: 760px) { .qTiles { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px 14px; } .qHead, .qTotal, .qChips, .qItems { padding-left: 14px; padding-right: 14px; } .qPick { margin: 0 14px 14px; } .qTotal b { font-size: 24px; } }

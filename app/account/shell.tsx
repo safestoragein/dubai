@@ -1,12 +1,12 @@
 import type { ReactNode } from "react"
-import { Bell, Boxes, CalendarDays, CreditCard, FolderOpen, LayoutGrid, Package, PackageOpen, UserRound } from "lucide-react"
+import { Bell, Boxes, CalendarDays, CreditCard, FileText, FolderOpen, LayoutGrid, Package, PackageOpen, UserRound } from "lucide-react"
 import c from "./account.module.css"
 import LogoutButton from "./logout-button"
 import AvatarMenu from "./avatar-menu"
 
 // Shared frame for every signed-in page: sidebar + top bar. `active` highlights the menu item.
 export default function AccountShell({ active, name, customerId, orderCount, dueCount, dueTotal = 0, crumb, children }: {
-  active: "overview" | "orders" | "payments" | "details" | "retrieval" | "inventory" | "documents"
+  active: "overview" | "orders" | "payments" | "details" | "retrieval" | "inventory" | "documents" | "quotations"
   name: string
   customerId?: string
   orderCount: number
@@ -27,6 +27,7 @@ export default function AccountShell({ active, name, customerId, orderCount, due
             <a className={`${c.navItem} ${active === "overview" ? c.navActive : ""}`} href="/account"><LayoutGrid aria-hidden="true" /> Overview</a>
             <a className={`${c.navItem} ${active === "orders" ? c.navActive : ""}`} href="/account/orders"><Package aria-hidden="true" /> Orders{orderCount > 0 && <span className={c.badge}>{orderCount}</span>}</a>
             <a className={`${c.navItem} ${active === "payments" ? c.navActive : ""}`} href="/account/payments"><CreditCard aria-hidden="true" /> Payments{dueCount > 0 && <span className={c.badge}>{dueCount}</span>}</a>
+            <a className={`${c.navItem} ${active === "quotations" ? c.navActive : ""}`} href="/account/quotations"><FileText aria-hidden="true" /> Quotations</a>
             <a className={`${c.navItem} ${active === "inventory" ? c.navActive : ""}`} href="/account/inventory"><Boxes aria-hidden="true" /> Inventory</a>
             <a className={`${c.navItem} ${active === "documents" ? c.navActive : ""}`} href="/account/documents"><FolderOpen aria-hidden="true" /> Documents</a>
             <a className={`${c.navItem} ${active === "retrieval" ? c.navActive : ""}`} href="/account/retrieval"><PackageOpen aria-hidden="true" /> Retrieval</a>

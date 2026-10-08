@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *   POST dubai/dubai_auth/details   customer_id   (profile, storage summary, timeline, stored items)
  *   POST dubai/dubai_auth/inventory customer_id   (every item record, like the back-office Inventory tab)
  *   POST dubai/dubai_auth/documents customer_id   (inventory / stacking / damage images and documents, like the back-office Document tab)
+ *   POST dubai/dubai_auth/quotations customer_id  (the customer's quotations with their items and pickup booking — read only)
  *
  * Same rules as auth/login for a customer: ss_user with user_email, base64(password),
  * status '0', role_id 6 — plus ONE extra rule for this site: ss_user.user_country
@@ -393,6 +394,42 @@ class Dubai_auth extends MY_Controller {
         }
         $quotations = array(); foreach ($qts as $id => $lab) $quotations[] = array('id' => $id, 'label' => $lab);
         $this->_json(array('status' => 'success', 'total' => $total, 'quotations' => $quotations, 'groups' => $out));
+    }
+
+    // ------------------------------------------------------------- quotations
+    /** The customer's own quotations (read only): totals, items and the pickup booking — what the back-office Quotations tab shows, without any staff action. */
+    public function quotations()
+    {
+        $cid = (int) $this->input->post('customer_id');
+        if ($cid <= 0) {
+            $this->_json(array('status' => 'error', 'message' => 'customer_id required.'), 400);
+        }
+        $ok = $this->db->query(
+            "SELECT 1 FROM ss_customer c JOIN ss_user u ON u.customer_id = c.customer_id
+              WHERE c.customer_id = ? AND u.role_id = 6 AND u.status = '0' AND u.user_country = 'AE' LIMIT 1", array($cid))->num_rows();
+        if (!$ok) {
+            $this->_json(array('status' => 'error', 'message' => 'Not found.'), 404);
+        }
+        $out = array();
+        foreach ($this->db->query("SELECT * FROM ss_customer_quotation WHERE customer_id = ? AND country_code = 'AE' ORDER BY quotation_id DESC LIMIT 100", array($cid))->result() as $q) {
+            $qid = (int) $q->quotation_id;
+            $items = array(); $sub = 0.0;
+            foreach ($this->db->query("SELECT item_name, item_count, item_price FROM ss_customer_quotation_item WHERE quotation_id = ?", array($qid))->result() as $it) {
+                $line = (int) $it->item_count * (float) $it->item_price; $sub += $line;
+                $items[] = array('name' => (string) $it->item_name, 'qty' => (int) $it->item_count, 'unit' => round((float) $it->item_price, 2), 'subtotal' => round($line, 2));
+            }
+            $po = $this->db->query("SELECT order_id, order_schedule_date, order_timeslot, order_status FROM ss_order WHERE quotation_id = ? AND order_type = 'pickup' AND order_status <> 'cancelled' AND country_code = 'AE' ORDER BY order_id DESC LIMIT 1", array($qid))->row();
+            $created = !empty($q->created_at) ? $q->created_at : (isset($q->quotation_created_at) ? $q->quotation_created_at : '');
+            $out[] = array(
+                'id' => $qid, 'label' => 'QT' . sprintf('%03d', $qid), 'created' => (string) $created,
+                'total' => round((float) $q->total_amount, 2), 'closed_storage' => round((float) $q->storage_price, 2), 'shared_storage' => round((float) $q->shared_storage_price, 2),
+                'sqft' => round((float) $q->total_sqft, 2), 'pallets' => (int) $q->total_pallet, 'points' => (int) $q->total_points,
+                'bedrooms' => trim((string) $q->bedrooms), 'floor' => trim((string) $q->floor), 'lift' => trim((string) $q->lift),
+                'items' => $items, 'items_subtotal' => round($sub, 2),
+                'pickup' => $po ? array('date' => (string) $po->order_schedule_date, 'slot' => (string) $po->order_timeslot, 'ref' => 'WO' . $po->order_id, 'status' => (string) $po->order_status) : null,
+            );
+        }
+        $this->_json(array('status' => 'success', 'quotations' => $out));
     }
 
     // --------------------------------------------------------------- payments

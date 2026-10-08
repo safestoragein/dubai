@@ -90,7 +90,7 @@ $C["$A: login ok => customer json, failures cleared"] = array($A, 'login', array
     'rules' => array(array('/FROM ss_failed_login/', array(array('n' => 0))), array('/FROM ss_user u JOIN ss_customer c/', array(array('user_id' => 1, 'customer_id' => 7, 'customer_unique_id' => 'DXB7', 'customer_name' => 'T', 'customer_email' => 't@x'))))),
     function ($r) { $d = array_filter($r['log'], function ($l) { return $l[0] === 'delete'; }); return $r['code'] === 200 && $r['json']['customer']['customer_id'] === 7 && count($d) === 2; });
 $C["$A: login bad forwarded ip falls back"] = array($A, 'login', array('post' => array('username' => 'a@b.c', 'password' => 'p'), 'server' => array('HTTP_X_FORWARDED_FOR' => 'not-an-ip'), 'rules' => array(array('/FROM ss_failed_login/', array(array('n' => 0))))), $err(401));
-foreach (array('account', 'orders', 'details', 'inventory', 'documents', 'payments') as $m) {
+foreach (array('account', 'orders', 'details', 'inventory', 'documents', 'payments', 'quotations') as $m) {
     $C["$A: $m no id => 400"]       = array($A, $m, array('post' => array()), $err(400));
     $C["$A: $m not a Dubai user => 404"] = array($A, $m, array('post' => array('customer_id' => '7')), $err(404));
 }
@@ -104,6 +104,11 @@ $C["$A: inventory ok"] = array($A, 'inventory', array('post' => array('customer_
 $C["$A: details ok"] = array($A, 'details', array('post' => array('customer_id' => '7'), 'rules' => array($accountRow, array('/FROM ss_order_inventory WHERE customer_id = \? ORDER BY inventory_id DESC LIMIT 300/', $items),
     array('/SELECT \* FROM ss_order WHERE customer_id = \? AND order_type = .pickup./', array($order)), array('/FROM ss_customer_quotation/', array($quote)))),
     function ($r) { return $r['code'] === 200 && $r['json']['storage']['items'] === 3 && $r['json']['timeline']['pickup_done'] === true && $r['json']['timeline']['checked_in'] === '2026-02-01'; });
+$C["$A: quotations ok (items, pickup booking, read only)"] = array($A, 'quotations', array('post' => array('customer_id' => '7'), 'rules' => array($guard,
+    array('/FROM ss_customer_quotation WHERE customer_id = \? AND country_code = .AE./', array(array('quotation_id' => 341715, 'created_at' => '2026-07-27 14:54:00', 'total_amount' => '806.4', 'storage_price' => '806.4', 'shared_storage_price' => '0', 'total_sqft' => '64', 'total_pallet' => 4, 'total_points' => 55, 'bedrooms' => '2', 'floor' => 'G', 'lift' => 'yes'), array('quotation_id' => 341716, 'created_at' => '', 'quotation_created_at' => '2026-07-28', 'total_amount' => '100', 'storage_price' => '0', 'shared_storage_price' => '0', 'total_sqft' => '0', 'total_pallet' => 0, 'total_points' => 0, 'bedrooms' => '', 'floor' => '', 'lift' => ''))),
+    array('/FROM ss_customer_quotation_item/', array(array('item_name' => 'Air fryer', 'item_count' => 4, 'item_price' => '25.2'))),
+    array('/FROM ss_order WHERE quotation_id = \? AND order_type = .pickup./', function ($b) { return $b[0] == 341715 ? array(array('order_schedule_date' => '2026-08-01', 'order_id' => 9, 'order_timeslot' => '9-12', 'order_status' => 'confirmed')) : array(); }))),
+    function ($r) { $q = $r['json']['quotations'] ?? array(); return $r['code'] === 200 && count($q) === 2 && $q[0]['items'][0]['subtotal'] == 100.8 && $q[0]['pickup']['ref'] === 'WO9' && $q[1]['pickup'] === null && $q[0]['label'] === 'QT341715'; });
 $C["$A: documents ok"] = array($A, 'documents', array('post' => array('customer_id' => '7'), 'rules' => array($guard, array('/FROM ss_inv_damaged_other_images/', $img),
     array('/FROM ss_damaged_items_images/', array(array('damaged_items_image_id' => 4, 'image' => 'v.jpg'), array('damaged_items_image_id' => 5, 'image' => ''))), array('/FROM ss_customer_quotation/', array(array('quotation_id' => 9))))),
     function ($r) { $j = $r['json']; return $r['code'] === 200 && $j['total'] === 3 && count($j['quotations']) === 2 && strpos($j['groups'][0]['images'][0]['url'], 'a%20b.jpg') !== false; });
