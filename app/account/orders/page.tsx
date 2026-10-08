@@ -3,9 +3,9 @@ import { redirect } from "next/navigation"
 import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
 import c from "../account.module.css"
-import { CalendarCheck, CheckCircle2, Package, XCircle } from "lucide-react"
 import AccountShell from "../shell"
 import OrdersList, { type Order } from "./orders-list"
+import OrdersInsights from "./orders-insights"
 
 export const metadata: Metadata = {
   title: { absolute: "My Orders | Safe Storage Dubai" },
@@ -37,13 +37,6 @@ export default async function OrdersPage() {
   const orders: Order[] = full ?? a?.orders ?? []
   const name = nameCase(a?.profile?.name || me.name) || "There"
 
-  const count = (k: "done" | "open" | "bad") =>
-    orders.filter((o) => {
-      const v = (o.status || "").toLowerCase()
-      const kk = /complete|deliver|done|success/.test(v) ? "done" : /cancel|fail|reject/.test(v) ? "bad" : /pending|schedul|confirm|progress|open|new/.test(v) ? "open" : "other"
-      return kk === k
-    }).length
-
   return (
     <AccountShell active="orders" name={name} customerId={a?.profile?.customer_unique_id} orderCount={orders.length} dueCount={a?.dues?.count ?? 0} crumb="Orders">
       <div className={c.heading}>
@@ -57,20 +50,7 @@ export default async function OrdersPage() {
         <div className={c.error}>We could not load your orders right now. Please try again in a moment.</div>
       ) : (
         <>
-          <div className={c.kpis}>
-            {([
-              ["All orders", orders.length, Package, "Everything on your account"],
-              ["Upcoming", count("open"), CalendarCheck, "Scheduled or in progress"],
-              ["Completed", count("done"), CheckCircle2, "Collected and safe with us"],
-              ["Cancelled", count("bad"), XCircle, "Orders that were cancelled"],
-            ] as const).map(([t, v, Icon, note]) => (
-              <div key={t} className={`${c.card} ${c.kpi}`}>
-                <div className={c.kpiHead}><p className={c.kpiLabel}>{t}</p><span className={c.tileIcon}><Icon aria-hidden="true" /></span></div>
-                <p className={c.kpiValue}>{v}</p>
-                <p className={c.kpiNote}>{note}</p>
-              </div>
-            ))}
-          </div>
+          <OrdersInsights orders={orders} />
           <OrdersList orders={orders} />
         </>
       )}

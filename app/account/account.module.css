@@ -207,3 +207,20 @@
 .pagination .pageOn { background: #fff0e9; color: var(--ss-orange); border-color: #fff0e9; }
 .pagination button:disabled { opacity: 0.4; cursor: default; }
 @media (max-width: 860px) { .detailGrid { grid-template-columns: 1fr; gap: 22px; } .search { width: 100%; } .steps { flex-wrap: wrap; } .step { min-width: 40%; } }
+
+/* orders insights: sparkline cards, activity chart, status list */
+.kpiSpark { position: relative; overflow: hidden; }
+.spark { position: absolute; right: 18px; bottom: 44px; width: 46%; height: 46px; pointer-events: none; }
+.up { color: #299876; font-weight: 500; margin-right: 6px; }
+.down { color: #d45f50; font-weight: 500; margin-right: 6px; }
+.bigRow { display: flex; align-items: baseline; gap: 12px; margin: 4px 0 6px; flex-wrap: wrap; }
+.bigNum { font-size: 34px; font-weight: 650; letter-spacing: -1px; color: var(--ss-ink); line-height: 1.1; }
+.bigNote { color: #858d9a; font-size: 13px; }
+.chart { width: 100%; height: auto; display: block; margin-top: 8px; }
+.statusList { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 18px; }
+.statusList li { display: grid; grid-template-columns: 96px 1fr 24px; align-items: center; gap: 14px; }
+.slName { color: #4a5164; font-size: 14px; }
+.slTrack { height: 8px; border-radius: 99px; background: #f0f2f5; overflow: hidden; }
+.slTrack i { display: block; height: 100%; border-radius: 99px; }
+.slCount { text-align: right; font-weight: 600; color: var(--ss-ink); }
+.slFoot { margin-top: 22px; padding-top: 18px; border-top: 1px solid #eef0f3; color: #8b93a0; font-size: 13px; }

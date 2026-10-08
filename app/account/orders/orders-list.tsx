@@ -48,6 +48,10 @@ export default function OrdersList({ orders }: { orders: Order[] }) {
 
   return (
     <section className={`${c.panel} ${c.tablePanel}`}>
+      <div className={c.panelHead}>
+        <h2 className={c.panelTitle}>All orders <span className={c.count}>{orders.length}</span></h2>
+        <span className={c.panelSub} style={{ margin: 0 }}>{new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</span>
+      </div>
       <div className={c.toolbar}>
         <div className={c.tabs} role="tablist" aria-label="Filter orders">
           {FILTERS.map((x) => (
