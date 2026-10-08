@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *   POST dubai/dubai_auth/orders    customer_id   (every order of that customer)
  *   POST dubai/dubai_auth/payments  customer_id   (every bill + every payment received)
  *   POST dubai/dubai_auth/details   customer_id   (profile, storage summary, timeline, stored items)
+ *   POST dubai/dubai_auth/inventory customer_id   (every item record, like the back-office Inventory tab)
  *
  * Same rules as auth/login for a customer: ss_user with user_email, base64(password),
  * status '0', role_id 6 — plus ONE extra rule for this site: ss_user.user_country
@@ -261,6 +262,48 @@ class Dubai_auth extends MY_Controller {
             'timeline' => $timeline,
             'items'    => $items,
         ));
+    }
+
+    // -------------------------------------------------------------- inventory
+    /** All item records of one Dubai customer (the back-office "Inventory" tab: ss_order_inventory). */
+    public function inventory()
+    {
+        $cid = (int) $this->input->post('customer_id');
+        if ($cid <= 0) {
+            $this->_json(array('status' => 'error', 'message' => 'customer_id required.'), 400);
+        }
+        $ok = $this->db->query(
+            "SELECT 1 FROM ss_customer c JOIN ss_user u ON u.customer_id = c.customer_id
+              WHERE c.customer_id = ? AND u.role_id = 6 AND u.status = '0' AND u.user_country = 'AE' LIMIT 1", array($cid))->num_rows();
+        if (!$ok) {
+            $this->_json(array('status' => 'error', 'message' => 'Not found.'), 404);
+        }
+        $rows = $this->db->query(
+            "SELECT inventory_id, quotation_id, goods_storage_id, barcode, goods_name, goods_size, goods_color, goods_type, goods_quantity,
+                    goods_price, goods_location, start_date, end_date, retrivel_date, inventory_status, is_removed_item
+               FROM ss_order_inventory WHERE customer_id = ? ORDER BY inventory_id DESC LIMIT 1000", array($cid))->result();
+        $items = array();
+        foreach ($rows as $i) {
+            $extra = trim(($i->goods_size ? $i->goods_size . ', ' : '') . $i->goods_color);
+            if ($i->is_removed_item == '1')            $status = 'Removed';
+            elseif ($i->inventory_status == 'active')  $status = 'Stored';
+            else                                       $status = ucfirst((string) $i->inventory_status);   // e.g. Retrieved
+            $items[] = array(
+                'id'        => (int) $i->inventory_id,
+                'quotation' => $i->quotation_id ? 'QT' . $i->quotation_id : '',
+                'storage_id'=> $i->goods_storage_id ? 'SID' . $i->goods_storage_id : '',
+                'barcode'   => (string) $i->barcode,
+                'name'      => (string) $i->goods_name . ($extra !== '' ? ' (' . $extra . ')' : ''),
+                'type'      => (string) $i->goods_type,
+                'qty'       => (int) $i->goods_quantity,
+                'value'     => $i->goods_price !== '' && $i->goods_price !== null ? round((float) $i->goods_price, 2) : null,
+                'location'  => (string) $i->goods_location,
+                'start'     => (string) $i->start_date,
+                'end'       => (string) ($i->retrivel_date ? $i->retrivel_date : $i->end_date),
+                'status'    => $status,
+            );
+        }
+        $this->_json(array('status' => 'success', 'items' => $items));
     }
 
     // --------------------------------------------------------------- payments

@@ -14,7 +14,7 @@ function toBody(form: Record<string, string | string[]>): string {
 export type BackResult<T> = { ok: boolean; status: number; data: T | null }
 
 export async function callBack<T = Record<string, unknown>>(
-  path: "login" | "account" | "orders" | "payments" | "details" | "options" | "estimate" | "create",
+  path: "login" | "account" | "orders" | "payments" | "details" | "inventory" | "options" | "estimate" | "create",
   form: Record<string, string | string[]>,
   visitorIp?: string,
   controller: "dubai_auth" | "dubai_retrieval" = "dubai_auth"
