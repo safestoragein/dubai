@@ -5,7 +5,6 @@ import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
 import c from "./account.module.css"
 import AccountShell from "./shell"
-import { OrdersCharts } from "./orders/orders-insights"
 
 export const metadata: Metadata = {
   title: { absolute: "My Account | Safe Storage Dubai" },
@@ -123,8 +122,6 @@ export default async function AccountPage() {
               <p className={c.kpiNote}>{latest ? day(latest.date) : "No orders yet"}</p>
             </div>
           </div>
-
-          <OrdersCharts orders={orders} />
 
           <div className={c.grid2}>
             <section className={`${c.panel} ${c.tablePanel}`}>

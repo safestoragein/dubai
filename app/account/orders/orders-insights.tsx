@@ -170,7 +170,6 @@ export default function OrdersInsights({ orders }: { orders: Order[] }) {
         })}
       </div>
 
-      <OrdersCharts orders={orders} />
     </>
   )
 }
