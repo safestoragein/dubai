@@ -113,7 +113,7 @@ class Dubai_retrieval extends MY_Controller {
     }
 
     /** Writes the order + item rows and tells the team. Returns the new order id (0 on failure). */
-    private function _place_order($c, $in, $est, $status, $paidNote = '')
+    private function _place_order($c, $in, $est, $status, $paidNote = '', $paidAmount = null)
     {
         $mgr = $this->db->query("SELECT user_id FROM ss_user WHERE role_id = 2 AND user_city = ? AND user_country = 'AE' AND status = '0' LIMIT 1", array((string) $c->customer_local_city))->row();
         $com = $this->db->query("SELECT commission_percent FROM ss_transport_commission WHERE status = '0' ORDER BY commission_id DESC LIMIT 1")->row();
@@ -149,6 +149,7 @@ class Dubai_retrieval extends MY_Controller {
             'user_id'            => $actor,
         );
         if ($in['type'] === 'intercity') $order['is_intercity'] = 1;
+        if ($paidAmount !== null) $order['retrieval_team_amount'] = number_format($paidAmount, 2, '.', '');      // as the Indian full/partial payment stores it
 
         $this->db->insert('ss_order', $order);
         $oid = (int) $this->db->insert_id();
@@ -193,8 +194,20 @@ class Dubai_retrieval extends MY_Controller {
      * Online payment is offered only for the plain case (transport priced, nothing to refund, amount >= AED 2);
      * everything else is a request the team settles with the customer.
      */
-    private function _plan($c, $d, $teamQuote, $transport, $storageTillDate, $wallet, $isReturn)
+    private function _plan($c, $d, $teamQuote, $transport, $storageTillDate, $wallet, $isReturn, $type = 'full')
     {
+        // PARTIAL retrieval (same as the Indian record_partial_retrieval_payment): only the transport is charged —
+        // no storage, no dues, no wallet — because the customer keeps most of the items in storage.
+        if ($type === 'partial') {
+            $t = $teamQuote ? 0.0 : round($transport, 2);
+            $mode = 'request'; $why = '';
+            if (!$this->_pay_enabled())      $why = 'Online payment is switched off.';
+            elseif ($teamQuote)              $why = 'Our team will quote the transport price first.';
+            elseif ($t < 2)                  $why = 'Online card payment starts from AED 2. Our team will collect this amount.';
+            else                             $mode = 'pay';
+            return array('mode' => $mode, 'why' => $why, 'type' => 'partial', 'unpaid_ids' => array(), 'unpaid_dues' => 0.0, 'storage' => 0.0,
+                         'transport' => $t, 'bills_total' => $t, 'wallet_used' => 0.0, 'amount_due_now' => $t);
+        }
         $dues = 0.0; $ids = array();
         foreach ($this->db->query("SELECT payment_id, payable_amount, total_amount FROM ss_customer_payment WHERE customer_id = ? AND payment_status = 'Unpaid'", array($c->customer_id))->result() as $r) {
             $a = is_numeric($r->payable_amount) ? (float) $r->payable_amount : (float) $r->total_amount;
@@ -210,7 +223,7 @@ class Dubai_retrieval extends MY_Controller {
         elseif ($isReturn === 'yes')           $why = 'Part of your prepaid storage comes back to you, so our team settles the amounts with you.';
         elseif ($due < 2)                      $why = ($due > 0) ? 'Online card payment starts from AED 2. Our team will collect this amount.' : 'Your wallet covers the charges.';
         else                                   $mode = 'pay';
-        return array('mode' => $mode, 'why' => $why, 'unpaid_ids' => $ids, 'unpaid_dues' => round($dues, 2), 'storage' => $storage,
+        return array('mode' => $mode, 'why' => $why, 'type' => 'full', 'unpaid_ids' => $ids, 'unpaid_dues' => round($dues, 2), 'storage' => $storage,
                      'transport' => $teamQuote ? 0.0 : round($transport, 2), 'bills_total' => $bills, 'wallet_used' => $walletUsed, 'amount_due_now' => $due);
     }
 
@@ -271,36 +284,53 @@ class Dubai_retrieval extends MY_Controller {
         }
 
         $est = $this->_estimate($c, $in);                                   // the order keeps the figures as they are now
-        $oid = $this->_place_order($c, $in, $est, 'request_raise', 'PAID ONLINE: AED ' . number_format($paid, 2) . ' (Stripe ' . $ref . ')');
+        $oid = $this->_place_order($c, $in, $est, 'request_raise', 'PAID ONLINE: AED ' . number_format($paid, 2) . ' (Stripe ' . $ref . ')', $paid);
         if ($oid <= 0) {
             $this->_alert_team('Retrieval paid but the order could not be created', $c, 'Intent ' . $iid . ' paid AED ' . $paid . ' (ref ' . $ref . '). Please create the retrieval by hand.');
             $this->_json(array('status' => 'error', 'message' => 'order_failed'), 500);
         }
 
-        // new bills for what is now owed (priced above), then the EXISTING settlement marks everything Paid and records the money
+        // bills for what is now owed (priced above); the EXISTING settlement then writes the AE invoice + transactions and marks them Paid
         $ids = array();
         foreach ($plan['unpaid_ids'] as $pid) $ids[] = (int) $pid;
         $now = date('Y-m-d');
-        $mk = function ($amt, $note, $type, $tax) use ($c, $oid, $now) {
+        $partial = ($in['type'] === 'partial');
+        $mk = function ($amt, $note, $type, $tax, $chargesType) use ($c, $oid, $now) {
             $this->db->insert('ss_customer_payment', array(
                 'country_code' => 'AE', 'customer_id' => $c->customer_id, 'sub_total_amt' => number_format($amt, 2, '.', ''), 'tax' => $tax,
                 'total_amount' => number_format($amt, 2, '.', ''), 'payable_amount' => number_format($amt, 2, '.', ''),
                 'bill_genrated_date' => $now, 'billing_date' => $now, 'offer_note' => $note, 'payment_status' => 'Unpaid',
-                'is_extra_charges' => '1', 'is_instant' => '1', 'charges_type' => $type, 'order_id' => $oid, 'payment_unique_id' => mt_rand(100000, 999999),
+                'is_extra_charges' => '1', 'is_instant' => '1', 'charges_type' => $chargesType, 'order_id' => $oid, 'payment_unique_id' => mt_rand(100000, 999999),
             ));
             return (int) $this->db->insert_id();
         };
-        if ($plan['storage'] > 0)   $ids[] = $mk($plan['storage'], 'Storage charges till retrieval (' . date('d/m/Y', strtotime($in['date_ymd'])) . ')', null, 5);
-        if ($plan['transport'] > 0) $ids[] = $mk($plan['transport'], 'Retrieval transport charges', 'transport_charges', 0);
+        if (!$partial && $plan['storage'] > 0) $ids[] = $mk($plan['storage'], 'Storage charges till retrieval (' . date('d/m/Y', strtotime($in['date_ymd'])) . ')', null, 5, null);
+        if ($plan['transport'] > 0) $ids[] = $mk($plan['transport'], $partial ? 'Partial retrieval delivery charges' : 'Retrieval transport charges', null, 0, 'transport_charges');
 
-        // wallet credit is used up in the same step
-        if ($plan['wallet_used'] > 0) {
-            $w = $this->db->query("SELECT wallet_id, wallet_amount FROM ss_customer_wallet WHERE customer_id = ? LIMIT 1", array($c->customer_id))->row();
-            if ($w) {
-                $left = max(0, round((float) $w->wallet_amount - (float) $plan['wallet_used'], 2));
-                $this->db->where('wallet_id', $w->wallet_id)->update('ss_customer_wallet', array('wallet_amount' => number_format($left, 2, '.', ''), 'old_amount' => (string) $w->wallet_amount, 'comment' => 'Used for retrieval WO' . $oid));
+        $dbg = $this->db->db_debug; $this->db->db_debug = FALSE;      // the bookkeeping rows below must never abort a settled payment
+        if (!$partial) {
+            // Indian record_full_retrieval_payment: the wallet is used up ...
+            if ($plan['wallet_used'] > 0) {
+                $w = $this->db->query("SELECT wallet_id, wallet_amount FROM ss_customer_wallet WHERE customer_id = ? LIMIT 1", array($c->customer_id))->row();
+                if ($w) {
+                    $left = max(0, round((float) $w->wallet_amount - (float) $plan['wallet_used'], 2));
+                    $this->db->where('wallet_id', $w->wallet_id)->update('ss_customer_wallet', array('wallet_amount' => number_format($left, 2, '.', ''), 'old_amount' => (string) $w->wallet_amount, 'comment' => 'Used for retrieval WO' . $oid));
+                }
             }
+            // ... a record of how many unpaid bills this retrieval cleared ...
+            if (count($plan['unpaid_ids']) > 0) {
+                $this->db->insert('ss_paid_dues_retrieval', array('customer_id' => $c->customer_id, 'no_of_dues' => count($plan['unpaid_ids']), 'payment_id' => (int) $plan['unpaid_ids'][0]));
+            }
+            // ... and the retrieval summary row (what was calculated and what was charged).
+            $this->db->insert('ss_retrieval_summary', array(
+                'customer_id' => $c->customer_id, 'log_is_return' => $est['is_return_to_cust'], 'log_return_amt' => $est['storage_return'],
+                'log_due_amt' => number_format($plan['unpaid_dues'] + $plan['storage'], 2, '.', ''), 'log_transport_note' => 'Retrieval transport charges',
+                'transport_charges' => $est['transport_base'], 'transport_tax_amt' => $est['transport_tax'], 'total_transport_charges' => $est['transport_total'],
+                'final_payable_amt' => $plan['amount_due_now'], 'final_return_amt' => 0,
+            ));
         }
+
+        $this->db->db_debug = $dbg;
 
         $settle = $this->_call_due_settle($c->customer_id, $ids, $paid, $ref);
         $this->_log($c->customer_id, 0, 'retrieval_settled', 'Retrieval WO' . $oid . ' paid online · AED ' . number_format($paid, 2) . ' · wallet used AED ' . number_format($plan['wallet_used'], 2) . ' · ref ' . $ref . ' · settlement: ' . substr((string) $settle, 0, 160), json_encode(array('order_id' => $oid, 'bill_ids' => $ids)), $iid);
@@ -573,7 +603,7 @@ class Dubai_retrieval extends MY_Controller {
         elseif ($monthlyReturn > $T)      { $finalRet = $monthlyReturn - $T; }
         else                              { $finalPay = $T - $monthlyReturn; }
 
-        $plan = $this->_plan($c, $d, $teamQuote, (float) $tp['total'], $n('storage_charges_till_date'), $n('wallet_amount'), isset($d['is_return_to_cust']) ? (string) $d['is_return_to_cust'] : '');
+        $plan = $this->_plan($c, $d, $teamQuote, (float) $tp['total'], $n('storage_charges_till_date'), $n('wallet_amount'), isset($d['is_return_to_cust']) ? (string) $d['is_return_to_cust'] : '', $in['type']);
         return array(
             'type'               => $in['type'],
             'items'              => count($in['ids']),

@@ -506,3 +506,11 @@ th.sumAmt { text-align: right; }
 .calDayFree { background: #e6f5ec; color: #1d7a4b; font-weight: 500; }
 .calDayFree:hover:not(:disabled) { background: #cdebd9; }
 .calDayBooked, .calDayBooked:disabled { background: #fde8e6; color: #c0392b; text-decoration: none; cursor: not-allowed; font-weight: 500; }
+
+/* retrieval step 2: form on top, Storage and Transport as two tables side by side, pay bar under them */
+.rtChargesBlock { margin-top: 28px; padding-top: 22px; border-top: 1px dashed #dfe2ea; }
+.rtTables { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start; margin-top: 14px; }
+.rtPayBar { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 22px; padding: 18px 22px; border-radius: 12px; background: color-mix(in srgb, var(--tone-soft) 55%, #fff); border: 1px solid color-mix(in srgb, var(--tone) 22%, #fff); }
+.rtPayLabel { margin: 0; font-size: 12.5px; color: #6f7686; font-weight: 500; }
+.rtPayAmt { margin: 2px 0 6px; font-size: 28px; font-weight: 650; letter-spacing: -0.8px; color: #19212e; }
+.rtPayAct { min-width: 240px; }

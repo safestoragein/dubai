@@ -23,7 +23,7 @@ type Estimate = {
   monthly_amount: number; storage_till_date: number; storage_from: string; storage_to: string
   unpaid_dues: number; wallet: number; storage_due: number; storage_return: number
   final_payable_amt: number; final_return_amt: number
-  plan: { mode: "pay" | "request"; why: string; unpaid_dues: number; storage: number; transport: number; bills_total: number; wallet_used: number; amount_due_now: number }
+  plan: { mode: "pay" | "request"; why: string; type: "partial" | "full"; unpaid_dues: number; storage: number; transport: number; bills_total: number; wallet_used: number; amount_due_now: number }
 }
 type Kind = "partial" | "full" | "intercity"
 
@@ -290,94 +290,91 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
             </div>
           ) : (
             <div className={c.rtBody}>
-              <div className={c.rtCols}>
-                <div className={c.rtForm}>
-                  <h3>Delivery details</h3>
-                  <p className={c.rtFormSub}>Where and when should we bring your items?</p>
-                  <div className={c.formGrid}>
-                    <div className={c.fLabel}><span><CalendarDays aria-hidden="true" /> Date</span>
-                      <RtCalendar value={date} onChange={(v) => setDate(v)} min={opts.rules.min_date} max={opts.rules.max_date} blocked={opts.rules.blocked_days} booked={opts.rules.booked_dates} /></div>
-                    <label className={`${c.fLabel} ${c.fWide}`}><span><MapPin aria-hidden="true" /> Delivery address</span>
-                      <input ref={addrRef} type="text" value={address} placeholder="Start typing and pick your address"
-                        onChange={(e) => { setAddress(e.target.value); setLat(""); setLng("") }} />
-                      {type !== "intercity" && address && !lat && <em className={c.fHint}>Pick your address from the suggestions so we can price the delivery.</em>}
-                    </label>
-                    <label className={c.fLabel}><span>Floor</span>
-                      <select value={floor} onChange={(e) => setFloor(e.target.value)}>
-                        <option value="">Choose floor</option>
-                        {opts.floors.map((f) => <option key={f.slug} value={f.slug}>{f.name}</option>)}
-                      </select></label>
-                    <label className={c.fLabel}><span>Lift available?</span>
-                      <select value={lift} onChange={(e) => setLift(e.target.value)}>
-                        <option value="">Choose</option><option value="yes">Yes</option><option value="no">No</option>
-                      </select></label>
-                    <label className={c.fLabel}><span>Phone</span>
-                      <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} /></label>
-                    <label className={`${c.fLabel} ${c.fWide}`}><span>Note for our team (optional)</span>
-                      <textarea rows={2} maxLength={500} value={note} onChange={(e) => setNote(e.target.value)} /></label>
-                  </div>
+              <div className={c.rtForm}>
+                <h3>Delivery details</h3>
+                <p className={c.rtFormSub}>Where and when should we bring your items?</p>
+                <div className={c.formGrid}>
+                  <div className={c.fLabel}><span><CalendarDays aria-hidden="true" /> Date</span>
+                    <RtCalendar value={date} onChange={(v) => setDate(v)} min={opts.rules.min_date} max={opts.rules.max_date} blocked={opts.rules.blocked_days} booked={opts.rules.booked_dates} /></div>
+                  <label className={c.fLabel}><span>Phone</span>
+                    <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} /></label>
+                  <label className={`${c.fLabel} ${c.fWide}`}><span><MapPin aria-hidden="true" /> Delivery address</span>
+                    <input ref={addrRef} type="text" value={address} placeholder="Start typing and pick your address"
+                      onChange={(e) => { setAddress(e.target.value); setLat(""); setLng("") }} />
+                    {type !== "intercity" && address && !lat && <em className={c.fHint}>Finding your address on the map…</em>}
+                  </label>
+                  <label className={c.fLabel}><span>Floor</span>
+                    <select value={floor} onChange={(e) => setFloor(e.target.value)}>
+                      <option value="">Choose floor</option>
+                      {opts.floors.map((f) => <option key={f.slug} value={f.slug}>{f.name}</option>)}
+                    </select></label>
+                  <label className={c.fLabel}><span>Lift available?</span>
+                    <select value={lift} onChange={(e) => setLift(e.target.value)}>
+                      <option value="">Choose</option><option value="yes">Yes</option><option value="no">No</option>
+                    </select></label>
+                  <label className={`${c.fLabel} ${c.fWide}`}><span>Note for our team (optional)</span>
+                    <textarea rows={2} maxLength={500} value={note} onChange={(e) => setNote(e.target.value)} /></label>
                 </div>
+              </div>
 
-                <aside className={c.rtSummary}>
-                  <h3>Summary</h3>
-                  <ul className={c.rtRecap}>
-                    <li><span>Type</span><b>{cur.title}</b></li>
-                    <li><span>Items</span><b>{itemsForType.length}</b></li>
-                    <li><span>Date</span><b>{date ? toDMY(date) : "—"}</b></li>
-                    <li><span>Floor / lift</span><b>{floorName ? `${floorName} · ${lift === "yes" ? "lift" : lift === "no" ? "no lift" : "—"}` : "—"}</b></li>
-                  </ul>
+              <div className={c.rtChargesBlock}>
+                <h3>Charges</h3>
+                {!ready ? (
+                  <p className={c.rtMuted}>Fill in the date, address, floor and lift to see the charges.</p>
+                ) : estErr ? (
+                  <p style={{ color: "#d45f50", margin: 0, fontSize: 13 }}>{estErr}</p>
+                ) : !est ? (
+                  <p className={c.rtMuted}>Working out the charges…</p>
+                ) : (
+                  <>
+                    <div className={c.rtTables}>
+                      {type !== "partial" && (
+                        <table className={c.sumTable}>
+                          <thead><tr><th>Storage charges</th><th className={c.sumAmt}>Amount</th></tr></thead>
+                          <tbody>
+                            <tr><td>Monthly storage</td><td className={c.sumAmt}>{aed(est.monthly_amount)}</td></tr>
+                            {est.plan.unpaid_dues > 0 && <tr><td>Bills already due</td><td className={c.sumAmt}>{aed(est.plan.unpaid_dues)}</td></tr>}
+                            <tr><td>Storage till {est.storage_to || "the retrieval date"}</td><td className={c.sumAmt}>{aed(est.plan.storage)}</td></tr>
+                            {est.storage_return > 0 && <tr><td>Prepaid storage coming back</td><td className={c.sumAmt}>{aed(est.storage_return)}</td></tr>}
+                            {est.plan.wallet_used > 0 && <tr><td>Wallet credit used</td><td className={c.sumAmt}>− {aed(est.plan.wallet_used)}</td></tr>}
+                            <tr className={c.sumTotal}><td>Storage total</td><td className={c.sumAmt}>{aed(Math.max(0, est.plan.unpaid_dues + est.plan.storage - est.plan.wallet_used))}</td></tr>
+                          </tbody>
+                        </table>
+                      )}
+                      <table className={c.sumTable}>
+                        <thead><tr><th>Transport charges</th><th className={c.sumAmt}>Amount</th></tr></thead>
+                        <tbody>
+                          {est.team_quote ? (
+                            <tr><td colSpan={2} style={{ whiteSpace: "normal" }}>{type === "intercity" ? "Our team will quote the intercity delivery price and confirm it with you." : `This address is ${est.distance_km} km away, outside our 60 km delivery area. Our team will quote the transport price.`}</td></tr>
+                          ) : (
+                            <>
+                              <tr><td>{est.pallets} {est.pallets === 1 ? "pallet" : "pallets"} · {est.tier}</td><td className={c.sumAmt}>{aed(est.transport_base)}</td></tr>
+                              <tr><td>Handling</td><td className={c.sumAmt}>{aed(est.transport_surcharge)}</td></tr>
+                              <tr className={c.sumTotal}><td>Transport total</td><td className={c.sumAmt}>{aed(est.transport_total)}</td></tr>
+                            </>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
 
-                  <div className={c.rtCharge}>
-                    {!ready ? (
-                      <p className={c.rtMuted}>Fill in the date, address, floor and lift to see the charges.</p>
-                    ) : estErr ? (
-                      <p style={{ color: "#d45f50", margin: 0, fontSize: 13 }}>{estErr}</p>
-                    ) : !est ? (
-                      <p className={c.rtMuted}>Working out the charges…</p>
-                    ) : (
-                      <>
-                        <p className={c.rtChargeTitle}>Storage charges</p>
-                        <ul className={c.estList}>
-                          <li><span>Monthly storage</span><b>{aed(est.monthly_amount)}</b></li>
-                          {est.plan.unpaid_dues > 0 && <li><span>Bills already due</span><b>{aed(est.plan.unpaid_dues)}</b></li>}
-                          <li><span>Storage till {est.storage_to || "the retrieval date"}</span><b>{aed(est.plan.storage)}</b></li>
-                          {est.storage_return > 0 && <li><span>Prepaid storage coming back</span><b>{aed(est.storage_return)}</b></li>}
-                        </ul>
-
-                        <p className={c.rtChargeTitle} style={{ marginTop: 16 }}>Transport charges</p>
-                        {est.team_quote ? (
-                          <p className={c.rtMuted}>{type === "intercity" ? "Our team will quote the intercity delivery price and confirm it with you." : `This address is ${est.distance_km} km away, outside our 60 km delivery area. Our team will quote the transport price.`}</p>
-                        ) : (
-                          <ul className={c.estList}>
-                            <li><span>{est.pallets} {est.pallets === 1 ? "pallet" : "pallets"} · {est.tier}</span><b>{aed(est.transport_base)}</b></li>
-                            <li><span>Handling</span><b>{aed(est.transport_surcharge)}</b></li>
-                            <li className={c.estSub}><span>Transport total</span><b>{aed(est.transport_total)}</b></li>
-                          </ul>
-                        )}
-
-                        <ul className={c.estList} style={{ marginTop: 14 }}>
-                          <li className={c.estSub}><span>Total charges</span><b>{aed(est.plan.bills_total)}</b></li>
-                          {est.plan.wallet_used > 0 && <li><span>Wallet credit used</span><b>− {aed(est.plan.wallet_used)}</b></li>}
-                          <li className={c.estTotal}>
-                            <span>{est.plan.mode === "pay" ? "To pay now" : est.final_return_amt > 0 ? "Refund to you" : "Estimated total"}</span>
-                            <b>{aed(est.plan.mode === "pay" ? est.plan.amount_due_now : est.final_return_amt > 0 ? est.final_return_amt : est.plan.amount_due_now)}</b>
-                          </li>
-                        </ul>
-                        <p className={c.rtMuted} style={{ marginTop: 8 }}>
-                          {est.plan.mode === "pay" ? "You pay by card, then your request goes to our team, who confirm the delivery time." : (est.plan.why || "") + " "}
-                          Final amounts are confirmed by our team.
+                    <div className={c.rtPayBar}>
+                      <div>
+                        <p className={c.rtPayLabel}>{est.plan.mode === "pay" ? "To pay now" : est.final_return_amt > 0 ? "Refund to you" : "Estimated total"}</p>
+                        <p className={c.rtPayAmt}>{aed(est.plan.mode === "pay" ? est.plan.amount_due_now : est.final_return_amt > 0 ? est.final_return_amt : est.plan.amount_due_now)}</p>
+                        <p className={c.rtMuted}>
+                          {est.plan.mode === "pay" ? "Pay by card, then your request goes to our team, who confirm the delivery time." : (est.plan.why || "No payment is taken now.") + " Our team will confirm the final amount and the delivery time."}
                         </p>
-                      </>
-                    )}
-                  </div>
-
-                  {err && <div className={c.notice} style={{ margin: "12px 0 0" }}>{err}</div>}
-                  <button type="button" className={c.rtPrimary} style={{ width: "100%", justifyContent: "center", marginTop: 14 }}
-                    disabled={busy || !ready || !phone || !address || (type !== "intercity" && !est)} onClick={submit}>
-                    {busy ? "Please wait…" : est?.plan.mode === "pay" ? `Pay ${aed(est.plan.amount_due_now)} & request` : "Request retrieval"}
-                  </button>
-                  <p className={c.rtMuted} style={{ textAlign: "center", margin: "8px 0 0" }}>{est?.plan.mode === "pay" ? "Secure card payment. Our team will confirm the delivery time with you." : "No payment is taken now. Our team will confirm the delivery time with you."}</p>
-                </aside>
+                      </div>
+                      <div className={c.rtPayAct}>
+                        {err && <div className={c.notice} style={{ margin: "0 0 10px" }}>{err}</div>}
+                        <button type="button" className={c.rtPrimary} style={{ justifyContent: "center", minWidth: 240 }}
+                          disabled={busy || !ready || !phone || !address || !est} onClick={submit}>
+                          {busy ? "Please wait…" : est.plan.mode === "pay" ? `Pay ${aed(est.plan.amount_due_now)} & request` : "Request retrieval"}
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
               <footer className={c.rtFoot}>
                 <button type="button" className={c.rtGhost} onClick={() => setStep(1)}><ArrowLeft aria-hidden="true" /> Back to items</button>
