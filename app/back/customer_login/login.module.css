@@ -24,13 +24,14 @@
 .brandLogo { height: 56px; width: auto; margin-bottom: 36px; }
 .headline {
   font-family: var(--font-sora), system-ui, sans-serif;
-  font-size: clamp(2.1rem, 4.4vw, 3.6rem);
+  font-size: clamp(1.7rem, 3.4vw, 3.1rem);
   line-height: 1.08;
   font-weight: 800;
   color: var(--ss-navy);
   margin: 0 0 16px;
 }
 .headline em { font-style: normal; color: var(--ss-orange); }
+@media (min-width: 640px) { .headline { white-space: nowrap; } }
 .rule { width: 72px; height: 3px; background: var(--ss-orange); border: 0; margin: 0 0 18px; }
 .lead { font-size: 1.1rem; line-height: 1.55; color: var(--ss-muted); max-width: 30em; margin: 0 0 34px; }
 
