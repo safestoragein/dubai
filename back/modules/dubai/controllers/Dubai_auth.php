@@ -224,9 +224,9 @@ class Dubai_auth extends MY_Controller {
         }
 
         $tx = $this->db->query(
-            "SELECT transaction_id, paid_amount, transaction_type, payment_type, transaction_order_id, transaction_note,
+            "SELECT cust_transaction_id, paid_amount, transaction_type, payment_type, transaction_order_id, transaction_note,
                     transaction_payment_date, transaction_created_at
-               FROM ss_customer_transaction WHERE customer_id = ? ORDER BY transaction_id DESC LIMIT 300", array($cid))->result();
+               FROM ss_customer_transaction WHERE customer_id = ? ORDER BY cust_transaction_id DESC LIMIT 300", array($cid))->result();
         $payments = array();
         foreach ($tx as $t) {
             $payments[] = array(
