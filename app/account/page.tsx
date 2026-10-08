@@ -5,6 +5,7 @@ import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
 import c from "./account.module.css"
 import AccountShell from "./shell"
+import { OrdersCharts } from "./orders/orders-insights"
 
 export const metadata: Metadata = {
   title: { absolute: "My Account | Safe Storage Dubai" },
@@ -123,6 +124,8 @@ export default async function AccountPage() {
             </div>
           </div>
 
+          <OrdersCharts orders={orders} />
+
           <div className={c.grid2}>
             <section className={`${c.panel} ${c.tablePanel}`}>
               <div className={c.panelHead}>
@@ -149,18 +152,15 @@ export default async function AccountPage() {
             </section>
 
             <section className={c.panel}>
-              <div className={c.panelHead}>
-                <div><h2 className={c.panelTitle}>Order status</h2><p className={c.panelSub}>Across your recent orders</p></div>
-              </div>
-              <div className={c.ringWrap}>
-                <div className={c.ring} style={{ background: ringBg }}><strong>{orders.length}<span>Orders</span></strong></div>
-                <div className={c.ringLabels}>
-                  <div><i className={c.dot} style={{ background: "#ee5824" }} />Completed<b>{pDone}%</b></div>
-                  <div><i className={c.dot} style={{ background: "#ffac88" }} />Upcoming<b>{pOpen}%</b></div>
-                  <div><i className={c.dot} style={{ background: "#edf0f4" }} />Other<b>{orders.length ? 100 - pDone - pOpen : 0}%</b></div>
+              <div className={c.panelHead}><h2 className={c.panelTitle}>Recent activity</h2></div>
+              {activity.length ? activity.map((x, i) => (
+                <div key={i} className={c.activity}>
+                  <span className={c.tileIcon}><x.icon aria-hidden="true" /></span>
+                  <div><b>{x.title}</b><p>{x.sub}</p></div>
+                  <time>{x.when}</time>
                 </div>
-              </div>
-              <div className={c.capacity}><span>Completed <b>{nDone}</b></span><span>Upcoming <b>{nOpen}</b></span><span>Other <b>{nRest}</b></span></div>
+              )) : <p className={c.panelSub}>Nothing to show yet.</p>}
+              <div className={`${c.notice} ${hasDue ? "" : c.noticeOk}`}>{hasDue ? `You have ${dues!.count} unpaid ${dues!.count === 1 ? "bill" : "bills"}.` : "Your account is up to date."}</div>
             </section>
           </div>
 
@@ -195,27 +195,15 @@ export default async function AccountPage() {
               )}
             </section>
 
-            <section className={c.panel}>
-              <div className={c.panelHead}><h2 className={c.panelTitle}>Recent activity</h2></div>
-              {activity.length ? activity.map((x, i) => (
-                <div key={i} className={c.activity}>
-                  <span className={c.tileIcon}><x.icon aria-hidden="true" /></span>
-                  <div><b>{x.title}</b><p>{x.sub}</p></div>
-                  <time>{x.when}</time>
-                </div>
-              )) : <p className={c.panelSub}>Nothing to show yet.</p>}
-              <div className={`${c.notice} ${hasDue ? "" : c.noticeOk}`}>{hasDue ? `You have ${dues!.count} unpaid ${dues!.count === 1 ? "bill" : "bills"}.` : "Your account is up to date."}</div>
-            </section>
-          </div>
-
-          <section className={c.panel} id="details">
+            <section className={c.panel} id="details">
             <div className={c.panelHead}><div><h2 className={c.panelTitle}>Your details</h2><p className={c.panelSub}>The information we have on file</p></div></div>
-            <div className={c.fields}>
+            <div className={`${c.fields} ${c.fieldsOne}`}>
               {([["Name", name], ["Customer ID", cid || "—"], ["Email", a.profile?.email || "—"], ["Phone", a.profile?.phone || "—"], ["City", label(a.profile?.city || "")]] as [string, string][]).map(([k, v]) => (
                 <div key={k} className={c.field}><span>{k}</span><b>{v}</b></div>
               ))}
             </div>
-          </section>
+            </section>
+          </div>
         </>
       )}
     </AccountShell>

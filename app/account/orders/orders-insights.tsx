@@ -62,14 +62,7 @@ function smooth(pts: number[][]) {
 
 const STATUS_COLORS = ["#e0592f", "#eb9a79", "#7b8fcf", "#dfb867", "#5fa68a", "#b9c0cc"]
 
-export default function OrdersInsights({ orders }: { orders: Order[] }) {
-  const cards: { title: string; note: string; icon: typeof Package; pick: (o: Order) => boolean; stroke: string }[] = [
-    { title: "All orders", note: "Everything on your account", icon: Package, pick: () => true, stroke: "#ee5824" },
-    { title: "Upcoming", note: "Scheduled or in progress", icon: CalendarCheck, pick: (o) => kind(o.status) === "open", stroke: "#5fa68a" },
-    { title: "Completed", note: "Collected and safe with us", icon: CheckCircle2, pick: (o) => kind(o.status) === "done", stroke: "#ee5824" },
-    { title: "Cancelled", note: "Orders that were cancelled", icon: XCircle, pick: (o) => kind(o.status) === "bad", stroke: "#d45f50" },
-  ]
-
+export function OrdersCharts({ orders }: { orders: Order[] }) {
   // activity chart: orders per month
   const all = series(orders, () => true)
   const slots = monthSlots()
@@ -91,31 +84,7 @@ export default function OrdersInsights({ orders }: { orders: Order[] }) {
   const maxRow = Math.max(...rows.map((r) => r[1]), 1)
 
   return (
-    <>
-      <div className={c.kpis}>
-        {cards.map((k) => {
-          const s = series(orders, k.pick)
-          const now = s[MONTHS - 1], prev = s[MONTHS - 2]
-          const value = orders.filter(k.pick).length
-          const diff = now - prev
-          const Icon = k.icon
-          return (
-            <div key={k.title} className={`${c.card} ${c.kpi} ${c.kpiSpark}`}>
-              <div className={c.kpiHead}><p className={c.kpiLabel}>{k.title}</p><span className={c.tileIcon}><Icon aria-hidden="true" /></span></div>
-              <p className={c.kpiValue}>{value}</p>
-              <svg className={c.spark} viewBox="0 0 180 46" preserveAspectRatio="none" aria-hidden="true">
-                <path d={spark(s)} fill="none" stroke={k.stroke} strokeOpacity="0.6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
-              </svg>
-              <p className={c.kpiNote}>
-                {diff === 0 ? <>No change</> : <b className={diff > 0 ? c.up : c.down}>{diff > 0 ? "↗" : "↘"} {Math.abs(diff)}</b>}
-                {diff === 0 ? " vs. last month" : " vs. last month"}
-              </p>
-            </div>
-          )
-        })}
-      </div>
-
-      <div className={c.grid2}>
+    <div className={c.grid2}>
         <section className={c.panel}>
           <div className={c.panelHead}>
             <div><h2 className={c.panelTitle}>Order activity</h2><p className={c.panelSub}>Orders by month · {slots[0].name} – {slots[MONTHS - 1].name}</p></div>
@@ -165,6 +134,43 @@ export default function OrdersInsights({ orders }: { orders: Order[] }) {
           <div className={c.slFoot}>{orders.length} {orders.length === 1 ? "order" : "orders"} across {rows.length} {rows.length === 1 ? "status" : "statuses"}</div>
         </section>
       </div>
+  )
+}
+
+export default function OrdersInsights({ orders }: { orders: Order[] }) {
+  const cards: { title: string; note: string; icon: typeof Package; pick: (o: Order) => boolean; stroke: string }[] = [
+    { title: "All orders", note: "Everything on your account", icon: Package, pick: () => true, stroke: "#ee5824" },
+    { title: "Upcoming", note: "Scheduled or in progress", icon: CalendarCheck, pick: (o) => kind(o.status) === "open", stroke: "#5fa68a" },
+    { title: "Completed", note: "Collected and safe with us", icon: CheckCircle2, pick: (o) => kind(o.status) === "done", stroke: "#ee5824" },
+    { title: "Cancelled", note: "Orders that were cancelled", icon: XCircle, pick: (o) => kind(o.status) === "bad", stroke: "#d45f50" },
+  ]
+
+  return (
+    <>
+      <div className={c.kpis}>
+        {cards.map((k) => {
+          const s = series(orders, k.pick)
+          const now = s[MONTHS - 1], prev = s[MONTHS - 2]
+          const value = orders.filter(k.pick).length
+          const diff = now - prev
+          const Icon = k.icon
+          return (
+            <div key={k.title} className={`${c.card} ${c.kpi} ${c.kpiSpark}`}>
+              <div className={c.kpiHead}><p className={c.kpiLabel}>{k.title}</p><span className={c.tileIcon}><Icon aria-hidden="true" /></span></div>
+              <p className={c.kpiValue}>{value}</p>
+              <svg className={c.spark} viewBox="0 0 180 46" preserveAspectRatio="none" aria-hidden="true">
+                <path d={spark(s)} fill="none" stroke={k.stroke} strokeOpacity="0.6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+              </svg>
+              <p className={c.kpiNote}>
+                {diff === 0 ? <>No change</> : <b className={diff > 0 ? c.up : c.down}>{diff > 0 ? "↗" : "↘"} {Math.abs(diff)}</b>}
+                {diff === 0 ? " vs. last month" : " vs. last month"}
+              </p>
+            </div>
+          )
+        })}
+      </div>
+
+      <OrdersCharts orders={orders} />
     </>
   )
 }
