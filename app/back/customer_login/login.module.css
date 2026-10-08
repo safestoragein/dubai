@@ -6,7 +6,7 @@
   --ss-ink: #1d2433;
   --ss-muted: #5b6577;
   position: relative;
-  min-height: calc(100vh - 80px);
+  min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   align-items: center;
