@@ -107,6 +107,7 @@ class Dubai_retrieval extends MY_Controller {
         $c  = $this->_customer();
         $in = $this->_validated($c, true);
 
+        $this->_lock_date($in['date_ymd']);
         $this->_assert_free_to_book($c, $in);
 
         $est = $this->_estimate($c, $in);
@@ -292,6 +293,7 @@ class Dubai_retrieval extends MY_Controller {
             $this->_alert_team('Retrieval payment amount mismatch', $c, 'Intent ' . $iid . ' expected AED ' . $plan['amount_due_now'] . ' but Stripe reported AED ' . $paid . ' (ref ' . $ref . '). Nothing was settled.');
             $this->_json(array('status' => 'error', 'message' => 'amount_mismatch'), 409);
         }
+        $this->_lock_date($in['date_ymd']);                                  // the day is checked and the order inserted under one lock
         $taken = $this->db->query("SELECT order_id FROM ss_order WHERE country_code = 'AE' AND order_type IN ('full_retrieval','partial_retrieval') AND order_status <> 'cancelled' AND order_schedule_date = ? LIMIT 1", array($in['date_ymd']))->row();
         if ($taken) {
             $this->_alert_team('Retrieval paid but the date was taken', $c, 'Intent ' . $iid . ' paid AED ' . $paid . ' (ref ' . $ref . ') for ' . $in['date_ymd'] . ', but that date is already booked (WO' . $taken->order_id . '). Please refund or re-schedule.');
@@ -395,6 +397,13 @@ class Dubai_retrieval extends MY_Controller {
             $this->email->message('<p>' . htmlspecialchars($text) . '</p><p>Customer: ' . htmlspecialchars($c->customer_name) . ' (' . htmlspecialchars($c->customer_unique_id) . ')</p>');
             $this->email->send();
         } catch (\Throwable $e) {}
+    }
+
+    /** One booking per day: serialise "is the day free?" + "insert the order" for a date across ALL customers (released when the request ends). */
+    private function _lock_date($ymd)
+    {
+        $r = $this->db->query("SELECT GET_LOCK(?, 15) AS l", array('dubai_retrieval_date_' . $ymd))->row();
+        if ($r && (int) $r->l !== 1) $this->_json(array('status' => 'error', 'message' => 'Another booking for that date is being saved. Please try again in a moment.'), 409);
     }
 
     /** One open request at a time, and the day must be free (other customers' orders and live payment holds). */
