@@ -27,11 +27,11 @@ export default function AccountShell({ active, name, customerId, orderCount, due
           <nav className={c.nav} aria-label="Account">
             <NavScroll />
             <a aria-current={active === "overview" ? "page" : undefined} className={`${c.navItem} ${active === "overview" ? c.navActive : ""}`} href="/account"><LayoutGrid aria-hidden="true" /> Overview</a>
-            <a aria-current={active === "orders" ? "page" : undefined} className={`${c.navItem} ${active === "orders" ? c.navActive : ""}`} href="/account/orders"><Package aria-hidden="true" /> Orders{orderCount > 0 && <span className={c.badge}>{orderCount}</span>}</a>
-            <a aria-current={active === "payments" ? "page" : undefined} className={`${c.navItem} ${active === "payments" ? c.navActive : ""}`} href="/account/payments"><CreditCard aria-hidden="true" /> Payments{dueCount > 0 && <span className={c.badge}>{dueCount}</span>}</a>
             <a aria-current={active === "quotations" ? "page" : undefined} className={`${c.navItem} ${active === "quotations" ? c.navActive : ""}`} href="/account/quotations"><FileText aria-hidden="true" /> Quotations</a>
+            <a aria-current={active === "orders" ? "page" : undefined} className={`${c.navItem} ${active === "orders" ? c.navActive : ""}`} href="/account/orders"><Package aria-hidden="true" /> Orders{orderCount > 0 && <span className={c.badge}>{orderCount}</span>}</a>
             <a aria-current={active === "inventory" ? "page" : undefined} className={`${c.navItem} ${active === "inventory" ? c.navActive : ""}`} href="/account/inventory"><Boxes aria-hidden="true" /> Inventory</a>
             <a aria-current={active === "documents" ? "page" : undefined} className={`${c.navItem} ${active === "documents" ? c.navActive : ""}`} href="/account/documents"><FolderOpen aria-hidden="true" /> Documents</a>
+            <a aria-current={active === "payments" ? "page" : undefined} className={`${c.navItem} ${active === "payments" ? c.navActive : ""}`} href="/account/payments"><CreditCard aria-hidden="true" /> Payments{dueCount > 0 && <span className={c.badge}>{dueCount}</span>}</a>
             <a aria-current={active === "retrieval" ? "page" : undefined} className={`${c.navItem} ${active === "retrieval" ? c.navActive : ""}`} href="/account/retrieval"><PackageOpen aria-hidden="true" /> Retrieval</a>
             <a aria-current={active === "details" ? "page" : undefined} className={`${c.navItem} ${active === "details" ? c.navActive : ""}`} href="/account/details"><UserRound aria-hidden="true" /> My details</a>
           </nav>
