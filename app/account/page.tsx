@@ -25,6 +25,9 @@ type Account = {
 }
 
 const aed = (n: number) => `AED ${n.toLocaleString("en-AE", { maximumFractionDigits: 2 })}`
+// Names always show Capitalised Like This, whatever case they were typed in.
+const nameCase = (v: string) =>
+  (v || "").trim().split(/\s+/).filter(Boolean).map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(" ")
 const label = (v: string) => (v ? v.replace(/_/g, " ").replace(/^\w/, (ch) => ch.toUpperCase()) : "—")
 const day = (v: string) => {
   const d = new Date(String(v).replace(" ", "T"))
@@ -47,8 +50,8 @@ export default async function AccountPage() {
   const r = await callBack<Account>("account", { customer_id: String(me.customerId) })
   const a = r.ok && r.data?.status === "success" ? r.data : null
 
-  const name = a?.profile?.name || me.name || "there"
-  const first = name.trim().split(/\s+/)[0] || "there"
+  const name = nameCase(a?.profile?.name || me.name) || "There"
+  const first = name.split(" ")[0] || "There"
   const orders = a?.orders ?? []
   const dues = a?.dues
   const hasDue = !!dues?.count
