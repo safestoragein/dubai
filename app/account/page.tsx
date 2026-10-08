@@ -5,6 +5,7 @@ import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
 import c from "./account.module.css"
 import AccountShell from "./shell"
+import PayBanner from "./pay-banner"
 
 export const metadata: Metadata = {
   title: { absolute: "My Account | Safe Storage Dubai" },
@@ -93,6 +94,8 @@ export default async function AccountPage() {
           <a className={`${c.button} ${c.buttonOrange}`} href="/account/orders"><Package aria-hidden="true" /> View orders</a>
         </div>
       </div>
+
+      {hasDue && dues!.total > 0 && <PayBanner total={dues!.total} count={dues!.count} />}
 
       {!a ? (
         <div className={c.error}>We could not load your account details right now. Please try again in a moment.</div>

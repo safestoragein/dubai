@@ -5,6 +5,7 @@ import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
 import c from "../account.module.css"
 import AccountShell from "../shell"
+import PayBanner from "../pay-banner"
 import PaymentsTabs, { type Bill, type Payment, type Summary } from "./payments-list"
 
 export const metadata: Metadata = {
@@ -68,6 +69,8 @@ export default async function PaymentsPage({ searchParams }: { searchParams: Pro
           <p>Your bills, what you owe and every payment we have received.</p>
         </div>
       </div>
+
+      {unpaidCount > 0 && unpaid > 0 && <PayBanner total={unpaid} count={unpaidCount} />}
 
       {paidFlag === "1" && <div className={`${c.notice} ${c.noticeOk}`} style={{ margin: "0 0 24px" }}>Thank you. Your payment was received and your bills will update in a minute.</div>}
       {paidFlag === "0" && <div className={c.notice} style={{ margin: "0 0 24px" }}>The payment was cancelled. You can try again with the Pay now button.</div>}

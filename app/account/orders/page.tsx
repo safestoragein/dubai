@@ -4,6 +4,7 @@ import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
 import c from "../account.module.css"
 import AccountShell from "../shell"
+import PayBanner from "../pay-banner"
 import OrdersList, { type Order } from "./orders-list"
 import OrdersInsights from "./orders-insights"
 
@@ -45,6 +46,8 @@ export default async function OrdersPage() {
           <p>Every pickup and delivery on your account, in one place.</p>
         </div>
       </div>
+
+      {(a?.dues?.count ?? 0) > 0 && (a?.dues?.total ?? 0) > 0 && <PayBanner total={a!.dues!.total} count={a!.dues!.count} />}
 
       {!a && !full ? (
         <div className={c.error}>We could not load your orders right now. Please try again in a moment.</div>
