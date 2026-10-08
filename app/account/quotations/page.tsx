@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic" // per-customer data: never cache or prerender
 
 type Account = { status?: string; profile?: { name: string; customer_unique_id?: string }; orders?: unknown[]; dues?: { count: number; total: number } }
-type Item = { name: string; qty: number; unit: number; subtotal: number }
+type Item = { name: string; qty: number }
 type Quote = {
   id: number; label: string; created: string; total: number; sqft: number; pallets: number; points: number
   bedrooms: string; floor: string; lift: string; items: Item[]; items_subtotal: number
@@ -84,7 +84,7 @@ export default async function QuotationsPage() {
                 <span className={c.qChip}>Floor {x.floor || "—"}</span>
                 <span className={c.qChip}>Lift {x.lift ? x.lift.charAt(0).toUpperCase() + x.lift.slice(1) : "—"}</span>
               </div>
-              {x.items.length > 0 && <ItemsToggle items={x.items} subtotal={x.items_subtotal} />}
+              {x.items.length > 0 && <ItemsToggle items={x.items.map(({ name, qty }) => ({ name, qty }))} />}
             </article>
           ))}
         </div>
