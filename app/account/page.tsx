@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 export const dynamic = "force-dynamic" // per-customer data: never cache or prerender
 
-type Order = { type: string; sub_type: string; date: string; status: string }
+type Order = { ref?: string; quotation?: string; type: string; sub_type: string; type_text?: string; date: string; status: string; status_label?: string }
 type Account = {
   status?: string
   profile?: { customer_unique_id: string; name: string; email: string; phone: string; city: string }
@@ -118,7 +118,7 @@ export default async function AccountPage() {
             <div className={`${c.card} ${c.kpi}`}>
               <div className={c.kpiHead}><p className={c.kpiLabel}>Latest order</p><span className={c.tileIcon}><Truck aria-hidden="true" /></span></div>
               <p className={`${c.kpiValue} ${c.kpiValueSm}`}>{latest ? label(latest.type) : "—"}
-                {latest && <span className={`${c.status} ${pill[kind(latest.status)]}`}>{label(latest.status)}</span>}
+                {latest && <span className={`${c.status} ${pill[kind(latest.status)]}`}>{(latest.status_label || label(latest.status))}</span>}
               </p>
               <p className={c.kpiNote}>{latest ? day(latest.date) : "No orders yet"}</p>
             </div>
@@ -135,14 +135,16 @@ export default async function AccountPage() {
               {orders.length ? (
                 <div className={c.tableWrap}>
                   <table className={c.table}>
-                    <thead><tr><th>Order</th><th>Date</th><th>Status</th></tr></thead>
+                    <thead><tr><th>Workorder Id</th><th>Quotation Id</th><th>Order Type</th><th>Pickup Date</th><th>Order Status</th></tr></thead>
                     <tbody>
                       {orders.map((o, i) => (
                         <tr key={i}>
+                          <td><a className={c.orderLink} href="/account/orders">{o.ref || "—"}</a></td>
+                          <td>{o.quotation || "—"}</td>
                           <td><span className={c.cellMain}><span className={c.cellIcon}><Truck aria-hidden="true" /></span>
-                            <span>{label(o.type)}{o.sub_type && o.sub_type !== o.type ? ` · ${label(o.sub_type)}` : ""}</span></span></td>
+                            <span>{o.type_text || `${label(o.type)}${o.sub_type && o.sub_type !== o.type ? ` · ${label(o.sub_type)}` : ""}`}</span></span></td>
                           <td>{day(o.date)}</td>
-                          <td><span className={`${c.status} ${pill[kind(o.status)]}`}>{label(o.status)}</span></td>
+                          <td><span className={`${c.status} ${pill[kind(o.status)]}`}>{o.status_label || label(o.status)}</span></td>
                         </tr>
                       ))}
                     </tbody>

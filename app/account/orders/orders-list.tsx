@@ -5,7 +5,8 @@ import { Truck } from "lucide-react"
 import c from "../account.module.css"
 
 export type Order = {
-  ref?: string; type: string; sub_type: string; status: string
+  ref?: string; quotation?: string; manager?: string; supervisor?: string
+  type: string; sub_type: string; type_text?: string; status: string; status_label?: string
   date: string; timeslot?: string; address?: string; note?: string; created?: string
 }
 
@@ -22,6 +23,8 @@ const day = (v: string) => {
   const d = new Date(String(v).replace(" ", "T"))
   return Number.isNaN(d.getTime()) ? v || "—" : d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
 }
+const svc = (o: Order) => o.type_text || `${label(o.type)}${o.sub_type && o.sub_type !== o.type ? ` · ${label(o.sub_type)}` : ""}`
+const stat = (o: Order) => o.status_label || label(o.status)
 const pill: Record<Kind, string> = { done: c.sDone, open: c.sOpen, bad: c.sBad, other: c.sOther }
 const FILTERS: { key: "all" | Kind; text: string }[] = [
   { key: "all", text: "All" },
@@ -40,7 +43,7 @@ export default function OrdersList({ orders }: { orders: Order[] }) {
   const n = (k: "all" | Kind) => (k === "all" ? orders.length : orders.filter((o) => kind(o.status) === k).length)
   const rows = orders.filter((o) =>
     (f === "all" || kind(o.status) === f) &&
-    [o.ref, o.type, o.sub_type, o.address, o.status].join(" ").toLowerCase().includes(q.toLowerCase()))
+    [o.ref, o.quotation, o.manager, o.supervisor, o.type_text, o.type, o.address, o.status, o.status_label].join(" ").toLowerCase().includes(q.toLowerCase()))
   const pages = Math.max(1, Math.ceil(rows.length / PAGE))
   const cur = Math.min(page, pages)
   const shown = rows.slice((cur - 1) * PAGE, cur * PAGE)
@@ -68,7 +71,7 @@ export default function OrdersList({ orders }: { orders: Order[] }) {
       <div className={c.tableWrap}>
         <table className={c.table}>
           <thead>
-            <tr><th>Order ID</th><th>Service</th><th>Date</th><th>Time slot</th><th>Status</th><th></th></tr>
+            <tr><th>Workorder Id</th><th>Quotation Id</th><th>Manager</th><th>Supervisor</th><th>Order Type</th><th>Pickup Date</th><th>Order Status</th><th></th></tr>
           </thead>
           <tbody>
             {shown.map((o, i) => {
@@ -79,24 +82,28 @@ export default function OrdersList({ orders }: { orders: Order[] }) {
               return (
                 <Fragment key={o.ref || idx}>
                   <tr className={isOpen ? c.rowOpen : ""}>
-                    <td><button type="button" className={c.orderLink} onClick={() => setOpen(isOpen ? null : idx)}>#{o.ref || `ORD-${idx + 1}`}</button></td>
-                    <td><span className={c.cellMain}><span className={c.cellIcon}><Truck aria-hidden="true" /></span>
-                      <span>{label(o.type)}{o.sub_type && o.sub_type !== o.type ? ` · ${label(o.sub_type)}` : ""}</span></span></td>
+                    <td><button type="button" className={c.orderLink} onClick={() => setOpen(isOpen ? null : idx)}>{o.ref || "—"}</button></td>
+                    <td>{o.quotation || "—"}</td>
+                    <td>{o.manager || "—"}</td>
+                    <td>{o.supervisor || "—"}</td>
+                    <td><span className={c.cellMain}><span className={c.cellIcon}><Truck aria-hidden="true" /></span><span>{svc(o)}</span></span></td>
                     <td>{day(o.date)}</td>
-                    <td>{o.timeslot || "—"}</td>
-                    <td><span className={`${c.status} ${pill[k]}`}>{label(o.status)}</span></td>
+                    <td><span className={`${c.status} ${pill[k]}`}>{stat(o)}</span></td>
                     <td><button type="button" className={c.linkBtn} onClick={() => setOpen(isOpen ? null : idx)}>{isOpen ? "Hide" : "View"}</button></td>
                   </tr>
                   {isOpen && (
                     <tr className={c.detailRow}>
-                      <td colSpan={6}>
+                      <td colSpan={8}>
                         <div className={c.detailGrid}>
                           <div>
                             <h3 className={c.dTitle}>Order details</h3>
                             <div className={c.dFields}>
-                              <div className={c.dField}><span>Order ID</span><b>#{o.ref || `ORD-${idx + 1}`}</b></div>
-                              <div className={c.dField}><span>Service</span><b>{label(o.type)}{o.sub_type && o.sub_type !== o.type ? ` · ${label(o.sub_type)}` : ""}</b></div>
-                              <div className={c.dField}><span>Scheduled for</span><b>{day(o.date)}</b></div>
+                              {o.ref && <div className={c.dField}><span>Workorder Id</span><b>{o.ref}</b></div>}
+                              {o.quotation && <div className={c.dField}><span>Quotation Id</span><b>{o.quotation}</b></div>}
+                              <div className={c.dField}><span>Order Type</span><b>{svc(o)}</b></div>
+                              <div className={c.dField}><span>Pickup Date</span><b>{day(o.date)}</b></div>
+                              {o.manager && <div className={c.dField}><span>Manager</span><b>{o.manager}</b></div>}
+                              {o.supervisor && <div className={c.dField}><span>Supervisor</span><b>{o.supervisor}</b></div>}
                               {o.timeslot && <div className={c.dField}><span>Time slot</span><b>{o.timeslot}</b></div>}
                               {o.address && <div className={c.dField}><span>Address</span><b>{o.address}</b></div>}
                               {o.note && <div className={c.dField}><span>Note</span><b>{o.note}</b></div>}

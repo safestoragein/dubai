@@ -124,10 +124,8 @@ class Dubai_auth extends MY_Controller {
             $this->_json(array('status' => 'error', 'message' => 'Not found.'), 404);
         }
 
-        $orders = $this->db->query(
-            "SELECT order_type, order_sub_type, order_schedule_date, order_status
-               FROM ss_order WHERE customer_id = ?
-              ORDER BY order_id DESC LIMIT 5", array($cid))->result();
+        // Latest orders, shaped like the back-office Work Orders table.
+        $orders = $this->_order_rows($cid, 5);
 
         // payable_amount is varchar, so cast in PHP
         $dues = $this->db->query(
@@ -148,10 +146,7 @@ class Dubai_auth extends MY_Controller {
                 'phone' => (string) $c->customer_contact1,
                 'city'  => (string) $c->customer_local_city,
             ),
-            'orders' => array_map(function ($o) {
-                return array('type' => (string) $o->order_type, 'sub_type' => (string) $o->order_sub_type,
-                             'date' => (string) $o->order_schedule_date, 'status' => (string) $o->order_status);
-            }, (array) $orders),
+            'orders' => $orders,
             'dues' => array(
                 'count' => count($dues),
                 'total' => round($dueTotal, 2),
@@ -180,28 +175,60 @@ class Dubai_auth extends MY_Controller {
             $this->_json(array('status' => 'error', 'message' => 'Not found.'), 404);
         }
 
-        $rows = $this->db->query(
-            "SELECT * FROM ss_order WHERE customer_id = ? ORDER BY order_id DESC LIMIT 200", array($cid))->result();
-
-        $out = array();
-        foreach ($rows as $o) {
-            $created = isset($o->order_created_at) ? $o->order_created_at : (isset($o->created_at) ? $o->created_at : '');
-            $out[] = array(
-                'ref'       => 'DXB-O-' . (int) $o->order_id,
-                'type'      => (string) $o->order_type,
-                'sub_type'  => (string) (isset($o->order_sub_type) ? $o->order_sub_type : ''),
-                'status'    => (string) $o->order_status,
-                'date'      => (string) (isset($o->order_schedule_date) ? $o->order_schedule_date : ''),
-                'timeslot'  => (string) (isset($o->order_timeslot) ? $o->order_timeslot : ''),
-                'address'   => (string) (isset($o->order_address) ? $o->order_address : ''),
-                'note'      => (string) (isset($o->order_note) ? $o->order_note : ''),
-                'created'   => (string) $created,
-            );
-        }
+        $out = $this->_order_rows($cid, 200);
         $this->_json(array('status' => 'success', 'orders' => $out));
     }
 
     // ---------------------------------------------------------------- helpers
+    /**
+     * Orders of one customer, shaped like the back-office "Work Orders" table
+     * (customer/get_customer_work_order): WO<order_id>, manager, supervisor, the
+     * "Pickup(safestorage transport)" type text, pickup date and the status label.
+     */
+    private function _order_rows($cid, $limit)
+    {
+        $labels = array();
+        foreach ($this->db->query("SELECT order_status_slug, order_status FROM ss_order_status")->result() as $r) {
+            $labels[$r->order_status_slug] = $r->order_status;
+        }
+        $rows = $this->db->query(
+            "SELECT o.*, m.user_fname AS m_fname, m.user_lname AS m_lname, s.user_fname AS s_fname, s.user_lname AS s_lname
+               FROM ss_order o
+               LEFT JOIN ss_user m ON m.user_id = o.manager_id
+               LEFT JOIN ss_user s ON s.user_id = o.supervisor_id
+              WHERE o.customer_id = ? AND o.order_type != 'intercity_retrieval'
+              ORDER BY o.order_id DESC LIMIT " . (int) $limit, array($cid))->result();
+
+        $out = array();
+        foreach ($rows as $o) {
+            $sub = (string) (isset($o->order_sub_type) ? $o->order_sub_type : '');
+            if ($o->order_type === 'pickup') {
+                $typeText = 'Pickup(' . ($sub === 'pickup' ? 'safestorage transport' : str_replace('_', ' ', $sub)) . ')';
+            } else {
+                $inter = (!empty($o->is_intercity) && $o->is_intercity == '1') ? ' Intercity' : '';
+                $typeText = ucfirst(str_replace('_', ' ', (string) $o->order_type)) . '(' . str_replace('_', ' ', $sub) . $inter . ')';
+            }
+            $created = isset($o->order_created_at) ? $o->order_created_at : (isset($o->created_at) ? $o->created_at : '');
+            $out[] = array(
+                'ref'          => 'WO' . $o->order_id,
+                'quotation'    => !empty($o->quotation_id) ? 'QT' . $o->quotation_id : '',
+                'manager'      => trim($o->m_fname . ' ' . $o->m_lname),
+                'supervisor'   => trim($o->s_fname . ' ' . $o->s_lname),
+                'type'         => (string) $o->order_type,
+                'sub_type'     => $sub,
+                'type_text'    => $typeText,
+                'status'       => (string) $o->order_status,
+                'status_label' => isset($labels[$o->order_status]) ? (string) $labels[$o->order_status] : (string) $o->order_status,
+                'date'         => (string) (isset($o->order_schedule_date) ? $o->order_schedule_date : ''),
+                'timeslot'     => (string) (isset($o->order_timeslot) ? $o->order_timeslot : ''),
+                'address'      => (string) (isset($o->order_address) ? $o->order_address : ''),
+                'note'         => (string) (isset($o->order_note) ? $o->order_note : ''),
+                'created'      => (string) $created,
+            );
+        }
+        return $out;
+    }
+
     /** Visitor IP forwarded by the Next server (trusted only because the key matched). */
     private function _visitor_ip()
     {

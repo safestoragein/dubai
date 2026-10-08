@@ -79,7 +79,7 @@ export function OrdersCharts({ orders }: { orders: Order[] }) {
 
   // orders by status label
   const counts = new Map<string, number>()
-  for (const o of orders) counts.set(label(o.status), (counts.get(label(o.status)) || 0) + 1)
+  for (const o of orders) { const nm = o.status_label || label(o.status); counts.set(nm, (counts.get(nm) || 0) + 1) }
   const rows = [...counts.entries()].sort((a, b) => b[1] - a[1])
   const maxRow = Math.max(...rows.map((r) => r[1]), 1)
 
