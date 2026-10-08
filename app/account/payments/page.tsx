@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
-import { Clock, CreditCard, PhoneCall, Mail, Receipt, Wallet } from "lucide-react"
+import { BadgeCheck, CreditCard, PhoneCall, Mail, Receipt, Wallet } from "lucide-react"
 import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
 import { EMAIL, PHONE, PHONE_DISPLAY } from "@/lib/company-facts"
@@ -20,6 +20,7 @@ type PaymentsReply = {
   bills?: Bill[]
   payments?: Payment[]
   summary?: Summary
+  wallet?: number
 }
 type AccountReply = {
   status?: string
@@ -84,14 +85,14 @@ export default async function PaymentsPage() {
               <p className={c.kpiNote}>{unpaidCount ? "Please settle to avoid late fees" : "You are all caught up"}</p>
             </div>
             <div className={`${c.card} ${c.kpi}`}>
-              <div className={c.kpiHead}><p className={c.kpiLabel}>Paid so far</p><span className={c.tileIcon}><Wallet aria-hidden="true" /></span></div>
-              <p className={c.kpiValue}>{aed(paid)}</p>
-              <p className={c.kpiNote}>{full ? `${bills.filter((b) => b.status === "Paid").length} paid bills` : "Available shortly"}</p>
+              <div className={c.kpiHead}><p className={c.kpiLabel}>Wallet balance</p><span className={c.tileIcon}><Wallet aria-hidden="true" /></span></div>
+              <p className={c.kpiValue}>{aed(full?.wallet ?? 0)}</p>
+              <p className={c.kpiNote}>Credit available on your account</p>
             </div>
             <div className={`${c.card} ${c.kpi}`}>
-              <div className={c.kpiHead}><p className={c.kpiLabel}>Last payment</p><span className={c.tileIcon}><Clock aria-hidden="true" /></span></div>
-              <p className={`${c.kpiValue} ${c.kpiValueSm}`}>{last ? aed(last.amount) : "—"}</p>
-              <p className={c.kpiNote}>{last ? day(last.date) : "No payments yet"}</p>
+              <div className={c.kpiHead}><p className={c.kpiLabel}>Paid so far</p><span className={c.tileIcon}><BadgeCheck aria-hidden="true" /></span></div>
+              <p className={c.kpiValue}>{aed(paid)}</p>
+              <p className={c.kpiNote}>{full ? `${bills.filter((b) => b.status === "Paid").length} paid bills${last ? ` · last ${day(last.date)}` : ""}` : "Available shortly"}</p>
             </div>
           </div>
 

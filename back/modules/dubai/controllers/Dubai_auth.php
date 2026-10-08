@@ -245,7 +245,15 @@ class Dubai_auth extends MY_Controller {
         $this->_json(array('status' => 'success',
             'totals' => array('unpaid' => round($unpaid, 2), 'unpaid_count' => $nUnpaid, 'paid' => round($paid, 2)),
             'summary' => $this->_account_summary($cid),
+            'wallet'  => $this->_wallet($cid),
             'bills' => $bills, 'payments' => $payments));
+    }
+
+    /** Wallet balance (back-office "Credit Wallet Amount" figure: ss_customer_wallet.wallet_amount). */
+    private function _wallet($cid)
+    {
+        $w = $this->db->query("SELECT wallet_amount FROM ss_customer_wallet WHERE customer_id = ? LIMIT 1", array($cid))->row();
+        return $w ? round((float) $w->wallet_amount, 2) : 0.0;
     }
 
     /**
