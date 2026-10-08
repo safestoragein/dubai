@@ -135,12 +135,6 @@ function TransactionsPanel({ payments }: { payments: Payment[] }) {
 
   return (
     <>
-      <div className={c.txStats}>
-        <div className={`${c.card} ${c.kpi}`}><p className={c.kpiLabel}>Total received</p><p className={c.kpiValue}>{aed(total)}</p><p className={c.kpiNote}>{payments.length} {payments.length === 1 ? "payment" : "payments"}</p></div>
-        <div className={`${c.card} ${c.kpi}`}><p className={c.kpiLabel}>Average payment</p><p className={c.kpiValue}>{aed(total / payments.length)}</p><p className={c.kpiNote}>Across all payments</p></div>
-        <div className={`${c.card} ${c.kpi}`}><p className={c.kpiLabel}>Latest payment</p><p className={c.kpiValue}>{aed(sorted[0].amount)}</p><p className={c.kpiNote}>{day(sorted[0].date)}</p></div>
-      </div>
-
       <div className={c.grid2}>
         <section className={c.panel}>
           <div className={c.panelHead}><div><h2 className={c.panelTitle}>Payments over time</h2><p className={c.panelSub}>Amount received each month · last 6 months</p></div></div>
