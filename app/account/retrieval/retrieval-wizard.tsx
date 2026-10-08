@@ -24,10 +24,10 @@ type Kind = "partial" | "full" | "intercity"
 
 const aed = (n: number) => `AED ${n.toLocaleString("en-AE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 const label = (v: string) => (v ? v.replace(/_/g, " ").replace(/^\w/, (ch) => ch.toUpperCase()) : "")
-const TYPES: { key: Kind; title: string; text: string; icon: typeof Boxes }[] = [
-  { key: "partial", title: "Partial Retrieval", text: "Get some of your items back. Choose up to half of what is stored.", icon: PackageOpen },
-  { key: "full", title: "Full Retrieval", text: "Get everything back and close your storage.", icon: PackageCheck },
-  { key: "intercity", title: "Intercity Full Retrieval", text: "Get everything delivered to another city. Our team quotes the price.", icon: Truck },
+const TYPES: { key: Kind; title: string; text: string; icon: typeof Boxes; tone: string }[] = [
+  { key: "partial", title: "Partial Retrieval", text: "Get some of your items back. Choose up to half of what is stored.", icon: PackageOpen, tone: "toneOrange" },
+  { key: "full", title: "Full Retrieval", text: "Get everything back and close your storage.", icon: PackageCheck, tone: "toneNavy" },
+  { key: "intercity", title: "Intercity Full Retrieval", text: "Get everything delivered to another city. Our team quotes the price.", icon: Truck, tone: "toneBlue" },
 ]
 
 // d/m/Y from an <input type="date"> value (yyyy-mm-dd)
@@ -36,6 +36,7 @@ const tomorrowISO = () => { const d = new Date(Date.now() + 86400000); return d.
 
 export default function RetrievalWizard({ opts, name }: { opts: Options; name: string }) {
   const [type, setType] = useState<Kind | null>(null)
+  const [step, setStep] = useState<1 | 2>(1)
   const [picked, setPicked] = useState<number[]>([])
   const [date, setDate] = useState("")
   const [slot, setSlot] = useState("")
@@ -138,8 +139,8 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
           const Icon = t.icon
           const disabled = noItems || blocked || (t.key === "partial" && opts.max_partial < 1)
           return (
-            <button key={t.key} type="button" disabled={disabled} className={`${c.retrType} ${type === t.key ? c.retrTypeOn : ""}`}
-              onClick={() => { setType(t.key); setPicked([]); setErr("") }}>
+            <button key={t.key} type="button" disabled={disabled} className={`${c.retrType} ${c[t.tone]} ${type === t.key ? c.retrTypeOn : ""}`}
+              onClick={() => { setType(t.key); setPicked([]); setErr(""); setStep(1) }}>
               <span className={c.tileIcon}><Icon aria-hidden="true" /></span>
               <b>{t.title}</b>
               <span>{t.text}</span>
@@ -152,12 +153,24 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
       {noItems && <p className={c.empty}>You have no stored items to retrieve.</p>}
 
       {type && !blocked && (
-        <div className={c.retrLayout}>
-          <div className={c.retrMain}>
+        <>
+          <ol className={c.stepper} aria-label="Retrieval steps">
+            <li className={`${c.stepperItem} ${step === 1 ? c.stepperNow : c.stepperDone}`}>
+              <span className={c.stepperDot}>{step === 2 ? <Check aria-hidden="true" /> : 1}</span>
+              <span><b>Choose items</b><small>{type === "partial" ? "Pick what you need" : "All stored items"}</small></span>
+            </li>
+            <li className={c.stepperLine} aria-hidden="true" />
+            <li className={`${c.stepperItem} ${step === 2 ? c.stepperNow : ""}`}>
+              <span className={c.stepperDot}>2</span>
+              <span><b>Delivery details</b><small>Date, address and charge</small></span>
+            </li>
+          </ol>
+
+          {step === 1 ? (
             <section className={c.panel}>
               <div className={c.panelHead}>
                 <div><h2 className={c.panelTitle}>{type === "partial" ? "Choose your items" : "Items to retrieve"}</h2>
-                  <p className={c.panelSub}>{type === "partial" ? `Select up to ${opts.max_partial} of your ${opts.items.length} items` : `All ${opts.items.length} stored items`}</p></div>
+                  <p className={c.panelSub}>{type === "partial" ? `Select up to ${opts.max_partial} of your ${opts.items.length} items` : `All ${opts.items.length} stored items will be delivered`}</p></div>
                 {type === "partial" && <span className={c.count}>{picked.length} / {opts.max_partial}</span>}
               </div>
               <ul className={c.itemPick}>
@@ -178,73 +191,86 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                   )
                 })}
               </ul>
-            </section>
-
-            <section className={c.panel}>
-              <div className={c.panelHead}><div><h2 className={c.panelTitle}>Delivery details</h2><p className={c.panelSub}>Where and when should we bring your items?</p></div></div>
-              <div className={c.formGrid}>
-                <label className={c.fLabel}><span><CalendarDays aria-hidden="true" /> Date</span>
-                  <input type="date" min={tomorrowISO()} value={date} onChange={(e) => setDate(e.target.value)} /></label>
-                <label className={c.fLabel}><span><Clock aria-hidden="true" /> Time slot</span>
-                  <select value={slot} onChange={(e) => setSlot(e.target.value)}>
-                    <option value="">Choose a slot</option>
-                    {opts.timeslots.map((s) => <option key={s.slug} value={s.slug}>{s.name}</option>)}
-                  </select></label>
-                <label className={`${c.fLabel} ${c.fWide}`}><span><MapPin aria-hidden="true" /> Delivery address</span>
-                  <input ref={addrRef} type="text" value={address} placeholder="Start typing and pick your address"
-                    onChange={(e) => { setAddress(e.target.value); setLat(""); setLng("") }} />
-                  {type !== "intercity" && address && !lat && <em className={c.fHint}>Pick your address from the suggestions so we can price the delivery.</em>}
-                </label>
-                <label className={c.fLabel}><span>Floor</span>
-                  <select value={floor} onChange={(e) => setFloor(e.target.value)}>
-                    <option value="">Choose floor</option>
-                    {opts.floors.map((f) => <option key={f.slug} value={f.slug}>{f.name}</option>)}
-                  </select></label>
-                <label className={c.fLabel}><span>Lift available?</span>
-                  <select value={lift} onChange={(e) => setLift(e.target.value)}>
-                    <option value="">Choose</option><option value="yes">Yes</option><option value="no">No</option>
-                  </select></label>
-                <label className={c.fLabel}><span>Phone</span>
-                  <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} /></label>
-                <label className={`${c.fLabel} ${c.fWide}`}><span>Note for our team (optional)</span>
-                  <textarea rows={2} maxLength={500} value={note} onChange={(e) => setNote(e.target.value)} /></label>
+              <div className={c.stepActions}>
+                <button type="button" className={c.retrSubmit} style={{ minWidth: 200 }} disabled={itemsForType.length === 0} onClick={() => { setStep(2); window.scrollTo({ top: 0, behavior: "smooth" }) }}>
+                  Continue
+                </button>
               </div>
             </section>
-          </div>
+          ) : (
+            <div className={c.retrLayout}>
+              <div className={c.retrMain}>
+                <section className={c.panel}>
+                  <div className={c.panelHead}>
+                    <div><h2 className={c.panelTitle}>Delivery details</h2><p className={c.panelSub}>{itemsForType.length} {itemsForType.length === 1 ? "item" : "items"} · where and when should we bring them?</p></div>
+                    <button type="button" className={c.linkBtn} onClick={() => setStep(1)}>Change items</button>
+                  </div>
+                  <div className={c.formGrid}>
+                    <label className={c.fLabel}><span><CalendarDays aria-hidden="true" /> Date</span>
+                      <input type="date" min={tomorrowISO()} value={date} onChange={(e) => setDate(e.target.value)} /></label>
+                    <label className={c.fLabel}><span><Clock aria-hidden="true" /> Time slot</span>
+                      <select value={slot} onChange={(e) => setSlot(e.target.value)}>
+                        <option value="">Choose a slot</option>
+                        {opts.timeslots.map((s) => <option key={s.slug} value={s.slug}>{s.name}</option>)}
+                      </select></label>
+                    <label className={`${c.fLabel} ${c.fWide}`}><span><MapPin aria-hidden="true" /> Delivery address</span>
+                      <input ref={addrRef} type="text" value={address} placeholder="Start typing and pick your address"
+                        onChange={(e) => { setAddress(e.target.value); setLat(""); setLng("") }} />
+                      {type !== "intercity" && address && !lat && <em className={c.fHint}>Pick your address from the suggestions so we can price the delivery.</em>}
+                    </label>
+                    <label className={c.fLabel}><span>Floor</span>
+                      <select value={floor} onChange={(e) => setFloor(e.target.value)}>
+                        <option value="">Choose floor</option>
+                        {opts.floors.map((f) => <option key={f.slug} value={f.slug}>{f.name}</option>)}
+                      </select></label>
+                    <label className={c.fLabel}><span>Lift available?</span>
+                      <select value={lift} onChange={(e) => setLift(e.target.value)}>
+                        <option value="">Choose</option><option value="yes">Yes</option><option value="no">No</option>
+                      </select></label>
+                    <label className={c.fLabel}><span>Phone</span>
+                      <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} /></label>
+                    <label className={`${c.fLabel} ${c.fWide}`}><span>Note for our team (optional)</span>
+                      <textarea rows={2} maxLength={500} value={note} onChange={(e) => setNote(e.target.value)} /></label>
+                  </div>
+                </section>
+              </div>
 
-          <aside className={c.retrSide}>
-            <section className={c.panel}>
-              <div className={c.panelHead}><h2 className={c.panelTitle}>Delivery charge</h2></div>
-              {!ready ? (
-                <p className={c.panelSub}>Choose {type === "partial" ? "your items, " : ""}the date, address, floor and lift to see the charge.</p>
-              ) : type === "intercity" ? (
-                <p className={c.panelSub}>Our team will quote the intercity delivery price and confirm it with you.</p>
-              ) : estErr ? (
-                <p className={c.dueBarErr} style={{ color: "#d45f50" }}>{estErr}</p>
-              ) : !est ? (
-                <p className={c.panelSub}>Working out the charge…</p>
-              ) : (
-                <>
-                  <ul className={c.estList}>
-                    <li><span>Transport</span><b>{aed(est.transport_cost)}</b></li>
-                    <li><span>Labour</span><b>{aed(est.labour_cost)}</b></li>
-                    {est.lift_cost > 0 && <li><span>Lift</span><b>{aed(est.lift_cost)}</b></li>}
-                    {est.stacking_barcode > 0 && <li><span>Stacking & barcode</span><b>{aed(est.stacking_barcode)}</b></li>}
-                    {est.urgent_date_surcharge > 0 && <li><span>Short-notice date</span><b>{aed(est.urgent_date_surcharge)}</b></li>}
-                    {est.transport_tax > 0 && <li><span>Tax</span><b>{aed(est.transport_tax)}</b></li>}
-                    <li className={c.estTotal}><span>Estimated total</span><b>{aed(est.transport_total)}</b></li>
-                  </ul>
-                  <p className={c.panelSub} style={{ marginTop: 10 }}>This is an estimate. Our team confirms the final charge before anything is billed.</p>
-                </>
-              )}
-            </section>
-            {err && <div className={c.notice} style={{ margin: 0 }}>{err}</div>}
-            <button type="button" className={c.retrSubmit} disabled={busy || !ready || !slot || !phone || !address || (type !== "intercity" && !est)} onClick={submit}>
-              {busy ? "Sending…" : "Request retrieval"}
-            </button>
-            <p className={c.panelSub} style={{ margin: 0, textAlign: "center" }}>No payment is taken now.</p>
-          </aside>
-        </div>
+              <aside className={c.retrSide}>
+                <section className={c.panel}>
+                  <div className={c.panelHead}><h2 className={c.panelTitle}>Delivery charge</h2></div>
+                  {!ready ? (
+                    <p className={c.panelSub}>Choose the date, address, floor and lift to see the charge.</p>
+                  ) : type === "intercity" ? (
+                    <p className={c.panelSub}>Our team will quote the intercity delivery price and confirm it with you.</p>
+                  ) : estErr ? (
+                    <p style={{ color: "#d45f50", margin: 0 }}>{estErr}</p>
+                  ) : !est ? (
+                    <p className={c.panelSub}>Working out the charge…</p>
+                  ) : (
+                    <>
+                      <ul className={c.estList}>
+                        <li><span>Transport</span><b>{aed(est.transport_cost)}</b></li>
+                        <li><span>Labour</span><b>{aed(est.labour_cost)}</b></li>
+                        {est.lift_cost > 0 && <li><span>Lift</span><b>{aed(est.lift_cost)}</b></li>}
+                        {est.stacking_barcode > 0 && <li><span>Stacking & barcode</span><b>{aed(est.stacking_barcode)}</b></li>}
+                        {est.urgent_date_surcharge > 0 && <li><span>Short-notice date</span><b>{aed(est.urgent_date_surcharge)}</b></li>}
+                        {est.transport_tax > 0 && <li><span>Tax</span><b>{aed(est.transport_tax)}</b></li>}
+                        <li className={c.estTotal}><span>Estimated total</span><b>{aed(est.transport_total)}</b></li>
+                      </ul>
+                      <p className={c.panelSub} style={{ marginTop: 10 }}>This is an estimate. Our team confirms the final charge before anything is billed.</p>
+                    </>
+                  )}
+                </section>
+                {err && <div className={c.notice} style={{ margin: 0 }}>{err}</div>}
+                <button type="button" className={c.retrSubmit} disabled={busy || !ready || !slot || !phone || !address || (type !== "intercity" && !est)} onClick={submit}>
+                  {busy ? "Sending…" : "Request retrieval"}
+                </button>
+                <button type="button" className={c.retrBack} onClick={() => setStep(1)}>Back to items</button>
+                <p className={c.panelSub} style={{ margin: 0, textAlign: "center" }}>No payment is taken now.</p>
+              </aside>
+            </div>
+          )}
+        </>
       )}
     </>
   )

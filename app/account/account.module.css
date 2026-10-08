@@ -339,3 +339,24 @@ th.sumAmt { text-align: right; }
 .retrDone { display: grid; justify-items: center; text-align: center; gap: 10px; padding: 48px 24px; }
 @media (max-width: 1100px) { .retrLayout { grid-template-columns: 1fr; } .retrSide { position: static; } }
 @media (max-width: 760px) { .retrTypes { grid-template-columns: 1fr; } .formGrid { grid-template-columns: 1fr; } }
+
+/* retrieval: per-type colours + 2-step header */
+.toneOrange { --tone: #ee5824; --tone-soft: #fff0e9; }
+.toneNavy   { --tone: #14213d; --tone-soft: #e8ebf5; }
+.toneBlue   { --tone: #2f6fe0; --tone-soft: #e6efff; }
+.retrType .tileIcon { background: var(--tone-soft); color: var(--tone); }
+.retrType:hover:not(:disabled) { border-color: var(--tone); }
+.retrTypeOn { border-color: var(--tone); box-shadow: 0 6px 18px color-mix(in srgb, var(--tone) 22%, transparent); background: color-mix(in srgb, var(--tone-soft) 55%, #fff); }
+.stepper { list-style: none; display: flex; align-items: center; gap: 16px; margin: 0 0 22px; padding: 0; }
+.stepperItem { display: flex; align-items: center; gap: 12px; color: #8b93a0; }
+.stepperItem b { display: block; font-size: 14px; font-weight: 600; color: #8b93a0; }
+.stepperItem small { display: block; font-size: 12px; color: #a0a7b1; }
+.stepperDot { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: #fff; border: 2px solid #dfe2ea; font-size: 13px; font-weight: 600; color: #8b93a0; flex: none; }
+.stepperDot svg { width: 15px; height: 15px; }
+.stepperNow .stepperDot { border-color: var(--ss-orange); background: var(--ss-orange); color: #fff; box-shadow: 0 0 0 5px #fff0e9; }
+.stepperNow b { color: #19212e; }
+.stepperDone .stepperDot { border-color: var(--ss-orange); background: #fff0e9; color: var(--ss-orange); }
+.stepperDone b { color: #19212e; }
+.stepperLine { flex: 0 0 80px; height: 2px; background: #e3e6ec; }
+.stepActions { display: flex; justify-content: flex-end; margin-top: 18px; }
+.retrBack { border: 1px solid #e1e4e9; background: #fff; color: #56606f; font: inherit; font-weight: 500; border-radius: 10px; padding: 11px; cursor: pointer; }
