@@ -40,6 +40,8 @@ class Dubai_retrieval extends MY_Controller {
     const SURCHARGE_AED     = 60;
     const OVERSIZE_PER_PALLET = 218;
     const SERVICE_RADIUS_KM = 60;
+    const FREE_KM           = 20;     // distance charge: the first 20 km from the warehouse are free ...
+    const PER_KM_AED        = 5;      // ... then AED 5 for every further km (owner's rule), added to the load price
     private static $ORIGINS = array(                     // Dubai warehouse and the Abu Dhabi service centre
         array(24.989924, 55.154235), array(24.453884, 54.377344),
     );
@@ -141,7 +143,7 @@ class Dubai_retrieval extends MY_Controller {
             'order_note'         => $in['note'],
             'final_payable_amt'  => $est['final_payable_amt'],
             'final_return_amt'   => $est['final_return_amt'],
-            'transport_charges'  => $est['transport_base'],
+            'transport_charges'  => $est['transport_base'] + $est['distance_charge'],
             'transport_tax_amt'  => $est['transport_tax'],
             'total_transport_charges' => $est['transport_total'],
             'ss_commission_percent'   => $com ? $com->commission_percent : null,
@@ -326,7 +328,7 @@ class Dubai_retrieval extends MY_Controller {
             $this->db->insert('ss_retrieval_summary', array(
                 'customer_id' => $c->customer_id, 'log_is_return' => $est['is_return_to_cust'], 'log_return_amt' => $est['storage_return'],
                 'log_due_amt' => number_format($plan['unpaid_dues'] + $plan['storage'], 2, '.', ''), 'log_transport_note' => 'Retrieval transport charges',
-                'transport_charges' => $est['transport_base'], 'transport_tax_amt' => $est['transport_tax'], 'total_transport_charges' => $est['transport_total'],
+                'transport_charges' => $est['transport_base'] + $est['distance_charge'], 'transport_tax_amt' => $est['transport_tax'], 'total_transport_charges' => $est['transport_total'],
                 'final_payable_amt' => $plan['amount_due_now'], 'final_return_amt' => 0,
             ));
         }
@@ -605,7 +607,8 @@ class Dubai_retrieval extends MY_Controller {
             if (!$teamQuote && $kmArea > self::SERVICE_RADIUS_KM + 1e-9) $teamQuote = true;
         }
         $tp = $teamQuote ? array('base' => 0, 'surcharge' => 0, 'total' => 0, 'tier' => 'Quoted by our team') : $this->_transport_price($pallets);
-        $T = (float) $tp['total'];
+        $distCharge = ($teamQuote || $km === null) ? 0.0 : (float) round(max(0, $km - self::FREE_KM) * self::PER_KM_AED);
+        $T = (float) $tp['total'] + $distCharge;
 
         // same final-amount rule as the retrieval module, with the Dubai transport
         $payableDue = $n('payable_due'); $monthlyReturn = $n('total_monthly_return');
@@ -626,8 +629,9 @@ class Dubai_retrieval extends MY_Controller {
             'pallets'            => $pallets,
             'tier'               => $tp['tier'],
             'transport_base'     => (float) $tp['base'],
+            'distance_charge'    => $distCharge,
             'transport_surcharge'=> (float) $tp['surcharge'],
-            'transport_subtotal' => (float) $tp['base'],
+            'transport_subtotal' => (float) $tp['base'] + $distCharge,
             'transport_tax'      => 0.0,
             'transport_total'    => $T,
             // storage side (same figures as the Indian dashboard)

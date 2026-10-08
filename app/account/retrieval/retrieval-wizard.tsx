@@ -20,7 +20,7 @@ export type Options = {
 type Estimate = {
   type: string; items: number; team_quote: boolean; out_of_area: boolean; distance_km: number | null
   points: number; pallets: number; tier: string
-  transport_base: number; transport_surcharge: number; transport_total: number
+  transport_base: number; distance_charge: number; transport_surcharge: number; transport_total: number
   monthly_amount: number; storage_till_date: number; storage_from: string; storage_to: string
   unpaid_dues: number; wallet: number; storage_due: number; storage_return: number
   final_payable_amt: number; final_return_amt: number
@@ -361,8 +361,9 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                             <>
                               {est.distance_km !== null && <tr><td>Delivery distance (from our warehouse)</td><td className={c.inAmt}>{est.distance_km} km</td></tr>}
                               <tr><td>Transport Cost</td><td className={c.inAmt}>{money(est.transport_base)}</td></tr>
+                              <tr><td>Distance Charge (first 20 km free)</td><td className={c.inAmt}>{money(est.distance_charge)}</td></tr>
                               <tr><td>Handling Charges</td><td className={c.inAmt}>{money(est.transport_surcharge)}</td></tr>
-                              <tr><td>Transport Charges</td><td className={c.inAmt}>{money(est.transport_base + est.transport_surcharge)}</td></tr>
+                              <tr><td>Transport Charges</td><td className={c.inAmt}>{money(est.transport_base + est.distance_charge + est.transport_surcharge)}</td></tr>
                               <tr><td>Tax (0%)</td><td className={c.inAmt}>{money(0)}</td></tr>
                               <tr className={c.inTotal}><td>Total Transport Charges</td><td className={c.inAmt}>{money(est.transport_total)}</td></tr>
                             </>
