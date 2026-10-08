@@ -4,6 +4,7 @@
 import { NextResponse } from "next/server"
 import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
+import { clientIp } from "@/lib/client-ip"
 import { CURRENCY, getStripe, isStripeEnabled, toFils } from "@/lib/stripe"
 
 export const runtime = "nodejs"
@@ -41,7 +42,7 @@ export async function POST(request: Request, ctx: { params: Promise<{ action: st
     }
   }
 
-  const ip = (request.headers.get("x-forwarded-for") || "").split(",")[0].trim() || undefined
+  const ip = clientIp(request)
   // "pay": save the pending request on the PHP side, then open Stripe for what is due now.
   if (action === "pay") {
     const pr = await callBack<Record<string, unknown>>("prepare", form, ip, "dubai_retrieval")

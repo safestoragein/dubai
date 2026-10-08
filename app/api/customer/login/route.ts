@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import { callBack } from "@/lib/customer-back"
+import { clientIp } from "@/lib/client-ip"
 import { CUSTOMER_COOKIE, CUSTOMER_TTL_REMEMBER_SECONDS, CUSTOMER_TTL_SECONDS, signCustomerToken } from "@/lib/customer-session"
 
 type LoginReply = { status?: string; message?: string; customer?: { customer_id: number; name: string; email: string } }
@@ -18,7 +19,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Please enter your email and password." }, { status: 400 })
   }
 
-  const ip = (request.headers.get("x-forwarded-for") || "").split(",")[0].trim() || undefined
+  const ip = clientIp(request)
   const r = await callBack<LoginReply>("login", { username: email, password }, ip)
 
   if (r.status === 503 || r.status === 502 || !r.data) {
