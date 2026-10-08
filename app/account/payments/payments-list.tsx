@@ -91,33 +91,115 @@ function BillsPanel({ bills }: { bills: Bill[] }) {
   )
 }
 
+const T_COLORS = ["#ee5824", "#f08a5d", "#14213d", "#6684c3", "#f6b79c", "#b9c0cc"]
+
 function TransactionsPanel({ payments }: { payments: Payment[] }) {
+  const [all, setAll] = useState(false)
+  if (payments.length === 0) {
+    return <section className={c.panel}><p className={c.empty}>No payments received yet.</p></section>
+  }
+  const total = payments.reduce((a, p) => a + p.amount, 0)
+  const sorted = [...payments].sort((x, y) => (new Date(y.date.replace(" ", "T")).getTime() || 0) - (new Date(x.date.replace(" ", "T")).getTime() || 0))
+
+  // payments per month, last 6 months
+  const now = new Date()
+  const slots = Array.from({ length: 6 }, (_, i) => {
+    const d = new Date(now.getFullYear(), now.getMonth() - (5 - i), 1)
+    return { y: d.getFullYear(), m: d.getMonth(), name: d.toLocaleDateString("en-GB", { month: "short" }), v: 0 }
+  })
+  for (const p of payments) {
+    const d = new Date(p.date.replace(" ", "T"))
+    if (Number.isNaN(d.getTime())) continue
+    const s2 = slots.find((x) => x.y === d.getFullYear() && x.m === d.getMonth())
+    if (s2) s2.v += p.amount
+  }
+  const maxM = Math.max(...slots.map((x) => x.v), 1)
+
+  // by type (funnel: widest first)
+  const byType = new Map<string, number>()
+  for (const p of payments) byType.set(label(p.type), (byType.get(label(p.type)) || 0) + p.amount)
+  const types = [...byType.entries()].sort((x, y) => y[1] - x[1])
+  const maxT = Math.max(...types.map((t) => t[1]), 1)
+
+  // by method
+  const byMethod = new Map<string, number>()
+  for (const p of payments) {
+    const m = /bank/i.test(p.note) ? "Bank transfer" : /google ?pay/i.test(p.note) ? "Google Pay" : /phone ?pe|phone ?pay/i.test(p.note) ? "PhonePe" : label(p.method)
+    byMethod.set(m, (byMethod.get(m) || 0) + 1)
+  }
+  const methods = [...byMethod.entries()].sort((x, y) => y[1] - x[1])
+
+  const list = all ? sorted : sorted.slice(0, 6)
+  const W = 520, H = 190, padL = 8, padB = 28, padT = 22
+  const bw = 38, gap = (W - padL * 2 - bw * 6) / 5
+
   return (
+    <>
+      <div className={c.txStats}>
+        <div className={`${c.card} ${c.kpi}`}><p className={c.kpiLabel}>Total received</p><p className={c.kpiValue}>{aed(total)}</p><p className={c.kpiNote}>{payments.length} {payments.length === 1 ? "payment" : "payments"}</p></div>
+        <div className={`${c.card} ${c.kpi}`}><p className={c.kpiLabel}>Average payment</p><p className={c.kpiValue}>{aed(total / payments.length)}</p><p className={c.kpiNote}>Across all payments</p></div>
+        <div className={`${c.card} ${c.kpi}`}><p className={c.kpiLabel}>Latest payment</p><p className={c.kpiValue}>{aed(sorted[0].amount)}</p><p className={c.kpiNote}>{day(sorted[0].date)}</p></div>
+      </div>
+
+      <div className={c.grid2}>
+        <section className={c.panel}>
+          <div className={c.panelHead}><div><h2 className={c.panelTitle}>Payments over time</h2><p className={c.panelSub}>Amount received each month · last 6 months</p></div></div>
+          <svg className={c.chart} viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Payments per month">
+            <line x1={padL} x2={W - padL} y1={H - padB} y2={H - padB} stroke="#eef0f3" />
+            {slots.map((x, i) => {
+              const h = x.v ? Math.max(6, (x.v / maxM) * (H - padB - padT)) : 3
+              const bx = padL + i * (bw + gap)
+              return (
+                <g key={i}>
+                  <rect x={bx} y={H - padB - h} width={bw} height={h} rx="6" fill={x.v ? "#ee5824" : "#eef0f3"} opacity={x.v ? 0.9 : 1}><title>{`${x.name}: ${aed(x.v)}`}</title></rect>
+                  {x.v > 0 && <text x={bx + bw / 2} y={H - padB - h - 7} textAnchor="middle" fontSize="11" fill="#5f6978">{x.v % 1 ? x.v.toFixed(2) : x.v}</text>}
+                  <text x={bx + bw / 2} y={H - 9} textAnchor="middle" fontSize="12" fill="#969daa">{x.name}</text>
+                </g>
+              )
+            })}
+          </svg>
+        </section>
+
+        <section className={c.panel}>
+          <div className={c.panelHead}><div><h2 className={c.panelTitle}>Where it went</h2><p className={c.panelSub}>Payments by type</p></div></div>
+          <div className={c.funnel}>
+            {types.map(([name, v], i) => (
+              <div key={name} className={c.funnelRow} style={{ width: `${Math.max(34, (v / maxT) * 100)}%`, background: T_COLORS[i % T_COLORS.length] }}>
+                <span>{name}</span><b>{aed(v)}</b>
+              </div>
+            ))}
+          </div>
+          <div className={c.methodRow}>
+            {methods.map(([m, n], i) => (
+              <span key={m} className={c.methodChip}><i style={{ background: T_COLORS[i % T_COLORS.length] }} />{m} · {n}</span>
+            ))}
+          </div>
+        </section>
+      </div>
+
       <section className={`${c.panel} ${c.tablePanel}`} id="history">
         <div className={c.panelHead}>
-          <h2 className={c.panelTitle}>Payment history <span className={c.count}>{payments.length}</span></h2>
-          <span className={c.panelSub} style={{ margin: 0 }}>Payments we have received from you</span>
+          <h2 className={c.panelTitle}>Transactions <span className={c.count}>{payments.length}</span></h2>
+          <span className={c.panelSub} style={{ margin: 0 }}>Newest first</span>
         </div>
-        {payments.length ? (
-          <div className={c.tableWrap}>
-            <table className={c.table}>
-              <thead><tr><th>Date</th><th>Reference</th><th>Type</th><th>Method</th><th>Note</th><th>Amount</th></tr></thead>
-              <tbody>
-                {payments.map((p, i) => (
-                  <tr key={p.ref || i}>
-                    <td>{day(p.date)}</td>
-                    <td style={{ color: "#344050" }}>{p.ref || "—"}</td>
-                    <td>{label(p.type)}</td>
-                    <td>{label(p.method)}</td>
-                    <td style={{ whiteSpace: "normal", minWidth: 160 }}>{p.note || "—"}</td>
-                    <td><b>{aed(p.amount)}</b></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : <p className={c.empty}>No payments received yet.</p>}
+        <ul className={c.txList}>
+          {list.map((p, i) => (
+            <li key={p.ref || i} className={c.txItem}>
+              <span className={c.txDate}><b>{new Date(p.date.replace(" ", "T")).getDate() || "—"}</b>{day(p.date).split(" ").slice(1).join(" ")}</span>
+              <div className={c.txMain}>
+                <p className={c.txTitle}>{label(p.type)}<span className={c.txMethod}>{label(p.method)}</span></p>
+                <p className={c.txNote}>{p.note || "—"}</p>
+                <p className={c.txRef}>{p.ref}</p>
+              </div>
+              <b className={c.txAmt}>{aed(p.amount)}</b>
+            </li>
+          ))}
+        </ul>
+        {payments.length > 6 && (
+          <button type="button" className={c.showMore} onClick={() => setAll(!all)}>{all ? "Show fewer" : `Show all ${payments.length} transactions`}</button>
+        )}
       </section>
+    </>
   )
 }
 
