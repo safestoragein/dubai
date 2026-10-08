@@ -167,7 +167,7 @@ export default async function AccountPage() {
             <section className={`${c.panel} ${c.tablePanel}`}>
               <div className={c.panelHead}>
                 <div><h2 className={c.panelTitle}>Payments</h2><p className={c.panelSub}>Bills waiting to be paid</p></div>
-                {hasDue && <span className={c.count}>{dues!.count} unpaid · {aed(dues!.total)}</span>}
+                <a className={c.link} href="/account/payments">View all payments</a>
               </div>
               {hasDue ? (
                 <div className={c.tableWrap}>

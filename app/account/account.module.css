@@ -225,3 +225,7 @@
 .slCount { text-align: right; font-weight: 600; color: var(--ss-ink); }
 .slFoot { margin-top: 22px; padding-top: 18px; border-top: 1px solid #eef0f3; color: #8b93a0; font-size: 13px; }
 .fieldsOne { grid-template-columns: 1fr; gap: 0; }
+
+/* payments page */
+.payBanner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; background: #fff7f2; border-color: #ffe1cf; }
+.content > .panel { margin-bottom: 24px; }

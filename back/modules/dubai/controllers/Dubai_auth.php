@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *   POST dubai/dubai_auth/login     username (email), password   [X-Forwarded-For = visitor IP]
  *   POST dubai/dubai_auth/account   customer_id
  *   POST dubai/dubai_auth/orders    customer_id   (every order of that customer)
+ *   POST dubai/dubai_auth/payments  customer_id   (every bill + every payment received)
  *
  * Same rules as auth/login for a customer: ss_user with user_email, base64(password),
  * status '0', role_id 6 — plus ONE extra rule for this site: ss_user.user_country
@@ -180,6 +181,69 @@ class Dubai_auth extends MY_Controller {
     }
 
     // ---------------------------------------------------------------- helpers
+    // --------------------------------------------------------------- payments
+    /** Bills and payments of one Dubai customer for the account Payments page. */
+    public function payments()
+    {
+        $cid = (int) $this->input->post('customer_id');
+        if ($cid <= 0) {
+            $this->_json(array('status' => 'error', 'message' => 'customer_id required.'), 400);
+        }
+        $ok = $this->db->query(
+            "SELECT 1 FROM ss_customer c JOIN ss_user u ON u.customer_id = c.customer_id
+              WHERE c.customer_id = ? AND u.role_id = 6 AND u.status = '0' AND u.user_country = 'AE' LIMIT 1", array($cid))->num_rows();
+        if (!$ok) {
+            $this->_json(array('status' => 'error', 'message' => 'Not found.'), 404);
+        }
+
+        $num = function ($v) { return round((float) str_replace(',', '', (string) $v), 2); };
+
+        // every amount column in ss_customer_payment is varchar, so cast in PHP
+        $rows = $this->db->query(
+            "SELECT payment_id, payment_unique_id, payable_amount, total_amount, late_charges, payment_status,
+                    billing_date, bill_genrated_date, charges_type, offer_note, quotation_id, order_id
+               FROM ss_customer_payment WHERE customer_id = ? ORDER BY payment_id DESC LIMIT 300", array($cid))->result();
+        $bills = array();
+        $unpaid = 0.0; $paid = 0.0; $nUnpaid = 0;
+        foreach ($rows as $b) {
+            $amt = $num($b->payable_amount);
+            $status = ($b->payment_status === null || $b->payment_status === '') ? 'Unknown' : (string) $b->payment_status;
+            if ($status === 'Unpaid') { $unpaid += $amt; $nUnpaid++; }
+            if ($status === 'Paid')   { $paid += $amt; }
+            $bills[] = array(
+                'id'          => !empty($b->payment_unique_id) ? (string) $b->payment_unique_id : 'INV' . $b->payment_id,
+                'description' => (string) ($b->offer_note === null ? '' : $b->offer_note),
+                'kind'        => (string) $b->charges_type,
+                'date'        => (string) ($b->billing_date ? $b->billing_date : $b->bill_genrated_date),
+                'amount'      => $amt,
+                'late'        => $num($b->late_charges),
+                'status'      => $status,
+                'quotation'   => !empty($b->quotation_id) ? 'QT' . $b->quotation_id : '',
+                'order'       => !empty($b->order_id) ? 'WO' . $b->order_id : '',
+            );
+        }
+
+        $tx = $this->db->query(
+            "SELECT transaction_id, paid_amount, transaction_type, payment_type, transaction_order_id, transaction_note,
+                    transaction_payment_date, transaction_created_at
+               FROM ss_customer_transaction WHERE customer_id = ? ORDER BY transaction_id DESC LIMIT 300", array($cid))->result();
+        $payments = array();
+        foreach ($tx as $t) {
+            $payments[] = array(
+                'ref'    => (string) $t->transaction_order_id,
+                'date'   => (string) ($t->transaction_payment_date ? $t->transaction_payment_date : $t->transaction_created_at),
+                'amount' => $num($t->paid_amount),
+                'type'   => (string) $t->transaction_type,
+                'method' => (string) $t->payment_type,
+                'note'   => (string) $t->transaction_note,
+            );
+        }
+
+        $this->_json(array('status' => 'success',
+            'totals' => array('unpaid' => round($unpaid, 2), 'unpaid_count' => $nUnpaid, 'paid' => round($paid, 2)),
+            'bills' => $bills, 'payments' => $payments));
+    }
+
     /**
      * Orders of one customer, shaped like the back-office "Work Orders" table
      * (customer/get_customer_work_order): WO<order_id>, manager, supervisor, the
