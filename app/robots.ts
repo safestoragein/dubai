@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/get-quote?*"],
+        disallow: ["/get-quote?*", "/back/", "/account", "/api/customer/"],
       },
     ],
     // Two sitemaps, no overlap: /sitemap.xml carries the site's pages and the

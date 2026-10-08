@@ -1,0 +1,113 @@
+/* /login — split layout: brand panel on the left, sign-in card on the right. */
+.page {
+  --ss-orange: #f26a1b;
+  --ss-orange-dark: #d9560c;
+  --ss-navy: #14213d;
+  --ss-ink: #1d2433;
+  --ss-muted: #5b6577;
+  position: relative;
+  min-height: calc(100vh - 80px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 32px;
+  padding: 40px clamp(16px, 4vw, 64px);
+  overflow: hidden;
+  background:
+    linear-gradient(105deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 42%, rgba(255, 236, 222, 0.55) 100%),
+    url("/landing/svc-business-hero.webp") center / cover no-repeat;
+  color: var(--ss-ink);
+}
+
+/* ---------- left: brand panel ---------- */
+.brand { max-width: 640px; }
+.brandLogo { height: 56px; width: auto; margin-bottom: 36px; }
+.headline {
+  font-family: var(--font-sora), system-ui, sans-serif;
+  font-size: clamp(2.1rem, 4.4vw, 3.6rem);
+  line-height: 1.08;
+  font-weight: 800;
+  color: var(--ss-navy);
+  margin: 0 0 16px;
+}
+.headline em { font-style: normal; color: var(--ss-orange); }
+.rule { width: 72px; height: 3px; background: var(--ss-orange); border: 0; margin: 0 0 18px; }
+.lead { font-size: 1.1rem; line-height: 1.55; color: var(--ss-muted); max-width: 30em; margin: 0 0 34px; }
+
+.features { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; list-style: none; padding: 0; margin: 0; }
+.feature { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; font-size: 0.82rem; font-weight: 700; color: var(--ss-navy); line-height: 1.25; }
+.featureIcon {
+  width: 60px; height: 60px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #fff; color: var(--ss-orange);
+  box-shadow: 0 6px 18px rgba(20, 33, 61, 0.12);
+}
+.featureIcon svg { width: 28px; height: 28px; }
+
+/* ---------- right: sign-in card ---------- */
+.cardWrap { display: flex; justify-content: center; }
+.card {
+  width: 100%; max-width: 440px;
+  background: #fff;
+  border-radius: 28px;
+  padding: 34px 32px 28px;
+  box-shadow: 0 24px 60px rgba(20, 33, 61, 0.18);
+}
+.cardLogo { display: block; height: 52px; width: auto; margin: 0 auto 22px; }
+.title { text-align: center; font-family: var(--font-sora), system-ui, sans-serif; font-size: 1.7rem; font-weight: 800; color: var(--ss-navy); margin: 0 0 6px; }
+.sub { text-align: center; color: var(--ss-muted); margin: 0 0 24px; font-size: 0.98rem; }
+
+.form { display: grid; gap: 14px; }
+.field {
+  display: flex; align-items: center; gap: 10px;
+  height: 52px; padding: 0 14px;
+  border: 1.5px solid #e3e7ef; border-radius: 14px; background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field:focus-within { border-color: var(--ss-orange); box-shadow: 0 0 0 4px rgba(242, 106, 27, 0.14); }
+.field svg { width: 20px; height: 20px; color: #7a8497; flex: none; }
+.field input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 1rem; color: var(--ss-ink); }
+.eye { border: 0; background: transparent; cursor: pointer; padding: 4px; display: grid; place-items: center; }
+
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 0.92rem; }
+.remember { display: inline-flex; align-items: center; gap: 8px; color: var(--ss-ink); cursor: pointer; }
+.remember input { width: 17px; height: 17px; accent-color: var(--ss-orange); }
+.forgot { color: var(--ss-orange); font-weight: 700; text-decoration: none; }
+.forgot:hover { text-decoration: underline; }
+
+.error { margin: 0; padding: 10px 12px; border-radius: 10px; background: #fdecea; color: #b3261e; font-size: 0.92rem; }
+
+.submit {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 54px; border: 0; border-radius: 14px; cursor: pointer;
+  background: linear-gradient(180deg, #f6782a, var(--ss-orange));
+  color: #fff; font-size: 1.1rem; font-weight: 800;
+  box-shadow: 0 10px 22px rgba(242, 106, 27, 0.35);
+  transition: transform 0.12s, background 0.12s;
+}
+.submit:hover:not(:disabled) { background: var(--ss-orange-dark); transform: translateY(-1px); }
+.submit:disabled { opacity: 0.7; cursor: default; }
+
+.or { display: flex; align-items: center; gap: 14px; color: #8a93a5; font-size: 0.85rem; margin: 20px 0 14px; }
+.or::before, .or::after { content: ""; flex: 1; height: 1px; background: #e3e7ef; }
+
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.tile {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 10px; border-radius: 12px; background: #fff;
+  box-shadow: 0 4px 14px rgba(20, 33, 61, 0.1);
+  color: var(--ss-navy); font-size: 0.8rem; font-weight: 700; line-height: 1.2; text-decoration: none;
+}
+.tile:hover { box-shadow: 0 6px 18px rgba(20, 33, 61, 0.16); }
+.tile svg { width: 22px; height: 22px; flex: none; }
+
+.help { text-align: center; color: var(--ss-muted); font-size: 0.82rem; margin: 18px 0 0; }
+.help a { color: var(--ss-orange); font-weight: 700; }
+
+@media (max-width: 960px) {
+  .page { grid-template-columns: 1fr; padding-top: 28px; }
+  .brandLogo { margin-bottom: 20px; }
+  .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cardWrap { order: -1; } /* the form comes first on phones */
+  .brand { max-width: none; }
+}

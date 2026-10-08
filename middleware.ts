@@ -51,9 +51,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // Customer account: a signed-in cookie must be present (the page itself verifies it).
+  if (pathname.startsWith('/account')) {
+    const token = request.cookies.get('customer-token')
+    if (!token || !token.value) {
+      return NextResponse.redirect(new URL('/back/customer_login', request.url))
+    }
+  }
+
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/admin/:path*', '/blog/:path*']
+  matcher: ['/admin/:path*', '/blog/:path*', '/account/:path*']
 }
