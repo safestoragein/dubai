@@ -596,11 +596,13 @@ class Dubai_retrieval extends MY_Controller {
         $n = function ($k) use ($d) { return isset($d[$k]) ? round((float) $d[$k], 2) : 0.0; };
 
         // transport: Dubai tiers; outside 60 km (or intercity) the team quotes
-        $km = null; $teamQuote = ($in['type'] === 'intercity');
-        if (!$teamQuote && is_numeric($in['lat']) && is_numeric($in['lng'])) {
-            $km = min($this->_km(self::$ORIGINS[0][0], self::$ORIGINS[0][1], (float) $in['lat'], (float) $in['lng']),
-                      $this->_km(self::$ORIGINS[1][0], self::$ORIGINS[1][1], (float) $in['lat'], (float) $in['lng']));
-            if ($km > self::SERVICE_RADIUS_KM + 1e-9) $teamQuote = true;
+        // Distance shown to the customer = real road-crow distance from the Dubai warehouse (where the delivery leaves from).
+        // The 60 km delivery-area check still uses the nearest service centre (Dubai warehouse or Abu Dhabi), as on the website.
+        $km = null; $kmArea = null; $teamQuote = ($in['type'] === 'intercity');
+        if (is_numeric($in['lat']) && is_numeric($in['lng'])) {
+            $km = $this->_km(self::$ORIGINS[0][0], self::$ORIGINS[0][1], (float) $in['lat'], (float) $in['lng']);
+            $kmArea = min($km, $this->_km(self::$ORIGINS[1][0], self::$ORIGINS[1][1], (float) $in['lat'], (float) $in['lng']));
+            if (!$teamQuote && $kmArea > self::SERVICE_RADIUS_KM + 1e-9) $teamQuote = true;
         }
         $tp = $teamQuote ? array('base' => 0, 'surcharge' => 0, 'total' => 0, 'tier' => 'Quoted by our team') : $this->_transport_price($pallets);
         $T = (float) $tp['total'];
@@ -618,7 +620,7 @@ class Dubai_retrieval extends MY_Controller {
             'items'              => count($in['ids']),
             'plan'               => $plan,
             'team_quote'         => $teamQuote,
-            'out_of_area'        => ($km !== null && $km > self::SERVICE_RADIUS_KM),
+            'out_of_area'        => ($kmArea !== null && $kmArea > self::SERVICE_RADIUS_KM),
             'distance_km'        => $km === null ? null : round($km, 1),
             'points'             => round($pts, 1),
             'pallets'            => $pallets,
