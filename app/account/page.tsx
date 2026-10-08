@@ -187,7 +187,11 @@ export default async function AccountPage() {
                   </table>
                 </div>
               ) : (
-                <p className={c.empty}><CheckCircle2 aria-hidden="true" style={{ width: 22, height: 22, color: "#268968", verticalAlign: "-5px", marginRight: 8 }} />Nothing is due. Thank you!</p>
+                <div className={c.emptyOk}>
+                  <span className={c.emptyOkIcon}><CheckCircle2 aria-hidden="true" /></span>
+                  <b>All clear</b>
+                  <span>Nothing is due. Thank you!</span>
+                </div>
               )}
             </section>
 

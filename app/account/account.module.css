@@ -108,6 +108,11 @@
 .sBad { background: #fff0ee; color: #d45f50; }
 .empty { margin: 0; padding: 36px; text-align: center; color: #929aa6; }
 
+.emptyOk { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 36px 20px 44px; color: #929aa6; }
+.emptyOk b { color: #268968; font-size: 15px; font-weight: 600; }
+.emptyOkIcon { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: #eaf7f0; color: #268968; margin-bottom: 6px; }
+.emptyOkIcon svg { width: 26px; height: 26px; }
+
 /* ring (like "Storage occupancy") */
 .ringWrap { display: flex; align-items: center; gap: 26px; padding: 9px 0 22px; }
 .ring { width: 145px; height: 145px; flex-shrink: 0; border-radius: 50%; position: relative; display: grid; place-items: center; }
