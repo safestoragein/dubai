@@ -160,11 +160,14 @@
   .side { position: static; width: 100%; height: auto; padding: 14px; flex-direction: row; flex-wrap: wrap; align-items: center; border-right: 0; border-bottom: 1px solid #e5e8ed; }
   .logo { height: 34px; margin: 0; }
   .caption, .user, .navSep { display: none; }
-  .nav { display: flex; width: 100%; overflow: auto; margin-top: 10px; }
-  .navItem { font-size: 12px; padding: 9px; gap: 6px; flex-shrink: 0; width: auto; }
+  /* phones: the menu becomes a bottom tab bar (all 7 pages visible, thumb-reachable) */
+  .side { padding: 10px 16px; }
+  .nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); margin: 0; padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid #e5e8ed; box-shadow: 0 -6px 20px rgba(20, 33, 61, 0.08); }
+  .navItem { flex-direction: column; justify-content: center; gap: 3px; width: auto; min-width: 0; padding: 6px 2px; font-size: 10px; line-height: 1.15; text-align: center; border-radius: 10px; }
   .navActive::after, .badge { display: none; }
-  .navItem svg { width: 16px; height: 16px; }
-  .sideBottom { margin: 0 0 0 auto; }
+  .navItem svg { width: 20px; height: 20px; }
+  .sideBottom { display: none; }               /* Log out lives in the profile menu (top right) */
+  .page { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
   .main { margin: 0; }
   .top { height: 58px; padding: 0 18px; }
   .content { padding: 22px 16px; }
@@ -570,3 +573,18 @@ th.sumAmt { text-align: right; }
 .avatarMenuItem { display: flex; align-items: center; gap: 8px; width: 100%; border: 0; background: none; padding: 9px 10px; border-radius: 8px; font: inherit; font-size: 13px; color: #c0392b; cursor: pointer; }
 .avatarMenuItem:hover { background: #fdf0ee; }
 .avatarMenuItem svg { width: 16px; height: 16px; }
+
+/* phones: tighter tables (first column stays visible while the rest scrolls), tabs that scroll, comfortable touch targets */
+@media (max-width: 760px) {
+  .table th, .table td { padding: 11px 12px; }
+  .table th:first-child, .table td:first-child { position: sticky; left: 0; z-index: 1; background: #fff; box-shadow: 1px 0 0 #eff1f4; }
+  .table th:first-child { background: #fafbfc; }
+  .tableWrap { -webkit-overflow-scrolling: touch; }
+  .mainTabs { gap: 20px; scrollbar-width: none; }
+  .mainTabs::-webkit-scrollbar, .subTabs::-webkit-scrollbar { display: none; }
+  .uTab { font-size: 14px; padding: 12px 2px; }
+  .walletChip { margin-left: 8px; }
+  .heading h1 { font-size: 22px; }
+  .content { padding: 18px 14px; }
+}
+@media (max-width: 400px) { .navItem { font-size: 9px; padding: 6px 0; letter-spacing: -0.1px; } .nav { padding-left: 2px; padding-right: 2px; } .navItem svg { width: 19px; height: 19px; } }

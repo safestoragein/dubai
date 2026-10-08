@@ -117,4 +117,26 @@
   .brand { max-width: none; }
 }
 
-@media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .page { min-height: 100svh; padding: 18px 14px 28px; gap: 22px; align-items: start; }
+  .card { padding: 24px 18px 20px; border-radius: 22px; box-shadow: 0 14px 36px rgba(20, 33, 61, 0.16); }
+  .cardLogo { height: 44px; margin-bottom: 14px; }
+  .title { font-size: 1.45rem; }
+  .sub { font-size: 0.92rem; margin-bottom: 18px; }
+  .field { height: 50px; }
+  .field input { font-size: 16px; }              /* 16px stops iOS zooming the page when a field is focused */
+  .row { flex-wrap: wrap; row-gap: 8px; }
+  .submit { height: 52px; font-size: 1.05rem; }
+  .brand { text-align: center; padding: 0 4px; }
+  .brandLogo { display: none; }                   /* the card already shows the logo */
+  .headline { font-size: 1.45rem; white-space: normal; margin-bottom: 12px; }
+  .rule { margin: 0 auto 14px; width: 56px; }
+  .lead { font-size: 0.95rem; margin: 0 auto 18px; }
+  .features { gap: 6px; }
+  .feature { padding: 4px 2px; }
+  .featureIcon { width: 40px; height: 40px; margin-bottom: 6px; }
+  .featureIcon svg { width: 19px; height: 19px; }
+  .featureValue { font-size: 0.8rem; }
+  .feature b { font-size: 0.74rem; }
+  .feature small { display: none; }
+}
