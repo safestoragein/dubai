@@ -241,7 +241,83 @@ class Dubai_auth extends MY_Controller {
 
         $this->_json(array('status' => 'success',
             'totals' => array('unpaid' => round($unpaid, 2), 'unpaid_count' => $nUnpaid, 'paid' => round($paid, 2)),
+            'summary' => $this->_account_summary($cid),
             'bills' => $bills, 'payments' => $payments));
+    }
+
+    /**
+     * "Account Summary" of the back-office customer page (customer/views/payment_section.php),
+     * for a Dubai customer (AE: 5% tax, stored price already includes VAT): one block per active
+     * quotation plus the "All" totals. Same arithmetic as the view, read-only.
+     */
+    private function _account_summary($cid)
+    {
+        $taxRate = 5;
+        $quotes = $this->db->query(
+            "SELECT quotation_id, total_storage_charges, extra_item_storage_charges, item_reduced_charges,
+                    extra_item_transport_charges_gst, extra_item_transport_charges,
+                    extra_item_stack_charges_gst, extra_item_stack_charges, storage_coupen, storage_multi_factor
+               FROM ss_customer_quotation
+              WHERE customer_id = ? AND is_available = 'no' AND is_full_retrieved = '0'
+              ORDER BY quotation_id", array($cid))->result();
+
+        $ins = $this->db->query("SELECT is_extra_insurar_accepted, extra_insurance_subtotal FROM ss_inventory_insuration_amount WHERE customer_id = ? LIMIT 1", array($cid))->row();
+        $extraIns = ($ins && $ins->is_extra_insurar_accepted == 'Yes') ? (float) $ins->extra_insurance_subtotal : 0;
+
+        $list = array();
+        $sum = array('storage' => 0.0, 'extra_storage' => 0.0, 'revised' => 0.0, 'total_monthly' => 0.0);
+        foreach ($quotes as $q) {
+            $o = $this->db->query("SELECT order_status FROM ss_order WHERE customer_id = ? AND quotation_id = ? ORDER BY order_id DESC LIMIT 1", array($cid, $q->quotation_id))->row();
+            if ($o && $o->order_status == 'cancelled') continue;
+
+            $storage = (float) $q->total_storage_charges;
+            if (!empty($q->storage_multi_factor)) $storage = floatval($q->storage_multi_factor) * $storage;
+
+            $coupAmt = 0; $coupText = '';
+            if (!empty($q->storage_coupen)) {
+                $c = explode('-', $q->storage_coupen);
+                if (count($c) >= 3) {
+                    if ($c[1] == 'flat') { $coupAmt = (float) $c[2]; $coupText = 'Flat ' . $c[2] . ' OFF'; }
+                    else { $coupAmt = ((float) $c[2] / 100) * $storage; $coupText = $c[2] . '% OFF'; }
+                }
+            }
+            $removed = (float) $q->item_reduced_charges;
+            $revised = ((int) $storage + (int) $q->extra_item_storage_charges + (int) $extraIns) - ((int) $q->item_reduced_charges + 0 + (int) $coupAmt);
+            $total   = round((float) $revised);            // VAT is already inside the stored price
+
+            $trp   = ((float) $q->extra_item_transport_charges_gst > 0) ? (float) $q->extra_item_transport_charges_gst : (float) $q->extra_item_transport_charges;
+            $stack = ((float) $q->extra_item_stack_charges_gst > 0) ? (float) $q->extra_item_stack_charges_gst : (float) $q->extra_item_stack_charges;
+
+            $list[] = array(
+                'id'               => 'QT' . sprintf('%03d', $q->quotation_id),
+                'storage'          => round($storage, 2),
+                'extra_storage'    => round((float) $q->extra_item_storage_charges, 2),
+                'removed'          => round($removed > 0 ? $removed : 0, 2),
+                'extra_insurance'  => round($extraIns, 2),
+                'coupon'           => $coupText,
+                'revised'          => round((float) $revised, 2),
+                'tax_rate'         => $taxRate,
+                'total_monthly'    => round($total, 2),
+                'extra_transport'  => round($trp, 2),
+                'extra_stack'      => round($stack, 2),
+            );
+            $sum['storage']       += $storage;
+            $sum['extra_storage'] += (float) $q->extra_item_storage_charges;
+            $sum['revised']       += (float) $revised;
+            $sum['total_monthly'] += $total;
+        }
+
+        // The view zeroes the combined monthly total until the first pickup order is completed.
+        $first = $this->db->query("SELECT order_status FROM ss_order WHERE customer_id = ? AND order_type = 'pickup' ORDER BY order_id ASC LIMIT 1", array($cid))->row();
+        if (!($first && $first->order_status == 'completed')) $sum['total_monthly'] = 0.0;
+
+        return array(
+            'quotations' => $list,
+            'all' => array(
+                'storage' => round($sum['storage'], 2), 'extra_storage' => round($sum['extra_storage'], 2),
+                'revised' => round($sum['revised'], 2), 'tax_rate' => $taxRate, 'total_monthly' => round($sum['total_monthly'], 2),
+            ),
+        );
     }
 
     /**

@@ -229,3 +229,19 @@
 /* payments page */
 .payBanner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; background: #fff7f2; border-color: #ffe1cf; }
 .content > .panel { margin-bottom: 24px; }
+
+/* payments: underline tabs + account summary tables */
+.mainTabs { display: flex; gap: 30px; border-bottom: 1px solid #e6e9ed; margin-bottom: 22px; overflow-x: auto; }
+.subTabs { display: flex; gap: 26px; border-bottom: 1px solid #e6e9ed; margin: -4px 0 26px; overflow-x: auto; }
+.uTab { background: none; border: 0; border-bottom: 2px solid transparent; padding: 12px 2px; margin-bottom: -1px; font: inherit; font-size: 15px; font-weight: 500; color: #5f6978; cursor: pointer; white-space: nowrap; }
+.uTab:hover { color: var(--ss-ink); }
+.uTabOn { color: #14213d; font-weight: 600; border-bottom-color: var(--ss-orange); }
+.sumHead { font-size: 22px; font-weight: 600; letter-spacing: -0.4px; margin: 0 0 16px; color: var(--ss-ink); }
+.sumGrid { display: grid; gap: 22px; max-width: 760px; }
+.sumTable { width: 100%; border-collapse: collapse; border: 1px solid #e6e9ed; border-radius: 10px; overflow: hidden; }
+.sumTable th { text-align: left; background: #fafbfc; font-size: 14px; font-weight: 600; color: #19212e; padding: 14px 18px; border-bottom: 1px solid #e6e9ed; }
+.sumTable td { padding: 14px 18px; border-bottom: 1px solid #eef0f3; color: #5f6978; font-size: 14px; }
+.sumTable tbody tr:last-child td { border-bottom: 0; }
+.sumAmt { text-align: right; width: 34%; }
+th.sumAmt { text-align: right; }
+.sumTotal td { font-weight: 600; color: #19212e; background: #fffaf7; }

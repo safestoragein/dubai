@@ -6,7 +6,7 @@ import { callBack } from "@/lib/customer-back"
 import { EMAIL, PHONE, PHONE_DISPLAY } from "@/lib/company-facts"
 import c from "../account.module.css"
 import AccountShell from "../shell"
-import PaymentsList, { type Bill, type Payment } from "./payments-list"
+import PaymentsTabs, { type Bill, type Payment, type Summary } from "./payments-list"
 
 export const metadata: Metadata = {
   title: { absolute: "My Payments | Safe Storage Dubai" },
@@ -19,6 +19,7 @@ type PaymentsReply = {
   totals?: { unpaid: number; unpaid_count: number; paid: number }
   bills?: Bill[]
   payments?: Payment[]
+  summary?: Summary
 }
 type AccountReply = {
   status?: string
@@ -107,7 +108,7 @@ export default async function PaymentsPage() {
             </section>
           )}
 
-          <PaymentsList bills={bills} payments={payments} />
+          <PaymentsTabs bills={bills} payments={payments} summary={full?.summary ?? null} dueCount={unpaidCount} />
         </>
       )}
     </AccountShell>
