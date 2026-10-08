@@ -138,7 +138,7 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
   // A saved address has no coordinates yet: look it up ourselves so the charges can be worked out
   // without the customer having to re-pick the address from the suggestions.
   useEffect(() => {
-    if (step !== 2 || !address || lat || typed) return
+    if (step !== 2 || !address || lat) return
     let off = false
     const t = setTimeout(async () => {
       try {
@@ -148,9 +148,10 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
           if (off || status !== "OK" || !res?.[0]?.geometry?.location) return
           setLat(String(res[0].geometry.location.lat()))
           setLng(String(res[0].geometry.location.lng()))
+          if (typed && res[0].formatted_address) { setAddress(res[0].formatted_address); setTyped(false) }
         })
       } catch { /* the hint below tells the customer to pick a suggestion */ }
-    }, 600)
+    }, typed ? 1500 : 600)
     return () => { off = true; clearTimeout(t) }
   }, [step, address, lat, typed])
 
@@ -312,7 +313,7 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                     <input ref={addrRef} type="text" value={address} placeholder="Start typing and pick your address"
                       onChange={(e) => { setAddress(e.target.value); setLat(""); setLng(""); setTyped(true) }} />
                     {placesErr ? <em className={c.fHint}>Address suggestions are not available right now. Please type your full address.</em>
-                      : type !== "intercity" && address && !lat && (typed ? <em className={c.fHint}>Choose your address from the suggestions to see the charges.</em> : <em className={c.fHint}>Finding your address on the map…</em>)}
+                      : type !== "intercity" && address && !lat && <em className={c.fHint}>{typed ? "Pick your address from the suggestions. If none appear, stop typing for a moment and we will find it." : "Finding your address on the map…"}</em>}
                   </label>
                   <label className={c.fLabel}><span>Floor</span>
                     <select value={floor} onChange={(e) => setFloor(e.target.value)}>
