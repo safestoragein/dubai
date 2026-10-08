@@ -152,7 +152,6 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                 <b>{t.title}</b>
                 <small>{t.key === "partial" && opts.max_partial < 1 && !noItems ? "Needs at least 2 stored items" : t.text}</small>
               </span>
-              <span className={c.rtTick}>{on && <Check aria-hidden="true" />}</span>
             </button>
           )
         })}
