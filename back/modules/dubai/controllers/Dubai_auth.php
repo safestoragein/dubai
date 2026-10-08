@@ -200,7 +200,7 @@ class Dubai_auth extends MY_Controller {
 
         // every amount column in ss_customer_payment is varchar, so cast in PHP
         $rows = $this->db->query(
-            "SELECT payment_id, payment_unique_id, payable_amount, total_amount, late_charges, payment_status,
+            "SELECT payment_id, payment_unique_id, sub_total_amt, tax, payable_amount, total_amount, late_charges, payment_status,
                     billing_date, bill_genrated_date, charges_type, offer_note, quotation_id, order_id
                FROM ss_customer_payment WHERE customer_id = ? ORDER BY payment_id DESC LIMIT 300", array($cid))->result();
         $bills = array();
@@ -216,6 +216,9 @@ class Dubai_auth extends MY_Controller {
                 'kind'        => (string) $b->charges_type,
                 'date'        => (string) ($b->billing_date ? $b->billing_date : $b->bill_genrated_date),
                 'amount'      => $amt,
+                'charges'     => $num($b->sub_total_amt),
+                'tax'         => (string) $b->tax,
+                'total'       => $num($b->total_amount),
                 'late'        => $num($b->late_charges),
                 'status'      => $status,
                 'quotation'   => !empty($b->quotation_id) ? 'QT' . $b->quotation_id : '',

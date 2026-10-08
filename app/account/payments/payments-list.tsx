@@ -4,7 +4,7 @@ import { useState } from "react"
 import { FileText } from "lucide-react"
 import c from "../account.module.css"
 
-export type Bill = { id: string; description: string; kind: string; date: string; amount: number; late: number; status: string; quotation?: string; order?: string }
+export type Bill = { id: string; description: string; kind: string; date: string; amount: number; charges?: number; tax?: string; total?: number; late: number; status: string; quotation?: string; order?: string }
 export type QuoteSummary = {
   id: string; storage: number; extra_storage: number; removed: number; extra_insurance: number; coupon: string
   revised: number; tax_rate: number; total_monthly: number; extra_transport: number; extra_stack: number
@@ -20,6 +20,11 @@ const label = (v: string) => (v ? v.replace(/_/g, " ").replace(/^\w/, (ch) => ch
 const day = (v: string) => {
   const d = new Date(String(v).replace(" ", "T"))
   return Number.isNaN(d.getTime()) || String(v).startsWith("0000") ? "—" : d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
+}
+const money = (n: number) => n.toLocaleString("en-AE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+const dmy = (v: string) => {
+  const d = new Date(String(v).replace(" ", "T"))
+  return Number.isNaN(d.getTime()) || String(v).startsWith("0000") ? "—" : `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}/${d.getFullYear()}`
 }
 const pill = (s: string) => (s === "Paid" ? c.sDone : s === "Unpaid" ? c.sOpen : c.sOther)
 const TABS = ["All", "Unpaid", "Paid"] as const
@@ -50,21 +55,21 @@ function BillsPanel({ bills }: { bills: Bill[] }) {
                 onClick={() => { setTab(t); setPage(1) }}>{t}<span className={c.tabN}>{n(t)}</span></button>
             ))}
           </div>
-          <input className={c.search} aria-label="Search bills" placeholder="Search bill, description or order…" value={q}
+          <input className={c.search} aria-label="Search bills" placeholder="Search description or status…" value={q}
             onChange={(e) => { setQ(e.target.value); setPage(1) }} />
         </div>
         <div className={c.tableWrap}>
           <table className={c.table}>
-            <thead><tr><th>Bill</th><th>Description</th><th>Bill date</th><th>Order</th><th>Amount</th><th>Status</th></tr></thead>
+            <thead><tr><th>Billing Date</th><th>Charges</th><th>Tax</th><th>Total Amount</th><th>Payable Amount</th><th>Description</th><th>Payment Status</th></tr></thead>
             <tbody>
               {shown.map((b) => (
                 <tr key={b.id}>
-                  <td><span className={c.cellMain}><span className={c.cellIcon}><FileText aria-hidden="true" /></span>{b.id}</span></td>
-                  <td style={{ color: "#344050", whiteSpace: "normal", minWidth: 200 }}>{b.description || label(b.kind) || "Storage charges"}
-                    {b.quotation && <span className={c.refLine}>{b.quotation}</span>}</td>
-                  <td>{day(b.date)}</td>
-                  <td>{b.order || "—"}</td>
-                  <td><b>{aed(b.amount)}</b>{b.late > 0 && <span className={c.refLine}>incl. {aed(b.late)} late fee</span>}</td>
+                  <td>{dmy(b.date)}</td>
+                  <td>{b.charges != null ? money(b.charges) : "—"}</td>
+                  <td>{b.tax ? `${b.tax}%` : "—"}</td>
+                  <td>{b.total != null ? money(b.total) : "—"}</td>
+                  <td><b>{money(b.amount)}</b>{b.late > 0 && <span className={c.refLine}>incl. {money(b.late)} late fee</span>}</td>
+                  <td style={{ color: "#344050", whiteSpace: "normal", minWidth: 220 }}>{b.description || label(b.kind) || "Storage charges"}</td>
                   <td><span className={`${c.status} ${pill(b.status)}`}>{b.status}</span></td>
                 </tr>
               ))}
