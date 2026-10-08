@@ -356,7 +356,7 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                         <thead><tr><th colSpan={2}>{type === "partial" ? "Partial retrieval transport" : "Safestorage transport"}</th></tr></thead>
                         <tbody>
                           {est.team_quote ? (
-                            <tr><td colSpan={2} style={{ whiteSpace: "normal" }}>{type === "intercity" ? "Our team will quote the intercity delivery price and confirm it with you." : `This address is ${est.distance_km} km away, outside our 60 km delivery area. Our team will quote the transport price.`}</td></tr>
+                            <tr><td colSpan={2} style={{ whiteSpace: "normal" }}>{type === "intercity" ? "Our team will quote the intercity delivery price and confirm it with you." : `This address is ${est.distance_km} km from our warehouse, beyond our standard 60 km delivery range. Our team will quote the transport price and confirm it with you.`}</td></tr>
                           ) : (
                             <>
                               {est.distance_km !== null && <tr><td>Delivery distance (from our warehouse)</td><td className={c.inAmt}>{est.distance_km} km</td></tr>}

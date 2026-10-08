@@ -597,11 +597,11 @@ class Dubai_retrieval extends MY_Controller {
 
         // transport: Dubai tiers; outside 60 km (or intercity) the team quotes
         // Distance shown to the customer = real road-crow distance from the Dubai warehouse (where the delivery leaves from).
-        // The 60 km delivery-area check still uses the nearest service centre (Dubai warehouse or Abu Dhabi), as on the website.
+        // Beyond 60 km from that warehouse the team quotes the delivery (the owner's rule for retrievals).
         $km = null; $kmArea = null; $teamQuote = ($in['type'] === 'intercity');
         if (is_numeric($in['lat']) && is_numeric($in['lng'])) {
             $km = $this->_km(self::$ORIGINS[0][0], self::$ORIGINS[0][1], (float) $in['lat'], (float) $in['lng']);
-            $kmArea = min($km, $this->_km(self::$ORIGINS[1][0], self::$ORIGINS[1][1], (float) $in['lat'], (float) $in['lng']));
+            $kmArea = $km;                       // deliveries leave from the Dubai warehouse: beyond 60 km from it the team quotes
             if (!$teamQuote && $kmArea > self::SERVICE_RADIUS_KM + 1e-9) $teamQuote = true;
         }
         $tp = $teamQuote ? array('base' => 0, 'surcharge' => 0, 'total' => 0, 'tier' => 'Quoted by our team') : $this->_transport_price($pallets);
