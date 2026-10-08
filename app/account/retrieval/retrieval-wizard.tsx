@@ -27,6 +27,7 @@ type Estimate = {
 }
 type Kind = "partial" | "full" | "intercity"
 
+const money = (n: number) => n.toLocaleString("en-AE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 const aed = (n: number) => `AED ${n.toLocaleString("en-AE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 const label = (v: string) => (v ? v.replace(/_/g, " ").replace(/^\w/, (ch) => ch.toUpperCase()) : "")
 const TYPES: { key: Kind; title: string; text: string; icon: typeof Boxes; tone: string }[] = [
@@ -329,40 +330,44 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                   <>
                     <div className={c.rtTables}>
                       {type !== "partial" && (
-                        <table className={c.sumTable}>
-                          <thead><tr><th>Storage charges</th><th className={c.sumAmt}>Amount</th></tr></thead>
+                        <table className={c.inTable}>
+                          <thead><tr><th colSpan={2}>Storage charges</th></tr></thead>
                           <tbody>
-                            <tr><td>Monthly storage</td><td className={c.sumAmt}>{aed(est.monthly_amount)}</td></tr>
-                            {est.plan.unpaid_dues > 0 && <tr><td>Bills already due</td><td className={c.sumAmt}>{aed(est.plan.unpaid_dues)}</td></tr>}
-                            <tr><td>Storage till {est.storage_to || "the retrieval date"}</td><td className={c.sumAmt}>{aed(est.plan.storage)}</td></tr>
-                            {est.storage_return > 0 && <tr><td>Prepaid storage coming back</td><td className={c.sumAmt}>{aed(est.storage_return)}</td></tr>}
-                            {est.plan.wallet_used > 0 && <tr><td>Wallet credit used</td><td className={c.sumAmt}>− {aed(est.plan.wallet_used)}</td></tr>}
-                            <tr className={c.sumTotal}><td>Storage total</td><td className={c.sumAmt}>{aed(Math.max(0, est.plan.unpaid_dues + est.plan.storage - est.plan.wallet_used))}</td></tr>
+                            {est.plan.unpaid_dues > 0 && <tr><td>Previous Due Storage Charges</td><td className={c.inAmt}>{money(est.plan.unpaid_dues)}</td></tr>}
+                            <tr><td>Storage charges-from {est.storage_from || "—"} to {est.storage_to || "—"}</td><td className={c.inAmt}>{money(est.plan.storage)}</td></tr>
+                            <tr><td>Current Wallet Amount</td><td className={c.inAmt}>{money(est.wallet)}</td></tr>
+                            {est.storage_return > 0 && <tr><td>Prepaid storage coming back</td><td className={c.inAmt}>{money(est.storage_return)}</td></tr>}
+                            <tr className={c.inTotal}><td>{est.storage_return > 0 ? "Total Return Storage Charges" : "Total Storage charges"}</td><td className={c.inAmt}>{money(est.storage_return > 0 ? est.storage_return : Math.max(0, est.plan.unpaid_dues + est.plan.storage - est.plan.wallet_used))}</td></tr>
                           </tbody>
                         </table>
                       )}
-                      <table className={c.sumTable}>
-                        <thead><tr><th>Transport charges</th><th className={c.sumAmt}>Amount</th></tr></thead>
+                      <table className={c.inTable}>
+                        <thead><tr><th colSpan={2}>{type === "partial" ? "Partial retrieval transport" : "Safestorage transport"}</th></tr></thead>
                         <tbody>
                           {est.team_quote ? (
                             <tr><td colSpan={2} style={{ whiteSpace: "normal" }}>{type === "intercity" ? "Our team will quote the intercity delivery price and confirm it with you." : `This address is ${est.distance_km} km away, outside our 60 km delivery area. Our team will quote the transport price.`}</td></tr>
                           ) : (
                             <>
-                              <tr><td>{est.pallets} {est.pallets === 1 ? "pallet" : "pallets"} · {est.tier}</td><td className={c.sumAmt}>{aed(est.transport_base)}</td></tr>
-                              <tr><td>Handling</td><td className={c.sumAmt}>{aed(est.transport_surcharge)}</td></tr>
-                              <tr className={c.sumTotal}><td>Transport total</td><td className={c.sumAmt}>{aed(est.transport_total)}</td></tr>
+                              <tr><td>Transport Cost ({est.pallets} {est.pallets === 1 ? "pallet" : "pallets"} · {est.tier})</td><td className={c.inAmt}>{money(est.transport_base)}</td></tr>
+                              <tr><td>Handling Charges</td><td className={c.inAmt}>{money(est.transport_surcharge)}</td></tr>
+                              <tr><td>Transport Charges (Note: Without packing consumables)</td><td className={c.inAmt}>{money(est.transport_base + est.transport_surcharge)}</td></tr>
+                              <tr><td>Tax (0%)</td><td className={c.inAmt}>{money(0)}</td></tr>
+                              <tr className={c.inTotal}><td>Total Transport Charges</td><td className={c.inAmt}>{money(est.transport_total)}</td></tr>
                             </>
                           )}
                         </tbody>
                       </table>
                     </div>
 
+                    <div className={c.inPayable}>
+                      <span>{est.plan.mode === "pay" || est.final_return_amt <= 0 ? "Total Payable Amount" : "Total Return Amount"}</span>
+                      <b>{money(est.plan.mode === "pay" ? est.plan.amount_due_now : est.final_return_amt > 0 ? est.final_return_amt : est.plan.amount_due_now)}</b>
+                    </div>
+
                     <div className={c.rtPayBar}>
                       <div>
-                        <p className={c.rtPayLabel}>{est.plan.mode === "pay" ? "To pay now" : est.final_return_amt > 0 ? "Refund to you" : "Estimated total"}</p>
-                        <p className={c.rtPayAmt}>{aed(est.plan.mode === "pay" ? est.plan.amount_due_now : est.final_return_amt > 0 ? est.final_return_amt : est.plan.amount_due_now)}</p>
-                        <p className={c.rtMuted}>
-                          {est.plan.mode === "pay" ? "Pay by card, then your request goes to our team, who confirm the delivery time." : (est.plan.why || "No payment is taken now.") + " Our team will confirm the final amount and the delivery time."}
+                        <p className={c.rtMuted} style={{ fontSize: 13.5 }}>
+                          {est.plan.mode === "pay" ? "Pay the full amount by card. Your request then goes to our team, who confirm the delivery time." : (est.plan.why || "No payment is taken now.") + " Our team will confirm the final amount and the delivery time."}
                         </p>
                       </div>
                       <div className={c.rtPayAct}>

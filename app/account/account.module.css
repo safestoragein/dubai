@@ -514,3 +514,12 @@ th.sumAmt { text-align: right; }
 .rtPayLabel { margin: 0; font-size: 12.5px; color: #6f7686; font-weight: 500; }
 .rtPayAmt { margin: 2px 0 6px; font-size: 28px; font-weight: 650; letter-spacing: -0.8px; color: #19212e; }
 .rtPayAct { min-width: 240px; }
+
+/* Indian-style retrieval tables: centred title row, label | amount, bold total row */
+.inTable { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+.inTable th { text-align: center; font-weight: 600; color: #19212e; padding: 12px; border: 1px solid #e3e6ec; background: #fff; }
+.inTable td { padding: 11px 14px; border: 1px solid #e3e6ec; color: #4a5164; }
+.inAmt { text-align: right; width: 28%; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.inTotal td { font-weight: 600; color: #19212e; }
+.inPayable { display: flex; align-items: baseline; gap: 36px; margin-top: 22px; font-size: 16px; font-weight: 600; color: #4a5164; }
+.inPayable b { font-size: 20px; color: #19212e; }
