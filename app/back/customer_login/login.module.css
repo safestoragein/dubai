@@ -35,7 +35,7 @@
 .rule { width: 72px; height: 3px; background: var(--ss-orange); border: 0; margin: 0 0 18px; }
 .lead { font-size: 1.1rem; line-height: 1.55; color: var(--ss-muted); max-width: 30em; margin: 0 0 34px; }
 
-.features { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 0; }
+.features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 0; }
 .feature { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 8px 4px; }
 .featureIcon { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; margin: 0 0 12px; }
 .featureIcon svg { width: 24px; height: 24px; }
@@ -113,8 +113,8 @@
 @media (max-width: 960px) {
   .page { grid-template-columns: 1fr; padding-top: 28px; }
   .brandLogo { margin-bottom: 20px; }
-  .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cardWrap { order: -1; } /* the form comes first on phones */
   .brand { max-width: none; }
 }
 
+@media (max-width: 560px) { .features { grid-template-columns: 1fr; } }

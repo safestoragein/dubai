@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
-import { Camera, ShieldCheck, Truck, Boxes } from "lucide-react"
+import { Camera, ShieldCheck, Truck } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import { getCustomerSession } from "@/lib/customer-session"
 import c from "./login.module.css"
@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 const FEATURES = [
   { icon: Camera, tone: c.tGold, v: "24/7", label: "CCTV Monitoring", sub: "Round-the-clock cameras" },
   { icon: ShieldCheck, tone: c.tBlue, v: "Secure", label: "Safe Facility", sub: "Protected storage units" },
-  { icon: Boxes, tone: c.tGreen, v: "Organised", label: "Inventory Management", sub: "Every item tracked" },
   { icon: Truck, tone: c.tPurple, v: "Door-to-Door", label: "Pickup & Delivery", sub: "Within Dubai" },
 ]
 
