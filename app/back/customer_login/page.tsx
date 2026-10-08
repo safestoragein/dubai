@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 }
 
 const FEATURES = [
-  { icon: Camera, label: "24/7 CCTV Monitoring" },
-  { icon: ShieldCheck, label: "Secure & Safe Facility" },
-  { icon: Boxes, label: "Organised Inventory Management" },
-  { icon: Truck, label: "Door-to-Door Pickup" },
+  { icon: Camera, tone: c.tGold, v: "24/7", label: "CCTV Monitoring", sub: "Round-the-clock cameras" },
+  { icon: ShieldCheck, tone: c.tBlue, v: "Secure", label: "Safe Facility", sub: "Protected storage units" },
+  { icon: Boxes, tone: c.tGreen, v: "Organised", label: "Inventory Management", sub: "Every item tracked" },
+  { icon: Truck, tone: c.tPurple, v: "Door-to-Door", label: "Pickup & Delivery", sub: "Within Dubai" },
 ]
 
 export default async function LoginPage() {
@@ -36,10 +36,12 @@ export default async function LoginPage() {
         <hr className={c.rule} />
         <p className={c.lead}>Your trusted storage partner for home, business and everything in between.</p>
         <ul className={c.features}>
-          {FEATURES.map(({ icon: Icon, label }) => (
+          {FEATURES.map(({ icon: Icon, tone, v, label, sub }) => (
             <li key={label} className={c.feature}>
-              <span className={c.featureIcon}><Icon aria-hidden="true" /></span>
-              {label}
+              <span className={`${c.featureIcon} ${tone}`}><Icon aria-hidden="true" /></span>
+              <strong className={`${c.featureValue} ${tone}`}>{v}</strong>
+              <b>{label}</b>
+              <small>{sub}</small>
             </li>
           ))}
         </ul>
