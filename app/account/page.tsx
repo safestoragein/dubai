@@ -2,12 +2,12 @@ import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 import {
   CalendarDays, CheckCircle2, CreditCard, HelpCircle, LayoutDashboard, Mail, MapPin, Package,
-  Phone, PhoneCall, Receipt, Truck, UserRound,
+  Phone, Receipt, Truck, UserRound,
 } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
-import { EMAIL, PHONE, PHONE_DISPLAY } from "@/lib/company-facts"
+import { EMAIL } from "@/lib/company-facts"
 import c from "./account.module.css"
 import LogoutButton from "./logout-button"
 
@@ -77,12 +77,6 @@ export default async function AccountPage() {
           </nav>
           <div className={c.sideBottom}>
             <LogoutButton />
-            <div className={c.promo}>
-              <span className={c.promoIcon}><PhoneCall aria-hidden="true" /></span>
-              <h3>Need a hand?</h3>
-              <p>Questions about an order, a pickup or a payment? We reply fast, every day.</p>
-              <a className={c.promoBtn} href={`tel:${PHONE}`}><PhoneCall aria-hidden="true" /> {PHONE_DISPLAY}</a>
-            </div>
           </div>
         </aside>
 
