@@ -1,10 +1,8 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { redirect } from "next/navigation"
-import { Building2, Camera, ShieldCheck, Truck, Users, Boxes } from "lucide-react"
+import { Camera, ShieldCheck, Truck, Boxes } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import { getCustomerSession } from "@/lib/customer-session"
-import { EMAIL, PHONE_DISPLAY } from "@/lib/company-facts"
 import c from "./login.module.css"
 import LoginForm from "./login-form"
 
@@ -56,22 +54,6 @@ export default async function LoginPage() {
           <p className={c.sub}>Login to access your SafeStorage account</p>
 
           <LoginForm />
-
-          <div className={c.or}>OR</div>
-          <div className={c.tiles}>
-            <a className={c.tile} href="https://safestorage.in/back/employee_login" rel="noopener">
-              <Users aria-hidden="true" /> For Employees
-            </a>
-            <Link className={c.tile} href="/contact">
-              <Building2 aria-hidden="true" /> For Partners
-            </Link>
-            <Link className={c.tile} href="/privacy-policy">
-              <ShieldCheck aria-hidden="true" /> Secure Access
-            </Link>
-          </div>
-          <p className={c.help}>
-            Need an account or a new password? Call {PHONE_DISPLAY} or email <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
-          </p>
         </div>
       </div>
     </div>
