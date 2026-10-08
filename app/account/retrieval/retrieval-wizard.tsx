@@ -10,6 +10,7 @@ type Item = { id: number; quotation: string; barcode: string; name: string; type
 type Opt = { slug: string; name: string }
 export type Options = {
   has_dues: boolean
+  dues: { count: number; total: number }
   rules: { min_date: string; max_date: string; blocked_days: number[]; booked_dates: string[] }
   items: Item[]
   max_partial: number
@@ -106,6 +107,8 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
   const [busy, setBusy] = useState(false)
   const [err, setErr] = useState("")
   const [done, setDone] = useState<string | null>(null)
+  const [payBusy, setPayBusy] = useState(false)
+  const [payErr, setPayErr] = useState("")
   const addrRef = useRef<HTMLInputElement>(null)
 
   // Google address suggestions → text + coordinates (the price depends on the location).
@@ -212,6 +215,17 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
 
   const noItems = opts.items.length === 0
   const blocked = opts.open_orders.length > 0
+  const dueGate = type === "partial" && opts.has_dues            // Indian rule: no partial retrieval while a bill is unpaid
+  async function payDues() {
+    setPayBusy(true); setPayErr("")
+    try {
+      const res = await fetch("/api/customer/pay", { method: "POST" })
+      const d = await res.json().catch(() => ({}))
+      if (res.ok && d.url) { window.location.href = d.url; return }
+      setPayErr(d.error || "Could not open the payment page. Please try again or call us.")
+    } catch { setPayErr("Could not reach the server. Please check your connection.") }
+    setPayBusy(false)
+  }
   const cur = TYPES.find((t) => t.key === type)
   const floorName = opts.floors.find((x) => x.slug === floor)?.name
 
@@ -228,16 +242,16 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
         {TYPES.map((t) => {
           const Icon = t.icon
           const dueBlock = t.key === "partial" && opts.has_dues
-          const disabled = noItems || blocked || dueBlock || (t.key === "partial" && opts.max_partial < 1)
+          const disabled = noItems || blocked || (t.key === "partial" && opts.max_partial < 1)
           const on = type === t.key
           return (
             <button key={t.key} type="button" role="radio" aria-checked={on} disabled={disabled}
-              className={`${c.rtType} ${c[t.tone]} ${on ? c.rtTypeOn : ""}`}
+              className={`${c.rtType} ${c[t.tone]} ${on ? c.rtTypeOn : ""} ${dueBlock ? c.rtTypeSoft : ""}`}
               onClick={() => { setType(t.key); setPicked([]); setErr(""); setStep(1) }}>
               <span className={c.rtIcon}><Icon aria-hidden="true" /></span>
               <span className={c.rtTypeText}>
                 <b>{t.title}</b>
-                <small>{dueBlock ? "Pay your due bills first (Pay now at the top), or contact our support team." : t.key === "partial" && opts.max_partial < 1 && !noItems ? "Needs at least 2 stored items" : t.text}</small>
+                <small>{dueBlock ? "You have unpaid bills. Pay them first, then you can raise a partial retrieval." : t.key === "partial" && opts.max_partial < 1 && !noItems ? "Needs at least 2 stored items" : t.text}</small>
               </span>
             </button>
           )
@@ -270,7 +284,31 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
         </section>
       )}
 
-      {type && type !== "intercity" && cur && !blocked && (
+      {dueGate && cur && !blocked && (
+        <section className={`${c.rtCard} ${c[cur.tone]}`}>
+          <header className={c.rtHead}>
+            <div className={c.rtHeadTitle}>
+              <span className={c.rtIconSm}><cur.icon aria-hidden="true" /></span>
+              <div><h2>{cur.title}</h2><p>One step first</p></div>
+            </div>
+          </header>
+          <div className={c.rtBody} style={{ paddingBottom: 26 }}>
+            <h3>Please pay your due bills first</h3>
+            <p className={c.rtFormSub} style={{ maxWidth: 560 }}>
+              You have {opts.dues.count} unpaid {opts.dues.count === 1 ? "bill" : "bills"} totalling {aed(opts.dues.total)}. A partial retrieval can be raised once they are paid. If you need help, contact our support team.
+            </p>
+            {payErr && <div className={c.notice} style={{ margin: "14px 0 0" }}>{payErr}</div>}
+            <div className={c.actions} style={{ marginTop: 18 }}>
+              <button type="button" className={`${c.button} ${c.buttonOrange}`} onClick={payDues} disabled={payBusy}>
+                {payBusy ? "Opening…" : `Pay ${aed(opts.dues.total)} now`}
+              </button>
+              <a className={c.button} href={`tel:${PHONE}`}><PhoneCall aria-hidden="true" /> {PHONE_DISPLAY}</a>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {type && type !== "intercity" && !dueGate && cur && !blocked && (
         <section className={`${c.rtCard} ${c[cur.tone]}`}>
           <header className={c.rtHead}>
             <div className={c.rtHeadTitle}>

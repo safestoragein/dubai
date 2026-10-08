@@ -85,6 +85,7 @@ class Dubai_retrieval extends MY_Controller {
             'floors' => $floors, 'timeslots' => $slots,
             'rules' => $this->_date_rules($c),
             'has_dues' => $this->_unpaid_count($c->customer_id) > 0,
+            'dues' => $this->_unpaid_summary($c->customer_id),
             'defaults' => array(
                 'address' => (string) $c->pickup_address, 'lat' => $c->pickup_lat, 'lng' => $c->pickup_lang,
                 'floor' => (string) $c->pickup_floor, 'lift' => (string) $c->pickup_lift, 'phone' => (string) $c->customer_contact1,
@@ -394,6 +395,16 @@ class Dubai_retrieval extends MY_Controller {
     private function _unpaid_count($cid)
     {
         return (int) $this->db->query("SELECT COUNT(*) AS n FROM ss_customer_payment WHERE customer_id = ? AND payment_status = 'Unpaid'", array($cid))->row()->n;
+    }
+    /** Count and total of the customer's unpaid bills (for the 'pay your dues first' panel). */
+    private function _unpaid_summary($cid)
+    {
+        $n = 0; $t = 0.0;
+        foreach ($this->db->query("SELECT payable_amount, total_amount FROM ss_customer_payment WHERE customer_id = ? AND payment_status = 'Unpaid'", array($cid))->result() as $r) {
+            $a = is_numeric($r->payable_amount) ? (float) $r->payable_amount : (float) $r->total_amount;
+            if ($a > 0) { $n++; $t += $a; }
+        }
+        return array('count' => $n, 'total' => round($t, 2));
     }
     const DUE_MSG = 'We have noted that your due payment is pending. Please pay it first (use Pay now at the top of the page) or contact our support team.';
 
