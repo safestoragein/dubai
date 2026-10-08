@@ -1,12 +1,12 @@
 "use client"
 
-import { useState } from "react"
-import { CalendarCheck, CalendarDays, Check, Clock, MapPin, PackageCheck, PackageOpen, StickyNote, Truck, X } from "lucide-react"
+import { Fragment, useState } from "react"
+import { Truck } from "lucide-react"
 import c from "../account.module.css"
 
 export type Order = {
   ref?: string; type: string; sub_type: string; status: string
-  date: string; timeslot?: string; address?: string; note?: string
+  date: string; timeslot?: string; address?: string; note?: string; created?: string
 }
 
 type Kind = "done" | "open" | "bad" | "other"
@@ -18,122 +18,121 @@ const kind = (s: string): Kind => {
   return "other"
 }
 const label = (v: string) => (v ? v.replace(/_/g, " ").replace(/^\w/, (ch) => ch.toUpperCase()) : "—")
-const parse = (v: string) => {
+const day = (v: string) => {
   const d = new Date(String(v).replace(" ", "T"))
-  return Number.isNaN(d.getTime()) ? null : d
+  return Number.isNaN(d.getTime()) ? v || "—" : d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
 }
-const STEPS = ["Booked", "Scheduled", "Completed"]
-// how far along the journey an order is: 0-based index of the current step
-const stepOf = (k: Kind) => (k === "done" ? 2 : k === "open" ? 1 : 0)
 const pill: Record<Kind, string> = { done: c.sDone, open: c.sOpen, bad: c.sBad, other: c.sOther }
-
 const FILTERS: { key: "all" | Kind; text: string }[] = [
   { key: "all", text: "All" },
   { key: "open", text: "Upcoming" },
   { key: "done", text: "Completed" },
   { key: "bad", text: "Cancelled" },
 ]
+const PAGE = 8
 
 export default function OrdersList({ orders }: { orders: Order[] }) {
   const [f, setF] = useState<"all" | Kind>("all")
-  const shown = f === "all" ? orders : orders.filter((o) => kind(o.status) === f)
+  const [q, setQ] = useState("")
+  const [page, setPage] = useState(1)
+  const [open, setOpen] = useState<number | null>(null)
+
   const n = (k: "all" | Kind) => (k === "all" ? orders.length : orders.filter((o) => kind(o.status) === k).length)
+  const rows = orders.filter((o) =>
+    (f === "all" || kind(o.status) === f) &&
+    [o.ref, o.type, o.sub_type, o.address, o.status].join(" ").toLowerCase().includes(q.toLowerCase()))
+  const pages = Math.max(1, Math.ceil(rows.length / PAGE))
+  const cur = Math.min(page, pages)
+  const shown = rows.slice((cur - 1) * PAGE, cur * PAGE)
+  const reset = () => { setPage(1); setOpen(null) }
 
   return (
-    <div className={c.ordersLayout}>
-     <div className={c.ordersMain}>
-      <div className={c.tabs} role="tablist" aria-label="Filter orders">
-        {FILTERS.map((x) => (
-          <button key={x.key} type="button" role="tab" aria-selected={f === x.key}
-            className={`${c.tab} ${f === x.key ? c.tabOn : ""}`} onClick={() => setF(x.key)}>
-            {x.text}<span className={c.tabN}>{n(x.key)}</span>
-          </button>
-        ))}
+    <section className={`${c.panel} ${c.tablePanel}`}>
+      <div className={c.toolbar}>
+        <div className={c.tabs} role="tablist" aria-label="Filter orders">
+          {FILTERS.map((x) => (
+            <button key={x.key} type="button" role="tab" aria-selected={f === x.key}
+              className={`${c.tab} ${f === x.key ? c.tabOn : ""}`} onClick={() => { setF(x.key); reset() }}>
+              {x.text}<span className={c.tabN}>{n(x.key)}</span>
+            </button>
+          ))}
+        </div>
+        <input className={c.search} aria-label="Search orders" placeholder="Search order, type or address…" value={q}
+          onChange={(e) => { setQ(e.target.value); reset() }} />
       </div>
 
-      {shown.length === 0 ? (
-        <div className={c.emptyBox}>
-          <span className={c.emptyIcon}><PackageOpen aria-hidden="true" /></span>
-          <b>{orders.length === 0 ? "No orders yet" : "Nothing in this view"}</b>
-          <span>{orders.length === 0 ? "When you book a pickup, it will show up here." : "Try another tab above."}</span>
+      <div className={c.tableWrap}>
+        <table className={c.table}>
+          <thead>
+            <tr><th>Order ID</th><th>Service</th><th>Date</th><th>Time slot</th><th>Status</th><th></th></tr>
+          </thead>
+          <tbody>
+            {shown.map((o, i) => {
+              const idx = (cur - 1) * PAGE + i
+              const k = kind(o.status)
+              const isOpen = open === idx
+              const step = k === "done" ? 3 : k === "open" ? 2 : 1
+              return (
+                <Fragment key={o.ref || idx}>
+                  <tr className={isOpen ? c.rowOpen : ""}>
+                    <td><button type="button" className={c.orderLink} onClick={() => setOpen(isOpen ? null : idx)}>#{o.ref || `ORD-${idx + 1}`}</button></td>
+                    <td><span className={c.cellMain}><span className={c.cellIcon}><Truck aria-hidden="true" /></span>
+                      <span>{label(o.type)}{o.sub_type && o.sub_type !== o.type ? ` · ${label(o.sub_type)}` : ""}</span></span></td>
+                    <td>{day(o.date)}</td>
+                    <td>{o.timeslot || "—"}</td>
+                    <td><span className={`${c.status} ${pill[k]}`}>{label(o.status)}</span></td>
+                    <td><button type="button" className={c.linkBtn} onClick={() => setOpen(isOpen ? null : idx)}>{isOpen ? "Hide" : "View"}</button></td>
+                  </tr>
+                  {isOpen && (
+                    <tr className={c.detailRow}>
+                      <td colSpan={6}>
+                        <div className={c.detailGrid}>
+                          <div>
+                            <h3 className={c.dTitle}>Order details</h3>
+                            <div className={c.dFields}>
+                              <div className={c.dField}><span>Order ID</span><b>#{o.ref || `ORD-${idx + 1}`}</b></div>
+                              <div className={c.dField}><span>Service</span><b>{label(o.type)}{o.sub_type && o.sub_type !== o.type ? ` · ${label(o.sub_type)}` : ""}</b></div>
+                              <div className={c.dField}><span>Scheduled for</span><b>{day(o.date)}</b></div>
+                              {o.timeslot && <div className={c.dField}><span>Time slot</span><b>{o.timeslot}</b></div>}
+                              {o.address && <div className={c.dField}><span>Address</span><b>{o.address}</b></div>}
+                              {o.note && <div className={c.dField}><span>Note</span><b>{o.note}</b></div>}
+                              {o.created && <div className={c.dField}><span>Booked on</span><b>{day(o.created)}</b></div>}
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className={c.dTitle}>Order timeline</h3>
+                            {k === "bad" ? (
+                              <p className={c.cancelNote}>This order was cancelled.</p>
+                            ) : (
+                              <div className={c.steps}>
+                                <div className={`${c.step} ${step >= 1 ? c.stepDone : ""}`}><b>Booking confirmed</b>We have your request</div>
+                                <div className={`${c.step} ${step >= 2 ? c.stepDone : ""}`}><b>Pickup scheduled</b>{day(o.date)}</div>
+                                <div className={`${c.step} ${step >= 3 ? c.stepDone : ""}`}><b>Completed</b>{step >= 3 ? "Items collected" : "Pending"}</div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                </Fragment>
+              )
+            })}
+          </tbody>
+        </table>
+        {rows.length === 0 && <p className={c.empty}>{orders.length === 0 ? "No orders yet. When you book a pickup, it will show up here." : "No orders match your search."}</p>}
+      </div>
+
+      <div className={c.footer}>
+        <span>{rows.length ? `Showing ${(cur - 1) * PAGE + 1}–${Math.min(cur * PAGE, rows.length)} of ${rows.length} ${rows.length === 1 ? "order" : "orders"}` : "No orders to show"}</span>
+        <div className={c.pagination}>
+          <button type="button" disabled={cur <= 1} onClick={() => { setPage(cur - 1); setOpen(null) }}>Prev</button>
+          {Array.from({ length: pages }, (_, p) => p + 1).map((p) => (
+            <button key={p} type="button" className={p === cur ? c.pageOn : ""} aria-label={`Page ${p}`} onClick={() => { setPage(p); setOpen(null) }}>{p}</button>
+          ))}
+          <button type="button" disabled={cur >= pages} onClick={() => { setPage(cur + 1); setOpen(null) }}>Next</button>
         </div>
-      ) : (
-        <div className={c.orderGrid}>
-          {shown.map((o, i) => {
-            const k = kind(o.status)
-            const d = parse(o.date)
-            const step = stepOf(k)
-            return (
-              <article key={o.ref || i} className={`${c.orderCard} ${k === "bad" ? c.orderCardBad : ""}`}>
-                <div className={c.orderTop}>
-                  <div className={c.dateBlock} aria-label={d ? d.toDateString() : o.date}>
-                    <span className={c.dateMon}>{d ? d.toLocaleDateString("en-GB", { month: "short" }) : "—"}</span>
-                    <span className={c.dateDay}>{d ? d.getDate() : "—"}</span>
-                    <span className={c.dateYear}>{d ? d.getFullYear() : ""}</span>
-                  </div>
-                  <div className={c.orderInfo}>
-                    <div className={c.orderTitleRow}>
-                      <h3 className={c.orderName}><Truck aria-hidden="true" />{label(o.type)}{o.sub_type && o.sub_type !== o.type ? ` · ${label(o.sub_type)}` : ""}</h3>
-                      <span className={`${c.status} ${pill[k]}`}>{label(o.status)}</span>
-                    </div>
-                    {o.ref && <p className={c.orderRef}>{o.ref}</p>}
-                    <ul className={c.orderMeta}>
-                      {o.timeslot && <li><Clock aria-hidden="true" />{o.timeslot}</li>}
-                      {o.address && <li><MapPin aria-hidden="true" />{o.address}</li>}
-                      {o.note && <li><StickyNote aria-hidden="true" />{o.note}</li>}
-                      {!o.timeslot && !o.address && !o.note && <li className={c.metaNone}><CalendarDays aria-hidden="true" />Details will appear here once scheduled</li>}
-                    </ul>
-                  </div>
-                </div>
-
-                {k === "bad" ? (
-                  <div className={c.cancelled}><X aria-hidden="true" /> This order was cancelled</div>
-                ) : (
-                  <ol className={c.steps} aria-label="Order progress">
-                    {STEPS.map((s, idx) => (
-                      <li key={s} className={`${c.step} ${idx < step || (k === "done" && idx === step) ? c.stepDone : ""} ${idx === step && k !== "done" ? c.stepNow : ""}`}>
-                        <span className={c.stepDot}>{idx < step || (k === "done" && idx === step) ? <Check aria-hidden="true" /> : idx + 1}</span>
-                        <span className={c.stepText}>{s}</span>
-                      </li>
-                    ))}
-                  </ol>
-                )}
-              </article>
-            )
-          })}
-        </div>
-      )}
-     </div>
-
-      <aside className={c.ordersSide}>
-        <section className={c.card}>
-          <div className={c.panelHead}><h2 className={c.panelTitle}>Summary</h2></div>
-          <ul className={c.sumList}>
-            {([
-              ["Total orders", n("all"), "#3b6fe0"],
-              ["Upcoming", n("open"), "#f26a1b"],
-              ["Completed", n("done"), "#1f8a56"],
-              ["Cancelled", n("bad"), "#c0392b"],
-            ] as [string, number, string][]).map(([t, v, col]) => (
-              <li key={t} className={c.sumRow}>
-                <span className={c.sumDot} style={{ background: col }} />
-                <span className={c.sumLabel}>{t}</span>
-                <b className={c.sumVal}>{v}</b>
-                <span className={c.sumBar}><i style={{ width: `${orders.length ? Math.round((v / orders.length) * 100) : 0}%`, background: col }} /></span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className={c.card}>
-          <div className={c.panelHead}><h2 className={c.panelTitle}>How your order moves</h2></div>
-          <ol className={c.guide}>
-            <li><span className={c.guideIcon}><CalendarCheck aria-hidden="true" /></span><div><b>Booked</b><p>We have your request and your pickup day.</p></div></li>
-            <li><span className={c.guideIcon}><Truck aria-hidden="true" /></span><div><b>Scheduled</b><p>Our team is set to collect your items on the day and time shown.</p></div></li>
-            <li><span className={c.guideIcon}><PackageCheck aria-hidden="true" /></span><div><b>Completed</b><p>Your items are collected and safe in our warehouse.</p></div></li>
-          </ol>
-        </section>
-      </aside>
-    </div>
+      </div>
+    </section>
   )
 }
