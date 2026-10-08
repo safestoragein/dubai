@@ -1,25 +1,35 @@
 // Server-to-server calls to the PHP side (back/modules/dubai/controllers/Dubai_auth.php).
 // Browser code never sees DUBAI_BACK_KEY or talks to PHP directly.
-const BASE = (process.env.DUBAI_BACK_URL || "https://safestorage.in/back/dubai/dubai_auth").replace(/\/$/, "")
+const BASE_ROOT = (process.env.DUBAI_BACK_URL || "https://safestorage.in/back/dubai/dubai_auth").replace(/\/$/, "").replace(/\/dubai_auth$/, "")
+
+function toBody(form: Record<string, string | string[]>): string {
+  const p = new URLSearchParams()
+  for (const [k, v] of Object.entries(form)) {
+    if (Array.isArray(v)) v.forEach((x) => p.append(`${k}[]`, x))
+    else p.append(k, v)
+  }
+  return p.toString()
+}
 
 export type BackResult<T> = { ok: boolean; status: number; data: T | null }
 
 export async function callBack<T = Record<string, unknown>>(
-  path: "login" | "account" | "orders" | "payments" | "details",
-  form: Record<string, string>,
-  visitorIp?: string
+  path: "login" | "account" | "orders" | "payments" | "details" | "options" | "estimate" | "create",
+  form: Record<string, string | string[]>,
+  visitorIp?: string,
+  controller: "dubai_auth" | "dubai_retrieval" = "dubai_auth"
 ): Promise<BackResult<T>> {
   const key = process.env.DUBAI_BACK_KEY || ""
   if (key.length < 32) return { ok: false, status: 503, data: null }
   try {
-    const res = await fetch(`${BASE}/${path}`, {
+    const res = await fetch(`${BASE_ROOT}/${controller}/${path}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "X-Dubai-Key": key,
         ...(visitorIp ? { "X-Forwarded-For": visitorIp } : {}),
       },
-      body: new URLSearchParams(form).toString(),
+      body: toBody(form),
       cache: "no-store",
       signal: AbortSignal.timeout(15000),
     })
