@@ -231,7 +231,7 @@
 .content > .panel { margin-bottom: 24px; }
 
 /* payments: underline tabs + account summary tables */
-.mainTabs { display: flex; gap: 30px; border-bottom: 1px solid #e6e9ed; margin-bottom: 22px; overflow-x: auto; }
+.mainTabs { display: flex; align-items: center; gap: 30px; border-bottom: 1px solid #e6e9ed; margin-bottom: 22px; overflow-x: auto; }
 .subTabs { display: flex; gap: 22px; border-bottom: 1px solid #e6e9ed; margin: -4px 0 18px; overflow-x: auto; }
 .uTab { background: none; border: 0; border-bottom: 2px solid transparent; padding: 12px 2px; margin-bottom: -1px; font: inherit; font-size: 15px; font-weight: 500; color: #5f6978; cursor: pointer; white-space: nowrap; }
 .uTab:hover { color: var(--ss-ink); }
@@ -268,3 +268,9 @@ th.sumAmt { text-align: right; }
 .txAmt { flex: none; font-size: 15px; font-weight: 600; color: #19212e; white-space: nowrap; }
 .showMore { display: block; width: 100%; border: 0; border-top: 1px solid #f0f2f5; background: #fafbfc; color: var(--ss-orange); font: inherit; font-weight: 500; padding: 14px; cursor: pointer; }
 @media (max-width: 760px) { .txStats { grid-template-columns: 1fr; } .txItem { padding: 14px 16px; gap: 12px; } }
+
+.walletChip { margin-left: auto; display: flex; align-items: center; gap: 10px; padding: 6px 4px 6px 12px; white-space: nowrap; }
+.walletIcon { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: #fff0e9; color: var(--ss-orange); }
+.walletIcon svg { width: 19px; height: 19px; }
+.walletChip small { display: block; font-size: 11px; color: #8b93a0; line-height: 1.2; }
+.walletChip b { font-size: 16px; font-weight: 600; color: #19212e; }

@@ -109,7 +109,7 @@ export default async function PaymentsPage() {
             </section>
           )}
 
-          <PaymentsTabs bills={bills} payments={payments} summary={full?.summary ?? null} dueCount={unpaidCount} />
+          <PaymentsTabs bills={bills} payments={payments} summary={full?.summary ?? null} dueCount={unpaidCount} wallet={full ? full.wallet ?? 0 : null} />
         </>
       )}
     </AccountShell>

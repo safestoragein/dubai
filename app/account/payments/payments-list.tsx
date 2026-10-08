@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { FileText } from "lucide-react"
+import { FileText, Wallet } from "lucide-react"
 import c from "../account.module.css"
 
 export type Bill = { id: string; description: string; kind: string; date: string; amount: number; charges?: number; tax?: string; total?: number; late: number; status: string; quotation?: string; order?: string }
@@ -272,7 +272,7 @@ const MAIN_TABS = [
   { key: "tx", text: "Transactions" },
 ] as const
 
-export default function PaymentsTabs({ bills, payments, summary, dueCount }: { bills: Bill[]; payments: Payment[]; summary: Summary | null; dueCount: number }) {
+export default function PaymentsTabs({ bills, payments, summary, dueCount, wallet }: { bills: Bill[]; payments: Payment[]; summary: Summary | null; dueCount: number; wallet: number | null }) {
   const [tab, setTab] = useState<(typeof MAIN_TABS)[number]["key"]>("summary")
   return (
     <>
@@ -282,6 +282,12 @@ export default function PaymentsTabs({ bills, payments, summary, dueCount }: { b
             {t.text}{t.key === "due" && dueCount > 0 && <span className={c.badge} style={{ display: "inline-block", marginLeft: 8 }}>{dueCount}</span>}
           </button>
         ))}
+        {wallet !== null && (
+          <div className={c.walletChip} title="Credit available on your account">
+            <span className={c.walletIcon}><Wallet aria-hidden="true" /></span>
+            <span><small>Wallet balance</small><b>{aed(wallet)}</b></span>
+          </div>
+        )}
       </div>
       {tab === "summary" && <SummaryPanel summary={summary} />}
       {tab === "due" && <BillsPanel bills={bills} />}
