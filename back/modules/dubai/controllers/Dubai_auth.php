@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *   POST dubai/dubai_auth/payments  customer_id   (every bill + every payment received)
  *   POST dubai/dubai_auth/details   customer_id   (profile, storage summary, timeline, stored items)
  *   POST dubai/dubai_auth/inventory customer_id   (every item record, like the back-office Inventory tab)
+ *   POST dubai/dubai_auth/documents customer_id   (inventory / stacking / damage images and documents, like the back-office Document tab)
  *
  * Same rules as auth/login for a customer: ss_user with user_email, base64(password),
  * status '0', role_id 6 — plus ONE extra rule for this site: ss_user.user_country
@@ -304,6 +305,94 @@ class Dubai_auth extends MY_Controller {
             );
         }
         $this->_json(array('status' => 'success', 'items' => $items));
+    }
+
+    // -------------------------------------------------------------- documents
+    /**
+     * Images and documents of one Dubai customer — what the back-office Document tab shows a customer
+     * (customer/GetUploadDocumentsWork + views/ajax_item_inv_images_aws.php): rows of
+     * ss_inv_damaged_other_images grouped by document_type, plus the vendor damaged-item images.
+     * Read-only. The files live in the S3 bucket under upload/<folder>/<file>.
+     */
+    public function documents()
+    {
+        $cid = (int) $this->input->post('customer_id');
+        if ($cid <= 0) {
+            $this->_json(array('status' => 'error', 'message' => 'customer_id required.'), 400);
+        }
+        $ok = $this->db->query(
+            "SELECT 1 FROM ss_customer c JOIN ss_user u ON u.customer_id = c.customer_id
+              WHERE c.customer_id = ? AND u.role_id = 6 AND u.status = '0' AND u.user_country = 'AE' LIMIT 1", array($cid))->num_rows();
+        if (!$ok) {
+            $this->_json(array('status' => 'error', 'message' => 'Not found.'), 404);
+        }
+
+        // document_type => [S3 folder, group title, is a plain document]  (the same list and folders as the back-office view)
+        $types = array(
+            'inv_images'                        => array('item_images_app/', 'Inventory Images', false),
+            'inventory'                         => array('item_images/',     'Inventory Images', false),
+            'stacking_images'                   => array('item_images/',     'Stacking Images', false),
+            'stacking_images_new'               => array('item_images_app/', 'Stacking Images', false),
+            'stacking_images_new_two'           => array('item_images_app/', 'Stacking Images', false),
+            'damage_images_new_two'             => array('item_images_app/', 'Damaged Item Images', false),
+            'damaged_images_new'                => array('item_images/',     'Damaged Item Images', false),
+            'damaged_images'                    => array('item_images/',     'Damaged Item Images', false),
+            'damaged'                           => array('item_images/',     'Damaged Item Images', false),
+            'agreement'                         => array('item_images/',     'Agreement', true),
+            'other_documents'                   => array('item_images/',     'Other Documents', true),
+            'retrieval_gatepass_images_new_two' => array('item_images_app/', 'Retrieval Gatepass', false),
+            'goods_vehicle_images_new_two'      => array('item_images_app/', 'Goods Images', false),
+            'partial_warehouse_pickup'          => array('item_images/',     'Partial Retrieval - Warehouse Pickup', false),
+            'partial_customer_signature'        => array('item_images/',     'Partial Retrieval - Customer Signature', false),
+            'partial_customer_delivery'         => array('item_images/',     'Partial Retrieval - Delivery', false),
+            'full_warehouse_pickup'             => array('item_images/',     'Full Retrieval - Warehouse Pickup', false),
+            'full_vehicle_loading'              => array('item_images/',     'Full Retrieval - Vehicle Loading', false),
+            'full_customer_signature'           => array('item_images/',     'Full Retrieval - Customer Signature', false),
+            'full_customer_delivery'            => array('item_images/',     'Full Retrieval - Delivery', false),
+            'physical_inventory'                => array('item_images/',     'Physical Inventory', false),
+            'big_item'                          => array('item_images/',     'Big Items', false),
+        );
+        $s3 = 'https://safestorage-assets.s3.ap-southeast-2.amazonaws.com/upload/';
+        $local = 'https://safestorage.in/back/upload/item_images/';
+
+        $groups = array();                       // title => list of images (title order = first appearance in $types)
+        foreach ($types as $t) { if (!isset($groups[$t[1]])) $groups[$t[1]] = array(); }
+        $qts = array();
+        foreach ($this->db->query(
+            "SELECT image_id, document_type, damaged_image, quotation_id, created_at FROM ss_inv_damaged_other_images
+              WHERE customer_id = ? AND damaged_image <> '' ORDER BY image_id DESC LIMIT 1500", array((string) $cid))->result() as $r) {
+            if (!isset($types[$r->document_type])) continue;
+            list($folder, $title, $isDoc) = $types[$r->document_type];
+            $qid = $r->quotation_id ? (int) $r->quotation_id : 0;
+            if ($qid) $qts[$qid] = 'QT' . sprintf('%03d', $qid);
+            $groups[$title][] = array(
+                'id' => (int) $r->image_id, 'file' => (string) $r->damaged_image, 'doc' => $isDoc,
+                'url' => $s3 . rawurlencode($folder . $r->damaged_image), 'fallback' => $local . rawurlencode($r->damaged_image),
+                'quotation' => $qid, 'quotation_label' => $qid ? 'QT' . sprintf('%03d', $qid) : '', 'created' => (string) $r->created_at,
+            );
+        }
+        // vendor damaged-item images
+        $vendor = array();
+        foreach ($this->db->query("SELECT damaged_items_image_id, image FROM ss_damaged_items_images WHERE customer_id = ? ORDER BY damaged_items_image_id DESC LIMIT 300", array((string) $cid))->result() as $r) {
+            if ($r->image === '' || $r->image === null) continue;
+            $vendor[] = array('id' => (int) $r->damaged_items_image_id, 'file' => (string) $r->image, 'doc' => false,
+                              'url' => $s3 . rawurlencode('vendor_damaged_img/' . $r->image), 'fallback' => '', 'quotation' => 0, 'quotation_label' => '', 'created' => '');
+        }
+        if ($vendor) $groups['Vendor Damaged Images'] = $vendor;
+
+        // quotation tabs: the active quotations (like the back office) plus any quotation that has images
+        foreach ($this->db->query("SELECT quotation_id FROM ss_customer_quotation WHERE customer_id = ? AND is_available = 'no' AND is_full_retrieved = '0' ORDER BY quotation_id", array($cid))->result() as $q) {
+            $qts[(int) $q->quotation_id] = 'QT' . sprintf('%03d', $q->quotation_id);
+        }
+        ksort($qts);
+        $out = array(); $total = 0;
+        foreach ($groups as $title => $imgs) {
+            if (!$imgs) continue;
+            $total += count($imgs);
+            $out[] = array('title' => $title, 'images' => $imgs);
+        }
+        $quotations = array(); foreach ($qts as $id => $lab) $quotations[] = array('id' => $id, 'label' => $lab);
+        $this->_json(array('status' => 'success', 'total' => $total, 'quotations' => $quotations, 'groups' => $out));
     }
 
     // --------------------------------------------------------------- payments

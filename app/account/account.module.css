@@ -525,3 +525,27 @@ th.sumAmt { text-align: right; }
 .inPayable b { font-size: 20px; color: #19212e; }
 
 .rtTypeSoft { opacity: 0.85; }
+
+/* documents: image galleries + lightbox */
+.docSection { margin-bottom: 24px; }
+.imgGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
+.imgCard { margin: 0; border: 1px solid #e6e9ed; border-radius: 12px; overflow: hidden; background: #fff; }
+.imgBtn { display: block; width: 100%; aspect-ratio: 4 / 3; border: 0; padding: 0; background: #f4f5f7; cursor: zoom-in; }
+.imgBtn img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.imgMissing { display: grid; place-items: center; width: 100%; height: 100%; color: #a0a7b1; }
+.imgMissing svg { width: 28px; height: 28px; }
+.imgCard figcaption { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 9px 12px; font-size: 12px; color: #6f7686; }
+.imgCard figcaption a { color: var(--ss-orange); display: grid; place-items: center; }
+.imgCard figcaption a svg { width: 16px; height: 16px; }
+.docCard { display: grid; gap: 6px; justify-items: start; padding: 16px; border: 1px solid #e6e9ed; border-radius: 12px; text-decoration: none; color: #19212e; background: #fff; }
+.docCard:hover { border-color: var(--ss-orange); }
+.docIcon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: #fff0e9; color: var(--ss-orange); }
+.docIcon svg { width: 22px; height: 22px; }
+.docName { font-size: 13px; font-weight: 500; overflow-wrap: anywhere; }
+.docCard small { color: #8b93a0; font-size: 11.5px; }
+.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(15, 20, 35, 0.86); display: grid; place-items: center; padding: 24px; cursor: zoom-out; }
+.lightbox img { max-width: min(96vw, 1200px); max-height: 82vh; border-radius: 10px; background: #fff; cursor: default; }
+.lightboxClose { position: absolute; top: 18px; right: 18px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, 0.16); color: #fff; display: grid; place-items: center; cursor: pointer; }
+.lightboxClose svg { width: 20px; height: 20px; }
+.lightboxDl { position: absolute; bottom: 22px; display: inline-flex; align-items: center; gap: 8px; color: #fff; background: var(--ss-orange); border-radius: 9px; padding: 10px 18px; font-weight: 500; text-decoration: none; font-size: 14px; }
+.lightboxDl svg { width: 16px; height: 16px; }
