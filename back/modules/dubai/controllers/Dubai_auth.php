@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *   POST dubai/dubai_auth/account   customer_id
  *   POST dubai/dubai_auth/orders    customer_id   (every order of that customer)
  *   POST dubai/dubai_auth/payments  customer_id   (every bill + every payment received)
+ *   POST dubai/dubai_auth/details   customer_id   (profile, storage summary, timeline, stored items)
  *
  * Same rules as auth/login for a customer: ss_user with user_email, base64(password),
  * status '0', role_id 6 — plus ONE extra rule for this site: ss_user.user_country
@@ -181,6 +182,87 @@ class Dubai_auth extends MY_Controller {
     }
 
     // ---------------------------------------------------------------- helpers
+    // ---------------------------------------------------------------- details
+    /** Profile, storage summary, timeline and stored items for the account "My details" page. */
+    public function details()
+    {
+        $cid = (int) $this->input->post('customer_id');
+        if ($cid <= 0) {
+            $this->_json(array('status' => 'error', 'message' => 'customer_id required.'), 400);
+        }
+        $c = $this->db->query(
+            "SELECT c.customer_id, c.customer_unique_id, c.customer_name, c.customer_email, c.customer_contact1, c.customer_contact2,
+                    c.customer_local_city, c.permanent_address, c.pickup_address, c.status, c.is_customer,
+                    c.customer_created_at, c.registration_date, c.storage_date, c.storage_month, c.next_bill_date, c.billing_date, c.payment_type
+               FROM ss_customer c JOIN ss_user u ON u.customer_id = c.customer_id
+              WHERE c.customer_id = ? AND u.role_id = 6 AND u.status = '0' AND u.user_country = 'AE' LIMIT 1", array($cid))->row();
+        if (!$c) {
+            $this->_json(array('status' => 'error', 'message' => 'Not found.'), 404);
+        }
+
+        // stored items (the "Inventory" tab of the back office: ss_order_inventory)
+        $inv = $this->db->query(
+            "SELECT quotation_id, barcode, goods_name, goods_size, goods_color, goods_type, goods_quantity, start_date, end_date, inventory_status, is_removed_item
+               FROM ss_order_inventory WHERE customer_id = ? ORDER BY inventory_id DESC LIMIT 300", array($cid))->result();
+        $items = array(); $stored = 0; $firstIn = '';
+        foreach ($inv as $i) {
+            $active = ($i->is_removed_item == '0' && $i->inventory_status == 'active');
+            if ($active) {
+                $stored += (int) $i->goods_quantity;
+                if ($i->start_date && ($firstIn === '' || $i->start_date < $firstIn)) $firstIn = $i->start_date;
+            }
+            $extra = trim(($i->goods_size ? $i->goods_size . ', ' : '') . $i->goods_color);
+            $items[] = array(
+                'quotation' => $i->quotation_id ? 'QT' . $i->quotation_id : '',
+                'barcode'   => (string) $i->barcode,
+                'name'      => (string) $i->goods_name . ($extra !== '' ? ' (' . $extra . ')' : ''),
+                'type'      => (string) $i->goods_type,
+                'qty'       => (int) $i->goods_quantity,
+                'start'     => (string) $i->start_date,
+                'end'       => (string) $i->end_date,
+                'status'    => $active ? 'Active' : ucfirst((string) ($i->is_removed_item == '1' ? 'removed' : $i->inventory_status)),
+            );
+        }
+
+        // timeline of the first pickup order
+        $o = $this->db->query("SELECT * FROM ss_order WHERE customer_id = ? AND order_type = 'pickup' ORDER BY order_id ASC LIMIT 1", array($cid))->row();
+        $booked = $o ? (string) (isset($o->order_created_at) ? $o->order_created_at : (isset($o->created_at) ? $o->created_at : '')) : '';
+        $timeline = array(
+            'booked'    => $booked,
+            'pickup'    => $o ? (string) $o->order_schedule_date : '',
+            'pickup_done' => ($o && $o->order_status == 'completed'),
+            'checked_in' => $firstIn,
+            'in_storage' => $stored > 0,
+        );
+
+        $summary = $this->_account_summary($cid);
+        $this->_json(array('status' => 'success',
+            'profile' => array(
+                'id'      => (string) $c->customer_unique_id,
+                'name'    => (string) $c->customer_name,
+                'email'   => (string) $c->customer_email,
+                'phone'   => (string) $c->customer_contact1,
+                'phone2'  => (string) $c->customer_contact2,
+                'city'    => (string) $c->customer_local_city,
+                'address' => (string) ($c->permanent_address ? $c->permanent_address : $c->pickup_address),
+                'pickup_address' => (string) $c->pickup_address,
+                'active'  => ($c->status == '0'),
+                'since'   => (string) ($c->customer_created_at ? $c->customer_created_at : $c->registration_date),
+            ),
+            'storage' => array(
+                'items'        => $stored,
+                'item_rows'    => count($items),
+                'monthly'      => $summary['all']['total_monthly'],
+                'storage_date' => (string) $c->storage_date,
+                'months'       => (string) $c->storage_month,
+                'next_bill'    => (string) ($c->next_bill_date ? $c->next_bill_date : $c->billing_date),
+                'payment_type' => (string) $c->payment_type,
+            ),
+            'timeline' => $timeline,
+            'items'    => $items,
+        ));
+    }
+
     // --------------------------------------------------------------- payments
     /** Bills and payments of one Dubai customer for the account Payments page. */
     public function payments()

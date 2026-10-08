@@ -5,7 +5,7 @@ import LogoutButton from "./logout-button"
 
 // Shared frame for every signed-in page: sidebar + top bar. `active` highlights the menu item.
 export default function AccountShell({ active, name, customerId, orderCount, dueCount, dueTotal = 0, crumb, children }: {
-  active: "overview" | "orders" | "payments"
+  active: "overview" | "orders" | "payments" | "details"
   name: string
   customerId?: string
   orderCount: number
@@ -26,7 +26,7 @@ export default function AccountShell({ active, name, customerId, orderCount, due
             <a className={`${c.navItem} ${active === "overview" ? c.navActive : ""}`} href="/account"><LayoutGrid aria-hidden="true" /> Overview</a>
             <a className={`${c.navItem} ${active === "orders" ? c.navActive : ""}`} href="/account/orders"><Package aria-hidden="true" /> Orders{orderCount > 0 && <span className={c.badge}>{orderCount}</span>}</a>
             <a className={`${c.navItem} ${active === "payments" ? c.navActive : ""}`} href="/account/payments"><CreditCard aria-hidden="true" /> Payments{dueCount > 0 && <span className={c.badge}>{dueCount}</span>}</a>
-            <a className={c.navItem} href="/account#details"><UserRound aria-hidden="true" /> My details</a>
+            <a className={`${c.navItem} ${active === "details" ? c.navActive : ""}`} href="/account/details"><UserRound aria-hidden="true" /> My details</a>
           </nav>
           <div className={c.sideBottom}>
             <div className={c.user}>

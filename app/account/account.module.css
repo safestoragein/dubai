@@ -284,3 +284,19 @@ th.sumAmt { text-align: right; }
 .dueBarBtn { display: inline-flex; align-items: center; gap: 8px; border: 0; cursor: pointer; font: inherit; font-weight: 600; font-size: 14px; color: #fff; background: var(--ss-orange); border-radius: 9px; padding: 11px 22px; box-shadow: 0 6px 16px rgba(238, 88, 36, 0.4); }
 .dueBarBtn svg { width: 16px; height: 16px; }
 .dueBarBtn:disabled { opacity: 0.7; cursor: default; }
+
+/* my details page (profile card, storage summary, timeline, inventory) */
+.detailLayout { display: grid; grid-template-columns: minmax(280px, 1fr) 2fr; gap: 24px; align-items: start; }
+.detailCol { display: grid; gap: 24px; min-width: 0; }
+.profile { text-align: center; padding: 28px; }
+.profileAvatar { margin: 0 auto 14px; width: 68px; height: 68px; border-radius: 50%; display: grid; place-items: center; background: #ffeadf; color: #bb4a24; font-size: 23px; font-weight: 700; }
+.profileName { font-size: 20px; font-weight: 600; margin: 0; color: var(--ss-ink); overflow-wrap: anywhere; }
+.profileSince { margin: 4px 0 12px; color: #8b93a0; font-size: 13px; }
+.profileFields { margin-top: 24px; text-align: left; }
+.miniCards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.miniCard { border: 1px solid #e6e9ed; border-radius: 12px; padding: 16px 18px; }
+.miniCard p { margin: 12px 0 2px; color: #8b93a0; font-size: 13px; }
+.miniCard b { font-size: 22px; font-weight: 650; letter-spacing: -0.5px; color: var(--ss-ink); }
+@media (max-width: 1100px) { .detailLayout { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .miniCards { grid-template-columns: 1fr; } }
+@media print { .side, .top, .actions, .dueBar { display: none !important; } .main { margin-left: 0 !important; } }

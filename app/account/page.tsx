@@ -198,7 +198,7 @@ export default async function AccountPage() {
             </section>
 
             <section className={c.panel} id="details">
-            <div className={c.panelHead}><div><h2 className={c.panelTitle}>Your details</h2><p className={c.panelSub}>The information we have on file</p></div></div>
+            <div className={c.panelHead}><div><h2 className={c.panelTitle}>Your details</h2><p className={c.panelSub}>The information we have on file</p></div><a className={c.link} href="/account/details">View all details</a></div>
             <div className={`${c.fields} ${c.fieldsOne}`}>
               {([["Name", name], ["Customer ID", cid || "—"], ["Email", a.profile?.email || "—"], ["Phone", a.profile?.phone || "—"], ["City", label(a.profile?.city || "")]] as [string, string][]).map(([k, v]) => (
                 <div key={k} className={c.field}><span>{k}</span><b>{v}</b></div>

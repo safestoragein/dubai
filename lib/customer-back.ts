@@ -5,7 +5,7 @@ const BASE = (process.env.DUBAI_BACK_URL || "https://safestorage.in/back/dubai/d
 export type BackResult<T> = { ok: boolean; status: number; data: T | null }
 
 export async function callBack<T = Record<string, unknown>>(
-  path: "login" | "account" | "orders" | "payments",
+  path: "login" | "account" | "orders" | "payments" | "details",
   form: Record<string, string>,
   visitorIp?: string
 ): Promise<BackResult<T>> {
