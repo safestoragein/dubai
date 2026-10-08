@@ -1,8 +1,9 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowLeft, ArrowRight, CalendarDays, Check, MapPin, PackageCheck, PackageOpen, Truck, Boxes } from "lucide-react"
+import { ArrowLeft, ArrowRight, CalendarDays, Check, Mail, MapPin, PhoneCall, PackageCheck, PackageOpen, Truck, Boxes } from "lucide-react"
 import { loadGoogleMapsScript } from "@/lib/google-maps-loader"
+import { EMAIL, PHONE, PHONE_DISPLAY } from "@/lib/company-facts"
 import c from "../account.module.css"
 
 type Item = { id: number; quotation: string; barcode: string; name: string; type: string; qty: number }
@@ -34,7 +35,7 @@ const label = (v: string) => (v ? v.replace(/_/g, " ").replace(/^\w/, (ch) => ch
 const TYPES: { key: Kind; title: string; text: string; icon: typeof Boxes; tone: string }[] = [
   { key: "partial", title: "Partial Retrieval", text: "Get some of your items back. Choose up to half of what is stored.", icon: PackageOpen, tone: "toneOrange" },
   { key: "full", title: "Full Retrieval", text: "Get everything back and close your storage.", icon: PackageCheck, tone: "toneNavy" },
-  { key: "intercity", title: "Intercity Full Retrieval", text: "Get everything delivered to another city. Our team quotes the price.", icon: Truck, tone: "toneBlue" },
+  { key: "intercity", title: "Intercity Full Retrieval", text: "Get everything delivered to another city. Contact our team to arrange it.", icon: Truck, tone: "toneBlue" },
 ]
 
 // d/m/Y from an <input type="date"> value (yyyy-mm-dd)
@@ -250,7 +251,26 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
       )}
 
       {/* 2 — the two-step request card */}
-      {type && cur && !blocked && (
+      {type === "intercity" && cur && !blocked && (
+        <section className={`${c.rtCard} ${c[cur.tone]}`}>
+          <header className={c.rtHead}>
+            <div className={c.rtHeadTitle}>
+              <span className={c.rtIconSm}><cur.icon aria-hidden="true" /></span>
+              <div><h2>{cur.title}</h2><p>Arranged by our team</p></div>
+            </div>
+          </header>
+          <div className={c.rtBody} style={{ paddingBottom: 26 }}>
+            <h3>Please contact our team</h3>
+            <p className={c.rtFormSub} style={{ maxWidth: 560 }}>Intercity retrieval is arranged personally by our team, who will plan the delivery and give you the price. Call or email us and we will take care of it.</p>
+            <div className={c.actions} style={{ marginTop: 18 }}>
+              <a className={`${c.button} ${c.buttonOrange}`} href={`tel:${PHONE}`}><PhoneCall aria-hidden="true" /> {PHONE_DISPLAY}</a>
+              <a className={c.button} href={`mailto:${EMAIL}`}><Mail aria-hidden="true" /> {EMAIL}</a>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {type && type !== "intercity" && cur && !blocked && (
         <section className={`${c.rtCard} ${c[cur.tone]}`}>
           <header className={c.rtHead}>
             <div className={c.rtHeadTitle}>

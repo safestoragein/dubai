@@ -428,6 +428,8 @@ class Dubai_retrieval extends MY_Controller {
     {
         $type = (string) $this->input->post('type');
         if (!in_array($type, array('partial', 'full', 'intercity'), true)) $this->_err('Choose a retrieval type.');
+        // Intercity is arranged by the team for now: no price and no online request.
+        if ($type === 'intercity') $this->_err('Intercity retrieval is arranged by our team. Please contact us on +971 50 577 3388 or support@safestorage.ae.');
 
         $active = $this->_active_items($c->customer_id);
         if (!$active) $this->_err('You have no stored items to retrieve.');
@@ -459,6 +461,10 @@ class Dubai_retrieval extends MY_Controller {
 
         $lat = trim((string) $this->input->post('lat')); $lng = trim((string) $this->input->post('lng'));
         if ($type !== 'intercity' && (!is_numeric($lat) || !is_numeric($lng))) $this->_err('Please pick your delivery address from the suggestions.');
+        // Local deliveries (full and partial) must be within 60 km of the Dubai warehouse; further away is an intercity job.
+        if (is_numeric($lat) && is_numeric($lng) && $this->_km(self::$ORIGINS[0][0], self::$ORIGINS[0][1], (float) $lat, (float) $lng) > self::SERVICE_RADIUS_KM + 1e-9) {
+            $this->_err('We deliver within ' . self::SERVICE_RADIUS_KM . ' km of our warehouse. For this address please contact our team on +971 50 577 3388 or support@safestorage.ae.');
+        }
         $floor = (string) $this->input->post('floor');
         $okFloor = false; foreach ($this->db->query("SELECT floor_slug FROM ss_floor WHERE status = '0'")->result() as $f) if ($f->floor_slug === $floor) $okFloor = true;
         if (!$okFloor) $this->_err('Choose a floor.');
