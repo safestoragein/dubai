@@ -164,8 +164,8 @@ function TransactionsPanel({ payments }: { payments: Payment[] }) {
           <div className={c.panelHead}><div><h2 className={c.panelTitle}>Where it went</h2><p className={c.panelSub}>Payments by type</p></div></div>
           <div className={c.funnel}>
             {types.map(([name, v], i) => (
-              <div key={name} className={c.funnelRow} style={{ width: `${Math.max(34, (v / maxT) * 100)}%`, background: T_COLORS[i % T_COLORS.length] }}>
-                <span>{name}</span><b>{aed(v)}</b>
+              <div key={name} className={c.funnelRow} style={{ width: `${Math.max(78, (v / maxT) * 100)}%`, background: T_COLORS[i % T_COLORS.length] }}>
+                <span className={c.funnelName}>{name}</span><b>{aed(v)}</b>
               </div>
             ))}
           </div>
