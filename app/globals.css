@@ -355,6 +355,9 @@ article a {
   body {
     padding-bottom: calc(68px + env(safe-area-inset-bottom));
   }
+  /* Customer portal (login + account pages): no marketing CTA bar, so no spare space under the page either. */
+  body:has([data-portal]) { padding-bottom: 0; }
+  body:has([data-portal]) :is([data-sticky-cta], [data-floating-toast]) { display: none !important; }
 
   /* iOS Safari zooms the page when a focused field's text is under 16px.
      16px on phones/tablets stops that without disabling pinch-zoom. */

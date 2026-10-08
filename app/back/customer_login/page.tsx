@@ -23,7 +23,7 @@ export default async function LoginPage() {
   if (await getCustomerSession()) redirect("/account")
 
   return (
-    <div className={`${c.page} ${sora.variable} ${manrope.variable}`}>
+    <div data-portal className={`${c.page} ${sora.variable} ${manrope.variable}`}>
       {/* left: brand panel */}
       <section className={c.brand} aria-label="SafeStorage Dubai">
         {/* eslint-disable-next-line @next/next/no-img-element */}

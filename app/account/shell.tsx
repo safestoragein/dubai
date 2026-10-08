@@ -17,7 +17,7 @@ export default function AccountShell({ active, name, customerId, orderCount, due
 }) {
   const initial = (name.split(" ")[0] || "T").charAt(0).toUpperCase()
   return (
-    <div className={c.page}>
+    <div data-portal className={c.page}>
       <div className={c.shell}>
         <aside className={c.side}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
