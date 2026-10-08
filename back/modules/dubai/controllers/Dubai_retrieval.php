@@ -275,8 +275,14 @@ class Dubai_retrieval extends MY_Controller {
 
         $row = $this->db->query("SELECT * FROM ss_dubai_log WHERE log_id = ? AND action_type = 'retrieval_intent' AND customer_id = ? LIMIT 1", array($iid, $c->customer_id))->row();
         if (!$row) $this->_json(array('status' => 'error', 'message' => 'intent_not_found'), 404);
+        // One settle at a time per intent (a webhook retry can arrive while the first call is still running); the lock
+        // is released when the request ends. The "already settled" check is made AFTER taking it.
+        $this->db->query("SELECT GET_LOCK(?, 20) AS l", array('dubai_settle_' . $iid));
         $done = $this->db->query("SELECT message FROM ss_dubai_log WHERE action_type = 'retrieval_settled' AND lead_id = ? LIMIT 1", array($iid))->row();
         if ($done) $this->_json(array('status' => 'success', 'duplicate' => true));            // webhook retry: already done
+        // the same card payment can never settle a second intent
+        $reused = $this->db->query("SELECT log_id FROM ss_dubai_log WHERE action_type = 'retrieval_settled' AND message LIKE ? LIMIT 1", array('%ref ' . $ref . ' %'))->row();
+        if ($reused) $this->_json(array('status' => 'error', 'message' => 'payment_ref_already_used'), 409);
 
         $j = json_decode((string) $row->changes, true);
         if (!is_array($j) || empty($j['in']) || empty($j['plan'])) $this->_json(array('status' => 'error', 'message' => 'intent_corrupt'), 500);
@@ -298,6 +304,9 @@ class Dubai_retrieval extends MY_Controller {
             $this->_alert_team('Retrieval paid but the order could not be created', $c, 'Intent ' . $iid . ' paid AED ' . $paid . ' (ref ' . $ref . '). Please create the retrieval by hand.');
             $this->_json(array('status' => 'error', 'message' => 'order_failed'), 500);
         }
+
+        // The order exists: mark the intent settled NOW, so a retry (or a crash further down) can never create a second order.
+        $this->_log($c->customer_id, 0, 'retrieval_settled', 'Retrieval WO' . $oid . ' paid online · AED ' . number_format($paid, 2) . ' · ref ' . $ref . ' ', json_encode(array('order_id' => $oid)), $iid);
 
         // bills for what is now owed (priced above); the EXISTING settlement then writes the AE invoice + transactions and marks them Paid
         $ids = array();
@@ -349,7 +358,7 @@ class Dubai_retrieval extends MY_Controller {
             $this->db->where('customer_id', $c->customer_id)->where('payment_status', 'Unpaid')->where_in('payment_id', array_map('intval', $plan['flag_ids']))->update('ss_customer_payment', array('payment_status' => 'Paid'));
             $this->db->db_debug = $dbg2;
         }
-        $this->_log($c->customer_id, 0, 'retrieval_settled', 'Retrieval WO' . $oid . ' paid online · AED ' . number_format($paid, 2) . ' · wallet used AED ' . number_format($plan['wallet_used'], 2) . ' · ref ' . $ref . ' · settlement: ' . substr((string) $settle, 0, 160), json_encode(array('order_id' => $oid, 'bill_ids' => $ids)), $iid);
+        $this->_log($c->customer_id, 0, 'retrieval_settlement', 'Retrieval WO' . $oid . ' · wallet used AED ' . number_format($plan['wallet_used'], 2) . ' · settlement: ' . substr((string) $settle, 0, 160), json_encode(array('order_id' => $oid, 'bill_ids' => $ids)), $iid);
         if (strpos((string) $settle, '"status":true') === false) {
             $this->_alert_team('Retrieval paid — bills not marked Paid', $c, 'WO' . $oid . ', Stripe ' . $ref . ', AED ' . $paid . '. The settlement answered: ' . substr((string) $settle, 0, 200) . '. Please mark the bills ' . implode(',', $ids) . ' as Paid.');
         }
