@@ -2,59 +2,46 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * safestorage.ae customer login + account summary (PHP side).
+ * safestorage.ae customer sign-in (PHP side) — the Dubai copy of Auth::login.
  *
- * Lives in the Dubai repo (back/) and is COPIED to the PHP server as
- *   application/modules/dubai_customer/controllers/Dubai_customer.php
- *   application/config/dubai_back.php   (with the real key filled in)
+ *   POST dubai/dubai_auth/login     username (email), password   [X-Forwarded-For = visitor IP]
+ *   POST dubai/dubai_auth/account   customer_id
  *
- * Called ONLY by the Next.js server (app/api/customer/*), never by a browser:
- * every request must carry the header  X-Dubai-Key: <config dubai_back_key>.
- * The browser talks to Next; Next holds the session (signed httpOnly cookie).
+ * Same rules as auth/login for a customer: ss_user with user_email, base64(password),
+ * status '0', role_id 6 — plus ONE extra rule for this site: ss_user.user_country
+ * must be 'AE', so an Indian customer cannot sign in on safestorage.ae.
  *
- *   POST .../dubai_customer/login     email, password  [X-Forwarded-For = visitor IP]
- *   POST .../dubai_customer/account   customer_id
+ * Same bookkeeping as auth/login: failed attempts go to ss_failed_login, every
+ * attempt to ss_login_logs, and a success clears that IP's failed attempts.
+ * Differences (it answers JSON to the Next.js server instead of redirecting):
+ * no PHP session, no captcha (a lock-out replaces it) and no geo-IP lookup.
  *
- * Who can log in = the SAME rows the existing customer login on safestorage.in uses
- * (Auth::login): ss_user with role_id 6, status '0', password stored as
- * base64(plain) — that is the existing format, so existing customers keep their
- * password. Extra rule here: the linked ss_customer must be an AE customer
- * (country_code 'AE'), so an Indian customer cannot sign in on the .ae site.
- *
- * Brute-force limit: failed attempts are logged in the EXISTING ss_failed_login
- * table (ip_address column holds "dubai:<ip>" and "dubai-email:<sha1>") — no new
- * table. 5 failures in 15 minutes for the same visitor IP or the same email
- * blocks further tries until the window passes.
- *
- * This file does not create or change passwords and does not send email.
+ * Called ONLY by the Next.js server; every request must carry
+ * X-Dubai-Key = config/dubai_back.php `dubai_back_key`. Creates / changes no password.
  */
-class Dubai_customer extends MY_Controller {
+class Dubai_auth extends MY_Controller {
 
-    const MAX_FAILS   = 5;
+    const MAX_FAILS   = 8;   // same limit as auth/login
     const WINDOW_MINS = 15;
 
     public function __construct()
     {
-        // Same convention as the other open modules: no session, parent
-        // constructor skipped (it applies back-office session rules).
+        // Open endpoint (no back-office session): parent constructor skipped,
+        // the same convention as the other key-guarded modules.
         header('Content-Type: application/json');
         header('Cache-Control: no-store');
-
         if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
             exit(0);
         }
-
         $this->load->model('common/common_model');
         $this->_require_key();
     }
 
-    /** Every request must carry the shared key; empty config key = refuse all. */
     private function _require_key()
     {
         $this->config->load('dubai_back', FALSE, TRUE);
         $expected = (string) $this->config->item('dubai_back_key');
         $given    = (string) (isset($_SERVER['HTTP_X_DUBAI_KEY']) ? $_SERVER['HTTP_X_DUBAI_KEY'] : '');
-
         if (strlen($expected) < 32) {
             $this->_json(array('status' => 'error', 'message' => 'Not configured.'), 503);
         }
@@ -70,44 +57,49 @@ class Dubai_customer extends MY_Controller {
             $this->_json(array('status' => 'error', 'message' => 'POST required.'), 405);
         }
 
-        $email = strtolower(trim((string) $this->input->post('email')));
-        $pass  = (string) $this->input->post('password');
-        $ip    = $this->_visitor_ip();
+        $username = trim((string) $this->input->post('username'));
+        $password = trim((string) $this->input->post('password'));
+        $ip       = $this->_visitor_ip();
 
-        if ($email === '' || $pass === '' || strlen($email) > 200 || strlen($pass) > 200) {
-            $this->_json(array('status' => 'error', 'message' => 'Email and password are required.'), 400);
+        if ($username === '' || $password === '' || strlen($username) > 200 || strlen($password) > 200) {
+            $this->_json(array('status' => 'error', 'message' => 'Enter Email Id & password'), 400);
         }
 
+        // block after too many failures from this IP or for this email
         $ipKey    = 'dubai:' . $ip;
-        $emailKey = 'dubai-email:' . sha1($email);
+        $emailKey = 'dubai-email:' . sha1(strtolower($username));
         if ($this->_fails($ipKey) >= self::MAX_FAILS || $this->_fails($emailKey) >= self::MAX_FAILS) {
             $this->_json(array('status' => 'error', 'message' => 'Too many attempts. Please try again in a few minutes.'), 429);
         }
 
-        $row = $this->db->query(
-            "SELECT u.user_id, u.user_password, u.customer_id,
+        // Auth::login's lookup (role 6 customer, active) + the Dubai-only rule.
+        $user = $this->db->query(
+            "SELECT u.user_id, u.user_email, u.role_id, u.customer_id,
                     c.customer_name, c.customer_email, c.customer_unique_id
                FROM ss_user u
                JOIN ss_customer c ON c.customer_id = u.customer_id
-              WHERE LOWER(u.user_email) = ? AND u.role_id = 6 AND u.status = '0'
-                AND c.country_code = 'AE'
-              LIMIT 1", array($email))->row();
+              WHERE u.user_email = ? AND u.user_password = ?
+                AND u.status = '0' AND u.role_id = 6
+                AND u.user_country = 'AE'
+              LIMIT 1", array($username, base64_encode($password)))->row();
 
-        // base64(plain) is the stored format; compare in constant time.
-        $ok = $row && hash_equals((string) base64_decode((string) $row->user_password), $pass);
-
-        if (!$ok) {
-            $this->_log_fail($ipKey);
-            $this->_log_fail($emailKey);
-            // One message for "no such customer" and "wrong password".
-            $this->_json(array('status' => 'error', 'message' => 'Invalid email or password.'), 401);
+        if (empty($user)) {
+            $this->db->insert('ss_failed_login', array('ip_address' => $ipKey));
+            $this->db->insert('ss_failed_login', array('ip_address' => $emailKey));
+            $this->_login_log($username, $ip, 'failed');
+            // one message for "no such customer", "wrong password" and "not a Dubai user"
+            $this->_json(array('status' => 'error', 'message' => 'Please enter correct login details'), 401);
         }
 
+        $this->db->delete('ss_failed_login', array('ip_address' => $ipKey));
+        $this->db->delete('ss_failed_login', array('ip_address' => $emailKey));
+        $this->_login_log($username, $ip, 'loggedin');
+
         $this->_json(array('status' => 'success', 'customer' => array(
-            'customer_id'        => (int) $row->customer_id,
-            'customer_unique_id' => (string) $row->customer_unique_id,
-            'name'               => (string) $row->customer_name,
-            'email'              => (string) $row->customer_email,
+            'customer_id'        => (int) $user->customer_id,
+            'customer_unique_id' => (string) $user->customer_unique_id,
+            'name'               => (string) $user->customer_name,
+            'email'              => (string) $user->customer_email,
         )));
     }
 
@@ -119,21 +111,24 @@ class Dubai_customer extends MY_Controller {
             $this->_json(array('status' => 'error', 'message' => 'customer_id required.'), 400);
         }
 
+        // must still be an active Dubai user (not just any customer id)
         $c = $this->db->query(
-            "SELECT customer_id, customer_unique_id, customer_name, customer_email,
-                    customer_contact1, customer_local_city
-               FROM ss_customer WHERE customer_id = ? AND country_code = 'AE' LIMIT 1", array($cid))->row();
+            "SELECT c.customer_id, c.customer_unique_id, c.customer_name, c.customer_email,
+                    c.customer_contact1, c.customer_local_city
+               FROM ss_customer c
+               JOIN ss_user u ON u.customer_id = c.customer_id
+              WHERE c.customer_id = ? AND u.role_id = 6 AND u.status = '0' AND u.user_country = 'AE'
+              LIMIT 1", array($cid))->row();
         if (!$c) {
             $this->_json(array('status' => 'error', 'message' => 'Not found.'), 404);
         }
 
-        // Latest orders (pickups / retrievals).
         $orders = $this->db->query(
             "SELECT order_type, order_sub_type, order_schedule_date, order_status
                FROM ss_order WHERE customer_id = ?
               ORDER BY order_id DESC LIMIT 5", array($cid))->result();
 
-        // Unpaid dues. payable_amount is varchar, so cast in PHP.
+        // payable_amount is varchar, so cast in PHP
         $dues = $this->db->query(
             "SELECT billing_date, offer_note, payable_amount
                FROM ss_customer_payment
@@ -147,10 +142,10 @@ class Dubai_customer extends MY_Controller {
         $this->_json(array('status' => 'success',
             'profile' => array(
                 'customer_unique_id' => (string) $c->customer_unique_id,
-                'name'    => (string) $c->customer_name,
-                'email'   => (string) $c->customer_email,
-                'phone'   => (string) $c->customer_contact1,
-                'city'    => (string) $c->customer_local_city,
+                'name'  => (string) $c->customer_name,
+                'email' => (string) $c->customer_email,
+                'phone' => (string) $c->customer_contact1,
+                'city'  => (string) $c->customer_local_city,
             ),
             'orders' => array_map(function ($o) {
                 return array('type' => (string) $o->order_type, 'sub_type' => (string) $o->order_sub_type,
@@ -183,9 +178,13 @@ class Dubai_customer extends MY_Controller {
             array($key))->row()->n;
     }
 
-    private function _log_fail($key)
+    /** ss_login_logs row like auth/login writes (geo columns left empty). Never breaks the login. */
+    private function _login_log($username, $ip, $status)
     {
-        $this->db->insert('ss_failed_login', array('ip_address' => $key));
+        $dbg = $this->db->db_debug;
+        $this->db->db_debug = FALSE;
+        $this->db->insert('ss_login_logs', array('user_name' => $username, 'ipaddress' => $ip, 'status' => $status));
+        $this->db->db_debug = $dbg;
     }
 
     private function _json($data, $code = 200)

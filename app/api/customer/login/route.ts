@@ -19,7 +19,7 @@ export async function POST(request: Request) {
   }
 
   const ip = (request.headers.get("x-forwarded-for") || "").split(",")[0].trim() || undefined
-  const r = await callBack<LoginReply>("login", { email, password }, ip)
+  const r = await callBack<LoginReply>("login", { username: email, password }, ip)
 
   if (r.status === 503 || r.status === 502 || !r.data) {
     return NextResponse.json({ error: "Login is not available right now. Please try again later." }, { status: 503 })

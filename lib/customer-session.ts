@@ -1,7 +1,7 @@
 // Customer session for safestorage.ae (separate from the admin-token cookie).
 //
 // A signed JWT in an httpOnly cookie, written by /api/customer/login after the PHP
-// side (back/modules/dubai_customer) confirmed the email + password. The secret
+// side (back/modules/dubai) confirmed the email + password. The secret
 // is CUSTOMER_JWT_SECRET (server env only). There is deliberately NO hard-coded
 // fallback: without a real secret nobody can log in, which is safer than a
 // guessable default.

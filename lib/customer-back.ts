@@ -1,6 +1,6 @@
-// Server-to-server calls to the PHP side (back/modules/dubai_customer/...).
+// Server-to-server calls to the PHP side (back/modules/dubai/controllers/Dubai_auth.php).
 // Browser code never sees DUBAI_BACK_KEY or talks to PHP directly.
-const BASE = (process.env.DUBAI_BACK_URL || "https://safestorage.in/back/dubai_customer").replace(/\/$/, "")
+const BASE = (process.env.DUBAI_BACK_URL || "https://safestorage.in/back/dubai/dubai_auth").replace(/\/$/, "")
 
 export type BackResult<T> = { ok: boolean; status: number; data: T | null }
 
