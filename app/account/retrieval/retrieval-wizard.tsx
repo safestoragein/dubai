@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { CalendarDays, Check, Clock, MapPin, PackageCheck, PackageOpen, Truck, Boxes } from "lucide-react"
+import { ArrowLeft, ArrowRight, CalendarDays, Check, Clock, MapPin, PackageCheck, PackageOpen, Truck, Boxes } from "lucide-react"
 import { loadGoogleMapsScript } from "@/lib/google-maps-loader"
 import c from "../account.module.css"
 
@@ -125,26 +125,34 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
 
   const noItems = opts.items.length === 0
   const blocked = opts.open_orders.length > 0
+  const cur = TYPES.find((t) => t.key === type)
+  const slotName = opts.timeslots.find((x) => x.slug === slot)?.name
+  const floorName = opts.floors.find((x) => x.slug === floor)?.name
 
   return (
-    <>
+    <div className={c.rt}>
       {blocked && (
         <div className={c.notice} style={{ margin: "0 0 20px" }}>
           You already have an open retrieval request: {opts.open_orders.map((o) => `${o.ref} (${label(o.status)})`).join(", ")}. Please wait for our team, or call us to change it.
         </div>
       )}
 
-      <div className={c.retrTypes}>
+      {/* 1 — what kind of retrieval */}
+      <div className={c.rtTypes} role="radiogroup" aria-label="Retrieval type">
         {TYPES.map((t) => {
           const Icon = t.icon
           const disabled = noItems || blocked || (t.key === "partial" && opts.max_partial < 1)
+          const on = type === t.key
           return (
-            <button key={t.key} type="button" disabled={disabled} className={`${c.retrType} ${c[t.tone]} ${type === t.key ? c.retrTypeOn : ""}`}
+            <button key={t.key} type="button" role="radio" aria-checked={on} disabled={disabled}
+              className={`${c.rtType} ${c[t.tone]} ${on ? c.rtTypeOn : ""}`}
               onClick={() => { setType(t.key); setPicked([]); setErr(""); setStep(1) }}>
-              <span className={c.tileIcon}><Icon aria-hidden="true" /></span>
-              <b>{t.title}</b>
-              <span>{t.text}</span>
-              {t.key === "partial" && opts.max_partial < 1 && !noItems && <em>Needs at least 2 stored items</em>}
+              <span className={c.rtIcon}><Icon aria-hidden="true" /></span>
+              <span className={c.rtTypeText}>
+                <b>{t.title}</b>
+                <small>{t.key === "partial" && opts.max_partial < 1 && !noItems ? "Needs at least 2 stored items" : t.text}</small>
+              </span>
+              <span className={c.rtTick}>{on && <Check aria-hidden="true" />}</span>
             </button>
           )
         })}
@@ -152,66 +160,66 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
 
       {noItems && <p className={c.empty}>You have no stored items to retrieve.</p>}
 
-      {type && !blocked && (
-        <>
-          <ol className={`${c.stepBar} ${c[TYPES.find((t) => t.key === type)!.tone]}`} aria-label="Retrieval steps">
-            <li className={`${c.stepBlock} ${step === 1 ? c.stepBlockNow : c.stepBlockDone}`}>
-              <span className={c.stepNum}>{step === 2 ? <Check aria-hidden="true" /> : 1}</span>
-              <span className={c.stepText}>
-                <em>Step 1 of 2</em>
-                <b>Choose items</b>
-                <small>{type === "partial" ? "Pick what you need" : "All stored items"}</small>
-              </span>
-            </li>
-            <li className={`${c.stepBlock} ${step === 2 ? c.stepBlockNow : ""}`}>
-              <span className={c.stepNum}>2</span>
-              <span className={c.stepText}>
-                <em>Step 2 of 2</em>
-                <b>Delivery details</b>
-                <small>Date, address and charge</small>
-              </span>
-            </li>
-          </ol>
+      {!type && !noItems && !blocked && (
+        <div className={c.rtHint}>Choose a retrieval type above to start.</div>
+      )}
+
+      {/* 2 — the two-step request card */}
+      {type && cur && !blocked && (
+        <section className={`${c.rtCard} ${c[cur.tone]}`}>
+          <header className={c.rtHead}>
+            <div className={c.rtHeadTitle}>
+              <span className={c.rtIconSm}><cur.icon aria-hidden="true" /></span>
+              <div><h2>{cur.title}</h2><p>{itemsForType.length} {itemsForType.length === 1 ? "item" : "items"} selected</p></div>
+            </div>
+            <ol className={c.rtSteps} aria-label="Steps">
+              <li className={`${c.rtStep} ${step === 1 ? c.rtStepNow : c.rtStepDone}`}><span>{step === 2 ? <Check aria-hidden="true" /> : 1}</span>Items</li>
+              <li className={c.rtStepLine} aria-hidden="true" />
+              <li className={`${c.rtStep} ${step === 2 ? c.rtStepNow : ""}`}><span>2</span>Delivery</li>
+            </ol>
+          </header>
 
           {step === 1 ? (
-            <section className={c.panel}>
-              <div className={c.panelHead}>
-                <div><h2 className={c.panelTitle}>{type === "partial" ? "Choose your items" : "Items to retrieve"}</h2>
-                  <p className={c.panelSub}>{type === "partial" ? `Select up to ${opts.max_partial} of your ${opts.items.length} items` : `All ${opts.items.length} stored items will be delivered`}</p></div>
-                {type === "partial" && <span className={c.count}>{picked.length} / {opts.max_partial}</span>}
+            <div className={c.rtBody}>
+              <div className={c.rtBodyHead}>
+                <div>
+                  <h3>{type === "partial" ? "Choose your items" : "Items to retrieve"}</h3>
+                  <p>{type === "partial" ? `Select up to ${opts.max_partial} of your ${opts.items.length} items.` : `All ${opts.items.length} stored items will be delivered.`}</p>
+                </div>
+                {type === "partial" && <span className={c.rtCounter}>{picked.length} / {opts.max_partial}</span>}
               </div>
-              <ul className={c.itemPick}>
+              <ul className={c.rtItems}>
                 {opts.items.map((i) => {
                   const on = type !== "partial" || picked.includes(i.id)
                   const canAdd = picked.length < opts.max_partial
                   return (
                     <li key={i.id}>
-                      <label className={`${c.itemRow} ${on && type === "partial" ? c.itemRowOn : ""}`}>
+                      <label className={`${c.rtItem} ${on ? c.rtItemOn : ""}`}>
                         {type === "partial" ? (
                           <input type="checkbox" checked={picked.includes(i.id)} disabled={!picked.includes(i.id) && !canAdd}
                             onChange={(e) => setPicked(e.target.checked ? [...picked, i.id] : picked.filter((x) => x !== i.id))} />
-                        ) : <span className={c.itemTick}><Check aria-hidden="true" /></span>}
-                        <span className={c.itemName}>{i.name}<small>{i.barcode} · {label(i.type)} · {i.quotation}</small></span>
-                        <b>×{i.qty}</b>
+                        ) : <span className={c.rtItemTick}><Check aria-hidden="true" /></span>}
+                        <span className={c.rtItemName}>{i.name}<small>{i.barcode} · {label(i.type)}</small></span>
+                        <span className={c.rtItemQty}>×{i.qty}</span>
                       </label>
                     </li>
                   )
                 })}
               </ul>
-              <div className={c.stepActions}>
-                <button type="button" className={c.retrSubmit} style={{ minWidth: 200 }} disabled={itemsForType.length === 0} onClick={() => { setStep(2); window.scrollTo({ top: 0, behavior: "smooth" }) }}>
-                  Continue
+              <footer className={c.rtFoot}>
+                <span className={c.rtFootNote}>{type === "partial" ? "You can change your selection later in the next step." : "Everything stored will be returned and your storage closed."}</span>
+                <button type="button" className={c.rtPrimary} disabled={itemsForType.length === 0}
+                  onClick={() => { setStep(2); window.scrollTo({ top: 0, behavior: "smooth" }) }}>
+                  Continue <ArrowRight aria-hidden="true" />
                 </button>
-              </div>
-            </section>
+              </footer>
+            </div>
           ) : (
-            <div className={c.retrLayout}>
-              <div className={c.retrMain}>
-                <section className={c.panel}>
-                  <div className={c.panelHead}>
-                    <div><h2 className={c.panelTitle}>Delivery details</h2><p className={c.panelSub}>{itemsForType.length} {itemsForType.length === 1 ? "item" : "items"} · where and when should we bring them?</p></div>
-                    <button type="button" className={c.linkBtn} onClick={() => setStep(1)}>Change items</button>
-                  </div>
+            <div className={c.rtBody}>
+              <div className={c.rtCols}>
+                <div className={c.rtForm}>
+                  <h3>Delivery details</h3>
+                  <p className={c.rtFormSub}>Where and when should we bring your items?</p>
                   <div className={c.formGrid}>
                     <label className={c.fLabel}><span><CalendarDays aria-hidden="true" /> Date</span>
                       <input type="date" min={tomorrowISO()} value={date} onChange={(e) => setDate(e.target.value)} /></label>
@@ -239,46 +247,59 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                     <label className={`${c.fLabel} ${c.fWide}`}><span>Note for our team (optional)</span>
                       <textarea rows={2} maxLength={500} value={note} onChange={(e) => setNote(e.target.value)} /></label>
                   </div>
-                </section>
-              </div>
+                </div>
 
-              <aside className={c.retrSide}>
-                <section className={c.panel}>
-                  <div className={c.panelHead}><h2 className={c.panelTitle}>Delivery charge</h2></div>
-                  {!ready ? (
-                    <p className={c.panelSub}>Choose the date, address, floor and lift to see the charge.</p>
-                  ) : type === "intercity" ? (
-                    <p className={c.panelSub}>Our team will quote the intercity delivery price and confirm it with you.</p>
-                  ) : estErr ? (
-                    <p style={{ color: "#d45f50", margin: 0 }}>{estErr}</p>
-                  ) : !est ? (
-                    <p className={c.panelSub}>Working out the charge…</p>
-                  ) : (
-                    <>
-                      <ul className={c.estList}>
-                        <li><span>Transport</span><b>{aed(est.transport_cost)}</b></li>
-                        <li><span>Labour</span><b>{aed(est.labour_cost)}</b></li>
-                        {est.lift_cost > 0 && <li><span>Lift</span><b>{aed(est.lift_cost)}</b></li>}
-                        {est.stacking_barcode > 0 && <li><span>Stacking & barcode</span><b>{aed(est.stacking_barcode)}</b></li>}
-                        {est.urgent_date_surcharge > 0 && <li><span>Short-notice date</span><b>{aed(est.urgent_date_surcharge)}</b></li>}
-                        {est.transport_tax > 0 && <li><span>Tax</span><b>{aed(est.transport_tax)}</b></li>}
-                        <li className={c.estTotal}><span>Estimated total</span><b>{aed(est.transport_total)}</b></li>
-                      </ul>
-                      <p className={c.panelSub} style={{ marginTop: 10 }}>This is an estimate. Our team confirms the final charge before anything is billed.</p>
-                    </>
-                  )}
-                </section>
-                {err && <div className={c.notice} style={{ margin: 0 }}>{err}</div>}
-                <button type="button" className={c.retrSubmit} disabled={busy || !ready || !slot || !phone || !address || (type !== "intercity" && !est)} onClick={submit}>
-                  {busy ? "Sending…" : "Request retrieval"}
-                </button>
-                <button type="button" className={c.retrBack} onClick={() => setStep(1)}>Back to items</button>
-                <p className={c.panelSub} style={{ margin: 0, textAlign: "center" }}>No payment is taken now.</p>
-              </aside>
+                <aside className={c.rtSummary}>
+                  <h3>Summary</h3>
+                  <ul className={c.rtRecap}>
+                    <li><span>Type</span><b>{cur.title}</b></li>
+                    <li><span>Items</span><b>{itemsForType.length}</b></li>
+                    <li><span>Date</span><b>{date ? toDMY(date) : "—"}</b></li>
+                    <li><span>Time</span><b>{slotName || "—"}</b></li>
+                    <li><span>Floor / lift</span><b>{floorName ? `${floorName} · ${lift === "yes" ? "lift" : lift === "no" ? "no lift" : "—"}` : "—"}</b></li>
+                  </ul>
+
+                  <div className={c.rtCharge}>
+                    <p className={c.rtChargeTitle}>Delivery charge</p>
+                    {!ready ? (
+                      <p className={c.rtMuted}>Fill in the date, address, floor and lift to see the charge.</p>
+                    ) : type === "intercity" ? (
+                      <p className={c.rtMuted}>Our team will quote the intercity delivery price and confirm it with you.</p>
+                    ) : estErr ? (
+                      <p style={{ color: "#d45f50", margin: 0, fontSize: 13 }}>{estErr}</p>
+                    ) : !est ? (
+                      <p className={c.rtMuted}>Working out the charge…</p>
+                    ) : (
+                      <>
+                        <ul className={c.estList}>
+                          <li><span>Transport</span><b>{aed(est.transport_cost)}</b></li>
+                          <li><span>Labour</span><b>{aed(est.labour_cost)}</b></li>
+                          {est.lift_cost > 0 && <li><span>Lift</span><b>{aed(est.lift_cost)}</b></li>}
+                          {est.stacking_barcode > 0 && <li><span>Stacking & barcode</span><b>{aed(est.stacking_barcode)}</b></li>}
+                          {est.urgent_date_surcharge > 0 && <li><span>Short-notice date</span><b>{aed(est.urgent_date_surcharge)}</b></li>}
+                          {est.transport_tax > 0 && <li><span>Tax</span><b>{aed(est.transport_tax)}</b></li>}
+                          <li className={c.estTotal}><span>Estimated total</span><b>{aed(est.transport_total)}</b></li>
+                        </ul>
+                        <p className={c.rtMuted} style={{ marginTop: 8 }}>An estimate. Our team confirms the final charge before anything is billed.</p>
+                      </>
+                    )}
+                  </div>
+
+                  {err && <div className={c.notice} style={{ margin: "12px 0 0" }}>{err}</div>}
+                  <button type="button" className={c.rtPrimary} style={{ width: "100%", justifyContent: "center", marginTop: 14 }}
+                    disabled={busy || !ready || !slot || !phone || !address || (type !== "intercity" && !est)} onClick={submit}>
+                    {busy ? "Sending…" : "Request retrieval"}
+                  </button>
+                  <p className={c.rtMuted} style={{ textAlign: "center", margin: "8px 0 0" }}>No payment is taken now.</p>
+                </aside>
+              </div>
+              <footer className={c.rtFoot}>
+                <button type="button" className={c.rtGhost} onClick={() => setStep(1)}><ArrowLeft aria-hidden="true" /> Back to items</button>
+              </footer>
             </div>
           )}
-        </>
+        </section>
       )}
-    </>
+    </div>
   )
 }
