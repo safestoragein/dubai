@@ -113,7 +113,11 @@ class Dubai_retrieval extends MY_Controller {
         $est = $this->_estimate($c, $in);
 
         $oid = $this->_place_order($c, $in, $est, 'request_raise');
-        if ($oid <= 0) $this->_json(array('status' => 'error', 'message' => 'Could not create the request. Please try again.'), 500);
+        if ($oid <= 0) {
+            $lost = $this->db->query("SELECT order_id FROM ss_order WHERE country_code = 'AE' AND order_type IN ('full_retrieval','partial_retrieval') AND order_status <> 'cancelled' AND order_schedule_date = ? LIMIT 1", array($in['date_ymd']))->row();
+            if ($lost) $this->_json(array('status' => 'error', 'message' => 'That date has just been booked. Please choose another date.'), 409);
+            $this->_json(array('status' => 'error', 'message' => 'Could not create the request. Please try again.'), 500);
+        }
         $this->_json(array('status' => 'success', 'ref' => 'WO' . $oid, 'order_id' => $oid));
     }
 
@@ -156,8 +160,12 @@ class Dubai_retrieval extends MY_Controller {
         if ($in['type'] === 'intercity') $order['is_intercity'] = 1;
         if ($paidAmount !== null) $order['retrieval_team_amount'] = number_format($paidAmount, 2, '.', '');      // as the Indian full/partial payment stores it
 
+        // ss_order.uq_ae_retrieval_day (Dubai retrievals only) refuses a second live retrieval on the same day: a lost race
+        // fails here quietly instead of printing a database error, and the caller reports the day as taken.
+        $dbgOrder = $this->db->db_debug; $this->db->db_debug = FALSE;
         $this->db->insert('ss_order', $order);
         $oid = (int) $this->db->insert_id();
+        $this->db->db_debug = $dbgOrder;
         if ($oid <= 0) return 0;
 
         foreach ($in['ids'] as $iid) {
