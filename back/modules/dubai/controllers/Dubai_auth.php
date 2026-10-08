@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  *   POST dubai/dubai_auth/login     username (email), password   [X-Forwarded-For = visitor IP]
  *   POST dubai/dubai_auth/account   customer_id
+ *   POST dubai/dubai_auth/orders    customer_id   (every order of that customer)
  *
  * Same rules as auth/login for a customer: ss_user with user_email, base64(password),
  * status '0', role_id 6 — plus ONE extra rule for this site: ss_user.user_country
@@ -160,6 +161,44 @@ class Dubai_auth extends MY_Controller {
                 }, (array) $dues),
             ),
         ));
+    }
+
+    // ----------------------------------------------------------------- orders
+    /** All orders of one Dubai customer (newest first) for the account Orders page. */
+    public function orders()
+    {
+        $cid = (int) $this->input->post('customer_id');
+        if ($cid <= 0) {
+            $this->_json(array('status' => 'error', 'message' => 'customer_id required.'), 400);
+        }
+
+        // must be an active Dubai user, same guard as account()
+        $ok = $this->db->query(
+            "SELECT 1 FROM ss_customer c JOIN ss_user u ON u.customer_id = c.customer_id
+              WHERE c.customer_id = ? AND u.role_id = 6 AND u.status = '0' AND u.user_country = 'AE' LIMIT 1", array($cid))->num_rows();
+        if (!$ok) {
+            $this->_json(array('status' => 'error', 'message' => 'Not found.'), 404);
+        }
+
+        $rows = $this->db->query(
+            "SELECT * FROM ss_order WHERE customer_id = ? ORDER BY order_id DESC LIMIT 200", array($cid))->result();
+
+        $out = array();
+        foreach ($rows as $o) {
+            $created = isset($o->order_created_at) ? $o->order_created_at : (isset($o->created_at) ? $o->created_at : '');
+            $out[] = array(
+                'ref'       => 'DXB-O-' . (int) $o->order_id,
+                'type'      => (string) $o->order_type,
+                'sub_type'  => (string) (isset($o->order_sub_type) ? $o->order_sub_type : ''),
+                'status'    => (string) $o->order_status,
+                'date'      => (string) (isset($o->order_schedule_date) ? $o->order_schedule_date : ''),
+                'timeslot'  => (string) (isset($o->order_timeslot) ? $o->order_timeslot : ''),
+                'address'   => (string) (isset($o->order_address) ? $o->order_address : ''),
+                'note'      => (string) (isset($o->order_note) ? $o->order_note : ''),
+                'created'   => (string) $created,
+            );
+        }
+        $this->_json(array('status' => 'success', 'orders' => $out));
     }
 
     // ---------------------------------------------------------------- helpers
