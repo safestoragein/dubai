@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { CalendarDays, Check, Clock, MapPin, PackageOpen, StickyNote, Truck, X } from "lucide-react"
+import { CalendarCheck, CalendarDays, Check, Clock, MapPin, PackageCheck, PackageOpen, StickyNote, Truck, X } from "lucide-react"
 import c from "../account.module.css"
 
 export type Order = {
@@ -40,7 +40,8 @@ export default function OrdersList({ orders }: { orders: Order[] }) {
   const n = (k: "all" | Kind) => (k === "all" ? orders.length : orders.filter((o) => kind(o.status) === k).length)
 
   return (
-    <>
+    <div className={c.ordersLayout}>
+     <div className={c.ordersMain}>
       <div className={c.tabs} role="tablist" aria-label="Filter orders">
         {FILTERS.map((x) => (
           <button key={x.key} type="button" role="tab" aria-selected={f === x.key}
@@ -102,6 +103,37 @@ export default function OrdersList({ orders }: { orders: Order[] }) {
           })}
         </div>
       )}
-    </>
+     </div>
+
+      <aside className={c.ordersSide}>
+        <section className={c.card}>
+          <div className={c.panelHead}><h2 className={c.panelTitle}>Summary</h2></div>
+          <ul className={c.sumList}>
+            {([
+              ["Total orders", n("all"), "#3b6fe0"],
+              ["Upcoming", n("open"), "#f26a1b"],
+              ["Completed", n("done"), "#1f8a56"],
+              ["Cancelled", n("bad"), "#c0392b"],
+            ] as [string, number, string][]).map(([t, v, col]) => (
+              <li key={t} className={c.sumRow}>
+                <span className={c.sumDot} style={{ background: col }} />
+                <span className={c.sumLabel}>{t}</span>
+                <b className={c.sumVal}>{v}</b>
+                <span className={c.sumBar}><i style={{ width: `${orders.length ? Math.round((v / orders.length) * 100) : 0}%`, background: col }} /></span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className={c.card}>
+          <div className={c.panelHead}><h2 className={c.panelTitle}>How your order moves</h2></div>
+          <ol className={c.guide}>
+            <li><span className={c.guideIcon}><CalendarCheck aria-hidden="true" /></span><div><b>Booked</b><p>We have your request and your pickup day.</p></div></li>
+            <li><span className={c.guideIcon}><Truck aria-hidden="true" /></span><div><b>Scheduled</b><p>Our team is set to collect your items on the day and time shown.</p></div></li>
+            <li><span className={c.guideIcon}><PackageCheck aria-hidden="true" /></span><div><b>Completed</b><p>Your items are collected and safe in our warehouse.</p></div></li>
+          </ol>
+        </section>
+      </aside>
+    </div>
   )
 }
