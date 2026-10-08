@@ -154,15 +154,22 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
 
       {type && !blocked && (
         <>
-          <ol className={c.stepper} aria-label="Retrieval steps">
-            <li className={`${c.stepperItem} ${step === 1 ? c.stepperNow : c.stepperDone}`}>
-              <span className={c.stepperDot}>{step === 2 ? <Check aria-hidden="true" /> : 1}</span>
-              <span><b>Choose items</b><small>{type === "partial" ? "Pick what you need" : "All stored items"}</small></span>
+          <ol className={`${c.stepBar} ${c[TYPES.find((t) => t.key === type)!.tone]}`} aria-label="Retrieval steps">
+            <li className={`${c.stepBlock} ${step === 1 ? c.stepBlockNow : c.stepBlockDone}`}>
+              <span className={c.stepNum}>{step === 2 ? <Check aria-hidden="true" /> : 1}</span>
+              <span className={c.stepText}>
+                <em>Step 1 of 2</em>
+                <b>Choose items</b>
+                <small>{type === "partial" ? "Pick what you need" : "All stored items"}</small>
+              </span>
             </li>
-            <li className={c.stepperLine} aria-hidden="true" />
-            <li className={`${c.stepperItem} ${step === 2 ? c.stepperNow : ""}`}>
-              <span className={c.stepperDot}>2</span>
-              <span><b>Delivery details</b><small>Date, address and charge</small></span>
+            <li className={`${c.stepBlock} ${step === 2 ? c.stepBlockNow : ""}`}>
+              <span className={c.stepNum}>2</span>
+              <span className={c.stepText}>
+                <em>Step 2 of 2</em>
+                <b>Delivery details</b>
+                <small>Date, address and charge</small>
+              </span>
             </li>
           </ol>
 

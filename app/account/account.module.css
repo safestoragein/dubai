@@ -374,3 +374,23 @@ th.sumAmt { text-align: right; }
 .retrType:hover:not(:disabled) { transform: translateY(-3px); opacity: 1; box-shadow: 0 14px 30px color-mix(in srgb, var(--tone) 38%, transparent); }
 .retrTypeOn { opacity: 1; background: linear-gradient(145deg, var(--tone), var(--tone-dark)); outline: 3px solid color-mix(in srgb, var(--tone) 35%, #fff); outline-offset: 3px; box-shadow: 0 14px 32px color-mix(in srgb, var(--tone) 40%, transparent); }
 .retrType:disabled { opacity: 0.45; }
+
+/* clearer 2-step bar */
+.stepBar { list-style: none; margin: 0 0 22px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; background: #fff; border: 1px solid #e6e9ed; border-radius: 12px; overflow: hidden; }
+.stepBlock { display: flex; align-items: center; gap: 16px; padding: 18px 24px; border-bottom: 4px solid transparent; background: #fff; color: #8b93a0; }
+.stepBlock + .stepBlock { border-left: 1px solid #eef0f3; }
+.stepNum { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; flex: none; font-size: 18px; font-weight: 700; background: #f1f2f6; color: #8b93a0; }
+.stepNum svg { width: 22px; height: 22px; }
+.stepText { display: grid; gap: 1px; }
+.stepText em { font-style: normal; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: #a0a7b1; }
+.stepText b { font-size: 17px; font-weight: 600; color: #8b93a0; }
+.stepText small { font-size: 13px; color: #a0a7b1; }
+.stepBlockNow { border-bottom-color: var(--tone, #ee5824); background: color-mix(in srgb, var(--tone-soft, #fff0e9) 55%, #fff); }
+.stepBlockNow .stepNum { background: var(--tone, #ee5824); color: #fff; box-shadow: 0 0 0 5px color-mix(in srgb, var(--tone, #ee5824) 18%, transparent); }
+.stepBlockNow .stepText em { color: var(--tone, #ee5824); }
+.stepBlockNow .stepText b { color: #19212e; }
+.stepBlockNow .stepText small { color: #5f6978; }
+.stepBlockDone { border-bottom-color: color-mix(in srgb, var(--tone, #ee5824) 45%, #fff); }
+.stepBlockDone .stepNum { background: color-mix(in srgb, var(--tone, #ee5824) 16%, #fff); color: var(--tone, #ee5824); }
+.stepBlockDone .stepText b { color: #19212e; }
+@media (max-width: 560px) { .stepBlock { padding: 14px; gap: 10px; } .stepNum { width: 36px; height: 36px; font-size: 15px; } .stepText b { font-size: 14px; } .stepText small { display: none; } }
