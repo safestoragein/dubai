@@ -125,6 +125,25 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
     return () => { off = true }
   }, [type])
 
+  // A saved address has no coordinates yet: look it up ourselves so the charges can be worked out
+  // without the customer having to re-pick the address from the suggestions.
+  useEffect(() => {
+    if (step !== 2 || !address || lat) return
+    let off = false
+    const t = setTimeout(async () => {
+      try {
+        await loadGoogleMapsScript()
+        if (off || !window.google?.maps) return
+        new window.google.maps.Geocoder().geocode({ address, region: "ae" }, (res, status) => {
+          if (off || status !== "OK" || !res?.[0]?.geometry?.location) return
+          setLat(String(res[0].geometry.location.lat()))
+          setLng(String(res[0].geometry.location.lng()))
+        })
+      } catch { /* the hint below tells the customer to pick a suggestion */ }
+    }, 600)
+    return () => { off = true; clearTimeout(t) }
+  }, [step, address, lat])
+
   const itemsForType = type === "partial" ? picked : opts.items.map((i) => i.id)
   const ready = !!type && !!date && !!address && !!floor && !!lift && (type === "intercity" || (lat && lng)) && itemsForType.length > 0
 
