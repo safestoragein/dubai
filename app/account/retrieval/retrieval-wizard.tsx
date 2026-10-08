@@ -8,6 +8,7 @@ import c from "../account.module.css"
 type Item = { id: number; quotation: string; barcode: string; name: string; type: string; qty: number }
 type Opt = { slug: string; name: string }
 export type Options = {
+  rules: { min_date: string; max_date: string; blocked_days: number[] }
   items: Item[]
   max_partial: number
   open_orders: { ref: string; type: string; status: string; date: string }[]
@@ -16,9 +17,12 @@ export type Options = {
   defaults: { address: string; lat: string | null; lng: string | null; floor: string; lift: string; phone: string }
 }
 type Estimate = {
-  type: string; items: number; team_quote: boolean; pallets: number
-  transport_cost: number; labour_cost: number; lift_cost: number; stacking_barcode: number; urgent_date_surcharge: number
-  transport_subtotal: number; transport_tax: number; transport_total: number
+  type: string; items: number; team_quote: boolean; out_of_area: boolean; distance_km: number | null
+  points: number; pallets: number; tier: string
+  transport_base: number; transport_surcharge: number; transport_total: number
+  monthly_amount: number; storage_till_date: number; storage_from: string; storage_to: string
+  unpaid_dues: number; wallet: number; storage_due: number; storage_return: number
+  final_payable_amt: number; final_return_amt: number
 }
 type Kind = "partial" | "full" | "intercity"
 
@@ -33,6 +37,51 @@ const TYPES: { key: Kind; title: string; text: string; icon: typeof Boxes; tone:
 // d/m/Y from an <input type="date"> value (yyyy-mm-dd)
 const toDMY = (iso: string) => (iso ? iso.split("-").reverse().join("/") : "")
 const tomorrowISO = () => { const d = new Date(Date.now() + 86400000); return d.toISOString().slice(0, 10) }
+
+// Calendar with the Indian dashboard's rules: nothing before min, nothing after max, and some days of the month blocked.
+const iso = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`
+function RtCalendar({ value, onChange, min, max, blocked }: { value: string; onChange: (v: string) => void; min: string; max: string; blocked: number[] }) {
+  const [open, setOpen] = useState(false)
+  const start = value ? new Date(value + "T00:00:00") : new Date(min + "T00:00:00")
+  const [view, setView] = useState(new Date(start.getFullYear(), start.getMonth(), 1))
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const h = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false) }
+    document.addEventListener("mousedown", h)
+    return () => document.removeEventListener("mousedown", h)
+  }, [])
+  const first = new Date(view.getFullYear(), view.getMonth(), 1)
+  const lead = (first.getDay() + 6) % 7                               // Monday first
+  const days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate()
+  const cells: (Date | null)[] = [...Array(lead).fill(null), ...Array.from({ length: days }, (_, i) => new Date(view.getFullYear(), view.getMonth(), i + 1))]
+  const ok = (d: Date) => iso(d) >= min && iso(d) <= max && !blocked.includes(d.getDate())
+  const canPrev = iso(new Date(view.getFullYear(), view.getMonth(), 0)) >= min
+  const canNext = iso(new Date(view.getFullYear(), view.getMonth() + 1, 1)) <= max
+  return (
+    <div className={c.cal} ref={ref}>
+      <button type="button" className={c.calBtn} onClick={() => setOpen(!open)}>
+        <span>{value ? toDMY(value) : "dd/mm/yyyy"}</span><CalendarDays aria-hidden="true" />
+      </button>
+      {open && (
+        <div className={c.calPop} role="dialog" aria-label="Choose a date">
+          <div className={c.calHead}>
+            <button type="button" disabled={!canPrev} onClick={() => setView(new Date(view.getFullYear(), view.getMonth() - 1, 1))} aria-label="Previous month"><ArrowLeft aria-hidden="true" /></button>
+            <b>{view.toLocaleDateString("en-GB", { month: "long", year: "numeric" })}</b>
+            <button type="button" disabled={!canNext} onClick={() => setView(new Date(view.getFullYear(), view.getMonth() + 1, 1))} aria-label="Next month"><ArrowRight aria-hidden="true" /></button>
+          </div>
+          <div className={c.calGrid}>
+            {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((w) => <span key={w} className={c.calDow}>{w}</span>)}
+            {cells.map((d, i) => d ? (
+              <button key={i} type="button" disabled={!ok(d)} className={`${c.calDay} ${iso(d) === value ? c.calDayOn : ""}`}
+                onClick={() => { onChange(iso(d)); setOpen(false) }}>{d.getDate()}</button>
+            ) : <span key={i} />)}
+          </div>
+          <p className={c.calNote}>Earliest date is 4 days from today. The 1st, 2nd and 26th to 31st of each month are not available, and neither are dates after your next billing window.</p>
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function RetrievalWizard({ opts, name }: { opts: Options; name: string }) {
   const [type, setType] = useState<Kind | null>(null)
@@ -220,13 +269,17 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                   <h3>Delivery details</h3>
                   <p className={c.rtFormSub}>Where and when should we bring your items?</p>
                   <div className={c.formGrid}>
-                    <label className={c.fLabel}><span><CalendarDays aria-hidden="true" /> Date</span>
-                      <input type="date" min={tomorrowISO()} value={date} onChange={(e) => setDate(e.target.value)} /></label>
-                    <label className={c.fLabel}><span><Clock aria-hidden="true" /> Time slot</span>
-                      <select value={slot} onChange={(e) => setSlot(e.target.value)}>
-                        <option value="">Choose a slot</option>
-                        {opts.timeslots.map((s) => <option key={s.slug} value={s.slug}>{s.name}</option>)}
-                      </select></label>
+                    <div className={c.fLabel}><span><CalendarDays aria-hidden="true" /> Date</span>
+                      <RtCalendar value={date} onChange={(v) => setDate(v)} min={opts.rules.min_date} max={opts.rules.max_date} blocked={opts.rules.blocked_days} /></div>
+                    <div className={c.fLabel}><span><Clock aria-hidden="true" /> Time slot</span>
+                      <div className={c.slotChips} role="radiogroup" aria-label="Time slot">
+                        {opts.timeslots.map((t) => (
+                          <button key={t.slug} type="button" role="radio" aria-checked={slot === t.slug} disabled={!date}
+                            className={`${c.slotChip} ${slot === t.slug ? c.slotChipOn : ""}`} onClick={() => setSlot(t.slug)}>{t.name}</button>
+                        ))}
+                      </div>
+                      {!date && <em className={c.fHint} style={{ color: "#8b93a0" }}>Choose a date first.</em>}
+                    </div>
                     <label className={`${c.fLabel} ${c.fWide}`}><span><MapPin aria-hidden="true" /> Delivery address</span>
                       <input ref={addrRef} type="text" value={address} placeholder="Start typing and pick your address"
                         onChange={(e) => { setAddress(e.target.value); setLat(""); setLng("") }} />
@@ -259,27 +312,41 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                   </ul>
 
                   <div className={c.rtCharge}>
-                    <p className={c.rtChargeTitle}>Delivery charge</p>
                     {!ready ? (
-                      <p className={c.rtMuted}>Fill in the date, address, floor and lift to see the charge.</p>
-                    ) : type === "intercity" ? (
-                      <p className={c.rtMuted}>Our team will quote the intercity delivery price and confirm it with you.</p>
+                      <p className={c.rtMuted}>Fill in the date, address, floor and lift to see the charges.</p>
                     ) : estErr ? (
                       <p style={{ color: "#d45f50", margin: 0, fontSize: 13 }}>{estErr}</p>
                     ) : !est ? (
-                      <p className={c.rtMuted}>Working out the charge…</p>
+                      <p className={c.rtMuted}>Working out the charges…</p>
                     ) : (
                       <>
+                        <p className={c.rtChargeTitle}>Storage charges</p>
                         <ul className={c.estList}>
-                          <li><span>Transport</span><b>{aed(est.transport_cost)}</b></li>
-                          <li><span>Labour</span><b>{aed(est.labour_cost)}</b></li>
-                          {est.lift_cost > 0 && <li><span>Lift</span><b>{aed(est.lift_cost)}</b></li>}
-                          {est.stacking_barcode > 0 && <li><span>Stacking & barcode</span><b>{aed(est.stacking_barcode)}</b></li>}
-                          {est.urgent_date_surcharge > 0 && <li><span>Short-notice date</span><b>{aed(est.urgent_date_surcharge)}</b></li>}
-                          {est.transport_tax > 0 && <li><span>Tax</span><b>{aed(est.transport_tax)}</b></li>}
-                          <li className={c.estTotal}><span>Estimated total</span><b>{aed(est.transport_total)}</b></li>
+                          <li><span>Monthly storage</span><b>{aed(est.monthly_amount)}</b></li>
+                          <li><span>Storage till {est.storage_to || "date"}</span><b>{aed(est.storage_till_date)}</b></li>
+                          {est.unpaid_dues > 0 && <li><span>Unpaid bills</span><b>{aed(est.unpaid_dues)}</b></li>}
+                          {est.wallet > 0 && <li><span>Wallet credit</span><b>− {aed(est.wallet)}</b></li>}
+                          <li className={c.estSub}><span>{est.storage_return > 0 ? "Storage refund" : "Storage balance due"}</span><b>{aed(est.storage_return > 0 ? est.storage_return : est.storage_due)}</b></li>
                         </ul>
-                        <p className={c.rtMuted} style={{ marginTop: 8 }}>An estimate. Our team confirms the final charge before anything is billed.</p>
+
+                        <p className={c.rtChargeTitle} style={{ marginTop: 16 }}>Transport charges</p>
+                        {est.team_quote ? (
+                          <p className={c.rtMuted}>{type === "intercity" ? "Our team will quote the intercity delivery price and confirm it with you." : `This address is ${est.distance_km} km away, outside our 60 km delivery area. Our team will quote the transport price.`}</p>
+                        ) : (
+                          <ul className={c.estList}>
+                            <li><span>{est.pallets} {est.pallets === 1 ? "pallet" : "pallets"} · {est.tier}</span><b>{aed(est.transport_base)}</b></li>
+                            <li><span>Handling</span><b>{aed(est.transport_surcharge)}</b></li>
+                            <li className={c.estSub}><span>Transport total</span><b>{aed(est.transport_total)}</b></li>
+                          </ul>
+                        )}
+
+                        <ul className={c.estList} style={{ marginTop: 14 }}>
+                          <li className={c.estTotal}>
+                            <span>{est.final_return_amt > 0 ? "Refund to you" : "Estimated total"}</span>
+                            <b>{aed(est.final_return_amt > 0 ? est.final_return_amt : est.final_payable_amt)}</b>
+                          </li>
+                        </ul>
+                        <p className={c.rtMuted} style={{ marginTop: 8 }}>{est.team_quote ? "Storage only; transport is added once our team quotes it. " : ""}An estimate. Our team confirms the final amount before anything is billed.</p>
                       </>
                     )}
                   </div>

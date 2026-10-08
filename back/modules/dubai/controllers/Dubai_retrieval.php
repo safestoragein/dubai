@@ -27,7 +27,20 @@ class Dubai_retrieval extends MY_Controller {
 
     const WAREHOUSE_ID = 32;        // "Dubai Warehouse" (DIP-1)
     const MAX_PARTIAL  = 0.5;       // up to 50% of active items
-    const MAX_DAYS     = 60;        // booking window
+    const MIN_NOTICE   = 4;         // days — same as the Indian dashboard's SafeStorage-transport rule (minDate: 4)
+    const BILL_WINDOW  = 90;        // days after the last bill — same as the Indian dashboard's maxDate
+    // Days of the month the Indian dashboard blocks for customers (billing days).
+    private static $BLOCKED_DAYS = array(1, 2, 26, 27, 28, 29, 30, 31);
+
+    // Dubai door-to-door transport — the same tiers as lib/transport-pricing.ts on safestorage.ae and
+    // Dubai::_dubai_transport_price(), so the website, the back office and this portal quote one figure.
+    const POINTS_PER_PALLET = 16;
+    const SURCHARGE_AED     = 60;
+    const OVERSIZE_PER_PALLET = 218;
+    const SERVICE_RADIUS_KM = 60;
+    private static $ORIGINS = array(                     // Dubai warehouse and the Abu Dhabi service centre
+        array(24.989924, 55.154235), array(24.453884, 54.377344),
+    );
 
     public function __construct()
     {
@@ -66,6 +79,7 @@ class Dubai_retrieval extends MY_Controller {
             'max_partial' => (int) floor(count($items) * self::MAX_PARTIAL),
             'open_orders' => $openList,
             'floors' => $floors, 'timeslots' => $slots,
+            'rules' => $this->_date_rules($c),
             'defaults' => array(
                 'address' => (string) $c->pickup_address, 'lat' => $c->pickup_lat, 'lng' => $c->pickup_lang,
                 'floor' => (string) $c->pickup_floor, 'lift' => (string) $c->pickup_lift, 'phone' => (string) $c->customer_contact1,
@@ -120,7 +134,7 @@ class Dubai_retrieval extends MY_Controller {
             'order_note'         => $in['note'],
             'final_payable_amt'  => $est['final_payable_amt'],
             'final_return_amt'   => $est['final_return_amt'],
-            'transport_charges'  => $est['transport_subtotal'],
+            'transport_charges'  => $est['transport_base'],
             'transport_tax_amt'  => $est['transport_tax'],
             'total_transport_charges' => $est['transport_total'],
             'ss_commission_percent'   => $com ? $com->commission_percent : null,
@@ -224,11 +238,11 @@ class Dubai_retrieval extends MY_Controller {
         $d = DateTime::createFromFormat('d/m/Y', $dateRaw);
         if (!$d || $d->format('d/m/Y') !== $dateRaw) $this->_err('Choose a valid date.');
         $d->setTime(0, 0, 0);
-        $today = new DateTime('today', new DateTimeZone('Asia/Dubai'));
-        $today->setTime(0, 0, 0);
-        $days = (int) $today->diff($d)->format('%r%a');
-        if ($days < 1) $this->_err('Choose a date from tomorrow onwards.');
-        if ($days > self::MAX_DAYS) $this->_err('Choose a date within the next ' . self::MAX_DAYS . ' days.');
+        $rules = $this->_date_rules($c);
+        $ymd = $d->format('Y-m-d');
+        if ($ymd < $rules['min_date']) $this->_err('Please choose a date from ' . date('d/m/Y', strtotime($rules['min_date'])) . ' onwards (' . self::MIN_NOTICE . ' days notice).');
+        if ($ymd > $rules['max_date']) $this->_err('Please choose a date on or before ' . date('d/m/Y', strtotime($rules['max_date'])) . '.');
+        if (in_array((int) $d->format('j'), self::$BLOCKED_DAYS, true)) $this->_err('Retrieval is not available on the 1st, 2nd or from the 26th of the month. Please choose another date.');
 
         $lat = trim((string) $this->input->post('lat')); $lng = trim((string) $this->input->post('lng'));
         if ($type !== 'intercity' && (!is_numeric($lat) || !is_numeric($lng))) $this->_err('Please pick your delivery address from the suggestions.');
@@ -257,45 +271,122 @@ class Dubai_retrieval extends MY_Controller {
         return $in;
     }
 
-    /** Same pipeline as get_retrieval_info, run through the retrieval module and seeded like get_retrieval_estimate_api. */
+    /** The date window — the Indian dashboard's calendar rules (min notice, blocked billing days, last bill + 90 days). */
+    private function _date_rules($c)
+    {
+        $tz = new DateTimeZone('Asia/Dubai');
+        $min = new DateTime('today', $tz); $min->modify('+' . self::MIN_NOTICE . ' days');
+        $last = $this->db->query("SELECT billing_date FROM ss_customer_payment WHERE customer_id = ? ORDER BY payment_id DESC LIMIT 1", array($c->customer_id))->row();
+        if ($last && $last->billing_date && strpos((string) $last->billing_date, '0000') !== 0) {
+            $max = date('Y-m-d', strtotime('+' . self::BILL_WINDOW . ' days', strtotime($last->billing_date)));
+        } else {
+            $m = new DateTime('today', $tz); $m->modify('+' . self::BILL_WINDOW . ' days'); $max = $m->format('Y-m-d');
+        }
+        return array('min_date' => $min->format('Y-m-d'), 'max_date' => $max, 'blocked_days' => self::$BLOCKED_DAYS);
+    }
+
+    /** Dubai transport price for a pallet count (the website's tiers). */
+    private function _transport_price($pallets)
+    {
+        $pallets = (float) $pallets;
+        if ($pallets <= 0) return array('base' => 0, 'surcharge' => 0, 'total' => 0, 'tier' => 'No items');
+        $tiers = array(
+            array(1,   'flat', 500,  'Up to 1 pallet'),
+            array(3.5, 'flat', 900,  'Up to 3.5 pallets'),
+            array(5.4, 'per',  235,  '3.6 to 5.4 pallets'),
+            array(6,   'flat', 1308, 'Up to 6 pallets'),
+        );
+        foreach ($tiers as $t) {
+            if ($pallets <= $t[0] + 1e-9) {
+                $base = ($t[1] === 'flat') ? $t[2] : round($pallets * $t[2]);
+                return array('base' => $base, 'surcharge' => self::SURCHARGE_AED, 'total' => $base + self::SURCHARGE_AED,
+                             'tier' => ($t[1] === 'flat') ? $t[3] : ($pallets . ' pallets x AED ' . $t[2]));
+            }
+        }
+        $base = round($pallets * self::OVERSIZE_PER_PALLET);
+        return array('base' => $base, 'surcharge' => self::SURCHARGE_AED, 'total' => $base + self::SURCHARGE_AED, 'tier' => $pallets . ' pallets x AED ' . self::OVERSIZE_PER_PALLET);
+    }
+
+    private function _km($lat1, $lng1, $lat2, $lng2)
+    {
+        $r = 6371; $a = deg2rad($lat2 - $lat1); $b = deg2rad($lng2 - $lng1);
+        $h = sin($a / 2) ** 2 + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($b / 2) ** 2;
+        return 2 * $r * asin(sqrt($h));
+    }
+
+    /**
+     * STORAGE side = the retrieval module's own calculation (what the Indian dashboard uses: storage till date,
+     * unpaid dues, wallet, refund). TRANSPORT side = the Dubai website's pallet tiers. The final payable / refund
+     * is then worked out with the SAME rule the module uses (get_retrieval_info), only with the Dubai transport.
+     */
     private function _estimate($c, $in)
     {
-        $d = null;
-        if ($in['type'] !== 'intercity') {
-            $backup = $_POST;
-            $_POST = array(
-                'customer_id'         => $c->customer_id,
-                'order_schedule_date' => $in['date'],
-                'delivery_lat'        => $in['lat'],
-                'delivery_lang'       => $in['lng'],
-                'floor'               => $in['floor'],
-                'lift'                => $in['lift'],
-                'inventory_id'        => $in['ids'],
-                'retrieval_type'      => ($in['type'] === 'partial') ? 'partial_retrieval' : 'full_retrieval',
-                'warehouse_delivery'  => '',
-            );
-            $d = Modules::run('retrieval/_api_retrieval_summary');
-            $_POST = $backup;
-            if (!is_array($d)) $this->_json(array('status' => 'error', 'message' => 'The charge could not be worked out right now. Please try again or call us.'), 502);
+        // pallets of exactly the items being retrieved: ceil(sum(points x qty) / 16)
+        $pts = 0.0;
+        if ($in['ids']) {
+            $q = $this->db->query("SELECT goods_point, goods_quantity FROM ss_order_inventory WHERE customer_id = ? AND inventory_id IN (" . implode(',', array_map('intval', $in['ids'])) . ")", array($c->customer_id))->result();
+            foreach ($q as $r) $pts += ((float) $r->goods_point) * max(1, (int) $r->goods_quantity);
         }
-        $n = function ($k) use ($d) { return ($d && isset($d[$k])) ? round((float) $d[$k], 2) : 0.0; };
+        $pallets = (int) ceil($pts / self::POINTS_PER_PALLET - 1e-9);
+
+        // storage figures from the retrieval module (seeded like get_retrieval_estimate_api)
+        $backup = $_POST;
+        $_POST = array(
+            'customer_id' => $c->customer_id, 'order_schedule_date' => $in['date'],
+            'delivery_lat' => ($in['lat'] !== '' ? $in['lat'] : self::$ORIGINS[0][0]), 'delivery_lang' => ($in['lng'] !== '' ? $in['lng'] : self::$ORIGINS[0][1]),
+            'floor' => $in['floor'], 'lift' => $in['lift'], 'inventory_id' => $in['ids'],
+            'retrieval_type' => ($in['type'] === 'partial') ? 'partial_retrieval' : 'full_retrieval', 'warehouse_delivery' => '',
+        );
+        $d = Modules::run('retrieval/_api_retrieval_summary');
+        $_POST = $backup;
+        if (!is_array($d)) $this->_json(array('status' => 'error', 'message' => 'The charge could not be worked out right now. Please try again or call us.'), 502);
+        $n = function ($k) use ($d) { return isset($d[$k]) ? round((float) $d[$k], 2) : 0.0; };
+
+        // transport: Dubai tiers; outside 60 km (or intercity) the team quotes
+        $km = null; $teamQuote = ($in['type'] === 'intercity');
+        if (!$teamQuote && is_numeric($in['lat']) && is_numeric($in['lng'])) {
+            $km = min($this->_km(self::$ORIGINS[0][0], self::$ORIGINS[0][1], (float) $in['lat'], (float) $in['lng']),
+                      $this->_km(self::$ORIGINS[1][0], self::$ORIGINS[1][1], (float) $in['lat'], (float) $in['lng']));
+            if ($km > self::SERVICE_RADIUS_KM + 1e-9) $teamQuote = true;
+        }
+        $tp = $teamQuote ? array('base' => 0, 'surcharge' => 0, 'total' => 0, 'tier' => 'Quoted by our team') : $this->_transport_price($pallets);
+        $T = (float) $tp['total'];
+
+        // same final-amount rule as the retrieval module, with the Dubai transport
+        $payableDue = $n('payable_due'); $monthlyReturn = $n('total_monthly_return');
+        $finalPay = 0.0; $finalRet = 0.0;
+        if ($payableDue > $monthlyReturn) { $finalPay = $payableDue + $T; }
+        elseif ($monthlyReturn > $T)      { $finalRet = $monthlyReturn - $T; }
+        else                              { $finalPay = $T - $monthlyReturn; }
+
         return array(
-            'type'                => $in['type'],
-            'items'               => count($in['ids']),
-            'team_quote'          => ($in['type'] === 'intercity'),   // intercity price is quoted by the team
-            'pallets'             => $n('input_pallet'),
-            'transport_cost'      => $n('total_transport_cost'),
-            'labour_cost'         => $n('total_labor_cost'),
-            'lift_cost'           => $n('total_lift_cost'),
-            'stacking_barcode'    => $n('stacking_barcode_charges'),
-            'urgent_date_surcharge' => $n('urgent_date_surcharge'),
-            'transport_subtotal'  => $n('sub_total_transport') ?: $n('only_transport_charges'),
-            'transport_tax'       => $n('transport_tax_amt'),
-            'transport_total'     => $n('total_transport_charges_with_tax') ?: $n('total_transport_charges'),
-            'storage_due'         => $n('payable_due'),
-            'wallet'              => $n('wallet_amount'),
-            'final_payable_amt'   => $n('final_payable_amt'),
-            'final_return_amt'    => $n('final_return_amt'),
+            'type'               => $in['type'],
+            'items'              => count($in['ids']),
+            'team_quote'         => $teamQuote,
+            'out_of_area'        => ($km !== null && $km > self::SERVICE_RADIUS_KM),
+            'distance_km'        => $km === null ? null : round($km, 1),
+            'points'             => round($pts, 1),
+            'pallets'            => $pallets,
+            'tier'               => $tp['tier'],
+            'transport_base'     => (float) $tp['base'],
+            'transport_surcharge'=> (float) $tp['surcharge'],
+            'transport_subtotal' => (float) $tp['base'],
+            'transport_tax'      => 0.0,
+            'transport_total'    => $T,
+            // storage side (same figures as the Indian dashboard)
+            'monthly_amount'     => $n('monthly_amount'),
+            'storage_till_date'  => $n('storage_charges_till_date'),
+            'storage_from'       => isset($d['from_date']) ? (string) $d['from_date'] : '',
+            'storage_to'         => isset($d['to_date']) ? (string) $d['to_date'] : '',
+            'last_bill_date'     => isset($d['last_bill_date']) ? (string) $d['last_bill_date'] : '',
+            'next_bill_date'     => isset($d['next_bill_date']) ? (string) $d['next_bill_date'] : '',
+            'unpaid_dues'        => $n('total_due_amt'),
+            'wallet'             => $n('wallet_amount'),
+            'is_return_to_cust'  => isset($d['is_return_to_cust']) ? (string) $d['is_return_to_cust'] : '',
+            'storage_due'        => $payableDue,
+            'storage_return'     => $monthlyReturn,
+            'final_payable_amt'  => round($finalPay, 2),
+            'final_return_amt'   => round($finalRet, 2),
         );
     }
 

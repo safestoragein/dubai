@@ -476,3 +476,28 @@ th.sumAmt { text-align: right; }
 @media (max-width: 560px) { .rtItemName { white-space: normal; flex-wrap: wrap; } }
 
 .rtTick { display: none; }
+
+/* calendar, slot chips, summary subtotals */
+.cal { position: relative; }
+.calBtn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; font: inherit; font-size: 14px; color: #19212e; border: 1px solid #e2e6eb; border-radius: 8px; padding: 10px 12px; background: #fff; cursor: pointer; text-align: left; }
+.calBtn svg { width: 17px; height: 17px; color: var(--tone, var(--ss-orange)); flex: none; }
+.calPop { position: absolute; z-index: 30; top: calc(100% + 6px); left: 0; width: 300px; background: #fff; border: 1px solid #e6e9ed; border-radius: 12px; box-shadow: 0 16px 40px rgba(16, 24, 40, 0.16); padding: 14px; }
+.calHead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.calHead b { font-size: 14px; font-weight: 600; }
+.calHead button { width: 30px; height: 30px; border-radius: 8px; border: 1px solid #e6e9ed; background: #fff; display: grid; place-items: center; cursor: pointer; color: #56606f; }
+.calHead button:disabled { opacity: 0.35; cursor: default; }
+.calHead svg { width: 15px; height: 15px; }
+.calGrid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.calDow { text-align: center; font-size: 11px; color: #a0a7b1; padding: 4px 0; font-weight: 500; }
+.calDay { height: 34px; border: 0; border-radius: 8px; background: #fff; font: inherit; font-size: 13px; color: #19212e; cursor: pointer; }
+.calDay:hover:not(:disabled) { background: var(--tone-soft, #fff0e9); }
+.calDay:disabled { color: #d0d4dc; cursor: not-allowed; text-decoration: line-through; text-decoration-color: #e3e6ec; }
+.calDayOn, .calDayOn:hover { background: var(--tone, var(--ss-orange)) !important; color: #fff; font-weight: 600; }
+.calNote { margin: 10px 0 0; font-size: 11.5px; color: #8b93a0; line-height: 1.45; }
+.slotChips { display: flex; flex-wrap: wrap; gap: 8px; }
+.slotChip { font: inherit; font-size: 13.5px; border: 1.5px solid #e2e6eb; background: #fff; color: #19212e; border-radius: 999px; padding: 9px 16px; cursor: pointer; }
+.slotChip:hover:not(:disabled) { border-color: var(--tone, var(--ss-orange)); }
+.slotChip:disabled { opacity: 0.5; cursor: not-allowed; }
+.slotChipOn, .slotChipOn:hover { background: var(--tone, var(--ss-orange)); border-color: var(--tone, var(--ss-orange)); color: #fff; font-weight: 600; }
+.estSub { padding-top: 8px; border-top: 1px dashed #e3e6ec; }
+.estSub span, .estSub b { font-weight: 600 !important; color: #19212e !important; }
