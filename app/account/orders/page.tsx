@@ -18,7 +18,7 @@ type AccountReply = {
   status?: string
   profile?: { name: string; customer_unique_id?: string }
   orders?: Order[]
-  dues?: { count: number }
+  dues?: { count: number; total: number }
 }
 
 const nameCase = (v: string) =>
@@ -38,7 +38,7 @@ export default async function OrdersPage() {
   const name = nameCase(a?.profile?.name || me.name) || "There"
 
   return (
-    <AccountShell active="orders" name={name} customerId={a?.profile?.customer_unique_id} orderCount={orders.length} dueCount={a?.dues?.count ?? 0} crumb="Orders">
+    <AccountShell active="orders" name={name} customerId={a?.profile?.customer_unique_id} orderCount={orders.length} dueCount={a?.dues?.count ?? 0} dueTotal={a?.dues?.total ?? 0} crumb="Orders">
       <div className={c.heading}>
         <div>
           <h1>Orders</h1>

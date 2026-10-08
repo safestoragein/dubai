@@ -211,6 +211,7 @@ class Dubai_auth extends MY_Controller {
             if ($status === 'Unpaid') { $unpaid += $amt; $nUnpaid++; }
             if ($status === 'Paid')   { $paid += $amt; }
             $bills[] = array(
+                'payment_id'  => (int) $b->payment_id,
                 'id'          => !empty($b->payment_unique_id) ? (string) $b->payment_unique_id : 'INV' . $b->payment_id,
                 'description' => (string) ($b->offer_note === null ? '' : $b->offer_note),
                 'kind'        => (string) $b->charges_type,

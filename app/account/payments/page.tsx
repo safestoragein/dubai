@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
-import { BadgeCheck, CreditCard, PhoneCall, Mail, Receipt, Wallet } from "lucide-react"
+import { BadgeCheck, CreditCard, Receipt, Wallet } from "lucide-react"
 import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
-import { EMAIL, PHONE, PHONE_DISPLAY } from "@/lib/company-facts"
 import c from "../account.module.css"
 import AccountShell from "../shell"
 import PaymentsTabs, { type Bill, type Payment, type Summary } from "./payments-list"
@@ -37,7 +36,8 @@ const day = (v: string) => {
   return Number.isNaN(d.getTime()) ? "—" : d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
 }
 
-export default async function PaymentsPage() {
+export default async function PaymentsPage({ searchParams }: { searchParams: Promise<{ paid?: string }> }) {
+  const { paid: paidFlag } = await searchParams
   const me = await getCustomerSession()
   if (!me) redirect("/back/customer_login")
 
@@ -61,13 +61,16 @@ export default async function PaymentsPage() {
 
   return (
     <AccountShell active="payments" name={name} customerId={a?.profile?.customer_unique_id}
-      orderCount={a?.orders?.length ?? 0} dueCount={unpaidCount} crumb="Payments">
+      orderCount={a?.orders?.length ?? 0} dueCount={unpaidCount} dueTotal={unpaid} crumb="Payments">
       <div className={c.heading}>
         <div>
           <h1>Payments</h1>
           <p>Your bills, what you owe and every payment we have received.</p>
         </div>
       </div>
+
+      {paidFlag === "1" && <div className={`${c.notice} ${c.noticeOk}`} style={{ margin: "0 0 24px" }}>Thank you. Your payment was received and your bills will update in a minute.</div>}
+      {paidFlag === "0" && <div className={c.notice} style={{ margin: "0 0 24px" }}>The payment was cancelled. You can try again with the Pay now button.</div>}
 
       {!a && !full ? (
         <div className={c.error}>We could not load your payments right now. Please try again in a moment.</div>
@@ -95,19 +98,6 @@ export default async function PaymentsPage() {
               <p className={c.kpiNote}>{full ? `${bills.filter((b) => b.status === "Paid").length} paid bills${last ? ` · last ${day(last.date)}` : ""}` : "Available shortly"}</p>
             </div>
           </div>
-
-          {unpaidCount > 0 && (
-            <section className={`${c.panel} ${c.payBanner}`}>
-              <div>
-                <h2 className={c.panelTitle}>You have {unpaidCount} unpaid {unpaidCount === 1 ? "bill" : "bills"} · {aed(unpaid)}</h2>
-                <p className={c.panelSub}>To pay, call or email us with your bill number and we will send you the payment details.</p>
-              </div>
-              <div className={c.actions}>
-                <a className={`${c.button} ${c.buttonOrange}`} href={`tel:${PHONE}`}><PhoneCall aria-hidden="true" /> {PHONE_DISPLAY}</a>
-                <a className={c.button} href={`mailto:${EMAIL}`}><Mail aria-hidden="true" /> Email us</a>
-              </div>
-            </section>
-          )}
 
           <PaymentsTabs bills={bills} payments={payments} summary={full?.summary ?? null} dueCount={unpaidCount} wallet={full ? full.wallet ?? 0 : null} />
         </>

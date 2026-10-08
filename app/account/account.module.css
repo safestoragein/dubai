@@ -274,3 +274,13 @@ th.sumAmt { text-align: right; }
 .walletIcon svg { width: 19px; height: 19px; }
 .walletChip small { display: block; font-size: 11px; color: #8b93a0; line-height: 1.2; }
 .walletChip b { font-size: 16px; font-weight: 600; color: #19212e; }
+
+/* pay-now strip at the top of every account page while something is due */
+.dueBar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; padding: 16px 20px; border-radius: 12px; background: linear-gradient(100deg, #14213d, #223a6e); color: #fff; }
+.dueBarTitle { margin: 0; font-size: 15px; font-weight: 600; }
+.dueBarSub { margin: 3px 0 0; font-size: 12.5px; color: rgba(255, 255, 255, 0.75); display: flex; align-items: center; gap: 6px; }
+.dueBarSub svg { width: 13px; height: 13px; }
+.dueBarErr { color: #ffd2c4; }
+.dueBarBtn { display: inline-flex; align-items: center; gap: 8px; border: 0; cursor: pointer; font: inherit; font-weight: 600; font-size: 14px; color: #fff; background: var(--ss-orange); border-radius: 9px; padding: 11px 22px; box-shadow: 0 6px 16px rgba(238, 88, 36, 0.4); }
+.dueBarBtn svg { width: 16px; height: 16px; }
+.dueBarBtn:disabled { opacity: 0.7; cursor: default; }

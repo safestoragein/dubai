@@ -82,7 +82,7 @@ export default async function AccountPage() {
   ]
 
   return (
-    <AccountShell active="overview" name={name} customerId={cid} orderCount={orders.length} dueCount={dues?.count ?? 0} crumb="Overview">
+    <AccountShell active="overview" name={name} customerId={cid} orderCount={orders.length} dueCount={dues?.count ?? 0} dueTotal={dues?.total ?? 0} crumb="Overview">
       <div className={c.heading}>
         <div>
           <h1>Welcome back, {first}</h1>

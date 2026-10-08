@@ -2,14 +2,16 @@ import type { ReactNode } from "react"
 import { Bell, CalendarDays, CreditCard, LayoutGrid, Package, UserRound } from "lucide-react"
 import c from "./account.module.css"
 import LogoutButton from "./logout-button"
+import PayBanner from "./pay-banner"
 
 // Shared frame for every signed-in page: sidebar + top bar. `active` highlights the menu item.
-export default function AccountShell({ active, name, customerId, orderCount, dueCount, crumb, children }: {
+export default function AccountShell({ active, name, customerId, orderCount, dueCount, dueTotal = 0, crumb, children }: {
   active: "overview" | "orders" | "payments"
   name: string
   customerId?: string
   orderCount: number
   dueCount: number
+  dueTotal?: number
   crumb: string
   children: ReactNode
 }) {
@@ -48,7 +50,10 @@ export default function AccountShell({ active, name, customerId, orderCount, due
               <div className={c.avatar} title={name}>{initial}</div>
             </div>
           </header>
-          <div className={c.content}>{children}</div>
+          <div className={c.content}>
+            {dueCount > 0 && dueTotal > 0 && <PayBanner total={dueTotal} count={dueCount} />}
+            {children}
+          </div>
         </div>
       </div>
     </div>
