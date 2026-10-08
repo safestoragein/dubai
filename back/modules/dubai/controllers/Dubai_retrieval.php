@@ -209,13 +209,18 @@ class Dubai_retrieval extends MY_Controller {
             elseif ($teamQuote)              $why = 'Our team will quote the transport price first.';
             elseif ($t < 2)                  $why = 'Online card payment starts from AED 2. Our team will collect this amount.';
             else                             $mode = 'pay';
-            return array('mode' => $mode, 'why' => $why, 'type' => 'partial', 'unpaid_ids' => array(), 'unpaid_dues' => 0.0, 'storage' => 0.0,
+            return array('mode' => $mode, 'why' => $why, 'type' => 'partial', 'unpaid_ids' => array(), 'flag_ids' => array(), 'unpaid_dues' => 0.0, 'storage' => 0.0,
                          'transport' => $t, 'bills_total' => $t, 'wallet_used' => 0.0, 'amount_due_now' => $t);
         }
-        $dues = 0.0; $ids = array();
-        foreach ($this->db->query("SELECT payment_id, payable_amount, total_amount FROM ss_customer_payment WHERE customer_id = ? AND payment_status = 'Unpaid'", array($c->customer_id))->result() as $r) {
+        // Same rule as the Indian Retrieval::_calculate_due_charges: the LATEST storage bill (billing_date = last_bill_date) is
+        // NOT a "previous due" — the storage charged from that date to the retrieval date replaces it. It is only flagged Paid
+        // once the retrieval is paid (record_full_retrieval_payment marks every unpaid bill Paid).
+        $last = (is_array($d) && isset($d['last_bill_date'])) ? (string) $d['last_bill_date'] : '';
+        $dues = 0.0; $ids = array(); $flag = array();
+        foreach ($this->db->query("SELECT payment_id, payable_amount, total_amount, billing_date FROM ss_customer_payment WHERE customer_id = ? AND payment_status = 'Unpaid'", array($c->customer_id))->result() as $r) {
+            if ($last !== '' && $r->billing_date && date('Y-m-d', strtotime($r->billing_date)) === $last) { $flag[] = (int) $r->payment_id; continue; }
             $a = is_numeric($r->payable_amount) ? (float) $r->payable_amount : (float) $r->total_amount;
-            if ($a > 0) { $dues += $a; $ids[] = (int) $r->payment_id; }
+            if ($a > 0) { $dues += $a; $ids[] = (int) $r->payment_id; } else { $flag[] = (int) $r->payment_id; }
         }
         $storage = max(0.0, round($storageTillDate, 2));
         $bills   = round($dues + $storage + ($teamQuote ? 0 : $transport), 2);
@@ -227,7 +232,7 @@ class Dubai_retrieval extends MY_Controller {
         elseif ($isReturn === 'yes')           $why = 'Part of your prepaid storage comes back to you, so our team settles the amounts with you.';
         elseif ($due < 2)                      $why = ($due > 0) ? 'Online card payment starts from AED 2. Our team will collect this amount.' : 'Your wallet covers the charges.';
         else                                   $mode = 'pay';
-        return array('mode' => $mode, 'why' => $why, 'type' => 'full', 'unpaid_ids' => $ids, 'unpaid_dues' => round($dues, 2), 'storage' => $storage,
+        return array('mode' => $mode, 'why' => $why, 'type' => 'full', 'unpaid_ids' => $ids, 'flag_ids' => $flag, 'unpaid_dues' => round($dues, 2), 'storage' => $storage,
                      'transport' => $teamQuote ? 0.0 : round($transport, 2), 'bills_total' => $bills, 'wallet_used' => $walletUsed, 'amount_due_now' => $due);
     }
 
@@ -322,8 +327,9 @@ class Dubai_retrieval extends MY_Controller {
                 }
             }
             // ... a record of how many unpaid bills this retrieval cleared ...
-            if (count($plan['unpaid_ids']) > 0) {
-                $this->db->insert('ss_paid_dues_retrieval', array('customer_id' => $c->customer_id, 'no_of_dues' => count($plan['unpaid_ids']), 'payment_id' => (int) $plan['unpaid_ids'][0]));
+            $allUnpaid = array_merge((array) $plan['unpaid_ids'], (array) (isset($plan['flag_ids']) ? $plan['flag_ids'] : array()));
+            if (count($allUnpaid) > 0) {
+                $this->db->insert('ss_paid_dues_retrieval', array('customer_id' => $c->customer_id, 'no_of_dues' => count($allUnpaid), 'payment_id' => (int) $allUnpaid[0]));
             }
             // ... and the retrieval summary row (what was calculated and what was charged).
             $this->db->insert('ss_retrieval_summary', array(
@@ -337,6 +343,12 @@ class Dubai_retrieval extends MY_Controller {
         $this->db->db_debug = $dbg;
 
         $settle = $this->_call_due_settle($c->customer_id, $ids, $paid, $ref);
+        // the latest storage bill (replaced by the storage-till-date charge) is flagged Paid, exactly as the Indian full retrieval does
+        if (!$partial && strpos((string) $settle, '"status":true') !== false && !empty($plan['flag_ids'])) {
+            $dbg2 = $this->db->db_debug; $this->db->db_debug = FALSE;
+            $this->db->where('customer_id', $c->customer_id)->where('payment_status', 'Unpaid')->where_in('payment_id', array_map('intval', $plan['flag_ids']))->update('ss_customer_payment', array('payment_status' => 'Paid'));
+            $this->db->db_debug = $dbg2;
+        }
         $this->_log($c->customer_id, 0, 'retrieval_settled', 'Retrieval WO' . $oid . ' paid online · AED ' . number_format($paid, 2) . ' · wallet used AED ' . number_format($plan['wallet_used'], 2) . ' · ref ' . $ref . ' · settlement: ' . substr((string) $settle, 0, 160), json_encode(array('order_id' => $oid, 'bill_ids' => $ids)), $iid);
         if (strpos((string) $settle, '"status":true') === false) {
             $this->_alert_team('Retrieval paid — bills not marked Paid', $c, 'WO' . $oid . ', Stripe ' . $ref . ', AED ' . $paid . '. The settlement answered: ' . substr((string) $settle, 0, 200) . '. Please mark the bills ' . implode(',', $ids) . ' as Paid.');
