@@ -559,3 +559,14 @@ th.sumAmt { text-align: right; }
 .lightboxBar { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 18px; color: #fff; font-size: 14px; background: rgba(15, 20, 35, 0.6); padding: 8px 10px 8px 18px; border-radius: 12px; white-space: nowrap; }
 .lightboxBar .lightboxDl { position: static; }
 @media (max-width: 640px) { .lightboxNav { width: 42px; height: 42px; } .lightboxPrev { left: 8px; } .lightboxNext { right: 8px; } }
+
+/* top-bar profile menu */
+.avatar { border: 0; cursor: pointer; font-family: inherit; }
+.avatarWrap { position: relative; }
+.avatarMenu { position: absolute; right: 0; top: 42px; min-width: 190px; background: #fff; border: 1px solid #e5e8ef; border-radius: 12px; box-shadow: 0 10px 30px rgba(20, 30, 60, 0.14); padding: 6px; z-index: 60; }
+.avatarMenuHead { display: grid; gap: 2px; padding: 8px 10px 10px; border-bottom: 1px solid #eef0f5; margin-bottom: 4px; }
+.avatarMenuHead b { font-size: 13px; font-weight: 600; color: #1f2a44; }
+.avatarMenuHead span { font-size: 12px; color: #7b8499; }
+.avatarMenuItem { display: flex; align-items: center; gap: 8px; width: 100%; border: 0; background: none; padding: 9px 10px; border-radius: 8px; font: inherit; font-size: 13px; color: #c0392b; cursor: pointer; }
+.avatarMenuItem:hover { background: #fdf0ee; }
+.avatarMenuItem svg { width: 16px; height: 16px; }

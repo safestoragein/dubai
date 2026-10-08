@@ -2,6 +2,7 @@ import type { ReactNode } from "react"
 import { Bell, Boxes, CalendarDays, CreditCard, FolderOpen, LayoutGrid, Package, PackageOpen, UserRound } from "lucide-react"
 import c from "./account.module.css"
 import LogoutButton from "./logout-button"
+import AvatarMenu from "./avatar-menu"
 
 // Shared frame for every signed-in page: sidebar + top bar. `active` highlights the menu item.
 export default function AccountShell({ active, name, customerId, orderCount, dueCount, dueTotal = 0, crumb, children }: {
@@ -49,7 +50,7 @@ export default function AccountShell({ active, name, customerId, orderCount, due
             <div className={c.topRight}>
               <span className={c.chip}><CalendarDays aria-hidden="true" /> {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</span>
               <Bell className={c.bell} aria-hidden="true" />
-              <div className={c.avatar} title={name}>{initial}</div>
+              <AvatarMenu name={name} customerId={customerId} initial={initial} />
             </div>
           </header>
           <div className={c.content}>
