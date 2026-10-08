@@ -4,7 +4,6 @@ import {
   CalendarDays, CheckCircle2, CreditCard, HelpCircle, LayoutDashboard, Mail, MapPin, Package,
   Phone, Receipt, Truck, UserRound,
 } from "lucide-react"
-import { manrope, sora } from "@/components/landing/fonts"
 import { getCustomerSession } from "@/lib/customer-session"
 import { callBack } from "@/lib/customer-back"
 import { EMAIL } from "@/lib/company-facts"
@@ -61,7 +60,7 @@ export default async function AccountPage() {
   }
 
   return (
-    <div className={`${c.page} ${sora.variable} ${manrope.variable}`}>
+    <div className={c.page}>
       <div className={c.shell}>
         {/* ---------------- sidebar ---------------- */}
         <aside className={c.side}>
