@@ -7,8 +7,8 @@
   --ss-ink: #19212e;
   --ss-muted: #8b93a0;
   --ss-line: #e6e9ed;
-  --ss-green: #268968;
-  --ss-green-soft: #eaf7f0;
+  --ss-green: #14213d;
+  --ss-green-soft: #e8ebf4;
   --ss-red: #d45f50;
   --ss-red-soft: #fff0ee;
   --ss-blue: #6684c3;
@@ -73,10 +73,10 @@
 .kpiValue { font-size: 28px; font-weight: 650; letter-spacing: -1px; margin: 12px 0 9px; color: var(--ss-ink); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; line-height: 1.2; }
 .kpiValueSm { font-size: 22px; }
 .kpiNote { margin: 0; font-size: 12px; color: #8f97a2; }
-.kpiNote b { color: #299876; font-weight: 500; margin-right: 6px; }
+.kpiNote b { color: #14213d; font-weight: 500; margin-right: 6px; }
 .kpiNote .warn { color: #d45f50; font-weight: 500; margin-right: 6px; }
 .delta { font-size: 11px; font-weight: 500; border-radius: 5px; padding: 3px 8px; letter-spacing: 0; }
-.dGreen { background: #eaf7f0; color: #268968; }
+.dGreen { background: #e8ebf4; color: #14213d; }
 .dOrange { background: #fff4df; color: #bf8b26; }
 .dRed { background: #fff0ee; color: #d45f50; }
 .cBlue, .cOrange, .cGreen, .cRed { color: inherit; }
@@ -102,15 +102,15 @@
 .cellIcon svg { width: 16px; height: 16px; }
 .muted { color: #8b93a0; }
 .status { display: inline-flex; align-items: center; padding: 4px 9px; font-size: 11px; font-weight: 400; border-radius: 5px; white-space: nowrap; }
-.sDone { background: #eaf7f0; color: #268968; }
+.sDone { background: #e8ebf4; color: #14213d; }
 .sOpen { background: #fff4df; color: #bf8b26; }
 .sOther { background: #edf2ff; color: #6684c3; }
 .sBad { background: #fff0ee; color: #d45f50; }
 .empty { margin: 0; padding: 36px; text-align: center; color: #929aa6; }
 
 .emptyOk { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 36px 20px 44px; color: #929aa6; }
-.emptyOk b { color: #268968; font-size: 15px; font-weight: 600; }
-.emptyOkIcon { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: #eaf7f0; color: #268968; margin-bottom: 6px; }
+.emptyOk b { color: #14213d; font-size: 15px; font-weight: 600; }
+.emptyOkIcon { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: #e8ebf4; color: #14213d; margin-bottom: 6px; }
 .emptyOkIcon svg { width: 26px; height: 26px; }
 
 /* ring (like "Storage occupancy") */
@@ -133,7 +133,7 @@
 .activity p { font-size: 11px; color: #969eaa; margin: 3px 0 0; }
 .activity time { margin-left: auto; font-size: 11px; color: #a0a7b1; white-space: nowrap; }
 .notice { background: #fff5ee; border: 1px solid #ffe1cf; padding: 14px 18px; border-radius: 9px; color: #b86b3d; margin: 18px 0 0; font-size: 13px; }
-.noticeOk { background: #eaf7f0; border-color: #cdeedd; color: #268968; }
+.noticeOk { background: #e8ebf4; border-color: #d3d9e8; color: #14213d; }
 
 /* details fields */
 .fields { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
@@ -211,7 +211,7 @@
 /* orders insights: sparkline cards, activity chart, status list */
 .kpiSpark { position: relative; overflow: hidden; }
 .spark { position: absolute; right: 18px; bottom: 44px; width: 46%; height: 46px; pointer-events: none; }
-.up { color: #299876; font-weight: 500; margin-right: 6px; }
+.up { color: #14213d; font-weight: 500; margin-right: 6px; }
 .down { color: #d45f50; font-weight: 500; margin-right: 6px; }
 .bigRow { display: flex; align-items: baseline; gap: 12px; margin: 4px 0 6px; flex-wrap: wrap; }
 .bigNum { font-size: 34px; font-weight: 650; letter-spacing: -1px; color: var(--ss-ink); line-height: 1.1; }

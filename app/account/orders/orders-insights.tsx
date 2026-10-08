@@ -60,7 +60,7 @@ function smooth(pts: number[][]) {
   return d
 }
 
-const STATUS_COLORS = ["#e0592f", "#eb9a79", "#7b8fcf", "#dfb867", "#5fa68a", "#b9c0cc"]
+const STATUS_COLORS = ["#e0592f", "#eb9a79", "#7b8fcf", "#dfb867", "#14213d", "#b9c0cc"]
 
 export function OrdersCharts({ orders }: { orders: Order[] }) {
   // activity chart: orders per month
@@ -140,7 +140,7 @@ export function OrdersCharts({ orders }: { orders: Order[] }) {
 export default function OrdersInsights({ orders }: { orders: Order[] }) {
   const cards: { title: string; note: string; icon: typeof Package; pick: (o: Order) => boolean; stroke: string }[] = [
     { title: "All orders", note: "Everything on your account", icon: Package, pick: () => true, stroke: "#ee5824" },
-    { title: "Upcoming", note: "Scheduled or in progress", icon: CalendarCheck, pick: (o) => kind(o.status) === "open", stroke: "#5fa68a" },
+    { title: "Upcoming", note: "Scheduled or in progress", icon: CalendarCheck, pick: (o) => kind(o.status) === "open", stroke: "#14213d" },
     { title: "Completed", note: "Collected and safe with us", icon: CheckCircle2, pick: (o) => kind(o.status) === "done", stroke: "#ee5824" },
     { title: "Cancelled", note: "Orders that were cancelled", icon: XCircle, pick: (o) => kind(o.status) === "bad", stroke: "#d45f50" },
   ]
