@@ -107,6 +107,9 @@ class Dubai_retrieval extends MY_Controller {
                 AND order_status NOT IN ('completed','cancelled') LIMIT 1", array($c->customer_id))->row();
         if ($open) $this->_json(array('status' => 'error', 'message' => 'You already have an open retrieval request (WO' . $open->order_id . '). Please wait for our team or call us.'), 409);
 
+        $taken = $this->db->query("SELECT order_id FROM ss_order WHERE country_code = 'AE' AND order_type IN ('full_retrieval','partial_retrieval') AND order_status <> 'cancelled' AND order_schedule_date = ? LIMIT 1", array($in['date_ymd']))->row();
+        if ($taken) $this->_json(array('status' => 'error', 'message' => 'That date has just been booked. Please choose another date.'), 409);
+
         $est = $this->_estimate($c, $in);
 
         $mgr = $this->db->query("SELECT user_id FROM ss_user WHERE role_id = 2 AND user_city = ? AND user_country = 'AE' AND status = '0' LIMIT 1", array((string) $c->customer_local_city))->row();
@@ -242,6 +245,7 @@ class Dubai_retrieval extends MY_Controller {
         $ymd = $d->format('Y-m-d');
         if ($ymd < $rules['min_date']) $this->_err('Please choose a date from ' . date('d/m/Y', strtotime($rules['min_date'])) . ' onwards (' . self::MIN_NOTICE . ' days notice).');
         if ($ymd > $rules['max_date']) $this->_err('Please choose a date on or before ' . date('d/m/Y', strtotime($rules['max_date'])) . '.');
+        if (in_array($ymd, $rules['booked_dates'], true)) $this->_err('That date is already booked. Please choose another date.');
         if (in_array((int) $d->format('j'), self::$BLOCKED_DAYS, true)) $this->_err('Retrieval is not available on the 1st, 2nd or from the 26th of the month. Please choose another date.');
 
         $lat = trim((string) $this->input->post('lat')); $lng = trim((string) $this->input->post('lng'));
@@ -271,6 +275,17 @@ class Dubai_retrieval extends MY_Controller {
         return $in;
     }
 
+    /** Days already taken: only ONE retrieval can be booked per day (any Dubai customer). */
+    private function _booked_dates($from, $to)
+    {
+        $rows = $this->db->query(
+            "SELECT DISTINCT order_schedule_date AS d FROM ss_order
+              WHERE country_code = 'AE' AND order_type IN ('full_retrieval','partial_retrieval')
+                AND order_status <> 'cancelled' AND order_schedule_date BETWEEN ? AND ?", array($from, $to))->result();
+        $out = array(); foreach ($rows as $r) $out[] = (string) $r->d;
+        return $out;
+    }
+
     /** The date window — the Indian dashboard's calendar rules (min notice, blocked billing days, last bill + 90 days). */
     private function _date_rules($c)
     {
@@ -282,7 +297,8 @@ class Dubai_retrieval extends MY_Controller {
         } else {
             $m = new DateTime('today', $tz); $m->modify('+' . self::BILL_WINDOW . ' days'); $max = $m->format('Y-m-d');
         }
-        return array('min_date' => $min->format('Y-m-d'), 'max_date' => $max, 'blocked_days' => self::$BLOCKED_DAYS);
+        return array('min_date' => $min->format('Y-m-d'), 'max_date' => $max, 'blocked_days' => self::$BLOCKED_DAYS,
+                     'booked_dates' => $this->_booked_dates($min->format('Y-m-d'), $max));
     }
 
     /** Dubai transport price for a pallet count (the website's tiers). */

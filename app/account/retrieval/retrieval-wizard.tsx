@@ -8,7 +8,7 @@ import c from "../account.module.css"
 type Item = { id: number; quotation: string; barcode: string; name: string; type: string; qty: number }
 type Opt = { slug: string; name: string }
 export type Options = {
-  rules: { min_date: string; max_date: string; blocked_days: number[] }
+  rules: { min_date: string; max_date: string; blocked_days: number[]; booked_dates: string[] }
   items: Item[]
   max_partial: number
   open_orders: { ref: string; type: string; status: string; date: string }[]
@@ -40,7 +40,7 @@ const tomorrowISO = () => { const d = new Date(Date.now() + 86400000); return d.
 
 // Calendar with the Indian dashboard's rules: nothing before min, nothing after max, and some days of the month blocked.
 const iso = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`
-function RtCalendar({ value, onChange, min, max, blocked }: { value: string; onChange: (v: string) => void; min: string; max: string; blocked: number[] }) {
+function RtCalendar({ value, onChange, min, max, blocked, booked }: { value: string; onChange: (v: string) => void; min: string; max: string; blocked: number[]; booked: string[] }) {
   const [open, setOpen] = useState(false)
   const start = value ? new Date(value + "T00:00:00") : new Date(min + "T00:00:00")
   const [view, setView] = useState(new Date(start.getFullYear(), start.getMonth(), 1))
@@ -54,7 +54,9 @@ function RtCalendar({ value, onChange, min, max, blocked }: { value: string; onC
   const lead = (first.getDay() + 6) % 7                               // Monday first
   const days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate()
   const cells: (Date | null)[] = [...Array(lead).fill(null), ...Array.from({ length: days }, (_, i) => new Date(view.getFullYear(), view.getMonth(), i + 1))]
-  const ok = (d: Date) => iso(d) >= min && iso(d) <= max && !blocked.includes(d.getDate())
+  const inWindow = (d: Date) => iso(d) >= min && iso(d) <= max && !blocked.includes(d.getDate())
+  const isBooked = (d: Date) => inWindow(d) && booked.includes(iso(d))
+  const ok = (d: Date) => inWindow(d) && !booked.includes(iso(d))
   const canPrev = iso(new Date(view.getFullYear(), view.getMonth(), 0)) >= min
   const canNext = iso(new Date(view.getFullYear(), view.getMonth() + 1, 1)) <= max
   return (
@@ -72,11 +74,11 @@ function RtCalendar({ value, onChange, min, max, blocked }: { value: string; onC
           <div className={c.calGrid}>
             {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((w) => <span key={w} className={c.calDow}>{w}</span>)}
             {cells.map((d, i) => d ? (
-              <button key={i} type="button" disabled={!ok(d)} className={`${c.calDay} ${iso(d) === value ? c.calDayOn : ""}`}
+              <button key={i} type="button" disabled={!ok(d)} title={isBooked(d) ? "Booked" : ok(d) ? "Available" : undefined}
+                className={`${c.calDay} ${isBooked(d) ? c.calDayBooked : ok(d) ? c.calDayFree : ""} ${iso(d) === value ? c.calDayOn : ""}`}
                 onClick={() => { onChange(iso(d)); setOpen(false) }}>{d.getDate()}</button>
             ) : <span key={i} />)}
           </div>
-          <p className={c.calNote}>Earliest date is 4 days from today. The 1st, 2nd and 26th to 31st of each month are not available, and neither are dates after your next billing window.</p>
         </div>
       )}
     </div>
@@ -268,7 +270,7 @@ export default function RetrievalWizard({ opts, name }: { opts: Options; name: s
                   <p className={c.rtFormSub}>Where and when should we bring your items?</p>
                   <div className={c.formGrid}>
                     <div className={c.fLabel}><span><CalendarDays aria-hidden="true" /> Date</span>
-                      <RtCalendar value={date} onChange={(v) => setDate(v)} min={opts.rules.min_date} max={opts.rules.max_date} blocked={opts.rules.blocked_days} /></div>
+                      <RtCalendar value={date} onChange={(v) => setDate(v)} min={opts.rules.min_date} max={opts.rules.max_date} blocked={opts.rules.blocked_days} booked={opts.rules.booked_dates} /></div>
                     <label className={`${c.fLabel} ${c.fWide}`}><span><MapPin aria-hidden="true" /> Delivery address</span>
                       <input ref={addrRef} type="text" value={address} placeholder="Start typing and pick your address"
                         onChange={(e) => { setAddress(e.target.value); setLat(""); setLng("") }} />
