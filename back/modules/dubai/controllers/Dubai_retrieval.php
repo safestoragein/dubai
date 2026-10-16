@@ -1,0 +1,717 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * safestorage.ae customer RETRIEVAL requests (PHP side) — the Dubai copy of the back-office
+ * retrieval flow (customer/retrieval_order_form, add_retrieval_data, add_partial_retrieval_data).
+ *
+ *   POST dubai/dubai_retrieval/options    customer_id
+ *   POST dubai/dubai_retrieval/estimate   customer_id, type, [inventory_id[]], date, lat, lng, floor, lift
+ *   POST dubai/dubai_retrieval/create     + address, phone, [note]        (request only, nothing to pay)
+ *   POST dubai/dubai_retrieval/prepare    same input as create            (returns what to pay now, saves a pending request)
+ *   POST dubai/dubai_retrieval/settle     intent_id, payment_ref, amount_aed   (called by the Stripe webhook once the card payment is confirmed)
+ *
+ * type = partial | full | intercity.
+ *
+ * What is the SAME as the back office: the transport charge is NOT re-implemented — it comes from
+ * Modules::run('retrieval/_api_retrieval_summary'), the method behind retrieval/get_retrieval_info
+ * (seeded through $_POST exactly like get_retrieval_estimate_api does), and the order row / item rows
+ * are the ones add_retrieval_data / add_partial_retrieval_data write.
+ *
+ * What is DIFFERENT, on purpose: every figure is recomputed HERE (the old form posted browser-side
+ * totals), items must belong to the customer, partial is capped at 50% of the active items, and the
+ * order is created as 'request_raise' (awaiting the team) with NO bill — the team confirms the
+ * charge and bills it in the back office, so a customer is never billed an unconfirmed amount.
+ *
+ * Called ONLY by the Next.js server; every request carries X-Dubai-Key (same key as dubai_auth).
+ */
+class Dubai_retrieval extends MY_Controller {
+
+    const WAREHOUSE_ID = 32;        // "Dubai Warehouse" (DIP-1)
+    const MAX_PARTIAL  = 0.5;       // up to 50% of active items
+    const MIN_NOTICE   = 4;         // days — same as the Indian dashboard's SafeStorage-transport rule (minDate: 4)
+    const BILL_WINDOW  = 90;        // days after the last bill — same as the Indian dashboard's maxDate
+    // Days of the month the Indian dashboard blocks for customers (billing days).
+    private static $BLOCKED_DAYS = array(1, 2, 26, 27, 28, 29, 30, 31);
+
+    // Dubai door-to-door transport — the same tiers as lib/transport-pricing.ts on safestorage.ae and
+    // Dubai::_dubai_transport_price(), so the website, the back office and this portal quote one figure.
+    const POINTS_PER_PALLET = 16;
+    const SURCHARGE_AED     = 60;
+    const OVERSIZE_PER_PALLET = 218;
+    const SERVICE_RADIUS_KM = 60;
+    const FREE_KM           = 20;     // distance charge: the first 20 km from the warehouse are free ...
+    const PER_KM_AED        = 5;      // ... then AED 5 for every further km (owner's rule), added to the load price
+    private static $ORIGINS = array(                     // Dubai warehouse and the Abu Dhabi service centre
+        array(24.989924, 55.154235), array(24.453884, 54.377344),
+    );
+
+    public function __construct()
+    {
+        header('Content-Type: application/json');
+        header('Cache-Control: no-store');
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') exit(0);
+        $this->load->model('common/common_model');
+        $this->config->load('dubai_back', FALSE, TRUE);
+        $expected = (string) $this->config->item('dubai_back_key');
+        $given    = (string) (isset($_SERVER['HTTP_X_DUBAI_KEY']) ? $_SERVER['HTTP_X_DUBAI_KEY'] : '');
+        if (strlen($expected) < 32) $this->_json(array('status' => 'error', 'message' => 'Not configured.'), 503);
+        if ($given === '' || !hash_equals($expected, $given)) $this->_json(array('status' => 'error', 'message' => 'Forbidden.'), 403);
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') $this->_json(array('status' => 'error', 'message' => 'POST required.'), 405);
+    }
+
+    // ---------------------------------------------------------------- options
+    public function options()
+    {
+        $c = $this->_customer();
+        $items = $this->_active_items($c->customer_id);
+
+        $open = $this->db->query(
+            "SELECT order_id, order_type, order_status, order_schedule_date FROM ss_order
+              WHERE customer_id = ? AND order_type IN ('full_retrieval','partial_retrieval')
+                AND order_status NOT IN ('completed','cancelled') ORDER BY order_id DESC LIMIT 5", array($c->customer_id))->result();
+        $openList = array();
+        foreach ($open as $o) {
+            $openList[] = array('ref' => 'WO' . $o->order_id, 'type' => $o->order_type, 'status' => $o->order_status, 'date' => (string) $o->order_schedule_date);
+        }
+
+        $floors = array(); foreach ($this->db->query("SELECT floor_name, floor_slug FROM ss_floor WHERE status = '0' ORDER BY floor_id")->result() as $f) $floors[] = array('slug' => $f->floor_slug, 'name' => $f->floor_name);
+        $slots  = array(); foreach ($this->db->query("SELECT timeslot, timeslot_slug FROM ss_timeslot WHERE status = '0' ORDER BY timeslot_id")->result() as $t) $slots[] = array('slug' => $t->timeslot_slug, 'name' => $t->timeslot);
+
+        $this->_json(array('status' => 'success',
+            'items' => $items,
+            'max_partial' => (int) floor(count($items) * self::MAX_PARTIAL),
+            'open_orders' => $openList,
+            'floors' => $floors, 'timeslots' => $slots,
+            'rules' => $this->_date_rules($c),
+            'has_dues' => $this->_unpaid_count($c->customer_id) > 0,
+            'dues' => $this->_unpaid_summary($c->customer_id),
+            'defaults' => array(
+                'address' => (string) $c->pickup_address, 'lat' => $c->pickup_lat, 'lng' => $c->pickup_lang,
+                'floor' => (string) $c->pickup_floor, 'lift' => (string) $c->pickup_lift, 'phone' => (string) $c->customer_contact1,
+            ),
+        ));
+    }
+
+    // --------------------------------------------------------------- estimate
+    public function estimate()
+    {
+        $c = $this->_customer();
+        $in = $this->_validated($c, false);
+        $this->_json(array('status' => 'success', 'estimate' => $this->_estimate($c, $in)));
+    }
+
+    // ----------------------------------------------------------------- create
+    public function create()
+    {
+        $c  = $this->_customer();
+        $in = $this->_validated($c, true);
+
+        $this->_lock_date($in['date_ymd']);
+        $this->_assert_free_to_book($c, $in);
+
+        $est = $this->_estimate($c, $in);
+
+        $oid = $this->_place_order($c, $in, $est, 'request_raise');
+        if ($oid <= 0) {
+            $lost = $this->db->query("SELECT order_id FROM ss_order WHERE country_code = 'AE' AND order_type IN ('full_retrieval','partial_retrieval') AND order_status <> 'cancelled' AND order_schedule_date = ? LIMIT 1", array($in['date_ymd']))->row();
+            if ($lost) $this->_json(array('status' => 'error', 'message' => 'That date has just been booked. Please choose another date.'), 409);
+            $this->_json(array('status' => 'error', 'message' => 'Could not create the request. Please try again.'), 500);
+        }
+        $this->_json(array('status' => 'success', 'ref' => 'WO' . $oid, 'order_id' => $oid));
+    }
+
+    /** Writes the order + item rows and tells the team. Returns the new order id (0 on failure). */
+    private function _place_order($c, $in, $est, $status, $paidNote = '', $paidAmount = null)
+    {
+        $mgr = $this->db->query("SELECT user_id FROM ss_user WHERE role_id = 2 AND user_city = ? AND user_country = 'AE' AND status = '0' LIMIT 1", array((string) $c->customer_local_city))->row();
+        $com = $this->db->query("SELECT commission_percent FROM ss_transport_commission WHERE status = '0' ORDER BY commission_id DESC LIMIT 1")->row();
+        $uid = $this->db->query("SELECT user_id FROM ss_user WHERE customer_id = ? AND role_id = 6 LIMIT 1", array($c->customer_id))->row();
+        $actor = $uid ? (int) $uid->user_id : 0;
+
+        $order = array(
+            'country_code'       => 'AE',
+            'customer_id'        => $c->customer_id,
+            'is_confirmed'       => 'Yes',
+            'order_status'       => $status,          // waits for the team to confirm the day
+            'manager_id'         => $mgr ? $mgr->user_id : null,
+            'warehouse_id'       => self::WAREHOUSE_ID,
+            'vt_id'              => null,
+            'order_sub_type'     => 'safestorage_transport',
+            'order_address'      => $in['address'],
+            'floor'              => $in['floor'],
+            'lift'               => $in['lift'],
+            'mobile_no1'         => $in['phone'],
+            'mobile_no2'         => (string) $c->customer_contact2,
+            'order_timeslot'     => $in['timeslot_name'],
+            'order_schedule_date'=> $in['date_ymd'],
+            'order_type'         => ($in['type'] === 'partial') ? 'partial_retrieval' : 'full_retrieval',
+            'order_note'         => $in['note'],
+            'final_payable_amt'  => $est['final_payable_amt'],
+            'final_return_amt'   => $est['final_return_amt'],
+            'transport_charges'  => $est['transport_base'] + $est['distance_charge'],
+            'transport_tax_amt'  => $est['transport_tax'],
+            'total_transport_charges' => $est['transport_total'],
+            'ss_commission_percent'   => $com ? $com->commission_percent : null,
+            'order_created_by'   => $actor,
+            'order_created_type' => 'dubai_customer',
+            'user_id'            => $actor,
+        );
+        if ($in['type'] === 'intercity') $order['is_intercity'] = 1;
+        if ($paidAmount !== null) $order['retrieval_team_amount'] = number_format($paidAmount, 2, '.', '');      // as the Indian full/partial payment stores it
+
+        // ss_order.uq_ae_retrieval_day (Dubai retrievals only) refuses a second live retrieval on the same day: a lost race
+        // fails here quietly instead of printing a database error, and the caller reports the day as taken.
+        $dbgOrder = $this->db->db_debug; $this->db->db_debug = FALSE;
+        $this->db->insert('ss_order', $order);
+        $oid = (int) $this->db->insert_id();
+        $this->db->db_debug = $dbgOrder;
+        if ($oid <= 0) return 0;
+
+        foreach ($in['ids'] as $iid) {
+            $this->db->insert('ss_partial_retrieval_item', array('customer_id' => $c->customer_id, 'order_id' => $oid, 'inventory_id' => $iid));
+        }
+
+        // activity log + transport-app event + team e-mail: best effort, never fail a saved request
+        $label = array('partial' => 'Partial retrieval', 'full' => 'Full retrieval', 'intercity' => 'Intercity full retrieval');
+        try {
+            $this->_log($c->customer_id, $actor, 'retrieval_requested',
+                $label[$in['type']] . ' requested by the customer for ' . $in['date_ymd'] . ' · ' . count($in['ids']) . ' item(s) · WO' . $oid);
+        } catch (\Throwable $e) {}
+        try {
+            $this->load->helper('transport_webhook');
+            if (function_exists('push_transport_event')) push_transport_event($oid, 'created');
+        } catch (\Throwable $e) {}
+        try {
+            $this->load->library('email');
+            $this->email->initialize(array('protocol' => 'sendmail', 'mailpath' => '/usr/sbin/sendmail', 'charset' => 'utf-8', 'wordwrap' => TRUE, 'mailtype' => 'html'));
+            $this->email->from('customers@safestorage.in', 'SafeStorage Dubai');
+            $this->email->to('support@safestorage.ae');
+            $this->email->subject($label[$in['type']] . ' request · ' . $c->customer_unique_id . ' · WO' . $oid);
+            $this->email->message(
+                '<p><b>' . htmlspecialchars($label[$in['type']]) . '</b> requested from the customer portal.</p>' .
+                '<p>Customer: ' . htmlspecialchars($c->customer_name) . ' (' . htmlspecialchars($c->customer_unique_id) . ')<br>' .
+                'Phone: ' . htmlspecialchars($in['phone']) . '<br>Order: WO' . $oid . ' (status: request_raise)<br>' .
+                'Date: ' . htmlspecialchars($in['date_ymd']) . ' · ' . htmlspecialchars($in['timeslot_name']) . '<br>' .
+                'Address: ' . htmlspecialchars($in['address']) . '<br>Floor: ' . htmlspecialchars($in['floor']) . ' · Lift: ' . htmlspecialchars($in['lift']) . '<br>' .
+                ($paidNote !== '' ? '<b>' . htmlspecialchars($paidNote) . '</b><br>' : '') . 'Items: ' . count($in['ids']) . '<br>Estimated transport: AED ' . number_format($est['transport_total'], 2) . ' (to be confirmed)</p>' .
+                ($in['note'] !== '' ? '<p>Note: ' . htmlspecialchars($in['note']) . '</p>' : ''));
+            $this->email->send();
+        } catch (\Throwable $e) {}
+        return $oid;
+    }
+
+    /**
+     * What the customer pays NOW. Built from the customer's real rows, not from the module's single number:
+     *   existing unpaid bills + storage till the retrieval date + transport  -  wallet credit  =  pay now.
+     * Online payment is offered only for the plain case (transport priced, nothing to refund, amount >= AED 2);
+     * everything else is a request the team settles with the customer.
+     */
+    private function _plan($c, $d, $teamQuote, $transport, $storageTillDate, $wallet, $isReturn, $type = 'full')
+    {
+        // PARTIAL retrieval (same as the Indian record_partial_retrieval_payment): only the transport is charged —
+        // no storage, no dues, no wallet — because the customer keeps most of the items in storage.
+        if ($type === 'partial') {
+            $t = $teamQuote ? 0.0 : round($transport, 2);
+            $mode = 'request'; $why = '';
+            if (!$this->_pay_enabled())      $why = 'Online payment is switched off.';
+            elseif ($teamQuote)              $why = 'Our team will quote the transport price first.';
+            elseif ($t < 2)                  $why = 'Online card payment starts from AED 2. Our team will collect this amount.';
+            else                             $mode = 'pay';
+            return array('mode' => $mode, 'why' => $why, 'type' => 'partial', 'unpaid_ids' => array(), 'flag_ids' => array(), 'unpaid_dues' => 0.0, 'storage' => 0.0,
+                         'transport' => $t, 'bills_total' => $t, 'wallet_used' => 0.0, 'amount_due_now' => $t);
+        }
+        // Same rule as the Indian Retrieval::_calculate_due_charges: the LATEST storage bill (billing_date = last_bill_date) is
+        // NOT a "previous due" — the storage charged from that date to the retrieval date replaces it. It is only flagged Paid
+        // once the retrieval is paid (record_full_retrieval_payment marks every unpaid bill Paid).
+        $last = (is_array($d) && isset($d['last_bill_date'])) ? (string) $d['last_bill_date'] : '';
+        $dues = 0.0; $ids = array(); $flag = array();
+        foreach ($this->db->query("SELECT payment_id, payable_amount, total_amount, billing_date FROM ss_customer_payment WHERE customer_id = ? AND payment_status = 'Unpaid'", array($c->customer_id))->result() as $r) {
+            if ($last !== '' && $r->billing_date && date('Y-m-d', strtotime($r->billing_date)) === $last) { $flag[] = (int) $r->payment_id; continue; }
+            $a = is_numeric($r->payable_amount) ? (float) $r->payable_amount : (float) $r->total_amount;
+            if ($a > 0) { $dues += $a; $ids[] = (int) $r->payment_id; } else { $flag[] = (int) $r->payment_id; }
+        }
+        $storage = max(0.0, round($storageTillDate, 2));
+        $bills   = round($dues + $storage + ($teamQuote ? 0 : $transport), 2);
+        $walletUsed = min(round($wallet, 2), $bills);
+        $due     = round($bills - $walletUsed, 2);
+        $mode = 'request'; $why = '';
+        if (!$this->_pay_enabled())            $why = 'Online payment is switched off.';
+        elseif ($teamQuote)                    $why = 'Our team will quote the transport price first.';
+        elseif ($isReturn === 'yes')           $why = 'Part of your prepaid storage comes back to you, so our team settles the amounts with you.';
+        elseif ($due < 2)                      $why = ($due > 0) ? 'Online card payment starts from AED 2. Our team will collect this amount.' : 'Your wallet covers the charges.';
+        else                                   $mode = 'pay';
+        return array('mode' => $mode, 'why' => $why, 'type' => 'full', 'unpaid_ids' => $ids, 'flag_ids' => $flag, 'unpaid_dues' => round($dues, 2), 'storage' => $storage,
+                     'transport' => $teamQuote ? 0.0 : round($transport, 2), 'bills_total' => $bills, 'wallet_used' => $walletUsed, 'amount_due_now' => $due);
+    }
+
+    private function _pay_enabled()
+    {
+        $v = $this->config->item('dubai_retrieval_pay');
+        return $v === null || $v === '' ? true : (bool) $v;          // on by default; set false in config/dubai_back.php to switch off
+    }
+
+    // ---------------------------------------------------------------- prepare
+    /** Same input as create(). If there is something to pay online, saves a pending request and returns what to charge. */
+    public function prepare()
+    {
+        $c  = $this->_customer();
+        $in = $this->_validated($c, true);
+        $this->_assert_free_to_book($c, $in);
+        $est = $this->_estimate($c, $in);
+        $plan = $est['plan'];
+        if ($plan['mode'] !== 'pay') {
+            $this->_json(array('status' => 'success', 'mode' => 'request', 'why' => $plan['why'], 'plan' => $plan));
+        }
+        $uid = $this->db->query("SELECT user_id FROM ss_user WHERE customer_id = ? AND role_id = 6 LIMIT 1", array($c->customer_id))->row();
+        $iid = $this->_log($c->customer_id, $uid ? (int) $uid->user_id : 0, 'retrieval_intent',
+            'Retrieval payment started · ' . $in['date_ymd'] . ' · AED ' . number_format($plan['amount_due_now'], 2),
+            json_encode(array('in' => $in, 'plan' => $plan)));
+        if ($iid <= 0) $this->_json(array('status' => 'error', 'message' => 'Could not start the payment. Please try again.'), 500);
+        $this->_json(array('status' => 'success', 'mode' => 'pay', 'intent_id' => $iid, 'amount_aed' => $plan['amount_due_now'], 'plan' => $plan,
+                           'description' => 'SafeStorage retrieval - ' . $c->customer_unique_id));
+    }
+
+    // ----------------------------------------------------------------- settle
+    /** Called by the Stripe webhook once the card payment is CONFIRMED. Creates the order and settles the bills. Idempotent. */
+    public function settle()
+    {
+        $iid  = (int) $this->input->post('intent_id');
+        $ref  = trim((string) $this->input->post('payment_ref'));
+        $paid = (float) $this->input->post('amount_aed');
+        $c    = $this->_customer();
+        if ($iid <= 0 || $ref === '' || $paid <= 0) $this->_json(array('status' => 'error', 'message' => 'missing_fields'), 400);
+
+        $row = $this->db->query("SELECT * FROM ss_dubai_log WHERE log_id = ? AND action_type = 'retrieval_intent' AND customer_id = ? LIMIT 1", array($iid, $c->customer_id))->row();
+        if (!$row) $this->_json(array('status' => 'error', 'message' => 'intent_not_found'), 404);
+        // One settle at a time per intent (a webhook retry can arrive while the first call is still running); the lock
+        // is released when the request ends. The "already settled" check is made AFTER taking it.
+        $this->db->query("SELECT GET_LOCK(?, 20) AS l", array('dubai_settle_' . $iid));
+        $done = $this->db->query("SELECT message FROM ss_dubai_log WHERE action_type = 'retrieval_settled' AND lead_id = ? LIMIT 1", array($iid))->row();
+        if ($done) $this->_json(array('status' => 'success', 'duplicate' => true));            // webhook retry: already done
+        // the same card payment can never settle a second intent
+        $reused = $this->db->query("SELECT log_id FROM ss_dubai_log WHERE action_type = 'retrieval_settled' AND message LIKE ? LIMIT 1", array('%ref ' . $ref . ' %'))->row();
+        if ($reused) $this->_json(array('status' => 'error', 'message' => 'payment_ref_already_used'), 409);
+
+        $j = json_decode((string) $row->changes, true);
+        if (!is_array($j) || empty($j['in']) || empty($j['plan'])) $this->_json(array('status' => 'error', 'message' => 'intent_corrupt'), 500);
+        $in = $j['in']; $plan = $j['plan'];
+
+        if (abs($paid - (float) $plan['amount_due_now']) > 0.05) {
+            $this->_alert_team('Retrieval payment amount mismatch', $c, 'Intent ' . $iid . ' expected AED ' . $plan['amount_due_now'] . ' but Stripe reported AED ' . $paid . ' (ref ' . $ref . '). Nothing was settled.');
+            $this->_json(array('status' => 'error', 'message' => 'amount_mismatch'), 409);
+        }
+        $this->_lock_date($in['date_ymd']);                                  // the day is checked and the order inserted under one lock
+        $taken = $this->db->query("SELECT order_id FROM ss_order WHERE country_code = 'AE' AND order_type IN ('full_retrieval','partial_retrieval') AND order_status <> 'cancelled' AND order_schedule_date = ? LIMIT 1", array($in['date_ymd']))->row();
+        if ($taken) {
+            $this->_alert_team('Retrieval paid but the date was taken', $c, 'Intent ' . $iid . ' paid AED ' . $paid . ' (ref ' . $ref . ') for ' . $in['date_ymd'] . ', but that date is already booked (WO' . $taken->order_id . '). Please refund or re-schedule.');
+            $this->_json(array('status' => 'error', 'message' => 'date_taken'), 409);
+        }
+
+        $est = $this->_estimate($c, $in);                                   // the order keeps the figures as they are now
+        $oid = $this->_place_order($c, $in, $est, 'request_raise', 'PAID ONLINE: AED ' . number_format($paid, 2) . ' (Stripe ' . $ref . ')', $paid);
+        if ($oid <= 0) {
+            $this->_alert_team('Retrieval paid but the order could not be created', $c, 'Intent ' . $iid . ' paid AED ' . $paid . ' (ref ' . $ref . '). Please create the retrieval by hand.');
+            $this->_json(array('status' => 'error', 'message' => 'order_failed'), 500);
+        }
+
+        // The order exists: mark the intent settled NOW, so a retry (or a crash further down) can never create a second order.
+        $this->_log($c->customer_id, 0, 'retrieval_settled', 'Retrieval WO' . $oid . ' paid online · AED ' . number_format($paid, 2) . ' · ref ' . $ref . ' ', json_encode(array('order_id' => $oid)), $iid);
+
+        // bills for what is now owed (priced above); the EXISTING settlement then writes the AE invoice + transactions and marks them Paid
+        $ids = array();
+        foreach ($plan['unpaid_ids'] as $pid) $ids[] = (int) $pid;
+        $now = date('Y-m-d');
+        $partial = ($in['type'] === 'partial');
+        $mk = function ($amt, $note, $type, $tax, $chargesType) use ($c, $oid, $now) {
+            $this->db->insert('ss_customer_payment', array(
+                'country_code' => 'AE', 'customer_id' => $c->customer_id, 'sub_total_amt' => number_format($amt, 2, '.', ''), 'tax' => $tax,
+                'total_amount' => number_format($amt, 2, '.', ''), 'payable_amount' => number_format($amt, 2, '.', ''),
+                'bill_genrated_date' => $now, 'billing_date' => $now, 'offer_note' => $note, 'payment_status' => 'Unpaid',
+                'is_extra_charges' => '1', 'is_instant' => '1', 'charges_type' => $chargesType, 'order_id' => $oid, 'payment_unique_id' => mt_rand(100000, 999999),
+            ));
+            return (int) $this->db->insert_id();
+        };
+        if (!$partial && $plan['storage'] > 0) $ids[] = $mk($plan['storage'], 'Storage charges till retrieval (' . date('d/m/Y', strtotime($in['date_ymd'])) . ')', null, 5, null);
+        if ($plan['transport'] > 0) $ids[] = $mk($plan['transport'], $partial ? 'Partial retrieval delivery charges' : 'Retrieval transport charges', null, 0, 'transport_charges');
+
+        $dbg = $this->db->db_debug; $this->db->db_debug = FALSE;      // the bookkeeping rows below must never abort a settled payment
+        if (!$partial) {
+            // Indian record_full_retrieval_payment: the wallet is used up ...
+            if ($plan['wallet_used'] > 0) {
+                $w = $this->db->query("SELECT wallet_id, wallet_amount FROM ss_customer_wallet WHERE customer_id = ? LIMIT 1", array($c->customer_id))->row();
+                if ($w) {
+                    $left = max(0, round((float) $w->wallet_amount - (float) $plan['wallet_used'], 2));
+                    $this->db->where('wallet_id', $w->wallet_id)->update('ss_customer_wallet', array('wallet_amount' => number_format($left, 2, '.', ''), 'old_amount' => (string) $w->wallet_amount, 'comment' => 'Used for retrieval WO' . $oid));
+                }
+            }
+            // ... a record of how many unpaid bills this retrieval cleared ...
+            $allUnpaid = array_merge((array) $plan['unpaid_ids'], (array) (isset($plan['flag_ids']) ? $plan['flag_ids'] : array()));
+            if (count($allUnpaid) > 0) {
+                $this->db->insert('ss_paid_dues_retrieval', array('customer_id' => $c->customer_id, 'no_of_dues' => count($allUnpaid), 'payment_id' => (int) $allUnpaid[0]));
+            }
+            // ... and the retrieval summary row (what was calculated and what was charged).
+            $this->db->insert('ss_retrieval_summary', array(
+                'customer_id' => $c->customer_id, 'log_is_return' => $est['is_return_to_cust'], 'log_return_amt' => $est['storage_return'],
+                'log_due_amt' => number_format($plan['unpaid_dues'] + $plan['storage'], 2, '.', ''), 'log_transport_note' => 'Retrieval transport charges',
+                'transport_charges' => $est['transport_base'] + $est['distance_charge'], 'transport_tax_amt' => $est['transport_tax'], 'total_transport_charges' => $est['transport_total'],
+                'final_payable_amt' => $plan['amount_due_now'], 'final_return_amt' => 0,
+            ));
+        }
+
+        $this->db->db_debug = $dbg;
+
+        $settle = $this->_call_due_settle($c->customer_id, $ids, $paid, $ref);
+        // the latest storage bill (replaced by the storage-till-date charge) is flagged Paid, exactly as the Indian full retrieval does
+        if (!$partial && strpos((string) $settle, '"status":true') !== false && !empty($plan['flag_ids'])) {
+            $dbg2 = $this->db->db_debug; $this->db->db_debug = FALSE;
+            $this->db->where('customer_id', $c->customer_id)->where('payment_status', 'Unpaid')->where_in('payment_id', array_map('intval', $plan['flag_ids']))->update('ss_customer_payment', array('payment_status' => 'Paid'));
+            $this->db->db_debug = $dbg2;
+        }
+        $this->_log($c->customer_id, 0, 'retrieval_settlement', 'Retrieval WO' . $oid . ' · wallet used AED ' . number_format($plan['wallet_used'], 2) . ' · settlement: ' . substr((string) $settle, 0, 160), json_encode(array('order_id' => $oid, 'bill_ids' => $ids)), $iid);
+        if (strpos((string) $settle, '"status":true') === false) {
+            $this->_alert_team('Retrieval paid — bills not marked Paid', $c, 'WO' . $oid . ', Stripe ' . $ref . ', AED ' . $paid . '. The settlement answered: ' . substr((string) $settle, 0, 200) . '. Please mark the bills ' . implode(',', $ids) . ' as Paid.');
+        }
+        $this->_json(array('status' => 'success', 'ref' => 'WO' . $oid, 'order_id' => $oid));
+    }
+
+    /** The existing live settlement on safestorage.in (marks bills Paid, writes the transactions and the invoice). */
+    private function _call_due_settle($cid, $ids, $amount, $ref)
+    {
+        // shared with the public app's settlement; kept in config/dubai_back.php next to the Dubai key
+        $secret = (string) $this->config->item('ae_pay_secret');
+        if ($secret === '' && defined('AE_PAY_SECRET')) $secret = AE_PAY_SECRET;
+        if ($secret === '') return '{"status":false,"reason":"ae_pay_secret_not_configured"}';
+        $ch = curl_init('https://safestorage.in/customer/stripe_due_settle');
+        curl_setopt_array($ch, array(
+            CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 25, CURLOPT_CONNECTTIMEOUT => 6,
+            CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+            CURLOPT_POSTFIELDS => json_encode(array('secret' => $secret, 'customerId' => $cid, 'paymentIds' => implode(',', $ids), 'amountAed' => $amount, 'paymentRef' => $ref)),
+        ));
+        $res = curl_exec($ch);
+        curl_close($ch);
+        return $res;
+    }
+
+    private function _alert_team($subject, $c, $text)
+    {
+        $this->_log($c->customer_id, 0, 'retrieval_alert', $subject . ' · ' . $text);
+        try {
+            $this->load->library('email');
+            $this->email->initialize(array('protocol' => 'sendmail', 'mailpath' => '/usr/sbin/sendmail', 'charset' => 'utf-8', 'mailtype' => 'html'));
+            $this->email->from('customers@safestorage.in', 'SafeStorage Dubai');
+            $this->email->to('support@safestorage.ae');
+            $this->email->subject('[ACTION NEEDED] ' . $subject . ' · ' . $c->customer_unique_id);
+            $this->email->message('<p>' . htmlspecialchars($text) . '</p><p>Customer: ' . htmlspecialchars($c->customer_name) . ' (' . htmlspecialchars($c->customer_unique_id) . ')</p>');
+            $this->email->send();
+        } catch (\Throwable $e) {}
+    }
+
+    /** One booking per day: serialise "is the day free?" + "insert the order" for a date across ALL customers (released when the request ends). */
+    private function _lock_date($ymd)
+    {
+        $r = $this->db->query("SELECT GET_LOCK(?, 15) AS l", array('dubai_retrieval_date_' . $ymd))->row();
+        if ($r && (int) $r->l !== 1) $this->_json(array('status' => 'error', 'message' => 'Another booking for that date is being saved. Please try again in a moment.'), 409);
+    }
+
+    /** One open request at a time, and the day must be free (other customers' orders and live payment holds). */
+    private function _assert_free_to_book($c, $in)
+    {
+        $open = $this->db->query(
+            "SELECT order_id FROM ss_order WHERE customer_id = ? AND order_type IN ('full_retrieval','partial_retrieval')
+                AND order_status NOT IN ('completed','cancelled') LIMIT 1", array($c->customer_id))->row();
+        if ($open) $this->_json(array('status' => 'error', 'message' => 'You already have an open retrieval request (WO' . $open->order_id . '). Please wait for our team or call us.'), 409);
+        $taken = $this->db->query("SELECT order_id FROM ss_order WHERE country_code = 'AE' AND order_type IN ('full_retrieval','partial_retrieval') AND order_status <> 'cancelled' AND order_schedule_date = ? LIMIT 1", array($in['date_ymd']))->row();
+        if ($taken) $this->_json(array('status' => 'error', 'message' => 'That date has just been booked. Please choose another date.'), 409);
+        foreach ($this->_live_holds() as $h) {
+            if ((int) $h['customer_id'] !== (int) $c->customer_id && $h['date'] === $in['date_ymd']) $this->_json(array('status' => 'error', 'message' => 'Another customer is booking that date right now. Please choose another date.'), 409);
+        }
+    }
+
+    // ---------------------------------------------------------------- helpers
+    /** Number of unpaid bills. The Indian get_retrieval_info_partial refuses a partial retrieval while any exist (_check_unpaid_dues). */
+    private function _unpaid_count($cid)
+    {
+        return (int) $this->db->query("SELECT COUNT(*) AS n FROM ss_customer_payment WHERE customer_id = ? AND payment_status = 'Unpaid'", array($cid))->row()->n;
+    }
+    /** Count and total of the customer's unpaid bills (for the 'pay your dues first' panel). */
+    private function _unpaid_summary($cid)
+    {
+        $n = 0; $t = 0.0;
+        foreach ($this->db->query("SELECT payable_amount, total_amount FROM ss_customer_payment WHERE customer_id = ? AND payment_status = 'Unpaid'", array($cid))->result() as $r) {
+            $a = is_numeric($r->payable_amount) ? (float) $r->payable_amount : (float) $r->total_amount;
+            if ($a > 0) { $n++; $t += $a; }
+        }
+        return array('count' => $n, 'total' => round($t, 2));
+    }
+    const DUE_MSG = 'We have noted that your due payment is pending. Please pay it first (use Pay now at the top of the page) or contact our support team.';
+
+    /** The signed-in customer, as the caller says it: must be an active Dubai customer with a login. */
+    private function _customer()
+    {
+        $cid = (int) $this->input->post('customer_id');
+        if ($cid <= 0) $this->_json(array('status' => 'error', 'message' => 'customer_id required.'), 400);
+        $c = $this->db->query(
+            "SELECT c.* FROM ss_customer c JOIN ss_user u ON u.customer_id = c.customer_id
+              WHERE c.customer_id = ? AND c.country_code = 'AE' AND c.is_customer = '1' AND c.status = '0'
+                AND u.role_id = 6 AND u.status = '0' AND u.user_country = 'AE' LIMIT 1", array($cid))->row();
+        if (!$c) $this->_json(array('status' => 'error', 'message' => 'Not found.'), 404);
+        return $c;
+    }
+
+    private function _active_items($cid)
+    {
+        $rows = $this->db->query(
+            "SELECT inventory_id, quotation_id, barcode, goods_name, goods_type, goods_quantity FROM ss_order_inventory
+              WHERE customer_id = ? AND inventory_status = 'active' AND is_removed_item = '0' ORDER BY inventory_id", array($cid))->result();
+        $out = array();
+        foreach ($rows as $r) {
+            $out[] = array('id' => (int) $r->inventory_id, 'quotation' => $r->quotation_id ? 'QT' . $r->quotation_id : '',
+                'barcode' => (string) $r->barcode, 'name' => (string) $r->goods_name, 'type' => (string) $r->goods_type, 'qty' => (int) $r->goods_quantity);
+        }
+        return $out;
+    }
+
+    /** All input checks, shared by estimate and create. Returns the cleaned input. */
+    private function _validated($c, $forCreate)
+    {
+        $type = (string) $this->input->post('type');
+        if (!in_array($type, array('partial', 'full', 'intercity'), true)) $this->_err('Choose a retrieval type.');
+        // Intercity is arranged by the team for now: no price and no online request.
+        if ($type === 'intercity') $this->_err('Intercity retrieval is arranged by our team. Please contact us on +971 50 577 3388 or support@safestorage.ae.');
+
+        $active = $this->_active_items($c->customer_id);
+        if (!$active) $this->_err('You have no stored items to retrieve.');
+        if ($type === 'partial' && $this->_unpaid_count($c->customer_id) > 0) $this->_err(self::DUE_MSG);
+        $activeIds = array(); foreach ($active as $a) $activeIds[] = $a['id'];
+
+        if ($type === 'partial') {
+            $posted = $this->input->post('inventory_id');
+            $posted = is_array($posted) ? array_values(array_unique(array_map('intval', $posted))) : array();
+            $ids = array_values(array_intersect($posted, $activeIds));              // only the customer's own active items
+            $max = (int) floor(count($activeIds) * self::MAX_PARTIAL);
+            if ($max < 1) $this->_err('Partial retrieval needs at least 2 stored items. Please choose Full retrieval.');
+            if (count($ids) < 1) $this->_err('Select the items you want back.');
+            if (count($ids) > $max) $this->_err('You can select up to ' . $max . ' items for a partial retrieval.');
+        } else {
+            $ids = $activeIds;                                                       // everything that is still stored
+        }
+
+        $dateRaw = trim((string) $this->input->post('date'));
+        $d = DateTime::createFromFormat('d/m/Y', $dateRaw);
+        if (!$d || $d->format('d/m/Y') !== $dateRaw) $this->_err('Choose a valid date.');
+        $d->setTime(0, 0, 0);
+        $rules = $this->_date_rules($c);
+        $ymd = $d->format('Y-m-d');
+        if ($ymd < $rules['min_date']) $this->_err('Please choose a date from ' . date('d/m/Y', strtotime($rules['min_date'])) . ' onwards (' . self::MIN_NOTICE . ' days notice).');
+        if ($ymd > $rules['max_date']) $this->_err('Please choose a date on or before ' . date('d/m/Y', strtotime($rules['max_date'])) . '.');
+        if (in_array($ymd, $rules['booked_dates'], true)) $this->_err('That date is already booked. Please choose another date.');
+        if (in_array((int) $d->format('j'), self::$BLOCKED_DAYS, true)) $this->_err('Retrieval is not available on the 1st, 2nd or from the 26th of the month. Please choose another date.');
+
+        $lat = trim((string) $this->input->post('lat')); $lng = trim((string) $this->input->post('lng'));
+        if ($type !== 'intercity' && (!is_numeric($lat) || !is_numeric($lng))) $this->_err('Please pick your delivery address from the suggestions.');
+        // Local deliveries (full and partial) must be within 60 km of the Dubai warehouse; further away is an intercity job.
+        if (is_numeric($lat) && is_numeric($lng) && $this->_km(self::$ORIGINS[0][0], self::$ORIGINS[0][1], (float) $lat, (float) $lng) > self::SERVICE_RADIUS_KM + 1e-9) {
+            $this->_err('We deliver within ' . self::SERVICE_RADIUS_KM . ' km of our warehouse. For this address please contact our team on +971 50 577 3388 or support@safestorage.ae.');
+        }
+        $floor = (string) $this->input->post('floor');
+        $okFloor = false; foreach ($this->db->query("SELECT floor_slug FROM ss_floor WHERE status = '0'")->result() as $f) if ($f->floor_slug === $floor) $okFloor = true;
+        if (!$okFloor) $this->_err('Choose a floor.');
+        $lift = strtolower((string) $this->input->post('lift'));
+        if (!in_array($lift, array('yes', 'no'), true)) $this->_err('Tell us whether there is a lift.');
+
+        $in = array('type' => $type, 'ids' => $ids, 'date' => $dateRaw, 'date_ymd' => $d->format('Y-m-d'),
+                    'lat' => $lat, 'lng' => $lng, 'floor' => $floor, 'lift' => $lift);
+
+        if ($forCreate) {
+            // No slot is chosen by the customer: the team confirms the time with them.
+            $slot = (string) $this->input->post('timeslot');
+            $row = $slot !== '' ? $this->db->query("SELECT timeslot FROM ss_timeslot WHERE status = '0' AND timeslot_slug = ? LIMIT 1", array($slot))->row() : null;
+            $addr = trim((string) $this->input->post('address'));
+            if ($addr === '' || strlen($addr) > 400) $this->_err('Enter your delivery address.');
+            $phone = trim((string) $this->input->post('phone'));
+            if (!preg_match('/^[0-9+\s\-]{6,20}$/', $phone)) $this->_err('Enter a valid phone number.');
+            $in['timeslot_name'] = $row ? $row->timeslot : 'To be confirmed by our team';
+            $in['address'] = $addr;
+            $in['phone'] = $phone;
+            $in['note'] = substr(trim((string) $this->input->post('note')), 0, 500);
+        }
+        return $in;
+    }
+
+    /** Days already taken: only ONE retrieval can be booked per day (any Dubai customer). */
+    private function _booked_dates($from, $to, $exceptCustomer = 0)
+    {
+        $rows = $this->db->query(
+            "SELECT DISTINCT order_schedule_date AS d FROM ss_order
+              WHERE country_code = 'AE' AND order_type IN ('full_retrieval','partial_retrieval')
+                AND order_status <> 'cancelled' AND order_schedule_date BETWEEN ? AND ?", array($from, $to))->result();
+        $out = array(); foreach ($rows as $r) $out[] = (string) $r->d;
+        // a customer who is paying right now holds their date for 30 minutes
+        foreach ($this->_live_holds() as $h) {
+            if ((int) $h['customer_id'] !== (int) $exceptCustomer && $h['date'] >= $from && $h['date'] <= $to) $out[] = $h['date'];
+        }
+        return array_values(array_unique($out));
+    }
+
+    /** Pending (unpaid, unsettled) requests younger than 30 minutes: [customer_id, date]. */
+    private function _live_holds()
+    {
+        $rows = $this->db->query(
+            "SELECT i.log_id, i.customer_id, i.changes FROM ss_dubai_log i
+              LEFT JOIN ss_dubai_log s ON s.action_type = 'retrieval_settled' AND s.lead_id = i.log_id
+              WHERE i.action_type = 'retrieval_intent' AND i.created_at > (NOW() - INTERVAL 30 MINUTE) AND s.log_id IS NULL")->result();
+        $out = array();
+        foreach ($rows as $r) {
+            $j = json_decode((string) $r->changes, true);
+            if (is_array($j) && !empty($j['in']['date_ymd'])) $out[] = array('customer_id' => (int) $r->customer_id, 'date' => (string) $j['in']['date_ymd']);
+        }
+        return $out;
+    }
+
+    private function _log($cid, $uid, $action, $message, $changes = null, $ref = null)
+    {
+        try {
+            $this->db->insert('ss_dubai_log', array(
+                'customer_id' => $cid, 'user_id' => $uid, 'action_type' => $action, 'message' => $message,
+                'changes' => $changes, 'lead_id' => $ref, 'ip_address' => $this->input->ip_address(), 'created_at' => date('Y-m-d H:i:s'),
+            ));
+            return (int) $this->db->insert_id();
+        } catch (\Throwable $e) { return 0; }
+    }
+
+    /** The date window — the Indian dashboard's calendar rules (min notice, blocked billing days, last bill + 90 days). */
+    private function _date_rules($c)
+    {
+        $tz = new DateTimeZone('Asia/Dubai');
+        $min = new DateTime('today', $tz); $min->modify('+' . self::MIN_NOTICE . ' days');
+        $last = $this->db->query("SELECT billing_date FROM ss_customer_payment WHERE customer_id = ? ORDER BY payment_id DESC LIMIT 1", array($c->customer_id))->row();
+        if ($last && $last->billing_date && strpos((string) $last->billing_date, '0000') !== 0) {
+            $max = date('Y-m-d', strtotime('+' . self::BILL_WINDOW . ' days', strtotime($last->billing_date)));
+        } else {
+            $m = new DateTime('today', $tz); $m->modify('+' . self::BILL_WINDOW . ' days'); $max = $m->format('Y-m-d');
+        }
+        return array('min_date' => $min->format('Y-m-d'), 'max_date' => $max, 'blocked_days' => self::$BLOCKED_DAYS,
+                     'booked_dates' => $this->_booked_dates($min->format('Y-m-d'), $max, $c->customer_id));
+    }
+
+    /** Dubai transport price for a pallet count (the website's tiers). */
+    private function _transport_price($pallets)
+    {
+        $pallets = (float) $pallets;
+        if ($pallets <= 0) return array('base' => 0, 'surcharge' => 0, 'total' => 0, 'tier' => 'No items');
+        $tiers = array(
+            array(1,   'flat', 500,  'Up to 1 pallet'),
+            array(3.5, 'flat', 900,  'Up to 3.5 pallets'),
+            array(5.4, 'per',  235,  '3.6 to 5.4 pallets'),
+            array(6,   'flat', 1308, 'Up to 6 pallets'),
+        );
+        foreach ($tiers as $t) {
+            if ($pallets <= $t[0] + 1e-9) {
+                $base = ($t[1] === 'flat') ? $t[2] : round($pallets * $t[2]);
+                return array('base' => $base, 'surcharge' => self::SURCHARGE_AED, 'total' => $base + self::SURCHARGE_AED,
+                             'tier' => ($t[1] === 'flat') ? $t[3] : ($pallets . ' pallets x AED ' . $t[2]));
+            }
+        }
+        $base = round($pallets * self::OVERSIZE_PER_PALLET);
+        return array('base' => $base, 'surcharge' => self::SURCHARGE_AED, 'total' => $base + self::SURCHARGE_AED, 'tier' => $pallets . ' pallets x AED ' . self::OVERSIZE_PER_PALLET);
+    }
+
+    private function _km($lat1, $lng1, $lat2, $lng2)
+    {
+        $r = 6371; $a = deg2rad($lat2 - $lat1); $b = deg2rad($lng2 - $lng1);
+        $h = sin($a / 2) ** 2 + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($b / 2) ** 2;
+        return 2 * $r * asin(sqrt($h));
+    }
+
+    /**
+     * STORAGE side = the retrieval module's own calculation (what the Indian dashboard uses: storage till date,
+     * unpaid dues, wallet, refund). TRANSPORT side = the Dubai website's pallet tiers. The final payable / refund
+     * is then worked out with the SAME rule the module uses (get_retrieval_info), only with the Dubai transport.
+     */
+    private function _estimate($c, $in)
+    {
+        // pallets of exactly the items being retrieved: ceil(sum(points x qty) / 16)
+        $pts = 0.0;
+        if ($in['ids']) {
+            $q = $this->db->query("SELECT goods_point, goods_quantity FROM ss_order_inventory WHERE customer_id = ? AND inventory_id IN (" . implode(',', array_map('intval', $in['ids'])) . ")", array($c->customer_id))->result();
+            foreach ($q as $r) $pts += ((float) $r->goods_point) * max(1, (int) $r->goods_quantity);
+        }
+        $pallets = (int) ceil($pts / self::POINTS_PER_PALLET - 1e-9);
+
+        // storage figures from the retrieval module (seeded like get_retrieval_estimate_api)
+        $backup = $_POST;
+        $_POST = array(
+            'customer_id' => $c->customer_id, 'order_schedule_date' => $in['date'],
+            'delivery_lat' => ($in['lat'] !== '' ? $in['lat'] : self::$ORIGINS[0][0]), 'delivery_lang' => ($in['lng'] !== '' ? $in['lng'] : self::$ORIGINS[0][1]),
+            'floor' => $in['floor'], 'lift' => $in['lift'], 'inventory_id' => $in['ids'],
+            'retrieval_type' => ($in['type'] === 'partial') ? 'partial_retrieval' : 'full_retrieval', 'warehouse_delivery' => '',
+        );
+        $d = Modules::run('retrieval/_api_retrieval_summary');
+        $_POST = $backup;
+        if (!is_array($d)) $this->_json(array('status' => 'error', 'message' => 'The charge could not be worked out right now. Please try again or call us.'), 502);
+        $n = function ($k) use ($d) { return isset($d[$k]) ? round((float) $d[$k], 2) : 0.0; };
+
+        // transport: Dubai tiers; outside 60 km (or intercity) the team quotes
+        // Distance shown to the customer = real road-crow distance from the Dubai warehouse (where the delivery leaves from).
+        // Beyond 60 km from that warehouse the team quotes the delivery (the owner's rule for retrievals).
+        $km = null; $kmArea = null; $teamQuote = ($in['type'] === 'intercity');
+        if (is_numeric($in['lat']) && is_numeric($in['lng'])) {
+            $km = $this->_km(self::$ORIGINS[0][0], self::$ORIGINS[0][1], (float) $in['lat'], (float) $in['lng']);
+            $kmArea = $km;                       // deliveries leave from the Dubai warehouse: beyond 60 km from it the team quotes
+            if (!$teamQuote && $kmArea > self::SERVICE_RADIUS_KM + 1e-9) $teamQuote = true;
+        }
+        $tp = $teamQuote ? array('base' => 0, 'surcharge' => 0, 'total' => 0, 'tier' => 'Quoted by our team') : $this->_transport_price($pallets);
+        $distCharge = ($teamQuote || $km === null) ? 0.0 : (float) round(max(0, $km - self::FREE_KM) * self::PER_KM_AED);
+        $T = (float) $tp['total'] + $distCharge;
+
+        // same final-amount rule as the retrieval module, with the Dubai transport
+        $payableDue = $n('payable_due'); $monthlyReturn = $n('total_monthly_return');
+        $finalPay = 0.0; $finalRet = 0.0;
+        if ($payableDue > $monthlyReturn) { $finalPay = $payableDue + $T; }
+        elseif ($monthlyReturn > $T)      { $finalRet = $monthlyReturn - $T; }
+        else                              { $finalPay = $T - $monthlyReturn; }
+
+        $plan = $this->_plan($c, $d, $teamQuote, (float) $tp['total'], $n('storage_charges_till_date'), $n('wallet_amount'), isset($d['is_return_to_cust']) ? (string) $d['is_return_to_cust'] : '', $in['type']);
+        return array(
+            'type'               => $in['type'],
+            'items'              => count($in['ids']),
+            'plan'               => $plan,
+            'team_quote'         => $teamQuote,
+            'out_of_area'        => ($kmArea !== null && $kmArea > self::SERVICE_RADIUS_KM),
+            'distance_km'        => $km === null ? null : round($km, 1),
+            'points'             => round($pts, 1),
+            'pallets'            => $pallets,
+            'tier'               => $tp['tier'],
+            'transport_base'     => (float) $tp['base'],
+            'distance_charge'    => $distCharge,
+            'transport_surcharge'=> (float) $tp['surcharge'],
+            'transport_subtotal' => (float) $tp['base'] + $distCharge,
+            'transport_tax'      => 0.0,
+            'transport_total'    => $T,
+            // storage side (same figures as the Indian dashboard)
+            'monthly_amount'     => $n('monthly_amount'),
+            'storage_till_date'  => $n('storage_charges_till_date'),
+            'storage_from'       => isset($d['from_date']) ? (string) $d['from_date'] : '',
+            'storage_to'         => isset($d['to_date']) ? (string) $d['to_date'] : '',
+            'last_bill_date'     => isset($d['last_bill_date']) ? (string) $d['last_bill_date'] : '',
+            'next_bill_date'     => isset($d['next_bill_date']) ? (string) $d['next_bill_date'] : '',
+            'unpaid_dues'        => $n('total_due_amt'),
+            'wallet'             => $n('wallet_amount'),
+            'is_return_to_cust'  => isset($d['is_return_to_cust']) ? (string) $d['is_return_to_cust'] : '',
+            'storage_due'        => $payableDue,
+            'storage_return'     => $monthlyReturn,
+            'final_payable_amt'  => round($finalPay, 2),
+            'final_return_amt'   => round($finalRet, 2),
+        );
+    }
+
+    private function _err($msg) { $this->_json(array('status' => 'error', 'message' => $msg), 422); }
+
+    private function _json($data, $code = 200)
+    {
+        http_response_code($code);
+        echo json_encode($data);
+        die;
+    }
+}

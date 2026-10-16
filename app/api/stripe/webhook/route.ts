@@ -101,6 +101,60 @@ export async function POST(request: Request) {
 
     const amountAed = (session.amount_total ?? 0) / 100
 
+    // ---- Retrieval payment (customer portal): the request is only created once the money is confirmed ----
+    // The pending request was saved on safestorage.in before the redirect (an "intent"); settling it creates the
+    // order, the bills, marks them Paid through the existing settlement and uses the wallet credit. Idempotent there.
+    if (session.metadata?.purpose === "retrieval_payment") {
+      const paymentRef =
+        typeof session.payment_intent === "string" ? session.payment_intent : session.id
+      // Ask Stripe itself whether the money really arrived — the order is created only for a SUCCEEDED payment.
+      try {
+        if (typeof session.payment_intent === "string") {
+          const pi = await stripe.paymentIntents.retrieve(session.payment_intent)
+          if (pi.status !== "succeeded") {
+            console.error("[webhook] retrieval_payment: payment not succeeded:", pi.status)
+            return NextResponse.json({ received: false }, { status: 500 }) // not final yet: Stripe retries, nothing is created
+          }
+        }
+      } catch (error) {
+        console.error("[webhook] retrieval_payment: could not verify the payment:", error)
+        return NextResponse.json({ received: false }, { status: 500 })
+      }
+      let result = ""
+      let reply: { status?: string; message?: string } | null = null
+      try {
+        const res = await fetch("https://safestorage.in/back/dubai/dubai_retrieval/settle", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-Dubai-Key": process.env.DUBAI_BACK_KEY ?? "",
+          },
+          body: new URLSearchParams({
+            customer_id: String(session.metadata.customer_id ?? ""),
+            intent_id: String(session.metadata.intent_id ?? ""),
+            payment_ref: paymentRef,
+            amount_aed: String(amountAed),
+          }).toString(),
+          signal: AbortSignal.timeout(60000),
+        })
+        result = (await res.text()).slice(0, 300)
+        try { reply = JSON.parse(result.slice(0, result.lastIndexOf("}") + 1)) } catch { reply = null }
+      } catch (error) {
+        // Network failure: answer 500 so Stripe retries — the settle call is idempotent.
+        console.error("[webhook] retrieval_payment settle call failed:", error)
+        return NextResponse.json({ received: false }, { status: 500 })
+      }
+      console.log("[webhook] retrieval_payment:", result)
+      // Success (or an already-settled retry) is final. A refusal that retrying can never fix (amount mismatch, date taken,
+      // unknown intent …) is final too — the team was alerted on the PHP side. Anything else (order could not be saved,
+      // unreadable answer) must be retried, and it is safe: no order exists yet.
+      const FINAL = ["amount_mismatch", "date_taken", "intent_not_found", "intent_corrupt", "missing_fields", "payment_ref_already_used"]
+      if (reply?.status !== "success" && !(reply?.message && FINAL.includes(reply.message))) {
+        return NextResponse.json({ received: false }, { status: 500 })
+      }
+      return NextResponse.json({ received: true, purpose: "retrieval_payment" })
+    }
+
     // ---- Due payment (UAE customer paying storage dues from the CRM link) ----
     // A different kind of session entirely: there is no quotation to finalise and no
     // order to create, only existing ss_customer_payment rows to mark Paid. Handled

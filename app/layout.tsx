@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { NavigationGuardProvider } from "@/components/providers/navigation-guard"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import SiteChrome from "@/components/site-chrome"
 import FloatingContactButtons from "@/components/floating-contact-buttons"
 import SocialProofToast from "@/components/social-proof-toast"
 import StickyMobileCta from "@/components/sticky-mobile-cta"
@@ -222,14 +223,16 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <NavigationGuardProvider>
             <MotionProvider>
-              <Header />
+              <SiteChrome><Header /></SiteChrome>
               <main className="flex-1">{children}</main>
-              <Footer />
-              <FloatingContactButtons />
-              <SocialProofToast />
-              {/* Fixed bottom CTA bar, phones/tablets only. Server-rendered so it
-                  is in the first paint rather than appearing after hydration. */}
-              <StickyMobileCta />
+              <SiteChrome>
+                <Footer />
+                <FloatingContactButtons />
+                <SocialProofToast />
+                {/* Fixed bottom CTA bar, phones/tablets only. Server-rendered so it
+                    is in the first paint rather than appearing after hydration. */}
+                <StickyMobileCta />
+              </SiteChrome>
               <ViewportZoomReset />
               <AdAttributionCapture />
             </MotionProvider>
