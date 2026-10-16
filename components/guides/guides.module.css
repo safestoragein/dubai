@@ -1,0 +1,117 @@
+/* Guides hub (owner, 2026-10-16): the ten guide cards run smaller than the
+   silo cards they borrow their look from, so the whole list reads at a glance
+   instead of filling the screen. Only this page uses these rules. */
+.grid.grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+@media (max-width: 1200px) {
+  .grid.grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 980px) {
+  .grid.grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 720px) {
+  .grid.grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+@media (max-width: 430px) {
+  .grid.grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.card.card {
+  padding: 18px 16px 16px;
+  border-radius: 16px;
+}
+.card.card > span:first-child {
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+.card.card h3 {
+  font-size: 15px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.card.card p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+/* the corner arrow shrinks with the card */
+.card.card > span:last-child {
+  right: 12px;
+  top: 13px;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+
+/* The hero is the owner's banner (owner, 2026-10-16): it already carries the
+   logo and the page title, so it runs full width and the heading stays in the
+   markup for search and screen readers rather than being set twice. */
+.bannerHero.bannerHero {
+  padding-block: 22px 0;
+}
+.banner {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 1730 / 909;
+  background: #eef3f9;
+  box-shadow: 0 26px 60px rgba(37, 49, 90, 0.18);
+}
+.banner img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.banner > div {
+  right: 18px;
+  top: 18px;
+}
+/* in the markup, out of the picture */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 32px;
+  margin-top: 26px;
+}
+.intro p {
+  flex: 1 1 420px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+}
+@media (max-width: 720px) {
+  .banner {
+    border-radius: 18px;
+  }
+  .intro {
+    margin-top: 20px;
+  }
+}
