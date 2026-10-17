@@ -155,7 +155,7 @@ const LEGACY_PATHS: Record<string, string> = {
   // "Box storage" is the luggage page's own subject: "Bags and boxes between a
   // checkout and a flight, or for months."
   "/box-storage-dubai": "/personal-storage-dubai/luggage-storage",
-  "/art-storage": "/personal-storage-dubai/art-storage",
+  "/art-storage": "/personal-storage-dubai",
   "/electronics-storage": "/personal-storage-dubai/electronics-storage",
   "/expat-leaving-uae": "/personal-storage-dubai/expat-storage",
 

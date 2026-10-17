@@ -97,11 +97,6 @@ export const HAND_WRITTEN: Record<string, { silo: SiloKey; label: string; blurb:
     label: "Expat storage",
     blurb: "Leaving the UAE without selling everything in a fortnight.",
   },
-  "/personal-storage-dubai/art-storage": {
-    silo: "s2",
-    label: "Art & antiques storage",
-    blurb: "Paintings, sculpture and antiques, declared and handled.",
-  },
   "/personal-storage-dubai/electronics-storage": {
     silo: "s2",
     label: "Electronics storage",

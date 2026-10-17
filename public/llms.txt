@@ -71,38 +71,33 @@ Covered and secure storage for cars, motorcycles, luxury vehicles, and classic c
 
 **URL:** https://safestorage.ae/car-storage
 
-### 7. Art & Valuables Storage
-Museum-grade secure storage for paintings, sculptures, antiques, and collectibles. Carefully wrapped and handled to protect against damage.
-
-**URL:** https://safestorage.ae/art-storage
-
-### 8. Electronics Storage
+### 7. Electronics Storage
 Secure indoor storage for computers, servers, audio/visual equipment, and sensitive electronic devices. Items are wrapped and kept clean and dust-protected.
 
 **URL:** https://safestorage.ae/electronics-storage
 
-### 9. Student Storage
+### 8. Student Storage
 Short-term, affordable storage plans designed for university and college students. Ideal for semester breaks, study-abroad periods, or end-of-tenancy transitions. No minimum commitment required.
 
 **URL:** https://safestorage.ae/student-storage
 **Also:** https://safestorage.ae/student-storage
 
-### 10. Short-Term Storage (Moving & Renovation)
+### 9. Short-Term Storage (Moving & Renovation)
 Flexible short-term storage for residents mid-move or undergoing home renovation. Can be booked week-by-week or month-by-month. Door-to-Door pickup available.
 
 **URL:** https://safestorage.ae/self-storage-dubai/short-term-moving-renovation
 
-### 11. Personal Storage
+### 10. Personal Storage
 Individual storage solutions for personal items including seasonal clothing, sports equipment, hobby supplies, and household overflow.
 
 **URL:** https://safestorage.ae/personal-storage
 
-### 12. Expat Storage (Leaving UAE)
+### 11. Expat Storage (Leaving UAE)
 Tailored storage plans for expatriates leaving the UAE temporarily or permanently. No minimum contract, flexible return or international shipping options. Popular among professionals on secondment, families on extended leave, and expats transitioning between countries.
 
 **URL:** https://safestorage.ae/expat-leaving-uae
 
-### 13. International Relocation Storage
+### 12. International Relocation Storage
 Bridge storage for individuals and families relocating internationally. Items stored securely in Dubai while international shipping is arranged, visas are processed, or new homes are prepared.
 
 **URL:** https://safestorage.ae/international-relocation
@@ -377,7 +372,6 @@ SafeStorage was founded in 2015 by Ramesh Madisetty. The company has grown into 
 | Student Storage             | https://safestorage.ae/student-storage                           |
 | Document Storage            | https://safestorage.ae/document-storage                          |
 | Car & Vehicle Storage       | https://safestorage.ae/car-storage                               |
-| Art Storage                 | https://safestorage.ae/art-storage                               |
 | Electronics Storage         | https://safestorage.ae/electronics-storage                       |
 | Ecommerce Storage           | https://safestorage.ae/ecommerce-storage                         |
 | Personal Storage            | https://safestorage.ae/personal-storage                          |

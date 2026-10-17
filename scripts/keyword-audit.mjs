@@ -64,7 +64,6 @@ const REGISTER = [
   // Terms these pages legitimately own. Without them the longest match on each
   // page falls back to the "storage dubai" head term and reports a page for
   // owning its own subject.
-  { kw: "art storage dubai",               owner: "/personal-storage-dubai/art-storage" },
   { kw: "electronics storage dubai",       owner: "/personal-storage-dubai/electronics-storage" },
   { kw: "ecommerce storage dubai",         owner: "/business-storage-dubai/ecommerce-fulfilment" },
   { kw: "e-commerce storage dubai",        owner: "/business-storage-dubai/ecommerce-fulfilment" },

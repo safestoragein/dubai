@@ -174,7 +174,9 @@ const nextConfig = {
       { source: '/car-storage',           destination: '/personal-storage-dubai/car-storage',            permanent: true },
       { source: '/student-storage',       destination: '/personal-storage-dubai/student-storage',        permanent: true },
       { source: '/expat-leaving-uae',     destination: '/personal-storage-dubai/expat-storage',          permanent: true },
-      { source: '/art-storage',           destination: '/personal-storage-dubai/art-storage',            permanent: true },
+      // Art storage is not a service we offer; both URLs go to the hub (single hop).
+      { source: '/art-storage',           destination: '/personal-storage-dubai',                        permanent: true },
+      { source: '/personal-storage-dubai/art-storage', destination: '/personal-storage-dubai',               permanent: true },
       { source: '/electronics-storage',   destination: '/personal-storage-dubai/electronics-storage',    permanent: true },
       // Ranking blog post → the commercial page that now owns the keyword.
       {
