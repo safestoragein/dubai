@@ -46,7 +46,7 @@ export const SILO5_MOVERS_PAGES: SiloPageContent[] = [
     description:
       "Furniture movers and packers in Dubai for one sofa or a whole household. We wrap, take apart, carry and deliver, and store pieces between addresses. Free quote.",
     keywords:
-      "furniture movers dubai, furniture movers and packers in dubai, furniture moving dubai, best furniture movers in dubai, furniture removals dubai, move furniture dubai",
+      "furniture movers dubai, furniture movers and packers in dubai, furniture movers near me, furniture moving dubai, best furniture movers in dubai, furniture removals dubai, move furniture dubai",
     ogTitle: "Furniture Movers and Packers in Dubai",
     h1: "Furniture Movers in Dubai: Wrapped, Carried, Delivered",
     introH2: "What furniture movers actually do",
@@ -217,7 +217,7 @@ export const SILO5_MOVERS_PAGES: SiloPageContent[] = [
     description:
       "Packers and movers near you in Dubai. We collect across Dubai's districts, pack at your address, move or store, and book the lift at both buildings. Free quote.",
     keywords:
-      "packers and movers near me, movers near me dubai, local movers in dubai, movers near me, packers and movers dubai near me",
+      "packers and movers near me, movers near me, movers near me dubai, local movers in dubai, packers and movers dubai near me",
     ogTitle: "Packers and Movers Near Me in Dubai",
     h1: "Packers and Movers Near You in Dubai, Booked Around Your Day",
     introH2: "How local movers reach your door",
@@ -345,7 +345,7 @@ export const SILO5_MOVERS_PAGES: SiloPageContent[] = [
     description:
       "What movers and packers cost in Dubai depends on volume, access, packing and timing. See each line of a quote, why cheap movers differ, and how to compare fairly.",
     keywords:
-      "cheap movers in dubai, cheap movers and packers dubai, movers and packers cost dubai, how much do movers cost in dubai, moving cost dubai, packers and movers rates",
+      "cheap movers in dubai, affordable movers, cheap movers and packers dubai, movers and packers cost dubai, how much do movers cost in dubai, moving cost dubai, packers and movers rates",
     ogTitle: "What Movers and Packers Cost in Dubai",
     h1: "What Movers Cost in Dubai, and Why Quotes Differ",
     introH2: "What a moving quote is made of",

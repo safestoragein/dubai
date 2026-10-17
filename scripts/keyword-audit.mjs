@@ -170,6 +170,12 @@ const REGISTER = [
   { kw: "packing and moving companies dubai", owner: "/moving-storage-dubai/packing-services" },
   { kw: "movers and packers bur dubai",     owner: "/moving-storage-dubai/bur-dubai-movers" },
   { kw: "movers in international city",     owner: "/moving-storage-dubai/international-city-movers" },
+  { kw: "movers in jlt",                    owner: "/moving-storage-dubai/jlt-movers" },
+  { kw: "movers in al barsha",              owner: "/moving-storage-dubai/al-barsha-movers" },
+  { kw: "movers in mirdif",                 owner: "/moving-storage-dubai/mirdif-movers" },
+  { kw: "movers in jumeirah",               owner: "/moving-storage-dubai/jumeirah-movers" },
+  { kw: "movers in mussafah",               owner: "/moving-storage-abu-dhabi/mussafah-movers" },
+  { kw: "movers in fujairah",               owner: "/moving-storage-fujairah" },
 
   // ---- Guides -----------------------------------------------------------
   { kw: "how much does storage cost in dubai", owner: "/guides/how-much-does-storage-cost-in-dubai" },

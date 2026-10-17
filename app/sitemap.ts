@@ -3,6 +3,7 @@ import { getTotalPages } from "@/lib/blog-listing"
 import { getListingPosts } from "@/lib/blog-listing"
 import { STATIC_POSTS } from "@/lib/static-blog-posts"
 import { AR_EMIRATES } from "@/lib/ar/registry"
+import { AR_MOVERS_PAGES } from "@/lib/ar/movers-pages"
 import { SILO_PAGES, HAND_WRITTEN } from "@/lib/silo/registry"
 import { allAreaPaths } from "@/lib/areas/registry"
 
@@ -62,6 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     p("/moving-storage-ajman", 0.85, "weekly"),
     p("/moving-storage-ras-al-khaimah", 0.8, "weekly"),
     p("/moving-storage-al-ain", 0.8, "weekly"),
+    p("/moving-storage-fujairah", 0.8, "weekly"),
     p("/locations", 0.9, "weekly"),
     p("/guides", 0.8, "weekly"),
     p("/how-it-works", 0.85, "monthly"),
@@ -80,6 +82,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...allAreaPaths().map((path) => p(path, path.split("/").length === 3 ? 0.85 : 0.7)),
 
     // Arabic mirror.
+    ...AR_MOVERS_PAGES.map((m) => p(m.path, m.slug === "uae" ? 0.7 : 0.6)),
     p("/ar/locations", 0.6),
     ...AR_EMIRATES.flatMap((e) => [
       p(`/ar/locations/${e.slug}`, 0.6),

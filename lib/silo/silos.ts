@@ -101,6 +101,13 @@ export const SILOS: Record<SiloKey, SiloDef> = {
     anchor: "movers and packers in Al Ain",
     blurb: "Villa moves and collection from Al Ain.",
   },
+  s12: {
+    key: "s12",
+    name: "Moving & Storage Fujairah",
+    hub: "/moving-storage-fujairah",
+    anchor: "movers in Fujairah",
+    blurb: "Collection and moving from Fujairah and the east coast.",
+  },
   guides: {
     key: "guides",
     name: "Guides",

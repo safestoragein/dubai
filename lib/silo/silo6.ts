@@ -49,13 +49,13 @@ export const AD_HUB: SiloPageContent = {
   crumb: "Movers Abu Dhabi",
   navLabel: "Movers in Abu Dhabi",
   navBlurb: "Packing, collection and moving from Abu Dhabi, with storage if dates slip.",
-  title: "Movers and Packers in Abu Dhabi | Pack, Collect and Store",
+  title: "Movers in Abu Dhabi | Movers and Packers That Also Store",
   description:
-    "Movers and packers in Abu Dhabi, and a moving company that also stores: we pack at your address, move or hold goods monthly while dates line up. Free quote.",
+    "Movers and packers in Abu Dhabi that also store: we pack at your address, move or hold goods monthly while dates line up. A moving company with one inventory.",
   keywords:
-    "movers and packers in abu dhabi, movers packers abu dhabi, moving companies in abu dhabi, abu dhabi movers, professional movers in abu dhabi, moving company abu dhabi",
-  ogTitle: "Movers and Packers in Abu Dhabi",
-  h1: "Movers and Packers in Abu Dhabi: We Come to You",
+    "movers in abu dhabi, movers and packers in abu dhabi, movers packers abu dhabi, moving companies in abu dhabi, abu dhabi movers, professional movers in abu dhabi, moving company abu dhabi",
+  ogTitle: "Movers in Abu Dhabi",
+  h1: "Movers in Abu Dhabi: Packed, Collected, Stored",
   introH2: "Movers in Abu Dhabi, in brief",
   hero: [
     "Movers and packers in Abu Dhabi who also store your things solve the most common problem with a move: the new place is rarely ready on the day the old one is handed back. We collect from your address across ten Abu Dhabi districts, wrap and load there, and move your goods to your next home or into storage, with one barcoded inventory throughout. For the Dubai side of the same service see [moving and storage in Dubai](/moving-storage-dubai).",
@@ -176,6 +176,7 @@ export const AD_HUB: SiloPageContent = {
     "/moving-storage-abu-dhabi/office-movers",
     "/moving-storage-abu-dhabi/moving-cost",
     "/moving-storage-abu-dhabi/best-movers",
+    "/moving-storage-abu-dhabi/mussafah-movers",
   ],
 }
 
@@ -931,6 +932,115 @@ export const SILO6_PAGES: SiloPageContent[] = [
       "/moving-storage-abu-dhabi/villa-movers",
       "/moving-storage-abu-dhabi/office-movers",
       "/moving-storage-abu-dhabi/furniture-movers",
+    ],
+  },
+
+  /* ------------------------------------------------------- mussafah-movers */
+  {
+    silo: "s6",
+    path: "/moving-storage-abu-dhabi/mussafah-movers",
+    crumb: "Mussafah Movers",
+    navLabel: "Mussafah (business moves)",
+    navBlurb: "Stock, equipment and records collected from Mussafah units.",
+    title: "Movers in Mussafah, Abu Dhabi | Stock, Equipment, Records",
+    description:
+      "Movers in Mussafah, Abu Dhabi, for business stock, equipment and records. We collect from your unit, record items one by one and hold goods at our nearest facility.",
+    keywords:
+      "movers in mussafah, movers and packers in mussafah, mussafah movers, business movers mussafah, equipment movers abu dhabi, stock storage mussafah",
+    ogTitle: "Movers in Mussafah, Abu Dhabi",
+    h1: "Movers in Mussafah: Stock, Equipment and Records",
+    introH2: "Moving from Mussafah, in brief",
+    hero: [
+      "Movers in Mussafah handle a different kind of job from the rest of Abu Dhabi: this is where the emirate's businesses are, so most of what we collect is stock, equipment and records, not a household. It is the business end of [movers and packers in Abu Dhabi](/moving-storage-abu-dhabi), and it is recorded item by item, because a business needs to know exactly what it has and where.",
+      "We collect from your unit, wrap and load, and record everything in a barcoded inventory. Abu Dhabi is a collection service for us, so goods are held at our nearest facility, which is in Dubai. We do not run a Mussafah warehouse.",
+      "This page covers what we collect here, how to prepare a business move, and where a warehouse-leasing agent or a specialist heavy-lift contractor is the better choice than us.",
+    ],
+    sections: [
+      {
+        kind: "table",
+        h2: "What businesses move from Mussafah",
+        columns: ["What", "Typical need", "What to plan for"],
+        rows: [
+          ["Stock", "Goods held between orders or between premises", "A packing list, item counts and a retrieval plan"],
+          ["Equipment", "Tools and machines between projects or sites", "Weights and dimensions, and whether lifting equipment is on site"],
+          ["Records", "Files and archives that must be kept", "Box-level labelling and an index you can search"],
+          ["Office contents", "Desks and IT when a lease ends", "An out-of-hours window and a plan for the new space not being ready"],
+        ],
+        note: "The district is described on our [Mussafah location page](/locations/abu-dhabi/mussafah).",
+      },
+      {
+        kind: "prose",
+        h2: "Where we fit, and where we do not",
+        paras: [
+          "We are a storage business that moves things. That suits businesses that need stock, records or equipment collected and held, and brought back in part when needed. It does not suit moving heavy plant that needs a crane, or leasing a warehouse in Mussafah itself, and in those cases a specialist contractor or a leasing agent is the right call.",
+          "If your job sits in between, send the details: what it is, how heavy the heaviest item is, what access the unit has, and where it is going. We will tell you plainly whether it is a job we take.",
+        ],
+      },
+      {
+        kind: "checklist",
+        h2: "Business move checklist",
+        items: [
+          "List what is moving, with counts, and note anything that is unusually heavy or awkward.",
+          "Tell us the access: dock height, a roller door, a ground-floor entrance, and whether you have lifting equipment on site.",
+          "Label records and stock by box, and keep an index you can search later.",
+          "Name a contact who will be on site for the whole collection window.",
+          "Decide what comes back first, so the inventory order matches how you will need it.",
+          "Check any estate or landlord rules on collection hours at your unit.",
+        ],
+      },
+      {
+        kind: "steps",
+        h2: "How a Mussafah collection runs",
+        items: [
+          { h: "Send the details", p: "What is moving, its rough weight, the access at the unit and your dates." },
+          { h: "Survey and quote", p: "A video walkthrough or a visit, with a written, itemised quote. Transport is quoted separately and confirmed before anything is booked." },
+          { h: "Collect and record", p: "Goods are loaded and recorded item by item in a barcoded inventory." },
+          { h: "Hold", p: "Goods go to our nearest facility, billed monthly on the space used with no lock-in." },
+          { h: "Retrieve", p: "All of it or part of it, in the order you ask, to the address you choose." },
+        ],
+      },
+      {
+        kind: "prose",
+        h2: "Records and stock that are not moving yet",
+        paras: [
+          "Many Mussafah businesses want to hold records or stock, not move them to a new site. That is a storage job as much as a moving one, and [business storage in Dubai](/business-storage-dubai) covers archiving and retrieval. The two can be arranged together under one inventory.",
+          "For an office rather than a unit, our [office movers in Abu Dhabi](/moving-storage-abu-dhabi/office-movers) page covers out-of-hours moves and the fit-out running late.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you collect stock and equipment from Mussafah?",
+        a: "Yes. Business collections here are mostly stock, equipment and records, recorded item by item in a barcoded inventory.",
+      },
+      {
+        q: "Where are the goods held?",
+        a: "At our nearest facility, which is in Dubai. Abu Dhabi is a collection service for us, and we do not operate a warehouse in Mussafah.",
+      },
+      {
+        q: "Can you move heavy machinery?",
+        a: "Tell us the weights and the access. Heavy plant that needs a crane is a job for a specialist contractor, and we will say plainly if that is what yours needs.",
+      },
+      {
+        q: "Can I get part of my goods back?",
+        a: "Yes. Retrieval can be all or part, in the order you ask, and the inventory shows what is where.",
+      },
+      {
+        q: "Is wrapping included?",
+        a: "Furniture wrapping is part of every collection. Packing stock and equipment into cartons or crates is separate.",
+      },
+    ],
+    serviceType: "Business moving",
+    areaServed: "Mussafah, Abu Dhabi",
+    cta: {
+      h2: "Moving stock or equipment from Mussafah?",
+      p: "Send what is moving, its weight and the access, and we will tell you plainly whether it is a job we take.",
+    },
+    siblings: [
+      "/moving-storage-abu-dhabi/office-movers",
+      "/moving-storage-abu-dhabi/furniture-movers",
+      "/moving-storage-abu-dhabi/moving-cost",
+      "/moving-storage-abu-dhabi/best-movers",
     ],
   },
 ]

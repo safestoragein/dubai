@@ -43,7 +43,14 @@ export const metadata: Metadata = {
     locale: "en_AE",
     type: "website",
   },
-  alternates: { canonical: "https://safestorage.ae/moving-storage-dubai" },
+  alternates: {
+    canonical: "https://safestorage.ae/moving-storage-dubai",
+    languages: {
+      "en-AE": "https://safestorage.ae/moving-storage-dubai",
+      "ar-AE": "https://safestorage.ae/ar/moving-storage/dubai",
+      "x-default": "https://safestorage.ae/moving-storage-dubai",
+    },
+  },
 }
 
 const faqData = [

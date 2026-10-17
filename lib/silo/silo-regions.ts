@@ -54,7 +54,7 @@ export const UAE_HUB: SiloPageContent = {
   description:
     "Movers and packers across the UAE: one moving company that packs, moves and stores, with warehouses in Dubai, Sharjah and Ajman and collection in every emirate.",
   keywords:
-    "movers and packers in uae, movers and packers uae, movers and packers, packers and movers, moving companies, moving companies in uae, best moving companies in uae, moving services uae",
+    "movers, movers in uae, movers and packers in uae, movers and packers uae, movers and packers, packers movers, packers and movers, movers near me, furniture movers, moving companies, moving companies in uae, best moving companies in uae, moving services uae",
   ogTitle: "Movers and Packers in the UAE",
   h1: "Movers and Packers in the UAE: Pack, Move, Store",
   introH2: "Moving across the UAE, in brief",
@@ -77,8 +77,9 @@ export const UAE_HUB: SiloPageContent = {
         ["Abu Dhabi", "Collection from the district, with storage at our nearest facility", "[Movers in Abu Dhabi](/moving-storage-abu-dhabi)"],
         ["Ras Al Khaimah", "Collection from the district, with storage at our nearest facility", "[Movers in Ras Al Khaimah](/moving-storage-ras-al-khaimah)"],
         ["Al Ain", "Collection from the city, with storage at our nearest facility", "[Movers in Al Ain](/moving-storage-al-ain)"],
+        ["Fujairah", "Collection from the east coast, with storage at our nearest facility", "[Movers in Fujairah](/moving-storage-fujairah)"],
       ],
-      note: "Fujairah and Umm Al Quwain are served the same way as Ras Al Khaimah. See our [locations pages](/locations) for each.",
+      note: "Umm Al Quwain is served the same way as Ras Al Khaimah, with Ajman the nearest facility. See our [locations pages](/locations) for each.",
     },
     {
       kind: "prose",
@@ -86,6 +87,14 @@ export const UAE_HUB: SiloPageContent = {
       paras: [
         "The words cover three separate jobs. Packing is wrapping and boxing what you own. Moving is carrying it out, transporting it and carrying it in. And, where a move has a gap, storage is holding it between the two. Many companies do the first two and leave you to find someone for the third.",
         "We do all three, which is the point of being one company. You get one quote, one inventory and one number to call, instead of two companies who each assume the other is responsible for the gap. Furniture wrapping is part of every collection, not an add-on.",
+      ],
+    },
+    {
+      kind: "prose",
+      h2: "Furniture movers across the UAE",
+      paras: [
+        "Furniture is the most searched part of any move here, and the job is the same everywhere: wrap each piece at the door, take apart what comes apart, carry it out and move it on or into storage. What changes between emirates is the building: a tower with a booked lift, a villa with a gate, an older block with stairs. Each emirate page above says what to plan for.",
+        "If you are looking for movers near you, start with the emirate you are moving from. Sharjah and Ajman goods stay in the emirate, and the crew comes to your door in each. Send the address and the building type, and we will confirm coverage before you commit to anything.",
       ],
     },
     {
@@ -808,13 +817,13 @@ export const RAK_HUB: SiloPageContent = {
   crumb: "Movers Ras Al Khaimah",
   navLabel: "Movers in Ras Al Khaimah",
   navBlurb: "Collection and moving from Ras Al Khaimah, with storage at our nearest facility.",
-  title: "Movers and Packers in Ras Al Khaimah | Collection Service",
+  title: "Movers in Ras Al Khaimah | Packing and Collection Service",
   description:
-    "Movers and packers in Ras Al Khaimah: we collect from your RAK address, wrap and load, and store at our nearest facility. You pay only for the space used.",
+    "Movers in Ras Al Khaimah, and movers and packers: we collect from your RAK address, wrap and load, and store at our nearest facility. Pay for the space used.",
   keywords:
-    "movers and packers in ras al khaimah, movers and packers ras al khaimah, movers in ras al khaimah, moving companies in ras al khaimah, rak movers",
+    "movers in ras al khaimah, movers and packers in ras al khaimah, movers and packers ras al khaimah, moving companies in ras al khaimah, rak movers",
   ogTitle: "Movers and Packers in Ras Al Khaimah",
-  h1: "Movers and Packers in Ras Al Khaimah: We Come to You",
+  h1: "Movers in Ras Al Khaimah: We Come to You",
   introH2: "Moving from Ras Al Khaimah, in brief",
   hero: [
     "Movers and packers in Ras Al Khaimah are not all alike, and one fact decides what you can expect from us: we collect from your RAK address, but we do not have a warehouse in the emirate, so goods are stored at our nearest facility, in Dubai, Sharjah or Ajman. It is the Ras Al Khaimah end of [moving and storage across the UAE](/moving-storage-uae), and we would rather say that now than after you have booked.",
@@ -929,13 +938,13 @@ export const ALAIN_HUB: SiloPageContent = {
   crumb: "Movers Al Ain",
   navLabel: "Movers in Al Ain",
   navBlurb: "Villa moves and collection from Al Ain, with storage at our nearest facility.",
-  title: "Movers and Packers in Al Ain | Villa Moves and Storage",
+  title: "Movers in Al Ain | Villa Moves, Packing and Storage",
   description:
-    "Movers and packers in Al Ain for villas, garages and outbuildings. We collect from your address, wrap and load, and store at our nearest facility. Free quote.",
+    "Movers in Al Ain, and movers and packers for villas, garages and outbuildings. We collect from your address, wrap and load, and store at our nearest facility.",
   keywords:
-    "movers and packers in al ain, movers in al ain, al ain movers, villa movers al ain, moving company al ain, packers and movers al ain",
+    "movers in al ain, movers and packers in al ain, al ain movers, villa movers al ain, moving company al ain, packers and movers al ain",
   ogTitle: "Movers and Packers in Al Ain",
-  h1: "Movers and Packers in Al Ain: Villas, Garages, Storage",
+  h1: "Movers in Al Ain: Villas, Garages, Storage",
   introH2: "Moving from Al Ain, in brief",
   hero: [
     "Movers and packers in Al Ain handle a city of villas rather than towers, which changes the job: collections are large, driveway-access moves with the garage and outbuildings carrying much of the volume. We collect from your Al Ain address and store at our nearest facility. It is the Al Ain end of [moving and storage across the UAE](/moving-storage-uae).",
@@ -1046,6 +1055,110 @@ export const ALAIN_HUB: SiloPageContent = {
   cta: {
     h2: "Moving out of Al Ain?",
     p: "Send the district, the villa and your dates, and we will tell you what we can do and what it depends on.",
+  },
+  siblings: [],
+}
+
+/* ============================ FUJAIRAH HUB (s12) =========================== */
+export const FUJAIRAH_HUB: SiloPageContent = {
+  silo: "s12",
+  path: "/moving-storage-fujairah",
+  crumb: "Movers Fujairah",
+  navLabel: "Movers in Fujairah",
+  navBlurb: "Collection and moving from Fujairah and the east coast.",
+  title: "Movers in Fujairah | East Coast Collection and Storage",
+  description:
+    "Movers in Fujairah, and movers and packers for the east coast: we collect from Fujairah City and Dibba, wrap and load, and store at our nearest facility.",
+  keywords:
+    "movers in fujairah, movers and packers in fujairah, fujairah movers, moving company fujairah, best movers fujairah, east coast movers uae",
+  ogTitle: "Movers in Fujairah",
+  h1: "Movers in Fujairah: Packed and Collected",
+  introH2: "Moving from Fujairah, in brief",
+  hero: [
+    "Movers in Fujairah work on the other side of the Hajar mountains from the rest of the country, and that one fact shapes everything about a move from here. We collect from Fujairah City, Dibba and the east coast, but we do not have a warehouse in Fujairah, so goods are stored at our nearest facility, in Dubai, Sharjah or Ajman. It is the Fujairah end of [moving and storage across the UAE](/moving-storage-uae), and we say that now rather than after you have booked.",
+    "In practice this is a collection service. The crew comes to your address, wraps and loads, and takes your goods onward, to a new home in another emirate or into storage until it is ready, with one barcoded inventory throughout.",
+    "This page covers what we do from Fujairah, how the mountain drive changes the planning, where we are not the right fit, and how to prepare.",
+  ],
+  sections: [
+    {
+      kind: "prose",
+      h2: "What we do in Fujairah, and where a specialist fits better",
+      paras: [
+        "We collect, wrap, take apart what comes apart, carry out and transport. From there your goods go to a new address in another emirate, or into storage at our nearest warehouse until your dates line up. Furniture wrapping is part of every collection.",
+        "We do not run a Fujairah warehouse, and we do not publish a straight removal between two Fujairah addresses with no storage or other emirate involved. If that is your move, send both addresses and say so, and we will tell you plainly whether it is a job we take.",
+        "Where we fit well is the household that needs its things out of a Fujairah or east-coast property on a fixed date, held safely, and delivered when a new place exists.",
+      ],
+    },
+    {
+      kind: "prose",
+      h2: "Why the drive changes the plan",
+      paras: [
+        "The road over the mountains makes a Fujairah collection a real journey, not a trip across town. The job is planned as a full round trip, not slotted between others, so it needs more notice than a move in Dubai. Give us several days where you can, and tell us early if your date is fixed.",
+        "The same distance affects retrieval. If goods are going into storage and you expect to need things back, say so at booking, and we will be realistic about timings instead of optimistic.",
+      ],
+    },
+    {
+      kind: "table",
+      h2: "Where we collect from on the east coast",
+      columns: ["Area", "What to plan for"],
+      rows: [
+        ["Fujairah City", "The building or villa, the floor, and the date you must be out"],
+        ["Dibba", "A longer run, so more notice and a firm date"],
+        ["Other east-coast districts", "Vehicle access, and the garage and outbuildings if it is a villa"],
+      ],
+      note: "The position for the emirate is on our [Fujairah locations page](/locations/fujairah). Not listed does not mean not covered. Send the address.",
+    },
+    {
+      kind: "checklist",
+      h2: "Fujairah move checklist",
+      items: [
+        "Give several days' notice where you can, and tell us early if the date is fixed.",
+        "Tell us the district, the building or villa, the floor, and whether there is a lift.",
+        "Tell us where the goods are going: another emirate, or into storage.",
+        "Ask your building or landlord about permitted moving hours and access.",
+        "Box small items yourself, sealed and labelled, to lower the quote.",
+        "If goods are going into storage, tell us how often you expect to retrieve them.",
+      ],
+    },
+    {
+      kind: "steps",
+      h2: "How a Fujairah move runs",
+      items: [
+        { h: "Send the address and the dates", p: "The district, the building, the floor and when you need to be out." },
+        { h: "Get a written quote", p: "A video walkthrough or a visit for anything larger than a flat. Transport is quoted separately and confirmed before anything is booked." },
+        { h: "We plan the round trip", p: "The collection is scheduled as a full day with the road in mind, and the plan is in the written quote." },
+        { h: "Wrap and collect", p: "Furniture wrapped at your door, with a barcoded inventory." },
+        { h: "Deliver or store", p: "To your next address in another emirate, or into storage at our nearest facility, billed monthly with no lock-in." },
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "Do you have a warehouse in Fujairah?",
+      a: "No. Fujairah is a collection service for us. We operate warehouses in Dubai, Sharjah and Ajman, and goods collected on the east coast go to the nearest.",
+    },
+    {
+      q: "How much notice do you need for a Fujairah collection?",
+      a: "More than in Dubai, because the drive over the mountains means the job is planned as a full round trip. Give us several days where you can.",
+    },
+    {
+      q: "Can you move me out of Fujairah?",
+      a: "Yes. We collect from your address and move your goods to a new home in another emirate, or hold them in storage until it is ready.",
+    },
+    {
+      q: "Do you do a straight move between two Fujairah addresses?",
+      a: "Send both addresses and the dates, and we will say plainly whether it is a job we take. Our core service here is collection, with goods moved on or stored.",
+    },
+    {
+      q: "Is wrapping included?",
+      a: "Furniture wrapping is part of every collection and is not an add-on. Boxing small items is separate.",
+    },
+  ],
+  serviceType: "Moving and storage",
+  areaServed: "Fujairah",
+  cta: {
+    h2: "Moving out of Fujairah?",
+    p: "Send the district, the building and your dates, and we will tell you what we can do and what it depends on.",
   },
   siblings: [],
 }

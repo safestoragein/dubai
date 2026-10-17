@@ -1,3 +1,4 @@
+import { AR_MOVERS_PAGES } from "@/lib/ar/movers-pages"
 import type { Metadata } from "next"
 import type { SiloKey, SiloPageContent } from "./types"
 import { SILOS } from "./silos"
@@ -9,6 +10,7 @@ import { SILO5_MOVERS_PAGES } from "./silo5-movers"
 import { SILO5_AREA_PAGES } from "./silo5-areas"
 import { SILO6_PAGES } from "./silo6"
 import { SILO5_GAP_PAGES } from "./silo5-gaps"
+import { SILO5_AREA2_PAGES } from "./silo5-areas2"
 import { SILO8_PAGES } from "./silo-regions"
 import { GUIDE_PAGES } from "./guides"
 import { linksIn } from "@/components/silo/rich-text"
@@ -30,6 +32,7 @@ export const SILO_PAGES: SiloPageContent[] = [
   ...SILO5_MOVERS_PAGES,
   ...SILO5_AREA_PAGES,
   ...SILO5_GAP_PAGES,
+  ...SILO5_AREA2_PAGES,
   ...SILO6_PAGES,
   ...SILO8_PAGES,
   ...GUIDE_PAGES,
@@ -213,6 +216,10 @@ export function siloOf(path: string): SiloKey | null {
 const SITE = "https://safestorage.ae"
 
 /** Next metadata for a silo page. Canonical is always the silo path. */
+const AR_TWIN: Record<string, string> = Object.fromEntries(
+  AR_MOVERS_PAGES.filter((p) => p.enPath).map((p) => [p.enPath as string, p.path]),
+)
+
 export function metadataFor(content: SiloPageContent): Metadata {
   const url = `${SITE}${content.path}`
   return {
@@ -228,7 +235,14 @@ export function metadataFor(content: SiloPageContent): Metadata {
       locale: "en_AE",
       type: "website",
     },
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      // Reciprocal hreflang for hubs that have an Arabic twin (lib/ar/movers-pages.ts);
+      // Google ignores the ar→en link unless the English page points back.
+      ...(AR_TWIN[content.path]
+        ? { languages: { "en-AE": url, "ar-AE": `${SITE}${AR_TWIN[content.path]}`, "x-default": url } }
+        : {}),
+    },
   }
 }
 

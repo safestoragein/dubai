@@ -49,7 +49,7 @@ export type Faq = { q: string; a: string }
 /** A sibling link rendered in the "more in this silo" block. */
 export type SiblingRef = { href: string; label: string; blurb: string }
 
-export type SiloKey = "s1" | "s2" | "s3" | "s4" | "s5" | "s6" | "s7" | "s8" | "s9" | "s10" | "s11" | "guides"
+export type SiloKey = "s1" | "s2" | "s3" | "s4" | "s5" | "s6" | "s7" | "s8" | "s9" | "s10" | "s11" | "s12" | "guides"
 
 export type SiloPageContent = {
   /** Silo this page belongs to. Drives the breadcrumb and the up-link. */

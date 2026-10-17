@@ -252,7 +252,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
         .filter((c): c is NonNullable<ReturnType<typeof navFor>> => Boolean(c))
   // The moving silos form a mesh: each regional hub links to every other one, so
   // the UAE hub, Dubai, Abu Dhabi, Sharjah, Ajman, RAK and Al Ain are all one hop apart.
-  const REGIONAL = ["s5", "s6", "s7", "s8", "s9", "s10", "s11"] as const
+  const REGIONAL = ["s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12"] as const
   const isRegional = (REGIONAL as readonly string[]).includes(content.silo)
   const otherHubs = isRegional
     ? REGIONAL.filter((k) => k !== content.silo).map((k) => SILOS[k])

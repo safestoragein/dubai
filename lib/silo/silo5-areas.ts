@@ -278,7 +278,7 @@ export const SILO5_AREA_PAGES: SiloPageContent[] = [
     description:
       "Movers and packers in Business Bay for flats and offices alike. We book the lift at both buildings, move out of hours where needed, and store between dates.",
     keywords:
-      "movers and packers in business bay, movers and packers in dubai business bay, business bay movers, office movers business bay, moving company business bay",
+      "movers in business bay, movers and packers in business bay, movers and packers in dubai business bay, business bay movers, office movers business bay, moving company business bay",
     ogTitle: "Movers and Packers in Business Bay, Dubai",
     h1: "Movers and Packers in Business Bay: Flats and Offices",
     introH2: "Moving in Business Bay, in brief",
@@ -403,7 +403,7 @@ export const SILO5_AREA_PAGES: SiloPageContent[] = [
     description:
       "Movers and packers in Palm Jumeirah for Frond villas, Shoreline apartments and Crescent residences. Careful wrapping, gate access arranged, storage between dates.",
     keywords:
-      "movers and packers in palm jumeirah, palm jumeirah movers, palm jumeirah moving company, villa movers palm jumeirah, shoreline apartment movers",
+      "movers in palm jumeirah, movers and packers in palm jumeirah, palm jumeirah movers, palm jumeirah moving company, villa movers palm jumeirah, shoreline apartment movers",
     ogTitle: "Movers and Packers in Palm Jumeirah",
     h1: "Movers and Packers in Palm Jumeirah: Gates Arranged",
     introH2: "Moving on the Palm, in brief",
