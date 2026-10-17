@@ -104,7 +104,9 @@ const nextConfig = {
   // Internal links were re-pointed at the new targets directly rather than
   // relying on these, so this block catches external links and bookmarks.
   async redirects() {
-    return [
+    // Movers blogs retired into the silo pages (Oct 2026); same JSON as lib/blog-meta.ts.
+    const moversRetired = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'lib/blog-movers-redirects.json'), 'utf8'))
+    const base = [
       // ---------------------------------------------------------------------
       // Retitled auto-published posts (2026-09-22). These went live under the
       // bare-keyword H1 the content machine used to emit; the slug is derived
@@ -419,6 +421,12 @@ const nextConfig = {
         destination: '/blog',
         permanent: true,
       })),
+    ]
+    return [
+      ...base
+        .filter((r) => !(r.source in moversRetired))
+        .map((r) => ({ ...r, destination: moversRetired[r.destination] ?? r.destination })),
+      ...Object.entries(moversRetired).map(([source, destination]) => ({ source, destination, permanent: true })),
     ]
   },
 
