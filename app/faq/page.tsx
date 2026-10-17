@@ -298,7 +298,7 @@ const pickupSteps = [
   { e: "📱", h: "Book online or call", p: "Schedule a pickup time through our website, WhatsApp, or by calling +971 50 577 3388." },
   { e: "🚚", h: "We arrive at your door", p: "Our uniformed team arrives at your chosen time window with all necessary equipment." },
   { e: "📦", h: "We pack and load", p: "Our team wraps furniture, boxes loose items, and loads everything carefully into our transport vehicle." },
-  { e: "🏬", h: "Secure storage", p: "Your items are transported to our secure facility and stored in your dedicated unit." },
+  { e: "🏬", h: "Secure storage", p: "Your items are transported to our secure facility and stored in shared, managed warehouse space." },
   { e: "🔔", h: "Retrieve on demand", p: "Call or WhatsApp whenever you need items back. We deliver to your address within 24–48 hours." },
 ]
 
