@@ -1,16 +1,32 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import {
-  Home, ShoppingCart, Car, Zap, Utensils, GraduationCap, Heart,
-  Shirt, Wifi, Phone, ArrowRight, TrendingDown, Wallet, Calculator,
-  Package, DollarSign, PiggyBank, CheckCircle2, AlertCircle, Star
-} from "lucide-react"
+import { Home, Package, TrendingDown } from "lucide-react"
+
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import { SiloLinks } from "@/components/silo/silo-links"
+
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import HomeReveal from "@/components/landing/home-reveal"
+import { env } from "@/lib/env"
+import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
+import c from "@/components/guides/cost.module.css"
+
+/**
+ * /guides/dubai-cost-of-living — redesigned on the shared landing system
+ * (owner, 2026-10-17) with their own banner.
+ *
+ * Every figure is the page's own: the budget profiles and the category price
+ * lists are carried over unchanged. They are third-party market costs — rents,
+ * school fees, groceries — never SafeStorage's own prices.
+ */
 
 export const metadata: Metadata = {
   title: "Dubai Cost of Living 2026: Budget Guide",
@@ -26,8 +42,8 @@ export const metadata: Metadata = {
         url: "/og-cover-2026.jpg",
         width: 1200,
         height: 630,
-        alt: "Dubai Cost of Living 2026"
-      }
+        alt: "Dubai Cost of Living 2026",
+      },
     ],
     locale: "en_AE",
     type: "article",
@@ -43,7 +59,6 @@ const budgetProfiles = [
     title: "Single Person - Budget Lifestyle",
     monthly: "6,000 - 8,000",
     icon: "👤",
-    color: "from-green-500 to-green-600",
     breakdown: [
       { item: "Studio apartment (shared area)", amount: "2,000 - 3,000" },
       { item: "Groceries & home cooking", amount: "800 - 1,200" },
@@ -61,7 +76,6 @@ const budgetProfiles = [
     title: "Single Person - Comfortable Lifestyle",
     monthly: "10,000 - 15,000",
     icon: "🏃",
-    color: "from-blue-500 to-blue-600",
     breakdown: [
       { item: "1-bedroom apartment (nice area)", amount: "4,000 - 6,000" },
       { item: "Groceries & quality food", amount: "1,500 - 2,000" },
@@ -79,7 +93,6 @@ const budgetProfiles = [
     title: "Couple - No Kids",
     monthly: "15,000 - 22,000",
     icon: "👫",
-    color: "from-purple-500 to-purple-600",
     breakdown: [
       { item: "2-bedroom apartment", amount: "6,000 - 9,000" },
       { item: "Groceries for two", amount: "2,000 - 3,000" },
@@ -97,7 +110,6 @@ const budgetProfiles = [
     title: "Family of 4 - Standard Lifestyle",
     monthly: "25,000 - 35,000",
     icon: "👨‍👩‍👧‍👦",
-    color: "from-orange-500 to-orange-600",
     breakdown: [
       { item: "3-bedroom apartment/villa", amount: "8,000 - 12,000" },
       { item: "Groceries (family of 4)", amount: "3,000 - 4,500" },
@@ -115,8 +127,6 @@ const expenses = [
   {
     id: 1,
     category: "Housing & Rent",
-    icon: Home,
-    color: "from-blue-500 to-blue-600",
     description: "Biggest expense! Rent varies wildly by area and property type. Paid in 1-4 cheques annually (not monthly).",
     prices: [
       { item: "Studio apartment (Deira, International City)", price: "25,000 - 35,000/year" },
@@ -127,14 +137,11 @@ const expenses = [
       { item: "3-bedroom apartment (family areas)", price: "90,000 - 150,000/year" },
       { item: "Villa (Arabian Ranches, Springs)", price: "150,000 - 250,000/year" }
     ],
-    savingTip: "Consider a smaller place and use storage for extra items. A 1-bed vs 2-bed saves you AED 20,000-40,000 annually!",
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&h=800&fit=crop"
+    savingTip: "Consider a smaller place and use storage for extra items. A 1-bed vs 2-bed saves you AED 20,000-40,000 annually!"
   },
   {
     id: 2,
     category: "Groceries & Food",
-    icon: ShoppingCart,
-    color: "from-green-500 to-green-600",
     description: "Food costs depend on where you shop and eating habits. Local supermarkets are cheaper than imported brands.",
     prices: [
       { item: "Milk (1 liter)", price: "AED 6 - 8" },
@@ -148,14 +155,11 @@ const expenses = [
       { item: "Mid-range restaurant (2 people)", price: "AED 150 - 250" },
       { item: "Fast food combo meal", price: "AED 25 - 35" }
     ],
-    savingTip: "Shop at Carrefour, Lulu, or Nesto for best prices. Cook at home - eating out adds up fast!",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200&h=800&fit=crop"
+    savingTip: "Shop at Carrefour, Lulu, or Nesto for best prices. Cook at home - eating out adds up fast!"
   },
   {
     id: 3,
     category: "Transportation",
-    icon: Car,
-    color: "from-red-500 to-red-600",
     description: "Most people need a car in Dubai. Public transport exists but limited. Taxis and Uber are affordable.",
     prices: [
       { item: "New car (monthly payment)", price: "AED 1,500 - 3,500" },
@@ -166,14 +170,11 @@ const expenses = [
       { item: "Metro monthly pass", price: "AED 350" },
       { item: "Uber/Careem (average ride)", price: "AED 25 - 50" }
     ],
-    savingTip: "Buy a reliable used car instead of new. Save AED 1,000+ monthly in payments!",
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&h=800&fit=crop"
+    savingTip: "Buy a reliable used car instead of new. Save AED 1,000+ monthly in payments!"
   },
   {
     id: 4,
     category: "Utilities & Bills",
-    icon: Zap,
-    color: "from-yellow-500 to-yellow-600",
     description: "DEWA (Dubai Electricity & Water) is your main utility. AC costs spike in summer (May-September).",
     prices: [
       { item: "DEWA (studio, summer)", price: "AED 400 - 700" },
@@ -184,14 +185,11 @@ const expenses = [
       { item: "Mobile plan (unlimited)", price: "AED 250 - 400/month" },
       { item: "Streaming services (Netflix, etc)", price: "AED 35 - 60/month" }
     ],
-    savingTip: "Set AC to 24°C (not 18°C!) to save 30-40% on cooling costs. Turn off when you leave!",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&h=800&fit=crop"
+    savingTip: "Set AC to 24°C (not 18°C!) to save 30-40% on cooling costs. Turn off when you leave!"
   },
   {
     id: 5,
     category: "Education & Schools",
-    icon: GraduationCap,
-    color: "from-indigo-500 to-indigo-600",
     description: "School fees are expensive! Varies by curriculum (British, American, IB) and school reputation.",
     prices: [
       { item: "Budget schools (local curriculum)", price: "AED 12,000 - 20,000/year" },
@@ -202,14 +200,11 @@ const expenses = [
       { item: "School bus (annual)", price: "AED 4,000 - 8,000/year" },
       { item: "School supplies & extras", price: "AED 2,000 - 5,000/year" }
     ],
-    savingTip: "Apply early for affordable schools - they fill up fast! Some employers offer education allowance.",
-    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1200&h=800&fit=crop"
+    savingTip: "Apply early for affordable schools - they fill up fast! Some employers offer education allowance."
   },
   {
     id: 7,
     category: "Entertainment & Lifestyle",
-    icon: Star,
-    color: "from-purple-500 to-purple-600",
     description: "Dubai has something for every budget. Beach is free! Many affordable activities available.",
     prices: [
       { item: "Gym membership (basic)", price: "AED 200 - 400/month" },
@@ -221,14 +216,11 @@ const expenses = [
       { item: "Golf (18 holes)", price: "AED 300 - 800" },
       { item: "Desert safari", price: "AED 150 - 350" }
     ],
-    savingTip: "Free activities: beaches, parks, Dubai Mall fountain, outdoor markets. Dubai doesn't have to be expensive!",
-    image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1200&h=800&fit=crop"
+    savingTip: "Free activities: beaches, parks, Dubai Mall fountain, outdoor markets. Dubai doesn't have to be expensive!"
   },
   {
     id: 8,
     category: "Clothing & Shopping",
-    icon: Shirt,
-    color: "from-orange-500 to-orange-600",
     description: "Shopping ranges from budget to ultra-luxury. Sales happen during Dubai Shopping Festival and Summer Surprises.",
     prices: [
       { item: "Jeans (Levi's)", price: "AED 200 - 350" },
@@ -238,9 +230,73 @@ const expenses = [
       { item: "Summer outfit", price: "AED 150 - 400" },
       { item: "Formal suit", price: "AED 800 - 2,500" }
     ],
-    savingTip: "Shop during sales (Jan-Feb, June-Aug) for 50-70% discounts! Outlet malls have great deals year-round.",
-    image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1200&h=800&fit=crop"
+    savingTip: "Shop during sales (Jan-Feb, June-Aug) for 50-70% discounts! Outlet malls have great deals year-round."
   }
+]
+
+/* the live page's storage note for the categories that had one */
+const STORAGE_NOTE: Record<string, string> = {
+  "Housing & Rent":
+    "Paying AED 90,000/year for a 2-bed apartment? Get a 1-bed for AED 60,000 and store extra items, paying only for the space they use.",
+  Transportation:
+    "Don't pay AED 2,000+ monthly for a car you rarely use. Store seasonal sports equipment, camping gear and winter clothes instead of buying a bigger car.",
+  "Education & Schools":
+    "Kids outgrow everything. Store last year's school uniforms, sports gear and toys, and swap seasonally instead of buying new every year.",
+  "Clothing & Shopping":
+    "Bought too much during the sales? Store seasonal clothes, extra furniture and bulk buys rather than renting a bigger place for them.",
+}
+
+/* the owner's own picture per category (saved 2026-10-17, used as given) */
+const CAT_IMG: Record<string, string> = {
+  "Housing & Rent": "/landing/cost-housing.webp",
+  "Groceries & Food": "/landing/cost-food.webp",
+  Transportation: "/landing/cost-transport.webp",
+  "Utilities & Bills": "/landing/cost-utilities.webp",
+  "Education & Schools": "/landing/cost-education.webp",
+  "Entertainment & Lifestyle": "/landing/cost-lifestyle.webp",
+  "Clothing & Shopping": "/landing/cost-shopping.webp",
+}
+
+/* five lines per category, so the prices sit level with the picture.
+   Housing keeps the villa and the mid-range 2-bed rather than the first five. */
+const SHOW: Record<string, number[]> = { "Housing & Rent": [0, 1, 2, 4, 6] }
+const linesFor = (e: { category: string; prices: { item: string; price: string }[] }) =>
+  SHOW[e.category] ? SHOW[e.category].map((n) => e.prices[n]) : e.prices.slice(0, 5)
+
+/* an icon per category, in the order above */
+const CAT_EMOJI: Record<string, string> = {
+  "Housing & Rent": "🏠",
+  "Groceries & Food": "🛒",
+  "Transportation": "🚗",
+  "Utilities & Bills": "💡",
+  "Education & Schools": "🎓",
+  "Entertainment & Lifestyle": "🎟️",
+  "Clothing & Shopping": "👕",
+}
+
+const smart = [
+  { Icon: Home, title: "Smaller = cheaper", text: "A 1-bed instead of a 2-bed can be AED 30,000 a year less in rent" },
+  { Icon: Package, title: "Pay only for space used", text: "Against AED 2,500+ a month for the extra rented room" },
+  { Icon: TrendingDown, title: "Keep what you own", text: "Store what will not fit rather than replacing it later" },
+]
+
+const faqs = [
+  {
+    q: "What salary do I need to live comfortably in Dubai?",
+    a: "Single person: AED 10,000-15,000/month for comfortable life. Couple: AED 18,000-25,000. Family of 4: AED 30,000-40,000. Remember - no tax, so your full salary is yours!",
+  },
+  {
+    q: "Is Dubai more expensive than other cities?",
+    a: "Comparable to London or New York for rent, but cheaper for: groceries, transport, dining out, and fuel. Plus 0% income tax makes your salary go further!",
+  },
+  {
+    q: "Can I save money living in Dubai?",
+    a: "Absolutely! Most people save 30-50% of their salary because there's no income tax. Live smart (cook at home, smaller apartment, use storage for extra stuff) and you'll save a lot.",
+  },
+  {
+    q: "What's the most expensive thing in Dubai?",
+    a: "Rent and school fees! Rent is 40-50% of expenses. International schools cost AED 40,000-100,000 per child annually. Plan your budget around these two big items.",
+  },
 ]
 
 const costOfLivingSchemas = [
@@ -259,9 +315,18 @@ const costOfLivingSchemas = [
     mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://safestorage.ae/guides/dubai-cost-of-living' },
     inLanguage: 'en-AE',
     about: { '@type': 'City', name: 'Dubai' },
+  },  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
   },
-  
 ]
+
+const idx = (i: number) => ({ ["--i" as string]: i }) as CSSProperties
 
 export default function DubaiCostOfLiving2026() {
   return (
@@ -273,300 +338,187 @@ export default function DubaiCostOfLiving2026() {
           { name: "Dubai Cost of Living" },
         ]}
       />
-    <SchemaScript schema={costOfLivingSchemas} />
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#0A2463] via-[#3E92CC] to-[#0A2463] text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/images/dubai-skyline-pattern.svg')] bg-repeat-x bg-bottom"></div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Calculator className="h-6 w-6 text-[#D8315B]" />
-              <span className="text-sm font-semibold bg-[#D8315B] px-3 py-1 rounded-full">REAL PRICES 2026</span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Dubai <span className="text-[#D8315B]">Cost of Living</span> 2026
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-200">
-              Complete budget breakdown with real prices in AED. How much do you really need to live comfortably in Dubai?
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <DollarSign className="h-4 w-4 text-[#D8315B]" />
-                <span className="text-sm">Updated January 2026</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <CheckCircle2 className="h-4 w-4 text-[#D8315B]" />
-                <span className="text-sm">Real Resident Experiences</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SchemaScript schema={costOfLivingSchemas} />
 
-      {/* Key Highlight */}
-      <section className="py-8 bg-gradient-to-r from-green-50 to-emerald-50 border-b border-green-200">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-[#0A2463] mb-3 flex items-center justify-center gap-2">
-              <TrendingDown className="h-6 w-6 text-green-600" />
-              The Big Advantage: 0% Income Tax!
-            </h2>
-            <p className="text-gray-700 text-lg">
-              You keep 100% of your salary. A AED 20,000 salary in Dubai = AED 25,000-30,000 elsewhere after tax.
-              This makes Dubai very affordable despite seeming expensive!
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Budget Profiles */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0A2463] mb-4">
-                How Much Do You Need? Monthly Budget by Lifestyle
-              </h2>
-              <p className="text-gray-600 text-lg">
-                Choose your profile to see realistic monthly expenses
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* hero — copy left, the owner's picture right */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy}`}>
+              <span className={s.heroTag}>Real prices 2026 · Updated January 2026</span>
+              <h1>
+                Dubai <br className={s.mBreakDesk} />
+                <em>cost of living 2026</em>
+              </h1>
+              <p>
+                Complete budget breakdown with real prices in AED. How much do you really need to live
+                comfortably in Dubai?
               </p>
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a free quote →
+                </Link>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
+                </a>
+              </div>
             </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {budgetProfiles.map((profile) => (
-                <Card key={profile.id} className="hover:shadow-2xl transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className={`bg-gradient-to-r ${profile.color} text-white p-4 rounded-lg mb-4`}>
-                      <div className="text-4xl mb-2">{profile.icon}</div>
-                      <h3 className="text-xl font-bold mb-1">{profile.title}</h3>
-                      <div className="text-3xl font-bold">AED {profile.monthly}</div>
-                      <div className="text-sm opacity-90">per month</div>
-                    </div>
-
-                    <div className="space-y-2">
-                      {profile.breakdown.map((item, idx) => (
-                        <div key={idx} className="flex justify-between items-center text-sm border-b border-gray-100 pb-2">
-                          <span className="text-gray-700">{item.item}</span>
-                          <span className="font-semibold text-[#0A2463]">AED {item.amount}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/landing/cost-of-living-photo.webp"
+                alt="The cost of living in Dubai — rent, groceries, a car and the Downtown skyline"
+                fetchPriority="high"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Detailed Expense Categories */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto space-y-16">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0A2463] mb-4">
-                Complete Price Breakdown by Category
+        <LandingTrust />
+
+        {/* what a month costs, by household */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 8 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Monthly budget</span>
+              <h2 className={p.longH2}>
+                How much do <em>you need?</em>
               </h2>
-              <p className="text-gray-600 text-lg">
-                Real prices for everything you'll spend money on in Dubai
-              </p>
             </div>
-
-            {expenses.map((expense, index) => (
-              <div key={expense.id}>
-                {/* Expense Card */}
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* Image */}
-                    <div className="relative h-80 md:h-auto">
-                      <Image
-                        src={expense.image}
-                        alt={expense.category}
-                        width={600}
-                        height={400}
-                        className="object-cover w-full h-full"
-                        priority={index < 2}
-                      />
-                      <div className={`absolute top-4 left-4 bg-gradient-to-r ${expense.color} px-4 py-2 rounded-full font-bold text-white shadow-lg flex items-center gap-2`}>
-                        <expense.icon className="h-5 w-5" />
-                        <span>{expense.category}</span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <CardContent className="p-6 md:p-8">
-                      <p className="text-gray-700 mb-6 leading-relaxed">
-                        {expense.description}
-                      </p>
-
-                      <div className="mb-6">
-                        <h3 className="font-semibold text-[#0A2463] mb-3 flex items-center gap-2">
-                          <Wallet className="h-5 w-5 text-[#D8315B]" />
-                          Real Prices (AED):
-                        </h3>
-                        <div className="space-y-2">
-                          {expense.prices.map((price, idx) => (
-                            <div key={idx} className="flex justify-between items-start text-sm border-b border-gray-100 pb-2">
-                              <span className="text-gray-700 flex-1">{price.item}</span>
-                              <span className="font-semibold text-[#0A2463] ml-4 whitespace-nowrap">{price.price}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
-                        <div className="flex items-start gap-2">
-                          <PiggyBank className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-green-900 mb-1">Money-Saving Tip:</h4>
-                            <p className="text-sm text-green-800">{expense.savingTip}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </div>
-                </Card>
-
-                {/* Storage Tip Section (every other category) */}
-                {index % 2 === 0 && (
-                  <div className="mt-8 grid md:grid-cols-2 gap-6 items-center bg-gradient-to-r from-[#0A2463]/5 to-[#3E92CC]/5 p-6 rounded-xl border border-[#3E92CC]/20">
-                    <div>
-                      <div className="flex items-center gap-2 mb-3">
-                        <Package className="h-5 w-5 text-[#D8315B]" />
-                        <h3 className="font-semibold text-[#0A2463]">
-                          Save Money with Smart Storage
-                        </h3>
-                      </div>
-                      <p className="text-gray-700 mb-4 text-sm leading-relaxed">
-                        {index === 0 ? "Paying AED 90,000/year for a 2-bed apartment? Get a 1-bed for AED 60,000 and store extra items, paying only for the space they use. Save thousands annually!" :
-                         index === 2 ? "Don't pay AED 2,000+ monthly for a car you rarely use! Store seasonal sports equipment, camping gear, and winter clothes instead of buying a bigger car." :
-                         index === 4 ? "Kids outgrow everything! Store last year's school uniforms, sports gear, and toys. Swap seasonally instead of buying new every year." :
-                         "Bought too much during sales? Store seasonal clothes, extra furniture, and bulk purchases. Pay monthly storage instead of yearly rent for extra space!"}
-                      </p>
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        <Button size="sm" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>
-                          <Link href="/get-quote">
-                            Calculate Savings
-                            <ArrowRight className="ml-1 h-4 w-4" />
-                          </Link>
-                        </Button>
-                        <Button size="sm" variant="outline" asChild>
-                          <a href="tel:+971505773388">
-                            <Phone className="mr-1 h-4 w-4" />
-                            Call Us
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* Warehouse Image */}
-                    <div className="relative h-48 rounded-lg overflow-hidden">
-                      <Image
-                        src={index % 3 === 0 ? "/organized-warehouse-space.png" : index % 3 === 1 ? "/expansive-storage.png" : "/varied-storage-row.png"}
-                        alt="SafeStorage Facility"
-                        width={500}
-                        height={300}
-                        className="object-cover w-full h-full"
-                      />
-                      <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg">
-                        <p className="text-xs font-semibold text-[#0A2463]">Save AED 20,000+ Yearly on Rent!</p>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
+            <p>Four households, and where the money actually goes each month.</p>
+          </div>
+          <HomeReveal className={c.profiles}>
+            {budgetProfiles.map((b, i) => (
+              <article className={c.profile} style={idx(i)} key={b.id}>
+                <span className={c.face} aria-hidden="true">
+                  {b.icon}
+                </span>
+                <h3>{b.title}</h3>
+                <p className={c.amount}>
+                  AED {b.monthly}
+                  <small>per month</small>
+                </p>
+                <ul className={c.rows}>
+                  {b.breakdown.map((r) => (
+                    <li key={r.item}>
+                      <span>{r.item}</span>
+                      <b>{r.amount}</b>
+                    </li>
+                  ))}
+                </ul>
+              </article>
             ))}
-          </div>
-        </div>
-      </section>
+          </HomeReveal>
+        </section>
 
-      {/* Budget Calculator CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#0A2463] to-[#3E92CC] text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Smart Living = Save More Money in Dubai
-            </h2>
-            <p className="text-xl mb-8 text-gray-200">
-              Thousands save AED 20,000+ annually by storing items instead of renting bigger apartments. Join them!
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-                <Home className="h-10 w-10 text-[#D8315B] mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Smaller = Cheaper</h3>
-                <p className="text-sm text-gray-200">1-bed vs 2-bed saves AED 30,000/year</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-                <Package className="h-10 w-10 text-[#D8315B] mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Pay Only for Space Used</h3>
-                <p className="text-sm text-gray-200">vs AED 2,500+ extra rent monthly</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-                <TrendingDown className="h-10 w-10 text-[#D8315B] mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Save Thousands Every Year</h3>
-                <p className="text-sm text-gray-200">That's a vacation every year!</p>
-              </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>
-                <Link href="/get-quote">See How Much You Can Save</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="bg-white text-[#0A2463] hover:bg-gray-100" asChild>
-                <Link href="/self-storage-dubai/prices">View Storage Pricing</Link>
-              </Button>
+        {/* category by category */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Price breakdown</span>
+              <h2 className={p.longH2}>
+                What things cost, <em>category by category.</em>
+              </h2>
             </div>
           </div>
-        </div>
-      </section>
+          <HomeReveal className={c.list}>
+            {expenses.map((e, i) => (
+              <article className={c.row} style={idx(i)} key={e.id}>
+                <div className={c.shot}>
+                  <Image src={CAT_IMG[e.category]} alt={e.category} width={1730} height={909} />
+                </div>
+                <div className={c.body}>
+                  <div className={c.catTop}>
+                    <span className={c.catIcon} aria-hidden="true">
+                      {CAT_EMOJI[e.category] ?? "💷"}
+                    </span>
+                    <h3>{e.category}</h3>
+                  </div>
+                  <p>{e.description}</p>
+                  <ul className={c.rows}>
+                    {linesFor(e).map((r) => (
+                      <li key={r.item}>
+                        <span>{r.item}</span>
+                        <b>{r.price}</b>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className={c.tip}>
+                    <b>Tip</b> {e.savingTip}
+                  </p>
+                  {STORAGE_NOTE[e.category] ? (
+                    <p className={c.store}>
+                      <b>Where storage helps</b> {STORAGE_NOTE[e.category]}
+                    </p>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </HomeReveal>
+        </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 text-[#0A2463]">
-              Common Money Questions About Dubai
-            </h2>
-            <div className="space-y-6">
-              <div className="border-l-4 border-[#D8315B] pl-4">
-                <h3 className="font-semibold text-lg mb-2 text-[#0A2463]">What salary do I need to live comfortably in Dubai?</h3>
-                <p className="text-gray-700">Single person: AED 10,000-15,000/month for comfortable life. Couple: AED 18,000-25,000. Family of 4: AED 30,000-40,000. Remember - no tax, so your full salary is yours!</p>
-              </div>
-              <div className="border-l-4 border-[#D8315B] pl-4">
-                <h3 className="font-semibold text-lg mb-2 text-[#0A2463]">Is Dubai more expensive than other cities?</h3>
-                <p className="text-gray-700">Comparable to London or New York for rent, but cheaper for: groceries, transport, dining out, and fuel. Plus 0% income tax makes your salary go further!</p>
-              </div>
-              <div className="border-l-4 border-[#D8315B] pl-4">
-                <h3 className="font-semibold text-lg mb-2 text-[#0A2463]">Can I save money living in Dubai?</h3>
-                <p className="text-gray-700">Absolutely! Most people save 30-50% of their salary because there's no income tax. Live smart (cook at home, smaller apartment, use storage for extra stuff) and you'll save a lot.</p>
-              </div>
-              <div className="border-l-4 border-[#D8315B] pl-4">
-                <h3 className="font-semibold text-lg mb-2 text-[#0A2463]">What's the most expensive thing in Dubai?</h3>
-                <p className="text-gray-700">Rent and school fees! Rent is 40-50% of expenses. International schools cost AED 40,000-100,000 per child annually. Plan your budget around these two big items.</p>
-              </div>
+        {/* living smaller */}
+        <section className={`${s.darkBand} ${s.whyBand}`}>
+          <div className={s.wrap}>
+            <div className={s.bandHead}>
+              <span className={s.howEyebrow}>Where storage fits</span>
+              <h2>
+                Rent the space <br className={s.mBreak} />
+                <em>you actually live in.</em>
+              </h2>
+              <p>
+                Rent is the biggest line in every budget on this page. Taking a smaller home and storing what
+                will not fit is the simplest way to cut it — you pay only for the space your items use.
+              </p>
+            </div>
+            <FeatScroller>
+              {smart.map((f) => (
+                <article className={s.feat} key={f.title}>
+                  <div className={s.featIcon}>
+                    <f.Icon strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3>{f.title}</h3>
+                  <p>{f.text}</p>
+                </article>
+              ))}
+            </FeatScroller>
+            <div className={s.bandCta} style={{ flexWrap: "wrap", gap: 14 }}>
+              <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                Get a free quote →
+              </Link>
+              <Link className={`${s.btn} ${s.btnGhost}`} href="/self-storage-dubai/prices">
+                How storage is priced
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Final CTA */}
-      <section className="py-12 bg-gray-100">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold mb-4 text-[#0A2463]">Live Smart. Save More. Enjoy Dubai!</h3>
-          <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-            Don't let high rent eat your salary. Store smartly and save thousands every year!
-          </p>
-          <Button className="bg-[#0A2463] hover:bg-[#3E92CC]" asChild>
-            <Link href="/self-storage-dubai">
-              Explore Storage Solutions
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-      </section>
-    </div>
+        {/* the questions */}
+        <section className={`${s.section} ${s.wrap}`} id="faq">
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>FAQ</span>
+              <h2 className={p.longH2}>
+                Common money questions <em>about Dubai.</em>
+              </h2>
+            </div>
+          </div>
+          <FaqAccordion items={faqs} />
+        </section>
+
+        <CtaBand
+          title="Live smart. Save more. Enjoy Dubai."
+          blurb="Don't let high rent eat your salary. Tell us what you would rather store than pay rent for, and we will send a free, itemised quote."
+          ctaLabel="Get a Free Quote"
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
+      </div>
+
       <SiloLinks path="/guides/dubai-cost-of-living" />
     </>
   )
