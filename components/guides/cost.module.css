@@ -54,6 +54,12 @@
   color: var(--navy);
   margin-bottom: 8px;
 }
+/* the budget cards line up even when a title runs to two lines */
+@media (min-width: 621px) {
+  .profile h3 {
+    min-height: 40px;
+  }
+}
 .amount {
   font-family: var(--font-sora), "Sora", sans-serif;
   font-size: 20px;

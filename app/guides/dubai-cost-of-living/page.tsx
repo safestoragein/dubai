@@ -257,6 +257,12 @@ const CAT_IMG: Record<string, string> = {
   "Clothing & Shopping": "/landing/cost-shopping.webp",
 }
 
+/* five lines per household: rent, food, getting about, bills and the one
+   that matters most to that household (school fees for the family). */
+const BUDGET: Record<number, number[]> = { 4: [0, 1, 2, 3, 5] }
+const budgetLines = (b: { id: number; breakdown: { item: string; amount: string }[] }) =>
+  BUDGET[b.id] ? BUDGET[b.id].map((n) => b.breakdown[n]) : b.breakdown.slice(0, 5)
+
 /* five lines per category, so the prices sit level with the picture.
    Housing keeps the villa and the mid-range 2-bed rather than the first five. */
 const SHOW: Record<string, number[]> = { "Housing & Rent": [0, 1, 2, 4, 6] }
@@ -406,7 +412,7 @@ export default function DubaiCostOfLiving2026() {
                   <small>per month</small>
                 </p>
                 <ul className={c.rows}>
-                  {b.breakdown.map((r) => (
+                  {budgetLines(b).map((r) => (
                     <li key={r.item}>
                       <span>{r.item}</span>
                       <b>{r.amount}</b>
@@ -449,7 +455,6 @@ export default function DubaiCostOfLiving2026() {
                     </span>
                     <h3>{e.category}</h3>
                   </div>
-                  <p>{e.description}</p>
                   <ul className={c.rows}>
                     {linesFor(e).map((r) => (
                       <li key={r.item}>
