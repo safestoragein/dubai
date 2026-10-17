@@ -81,6 +81,8 @@ export default function Footer() {
               {[
                 ["/about", "About Us"],
                 ["/guides", "Guides"],
+                ["/guides/best-storage-companies-dubai", "Storage Companies in Dubai"],
+                ["/guides/best-storage-companies-uae", "Storage Companies in UAE"],
                 ["/blog", "Blog"],
                 ["/faq", "FAQs"],
                 ["/testimonials", "Reviews"],
