@@ -362,4 +362,229 @@ export const GUIDE_PAGES: SiloPageContent[] = [
       "/guides/best-places-to-live-dubai",
     ],
   },
+
+  /* ------------------------------------------- best-storage-companies-dubai */
+  {
+    silo: "guides",
+    path: "/guides/best-storage-companies-dubai",
+    crumb: "Storage Companies in Dubai",
+    navLabel: "Storage companies in Dubai",
+    navBlurb: "How the Dubai operators differ, and what to compare them on.",
+    title: "Storage Companies in Dubai Compared | How to Choose, 2026",
+    description:
+      "Storage companies in Dubai compared by model: self-storage units, valet storage and warehouse storage. What each includes, what it leaves out, and the questions to ask.",
+    keywords:
+      "storage companies in dubai, best storage companies dubai, top storage companies dubai, storage company dubai comparison, self storage vs valet storage dubai",
+    ogTitle: "Storage Companies in Dubai Compared",
+    datePublished: "2026-01-01",
+    h1: "Storage Companies in Dubai Compared (2026)",
+    introH2: "The short version",
+    hero: [
+      "Storage companies in Dubai fall into three models, and the model matters more than the brand. It decides who does the lifting, what you pay for, and how much of the cost shows up in the first quote. This guide is part of our [storage and moving guides](/guides).",
+      "**Self-storage** rents you a unit that you load yourself. **Valet storage** collects from your door, stores the goods and returns them. **Warehouse storage** holds pallets and bulk stock for businesses. Most of the confusion in this market comes from comparing a price for one model against a price for another.",
+      "We are a valet operator, so we are not a neutral party. We have not scored or ranked other companies here: we cannot verify their prices or reviews, and an invented score helps nobody. What follows is the comparison that does hold, which is how the models differ and what to ask any provider, including us.",
+    ],
+    sections: [
+      {
+        kind: "table",
+        h2: "The three kinds of storage company in Dubai",
+        intro: "Pick the model first. Then compare providers inside it.",
+        columns: ["", "Self-storage", "Valet storage", "Warehouse / bulk"],
+        rows: [
+          ["Who moves the goods", "You, or a mover you hire", "The provider collects and returns", "Usually you or your haulier"],
+          ["What you pay for", "A unit of a fixed size", "The floor space your goods occupy, plus transport", "Pallet positions or floor area"],
+          ["Access to your things", "Visit the facility yourself", "Request a delivery back", "By arrangement"],
+          ["Best when", "You visit often and can transport your own goods", "You want the lifting and the van taken care of", "You hold stock, not household goods"],
+          ["Cost that is easy to miss", "Two van or mover trips, plus any unit size you do not fill", "The transport leg, which should be itemised", "Handling and minimum pallet commitments"],
+        ],
+        note: "A low monthly figure on a unit and a valet quote are different products. To see how our own figure is built, read [how our pricing works](/self-storage-dubai/prices).",
+      },
+      {
+        kind: "cards",
+        h2: "What actually separates one company from another",
+        intro: "These are the differences that show up after you have signed. None of them is visible in a headline monthly rate.",
+        items: [
+          { icon: "📦", h: "What the quote includes", p: "Ask whether transport, wrapping, packing materials and VAT are inside the figure or added later. A quote that does not say is usually leaving something out." },
+          { icon: "🔁", h: "Billing basis", p: "A fixed unit is billed whether you fill it or not. Billing on the space your goods use changes as your goods do. Check which one you are signing for." },
+          { icon: "📅", h: "Contract and notice", p: "Ask for the minimum term, the notice period to leave, and whether the first month is pro-rated. Get all three in writing." },
+          { icon: "🔐", h: "Who can reach your goods", p: "Ask how access is controlled, who else can enter the storage area, and whether your items are recorded on collection." },
+          { icon: "🛡️", h: "What happens if something is damaged", p: "Ask what the provider is liable for and whether you are expected to insure the contents yourself. Read the clause before you need it." },
+          { icon: "🧾", h: "How you get them back", p: "Ask how long a return takes to book, whether there is a charge for each delivery, and whether you can take back only part of what is stored." },
+        ],
+      },
+      {
+        kind: "checklist",
+        h2: "Questions to ask every storage company before you pay",
+        intro: "Send the same list to each provider you are considering. A written answer from each is what makes the quotes comparable.",
+        items: [
+          "What is the total for my goods for three months, including transport both ways and VAT?",
+          "Is the monthly charge based on a fixed unit or on the space my goods use?",
+          "What is the minimum term, and how much notice do I give to leave?",
+          "Are packing, wrapping and materials included or charged separately?",
+          "Is there a fee each time I ask for items back?",
+          "Who is responsible if an item is damaged, and is insurance offered or required?",
+          "Where will my goods physically be stored, and can I see it?",
+        ],
+        note: "If a provider will not put the answers in writing, treat that as an answer.",
+      },
+      {
+        kind: "prose",
+        h2: "Where SafeStorage fits, and where it does not",
+        paras: [
+          "We run a valet model. Our team collects from your home or office, wraps your goods as part of every collection, and stores them in our [Dubai storage](/self-storage-dubai) facility in the Dubai Investment Park area, with further facilities in Sharjah and Ajman. You are billed monthly on the space your goods use, there is no lock-in, and the quote is free and itemised.",
+          "We are the wrong choice if you want to drive to a unit and move things in and out yourself several times a week. A self-storage unit suits that better. We are a good fit when you would rather not hire a van, do the lifting or work out unit sizes.",
+          "For a move that needs both, see our [moving and storage service](/moving-storage-dubai). For storage outside Dubai, we collect across the UAE; see [moving and storage across the UAE](/moving-storage-uae).",
+        ],
+      },
+      {
+        kind: "steps",
+        h2: "How to get a fair comparison in one afternoon",
+        items: [
+          { h: "Decide the model", p: "Choose self-storage, valet or warehouse using the table above. Do not compare across models." },
+          { h: "Write down what you are storing", p: "A room list with rough counts is enough for a valet quote. A self-storage provider needs your estimate of the unit size." },
+          { h: "Send the same questions to three providers", p: "Use the checklist above. Ask for answers by email so you can lay them side by side." },
+          { h: "Compare the three-month total", p: "Add transport, materials and VAT to the monthly figure. The cheapest monthly rate is often not the cheapest total." },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Which storage company in Dubai is best?",
+        a: "It depends on the model you need rather than on a single winner. Self-storage suits people who visit often, valet storage suits people who want collection and delivery, and warehouse storage suits businesses with bulk stock. Compare providers inside one model, using written quotes for the same goods.",
+      },
+      {
+        q: "What is the difference between self-storage and valet storage?",
+        a: "With self-storage you rent a unit and move your goods in yourself. With valet storage the provider collects from your door, stores the goods and brings them back when you ask. Self-storage gives you direct access; valet storage removes the lifting and transport.",
+      },
+      {
+        q: "How do I compare storage quotes in Dubai?",
+        a: "Ask every provider for the total over the same period for the same goods, including transport both ways, packing materials and VAT. Also ask about the minimum term and notice period. A monthly rate on its own is not comparable between providers.",
+      },
+      {
+        q: "How much do storage companies charge in Dubai?",
+        a: "It varies by provider, model and how much space you need, so ask each one for a written quote on the same space. SafeStorage charges only for the space your goods use and gives a free, itemised quote.",
+      },
+      {
+        q: "Do storage companies in Dubai offer pickup and delivery?",
+        a: "Valet storage providers do, as part of the service. Self-storage providers generally expect you to transport your own goods, though some can recommend a mover. Ask each provider what is included.",
+      },
+      {
+        q: "Is there a storage company in Dubai that offers month-to-month terms?",
+        a: "Terms differ between companies, so ask for the minimum term and notice period in writing. At SafeStorage there is no lock-in: you are billed monthly for the space your goods use.",
+      },
+    ],
+    cta: {
+      h2: "Want a quote you can compare?",
+      p: "Tell us what you are storing and we will send a free, itemised quote with transport and materials shown separately.",
+    },
+    siblings: [
+      "/guides/how-much-does-storage-cost-in-dubai",
+      "/guides/best-storage-companies-uae",
+      "/guides/storage-packing-checklist",
+      "/guides/dubai-tenancy-and-moving-calendar",
+    ],
+  },
+
+  /* -------------------------------------------- best-storage-companies-uae */
+  {
+    silo: "guides",
+    path: "/guides/best-storage-companies-uae",
+    crumb: "Storage Companies in the UAE",
+    navLabel: "Storage companies in the UAE",
+    navBlurb: "The same comparison, for storage outside Dubai as well.",
+    title: "Storage Companies in the UAE Compared | How to Choose, 2026",
+    description:
+      "Storage companies in the UAE compared by model, with what to check outside Dubai: where goods are actually stored, whether collection is offered, and how far each provider reaches.",
+    keywords:
+      "storage companies in uae, best storage companies uae, top storage companies uae, storage uae abu dhabi sharjah, self storage uae",
+    ogTitle: "Storage Companies in the UAE Compared",
+    datePublished: "2026-01-01",
+    h1: "Storage Companies in the UAE Compared (2026)",
+    introH2: "The short version",
+    hero: [
+      "Outside Dubai the first question is not which company, but where your goods will physically be kept and how they get there. A provider can serve Abu Dhabi on its website and store everything in another emirate. This guide is part of our [storage and moving guides](/guides), and the model comparison is in our guide to [storage companies in Dubai](/guides/best-storage-companies-dubai).",
+      "In the UAE, storage splits into **self-storage units**, **valet storage with collection**, and **warehouse storage for businesses**. The differences between them are the same in every emirate; what changes is the reach of each provider.",
+      "We run a valet service and are not a neutral party, so we have not scored other companies. We cannot verify their prices or reviews. This page covers what to check, which is what holds across the country.",
+    ],
+    sections: [
+      {
+        kind: "table",
+        h2: "What to check in each emirate",
+        intro: "The same provider can behave very differently from one emirate to the next.",
+        columns: ["Question", "Why it matters outside Dubai"],
+        rows: [
+          ["Where are my goods stored?", "A provider may collect in your emirate and store in another. That affects how quickly you can get items back."],
+          ["Is collection offered at my address?", "Some providers only serve certain districts. Ask for your exact area, not the city."],
+          ["Is there a charge for each return trip?", "Longer distances between the storage site and your home usually mean the delivery leg costs more."],
+          ["Can I visit the storage site?", "With a collection-based service you may not visit at all. Ask what to expect."],
+          ["Who does the collection?", "Ask whether the provider's own team collects or a contractor does."],
+        ],
+      },
+      {
+        kind: "cards",
+        h2: "How SafeStorage covers the UAE",
+        intro: "Stated plainly, because where the goods end up matters.",
+        items: [
+          { icon: "🏭", h: "Dubai, Sharjah and Ajman", p: "We operate storage facilities in these three emirates." },
+          { icon: "🚚", h: "Abu Dhabi, Al Ain, Ras Al Khaimah, Fujairah and Umm Al Quwain", p: "We collect from your door and store the goods at our nearest facility. We do not have a warehouse in these emirates." },
+          { icon: "🧣", h: "Wrapping on every collection", p: "Wrapping is part of every collection in every emirate, not an optional extra." },
+          { icon: "📅", h: "Monthly billing, no lock-in", p: "You are billed monthly on the space your goods use. A free, itemised quote comes before you commit." },
+        ],
+      },
+      {
+        kind: "prose",
+        h2: "Choosing by emirate",
+        paras: [
+          "In Dubai, Sharjah and Ajman a self-storage unit and a valet service are both realistic, and the choice comes down to how often you want to reach your things. See [self-storage in Dubai](/self-storage-dubai) for how we run it there.",
+          "In Abu Dhabi, Al Ain and the northern emirates, a collection-based service is often the practical option, because a unit means your own transport each way. Our [moving and storage across the UAE](/moving-storage-uae) page lists each emirate and what we do there.",
+          "Whatever the emirate, compare the three-month total including transport both ways and VAT, not the monthly rate on its own.",
+        ],
+      },
+      {
+        kind: "checklist",
+        h2: "Questions to put to any UAE storage company",
+        items: [
+          "Where, in which emirate, will my goods be stored?",
+          "Do you collect from my exact address, and is there a collection charge?",
+          "What do you charge each time I ask for items back, and how long does it take?",
+          "Is the monthly charge a fixed unit or the space my goods use?",
+          "What is the minimum term and notice period?",
+          "Who is responsible if something is damaged?",
+        ],
+        note: "Ask for the answers in writing before paying anything.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which storage company in the UAE is best?",
+        a: "There is no single answer, because it depends on the model and the emirate. Decide between self-storage, valet storage and warehouse storage first, then compare providers inside that model using written quotes for the same goods.",
+      },
+      {
+        q: "Does SafeStorage have a warehouse in Abu Dhabi?",
+        a: "No. We have facilities in Dubai, Sharjah and Ajman. For Abu Dhabi we collect from your door and store at our nearest facility.",
+      },
+      {
+        q: "Can I store goods in Abu Dhabi, Al Ain or Ras Al Khaimah?",
+        a: "Yes, through collection. We collect from your address in those emirates, wrap the goods and store them at our nearest facility, then deliver them back when you ask.",
+      },
+      {
+        q: "How do I compare storage quotes across the UAE?",
+        a: "Ask each provider for the total over the same period for the same goods, including collection, return, packing materials and VAT, and confirm where the goods are stored.",
+      },
+      {
+        q: "Is there a lock-in contract with SafeStorage?",
+        a: "No. You are billed monthly on the space your goods use, and the quote is free and itemised.",
+      },
+    ],
+    cta: {
+      h2: "Storing outside Dubai?",
+      p: "Tell us your emirate and what you are storing, and we will send a free, itemised quote that shows collection and return separately.",
+    },
+    siblings: [
+      "/guides/best-storage-companies-dubai",
+      "/guides/how-much-does-storage-cost-in-dubai",
+      "/guides/storage-packing-checklist",
+      "/guides/dubai-tenancy-and-moving-calendar",
+    ],
+  },
 ]

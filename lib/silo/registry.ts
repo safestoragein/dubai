@@ -148,16 +148,6 @@ export const HAND_WRITTEN: Record<string, { silo: SiloKey; label: string; blurb:
   },
 
   // ---- Guides (moved, with the dated slugs dropped) ------------------------
-  "/guides/best-storage-companies-dubai": {
-    silo: "guides",
-    label: "Best storage companies in Dubai",
-    blurb: "How the Dubai operators compare, and what to compare them on.",
-  },
-  "/guides/best-storage-companies-uae": {
-    silo: "guides",
-    label: "Best storage companies in the UAE",
-    blurb: "The same comparison, across all seven emirates.",
-  },
   "/guides/dubai-cost-of-living": {
     silo: "guides",
     label: "Dubai cost of living",
