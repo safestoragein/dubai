@@ -64,6 +64,8 @@ export default function Footer() {
                 ["/personal-storage-dubai", "Personal Storage"],
                 ["/business-storage-dubai", "Business Storage"],
                 ["/moving-storage-dubai", "Moving & Storage"],
+                ["/moving-storage-abu-dhabi", "Movers Abu Dhabi"],
+                ["/moving-storage-uae", "Movers UAE"],
                 ["/locations", "Locations"],
               ].map(([href, label]) => (
                 <li key={href}>

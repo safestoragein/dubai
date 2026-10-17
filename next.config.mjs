@@ -137,6 +137,19 @@ const nextConfig = {
         destination: '/self-storage-dubai/local-self-storage',
         permanent: true,
       },
+      // Weak duplicates folded into the page that owns the intent (see
+      // LEGACY_PATHS in lib/blog-meta.ts, which must carry the same entries).
+      { source: '/blog/self-storage-cost-dubai', destination: '/self-storage-dubai/prices', permanent: true },
+      {
+        source: '/blog/affordable-storage-dubai-your-complete-guide-to-secure-budget-friendly-storage-solutions',
+        destination: '/self-storage-dubai/prices',
+        permanent: true,
+      },
+      {
+        source: '/blog/best-storage-in-dubai-affordable-safe-storage-solutions',
+        destination: '/guides/best-storage-companies-dubai',
+        permanent: true,
+      },
       {
         // Root-level exact match. The money page is nested so it inherits
         // topical relevance from the hub; this still captures direct-URL and

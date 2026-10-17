@@ -5,7 +5,7 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import SchemaScript from "@/components/schema-script"
 import { renderRich } from "./rich-text"
 import { SILOS } from "@/lib/silo/silos"
-import { SiloLinks } from "./silo-links"
+import { SiloLinks, SiloHubLinks } from "./silo-links"
 import type { Section, SiloPageContent } from "@/lib/silo/types"
 import { PHONE, PHONE_DISPLAY, EMAIL } from "@/lib/company-facts"
 
@@ -29,18 +29,18 @@ import { PHONE, PHONE_DISPLAY, EMAIL } from "@/lib/company-facts"
  * Writing them per page is how they end up on some pages and not others.
  * Rendering them from the registry means a page cannot ship without them.
  */
-export default function SiloPage({ content }: { content: SiloPageContent }) {
+export default function SiloPage({ content, hub = false }: { content: SiloPageContent; hub?: boolean }) {
   const silo = SILOS[content.silo]
 
   return (
     <>
       <SchemaScript schema={pageSchemas(content)} />
       <SiloBreadcrumb
-        trail={[
-          { name: "Home", href: "/" },
-          { name: silo.name, href: silo.hub },
-          { name: content.crumb },
-        ]}
+        trail={
+          hub
+            ? [{ name: "Home", href: "/" }, { name: silo.name }]
+            : [{ name: "Home", href: "/" }, { name: silo.name, href: silo.hub }, { name: content.crumb }]
+        }
       />
 
       <main className="min-h-screen">
@@ -104,7 +104,7 @@ export default function SiloPage({ content }: { content: SiloPageContent }) {
           </section>
         )}
 
-        <SiloLinks path={content.path} siblings={content.siblings} />
+        {hub ? <SiloHubLinks silo={content.silo} /> : <SiloLinks path={content.path} siblings={content.siblings} />}
 
         {/* ---------- closing CTA ---------- */}
         <section className="bg-dubai-navy py-16 text-white">
@@ -290,7 +290,7 @@ export function pageSchemas(content: SiloPageContent) {
       name: content.h1,
       description: content.schemaDescription ?? content.description,
       provider: { "@id": `${SITE}/#organization` },
-      areaServed: { "@type": "City", name: "Dubai" },
+      areaServed: { "@type": "City", name: content.areaServed ?? "Dubai" },
       url,
     })
   }

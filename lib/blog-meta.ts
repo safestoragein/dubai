@@ -245,6 +245,14 @@ const LEGACY_PATHS: Record<string, string> = {
   // Two posts whose commercial intent is now served by a silo page.
   "/blog/local-self-storage-the-ultimate-guide-to-the-best-storage-units-dubai-for-homes-businesses":
     "/self-storage-dubai/local-self-storage",
+  // Weak duplicates of pages that now own the intent (position 70-82, ~1 click
+  // each): two price-intent posts fold into the prices page, one best-of post
+  // into the companies guide. Redirected + dropped from sitemap-blogs.xml.
+  "/blog/self-storage-cost-dubai": "/self-storage-dubai/prices",
+  "/blog/affordable-storage-dubai-your-complete-guide-to-secure-budget-friendly-storage-solutions":
+    "/self-storage-dubai/prices",
+  "/blog/best-storage-in-dubai-affordable-safe-storage-solutions":
+    "/guides/best-storage-companies-dubai",
   "/blog/wine-storage-dubai-keeping-your-collection-safe-in-the-uae-climate":
     "/self-storage-dubai/climate-controlled",
 

@@ -26,13 +26,14 @@ export const SILO5_PAGES: SiloPageContent[] = [
     crumb: "Villa Movers",
     navLabel: "Villa moving",
     navBlurb: "Whole-villa moves, with the garage counted properly.",
-    title: "Villa Movers Dubai | Whole-Villa Moves With Storage In Between",
+    title: "Villa Movers and Packers in Dubai | Garage and Garden Counted",
     description:
-      "Villa moving in Dubai with storage in the middle when dates do not line up. What a villa move actually takes, and the three areas that make it bigger than expected.",
+      "Villa movers and packers in Dubai: we count the garage, garden and maid's room, wrap at your door and store everything if handover dates slip. Free quote.",
     keywords:
-      "villa movers dubai, villa moving dubai, house movers dubai, villa relocation dubai, moving villa dubai",
+      "villa movers in dubai, villa movers and packers in dubai, villa movers dubai, villa moving dubai, house movers dubai, villa relocation dubai",
     ogTitle: "Villa Movers in Dubai",
-    h1: "Villa Moving in Dubai",
+    h1: "Villa Movers in Dubai: The Whole House, Garage Included",
+    introH2: "Villa moving in Dubai, in brief",
     hero: [
       "A villa move is a full day's work and sometimes two, and it is bigger than people expect for one reason: the garage, the garden and the maid's room are not in anybody's mental model of the house. This is the villa end of [moving and storage in Dubai](/moving-storage-dubai).",
       "Where we are most useful is when the dates do not line up — and with villas they frequently do not, because handover and possession dates on larger properties slip more than on flats. **Everything can go into storage for the gap** and come out to the new address when it exists.",
@@ -121,13 +122,14 @@ export const SILO5_PAGES: SiloPageContent[] = [
     crumb: "Apartment Movers",
     navLabel: "Apartment moving",
     navBlurb: "Tower to tower, including both buildings' lift bookings.",
-    title: "Apartment Movers Dubai | Tower To Tower, Both Lifts Booked",
+    title: "Apartment Movers in Dubai | Tower to Tower, Both Lifts Booked",
     description:
-      "Apartment moving in Dubai. We book the service lift at both buildings, handle move-out permits and work inside your tower's permitted window — with storage if dates slip.",
+      "Apartment movers in Dubai: we book the service lift at both buildings, handle move-out permits and work inside your tower's window, with storage if dates slip.",
     keywords:
-      "apartment movers dubai, flat movers dubai, moving apartment dubai, tower move dubai, apartment relocation dubai",
+      "apartment movers in dubai, apartment movers dubai, flat movers dubai, moving apartment dubai, tower move dubai, apartment relocation dubai",
     ogTitle: "Apartment Movers in Dubai — Both Lifts Booked",
-    h1: "Apartment Moving in Dubai",
+    h1: "Apartment Movers in Dubai: Both Buildings' Lifts Booked",
+    introH2: "Apartment moving in Dubai, in brief",
     hero: [
       "A tower-to-tower move in Dubai is a logistics problem before it is a lifting problem, and the thing that goes wrong is almost always the same: someone booked the move-out lift and forgot the move-in one. Both are arranged as part of [moving and storage in Dubai](/moving-storage-dubai).",
       "**We deal with both buildings.** Service lift bookings, permitted moving windows, move-out permits, NOCs where the building wants one, and loading-bay access at each end.",
@@ -216,13 +218,14 @@ export const SILO5_PAGES: SiloPageContent[] = [
     crumb: "Office Movers",
     navLabel: "Office moving",
     navBlurb: "Out of hours, department-labelled, with the gap covered.",
-    title: "Office Movers Dubai | Out Of Hours, With The Gap Covered",
+    title: "Office Movers in Dubai | Out of Hours, Gap Covered",
     description:
-      "Office moving in Dubai. Evening and weekend collections, item-level records, and storage for the gap between an old lease ending and a new fit-out finishing.",
+      "Office movers in Dubai: evening and weekend collections, item-level records, and storage for the gap between an old lease ending and a new fit-out finishing.",
     keywords:
-      "office movers dubai, office relocation dubai, business movers dubai, commercial movers dubai, office moving company dubai",
+      "office movers in dubai, office movers dubai, office relocation dubai, business movers dubai, commercial movers dubai, office moving company dubai",
     ogTitle: "Office Movers in Dubai",
-    h1: "Office Moving in Dubai",
+    h1: "Office Movers in Dubai: Evenings, Gap Covered",
+    introH2: "Office moving in Dubai, in brief",
     hero: [
       "An office move is judged on one thing: whether people can work on Monday. Everything else is detail, and the way to protect it is to move outside working hours and to plan for the fit-out overrunning — which is the moving half of [moving and storage in Dubai](/moving-storage-dubai).",
       "Collections are normally **evenings or a weekend**, because an office cannot be cleared around people working in it, and most Dubai commercial towers restrict move-outs to defined windows anyway.",
@@ -311,15 +314,16 @@ export const SILO5_PAGES: SiloPageContent[] = [
     crumb: "Packing Services",
     navLabel: "Packing services",
     navBlurb: "What we wrap as standard, and what is worth packing yourself.",
-    title: "Packing Services Dubai | What We Wrap, What You Should",
+    title: "Packing and Moving Companies in Dubai | What We Wrap",
     description:
-      "Packing services in Dubai. Furniture wrapping is included in every collection — here is what that covers, what is worth boxing yourself, and why it lowers your bill.",
+      "Packing and moving companies in Dubai: furniture wrapping is part of every collection. See what we wrap, what is worth boxing yourself, and how it lowers your bill.",
     keywords:
-      "packing services dubai, packing and moving dubai, professional packers dubai, moving boxes dubai, packing company dubai",
+      "packing and moving companies dubai, packing services dubai, packing and moving dubai, professional packers dubai, moving boxes dubai, packing company dubai",
     ogTitle: "Packing Services in Dubai — What Is Included",
-    h1: "Packing Services in Dubai",
+    h1: "Packing and Moving in Dubai: What We Wrap, What You Do",
+    introH2: "Packing services, in brief",
     hero: [
-      "Furniture wrapping is included in every collection rather than being a line item you add, and that is worth stating plainly because it is priced separately by most of the market. It is part of the standard service in [moving and storage in Dubai](/moving-storage-dubai).",
+      "Furniture wrapping is included in every collection rather than being a line item you add, and that is worth stating plainly, because most packing and moving companies in Dubai price it separately. It is part of the standard service in [moving and storage in Dubai](/moving-storage-dubai).",
       "**What is included:** wrapping furniture at your property before it moves, protective materials, dismantling and reassembling what is designed to come apart, and carrying and loading.",
       "**What is worth doing yourself:** boxing loose small items. Not because we will not do it, but because it is the single biggest thing that lowers your bill — sealed cartons stack squarely and loose belongings do not, and you are billed on the space your things occupy.",
     ],
@@ -430,6 +434,7 @@ export const SILO5_PAGES: SiloPageContent[] = [
       "dubai to abu dhabi movers, moving between emirates uae, dubai to sharjah movers, inter emirate moving uae, moving to abu dhabi from dubai",
     ogTitle: "Moving Between Emirates in the UAE",
     h1: "Moving Between Emirates",
+    introH2: "Moving between emirates, in brief",
     hero: [
       "Inter-emirate moves are the quiet majority of UAE relocations — Dubai to Abu Dhabi for a job, Dubai to Sharjah or Ajman for rent, Sharjah to Dubai for a commute. All of them are handled as part of [moving and storage in Dubai](/moving-storage-dubai).",
       "We operate warehouses in **Dubai, Sharjah and Ajman**, and collect from Abu Dhabi, Al Ain and the Northern Emirates as a service with storage at the nearest facility. Where your goods end up is stated per emirate rather than implied.",
@@ -525,6 +530,7 @@ export const SILO5_PAGES: SiloPageContent[] = [
       "leaving uae checklist, moving out of dubai checklist, leaving dubai for good, exit checklist uae, cancelling visa dubai moving",
     ogTitle: "Leaving The UAE — The Checklist, In Order",
     h1: "Leaving the UAE: The Checklist, In Order",
+    introH2: "Leaving the UAE, in brief",
     hero: [
       "Most leaving-the-UAE checklists are lists. The problem is that this is a **sequence**, and several steps become impossible once an earlier one is complete — which is why people discover at the airport that something needed doing three weeks ago. This sits alongside the relocation side of [moving and storage in Dubai](/moving-storage-dubai).",
       "The order below is the one that works. The single most important principle in it: **cancel the visa last**, because a great many things you still need to do require a valid residency.",

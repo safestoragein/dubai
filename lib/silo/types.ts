@@ -49,7 +49,7 @@ export type Faq = { q: string; a: string }
 /** A sibling link rendered in the "more in this silo" block. */
 export type SiblingRef = { href: string; label: string; blurb: string }
 
-export type SiloKey = "s1" | "s2" | "s3" | "s4" | "s5" | "guides"
+export type SiloKey = "s1" | "s2" | "s3" | "s4" | "s5" | "s6" | "s7" | "s8" | "s9" | "s10" | "s11" | "guides"
 
 export type SiloPageContent = {
   /** Silo this page belongs to. Drives the breadcrumb and the up-link. */
@@ -72,6 +72,8 @@ export type SiloPageContent = {
 
   // ---- above the fold -----------------------------------------------------
   h1: string
+  /** Title of the opening block (landing renderer). Unique per page; falls back to "The short version". */
+  introH2?: string
   /**
    * Hero paragraphs. Rule 1 of the linking plan: the FIRST of these must carry
    * the up-link to the silo hub, inside the first 150 words, with a natural
@@ -86,6 +88,8 @@ export type SiloPageContent = {
   // ---- schema -------------------------------------------------------------
   /** schema.org Service.serviceType. Omit on guides, which get an Article. */
   serviceType?: string
+  /** Service.areaServed city. Defaults to Dubai; the Abu Dhabi silo sets it. */
+  areaServed?: string
   /** Overrides the Service description. Defaults to `description`. */
   schemaDescription?: string
   /** Guides only — published/updated date for the Article node. */
