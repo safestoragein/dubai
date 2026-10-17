@@ -1,0 +1,46 @@
+/* RTL overrides for the landing design on the Arabic movers pages.
+   landing.module.css is written left-to-right (gradient from the left, left-hand
+   hero gutter). Flex/inline layout flips on its own under dir="rtl"; these rules
+   mirror the three things that do not. Arabic joins letters, so letter-spacing
+   must be 0 and italics are dropped. */
+.ar {
+  font-family: var(--font-cairo), system-ui, sans-serif;
+}
+.ar :is(h1, h2, h3, h4, p, li, em, strong, b, small, span, a) {
+  letter-spacing: 0 !important;
+  font-style: normal !important;
+  font-family: var(--font-cairo), system-ui, sans-serif;
+}
+.ar h1,
+.ar h2 {
+  line-height: 1.35;
+}
+.ar section :global(.heroInner),
+.ar .heroInner {
+  background-image: linear-gradient(
+      260deg,
+      rgba(255, 250, 240, 0.98) 0%,
+      rgba(255, 250, 240, 0.93) 46%,
+      rgba(255, 246, 226, 0.4) 70%,
+      rgba(255, 246, 226, 0.05) 100%
+    ),
+    var(--hero-img) !important;
+}
+.ar .heroContent {
+  padding: 36px var(--hero-gutter) 56px 24px !important;
+  text-align: right;
+}
+@media (max-width: 640px) {
+  .ar .heroContent {
+    padding: 28px 20px 40px !important;
+  }
+}
+.ar .heroTitle {
+  font-size: clamp(26px, 2.8vw, 38px) !important;
+}
+@media (max-width: 640px) {
+  .ar .heroTitle {
+    font-size: calc((100vw - 52px) / 11) !important;
+    line-height: 1.3 !important;
+  }
+}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import SiloPage from "@/components/silo/silo-page"
+import LandingSiloPage from "@/components/silo/landing-silo-page"
 import { PAGE_BY_PATH, dynamicSlugsFor, metadataFor } from "@/lib/silo/registry"
 import { SILOS } from "@/lib/silo/silos"
 
@@ -47,5 +47,5 @@ export default async function Page({ params }: { params: Promise<{ page: string 
   const { page } = await params
   const content = contentFor(page)
   if (!content) notFound()
-  return <SiloPage content={content} />
+  return <LandingSiloPage content={content} />
 }

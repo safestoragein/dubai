@@ -7,6 +7,7 @@
 // reader and give Google nothing to differentiate the posts by.
 
 import { ADDRESS_FULL, EMAIL, HOURS_DISPLAY } from "@/lib/company-facts"
+import moversRetired from "./blog-movers-redirects.json"
 
 /**
  * Blog bodies and excerpts come from the safestorage.in feed, which is edited
@@ -123,7 +124,7 @@ const FEED_RULES: Array<[RegExp, string]> = [
  *   3. Point at the FINAL destination, not at whatever 301s to it, so an
  *      editorial link never costs a redirect hop.
  */
-const LEGACY_PATHS: Record<string, string> = {
+const LEGACY_BASE: Record<string, string> = {
   // ---- Silo 1: self storage -------------------------------------------
   "/services": "/self-storage-dubai",
   "/storage-dubai": "/self-storage-dubai",
@@ -155,7 +156,7 @@ const LEGACY_PATHS: Record<string, string> = {
   // "Box storage" is the luggage page's own subject: "Bags and boxes between a
   // checkout and a flight, or for months."
   "/box-storage-dubai": "/personal-storage-dubai/luggage-storage",
-  "/art-storage": "/personal-storage-dubai/art-storage",
+  "/art-storage": "/personal-storage-dubai",
   "/electronics-storage": "/personal-storage-dubai/electronics-storage",
   "/expat-leaving-uae": "/personal-storage-dubai/expat-storage",
 
@@ -245,6 +246,14 @@ const LEGACY_PATHS: Record<string, string> = {
   // Two posts whose commercial intent is now served by a silo page.
   "/blog/local-self-storage-the-ultimate-guide-to-the-best-storage-units-dubai-for-homes-businesses":
     "/self-storage-dubai/local-self-storage",
+  // Weak duplicates of pages that now own the intent (position 70-82, ~1 click
+  // each): two price-intent posts fold into the prices page, one best-of post
+  // into the companies guide. Redirected + dropped from sitemap-blogs.xml.
+  "/blog/self-storage-cost-dubai": "/self-storage-dubai/prices",
+  "/blog/affordable-storage-dubai-your-complete-guide-to-secure-budget-friendly-storage-solutions":
+    "/self-storage-dubai/prices",
+  "/blog/best-storage-in-dubai-affordable-safe-storage-solutions":
+    "/guides/best-storage-companies-dubai",
   "/blog/wine-storage-dubai-keeping-your-collection-safe-in-the-uae-climate":
     "/self-storage-dubai/climate-controlled",
 
@@ -278,6 +287,20 @@ const LEGACY_PATHS: Record<string, string> = {
     "/blog/packing-and-moving-services-in-dubai-your-complete-guide-to-a-stress-free-relocation",
   "/blog/professional-movers-in-dubai-your-complete-guide-to-a-stress-free-move":
     "/blog/moving-company-dubai-your-complete-guide-to-a-stress-free-relocation",
+}
+
+/**
+ * Movers blogs retired into the silo pages (Oct 2026). 61 posts earned 8 clicks
+ * in 90 days between them and competed with /moving-storage-* for the same
+ * keywords. The map lives in a JSON file so next.config.mjs (the real 308) and
+ * this editorial-link rewrite read the SAME list. Existing entries that pointed
+ * at one of these posts are flattened so no chain is left behind.
+ */
+const MOVERS_RETIRED: Record<string, string> = moversRetired
+
+const LEGACY_PATHS: Record<string, string> = {
+  ...Object.fromEntries(Object.entries(LEGACY_BASE).map(([from, to]) => [from, MOVERS_RETIRED[to] ?? to])),
+  ...MOVERS_RETIRED,
 }
 
 /**

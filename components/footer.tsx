@@ -64,6 +64,8 @@ export default function Footer() {
                 ["/personal-storage-dubai", "Personal Storage"],
                 ["/business-storage-dubai", "Business Storage"],
                 ["/moving-storage-dubai", "Moving & Storage"],
+                ["/moving-storage-abu-dhabi", "Movers Abu Dhabi"],
+                ["/moving-storage-uae", "Movers UAE"],
                 ["/locations", "Locations"],
               ].map(([href, label]) => (
                 <li key={href}>
@@ -79,6 +81,8 @@ export default function Footer() {
               {[
                 ["/about", "About Us"],
                 ["/guides", "Guides"],
+                ["/guides/best-storage-companies-dubai", "Storage Companies in Dubai"],
+                ["/guides/best-storage-companies-uae", "Storage Companies in UAE"],
                 ["/blog", "Blog"],
                 ["/faq", "FAQs"],
                 ["/testimonials", "Reviews"],

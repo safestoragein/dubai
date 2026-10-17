@@ -59,6 +59,55 @@ export const SILOS: Record<SiloKey, SiloDef> = {
     anchor: "moving and storage in Dubai",
     blurb: "Relocation, packing and the storage that sits between two leases.",
   },
+  s6: {
+    key: "s6",
+    name: "Moving & Storage Abu Dhabi",
+    hub: "/moving-storage-abu-dhabi",
+    anchor: "movers and packers in Abu Dhabi",
+    blurb: "Packing, collection and moving from Abu Dhabi, with storage when dates slip.",
+  },
+  s7: {
+    key: "s7",
+    name: "Moving & Storage UAE",
+    hub: "/moving-storage-uae",
+    anchor: "movers and packers in the UAE",
+    blurb: "One moving company that packs, moves and stores, across the UAE.",
+  },
+  s8: {
+    key: "s8",
+    name: "Moving & Storage Sharjah",
+    hub: "/moving-storage-sharjah",
+    anchor: "movers in Sharjah",
+    blurb: "Packing, moving and local storage in Sharjah.",
+  },
+  s9: {
+    key: "s9",
+    name: "Moving & Storage Ajman",
+    hub: "/moving-storage-ajman",
+    anchor: "movers in Ajman",
+    blurb: "Packing, moving and local storage in Ajman.",
+  },
+  s10: {
+    key: "s10",
+    name: "Moving & Storage Ras Al Khaimah",
+    hub: "/moving-storage-ras-al-khaimah",
+    anchor: "movers and packers in Ras Al Khaimah",
+    blurb: "Collection and moving from Ras Al Khaimah.",
+  },
+  s11: {
+    key: "s11",
+    name: "Moving & Storage Al Ain",
+    hub: "/moving-storage-al-ain",
+    anchor: "movers and packers in Al Ain",
+    blurb: "Villa moves and collection from Al Ain.",
+  },
+  s12: {
+    key: "s12",
+    name: "Moving & Storage Fujairah",
+    hub: "/moving-storage-fujairah",
+    anchor: "movers in Fujairah",
+    blurb: "Collection and moving from Fujairah and the east coast.",
+  },
   guides: {
     key: "guides",
     name: "Guides",
@@ -68,7 +117,12 @@ export const SILOS: Record<SiloKey, SiloDef> = {
   },
 }
 
-/** The five commercial hubs, in the order they appear in the footer and grids. */
+/**
+ * The five commercial hubs, in the order they appear in the footer and grids.
+ * s6 (Abu Dhabi moving) is deliberately NOT in this list: it is a regional
+ * mirror of s5, reached from the s5 hub and the Abu Dhabi location pages, and
+ * adding it here would put a sixth card on every hub grid on the site.
+ */
 export const HUB_ORDER: SiloKey[] = ["s1", "s2", "s3", "s4", "s5"]
 
 /** THE money page. Exception A of the linking plan — linkable from anywhere. */

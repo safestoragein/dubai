@@ -104,7 +104,9 @@ const nextConfig = {
   // Internal links were re-pointed at the new targets directly rather than
   // relying on these, so this block catches external links and bookmarks.
   async redirects() {
-    return [
+    // Movers blogs retired into the silo pages (Oct 2026); same JSON as lib/blog-meta.ts.
+    const moversRetired = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'lib/blog-movers-redirects.json'), 'utf8'))
+    const base = [
       // ---------------------------------------------------------------------
       // Retitled auto-published posts (2026-09-22). These went live under the
       // bare-keyword H1 the content machine used to emit; the slug is derived
@@ -135,6 +137,19 @@ const nextConfig = {
         source:
           '/blog/local-self-storage-the-ultimate-guide-to-the-best-storage-units-dubai-for-homes-businesses',
         destination: '/self-storage-dubai/local-self-storage',
+        permanent: true,
+      },
+      // Weak duplicates folded into the page that owns the intent (see
+      // LEGACY_PATHS in lib/blog-meta.ts, which must carry the same entries).
+      { source: '/blog/self-storage-cost-dubai', destination: '/self-storage-dubai/prices', permanent: true },
+      {
+        source: '/blog/affordable-storage-dubai-your-complete-guide-to-secure-budget-friendly-storage-solutions',
+        destination: '/self-storage-dubai/prices',
+        permanent: true,
+      },
+      {
+        source: '/blog/best-storage-in-dubai-affordable-safe-storage-solutions',
+        destination: '/guides/best-storage-companies-dubai',
         permanent: true,
       },
       {
@@ -174,7 +189,9 @@ const nextConfig = {
       { source: '/car-storage',           destination: '/personal-storage-dubai/car-storage',            permanent: true },
       { source: '/student-storage',       destination: '/personal-storage-dubai/student-storage',        permanent: true },
       { source: '/expat-leaving-uae',     destination: '/personal-storage-dubai/expat-storage',          permanent: true },
-      { source: '/art-storage',           destination: '/personal-storage-dubai/art-storage',            permanent: true },
+      // Art storage is not a service we offer; both URLs go to the hub (single hop).
+      { source: '/art-storage',           destination: '/personal-storage-dubai',                        permanent: true },
+      { source: '/personal-storage-dubai/art-storage', destination: '/personal-storage-dubai',               permanent: true },
       { source: '/electronics-storage',   destination: '/personal-storage-dubai/electronics-storage',    permanent: true },
       // Ranking blog post → the commercial page that now owns the keyword.
       {
@@ -404,6 +421,12 @@ const nextConfig = {
         destination: '/blog',
         permanent: true,
       })),
+    ]
+    return [
+      ...base
+        .filter((r) => !(r.source in moversRetired))
+        .map((r) => ({ ...r, destination: moversRetired[r.destination] ?? r.destination })),
+      ...Object.entries(moversRetired).map(([source, destination]) => ({ source, destination, permanent: true })),
     ]
   },
 

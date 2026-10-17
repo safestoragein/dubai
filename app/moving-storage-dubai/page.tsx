@@ -17,6 +17,7 @@ import { FeatScroller } from "@/components/landing/feat-scroller"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import { MilestonesPlayer } from "@/components/landing/milestones-player"
 import s from "@/components/landing/landing.module.css"
+import { HAND_WRITTEN, navFor, pagesInSilo } from "@/lib/silo/registry"
 
 /**
  * SILO 5 HUB · /moving-storage-dubai — owns `moving and storage dubai`.
@@ -27,11 +28,11 @@ import s from "@/components/landing/landing.module.css"
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Moving and Storage Dubai | One Crew, One Job Number" },
+  title: { absolute: "Movers and Packers in Dubai | Moving and Storage Dubai" },
   description:
-    "Moving and storage in Dubai from one provider. Packing, moving and storage when your dates don't line up. Same-day quotes.",
+    "Movers and packers in Dubai who also store your things. We pack, move and hold goods monthly when dates slip, with one barcoded inventory. Free quote.",
   keywords:
-    "moving and storage dubai, best movers dubai, movers and packers dubai, moving company dubai, movers dubai, moving and storage services uae, house shifting dubai",
+    "movers and packers in dubai, moving and storage dubai, movers in dubai, packers and movers dubai, moving companies in dubai, moving company dubai, moving and storage services uae, house shifting dubai",
   openGraph: {
     title: "Moving and Storage in Dubai — One Crew, One Job Number",
     description:
@@ -42,7 +43,14 @@ export const metadata: Metadata = {
     locale: "en_AE",
     type: "website",
   },
-  alternates: { canonical: "https://safestorage.ae/moving-storage-dubai" },
+  alternates: {
+    canonical: "https://safestorage.ae/moving-storage-dubai",
+    languages: {
+      "en-AE": "https://safestorage.ae/moving-storage-dubai",
+      "ar-AE": "https://safestorage.ae/ar/moving-storage/dubai",
+      "x-default": "https://safestorage.ae/moving-storage-dubai",
+    },
+  },
 }
 
 const faqData = [
@@ -119,6 +127,19 @@ const areas = [
   "Karama", "Al Qusais", "Silicon Oasis", "International City", "DIP", "Dubai South", "Sharjah", "Ajman", "Abu Dhabi",
 ]
 
+/**
+ * Rule 4 of the silo plan: the hub links DOWN to every child. Read from the
+ * registry rather than hand-listed, so a page added to silo 5 is linked here
+ * the day it ships and cannot be orphaned.
+ */
+const moveChildren = [
+  ...pagesInSilo("s5").map((p) => p.path),
+  ...Object.keys(HAND_WRITTEN).filter((p) => HAND_WRITTEN[p].silo === "s5"),
+]
+  .map(navFor)
+  .filter((c): c is NonNullable<ReturnType<typeof navFor>> => Boolean(c))
+  .sort((a, b) => a.label.localeCompare(b.label))
+
 const explore = [
   { Icon: Warehouse, t: "Self storage Dubai", b: "Space, access and security.", href: "/self-storage-dubai" },
   { Icon: Home, t: "Personal storage", b: "Household and long-stay storage.", href: "/personal-storage-dubai" },
@@ -128,6 +149,10 @@ const explore = [
   { Icon: ClipboardList, t: "Storage prices", b: "What storage really costs per month.", href: "/self-storage-dubai/prices" },
   { Icon: Plane, t: "International relocation", b: "Leaving Dubai: options and timelines.", href: "/moving-storage-dubai/international-relocation" },
   { Icon: MapPinned, t: "Moving to Dubai guide", b: "Visa, housing and shipping in order.", href: "/guides/moving-to-dubai" },
+  { Icon: Truck, t: "Movers in Abu Dhabi", b: "Collection and moving from Abu Dhabi.", href: "/moving-storage-abu-dhabi" },
+  { Icon: Truck, t: "Movers in Sharjah", b: "Packing, moving and local storage.", href: "/moving-storage-sharjah" },
+  { Icon: Truck, t: "Movers in Ajman", b: "Packing, moving and local storage.", href: "/moving-storage-ajman" },
+  { Icon: MapPinned, t: "Movers across the UAE", b: "One company, every emirate.", href: "/moving-storage-uae" },
 ]
 
 const pageSchemas = [
@@ -172,8 +197,8 @@ export default function MovingStorageDubaiPage() {
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
         <SplitHero
-          eyebrow="Moving & storage Dubai"
-          title="Moving and Storage in Dubai –"
+          eyebrow="Movers, packers & storage Dubai"
+          title="Movers and Packers in Dubai –"
           titleAccent="One Crew, One Job Number"
           blurb="We pack, move and store — with monthly storage when your dates don't line up. No lock-in."
           image="/landing/svc-relocation.jpg"
@@ -421,6 +446,32 @@ export default function MovingStorageDubaiPage() {
             </p>
           </div>
           <FaqAccordion items={faqs} />
+        </section>
+
+        {/* MOVING PAGES — the hub links down to every child (rule 4) */}
+        <section className={`${s.section} ${s.wrap}`} id="moving-pages" style={{ paddingTop: 0 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Moving pages</span>
+              <h2>
+                Every kind of move, <em>one page each.</em>
+              </h2>
+            </div>
+          </div>
+          <div className={s.miniGrid}>
+            {moveChildren.map((c) => (
+              <Link className={`${s.miniCard} ${s.miniLink}`} href={c.href} key={c.href}>
+                <span className={s.miniIcon} aria-hidden="true">
+                  <Truck />
+                </span>
+                <div>
+                  <b>{c.label}</b>
+                  <small>{c.blurb}</small>
+                </div>
+                <span className={s.miniArrow} aria-hidden="true">→</span>
+              </Link>
+            ))}
+          </div>
         </section>
 
         {/* EXPLORE */}
