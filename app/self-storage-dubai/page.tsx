@@ -126,6 +126,9 @@ const plans = [
   { e: "🚗", t: "Vehicle storage", b: "Covered bays for cars and bikes.", href: "/personal-storage-dubai/car-storage" },
   { e: "🎓", t: "Student storage", b: "Short-term plans for semester breaks.", href: "/personal-storage-dubai/student-storage" },
   { e: "✈️", t: "Expat storage", b: "Leaving or returning to Dubai.", href: "/personal-storage-dubai/expat-storage" },
+  { e: "🏭", t: "Storage in Al Quoz", b: "Warehouse overflow, studios and villas.", href: "/locations/dubai/al-quoz" },
+  { e: "🌆", t: "Storage in Dubai Marina", b: "Apartments and holiday homes.", href: "/locations/dubai/dubai-marina" },
+  { e: "💼", t: "Storage in Business Bay", b: "Offices, stock and documents.", href: "/locations/dubai/business-bay" },
 ]
 
 /** Stagger index for an animated card. */
