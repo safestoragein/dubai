@@ -133,7 +133,8 @@ const REGISTER = [
   // pages whose own owned keyword contains the phrase as a substring.
   { kw: "movers and packers in dubai",      owner: "/moving-storage-dubai",
     allow: ["/moving-storage-dubai/villa-movers", "/moving-storage-dubai/dubai-marina-movers",
-            "/moving-storage-dubai/silicon-oasis-movers"] },
+            "/moving-storage-dubai/silicon-oasis-movers", "/moving-storage-dubai/furniture-movers",
+            "/moving-storage-dubai/house-movers"] },
   { kw: "movers in dubai",                  owner: "/moving-storage-dubai", allow: ["/moving-storage-dubai/"] },
   { kw: "furniture movers",                 owner: "/moving-storage-dubai/furniture-movers" },
   { kw: "packers and movers near me",       owner: "/moving-storage-dubai/movers-near-me" },
