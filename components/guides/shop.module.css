@@ -1,0 +1,161 @@
+/* Shopping guide (owner, 2026-10-17): the five kinds of shopping in Dubai,
+   each as a card with the places under it, in the landing style. */
+/* the short line under the section title, inside the rail head */
+.railIntro {
+  max-width: 560px;
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* three cards on screen; the other two are one slide away */
+.cat {
+  flex: 0 0 calc((100% - 2 * 18px) / 3);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 20px;
+  padding: 24px 22px 22px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.cat:hover {
+  transform: translateY(-5px);
+  border-color: rgba(238, 88, 36, 0.4);
+  box-shadow: 0 22px 44px rgba(37, 49, 90, 0.14);
+}
+
+.catTop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+@media (max-width: 1100px) {
+  .cat {
+    flex-basis: calc((100% - 18px) / 2.15);
+  }
+}
+@media (max-width: 700px) {
+  .cat {
+    flex-basis: 88%;
+  }
+}
+
+@media (min-width: 701px) {
+  .catTop {
+    min-height: 62px;
+    align-items: flex-start;
+  }
+}
+.catIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 15px;
+  background: rgba(238, 88, 36, 0.09);
+  color: var(--accent);
+}
+.catIcon svg {
+  width: 21px;
+  height: 21px;
+}
+.eyebrow {
+  display: block;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1893d2;
+  margin-bottom: 3px;
+}
+.cat h3 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--navy);
+  margin: 0;
+}
+.cat > p {
+  font-size: 13.5px;
+  line-height: 1.58;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* the places inside a category */
+.places {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: rgba(37, 49, 90, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.places li {
+  background: #fff;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.places b {
+  display: block;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.places span {
+  color: #1893d2;
+  font-weight: 600;
+}
+
+/* where storage comes into it */
+.cat > p.store {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  background: rgba(24, 147, 210, 0.07);
+  border-radius: 12px;
+  margin-top: auto;
+  padding: 11px 13px;
+}
+.cat > p.store b {
+  display: block;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1893d2;
+  margin-bottom: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat {
+    transition: none;
+  }
+}
+
+/* six tips: a rail on phones, a tidy two-row grid on a desktop */
+@media (min-width: 961px) {
+  .tips {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+  }
+}
+@media (min-width: 961px) {
+  .tips > * {
+    flex: none;
+  }
+}
