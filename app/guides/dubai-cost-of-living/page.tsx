@@ -364,11 +364,14 @@ export default function DubaiCostOfLiving2026() {
               </div>
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/cost-of-living-photo.webp"
                 alt="The cost of living in Dubai — rent, groceries, a car and the Downtown skyline"
-                fetchPriority="high"
+                width={1730}
+                height={909}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={72}
+                priority
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>
@@ -429,7 +432,15 @@ export default function DubaiCostOfLiving2026() {
             {expenses.map((e, i) => (
               <article className={c.row} style={idx(i)} key={e.id}>
                 <div className={c.shot}>
-                  <Image src={CAT_IMG[e.category]} alt={e.category} width={1730} height={909} />
+                  <Image
+                    src={CAT_IMG[e.category]}
+                    alt={e.category}
+                    width={1730}
+                    height={909}
+                    sizes="(max-width: 900px) 92vw, 46vw"
+                    quality={70}
+                    loading={i === 0 ? "eager" : "lazy"}
+                  />
                 </div>
                 <div className={c.body}>
                   <div className={c.catTop}>
