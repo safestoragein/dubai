@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 // The six questions that matter most before booking.
 const allFaqs = [
-  { q: "What is self storage and how does it work in Dubai?", a: "Self storage is a service where individuals or businesses rent a secure, dedicated storage unit to keep their belongings. In Dubai, the most convenient model is door-to-door storage, offered by SafeStorage Dubai, where a team collects your items from your location, stores them in a secure facility, and delivers them back when needed. You pay a monthly fee based on the unit size you use. There are no long-term contracts, no lorry hire, and no heavy lifting required." },
+  { q: "What is self storage and how does it work in Dubai?", a: "Self storage is a service where individuals or businesses rent secure storage space to keep their belongings. In Dubai, the most convenient model is door-to-door storage, offered by SafeStorage Dubai, where a team collects your items from your location, stores them in a secure facility, and delivers them back when needed. You pay a monthly fee based on the unit size you use. There are no long-term contracts, no lorry hire, and no heavy lifting required." },
   { q: "Is self storage in Dubai expensive?", a: "Not with SafeStorage. You pay only for the space your items actually occupy, so a typical one-bedroom apartment's contents cost far less than renting a larger home to keep them in. There is no truck rental, no deposit for equipment and no hidden handling fee — door-to-door pickup and delivery are part of the service. Longer prepaid plans reduce the effective monthly rate further. Get a free, itemised quote in minutes." },
   { q: "What types of items can I store at SafeStorage Dubai?", a: "SafeStorage accepts all furniture, household appliances, electronics, clothing and textiles, sports equipment (bicycles, golf clubs, surfboards), business inventory, documents and archive files, seasonal decorations, and vehicles in dedicated bays. Please note we do not store the following items: food or grocery items, liquids, detergents, cosmetics, ornaments or jewellery, medicines, and masala or spice items, as well as flammable liquids, hazardous chemicals, live animals, perishable food, and illegal goods. Call +971505773388 to check any specific item." },
   { q: "What is the minimum storage period?", a: "There is no minimum storage period at SafeStorage. We offer month-to-month plans and short-term arrangements starting from one week for renovation and moving scenarios." },
@@ -126,6 +126,9 @@ const plans = [
   { e: "🚗", t: "Vehicle storage", b: "Covered bays for cars and bikes.", href: "/personal-storage-dubai/car-storage" },
   { e: "🎓", t: "Student storage", b: "Short-term plans for semester breaks.", href: "/personal-storage-dubai/student-storage" },
   { e: "✈️", t: "Expat storage", b: "Leaving or returning to Dubai.", href: "/personal-storage-dubai/expat-storage" },
+  { e: "🏭", t: "Storage in Al Quoz", b: "Warehouse overflow, studios and villas.", href: "/locations/dubai/al-quoz" },
+  { e: "🌆", t: "Storage in Dubai Marina", b: "Apartments and holiday homes.", href: "/locations/dubai/dubai-marina" },
+  { e: "💼", t: "Storage in Business Bay", b: "Offices, stock and documents.", href: "/locations/dubai/business-bay" },
 ]
 
 /** Stagger index for an animated card. */
