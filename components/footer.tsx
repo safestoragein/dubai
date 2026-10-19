@@ -68,7 +68,7 @@ export default function Footer() {
                 ["/locations", "Locations"],
               ].map(([href, label]) => (
                 <li key={href}>
-                  <Link href={href} className="hover:text-dubai-gold transition-colors">{label}</Link>
+                  <Link href={href} prefetch={false} className="hover:text-dubai-gold transition-colors">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -88,7 +88,7 @@ export default function Footer() {
                 ["/contact", "Contact"],
               ].map(([href, label]) => (
                 <li key={href}>
-                  <Link href={href} className="hover:text-dubai-gold transition-colors">{label}</Link>
+                  <Link href={href} prefetch={false} className="hover:text-dubai-gold transition-colors">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -102,7 +102,7 @@ export default function Footer() {
                 ["/terms-and-conditions", "Terms & Conditions"],
               ].map(([href, label]) => (
                 <li key={href}>
-                  <Link href={href} className="hover:text-dubai-gold transition-colors">{label}</Link>
+                  <Link href={href} prefetch={false} className="hover:text-dubai-gold transition-colors">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -206,8 +206,8 @@ export default function Footer() {
         <div className="py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-dubai-sand/60">
           <p>&copy; {new Date().getFullYear()} SafeStorage Dubai. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="/privacy-policy" className="hover:text-dubai-gold transition-colors">Privacy Policy</Link>
-            <Link href="/terms-and-conditions" className="hover:text-dubai-gold transition-colors">Terms & Conditions</Link>
+            <Link href="/privacy-policy" prefetch={false} className="hover:text-dubai-gold transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" prefetch={false} className="hover:text-dubai-gold transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>
