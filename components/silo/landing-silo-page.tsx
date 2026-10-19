@@ -3,6 +3,7 @@ import Image from "next/image"
 import {
   Boxes,
   Building2,
+  CalendarDays,
   CheckCircle2,
   ClipboardList,
   FileText,
@@ -10,8 +11,10 @@ import {
   Home,
   Lightbulb,
   MapPinned,
+  Moon,
   Package,
   Sofa,
+  Sun,
   Truck,
   Warehouse,
 } from "lucide-react"
@@ -74,6 +77,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/guides/best-storage-companies-dubai": "/landing/storage-companies-photo.webp",
   "/guides/how-much-does-storage-cost-in-dubai": "/landing/storage-cost-photo.webp",
   "/guides/storage-packing-checklist": "/landing/packing-checklist-photo.webp",
+  "/guides/dubai-tenancy-and-moving-calendar": "/landing/moving-calendar-photo.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -87,6 +91,7 @@ const SIDE_HERO = new Set([
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/storage-packing-checklist",
+  "/guides/dubai-tenancy-and-moving-calendar",
 ])
 
 /** Pages whose card icons sit in a smaller square than the homepage default. */
@@ -97,12 +102,16 @@ const SMALL_CARD_ICONS = new Set([
 ])
 
 /** Pages whose table cards carry a small coloured icon. */
-const TABLE_ICONS = new Set(["/guides/how-much-does-storage-cost-in-dubai"])
+const TABLE_ICONS = new Set([
+  "/guides/how-much-does-storage-cost-in-dubai",
+  "/guides/dubai-tenancy-and-moving-calendar",
+])
 
 /** Pages that skip the reviews carousel, to keep a long guide shorter. */
 const NO_REVIEWS = new Set([
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/storage-packing-checklist",
+  "/guides/dubai-tenancy-and-moving-calendar",
 ])
 
 const STEP_ICONS = [ClipboardList, FileText, Package, Truck, Hammer, CheckCircle2]
@@ -120,6 +129,9 @@ const ICON_TINTS = [
 /** The icon that fits what the row is about, by its own words. */
 function rowIcon(label: string) {
   const t = label.toLowerCase()
+  if (/ramadan|eid/.test(t)) return Moon
+  if (/jun|jul|aug|sep/.test(t)) return Sun
+  if (/jan|feb|mar|apr|may|oct|nov|dec|week|month/.test(t)) return CalendarDays
   if (/carton|box|packing/.test(t)) return Package
   if (/villa|house/.test(t)) return Building2
   if (/studio|flat|apartment|bedroom|bhk/.test(t)) return Home
@@ -237,7 +249,7 @@ function SectionView({
       return (
         <section className={`${s.section} ${s.wrap}`} id={id} style={{ paddingTop: 0 }}>
           <Head title={section.h2} eyebrow={EYEBROW.table} intro={section.intro} />
-          <Cards className={s.colList} animate={tableIcons}>
+          <Cards className={tableIcons ? `${s.colList} ${g.grid}` : s.colList} animate={tableIcons}>
             {section.rows.map((row, ri) => (
               <div
                 className={tableIcons ? `${s.proseBox} ${g.card}` : s.proseBox}

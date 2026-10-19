@@ -49,3 +49,39 @@
     transform: none;
   }
 }
+
+/* Compact size: the cards hold two short lines each, so they do not need
+   the full prose padding. Four to a row once there is space for them. */
+.grid {
+  gap: 12px;
+}
+@media (min-width: 1180px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.card {
+  padding: 18px 18px 16px;
+}
+.card h3 {
+  font-size: 15.5px;
+  margin-bottom: 9px;
+}
+.card p {
+  font-size: 12.5px;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.card p:last-child {
+  margin-bottom: 0;
+}
+.card .icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+.card .icon svg {
+  width: 15px;
+  height: 15px;
+}

@@ -269,7 +269,6 @@ export const GUIDE_PAGES: SiloPageContent[] = [
     hero: [
       "Dubai moves in waves rather than evenly, and if your date lands inside one of them everything is harder and slower — not because of price, but because capacity across the whole city is gone. Knowing the shape of the year is the cheapest planning you can do, and it is one of our [storage and moving guides](/guides).",
       "The two peaks are **late June** and **most of August**. Between them they carry a large share of the year's residential moves, driven by the school year ending, expat exits, and lease cycles that were themselves set in a previous summer.",
-      "Everything about a move is easier in the eight quiet months, including your choice of date.",
     ],
     sections: [
       {
@@ -294,9 +293,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
         h2: "Why lease dates never line up",
         paras: [
           "A Dubai tenancy is registered for a fixed twelve months, and the notice period in most contracts is 90 days — which is longer than people remember and is the most commonly missed date in the whole cycle. Diarise it the day you sign.",
-          "The mismatch happens because the property you are leaving and the property you are taking were let by different landlords on different anniversaries. A seventeen-day gap between an Ejari ending and a handover is entirely typical and is nobody's mistake.",
           "Handovers slip, and they slip in one direction only. A new build's handover date, a renovation's completion, a landlord's snagging — all of these move later and none of them move earlier. Plan for the gap being longer than quoted.",
-          "That is why storage exists as a category in this city rather than as an afterthought. Billing month to month with no minimum means a gap costs the gap, whether it turns out to be twelve days or six weeks.",
         ],
       },
       {
@@ -307,8 +304,6 @@ export const GUIDE_PAGES: SiloPageContent[] = [
           "If your move must be in late June or August, book the collection three to four weeks out rather than one.",
           "Assume the new property's handover slips. Build a fortnight of slack into the plan and be pleasantly surprised.",
           "Avoid Eid entirely for anything with a hard date attached.",
-          "During Ramadan, expect shorter working days and narrower building access windows — a job that takes a day takes longer.",
-          "For a villa or anything with a garden, October to April is materially easier than a July clearance.",
           "Book the storage at the same time as the move if there is any gap at all, rather than as a decision on the day.",
         ],
       },
