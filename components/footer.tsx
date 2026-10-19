@@ -10,7 +10,6 @@ export default function Footer() {
     <footer className="w-full bg-dubai-midnight text-white relative">
       {/* Dubai skyline silhouette */}
       <div className="absolute inset-x-0 top-0 h-16 bg-dubai-midnight overflow-hidden">
-        <div className="w-full h-full opacity-20 bg-[url('https://v0.blob.com/dubai-skyline-silhouette.png')] bg-repeat-x bg-bottom"></div>
       </div>
 
       {/* Dubai-style decorative pattern */}
