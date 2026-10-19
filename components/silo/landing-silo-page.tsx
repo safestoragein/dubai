@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { CheckCircle2, ClipboardList, FileText, Hammer, Lightbulb, MapPinned, Package, Truck } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
@@ -11,6 +12,8 @@ import { UspRail } from "@/components/landing/usp-rail"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import { MilestonesPlayer } from "@/components/landing/milestones-player"
 import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
+import { env } from "@/lib/env"
 import { renderRich } from "./rich-text"
 import { pageSchemas } from "./silo-page"
 import { HAND_WRITTEN, navFor, pagesInSilo } from "@/lib/silo/registry"
@@ -51,8 +54,20 @@ const HERO_IMAGE: Record<string, string> = {
   "/moving-storage-dubai/business-bay-movers": "/landing/business-bay-newone.webp",
   "/moving-storage-dubai/palm-jumeirah-movers": "/landing/place-palm.webp",
   "/moving-storage-dubai/silicon-oasis-movers": "/landing/dso-photo.webp",
+  "/guides/best-storage-companies-dubai": "/landing/storage-companies-photo.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
+
+/**
+ * Pages whose hero shows the picture BESIDE the copy, in its own rounded card,
+ * the way the hand-written guides do it — rather than as a full-bleed wash
+ * behind the words. Use it when the picture carries the logo or a subject that
+ * should not sit under text.
+ */
+const SIDE_HERO = new Set(["/guides/best-storage-companies-dubai"])
+
+/** Pages whose card icons sit in a smaller square than the homepage default. */
+const SMALL_CARD_ICONS = new Set(["/guides/best-storage-companies-dubai"])
 
 const STEP_ICONS = [ClipboardList, FileText, Package, Truck, Hammer, CheckCircle2]
 
@@ -104,7 +119,15 @@ function Note({ children }: { children: string }) {
   )
 }
 
-function SectionView({ section, index }: { section: Section; index: number }) {
+function SectionView({
+  section,
+  index,
+  smallIcons = false,
+}: {
+  section: Section
+  index: number
+  smallIcons?: boolean
+}) {
   const id = `s${index + 1}`
   switch (section.kind) {
     case "prose":
@@ -185,8 +208,12 @@ function SectionView({ section, index }: { section: Section; index: number }) {
                 <span className={s.uspNum} aria-hidden="true">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className={s.uspIcon} aria-hidden="true">
-                  <span style={{ fontSize: 20, lineHeight: 1 }}>{it.icon}</span>
+                <div
+                  className={s.uspIcon}
+                  style={smallIcons ? { width: 40, height: 40, borderRadius: 13, marginBottom: 16 } : undefined}
+                  aria-hidden="true"
+                >
+                  <span style={{ fontSize: smallIcons ? 17 : 20, lineHeight: 1 }}>{it.icon}</span>
                 </div>
                 <h3>{it.h}</h3>
                 <p>{renderRich(it.p)}</p>
@@ -270,15 +297,52 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
       />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        <SplitHero
-          eyebrow={silo.name}
-          title={title}
-          titleAccent={accent}
-          blurb={content.description}
-          image={HERO_IMAGE[content.path] ?? DEFAULT_HERO_IMAGE}
-          imagePosition="center 50%"
-          ctaLabel="Get a Free Quote"
-        />
+        {SIDE_HERO.has(content.path) ? (
+          <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
+            <div className={p.split2Inner}>
+              <div className={`${s.heroContent} ${p.split2Copy}`}>
+                <span className={s.heroTag}>{silo.name}</span>
+                <h1>
+                  {title} <br className={s.mBreakDesk} />
+                  <em>{accent}</em>
+                </h1>
+                <p>{content.description}</p>
+                <div className={s.heroCta}>
+                  <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                    Get a Free Quote →
+                  </Link>
+                  <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                    <span className={s.phIco}>📞</span> Call: 050-577-3388
+                  </a>
+                </div>
+              </div>
+              <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
+                <Image
+                  src={HERO_IMAGE[content.path] ?? DEFAULT_HERO_IMAGE}
+                  alt={content.crumb}
+                  width={1730}
+                  height={909}
+                  sizes="(max-width: 900px) 94vw, 50vw"
+                  priority
+                />
+                <div className={s.heroRating}>
+                  <strong>4.9★</strong>
+                  <span>6,700+ Google reviews</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : (
+          <SplitHero
+            eyebrow={silo.name}
+            title={title}
+            titleAccent={accent}
+            blurb={content.description}
+            image={HERO_IMAGE[content.path] ?? DEFAULT_HERO_IMAGE}
+            imagePosition="center 50%"
+            ctaLabel="Get a Free Quote"
+          />
+        )}
 
         <LandingTrust />
 
@@ -296,7 +360,12 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
         </section>
 
         {content.sections.map((section, i) => (
-          <SectionView section={section} index={i} key={section.h2} />
+          <SectionView
+            section={section}
+            index={i}
+            smallIcons={SMALL_CARD_ICONS.has(content.path)}
+            key={section.h2}
+          />
         ))}
 
         <LandingReviews />

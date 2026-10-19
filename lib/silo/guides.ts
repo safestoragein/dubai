@@ -377,11 +377,10 @@ export const GUIDE_PAGES: SiloPageContent[] = [
       "storage companies in dubai, best storage companies dubai, top storage companies dubai, storage company dubai comparison, self storage vs valet storage dubai",
     ogTitle: "Storage Companies in Dubai Compared",
     datePublished: "2026-01-01",
-    h1: "Storage Companies in Dubai Compared (2026)",
+    h1: "Storage Companies in Dubai Compared",
     introH2: "The short version",
     hero: [
       "Storage companies in Dubai fall into three models, and the model matters more than the brand. It decides who does the lifting, what you pay for, and how much of the cost shows up in the first quote. This guide is part of our [storage and moving guides](/guides).",
-      "**Self-storage** rents you a unit that you load yourself. **Valet storage** collects from your door, stores the goods and returns them. **Warehouse storage** holds pallets and bulk stock for businesses. Most of the confusion in this market comes from comparing a price for one model against a price for another.",
       "We are a valet operator, so we are not a neutral party. We have not scored or ranked other companies here: we cannot verify their prices or reviews, and an invented score helps nobody. What follows is the comparison that does hold, which is how the models differ and what to ask any provider, including us.",
     ],
     sections: [
@@ -414,16 +413,14 @@ export const GUIDE_PAGES: SiloPageContent[] = [
       },
       {
         kind: "checklist",
-        h2: "Questions to ask every storage company before you pay",
+        h2: "Questions to ask before you pay",
         intro: "Send the same list to each provider you are considering. A written answer from each is what makes the quotes comparable.",
         items: [
           "What is the total for my goods for three months, including transport both ways and VAT?",
           "Is the monthly charge based on a fixed unit or on the space my goods use?",
           "What is the minimum term, and how much notice do I give to leave?",
-          "Are packing, wrapping and materials included or charged separately?",
           "Is there a fee each time I ask for items back?",
           "Who is responsible if an item is damaged, and is insurance offered or required?",
-          "Where will my goods physically be stored, and can I see it?",
         ],
         note: "If a provider will not put the answers in writing, treat that as an answer.",
       },
