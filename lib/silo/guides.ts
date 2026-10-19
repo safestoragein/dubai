@@ -148,7 +148,6 @@ export const GUIDE_PAGES: SiloPageContent[] = [
     h1: "The Storage Packing Checklist",
     hero: [
       "Almost everything that goes wrong in storage was decided in the two days before collection, not during the months afterwards. This checklist is the two days, and it is one of our [storage and moving guides](/guides).",
-      "It is ordered by room, because that is how you will actually work through it, with a separate section for the things specific to this climate — which are the ones people from elsewhere reliably skip.",
       "The one-line version: **box everything loose, dry everything wet, and take every battery out.** Those three prevent most of it.",
     ],
     sections: [
@@ -197,10 +196,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
           "Take every battery out — remotes, keyboards, torches, toys, clocks. Leaked alkaline ruins more stored items here than heat does.",
           "Return the gas cylinder to the supplier. Villa kitchens and barbecues almost always have one and it cannot travel.",
           "No candles, aerosols or cosmetics. They melt, and they melt into everything packed with them.",
-          "Documents and photographs into sealed plastic boxes rather than cardboard.",
-          "Clean outdoor furniture before it is wrapped, or the sand travels with it.",
           "Dry everything completely — tents, appliances, dive gear, anything that has been near water.",
-          "Do not vacuum-bag natural fibres. It traps moisture against fabric, which in this humidity does the opposite of protecting it.",
           "Check the garage and the balcony last. Everything that cannot be stored lives in one of those two places — see [the prohibited list](/self-storage-dubai/prohibited-items).",
         ],
       },
@@ -209,7 +205,6 @@ export const GUIDE_PAGES: SiloPageContent[] = [
         h2: "The day before, and the day itself",
         items: [
           "Pack a suitcase of live essentials: passport, Emirates ID, medication, chargers, tenancy paperwork, a change of clothes.",
-          "Walk the property once more, specifically the balcony, the cupboard under the sink and the garage.",
           "Photograph anything valuable before it is wrapped, and keep the photos with your inventory copy.",
           "Decide which cartons you might want back early and say so to the crew — they get racked accessibly, and it costs nothing.",
           "Be present for the first twenty minutes and the last ten. The start is pointing at what goes; the end is signing the list.",

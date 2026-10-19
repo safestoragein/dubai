@@ -25,7 +25,11 @@ import { SILOS } from "@/lib/silo/silos"
  */
 
 /* Guides redesigned in the homepage design; the rest still use the older renderer. */
-const REDESIGNED = new Set(["best-storage-companies-dubai", "how-much-does-storage-cost-in-dubai"])
+const REDESIGNED = new Set([
+  "best-storage-companies-dubai",
+  "how-much-does-storage-cost-in-dubai",
+  "storage-packing-checklist",
+])
 
 export const dynamicParams = false
 

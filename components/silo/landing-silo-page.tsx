@@ -73,6 +73,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/moving-storage-dubai/silicon-oasis-movers": "/landing/dso-photo.webp",
   "/guides/best-storage-companies-dubai": "/landing/storage-companies-photo.webp",
   "/guides/how-much-does-storage-cost-in-dubai": "/landing/storage-cost-photo.webp",
+  "/guides/storage-packing-checklist": "/landing/packing-checklist-photo.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -85,19 +86,24 @@ const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 const SIDE_HERO = new Set([
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
+  "/guides/storage-packing-checklist",
 ])
 
 /** Pages whose card icons sit in a smaller square than the homepage default. */
 const SMALL_CARD_ICONS = new Set([
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
+  "/guides/storage-packing-checklist",
 ])
 
 /** Pages whose table cards carry a small coloured icon. */
 const TABLE_ICONS = new Set(["/guides/how-much-does-storage-cost-in-dubai"])
 
 /** Pages that skip the reviews carousel, to keep a long guide shorter. */
-const NO_REVIEWS = new Set(["/guides/how-much-does-storage-cost-in-dubai"])
+const NO_REVIEWS = new Set([
+  "/guides/how-much-does-storage-cost-in-dubai",
+  "/guides/storage-packing-checklist",
+])
 
 const STEP_ICONS = [ClipboardList, FileText, Package, Truck, Hammer, CheckCircle2]
 
