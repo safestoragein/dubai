@@ -35,7 +35,7 @@ export const GUIDE_PAGES: SiloPageContent[] = [
     navBlurb: "What the market actually charges, and the costs quotes leave out.",
     title: "How Much Does Storage Cost in Dubai? | A Straight Answer",
     description:
-      "What storage actually costs in Dubai — how the market prices it, the four costs most quotes leave out, and how to compare two quotes that are not comparable.",
+      "What storage actually costs in Dubai — how the market prices it, the costs most quotes leave out, and how to compare two quotes that are not comparable.",
     keywords:
       "how much does storage cost in dubai, storage cost dubai, storage prices dubai, cost of storage unit dubai, storage cost per month dubai",
     ogTitle: "How Much Does Storage Cost in Dubai?",
@@ -44,12 +44,11 @@ export const GUIDE_PAGES: SiloPageContent[] = [
     hero: [
       "This is the most-asked question in the category and it is almost always answered badly, because the honest answer has two parts and most quotes only show one. This guide is part of our [storage and moving guides](/guides).",
       "The two parts are **the storage** and **getting it there and back**. A quote that shows a low monthly rate and omits two van journeys is not a cheaper quote; for a short booking it is frequently the more expensive one.",
-      "We charge only for the floor space your goods occupy, and every quote is free and itemised, so you can compare it line by line.",
     ],
     sections: [
       {
         kind: "table",
-        h2: "How much space you need by what you are storing",
+        h2: "How much space you need",
         intro:
           "Space is the whole of the monthly figure when you are billed on measured floor area. These are real bands from Dubai collections.",
         columns: ["What you are storing", "Typical space"],
@@ -65,11 +64,10 @@ export const GUIDE_PAGES: SiloPageContent[] = [
       },
       {
         kind: "prose",
-        h2: "The four costs quotes leave out",
+        h2: "The costs quotes leave out",
         paras: [
           "**Getting it there.** A self-drive unit at a lower rate needs a van, fuel, tolls and most of a day, usually twice — once in, once out. On a three-month booking those two days can exceed the entire rate difference.",
           "**Fixed unit sizes.** Most operators sell 25, 50 or 100 square foot units. Almost nobody fits neatly, so you take the next size up and pay for space you do not use for the whole booking. Being billed on measured space removes this, and it is worth roughly the difference between two tiers.",
-          "**Minimum terms.** A six-month minimum on a booking you needed for seven weeks is four and a half months of storage you did not want. Check for this before comparing rates, because it changes the total more than the rate does.",
           "**Retrieval charges.** Some operators charge per access or per retrieval. If you expect to want things back, price that in — a cheap rate with expensive retrievals is not cheap for a booking you actually use.",
         ],
       },
@@ -80,12 +78,9 @@ export const GUIDE_PAGES: SiloPageContent[] = [
         items: [
           "Total for the whole expected booking, not the monthly rate.",
           "Include both transport journeys — in and out — in both columns.",
-          "Is it VAT included? A five per cent difference is often the whole apparent gap.",
           "Fixed unit size or measured space? If fixed, price the size you would actually have to take.",
           "Is there a minimum term, and does your booking exceed it?",
           "What does a retrieval cost, and how many do you realistically expect?",
-          "Indoor covered storage, or a yard or container? In this climate that is not a detail.",
-          "Is wrapping included, or is it a separate line?",
         ],
         note: "Do this once on a spreadsheet and the ranking of your quotes usually changes. [Working out how much space you need](/self-storage-dubai/storage-calculator) is the other half of the arithmetic.",
       },
@@ -95,8 +90,6 @@ export const GUIDE_PAGES: SiloPageContent[] = [
         paras: [
           "**Volume, and nothing else comes close.** You are billed on space, so an afternoon deciding what genuinely comes back is worth more than any negotiation with any operator. People routinely store a third of a household they would not miss.",
           "**Boxing loose items.** Sealed cartons stack; loose belongings do not. The same possessions can occupy around 30 per cent more floor space unboxed, every month of the booking.",
-          "**Being honest about the term.** A long booking packed as if it were short costs more, because it gets a dense stack that then has to be dug into. Tell the operator the real expected duration.",
-          "**Not storing what should be sold.** The furniture you are storing because deciding is hard is the furniture you will pay to store for two years and then sell anyway. That is the single most expensive habit in this category.",
         ],
       },
     ],

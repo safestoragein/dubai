@@ -1,0 +1,51 @@
+/* Size cards on the redesigned guides (owner, 2026-10-19): the small colour
+   icon drifts gently on its own, and tilts up when the card is hovered. The
+   card itself still pops in on scroll — that comes from home-fx. */
+.icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  margin-bottom: 10px;
+  animation: drift 3.6s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 200ms);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.4), box-shadow 0.3s;
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Hook for the hover rule below. The card itself cannot be moved on hover:
+   the scroll-in "pop" keeps its own transform through animation-fill, which
+   would win over anything set here. */
+.card {
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.card:hover {
+  border-color: rgba(238, 88, 36, 0.35);
+  box-shadow: 0 16px 34px rgba(37, 49, 90, 0.1);
+}
+/* the drift has to stop, or the running animation keeps overriding this */
+.card:hover .icon {
+  animation: none;
+  transform: rotate(-8deg) scale(1.12);
+  box-shadow: 0 8px 18px rgba(37, 49, 90, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon,
+  .card {
+    animation: none;
+    transition: none;
+  }
+  .card:hover .icon {
+    transform: none;
+  }
+}

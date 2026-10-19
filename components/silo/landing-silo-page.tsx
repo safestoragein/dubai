@@ -1,6 +1,20 @@
 import Link from "next/link"
 import Image from "next/image"
-import { CheckCircle2, ClipboardList, FileText, Hammer, Lightbulb, MapPinned, Package, Truck } from "lucide-react"
+import {
+  Boxes,
+  Building2,
+  CheckCircle2,
+  ClipboardList,
+  FileText,
+  Hammer,
+  Home,
+  Lightbulb,
+  MapPinned,
+  Package,
+  Sofa,
+  Truck,
+  Warehouse,
+} from "lucide-react"
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import { manrope, sora } from "@/components/landing/fonts"
@@ -10,14 +24,17 @@ import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingConnect } from "@/components/landing/landing-connect"
 import { UspRail } from "@/components/landing/usp-rail"
 import FaqAccordion from "@/components/landing/faq-accordion"
+import HomeReveal from "@/components/landing/home-reveal"
 import { MilestonesPlayer } from "@/components/landing/milestones-player"
 import s from "@/components/landing/landing.module.css"
+import g from "./guide-cards.module.css"
 import p from "@/components/locations/location-landing.module.css"
 import { env } from "@/lib/env"
 import { renderRich } from "./rich-text"
 import { pageSchemas } from "./silo-page"
 import { HAND_WRITTEN, navFor, pagesInSilo } from "@/lib/silo/registry"
 import { HUB_ORDER, MONEY_PAGE, SILOS, moneyAnchor } from "@/lib/silo/silos"
+import type { CSSProperties, ReactNode } from "react"
 import type { Section, SiloPageContent } from "@/lib/silo/types"
 
 /**
@@ -55,6 +72,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/moving-storage-dubai/palm-jumeirah-movers": "/landing/place-palm.webp",
   "/moving-storage-dubai/silicon-oasis-movers": "/landing/dso-photo.webp",
   "/guides/best-storage-companies-dubai": "/landing/storage-companies-photo.webp",
+  "/guides/how-much-does-storage-cost-in-dubai": "/landing/storage-cost-photo.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -64,12 +82,77 @@ const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
  * behind the words. Use it when the picture carries the logo or a subject that
  * should not sit under text.
  */
-const SIDE_HERO = new Set(["/guides/best-storage-companies-dubai"])
+const SIDE_HERO = new Set([
+  "/guides/best-storage-companies-dubai",
+  "/guides/how-much-does-storage-cost-in-dubai",
+])
 
 /** Pages whose card icons sit in a smaller square than the homepage default. */
-const SMALL_CARD_ICONS = new Set(["/guides/best-storage-companies-dubai"])
+const SMALL_CARD_ICONS = new Set([
+  "/guides/best-storage-companies-dubai",
+  "/guides/how-much-does-storage-cost-in-dubai",
+])
+
+/** Pages whose table cards carry a small coloured icon. */
+const TABLE_ICONS = new Set(["/guides/how-much-does-storage-cost-in-dubai"])
+
+/** Pages that skip the reviews carousel, to keep a long guide shorter. */
+const NO_REVIEWS = new Set(["/guides/how-much-does-storage-cost-in-dubai"])
 
 const STEP_ICONS = [ClipboardList, FileText, Package, Truck, Hammer, CheckCircle2]
+
+/** A colour per card, in order, for the small icons on the redesigned guides. */
+const ICON_TINTS = [
+  { fg: "#ee5824", bg: "rgba(238, 88, 36, 0.12)" },
+  { fg: "#1893d2", bg: "rgba(24, 147, 210, 0.12)" },
+  { fg: "#16a34a", bg: "rgba(22, 163, 74, 0.12)" },
+  { fg: "#7c3aed", bg: "rgba(124, 58, 237, 0.12)" },
+  { fg: "#e11d48", bg: "rgba(225, 29, 72, 0.12)" },
+  { fg: "#d97706", bg: "rgba(217, 119, 6, 0.12)" },
+]
+
+/** The icon that fits what the row is about, by its own words. */
+function rowIcon(label: string) {
+  const t = label.toLowerCase()
+  if (/carton|box|packing/.test(t)) return Package
+  if (/villa|house/.test(t)) return Building2
+  if (/studio|flat|apartment|bedroom|bhk/.test(t)) return Home
+  if (/room/.test(t)) return Sofa
+  if (/office|shop|business|stock|pallet/.test(t)) return Warehouse
+  return Boxes
+}
+
+/** The card grid: animated into view on the pages that ask for it. */
+function Cards({
+  className,
+  animate,
+  children,
+}: {
+  className: string
+  animate: boolean
+  children: ReactNode
+}) {
+  return animate ? (
+    <HomeReveal className={className}>{children}</HomeReveal>
+  ) : (
+    <div className={className}>{children}</div>
+  )
+}
+
+/** The small coloured square itself: it drifts on its own and tilts on hover. */
+function RowIcon({ label, i }: { label: string; i: number }) {
+  const Icon = rowIcon(label)
+  const tint = ICON_TINTS[i % ICON_TINTS.length]
+  return (
+    <span
+      className={g.icon}
+      aria-hidden="true"
+      style={{ background: tint.bg, color: tint.fg, ["--i"]: i } as CSSProperties}
+    >
+      <Icon size={17} strokeWidth={1.9} />
+    </span>
+  )
+}
 
 /** "Title: Accent words" → [title, accent]. The H1 text is unchanged; only its styling splits. */
 function splitH1(h1: string): [string, string] {
@@ -123,10 +206,12 @@ function SectionView({
   section,
   index,
   smallIcons = false,
+  tableIcons = false,
 }: {
   section: Section
   index: number
   smallIcons?: boolean
+  tableIcons?: boolean
 }) {
   const id = `s${index + 1}`
   switch (section.kind) {
@@ -146,9 +231,14 @@ function SectionView({
       return (
         <section className={`${s.section} ${s.wrap}`} id={id} style={{ paddingTop: 0 }}>
           <Head title={section.h2} eyebrow={EYEBROW.table} intro={section.intro} />
-          <div className={s.colList}>
-            {section.rows.map((row) => (
-              <div className={s.proseBox} key={row[0] + row[1]} style={{ marginTop: 0 }}>
+          <Cards className={s.colList} animate={tableIcons}>
+            {section.rows.map((row, ri) => (
+              <div
+                className={tableIcons ? `${s.proseBox} ${g.card}` : s.proseBox}
+                key={row[0] + row[1]}
+                style={{ marginTop: 0, ...(tableIcons ? ({ ["--i"]: ri } as CSSProperties) : null) }}
+              >
+                {tableIcons ? <RowIcon label={row[0] || section.columns[1]} i={ri} /> : null}
                 <h3>{renderRich(row[0] || section.columns[1])}</h3>
                 {row.slice(1).map((cell, ci) => (
                   <p key={ci}>
@@ -160,7 +250,7 @@ function SectionView({
                 ))}
               </div>
             ))}
-          </div>
+          </Cards>
           {section.note ? <Note>{section.note}</Note> : null}
         </section>
       )
@@ -300,10 +390,10 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
         {SIDE_HERO.has(content.path) ? (
           <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
             <div className={p.split2Inner}>
-              <div className={`${s.heroContent} ${p.split2Copy}`}>
+              <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Tight}`}>
                 <span className={s.heroTag}>{silo.name}</span>
                 <h1>
-                  {title} <br className={s.mBreakDesk} />
+                  {title} <br />
                   <em>{accent}</em>
                 </h1>
                 <p>{content.description}</p>
@@ -364,11 +454,12 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
             section={section}
             index={i}
             smallIcons={SMALL_CARD_ICONS.has(content.path)}
+            tableIcons={TABLE_ICONS.has(content.path)}
             key={section.h2}
           />
         ))}
 
-        <LandingReviews />
+        {NO_REVIEWS.has(content.path) ? null : <LandingReviews />}
 
         {/* FAQ — same questions and answers as the FAQPage schema. */}
         {content.faqs.length > 0 && (

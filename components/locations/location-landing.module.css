@@ -363,3 +363,17 @@ h2.longH2 {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Long hero titles on the redesigned guides: a touch smaller on a phone so
+   they still fit two lines beside nothing (the picture stacks above). */
+@media (max-width: 560px) {
+  .heroH1Tight h1 {
+    font-size: 26px;
+    line-height: 1.16;
+  }
+}
+@media (max-width: 400px) {
+  .heroH1Tight h1 {
+    font-size: 23px;
+  }
+}
