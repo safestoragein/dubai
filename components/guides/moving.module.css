@@ -1,0 +1,171 @@
+/* Moving-to-Dubai guide (owner, 2026-10-19): one step per row — the owner's
+   picture on one side, what to do on the other, swapping sides down the page.
+   Sections without a picture get a tinted panel with the step's icon instead. */
+.list {
+  display: grid;
+  gap: 22px;
+  margin-top: 26px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 22px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.step:hover {
+  border-color: rgba(238, 88, 36, 0.35);
+  box-shadow: 0 22px 44px rgba(37, 49, 90, 0.13);
+}
+/* picture left on the odd rows, right on the even ones */
+.step:nth-child(even) .shot {
+  order: 2;
+}
+
+.shot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  background: linear-gradient(180deg, #f4f8fc 0%, #e9f1f8 100%);
+}
+/* the owner's picture, whole — never cropped */
+.shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* the panel used where there is no picture yet */
+.noShot {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  padding: 30px;
+  text-align: center;
+  color: #1893d2;
+  background: linear-gradient(180deg, #f4f8fc 0%, #e4eef7 100%);
+}
+.noShot span {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 22px;
+  background: rgba(24, 147, 210, 0.14);
+}
+.noShot svg {
+  width: 30px;
+  height: 30px;
+}
+.noShot b {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+}
+
+.body {
+  align-self: center;
+  padding: 26px 28px;
+}
+.num {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1893d2;
+  margin-bottom: 6px;
+}
+.num i {
+  font-style: normal;
+  color: var(--accent);
+}
+.body h3 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: clamp(17px, 1.6vw, 20px);
+  font-weight: 700;
+  line-height: 1.22;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.body > p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+.ticks {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 7px;
+}
+.ticks li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.ticks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.store {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  background: rgba(24, 147, 210, 0.07);
+  border-radius: 12px;
+  margin-top: 14px;
+  padding: 11px 13px;
+}
+.store b {
+  display: block;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1893d2;
+  margin-bottom: 3px;
+}
+
+@media (max-width: 900px) {
+  .step {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .step:nth-child(even) .shot {
+    order: 0;
+  }
+  .body {
+    padding: 20px 18px 22px;
+  }
+  .noShot {
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step {
+    transition: none;
+  }
+}

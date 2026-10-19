@@ -1,46 +1,55 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import SchemaScript from "@/components/schema-script"
 import {
-  Plane, Home, FileText, ShoppingCart, School, Heart, Building2,
-  CreditCard, Users, TrendingUp, Phone, ArrowRight, CheckCircle2,
-  Calendar, MapPin, Package, Warehouse, Clock, Shield
+  Calendar, FileText, Home, Package, ShoppingCart, School, CreditCard, Users,
+  Clock, PiggyBank, Sparkles, type LucideIcon,
 } from "lucide-react"
+
+import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import { SiloLinks } from "@/components/silo/silo-links"
+
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import HomeReveal from "@/components/landing/home-reveal"
+import { env } from "@/lib/env"
+import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
+import m from "@/components/guides/moving.module.css"
+
+/**
+ * /guides/moving-to-dubai — redesigned on the shared landing system
+ * (owner, 2026-10-19) with their own pictures, one per step.
+ *
+ * Every step, checklist line, storage note and answer is the copy that was
+ * already here; only the layout changed. The figures are third-party costs
+ * (rent, shipping, school fees), never SafeStorage's own.
+ */
 
 export const metadata: Metadata = {
   title: "Moving to Dubai 2026: Relocation Guide",
   description:
-    "Planning to move to Dubai in 2026? Complete step-by-step guide covering visas, housing, jobs, schools, cost of living, and storage solutions.",
+    "Moving to Dubai in 2026? The complete relocation guide: visas, housing, shipping, schools, cost of living and the first month, step by step.",
   keywords:
-    "moving to dubai 2026, relocate to dubai, dubai relocation guide, moving to uae, dubai visa, living in dubai, dubai apartments, international move dubai, dubai newcomers guide",
+    "moving to dubai, relocating to dubai, dubai relocation guide, expat moving dubai, dubai visa process, cost of living dubai, moving to dubai 2026",
   openGraph: {
     url: "https://safestorage.ae/guides/moving-to-dubai",
     siteName: "SafeStorage Dubai",
-    images: [
-      {
-        url: "/og-cover-2026.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Moving to Dubai 2026 Complete Guide"
-      }
-    ],
+    images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "Moving to Dubai 2026" }],
     locale: "en_AE",
     type: "article",
   },
-  alternates: {
-    canonical: "https://safestorage.ae/guides/moving-to-dubai",
-  },
+  alternates: { canonical: "https://safestorage.ae/guides/moving-to-dubai" },
 }
 
 const sections = [
   {
     id: 1,
-    icon: Calendar,
     title: "Before You Move: Essential Planning",
     subtitle: "3-6 Months Before Departure",
     content: "Start planning your Dubai move early. Research job opportunities, understand visa requirements, and create a realistic budget. Dubai offers amazing opportunities but requires proper preparation. Consider selling items you won't need - Dubai has everything available locally, and shipping costs can be high.",
@@ -52,12 +61,9 @@ const sections = [
       "Research neighborhoods and schools (if applicable)"
     ],
     storageConnection: "Not sure what to bring? Store non-essential items with SafeStorage while you settle in. Many people keep belongings in storage for 3-6 months until they understand what they actually need in Dubai.",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=800&fit=crop",
-    color: "from-blue-500 to-blue-600"
   },
   {
     id: 2,
-    icon: FileText,
     title: "Visas & Documentation Made Simple",
     subtitle: "What You Actually Need",
     content: "Most people moving to Dubai get a residence visa sponsored by their employer. The process typically takes 2-4 weeks once you arrive. You'll need your passport (valid for 6+ months), photos, degree certificates, and medical test results. Don't worry - your company usually handles most paperwork!",
@@ -70,12 +76,9 @@ const sections = [
       "Emirates ID application (done in Dubai)"
     ],
     storageConnection: "Important documents need safe keeping! Store original certificates, family records, and sensitive paperwork in our clean, secure facility. Access them anytime you need.",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop",
-    color: "from-purple-500 to-purple-600"
   },
   {
     id: 3,
-    icon: Home,
     title: "Finding Your Perfect Home",
     subtitle: "Apartments, Villas & Neighborhoods",
     content: "Dubai offers everything from affordable studios (AED 30,000/year) to luxury villas (AED 200,000+/year). Most people start with hotel apartments for 1-2 months while house hunting. Popular areas: Marina (waterfront lifestyle), Downtown (city center), Arabian Ranches (family villas), Business Bay (professionals). Rent is typically paid in 1-4 cheques annually.",
@@ -88,12 +91,9 @@ const sections = [
       "Consider proximity to work/schools"
     ],
     storageConnection: "Moving between hotel and apartment? Store your belongings safely with us during the transition. Door-to-Door pickup from anywhere in Dubai - focus on finding the right home, not managing boxes!",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&h=800&fit=crop",
-    color: "from-green-500 to-green-600"
   },
   {
     id: 4,
-    icon: Package,
     title: "Packing & Shipping: What to Bring",
     subtitle: "Smart Moving Strategy",
     content: "Ship only essentials. Electronics, furniture, and appliances are readily available (and often cheaper) in Dubai. Bring personal items, photos, important documents, and items with sentimental value. Shipping costs AED 500-2000 per cubic meter by sea (6-8 weeks) or AED 8-15 per kg by air (1 week). Most people ship 2-5 cubic meters.",
@@ -106,12 +106,9 @@ const sections = [
       "Items NOT to bring: Large furniture, heavy appliances"
     ],
     storageConnection: "Can't decide what to bring? Ship everything to SafeStorage first! Store items while you settle, then request delivery of what you need. No rush decisions - take your time figuring out your new life.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop",
-    color: "from-orange-500 to-orange-600"
   },
   {
     id: 5,
-    icon: ShoppingCart,
     title: "First Month Essentials",
     subtitle: "What to Do Immediately",
     content: "Your first month is about setting up. Get a local SIM (Etisalat/Du, AED 100-200/month), open a bank account (Emirates NBD, ADCB, or Mashreq are foreigner-friendly), buy a car or arrange transport, and register for utilities. Dubai moves fast - you'll be settled before you know it!",
@@ -124,12 +121,9 @@ const sections = [
       "Month 1: Explore your neighborhood & make connections"
     ],
     storageConnection: "Bought too much too fast? We've all been there! Store seasonal items, extra furniture, or bulk purchases until you actually need them. Your apartment will thank you for the extra space.",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=800&fit=crop",
-    color: "from-red-500 to-red-600"
   },
   {
     id: 6,
-    icon: School,
     title: "Schools & Healthcare",
     subtitle: "For Families Moving to Dubai",
     checklist: [
@@ -140,12 +134,9 @@ const sections = [
       "Get vaccinations up to date"
     ],
     storageConnection: "Kids outgrow everything quickly! Store seasonal clothes, toys, and sports equipment. When they move up a school year, swap stored items instead of buying new - saves money and space.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&h=800&fit=crop",
-    color: "from-indigo-500 to-indigo-600"
   },
   {
     id: 7,
-    icon: CreditCard,
     title: "Cost of Living Reality Check",
     subtitle: "Monthly Budget Breakdown",
     content: "Dubai can be affordable or expensive depending on lifestyle. A single person needs AED 6,000-10,000/month for comfortable living. A family of 4 needs AED 20,000-35,000/month. The advantage? No income tax! Your entire salary is yours. Groceries, dining, and entertainment are reasonably priced.",
@@ -160,12 +151,9 @@ const sections = [
       "School fees: AED 15,000-100,000/child/year"
     ],
     storageConnection: "Save money on rent! Instead of paying for a bigger apartment, store seasonal items, sports gear, and rarely-used belongings. Paying only for the storage space you use beats paying AED 3,000+ extra rent annually for a bigger place.",
-    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=800&fit=crop",
-    color: "from-yellow-500 to-yellow-600"
   },
   {
     id: 8,
-    icon: Users,
     title: "Culture & Lifestyle Tips",
     subtitle: "Living Like a Local",
     content: "Dubai is welcoming, safe, and multicultural. Respect local customs: dress modestly in public, don't drink alcohol in public areas, and be mindful during Ramadan. Friday-Saturday is the weekend. Dubai is incredibly safe - you can walk alone at night, leave your car unlocked, and trust people. The biggest adjustment? Summer heat (May-September)!",
@@ -178,9 +166,56 @@ const sections = [
       "Summer strategy: Stay indoors 12-5 PM (40°C+)"
     ],
     storageConnection: "Summer in Dubai means 6 months of indoor life. Store your winter clothes, outdoor gear, and seasonal decorations. When winter arrives (November), swap them out and store your summer items instead!",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&h=800&fit=crop",
-    color: "from-pink-500 to-pink-600"
   }
+]
+
+/* the owner's picture per step (saved 2026-10-19, used as given); the two
+   steps without one show their icon on a tinted panel instead */
+const STEP_IMG: Record<number, string> = {
+  1: "/landing/moving-planning-photo.webp",
+  2: "/landing/moving-visas-photo.webp",
+  3: "/landing/moving-home-photo.webp",
+  4: "/landing/moving-packing-photo.webp",
+  5: "/landing/moving-first-month-photo.webp",
+  6: "/landing/moving-schools-photo.webp",
+  7: "/landing/moving-cost-photo.webp",
+  8: "/landing/moving-culture-photo.webp",
+}
+
+const STEP_ICON: Record<number, LucideIcon> = {
+  1: Calendar, 2: FileText, 3: Home, 4: Package,
+  5: ShoppingCart, 6: School, 7: CreditCard, 8: Users,
+}
+
+/* keep each step short: the first couple of sentences, four lines of list */
+const brief = (text: string, sentences = 2) =>
+  text.split(/(?<=[.!?])\s+/).slice(0, sentences).join(" ")
+
+const ticksFor = (step: { checklist: string[] }) => step.checklist.slice(0, 4)
+
+const why = [
+  { Icon: Clock, title: "Flexible timeline", text: "Store for weeks or months. No rush to decide what you need — settle in first." },
+  { Icon: PiggyBank, title: "Save on rent", text: "Take the smaller flat and store the rest, instead of renting space you use twice a year." },
+  { Icon: Sparkles, title: "Clean and secure", text: "Indoor space, wrapped and dust-protected throughout its stay." },
+]
+
+const faqs = [
+  {
+    q: "How much money do I need to move to Dubai?",
+    a: "Minimum AED 15,000-20,000 for first month (flights, hotel, deposit, initial expenses). Ideally have 3 months of living expenses saved (AED 30,000-50,000).",
+  },
+  {
+    q: "Can I move to Dubai without a job?",
+    a: "Difficult - you need visa sponsorship. Options: job offer, start a business, or get sponsored by family member already here. Tourist visa gives you 30-90 days to job hunt.",
+  },
+  {
+    q: "Is Dubai expensive to live in?",
+    a: "It can be affordable or expensive based on lifestyle. Single person: AED 6,000-10,000/month comfortable. Family: AED 20,000-35,000/month. Remember - no income tax means you keep all your salary!",
+  },
+  {
+    q: "Do I need to speak Arabic?",
+    a: "No! English is widely spoken everywhere. Signs, menus, and business are conducted in English. Learning basic Arabic phrases is respectful but not necessary.",
+  },
 ]
 
 const movingToDubaiSchemas = [
@@ -199,9 +234,18 @@ const movingToDubaiSchemas = [
     mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://safestorage.ae/guides/moving-to-dubai' },
     inLanguage: 'en-AE',
     about: { '@type': 'City', name: 'Dubai' },
+  },  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
   },
-  
 ]
+
+const idx = (i: number) => ({ ["--i" as string]: i }) as CSSProperties
 
 export default function MovingToDubai2026() {
   return (
@@ -213,293 +257,166 @@ export default function MovingToDubai2026() {
           { name: "Moving to Dubai" },
         ]}
       />
-    <SchemaScript schema={movingToDubaiSchemas} />
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#0A2463] via-[#3E92CC] to-[#0A2463] text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/images/dubai-skyline-pattern.svg')] bg-repeat-x bg-bottom"></div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Plane className="h-6 w-6 text-[#D8315B]" />
-              <span className="text-sm font-semibold bg-[#D8315B] px-3 py-1 rounded-full">2026 UPDATED GUIDE</span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Moving to <span className="text-[#D8315B]">Dubai in 2026</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-200">
-              Your complete step-by-step guide to relocating to Dubai. Everything from visas to schools, housing to healthcare - we've got you covered!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <CheckCircle2 className="h-4 w-4 text-[#D8315B]" />
-                <span className="text-sm">Written by Dubai Residents</span>
+      <SchemaScript schema={movingToDubaiSchemas} />
+
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* hero — copy left, the owner's picture right */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy}`}>
+              <span className={s.heroTag}>Relocation guide · Updated January 2026</span>
+              <h1>
+                Moving to <br className={s.mBreakDesk} />
+                <em>Dubai in 2026</em>
+              </h1>
+              <p>
+                Visas, housing, shipping, schools and the first month — the whole move in eight steps, in the
+                order you will actually need them.
+              </p>
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a free quote →
+                </Link>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
+                </a>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Calendar className="h-4 w-4 text-[#D8315B]" />
-                <span className="text-sm">Updated January 2026</span>
+            </div>
+            <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
+              <Image
+                src="/landing/moving-hero-photo.webp"
+                alt="A SafeStorage crew packing a family's home in Dubai, with the skyline behind"
+                width={1730}
+                height={909}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                priority
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Quick Stats */}
-      <section className="py-8 bg-white border-b">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#0A2463]">3.5M+</div>
-              <div className="text-sm text-gray-600">People Living Here</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#0A2463]">200+</div>
-              <div className="text-sm text-gray-600">Nationalities</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#0A2463]">0%</div>
-              <div className="text-sm text-gray-600">Income Tax</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#0A2463]">#1</div>
-              <div className="text-sm text-gray-600">Safest City ME</div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <LandingTrust />
 
-      {/* Main Content Sections */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto space-y-16">
-            {sections.map((section, index) => (
-              <div key={section.id}>
-                {/* Section Card */}
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* Image */}
-                    <div className="relative h-80 md:h-auto">
-                      <Image
-                        src={section.image}
-                        alt={section.title}
-                        width={600}
-                        height={400}
-                        className="object-cover w-full h-full"
-                        priority={index < 2}
-                      />
-                      <div className={`absolute top-4 left-4 bg-gradient-to-r ${section.color} px-4 py-2 rounded-full font-bold text-white shadow-lg flex items-center gap-2`}>
-                        <section.icon className="h-5 w-5" />
-                        <span>Step {section.id}</span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <CardContent className="p-6 md:p-8">
-                      <div className="mb-2">
-                        <span className="text-sm font-semibold text-[#D8315B]">{section.subtitle}</span>
-                      </div>
-                      <h2 className="text-3xl font-bold text-[#0A2463] mb-4">
-                        {section.title}
-                      </h2>
-
-                      <p className="text-gray-700 mb-6 leading-relaxed">
-                        {section.content}
-                      </p>
-
-                      <div className="mb-4">
-                        <h3 className="font-semibold text-[#0A2463] mb-3 flex items-center gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-[#D8315B]" />
-                          Essential Checklist:
-                        </h3>
-                        <ul className="space-y-2">
-                          {section.checklist.map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                              <CheckCircle2 className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </CardContent>
-                  </div>
-                </Card>
-
-                {/* Storage Connection Section */}
-                <div className="mt-8 grid md:grid-cols-2 gap-6 items-center bg-gradient-to-r from-[#0A2463]/5 to-[#3E92CC]/5 p-6 rounded-xl border border-[#3E92CC]/20">
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Package className="h-5 w-5 text-[#D8315B]" />
-                      <h3 className="font-semibold text-[#0A2463]">
-                        Storage Tip for This Step
-                      </h3>
-                    </div>
-                    <p className="text-gray-700 mb-4 text-sm leading-relaxed">
-                      {section.storageConnection}
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <Button size="sm" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>
-                        <Link href="/get-quote">
-                          Get Free Quote
-                          <ArrowRight className="ml-1 h-4 w-4" />
-                        </Link>
-                      </Button>
-                      <Button size="sm" variant="outline" asChild>
-                        <a href="tel:+971505773388">
-                          <Phone className="mr-1 h-4 w-4" />
-                          Call Us
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Warehouse Image */}
-                  <div className="relative h-48 rounded-lg overflow-hidden">
-                    <Image
-                      src={index % 3 === 0 ? "/organized-warehouse-space.png" : index % 3 === 1 ? "/expansive-storage.png" : "/varied-storage-row.png"}
-                      alt="SafeStorage Clean, Secure Warehouse"
-                      width={500}
-                      height={300}
-                      className="object-cover w-full h-full"
-                    />
-                    <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-lg">
-                      <p className="text-xs font-semibold text-[#0A2463] flex items-center gap-2">
-                        <Shield className="h-3 w-3" />
-                        Clean & Secure • 24/7 Security
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Use Storage During Relocation */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0A2463] mb-4">
-                Why 70% of People Moving to Dubai Use Storage
+        {/* the eight steps */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 8 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>The move, step by step</span>
+              <h2 className={p.longH2}>
+                Eight things to get right, <em>in order.</em>
               </h2>
-              <p className="text-gray-600 text-lg">
-                Relocation is stressful enough. Let us handle your belongings while you focus on settling in.
+            </div>
+            <p>From the planning months before you fly to the week you feel settled.</p>
+          </div>
+
+          <HomeReveal className={m.list}>
+            {sections.map((step, i) => {
+              const Icon = STEP_ICON[step.id]
+              const img = STEP_IMG[step.id]
+              return (
+                <article className={m.step} style={idx(i)} key={step.id}>
+                  {img ? (
+                    <div className={m.shot}>
+                      <Image
+                        src={img}
+                        alt={step.title}
+                        width={1730}
+                        height={909}
+                        sizes="(max-width: 900px) 94vw, 48vw"
+                        loading={i === 0 ? "eager" : "lazy"}
+                      />
+                    </div>
+                  ) : (
+                    <div className={`${m.shot} ${m.noShot}`}>
+                      <span aria-hidden="true">
+                        <Icon strokeWidth={1.6} />
+                      </span>
+                      <b>{step.subtitle}</b>
+                    </div>
+                  )}
+                  <div className={m.body}>
+                    <span className={m.num}>
+                      <i>{String(step.id).padStart(2, "0")}</i> {step.subtitle}
+                    </span>
+                    <h3>{step.title}</h3>
+                    {step.content ? <p>{brief(step.content)}</p> : null}
+                    <ul className={m.ticks}>
+                      {ticksFor(step).map((t) => (
+                        <li key={t}>{t}</li>
+                      ))}
+                    </ul>
+                    <p className={m.store}>
+                      <b>Where storage helps</b> {brief(step.storageConnection)}
+                    </p>
+                  </div>
+                </article>
+              )
+            })}
+          </HomeReveal>
+        </section>
+
+        {/* why store while you settle */}
+        <section className={`${s.darkBand} ${s.whyBand}`}>
+          <div className={s.wrap}>
+            <div className={s.bandHead}>
+              <span className={s.howEyebrow}>While you settle</span>
+              <h2>
+                One less thing <br className={s.mBreak} />
+                <em>to sort out.</em>
+              </h2>
+              <p>
+                Moving country is enough on its own. Leave what you cannot place yet with us and bring it over
+                when the new home is sorted — you pay only for the space it uses.
               </p>
             </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="text-center p-6 hover:shadow-lg transition-shadow">
-                <Clock className="h-12 w-12 text-[#D8315B] mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Flexible Timeline</h3>
-                <p className="text-sm text-gray-600">Store for weeks or months. No rush to decide what you need - take your time settling in first.</p>
-              </Card>
-
-              <Card className="text-center p-6 hover:shadow-lg transition-shadow">
-                <Warehouse className="h-12 w-12 text-[#D8315B] mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Save on Rent</h3>
-                <p className="text-sm text-gray-600">Get a smaller, cheaper apartment. Store extra items instead of paying AED 20,000+ more for a bigger place annually.</p>
-              </Card>
-
-              <Card className="text-center p-6 hover:shadow-lg transition-shadow">
-                <Shield className="h-12 w-12 text-[#D8315B] mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Clean & Secure</h3>
-                <p className="text-sm text-gray-600">Your belongings are stored in clean, dedicated indoor units, wrapped and dust-protected throughout their stay.</p>
-              </Card>
+            <FeatScroller>
+              {why.map((f) => (
+                <article className={s.feat} key={f.title}>
+                  <div className={s.featIcon}>
+                    <f.Icon strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3>{f.title}</h3>
+                  <p>{f.text}</p>
+                </article>
+              ))}
+            </FeatScroller>
+            <div className={s.bandCta} style={{ flexWrap: "wrap", gap: 14 }}>
+              <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                Get a free quote →
+              </Link>
+              <Link className={`${s.btn} ${s.btnGhost}`} href="/self-storage-dubai">
+                Learn about storage
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Final Moving CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#0A2463] to-[#3E92CC] text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Make Your Dubai Move Smooth?
-            </h2>
-            <p className="text-xl mb-8 text-gray-200">
-              Join thousands who trusted SafeStorage during their relocation. Door-to-Door pickup, flexible terms, and 24/7 security.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-                <Plane className="h-10 w-10 text-[#D8315B] mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Just Arrived?</h3>
-                <p className="text-sm text-gray-200">Store everything while finding your perfect home</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-                <Home className="h-10 w-10 text-[#D8315B] mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Between Homes?</h3>
-                <p className="text-sm text-gray-200">Safe storage during your transition period</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-                <Package className="h-10 w-10 text-[#D8315B] mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Downsizing?</h3>
-                <p className="text-sm text-gray-200">Keep belongings without the bigger apartment cost</p>
-              </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#D8315B] hover:bg-[#c02a50]" asChild>
-                <Link href="/get-quote">Get Your Free Quote - 2 Minutes</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="bg-white text-[#0A2463] hover:bg-gray-100" asChild>
-                <a href="tel:+971505773388">
-                  <Phone className="mr-2 h-4 w-4" />
-                  Call: 050-577-3388
-                </a>
-              </Button>
+        {/* the questions */}
+        <section className={`${s.section} ${s.wrap}`} id="faq">
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>FAQ</span>
+              <h2 className={p.longH2}>
+                Common questions <em>about moving here.</em>
+              </h2>
             </div>
           </div>
-        </div>
-      </section>
+          <FaqAccordion items={faqs} />
+        </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 text-[#0A2463]">
-              Common Questions About Moving to Dubai
-            </h2>
-            <div className="space-y-6">
-              <div className="border-l-4 border-[#D8315B] pl-4">
-                <h3 className="font-semibold text-lg mb-2 text-[#0A2463]">How much money do I need to move to Dubai?</h3>
-                <p className="text-gray-700">Minimum AED 15,000-20,000 for first month (flights, hotel, deposit, initial expenses). Ideally have 3 months of living expenses saved (AED 30,000-50,000).</p>
-              </div>
-              <div className="border-l-4 border-[#D8315B] pl-4">
-                <h3 className="font-semibold text-lg mb-2 text-[#0A2463]">Can I move to Dubai without a job?</h3>
-                <p className="text-gray-700">Difficult - you need visa sponsorship. Options: job offer, start a business, or get sponsored by family member already here. Tourist visa gives you 30-90 days to job hunt.</p>
-              </div>
-              <div className="border-l-4 border-[#D8315B] pl-4">
-                <h3 className="font-semibold text-lg mb-2 text-[#0A2463]">Is Dubai expensive to live in?</h3>
-                <p className="text-gray-700">It can be affordable or expensive based on lifestyle. Single person: AED 6,000-10,000/month comfortable. Family: AED 20,000-35,000/month. Remember - no income tax means you keep all your salary!</p>
-              </div>
-              <div className="border-l-4 border-[#D8315B] pl-4">
-                <h3 className="font-semibold text-lg mb-2 text-[#0A2463]">Do I need to speak Arabic?</h3>
-                <p className="text-gray-700">No! English is widely spoken everywhere. Signs, menus, and business are conducted in English. Learning basic Arabic phrases is respectful but not necessary.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <CtaBand
+          title="Start your Dubai move the easy way."
+          blurb="Tell us what is coming with you and what can wait in storage, and we will send a free, itemised quote."
+          ctaLabel="Get a Free Quote"
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
+      </div>
 
-      {/* Final CTA */}
-      <section className="py-12 bg-gray-100">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold mb-4 text-[#0A2463]">Start Your Dubai Journey Right</h3>
-          <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-            Moving to a new country is exciting but challenging. Let SafeStorage make one part easier - we'll handle your belongings while you handle everything else!
-          </p>
-          <Button className="bg-[#0A2463] hover:bg-[#3E92CC]" asChild>
-            <Link href="/self-storage-dubai">
-              Learn More About Our Storage Solutions
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-      </section>
-    </div>
       <SiloLinks path="/guides/moving-to-dubai" />
     </>
   )
