@@ -482,17 +482,38 @@ const nextConfig = {
           },
         ],
       },
+      // Baseline hardening headers (security review, 2026-10-19). No CSP yet —
+      // Stripe, Google Maps, GTM and Google Ads all load scripts dynamically,
+      // and getting a CSP wrong silently breaks checkout; it needs its own pass
+      // with real-browser testing, not a blind add here.
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+        ],
+      },
     ]
   },
 
   // Serve blog images from our own domain for SEO. The bytes still live on the
   // safestorage.in image store, but crawlers/social see safestorage.ae URLs.
   // Used by lib/blog-image.ts which builds /blog-images/<file> URLs.
+  //
+  // ⚠ `:path*` used to match ANYTHING, including `../`. A request like
+  // `/blog-images/..%2fback%2f` proxied straight through to
+  // `safestorage.in/post_images/../back/` — reaching outside post_images on the
+  // backend (confirmed live, 2026-10-19). The pattern below only matches a bare
+  // image filename, so a path segment or traversal sequence 404s instead of
+  // proxying.
   async rewrites() {
     return [
       {
-        source: '/blog-images/:path*',
-        destination: 'https://safestorage.in/post_images/:path*',
+        source: '/blog-images/:file([\\w.-]+\\.(?:jpg|jpeg|png|webp|gif|avif))',
+        destination: 'https://safestorage.in/post_images/:file',
       },
     ]
   },
