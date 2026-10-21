@@ -365,7 +365,7 @@ export default function LocalSelfStoragePage() {
               <img
                 src="/landing/local-self-storage-photo.webp"
                 alt="SafeStorage team collecting and packing a home in Dubai"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={ls.heroRating}>
                 <strong>4.9★</strong>

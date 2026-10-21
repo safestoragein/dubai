@@ -255,7 +255,7 @@ export default function ExpatLeavingUAEPage() {
               <img
                 src="/landing/expat-photo.webp"
                 alt="A SafeStorage Dubai crew collecting an expat's belongings from a Dubai apartment"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

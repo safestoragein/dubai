@@ -99,7 +99,7 @@ export default function SmallBusinessStoragePage() {
                 alt="SafeStorage team helping a Dubai small business pack and store stock"
                 width={1263}
                 height={907}
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

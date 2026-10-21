@@ -134,7 +134,7 @@ export default function AboutPage() {
               <img
                 src="/landing/about-photo.webp"
                 alt="The SafeStorage Dubai team packing and loading a customer's home"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

@@ -212,7 +212,7 @@
                             className="relative"
                           >
                             <Image
-                              src="/pallet.png"
+                              src="/pallet.webp"
                               alt="Storage Pallet"
                               width={80}
                               height={80}
@@ -431,7 +431,7 @@
             </DialogTitle>
             <div className="flex justify-center">
               <Image
-                src="/pallet.png"
+                src="/pallet.webp"
                 alt="Storage Pallet - Full Size"
                 width={300}
                 height={300}

@@ -120,7 +120,13 @@ const COLOUR_CARD_ICONS = new Set(["/guides/best-storage-companies-uae"])
 const SMALL_TYPE = new Set(["/guides/best-storage-companies-uae"])
 
 /** Pages whose rail cards drop the big faint 01, 02, 03. */
-const NO_CARD_NUMBERS = new Set(["/guides/best-storage-companies-uae"])
+const NO_CARD_NUMBERS = new Set([
+  "/guides/best-storage-companies-uae",
+  "/guides/best-storage-companies-dubai",
+  "/guides/how-much-does-storage-cost-in-dubai",
+  "/guides/storage-packing-checklist",
+  "/guides/dubai-tenancy-and-moving-calendar",
+])
 
 /** Pages that skip the reviews carousel, to keep a long guide shorter. */
 const NO_REVIEWS = new Set([

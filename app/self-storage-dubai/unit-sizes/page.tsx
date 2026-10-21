@@ -207,7 +207,7 @@ export default function UnitSizesPage() {
               <img
                 src="/landing/unit-sizes-photo.webp"
                 alt="SafeStorage Dubai storage bays labelled 30, 60–90, 120–150 and 240–270 sq ft"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

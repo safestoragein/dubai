@@ -191,7 +191,7 @@ export default function ShortTermStoragePage() {
                 alt="SafeStorage team packing a flat between leases in Dubai"
                 width={1133}
                 height={907}
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

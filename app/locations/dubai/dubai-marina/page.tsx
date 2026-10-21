@@ -176,7 +176,7 @@ export default function DubaiMarinaPage() {
                   alt="SafeStorage movers collecting boxes from a Dubai Marina apartment"
                   width={1733}
                   height={907}
-                  fetchPriority="high"
+                  loading="eager" decoding="async"
                 />
               </picture>
               <div className={s.heroRating}>

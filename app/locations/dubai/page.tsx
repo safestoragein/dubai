@@ -137,7 +137,7 @@ export default function Page() {
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1771 / 888" } as CSSProperties}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/landing/dubai-hub-photo.webp" alt="SafeStorage crew collecting boxes and furniture in Dubai" fetchPriority="high" />
+              <img src="/landing/dubai-hub-photo.webp" alt="SafeStorage crew collecting boxes and furniture in Dubai" loading="eager" decoding="async" />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>
                 <span>6,700+ Google reviews</span>

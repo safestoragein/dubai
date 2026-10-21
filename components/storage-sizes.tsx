@@ -143,7 +143,7 @@ export default function StorageSizes() {
                               {Array.from({ length: option.palletCount }, (_, index) => (
                                 <div key={index} className="flex flex-col items-center">
                                   <Image
-                                    src="/pallet.png"
+                                    src="/pallet.webp"
                                     alt={`Container ${index + 1}`}
                                     width={option.palletCount === 1 ? 80 : option.palletCount <= 3 ? 64 : 48}
                                     height={option.palletCount === 1 ? 80 : option.palletCount <= 3 ? 64 : 48}
@@ -168,7 +168,7 @@ export default function StorageSizes() {
                                 {Array.from({ length: option.palletCount }, (_, index) => (
                                   <div key={index} className="flex flex-col items-center flex-shrink-0">
                                     <Image
-                                      src="/pallet.png"
+                                      src="/pallet.webp"
                                       alt={`Container ${index + 1}`}
                                       width={48}
                                       height={48}

@@ -70,10 +70,11 @@ export default function HeroSection() {
           className="relative max-w-5xl mx-auto"
         >
           <Image
-            src="/images/design-mode/image.png"
+            src="/images/design-mode/image.webp"
             alt="Storage Process Illustration"
             width={1200}
             height={600}
+            sizes="(max-width: 1100px) 94vw, 1000px"
             className="w-full h-auto"
             priority
           />

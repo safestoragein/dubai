@@ -31,7 +31,7 @@ export default function HowItWorksPage() {
       icon: Calendar,
       color: "from-blue-500 to-blue-600",
       image:
-        "/confident-professional.png",
+        "/confident-professional.webp",
       features: [
         "Simple online booking system",
         "Instant price quotes",
@@ -47,7 +47,7 @@ export default function HowItWorksPage() {
       icon: Truck,
       color: "from-green-500 to-green-600",
       image:
-        "/organized-storage-boxes.png",
+        "/organized-storage-boxes.webp",
       features: [
         "Professional packing service",
         "Careful handling of all items",
@@ -63,7 +63,7 @@ export default function HowItWorksPage() {
       icon: Warehouse,
       color: "from-purple-500 to-purple-600",
       image:
-        "/organized-warehouse-space.png",
+        "/organized-warehouse-space.webp",
       features: [
         "24/7 security surveillance",
         "Clean, indoor storage environment",
@@ -79,7 +79,7 @@ export default function HowItWorksPage() {
       icon: Package,
       color: "from-orange-500 to-orange-600",
       image:
-        "/varied-storage-row.png",
+        "/varied-storage-row.webp",
       features: [
         "On-demand delivery service",
         "Online return request system",

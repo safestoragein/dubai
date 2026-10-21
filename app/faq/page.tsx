@@ -377,7 +377,7 @@ export default function FAQPage() {
               <img
                 src="/landing/faq-photo.webp"
                 alt="A SafeStorage Dubai consultant answering a customer's storage questions"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

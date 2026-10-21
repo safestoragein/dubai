@@ -263,7 +263,7 @@ export default function TopPlacesDubai2026() {
               <img
                 src="/landing/best-places-photo.webp"
                 alt="Best places in Dubai — the Burj Khalifa, Palm Jumeirah, Museum of the Future, the Marina, Miracle Garden and Global Village"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

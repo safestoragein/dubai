@@ -178,7 +178,7 @@ export default function GuidesHubPage() {
               <img
                 src="/landing/guides-banner-v2.webp"
                 alt="A SafeStorage Dubai crew loading a truck outside a villa, with the city behind"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

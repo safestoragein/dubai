@@ -111,7 +111,7 @@ export default function LocationsPage() {
               <img
                 src="/landing/locations-photo.webp"
                 alt="SafeStorage crew collecting boxes and furniture across the UAE"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

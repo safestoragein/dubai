@@ -92,7 +92,7 @@ export default function PrivacyPolicyPage() {
               <img
                 src="/landing/policy-photo.webp"
                 alt="A SafeStorage Dubai team member working at the front desk beside the secure storage floor"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

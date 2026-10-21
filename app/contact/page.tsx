@@ -135,7 +135,7 @@ export default function Contact() {
               <img
                 src="/landing/contact-photo.webp"
                 alt="A SafeStorage Dubai consultant helping a customer at the front desk"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

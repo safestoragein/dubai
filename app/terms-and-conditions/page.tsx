@@ -87,7 +87,7 @@ export default function TermsAndConditionsPage() {
               <img
                 src="/landing/terms-photo.webp"
                 alt="A SafeStorage Dubai consultant going through the storage agreement with a customer"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

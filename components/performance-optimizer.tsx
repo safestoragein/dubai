@@ -46,8 +46,10 @@ export default function PerformanceOptimizer() {
   }
 
   const preloadImportantImages = () => {
-    // Add preload links for critical images
-    const criticalImages = ["/cluttered-storage.png"]
+    /* Nothing to preload here. This used to preload /cluttered-storage.png on
+       every page - 950 kB that no page displays. Preload a picture only if the
+       page that shows it is the one doing the preloading. */
+    const criticalImages: string[] = []
 
     criticalImages.forEach((imageSrc) => {
       const link = document.createElement("link")

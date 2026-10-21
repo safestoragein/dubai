@@ -160,7 +160,7 @@ export default function HowItWorks() {
                 alt="SafeStorage team loading boxes into a SafeStorage van in Dubai"
                 width={1733}
                 height={545}
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

@@ -221,7 +221,7 @@ export default function TestimonialsPage() {
               <img
                 src="/landing/testimonials-photo.webp"
                 alt="SafeStorage Dubai customers holding five-star review cards in the reception"
-                fetchPriority="high"
+                loading="eager" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>
