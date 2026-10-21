@@ -119,6 +119,9 @@ const COLOUR_CARD_ICONS = new Set(["/guides/best-storage-companies-uae"])
 /** Pages that read lighter with smaller headings and card text. */
 const SMALL_TYPE = new Set(["/guides/best-storage-companies-uae"])
 
+/** Pages whose rail cards drop the big faint 01, 02, 03. */
+const NO_CARD_NUMBERS = new Set(["/guides/best-storage-companies-uae"])
+
 /** Pages that skip the reviews carousel, to keep a long guide shorter. */
 const NO_REVIEWS = new Set([
   "/guides/best-storage-companies-uae",
@@ -244,12 +247,14 @@ function SectionView({
   smallIcons = false,
   tableIcons = false,
   colourIcons = false,
+  hideNumbers = false,
 }: {
   section: Section
   index: number
   smallIcons?: boolean
   tableIcons?: boolean
   colourIcons?: boolean
+  hideNumbers?: boolean
 }) {
   const id = `s${index + 1}`
   switch (section.kind) {
@@ -333,9 +338,11 @@ function SectionView({
           >
             {section.items.map((it, i) => (
               <article className={s.usp} key={it.h}>
-                <span className={s.uspNum} aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                {hideNumbers ? null : (
+                  <span className={s.uspNum} aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                )}
                 <div
                   className={colourIcons ? `${s.uspIcon} ${g.anim}` : s.uspIcon}
                   style={{
@@ -506,6 +513,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
             smallIcons={SMALL_CARD_ICONS.has(content.path)}
             tableIcons={TABLE_ICONS.has(content.path)}
             colourIcons={COLOUR_CARD_ICONS.has(content.path)}
+            hideNumbers={NO_CARD_NUMBERS.has(content.path)}
             key={section.h2}
           />
         ))}
