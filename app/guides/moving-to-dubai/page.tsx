@@ -284,7 +284,7 @@ export default function MovingToDubai2026() {
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
               <Image
-                src="/landing/moving-hero-photo.webp"
+                src="/landing/moving-hero-photo-v2.webp"
                 alt="A SafeStorage crew packing a family's home in Dubai, with the skyline behind"
                 width={1730}
                 height={909}

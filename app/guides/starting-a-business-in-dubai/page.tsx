@@ -378,7 +378,7 @@ export default function StartingBusinessDubai2026() {
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
               <Image
-                src="/landing/business-guide-photo.webp"
+                src="/landing/business-guide-photo-v2.webp"
                 alt="A business team planning a Dubai company setup, with records boxed on the shelves behind"
                 width={1400}
                 height={736}

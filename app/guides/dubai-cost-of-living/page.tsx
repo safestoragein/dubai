@@ -371,7 +371,7 @@ export default function DubaiCostOfLiving2026() {
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
               <Image
-                src="/landing/cost-of-living-photo.webp"
+                src="/landing/cost-of-living-photo-v2.webp"
                 alt="The cost of living in Dubai — rent, groceries, a car and the Downtown skyline"
                 width={1730}
                 height={909}

@@ -176,7 +176,7 @@ export default function GuidesHubPage() {
             <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/landing/guides-banner.webp"
+                src="/landing/guides-banner-v2.webp"
                 alt="A SafeStorage Dubai crew loading a truck outside a villa, with the city behind"
                 fetchPriority="high"
               />

@@ -75,9 +75,9 @@ const HERO_IMAGE: Record<string, string> = {
   "/moving-storage-dubai/palm-jumeirah-movers": "/landing/place-palm.webp",
   "/moving-storage-dubai/silicon-oasis-movers": "/landing/dso-photo.webp",
   "/guides/best-storage-companies-dubai": "/landing/storage-companies-photo.webp",
-  "/guides/how-much-does-storage-cost-in-dubai": "/landing/storage-cost-photo.webp",
-  "/guides/storage-packing-checklist": "/landing/packing-checklist-photo.webp",
-  "/guides/dubai-tenancy-and-moving-calendar": "/landing/moving-calendar-photo.webp",
+  "/guides/how-much-does-storage-cost-in-dubai": "/landing/storage-cost-photo-v2.webp",
+  "/guides/storage-packing-checklist": "/landing/packing-checklist-photo-v2.webp",
+  "/guides/dubai-tenancy-and-moving-calendar": "/landing/moving-calendar-photo-v2.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
