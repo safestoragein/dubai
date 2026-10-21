@@ -1,0 +1,347 @@
+/* Starting-a-business guide (owner, 2026-10-19): licence cards, the setup
+   steps as a rail, the cost tables and the mistakes, in the landing style. */
+
+/* ---------- the three licence types ---------- */
+.types {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+@media (max-width: 980px) {
+  .types {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 20px;
+  padding: 22px 20px 20px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.card:hover {
+  border-color: rgba(238, 88, 36, 0.35);
+  box-shadow: 0 20px 40px rgba(37, 49, 90, 0.12);
+}
+.icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+/* a gentle drift any icon can wear, staggered by its index */
+.anim {
+  animation: drift 3.6s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 200ms);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.4);
+}
+/* hovering the card stops the drift and tips the icon up */
+.animHost:hover .anim,
+.card:hover .anim,
+.step:hover .anim,
+.miss:hover .anim {
+  animation: none;
+  transform: rotate(-8deg) scale(1.12);
+}
+.icon svg {
+  width: 18px;
+  height: 18px;
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.card h3 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+/* label-left, value-right rows */
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: rgba(37, 49, 90, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.rows li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  padding: 9px 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.rows span {
+  flex: none;
+}
+.rows b {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.best {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  background: rgba(24, 147, 210, 0.07);
+  border-radius: 12px;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding: 11px 13px;
+}
+.best b {
+  display: block;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1893d2;
+  margin-bottom: 3px;
+}
+
+/* ---------- the setup steps, as rail cards ---------- */
+.step {
+  flex: 0 0 calc((100% - 2 * 18px) / 3);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-radius: 20px;
+  padding: 22px 20px 20px;
+  box-shadow: 0 14px 34px rgba(37, 49, 90, 0.08);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.step:hover {
+  border-color: rgba(238, 88, 36, 0.35);
+  box-shadow: 0 20px 40px rgba(37, 49, 90, 0.12);
+}
+@media (max-width: 1100px) {
+  .step {
+    flex-basis: calc((100% - 18px) / 2.15);
+  }
+}
+@media (max-width: 700px) {
+  .step {
+    flex-basis: 88%;
+  }
+}
+.stepTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.stepIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+}
+.stepIcon svg {
+  width: 17px;
+  height: 17px;
+}
+.stepNum {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: rgba(238, 88, 36, 0.1);
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.when {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #1893d2;
+}
+.step h3 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1.28;
+  color: var(--navy);
+  margin-bottom: 8px;
+  min-height: 40px;
+}
+.step > p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.tips {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.tips li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.tips li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---------- what it costs ---------- */
+.costs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+@media (max-width: 1100px) {
+  .costs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  .costs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- the mistakes ---------- */
+.mistakes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+@media (max-width: 1000px) {
+  .mistakes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  .mistakes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.miss {
+  background: #fff;
+  border: 1px solid rgba(37, 49, 90, 0.1);
+  border-left: 3px solid var(--accent);
+  border-radius: 16px;
+  padding: 18px 18px 16px;
+}
+.missTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.missIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+}
+.missIcon svg {
+  width: 16px;
+  height: 16px;
+}
+.missTop h3 {
+  margin-bottom: 0;
+}
+.miss h3 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.miss p {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim,
+  .card,
+  .step,
+  .miss {
+    animation: none;
+    transition: none;
+  }
+  .animHost:hover .anim,
+  .card:hover .anim,
+  .step:hover .anim,
+  .miss:hover .anim {
+    transform: none;
+  }
+}
+
+/* money tables: the label on one line, the figure under it — nothing clips
+   in a narrow card */
+.money li {
+  display: block;
+  padding: 10px 12px;
+}
+.money span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.money b {
+  display: block;
+  margin-top: 3px;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: normal;
+  font-size: 12.5px;
+}
