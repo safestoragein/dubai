@@ -13,9 +13,11 @@ import {
   MapPinned,
   Moon,
   Package,
+  Banknote,
   Sofa,
   Sun,
   Truck,
+  Users,
   Warehouse,
 } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
@@ -78,6 +80,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/guides/how-much-does-storage-cost-in-dubai": "/landing/storage-cost-photo-v2.webp",
   "/guides/storage-packing-checklist": "/landing/packing-checklist-photo-v2.webp",
   "/guides/dubai-tenancy-and-moving-calendar": "/landing/moving-calendar-photo-v2.webp",
+  "/guides/best-storage-companies-uae": "/landing/companies-uae-photo.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -89,6 +92,7 @@ const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
  */
 const SIDE_HERO = new Set([
   "/guides/best-storage-companies-dubai",
+  "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/storage-packing-checklist",
   "/guides/dubai-tenancy-and-moving-calendar",
@@ -97,6 +101,7 @@ const SIDE_HERO = new Set([
 /** Pages whose card icons sit in a smaller square than the homepage default. */
 const SMALL_CARD_ICONS = new Set([
   "/guides/best-storage-companies-dubai",
+  "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/storage-packing-checklist",
 ])
@@ -105,10 +110,18 @@ const SMALL_CARD_ICONS = new Set([
 const TABLE_ICONS = new Set([
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
+  "/guides/best-storage-companies-uae",
 ])
+
+/** Pages whose rail cards carry a colour icon rather than the navy square. */
+const COLOUR_CARD_ICONS = new Set(["/guides/best-storage-companies-uae"])
+
+/** Pages that read lighter with smaller headings and card text. */
+const SMALL_TYPE = new Set(["/guides/best-storage-companies-uae"])
 
 /** Pages that skip the reviews carousel, to keep a long guide shorter. */
 const NO_REVIEWS = new Set([
+  "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/storage-packing-checklist",
   "/guides/dubai-tenancy-and-moving-calendar",
@@ -137,6 +150,11 @@ function rowIcon(label: string) {
   if (/studio|flat|apartment|bedroom|bhk/.test(t)) return Home
   if (/room/.test(t)) return Sofa
   if (/office|shop|business|stock|pallet/.test(t)) return Warehouse
+  if (/where|stored|facility|warehouse/.test(t)) return Warehouse
+  if (/collect|collection|pickup|pick up/.test(t)) return Truck
+  if (/charge|fee|cost|price|trip/.test(t)) return Banknote
+  if (/visit|see|site/.test(t)) return MapPinned
+  if (/who|team|contractor|staff/.test(t)) return Users
   return Boxes
 }
 
@@ -225,11 +243,13 @@ function SectionView({
   index,
   smallIcons = false,
   tableIcons = false,
+  colourIcons = false,
 }: {
   section: Section
   index: number
   smallIcons?: boolean
   tableIcons?: boolean
+  colourIcons?: boolean
 }) {
   const id = `s${index + 1}`
   switch (section.kind) {
@@ -317,8 +337,18 @@ function SectionView({
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div
-                  className={s.uspIcon}
-                  style={smallIcons ? { width: 40, height: 40, borderRadius: 13, marginBottom: 16 } : undefined}
+                  className={colourIcons ? `${s.uspIcon} ${g.anim}` : s.uspIcon}
+                  style={{
+                    ...(smallIcons ? { width: 40, height: 40, borderRadius: 13, marginBottom: 16 } : null),
+                    ...(colourIcons
+                      ? {
+                          background: ICON_TINTS[i % ICON_TINTS.length].bg,
+                          color: ICON_TINTS[i % ICON_TINTS.length].fg,
+                          boxShadow: "none",
+                          ["--i"]: i,
+                        }
+                      : null),
+                  } as CSSProperties}
                   aria-hidden="true"
                 >
                   <span style={{ fontSize: smallIcons ? 17 : 20, lineHeight: 1 }}>{it.icon}</span>
@@ -404,7 +434,9 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
         }
       />
 
-      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+      <div
+        className={`${s.page} ${sora.variable} ${manrope.variable}${SMALL_TYPE.has(content.path) ? ` ${g.smallType}` : ""}`}
+      >
         {SIDE_HERO.has(content.path) ? (
           <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
             <div className={p.split2Inner}>
@@ -473,6 +505,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
             index={i}
             smallIcons={SMALL_CARD_ICONS.has(content.path)}
             tableIcons={TABLE_ICONS.has(content.path)}
+            colourIcons={COLOUR_CARD_ICONS.has(content.path)}
             key={section.h2}
           />
         ))}

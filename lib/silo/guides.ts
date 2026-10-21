@@ -483,8 +483,6 @@ export const GUIDE_PAGES: SiloPageContent[] = [
     introH2: "The short version",
     hero: [
       "Outside Dubai the first question is not which company, but where your goods will physically be kept and how they get there. A provider can serve Abu Dhabi on its website and store everything in another emirate. This guide is part of our [storage and moving guides](/guides), and the model comparison is in our guide to [storage companies in Dubai](/guides/best-storage-companies-dubai).",
-      "In the UAE, storage splits into **self-storage units**, **valet storage with collection**, and **warehouse storage for businesses**. The differences between them are the same in every emirate; what changes is the reach of each provider.",
-      "We run a valet service and are not a neutral party, so we have not scored other companies. We cannot verify their prices or reviews. This page covers what to check, which is what holds across the country.",
     ],
     sections: [
       {
@@ -497,7 +495,6 @@ export const GUIDE_PAGES: SiloPageContent[] = [
           ["Is collection offered at my address?", "Some providers only serve certain districts. Ask for your exact area, not the city."],
           ["Is there a charge for each return trip?", "Longer distances between the storage site and your home usually mean the delivery leg costs more."],
           ["Can I visit the storage site?", "With a collection-based service you may not visit at all. Ask what to expect."],
-          ["Who does the collection?", "Ask whether the provider's own team collects or a contractor does."],
         ],
       },
       {
@@ -517,7 +514,6 @@ export const GUIDE_PAGES: SiloPageContent[] = [
         paras: [
           "In Dubai, Sharjah and Ajman a self-storage unit and a valet service are both realistic, and the choice comes down to how often you want to reach your things. See [self-storage in Dubai](/self-storage-dubai) for how we run it there.",
           "In Abu Dhabi, Al Ain and the northern emirates, a collection-based service is often the practical option, because a unit means your own transport each way. Our [moving and storage across the UAE](/moving-storage-uae) page lists each emirate and what we do there.",
-          "Whatever the emirate, compare the three-month total including transport both ways and VAT, not the monthly rate on its own.",
         ],
       },
       {
@@ -528,7 +524,6 @@ export const GUIDE_PAGES: SiloPageContent[] = [
           "Do you collect from my exact address, and is there a collection charge?",
           "What do you charge each time I ask for items back, and how long does it take?",
           "Is the monthly charge a fixed unit or the space my goods use?",
-          "What is the minimum term and notice period?",
           "Who is responsible if something is damaged?",
         ],
         note: "Ask for the answers in writing before paying anything.",

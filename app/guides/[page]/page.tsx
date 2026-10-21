@@ -30,6 +30,7 @@ const REDESIGNED = new Set([
   "how-much-does-storage-cost-in-dubai",
   "storage-packing-checklist",
   "dubai-tenancy-and-moving-calendar",
+  "best-storage-companies-uae",
 ])
 
 export const dynamicParams = false

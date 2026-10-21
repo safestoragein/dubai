@@ -85,3 +85,19 @@
   width: 15px;
   height: 15px;
 }
+
+/* Smaller type for a page that reads heavy: section titles and the rail
+   cards come down a step. Doubled class so it wins over the shared rules
+   without !important. */
+.smallType.smallType h2 {
+  font-size: clamp(23px, 2.5vw, 33px);
+  line-height: 1.14;
+}
+.smallType.smallType article h3 {
+  font-size: 15.5px;
+  line-height: 1.3;
+}
+.smallType.smallType article p {
+  font-size: 13px;
+  line-height: 1.55;
+}
