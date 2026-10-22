@@ -56,8 +56,10 @@
   gap: 12px;
 }
 @media (min-width: 1180px) {
+  /* --cols lets a row of five cards stay a row of five rather than four
+     and a lonely fifth. It falls back to four where nothing sets it. */
   .grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
   }
 }
 .card {

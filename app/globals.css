@@ -382,3 +382,55 @@ article a {
     visibility: hidden;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Tap areas on touch screens.
+
+   The links in the top strip, the breadcrumb and the footer are the height of
+   their text - about 17 to 20px - which is fiddly with a thumb. On a coarse
+   pointer they get a 44px box, which is what Apple and Google ask for. Nothing
+   changes on a mouse, and the text itself does not move: the box grows around
+   it.
+   --------------------------------------------------------------------------- */
+@media (pointer: coarse) {
+  header a:not([class*="btn"]),
+  footer a,
+  nav[aria-label="Breadcrumb"] a,
+  nav[aria-label="Breadcrumb"] span[aria-current] {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* the footer link columns would otherwise stretch to twice their height */
+  footer ul a {
+    min-height: 40px;
+  }
+}
+
+/* the area chips and the 'all areas' link are links too, so give a thumb
+   something to land on */
+@media (pointer: coarse) {
+  a[class*="areasAll"] {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  /* the area chips in the marquee rows are plain links inside li */
+  [class*="marqueeGroup"] a,
+  a[class*="chip"] {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* blog cards: 'Read more', the like button and the page numbers */
+  a[class*="text-dubai-gold"],
+  [class*="text-dubai-navy/60"] button,
+  nav[aria-label="pagination"] a,
+  nav[aria-label="pagination"] button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
