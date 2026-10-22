@@ -179,6 +179,7 @@ export default function SelfStorageDubaiPage() {
             titleAccent="Secure Units, Fair Rates, Easy Booking"
             blurb="Between apartments, renovating, travelling or decluttering? SafeStorage gives you secure space in Dubai, when and where you need it."
             image="/landing/svc-self-hero.webp"
+            side
             imagePosition="center 30%"
             ctaLabel="Get Instant Quote"
             phoneLabel="Call +971 50 577 3388"

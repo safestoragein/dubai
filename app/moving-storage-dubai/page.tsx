@@ -202,6 +202,7 @@ export default function MovingStorageDubaiPage() {
           titleAccent="One Crew, One Job Number"
           blurb="We pack, move and store — with monthly storage when your dates don't line up. No lock-in."
           image="/landing/svc-relocation.jpg"
+          side
           imagePosition="center 50%"
           ctaLabel="Get a Moving Quote"
         />

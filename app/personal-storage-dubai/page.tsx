@@ -130,6 +130,7 @@ export default function PersonalStoragePage() {
             titleAccent="Furniture, Boxes & More"
             blurb="Affordable storage for your home and belongings, with door-to-door pickup and no hidden fees."
             image="/landing/svc-personal-hero.webp"
+            side
             imagePosition="center 30%"
             ctaLabel="Get Your Free Quote"
           />

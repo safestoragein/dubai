@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react"
 import type { LucideIcon } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
+import p from "@/components/locations/location-landing.module.css"
 import { env } from "@/lib/env"
 import s from "./landing.module.css"
 
@@ -101,6 +103,7 @@ export function SplitHero({
   ctaLabel = "Get Your Free Quote",
   ctaHref = "/get-quote",
   phoneLabel = "Call: 050-577-3388",
+  side = false,
 }: {
   eyebrow?: string
   title: string
@@ -112,11 +115,74 @@ export function SplitHero({
   ctaLabel?: string
   ctaHref?: string
   phoneLabel?: string
+  /** picture beside the copy, in its own card, rather than behind it */
+  side?: boolean
 }) {
   const style = {
     "--hero-img": `url("${image}")`,
     backgroundPosition: imagePosition,
   } as CSSProperties
+
+  const copy = (
+    <>
+      {eyebrow ? <span className={s.heroTag}>{eyebrow}</span> : null}
+      <h1>
+        {title}
+        {titleAccent ? (
+          <>
+            {" "}
+            <br className={s.mBreakDesk} />
+            <em>{titleAccent}</em>
+          </>
+        ) : null}
+      </h1>
+      <p>{blurb}</p>
+      <div className={s.heroCta}>
+        <Link className={`${s.btn} ${s.btnAccent}`} href={ctaHref}>
+          {ctaLabel} →
+        </Link>
+        <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+          <span className={s.phIco}>📞</span> {phoneLabel}
+        </a>
+      </div>
+      {stats?.length ? (
+        <div className={s.heroSplitStats}>
+          {stats.map(({ Icon, label }) => (
+            <span key={label}>
+              <Icon strokeWidth={2} aria-hidden="true" />
+              {label}
+            </span>
+          ))}
+        </div>
+      ) : null}
+    </>
+  )
+
+  if (side) {
+    return (
+      <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
+        <div className={p.split2Inner}>
+          <div className={`${s.heroContent} ${p.split2Copy} ${p.split2Tight}`}>{copy}</div>
+          <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
+            <Image
+              src={image}
+              alt=""
+              width={1400}
+              height={736}
+              sizes="(max-width: 900px) 94vw, 50vw"
+              style={{ objectPosition: imagePosition }}
+              priority
+            />
+            <div className={s.heroRating}>
+              <strong>4.9★</strong>
+              <span>6,700+ Google reviews</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className={`${s.hero} ${s.heroBleed} ${s.heroSplit}`}>
       <div className={s.heroInner} style={style}>

@@ -123,6 +123,7 @@ export default function BusinessStoragePage() {
             titleAccent="Stock, Equipment & Records"
             blurb="Secure, flexible storage for your business. Focus on growing while we handle the storage."
             image="/landing/svc-business-hero.webp"
+            side
             imagePosition="center 30%"
             ctaLabel="Get Your Free Quote"
           />
