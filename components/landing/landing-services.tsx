@@ -23,7 +23,7 @@ const services = [
   {
     href: "/personal-storage-dubai",
     emoji: "🏠",
-    img: "/landing/svc-household.jpg",
+    img: "/landing/svc-household.webp",
     pos: "center 32%",
     title: "Household Storage",
     sub: "Furniture, appliances & full homes",
@@ -31,7 +31,7 @@ const services = [
   {
     href: "/business-storage-dubai",
     emoji: "🏢",
-    img: "/landing/svc-business.jpg",
+    img: "/landing/svc-business.webp",
     pos: "center 55%",
     title: "Business Storage",
     sub: "Inventory, files & office assets",
@@ -39,7 +39,7 @@ const services = [
   {
     href: "/moving-storage-dubai",
     emoji: "🚚",
-    img: "/landing/svc-relocation.jpg",
+    img: "/landing/svc-relocation.webp",
     pos: "center 62%",
     title: "Relocation Storage",
     sub: "Moving, travel & short stays",
@@ -47,7 +47,7 @@ const services = [
   {
     href: "/business-storage-dubai/document-storage",
     emoji: "🗄️",
-    img: "/landing/svc-document.jpg",
+    img: "/landing/svc-document.webp",
     pos: "center 40%",
     title: "Document Storage",
     sub: "Archives, records & retrieval",

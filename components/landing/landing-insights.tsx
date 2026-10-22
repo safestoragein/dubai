@@ -54,10 +54,10 @@ export function LandingInsights() {
           <Link className={s.insCard} href={ins.href} key={ins.href}>
             <div className={`${s.insMedia} ${ins.media}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              {/* Not loading="lazy": the CSS sizes this to `width:auto` inside a
-                  grid cell, so before it loads the box measures 0x0 and Chrome
-                  never fires the lazy load — both cards stayed empty. */}
-              <img src={ins.img} alt={ins.alt} width={ins.w} height={ins.h} decoding="async" />
+              {/* lazy: the width/height attributes give the box a size before the
+                  picture arrives, so Chrome does fire the load — and every page
+                  that prefetches the homepage no longer downloads these two. */}
+              <img src={ins.img} alt={ins.alt} width={ins.w} height={ins.h} loading="lazy" decoding="async" />
             </div>
             <div className={s.insBody}>
               <span className={s.pill}>{ins.pill}</span>

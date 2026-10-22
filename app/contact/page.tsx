@@ -131,11 +131,13 @@ export default function Contact() {
               </div>
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1672 / 941" }}>
+              {/* loading="lazy" on purpose: React preloads a non-lazy <img>, and every
+                  page that prefetches this route then downloads this picture too. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/landing/contact-photo.webp"
                 alt="A SafeStorage Dubai consultant helping a customer at the front desk"
-                loading="eager" decoding="async"
+                loading="lazy" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

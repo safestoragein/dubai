@@ -130,11 +130,13 @@ export default function AboutPage() {
               </div>
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1677 / 938" }}>
+              {/* loading="lazy" on purpose: React preloads a non-lazy <img>, and every
+                  page that prefetches this route then downloads this picture too. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/landing/about-photo.webp"
                 alt="The SafeStorage Dubai team packing and loading a customer's home"
-                loading="eager" decoding="async"
+                loading="lazy" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

@@ -154,13 +154,15 @@ export default function HowItWorks() {
               </div>
             </div>
             <div className={h.split2Photo}>
+              {/* loading="lazy" on purpose: React preloads a non-lazy <img>, and every
+                  page that prefetches this route then downloads this picture too. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/landing/how-hero-scene-v2.webp"
                 alt="SafeStorage team loading boxes into a SafeStorage van in Dubai"
-                width={1733}
-                height={545}
-                loading="eager" decoding="async"
+                width={1672}
+                height={941}
+                loading="lazy" decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>
