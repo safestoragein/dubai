@@ -201,7 +201,7 @@ export default function MovingStorageDubaiPage() {
           title="Movers and Packers in Dubai –"
           titleAccent="One Crew, One Job Number"
           blurb="We pack, move and store — with monthly storage when your dates don't line up. No lock-in."
-          image="/landing/svc-relocation.jpg"
+          image="/landing/svc-moving-hero.webp"
           side
           imagePosition="center 50%"
           ctaLabel="Get a Moving Quote"

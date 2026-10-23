@@ -342,7 +342,8 @@
     gap: 8px;
   }
   .barLabel {
-    font-size: 11px;
+    /* the short labels on a phone: 11px was below what reads comfortably */
+    font-size: 12px;
     letter-spacing: 0.08em;
     white-space: nowrap;
   }

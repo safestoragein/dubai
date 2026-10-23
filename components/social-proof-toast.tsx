@@ -123,7 +123,7 @@ export default function SocialProofToast() {
           <p style={{ margin: "2px 0 0", fontSize: "12px", color: "#6b7280", lineHeight: 1.3 }}>
             {n.action} · just now
           </p>
-          <p style={{ margin: "6px 0 0", fontSize: "11px", color: "#0A2463", fontWeight: 700, background: "#f0f4ff", borderRadius: "6px", padding: "3px 7px", display: "inline-block" }}>
+          <p style={{ margin: "6px 0 0", fontSize: "12px", color: "#0A2463", fontWeight: 700, background: "#f0f4ff", borderRadius: "6px", padding: "3px 7px", display: "inline-block" }}>
             🔥 {todayCount} people booked storage today
           </p>
         </div>

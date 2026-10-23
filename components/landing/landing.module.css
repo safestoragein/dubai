@@ -2764,6 +2764,10 @@
   white-space: nowrap;
 }
 @media (max-width: 760px) {
+  /* same reason as the board below: 10px is too small to read on a phone */
+  .pill {
+    font-size: 12px;
+  }
   .vs {
     --vs-cols: minmax(0, 1.35fr) minmax(0, 0.9fr) minmax(0, 0.8fr);
     padding: 10px 8px 14px;
@@ -2795,15 +2799,17 @@
     font-size: 12px;
     letter-spacing: -0.01em;
   }
+  /* nothing on a phone goes under 12px: at arm's length 9 and 10 px are a
+     blur, and this board is the one people read most carefully. */
   .vsHeadUs small,
   .vsHeadThem small,
   .vsHeadFeature {
-    font-size: 10px;
+    font-size: 12px;
   }
   .vsRibbon {
-    font-size: 9px;
-    padding: 4px 8px;
-    top: -18px;
+    font-size: 12px;
+    padding: 4px 9px;
+    top: -20px;
   }
   .vsDot {
     width: 28px;
