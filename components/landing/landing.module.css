@@ -3632,6 +3632,68 @@ a.chip:hover {
   font-weight: 800;
 }
 
+/* The same list with a cross instead of a tick: used where the items are the
+   ones that cannot be stored, so a row of green ticks would read backwards. */
+/* The yes/ask twins of .crossList, so a three-column verdict board reads
+   green, amber, red without an icon per line. */
+.yesList,
+.askList {
+  list-style: none;
+  padding: 0;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.yesList li,
+.askList li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.yesList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #117a4a;
+  font-weight: 800;
+}
+.askList li::before {
+  content: "?";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #b4740c;
+  font-weight: 800;
+}
+
+.crossList {
+  list-style: none;
+  padding: 0;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.crossList li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.crossList li::before {
+  content: "✕";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #c22e2e;
+  font-weight: 800;
+}
+
 /* ---------- LONG-FORM PROSE (silo pages) ---------- */
 .prose {
   max-width: 1000px;

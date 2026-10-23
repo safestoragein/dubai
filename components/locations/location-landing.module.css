@@ -254,6 +254,42 @@ h2.longH2 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
 }
+/* The same cards as .siloGrid, but in one line that scrolls sideways: three
+   are in view and the next one peeks, so it is obvious there are more. No
+   scrollbar - the orange track read as a rule across the page. */
+.siloRail {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 4px 2px 8px;
+  scrollbar-width: none;
+}
+.siloRail::-webkit-scrollbar {
+  display: none;
+}
+.siloRail > * {
+  flex: 0 0 calc((100% - 2 * 18px) / 3.15);
+  scroll-snap-align: start;
+}
+@media (max-width: 900px) {
+  .siloRail > * {
+    flex-basis: calc((100% - 18px) / 2.15);
+  }
+}
+@media (max-width: 640px) {
+  .siloRail {
+    margin: 0 -24px;
+    padding: 4px 24px 8px;
+    scroll-padding-inline: 24px;
+    gap: 12px;
+  }
+  .siloRail > * {
+    flex-basis: 86%;
+  }
+}
+
 .siloCard {
   position: relative;
   display: block;
