@@ -19,17 +19,13 @@ export default function Footer() {
         <div className="grid gap-8 py-16 md:py-20 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {/* Logo & About */}
           <div className="space-y-4 col-span-2 md:col-span-3 lg:col-span-2">
-            {/* The logo in its own colours. It used to be forced white, which
-                threw away the orange roof and, worse, hid the navy wordmark
-                against the navy footer. On a white chip it reads as the brand
-                mark it is — the same one the header shows. */}
-            <Link href="/" className="inline-flex items-center rounded-xl bg-white px-4 py-2.5 shadow-sm">
+            <Link href="/" className="flex items-center">
               <Image
                 src="/images/design-mode/logo.png"
                 alt="SafeStorage Dubai Logo"
                 width={180}
                 height={60}
-                className="h-11 w-auto"
+                className="h-12 w-auto brightness-0 invert"
                 priority
               />
             </Link>
