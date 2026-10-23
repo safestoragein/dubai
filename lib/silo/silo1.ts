@@ -38,100 +38,74 @@ export const SILO1_PAGES: SiloPageContent[] = [
     keywords:
       "self storage near me, storage units near me, storage near me, storage facility near me dubai, self storage near me dubai, storage close to me",
     ogTitle: "Self Storage Near Me — We Come To You Instead",
-    h1: "Self Storage Near Me — In Dubai, The Answer Is Usually “we come to you”",
+    h1: "Self Storage Near Me — We Come To You",
     hero: [
-      "Almost everyone typing self storage near me is trying to solve a transport problem, not a location problem. You want the shortest possible distance between your flat and wherever your things end up, because you are the one who has to drive it. That is the part of [self storage in Dubai](/self-storage-dubai) we removed.",
-      "Our crew comes to your address, wraps your furniture, carries it down and loads it. You do not hire a van, you do not book a Sunday, and you do not drive to Al Quoz twice. Once that is true, how far the warehouse is stops being a number you have to care about.",
-      "You pay only for **the floor space your items actually occupy**. Transport is quoted separately on your address and access, and both numbers are agreed before anything is booked.",
+      "Almost everyone typing *self storage near me* is solving a transport problem, not a location problem: you want the shortest distance between your flat and wherever your things end up, because you are the one driving it. That is the part of [self storage in Dubai](/self-storage-dubai) we removed.",
+      "Our crew comes to your address, wraps your furniture, carries it down and loads it. Once that is true, how far the warehouse is stops being a number you have to care about. You pay only for **the floor space your items occupy**, with transport quoted separately and both numbers agreed before anything is booked.",
     ],
     sections: [
       {
         kind: "prose",
         h2: "What “near me” actually costs you in Dubai",
         paras: [
-          "The self-storage yards clustered in Al Quoz, Ras Al Khor, DIP and Umm Ramool are cheap per square foot for a reason: they sit in industrial zones because that is where warehouse land is affordable. That is fine for the operator. It is less fine at 7am on a Friday when you are the one making the trip.",
-          "Price the whole job, not the rate. A one-bedroom move to a self-drive unit is typically a van hire, fuel, a Salik crossing or two, one or two friends who now expect lunch, and most of a day. Then repeat a shortened version of it every time you need something back, and again at the end. Against a rate difference of a dirham or two per square foot, the trips are the larger number almost every time.",
-          "There is a second cost specific to this city. Most Dubai towers require the service lift to be booked in advance, some only permit moves in a fixed window, and gated communities want the vehicle and crew registered with security first. Arranging that yourself, on a day you have also hired a van for, is where self-drive storage stops being cheap.",
-          "So the honest version of the answer: if you want a unit you hold a key to and can visit unannounced at midnight, a nearby yard genuinely suits you better and we would rather say so. If what you want is your things out of the flat and safely somewhere, [how the collection service works](/how-it-works) is the shorter path.",
+          "The yards in Al Quoz, Ras Al Khor, DIP and Umm Ramool are cheap per sq ft because they sit on industrial land. That is fine for the operator; it is less fine at 7am on a Friday when you are making the trip.",
+          "Price the whole job, not the rate: a 1BHK move to a self-drive unit is a van hire, fuel, Salik, friends who expect lunch and most of a day — then a shortened version every time you need something back. And in this city most towers want the service lift booked in advance, with the vehicle and crew registered at the gate.",
+          "If you want a space you hold a key to and can visit unannounced at midnight, a nearby yard genuinely suits you better and we would rather say so. If you want your things out of the flat and safely somewhere, [how the collection works](/how-it-works) is the shorter path.",
         ],
       },
       {
         kind: "table",
-        h2: "Nearest yard vs collected storage, on the same 1BHK",
-        intro:
-          "A one-bedroom flat, roughly 75 sq ft of stored volume, held for three months. This is the comparison people are actually making when they search for a facility near them.",
+        h2: "Nearest yard vs collected storage",
+        intro: "The same 1BHK, about 75 sq ft of goods, held for three months.",
         columns: ["What you compare", "Self-drive unit nearby", "Collected storage"],
         rows: [
           ["Getting it there", "Van hire, fuel, your day, usually two trips", "Crew arrives at your door on the agreed date"],
-          ["Wrapping and lifting", "Yours, plus whoever you can persuade", "Included — furniture is wrapped before it leaves"],
-          ["Service lift booking", "You arrange it with building management", "We arrange it as part of the collection"],
-          ["What you pay for", "A fixed unit size, whether you fill it or not", "The floor space your items actually occupy"],
-          ["Getting one box back", "Drive there, find it, drive home", "Delivered to you, normally in 24–48 hours"],
-          ["Getting it all back", "Repeat the whole move in reverse", "Delivered to the new address, quoted up front"],
+          ["Wrapping and lifting", "Yours, plus whoever you can persuade", "Included — wrapped before it leaves"],
+          ["Service lift booking", "You arrange it with the building", "We arrange it with the collection"],
+          ["What you pay for", "A fixed size, whether you fill it or not", "The floor space your items occupy"],
+          ["Getting one box back", "Drive there, find it, drive home", "Delivered, normally in 24–48 hours"],
         ],
-        note: "Neither column is wrong. They suit different people. What they are not is the same product at a different price, which is how the rate-per-square-foot comparison usually gets presented.",
+        note: "Neither column is wrong — they suit different people. What they are not is the same product at a different price.",
       },
       {
         kind: "prose",
         h2: "Where we actually collect from",
         paras: [
-          "All of Dubai, plus Sharjah and Ajman where we also operate warehouses, and Abu Dhabi and the Northern Emirates as a collection service. The [full list of areas by emirate](/locations) has the district pages, each with the access detail that matters there — which towers need lift slots, which communities need a permit, where the loading bays are.",
-          "Within Dubai the collection is priced on your address and how the access works, not on distance to the warehouse. A ground-floor villa with parking outside and a ninth-floor flat with a shared service lift are not the same job even if they are on the same street, and pricing them from a distance table would be pretending otherwise.",
-          "If your area is not listed, send the address anyway. The list names the districts we work in constantly, not the boundary of where we will drive.",
+          "All of Dubai, plus Sharjah and Ajman where we also operate warehouses, and Abu Dhabi and the Northern Emirates as a collection service. The [areas by emirate](/locations) have the access detail that matters locally.",
+          "Collection is priced on your address and its access, not on distance to the warehouse — a ground-floor villa and a ninth-floor flat are not the same job even on the same street. If your area is not listed, send the address anyway.",
         ],
       },
       {
         kind: "steps",
         h2: "What happens after you stop searching",
-        intro: "Four steps, and the first one takes about two minutes.",
         items: [
-          {
-            h: "Tell us roughly what you have",
-            p: "Bedroom count is enough for a first number. A photo of the room helps more than a list.",
-          },
-          {
-            h: "You get both figures",
-            p: "The monthly storage cost and the one-off transport cost, before anything is committed. [What storage costs by home size](/self-storage-dubai/prices) sets out the storage half in detail.",
-          },
-          {
-            h: "We collect",
-            p: "The crew wraps, loads and takes it away. A studio is two to three hours, a 1BHK three to five, a three-bedroom villa most of a day.",
-          },
-          {
-            h: "You get it back when you want it",
-            p: "All of it or one box, delivered to any address you choose, normally within 24–48 hours of asking.",
-          },
+          { h: "Tell us roughly what you have", p: "Bedroom count is enough. A photo of the room helps more than a list." },
+          { h: "You get both figures", p: "Monthly storage and one-off transport, before anything is committed. [What storage costs](/self-storage-dubai/prices) covers the storage half." },
+          { h: "We collect", p: "A studio is two to three hours, a 1BHK three to five, a villa most of a day." },
+          { h: "You get it back", p: "All of it or one box, to any address, normally within 24–48 hours of asking." },
         ],
       },
     ],
     faqs: [
       {
         q: "Where is your nearest storage facility to me?",
-        a: "Our Dubai warehouse is in DIP-1, and we also operate facilities in Sharjah and Ajman. In practice the distance is not something you need to plan around, because our crew does the driving in both directions — we collect from your address and deliver back to whichever address you ask for.",
+        a: "Our Dubai warehouse is in DIP-1, and we also operate facilities in Sharjah and Ajman. The distance is not something you need to plan around: our crew does the driving in both directions.",
       },
       {
         q: "Can I just drive my things to you myself?",
-        a: "You can, and some customers do. It is worth knowing that the price is the same either way, because you are billed on the storage space your items occupy rather than on the transport. Most people who intend to self-deliver change their mind once they have priced a van and a Sunday.",
+        a: "You can, and some customers do. The price is the same either way, because you are billed on the space your items occupy rather than on the transport.",
       },
       {
         q: "Can I visit my belongings?",
-        a: "Yes, by arrangement rather than by turning up — your things are stored in a working warehouse, not in a unit you hold a key to. Tell us when you would like to come and we will book a slot and have your items pulled and ready. 24/7 facility access is available for existing customers on request.",
-      },
-      {
-        q: "Is collected storage more expensive than a unit near me?",
-        a: "You pay for the space you use rather than a fixed unit size, and you get a free, itemised quote before anything is booked. Against a nearby yard, the rate can look similar or slightly higher; the total for the job is usually lower once van hire, fuel, your time and the return trip are in the same column.",
+        a: "Yes, by arrangement rather than by turning up — your things are in a working warehouse. Tell us when you would like to come and we will have your items pulled and ready.",
       },
       {
         q: "How quickly can you collect?",
-        a: "Across most of Dubai, same day for a 2BHK or smaller if you call before midday, and next day is close to certain. Larger villa loads want a day or two of notice. Late June and August are the peak of the Dubai moving season and slots go quickly — book about a week ahead in those weeks.",
+        a: "Across most of Dubai, same day for a 2BHK or smaller if you call before midday. Villa loads want a day or two of notice, and late June and August book out about a week ahead.",
       },
       {
         q: "Do you cover Sharjah, Ajman and Abu Dhabi?",
-        a: "Yes. We operate warehouses in Dubai, Sharjah and Ajman, so goods collected in those emirates are stored in them. Abu Dhabi and the Northern Emirates are served as a collection service, with storage at the nearest facility — the location pages say which, per emirate.",
-      },
-      {
-        q: "What if I only need something small stored?",
-        a: "That is normal and it is priced normally. Because billing is on the floor space used and there is no minimum term, ten boxes for six weeks is a small monthly figure rather than the cost of the smallest unit a yard is willing to rent you.",
+        a: "Yes. We operate warehouses in Dubai, Sharjah and Ajman. Abu Dhabi and the Northern Emirates are served as a collection service, with storage at the nearest facility.",
       },
     ],
     serviceType: "Self storage collection",

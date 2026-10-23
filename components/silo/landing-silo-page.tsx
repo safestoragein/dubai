@@ -82,6 +82,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/guides/dubai-tenancy-and-moving-calendar": "/landing/moving-calendar-photo-v2.webp",
   "/guides/best-storage-companies-uae": "/landing/companies-uae-photo.webp",
   "/moving-storage-abu-dhabi": "/landing/abu-dhabi-hero.webp",
+  "/self-storage-dubai/near-me": "/landing/near-me-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -93,6 +94,7 @@ const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
  */
 const SIDE_HERO = new Set([
   "/moving-storage-abu-dhabi",
+  "/self-storage-dubai/near-me",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -103,6 +105,7 @@ const SIDE_HERO = new Set([
 /** Pages whose card icons sit in a smaller square than the homepage default. */
 const SMALL_CARD_ICONS = new Set([
   "/moving-storage-abu-dhabi",
+  "/self-storage-dubai/near-me",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -112,6 +115,7 @@ const SMALL_CARD_ICONS = new Set([
 /** Pages whose table cards carry a small coloured icon. */
 const TABLE_ICONS = new Set([
   "/moving-storage-abu-dhabi",
+  "/self-storage-dubai/near-me",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
@@ -126,6 +130,7 @@ const SMALL_TYPE = new Set(["/guides/best-storage-companies-uae"])
 /** Pages whose rail cards drop the big faint 01, 02, 03. */
 const NO_CARD_NUMBERS = new Set([
   "/moving-storage-abu-dhabi",
+  "/self-storage-dubai/near-me",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -140,6 +145,12 @@ const NO_REVIEWS = new Set([
   "/guides/storage-packing-checklist",
   "/guides/dubai-tenancy-and-moving-calendar",
 ])
+
+/* Sections sat on 72px of padding top and bottom, so two of them put 144px of
+   nothing between a paragraph and the next heading. One value, used by every
+   section this renderer draws. */
+const SEC: CSSProperties = { paddingTop: 0, paddingBottom: 26 }
+const SEC_FIRST: CSSProperties = { paddingTop: 26, paddingBottom: 26 }
 
 const STEP_ICONS = [ClipboardList, FileText, Package, Truck, Hammer, CheckCircle2]
 
@@ -278,7 +289,7 @@ function SectionView({
   switch (section.kind) {
     case "prose":
       return (
-        <section className={`${s.section} ${s.wrap}`} id={id} style={index === 0 ? undefined : { paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id={id} style={index === 0 ? SEC_FIRST : SEC}>
           <Head title={section.h2} eyebrow={EYEBROW.prose} />
           <div className={s.prose} style={{ margin: 0, maxWidth: 860 }}>
             {section.paras.map((p, i) => (
@@ -290,7 +301,7 @@ function SectionView({
 
     case "table":
       return (
-        <section className={`${s.section} ${s.wrap}`} id={id} style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id={id} style={SEC}>
           <Head title={section.h2} eyebrow={EYEBROW.table} intro={section.intro} />
           <Cards
             className={tableIcons ? `${s.colList} ${g.grid}` : s.colList}
@@ -322,7 +333,7 @@ function SectionView({
 
     case "steps":
       return (
-        <section className={`${s.section} ${s.wrap}`} id={id} style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id={id} style={SEC}>
           <Head title={section.h2} eyebrow={EYEBROW.steps} intro={section.intro} />
           <MilestonesPlayer>
             <ol
@@ -350,7 +361,7 @@ function SectionView({
     case "cards": {
       const [main, accent] = accentSplit(section.h2)
       return (
-        <section className={`${s.section} ${s.wrap}`} id={id} style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id={id} style={SEC}>
           <UspRail
             head={
               <div className={s.uspHead}>
@@ -397,7 +408,7 @@ function SectionView({
 
     case "checklist":
       return (
-        <section className={`${s.section} ${s.wrap}`} id={id} style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id={id} style={SEC}>
           <Head title={section.h2} eyebrow={EYEBROW.checklist} intro={section.intro} />
           <div className={s.proseBox} style={{ marginTop: 0 }}>
             <ul className={s.checkList} style={{ marginTop: 0 }}>
@@ -520,7 +531,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
 
         {/* INTRO — the page's opening paragraphs, unchanged. The first carries the
             mandatory up-link to the silo hub. */}
-        <section className={`${s.section} ${s.wrap}`} id="intro" style={{ paddingBottom: 24 }}>
+        <section className={`${s.section} ${s.wrap}`} id="intro" style={SEC_FIRST}>
           <Head title={content.introH2 ?? "The short version"} eyebrow="In brief" />
           <div className={s.prose} style={{ margin: 0, maxWidth: 860 }}>
             {content.hero.map((p, i) => (
@@ -543,11 +554,11 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
           />
         ))}
 
-        {NO_REVIEWS.has(content.path) ? null : <LandingReviews />}
+        {NO_REVIEWS.has(content.path) ? null : <LandingReviews padTop={0} />}
 
         {/* FAQ — same questions and answers as the FAQPage schema. */}
         {content.faqs.length > 0 && (
-          <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
+          <section className={`${s.section} ${s.wrap}`} id="faq" style={SEC}>
             <div className={s.howHead}>
               <div>
                 <span className={s.howEyebrow}>Good to know</span>
@@ -567,7 +578,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
         )}
 
         {/* EXPLORE — siblings (child) or every child (hub), the hub up-link, coverage. */}
-        <section className={`${s.section} ${s.wrap}`} id="explore" style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id="explore" style={SEC}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>Explore</span>

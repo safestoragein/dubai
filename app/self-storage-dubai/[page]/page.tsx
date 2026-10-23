@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import SiloPage from "@/components/silo/silo-page"
+import LandingSiloPage from "@/components/silo/landing-silo-page"
 import { PAGE_BY_PATH, dynamicSlugsFor, metadataFor } from "@/lib/silo/registry"
 import { SILOS } from "@/lib/silo/silos"
 
@@ -22,6 +23,9 @@ import { SILOS } from "@/lib/silo/silos"
  * dynamicSlugsFor() excludes them from the prerender list so the same URL is
  * never built twice.
  */
+
+/* Pages redesigned in the homepage design; the rest still use the older renderer. */
+const REDESIGNED = new Set(["near-me"])
 
 export const dynamicParams = false
 
@@ -47,5 +51,5 @@ export default async function Page({ params }: { params: Promise<{ page: string 
   const { page } = await params
   const content = contentFor(page)
   if (!content) notFound()
-  return <SiloPage content={content} />
+  return REDESIGNED.has(page) ? <LandingSiloPage content={content} /> : <SiloPage content={content} />
 }
