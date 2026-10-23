@@ -2019,6 +2019,49 @@
     flex-basis: 82%;
   }
 }
+/* A tighter cut of the card rail: smaller box, smaller type, more of them
+   in a row. Opt-in with .miniTight next to .miniGrid, so the rails that were
+   signed off keep the size they have. */
+/* no scrollbar on this cut: the orange track under the row read as a rule
+   across the page. The row still scrolls by drag, wheel and keyboard. */
+.miniTight {
+  scrollbar-width: none;
+}
+.miniTight::-webkit-scrollbar {
+  display: none;
+}
+.miniTight > .miniCard {
+  flex: 0 0 calc((100% - 3 * 12px) / 4.3);
+  padding: 13px 14px;
+  gap: 11px;
+  border-radius: 14px;
+}
+.miniTight > .miniCard b {
+  font-size: 14px;
+}
+.miniTight > .miniCard small {
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+.miniTight .miniIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+}
+.miniTight .miniIcon svg {
+  width: 17px;
+  height: 17px;
+}
+@media (max-width: 960px) {
+  .miniTight > .miniCard {
+    flex-basis: calc((100% - 12px) / 2.4);
+  }
+}
+@media (max-width: 560px) {
+  .miniTight > .miniCard {
+    flex-basis: 84%;
+  }
+}
 .miniCard {
   position: relative;
   display: flex;

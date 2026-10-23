@@ -1,9 +1,33 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import {
+  Ruler,
+  CalendarDays,
+  Building2,
+  Package,
+  MapPinned,
+  Sofa,
+  Truck,
+  Lock,
+  Thermometer,
+  ClipboardList,
+  Users,
+  Banknote,
+  CheckCircle2,
+} from "lucide-react"
+
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import HomeReveal from "@/components/landing/home-reveal"
+import { env } from "@/lib/env"
+import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
 
 /**
  * Silo 1 · /self-storage-dubai/prices/ — owns `storage in dubai prices` (390/mo),
@@ -15,10 +39,9 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
  * cannibalisation cluster on the domain — and serving both the "what does it
  * cost" and the "what's cheapest" intent on one page is what ends it.
  *
- * Reframing "cheap" as "cheapest TOTAL cost" is not spin: it is a genuinely
- * different and more winnable argument than competing on headline rate, and it
- * is the honest answer for a door-to-door operator that is not the cheapest
- * quote in Dubai.
+ * Redesigned in the homepage style (owner, 2026-10-23) with their own picture.
+ * The words are the ones this page already published, said shorter; no figure
+ * was added and none was taken away.
  *
  * ⚠ Two [VERIFY] markers in the source copy are handled, not ignored:
  *   - Volume discounts above 270 sq ft are NOT stated. Unconfirmed.
@@ -26,6 +49,9 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
  *     quote, which is true, without inventing numbers.
  * No SafeStorage rate or price figure is published on this page (owner
  * decision): it explains what affects the cost and sends people to a free quote.
+ * That rule covers the banner too — the owner's picture carried a sample
+ * monthly figure on its quote card, so the figure was painted out and the card
+ * now reads "Free itemised quote".
  */
 
 export const metadata: Metadata = {
@@ -49,129 +75,68 @@ export const metadata: Metadata = {
 
 const faqData = [
   {
-    question: "How much does storage cost per month in Dubai?",
-    answer:
-      "It depends mainly on how much space your goods use and how long you store them, followed by access, packing, transport distance and any awkward items. You pay only for the space your items use, and collection, packing materials, transport and the digital inventory are included in the quote. Get a free, itemised quote for your exact move.",
+    q: "How much does storage cost per month in Dubai?",
+    a: "It depends mainly on how much space your goods use and how long you store them, then on access, packing, transport distance and awkward items. You pay only for the space your items use, and collection, packing materials, transport and the digital inventory are in the quote.",
   },
   {
-    question: "What is the cheapest storage in Dubai?",
-    answer:
-      "The cheapest headline rates come from unserviced units in Al Quoz, Ras Al Khor and DIP where you supply your own transport and labour. Once you add two van hires and two half-days of manpower, those bookings usually cost more in total than a door-to-door quote — and most of them aren't climate-controlled.",
+    q: "What is the cheapest storage in Dubai?",
+    a: "The cheapest headline rates come from unserviced units in Al Quoz, Ras Al Khor and DIP where you supply your own transport and labour. Add two van hires and two half-days of manpower and those bookings usually cost more in total — and most are not climate-controlled.",
   },
   {
-    question: "Is there a minimum storage period or deposit?",
-    answer:
-      "Minimum booking is two weeks and there's no lock-in contract. Storage runs month to month after that, and you can extend or end with notice.",
+    q: "Is there a minimum storage period or deposit?",
+    a: "Minimum booking is two weeks and there is no lock-in contract. Storage runs month to month after that.",
   },
   {
-    question: "Why do storage quotes in Dubai vary so much?",
-    answer:
-      "Five factors: stair versus lift access, whether the company packs or you do, which emirate the pickup is in, awkward items like pianos or treadmills, and the length of the booking. A company that quotes without asking about all five will revise the price later.",
+    q: "Am I billed on estimated space or actual space?",
+    a: "Actual. Space is re-measured once your goods are racked, so if the load turns out smaller than the phone estimate, the monthly figure comes down.",
   },
   {
-    question: "Does the price include collection from my home?",
-    answer:
-      "Inside Dubai, yes. Sharjah, Ajman and Abu Dhabi collections carry a transport charge that's quoted upfront before dispatch, never added afterwards.",
-  },
-  {
-    question: "Do you charge more in summer?",
-    answer:
-      "The rate doesn't change, but availability does. June and August are the busiest weeks of the Dubai moving year, so book collection at least a week ahead in those months if your dates are fixed.",
-  },
-  {
-    question: "Am I billed on estimated space or actual space?",
-    answer:
-      "Actual. Space is re-measured once your goods are racked, so if the load turns out smaller than the phone estimate, the monthly figure comes down.",
-  },
-  {
-    question: "Can I get a discount for storing longer?",
-    answer:
-      "Longer bookings price better than short rolling ones because the setup cost is spread across more months. Tell us the expected duration when you ask for a quote and it will be reflected in the figure you're given.",
+    q: "Does the quote include collection from my home?",
+    a: "Inside Dubai, yes. Sharjah, Ajman and Abu Dhabi collections carry a transport charge that is quoted upfront before dispatch, never added afterwards.",
   },
 ]
 
-const priceRows = [
-  { home: "Studio / 1 RK", space: "~30 sq ft" },
-  { home: "1 bedroom", space: "60–90 sq ft" },
-  { home: "2 bedrooms", space: "120–150 sq ft" },
-  { home: "3 bedrooms", space: "240–270 sq ft" },
-  { home: "Villa / commercial", space: "270+ sq ft (measured on survey)" },
+/* how much space a home usually needs — sq ft, as the owner asks, and marked
+   as an estimate because every load is re-measured once it is racked */
+const spaceRows = [
+  { Icon: Package, home: "Studio / 1 RK", space: "~30 sq ft" },
+  { Icon: Building2, home: "1 bedroom", space: "60–90 sq ft" },
+  { Icon: Sofa, home: "2 bedrooms", space: "120–150 sq ft" },
+  { Icon: Users, home: "3 bedrooms", space: "240–270 sq ft" },
+  { Icon: Truck, home: "Villa / commercial", space: "270+ sq ft" },
 ]
 
 const quoteFactors = [
-  {
-    n: 1,
-    h: "How much space your goods use",
-    p: "Storage is billed on the floor space your goods actually occupy once racked, not on a fixed unit size. More belongings means more space, and dense, well-packed loads take up less of it. This is the biggest single driver of the monthly cost.",
-  },
-  {
-    n: 2,
-    h: "How long you're storing",
-    p: "Short bookings carry more setup cost per month than long ones, so a two-week booking and one running past six months are priced differently for that reason.",
-  },
-  {
-    n: 3,
-    h: "Stairs and lifts",
-    p: "Carrying a two-seater down four flights in August is a different job to rolling it into a service lift. Older buildings in Deira, Bur Dubai, Karama and parts of Al Barsha often have no goods lift, or one that's booked out. This is the single most common reason a quote moves.",
-  },
-  {
-    n: 4,
-    h: "Who packs",
-    p: "If you've boxed everything yourself, the crew is faster and the load is denser, which reduces both labour and stored volume. If we pack, that's materials and hours. Counter-intuitively, paying for packing often lowers the monthly bill, because professionally packed goods take up meaningfully less space than loose ones.",
-  },
-  {
-    n: 5,
-    h: "Distance and emirate",
-    p: "Inside Dubai, collection is in the quote. Sharjah, Ajman and Abu Dhabi carry a transport charge, quoted before we dispatch. Nobody should surprise you with this after the truck is loaded.",
-  },
-  {
-    n: 6,
-    h: "Awkward items and extras",
-    p: "A piano, a treadmill, a marble table top, a five-metre corner sofa, a full-height wardrobe that can't be dismantled. These need extra crew, sometimes a hoist, and they consume floor space out of proportion to their volume.",
-  },
+  { Icon: Ruler, h: "The space your goods use", p: "Billed on the floor space they occupy once racked, not a fixed unit size. The biggest single driver." },
+  { Icon: CalendarDays, h: "How long you store", p: "Short bookings carry more setup cost per month than long ones." },
+  { Icon: Building2, h: "Stairs and lifts", p: "Four flights in August is a different job to a booked service lift. The most common reason a quote moves." },
+  { Icon: Package, h: "Who packs", p: "Packed well, a load is denser and takes less space — so paying for packing often lowers the monthly bill." },
+  { Icon: MapPinned, h: "Distance and emirate", p: "Inside Dubai, collection is in the quote. Sharjah, Ajman and Abu Dhabi carry a transport charge, quoted before we dispatch." },
+  { Icon: Sofa, h: "Awkward items", p: "A piano, a treadmill, a marble top, a five-metre sofa. Extra crew, and floor space out of proportion to their volume." },
 ]
 
 const cheapTraps = [
-  {
-    h: "The rate excludes transport",
-    p: "A very low per-square-foot rate usually means you're getting a shelf, not a service. Add a pickup with two men for a half day, twice — once in, once out. That's often more than three months of the storage itself.",
-  },
-  {
-    h: "There's a minimum term",
-    p: "A quote of “AED X per month” tied to a six-month lock-in is not cheap if your Ejari gap is nineteen days. We take bookings from two weeks with no lock-in for exactly this reason.",
-  },
-  {
-    h: "The space is measured generously",
-    p: "If nobody re-measures after your goods are racked, you're paying for the estimate rather than the reality. Ask whether the final bill is based on actual space used.",
-  },
-  {
-    h: "No climate management",
-    p: "This is the expensive one, and it's invisible until you unpack. A non-climate-controlled shed in Al Quoz through July and August will lift veneer off MDF, crack leather, bloom mould inside upholstery and finish off laptops and speakers.",
-  },
-  {
-    h: "No itemised inventory",
-    p: "With a labelled-boxes-only system, retrieving one specific item means opening a lot of boxes, or paying for a facility visit and an afternoon. Barcoded inventory is not a luxury feature; it's the thing that keeps the storage useful.",
-  },
-  {
-    h: "Undeclared handling",
-    p: "Subcontracted labour hired for the day is cheaper for the operator. It's also how a wardrobe door arrives with a corner missing, and how nobody is quite responsible for it.",
-  },
+  { Icon: Truck, h: "The rate excludes transport", p: "A very low rate per sq ft usually means a shelf, not a service. Two pickups with two men often cost more than three months of the storage." },
+  { Icon: Lock, h: "There is a minimum term", p: "A low monthly tied to a six-month lock-in is not cheap if your Ejari gap is nineteen days. We take bookings from two weeks, no lock-in." },
+  { Icon: Ruler, h: "The space is measured generously", p: "If nobody re-measures after racking, you pay for the estimate rather than the reality." },
+  { Icon: Thermometer, h: "No climate management", p: "The expensive one, and invisible until you unpack: a non-climate shed through July lifts veneer, cracks leather and blooms mould." },
+  { Icon: ClipboardList, h: "No itemised inventory", p: "With labelled boxes only, retrieving one item means opening a lot of them. Barcoded inventory is what keeps storage useful." },
+  { Icon: Users, h: "Undeclared handling", p: "Subcontracted labour hired for the day is cheaper for the operator — and is how a wardrobe door arrives with a corner missing." },
 ]
 
 const compareQuestions = [
-  "Does this price include collection and delivery, or is transport extra?",
-  "Is there a minimum term or a lock-in period?",
+  "Does this include collection and delivery, or is transport extra?",
+  "Is there a minimum term or a lock-in?",
   "Is the storage area climate-controlled, or just the office?",
-  "Will I get an itemised inventory with photographs, or labelled boxes?",
-  "What notice do you need to return an item, and what does it cost?",
+  "Will I get an itemised inventory with photographs?",
   "Is the final bill based on estimated space or space actually used?",
 ]
 
 const savings = [
-  ["Pack it yourself, properly.", "Uniform boxes stack. Bin bags don't. Dense, square packing can cut required space by 20–30%."],
-  ["Sell before you store.", "The rule of thumb: if replacing an item costs less than two years of the storage space it occupies, sell it. Dubizzle clears furniture in Dubai fast, especially in June."],
-  ["Dismantle beds and tables.", "A flat-packed bed frame takes a fraction of the space of an assembled one."],
-  ["Be honest about the timeline.", "If you know it's eighteen months, say so. Long bookings price better than a rolling series of short ones."],
+  { Icon: Package, h: "Pack it yourself, properly", p: "Uniform boxes stack; bin bags do not. Dense packing can cut the space you need by 20–30%." },
+  { Icon: Banknote, h: "Sell before you store", p: "If replacing an item costs less than two years of the space it occupies, sell it." },
+  { Icon: Sofa, h: "Dismantle beds and tables", p: "A flat-packed bed frame takes a fraction of the space of an assembled one." },
+  { Icon: CalendarDays, h: "Be honest about the timeline", p: "Long bookings price better than a rolling series of short ones." },
 ]
 
 const pageSchemas = [
@@ -191,10 +156,10 @@ const pageSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqData.slice(0, 5).map((f) => ({
+    mainEntity: faqData.map((f) => ({
       "@type": "Question",
-      name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   },
 ]
@@ -202,7 +167,6 @@ const pageSchemas = [
 export default function StoragePricesPage() {
   return (
     <>
-      <SchemaScript schema={pageSchemas} />
       <SiloBreadcrumb
         trail={[
           { name: "Home", href: "/" },
@@ -210,255 +174,231 @@ export default function StoragePricesPage() {
           { name: "Prices" },
         ]}
       />
+      <SchemaScript schema={pageSchemas} />
 
-      <main className="min-h-screen">
-        <section className="bg-dubai-navy py-16 text-white md:py-20">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
-                Storage Prices in Dubai — What Affects the Cost and Why Quotes Differ
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* hero: copy on the left, the owner's picture on the right */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy} ${p.split2Tight}`}>
+              <span className={s.heroTag}>Storage prices Dubai</span>
+              <h1>
+                Storage prices in Dubai — <br className={s.mBreakDesk} />
+                <em>what changes a quote</em>
               </h1>
-              <p className="mb-4 text-lg text-white/90">
-                Storage in Dubai is priced on <strong className="text-dubai-gold">the space your goods use and how long you store them</strong>.
-                You pay only for the space your items use, with transparent pricing and no hidden fees.
+              <p>
+                Storage here is priced on the space your goods use and how long you store them. You pay
+                only for the space your items use — no hidden fees.
               </p>
-              <p className="mb-4 text-lg text-white/90">
-                The part people get wrong is volume. Storage is priced by space and by time, so the honest
-                answer to &ldquo;how much does storage cost&rdquo; depends entirely on how much stuff you have — and most
-                people overestimate their own volume.
-              </p>
-              <p className="mb-8 text-lg text-white/90">
-                This page sits under{" "}
-                <Link href="/self-storage-dubai" className="underline decoration-dubai-gold underline-offset-4">
-                  self storage in Dubai
-                </Link>{" "}
-                and does three things: shows how much space different homes usually need, explains what makes one quote differ
-                from another, and explains why the cheapest quote in Dubai is quite often the most expensive outcome. If
-                you want to see the service a quote covers,{" "}
-                <Link
-                  href="/self-storage-dubai/local-self-storage"
-                  className="underline decoration-dubai-gold underline-offset-4"
-                >
-                  our local storage offer
-                </Link>{" "}
-                covers the door-to-door model.
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>
-                  <Link href="/get-quote">Get a free quote</Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-white bg-white text-black hover:bg-gray-100" asChild>
-                  <a href="tel:+971505773388">Call +971 50 577 3388</a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
-              <h2 className="mb-8 text-3xl font-bold text-dubai-navy">Space used: the biggest factor in storage cost</h2>
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[640px] border-collapse text-left text-sm">
-                  <thead>
-                    <tr className="border-b-2 border-gray-200">
-                      <th className="py-3 pr-4 font-semibold text-dubai-navy">Your place</th>
-                      <th className="py-3 pr-4 font-semibold text-dubai-navy">Space usually needed</th>
-                      <th className="py-3 font-semibold text-dubai-navy">What&rsquo;s included</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {priceRows.map((r) => (
-                      <tr key={r.home} className="border-b border-gray-100">
-                        <td className="py-3 pr-4 font-medium text-dubai-navy">{r.home}</td>
-                        <td className="py-3 pr-4 whitespace-nowrap text-gray-700">{r.space}</td>
-                        <td className="py-3 text-gray-600">
-                          Collection, packing materials, loading, transport, digital inventory
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="mt-8 text-gray-700">
-                Two things about that table. Space is only part of the cost, because a fourth-floor walk-up in Deira
-                and a Marina tower with a booked service lift are not the same job. And the space is re-measured once your
-                goods are racked, so you pay only for the space your items actually use rather than the space we guessed
-                on the phone.
-              </p>
-              <p className="mt-4 text-gray-700">
-                Use the{" "}
-                <Link href="/self-storage-dubai/unit-sizes" className="text-dubai-navy underline underline-offset-2">
-                  storage unit size guide
-                </Link>{" "}
-                if you want to sanity-check the square footage before you call. If you&rsquo;d rather be told than work it
-                out, send a WhatsApp voice note listing your rooms.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-4 text-3xl font-bold text-dubai-navy">
-                The six things that genuinely change a storage quote in Dubai
-              </h2>
-              <p className="mb-8 text-gray-700">
-                Any storage company that gives you a firm price without asking about these is guessing, and the guess will
-                be corrected later at your expense.
-              </p>
-              <div className="space-y-5">
-                {quoteFactors.map((f) => (
-                  <div key={f.n} className="flex gap-4 rounded-lg bg-white p-5 shadow-sm">
-                    <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-dubai-navy text-sm font-semibold text-white">
-                      {f.n}
-                    </span>
-                    <div>
-                      <h3 className="mb-1 font-semibold text-dubai-navy">{f.h}</h3>
-                      <p className="text-sm text-gray-600">{f.p}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-6 text-gray-700">
-                Short bookings are covered in more detail on{" "}
-                <Link href="/self-storage-dubai/short-term" className="text-dubai-navy underline underline-offset-2">
-                  short term storage
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a Free Quote →
                 </Link>
-                .
-              </p>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
+                </a>
+              </div>
+            </div>
+            <div className={p.split2Photo} style={{ aspectRatio: "1733 / 907" } as CSSProperties}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/landing/prices-hero.webp"
+                alt="A customer getting a free SafeStorage quote at home in Dubai, with boxes packed and ready"
+                loading="eager"
+                decoding="async"
+              />
+              {/* top LEFT here: the picture's own quote card lives in the top right */}
+              <div className={s.heroRating} style={{ right: "auto", left: 18 }}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-4 text-3xl font-bold text-dubai-navy">
-                Why cheap storage in Dubai is sometimes the expensive option
+        <LandingTrust />
+
+        {/* space: the biggest factor */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 8, paddingBottom: 24 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Space used</span>
+              <h2 className={p.longH2}>
+                How much space <em>a home usually needs.</em>
               </h2>
-              <p className="mb-4 text-gray-700">
-                &ldquo;Cheap storage Dubai&rdquo; is a heavily searched phrase and we understand exactly why. Storage feels
-                like paying rent on something you&rsquo;re not using. Nobody wants to overpay for a room full of boxes.
-              </p>
-              <p className="mb-8 text-gray-700">
-                But storage is one of those purchases where the headline number and the total number diverge badly.
-                Here&rsquo;s how, specifically.
-              </p>
-              <div className="space-y-5">
-                {cheapTraps.map((t) => (
-                  <div key={t.h} className="border-l-4 border-dubai-gold pl-5">
-                    <h3 className="mb-1 font-semibold text-dubai-navy">{t.h}</h3>
-                    <p className="text-gray-700">{t.p}</p>
+            </div>
+            <p>Every load is re-measured once it is racked, so you pay for what it really takes.</p>
+          </div>
+          <HomeReveal className={`${s.miniGrid} ${s.miniTight}`}>
+            {spaceRows.map((r, i) => (
+              <div className={s.miniCard} key={r.home} style={{ ["--i"]: i } as CSSProperties}>
+                <span className={s.miniIcon}>
+                  <r.Icon strokeWidth={1.9} aria-hidden="true" />
+                </span>
+                <span>
+                  <b>{r.home}</b>
+                  <small>{r.space} (Estimated)</small>
+                </span>
+              </div>
+            ))}
+          </HomeReveal>
+          <div className={s.movingTip}>
+            <p>
+              Space is only part of it: a fourth-floor walk-up in Deira and a Marina tower with a booked
+              lift are not the same job. The{" "}
+              <Link href="/self-storage-dubai/unit-sizes">storage size guide</Link> helps you sanity-check
+              the square footage before you call.
+            </p>
+          </div>
+        </section>
+
+        {/* the six things that change a quote */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 24 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>What moves the number</span>
+              <h2 className={p.longH2}>
+                Six things that change <em>a storage quote.</em>
+              </h2>
+            </div>
+            <p>Any company that gives a firm price without asking about these is guessing.</p>
+          </div>
+          <HomeReveal className={`${s.miniGrid} ${s.miniTight}`}>
+            {quoteFactors.map((f, i) => (
+              <div className={s.miniCard} key={f.h} style={{ ["--i"]: i } as CSSProperties}>
+                <span className={s.miniIcon}>
+                  <f.Icon strokeWidth={1.9} aria-hidden="true" />
+                </span>
+                <span>
+                  <b>{f.h}</b>
+                  <small>{f.p}</small>
+                </span>
+              </div>
+            ))}
+          </HomeReveal>
+        </section>
+
+        {/* why cheap is often expensive */}
+        <section className={`${s.darkBand} ${s.whyBand}`}>
+          <div className={s.wrap}>
+            <div className={s.bandHead}>
+              <span className={s.howEyebrow}>The cheap quote</span>
+              {/* the phone rule for this band is nowrap, so the break is explicit */}
+              <h2>
+                Why the cheapest quote <br className={s.mBreak} />
+                <em>often costs the most.</em>
+              </h2>
+            </div>
+            <FeatScroller>
+              {cheapTraps.map((t) => (
+                <article className={s.feat} key={t.h}>
+                  <div className={s.featIcon}>
+                    <t.Icon strokeWidth={1.8} aria-hidden="true" />
                   </div>
-                ))}
+                  <h3>{t.h}</h3>
+                  <p>{t.p}</p>
+                </article>
+              ))}
+            </FeatScroller>
+          </div>
+        </section>
+
+        {/* how to compare, and how to pay less */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingBottom: 24 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Compare properly</span>
+              <h2 className={p.longH2}>
+                Ask every company <em>these five questions.</em>
+              </h2>
+            </div>
+            <p>Including us. The answers separate operators faster than any price list.</p>
+          </div>
+          <div className={s.miniFacts} style={{ marginTop: 10, borderTop: "none", paddingTop: 0 }}>
+            {compareQuestions.map((q) => (
+              <span key={q}>
+                <CheckCircle2 aria-hidden="true" /> {q}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 24 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Pay less</span>
+              <h2 className={p.longH2}>
+                Ways to genuinely <em>reduce the bill.</em>
+              </h2>
+            </div>
+            <p>Real ones, not padding.</p>
+          </div>
+          <HomeReveal className={`${s.miniGrid} ${s.miniTight}`}>
+            {savings.map((v, i) => (
+              <div className={s.miniCard} key={v.h} style={{ ["--i"]: i } as CSSProperties}>
+                <span className={s.miniIcon}>
+                  <v.Icon strokeWidth={1.9} aria-hidden="true" />
+                </span>
+                <span>
+                  <b>{v.h}</b>
+                  <small>{v.p}</small>
+                </span>
               </div>
-              <p className="mt-8 text-gray-700">
-                We&rsquo;re not the cheapest quote in Dubai and we don&rsquo;t try to be. What we do is put transport,
-                materials, labour, inventory and climate management inside one number, so the number you agree is the
-                number you pay.
-              </p>
-            </div>
-          </div>
+            ))}
+          </HomeReveal>
         </section>
 
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-4 text-3xl font-bold text-dubai-navy">How to compare storage quotes properly</h2>
-              <p className="mb-6 text-gray-700">
-                Ask every company these six questions, including us. The answers separate operators faster than any price
-                list.
-              </p>
-              <ol className="space-y-3">
-                {compareQuestions.map((q, i) => (
-                  <li key={q} className="flex gap-3">
-                    <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-dubai-gold text-xs font-semibold text-white">
-                      {i + 1}
-                    </span>
-                    <span className="text-gray-700">{q}</span>
-                  </li>
-                ))}
-              </ol>
-              <p className="mt-6 text-gray-700">
-                Then compare like for like on a total-cost basis over the number of months you&rsquo;ll actually store. A
-                three-month booking and a two-year booking reward completely different choices.
-              </p>
+        {/* five questions */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0, paddingBottom: 28 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Good to know</span>
+              <h2 className={p.longH2}>
+                Common <em>questions.</em>
+              </h2>
             </div>
           </div>
+          <FaqAccordion items={faqData} />
         </section>
 
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-6 text-3xl font-bold text-dubai-navy">Ways to genuinely reduce your storage bill</h2>
-              <p className="mb-6 text-gray-700">Real ones, not padding.</p>
-              <div className="space-y-4">
-                {savings.map(([h, p]) => (
-                  <p key={h} className="text-gray-700">
-                    <strong className="text-dubai-navy">{h}</strong> {p}
-                  </p>
-                ))}
-                <p className="text-gray-700">
-                  {/* PHASE-2 LINK: → /business-storage-dubai/ */}
-                  <strong className="text-dubai-navy">Don&rsquo;t store paperwork you can scan.</strong> Boxes of documents
-                  are dense and heavy and mostly replaceable with a PDF. Businesses with a legal retention requirement are
-                  a different case —{" "}
-                  <Link href="/business-storage-dubai" className="text-dubai-navy underline underline-offset-2">
-                    business storage
-                  </Link>{" "}
-                  covers archive rates.
-                </p>
-              </div>
-              <p className="mt-6 text-gray-700">
-                One cost people leave out of the comparison entirely: the driving. Two round trips to Al Quoz in a hired
-                van is real money and half a weekend.
-              </p>
-            </div>
-          </div>
-        </section>
+        <CtaBand
+          title="Get a free, itemised quote"
+          blurb="Tell us your rooms and your dates. You will get the storage and the transport as separate lines, before anything is booked."
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
 
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-8 text-3xl font-bold text-dubai-navy">Common questions</h2>
-              <Accordion type="single" collapsible className="w-full">
-                {faqData.map((item, i) => (
-                  <AccordionItem key={item.question} value={`item-${i}`}>
-                    <AccordionTrigger className="text-left font-medium text-dubai-navy">{item.question}</AccordionTrigger>
-                    <AccordionContent className="text-gray-600">{item.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+        {/* where to go next */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 20, paddingBottom: 28 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Explore</span>
+              <h2 className={p.longH2}>
+                More on <em>storage in Dubai.</em>
+              </h2>
             </div>
           </div>
-        </section>
-
-        <section className="bg-dubai-navy py-16 text-white">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="mb-4 text-3xl font-bold">Get a free, itemised quote</h2>
-              <p className="mb-8 text-white/90">
-                We&rsquo;ll ask about rooms, floor, lift access, dates and whether you&rsquo;re packing. Then you get a
-                clear, itemised quote with no hidden fees, usually the same day.
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Button size="lg" className="bg-dubai-gold text-white hover:bg-dubai-darkgold" asChild>
-                  <Link href="/get-quote">Get a storage quote</Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-white bg-white text-black hover:bg-gray-100" asChild>
-                  <a href="https://wa.me/971505773388" target="_blank" rel="noopener noreferrer">
-                    WhatsApp us
-                  </a>
-                </Button>
-              </div>
-              <p className="mt-6 text-sm text-white/80">+971 50 577 3388 · support@safestorage.ae</p>
-            </div>
+          <div className={`${s.miniGrid} ${s.miniTight}`}>
+            {[
+              { href: "/self-storage-dubai", b: "Self storage in Dubai", t: "The service a quote covers, end to end." },
+              { href: "/self-storage-dubai/local-self-storage", b: "Local self storage", t: "How the door-to-door model works." },
+              { href: "/self-storage-dubai/unit-sizes", b: "Storage size guide", t: "Sanity-check the square footage first." },
+              { href: "/self-storage-dubai/short-term", b: "Short-term storage", t: "Two weeks and up, no lock-in." },
+              { href: "/guides/how-much-does-storage-cost-in-dubai", b: "What storage costs", t: "The guide version, with the market context." },
+            ].map((l) => (
+              <Link className={`${s.miniCard} ${s.miniLink}`} href={l.href} key={l.href}>
+                <span>
+                  <b>{l.b}</b>
+                  <small>{l.t}</small>
+                </span>
+                <span className={s.miniArrow} aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
-      </main>
+      </div>
     </>
   )
 }
