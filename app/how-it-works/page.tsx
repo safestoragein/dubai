@@ -208,7 +208,8 @@ export default function HowItWorks() {
         </section>
 
         {/* PROMISES */}
-        <section className={`${s.section} ${s.wrap}`} id="promises" style={{ paddingTop: 0 }}>
+        {/* the tick row ends in white space, so the band below starts right under it */}
+        <section className={`${s.section} ${s.wrap}`} id="promises" style={{ paddingTop: 0, paddingBottom: 12 }}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>Our promise</span>
@@ -239,7 +240,7 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <LandingReviews />
+        <LandingReviews padTop={16} />
 
         {/* FAQ */}
         <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>

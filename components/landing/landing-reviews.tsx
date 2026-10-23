@@ -56,14 +56,18 @@ const reviews = [
   },
 ]
 
-export function LandingReviews() {
+export function LandingReviews({ padTop }: { /** override the section's top padding where the band above already ends in white space */ padTop?: number } = {}) {
   const track = useRef<HTMLDivElement>(null)
 
   // 320px card + 16px gap — one card per click, matching the comp.
   const scroll = (dir: number) => track.current?.scrollBy({ left: dir * 336, behavior: "smooth" })
 
   return (
-    <section className={`${s.section} ${s.wrap}`} id="reviews" style={{ paddingBottom: 20 }}>
+    <section
+      className={`${s.section} ${s.wrap}`}
+      id="reviews"
+      style={{ paddingBottom: 20, ...(padTop === undefined ? null : { paddingTop: padTop }) }}
+    >
       <div className={s.howHead}>
         <div>
           <span className={s.howEyebrow}>Testimonials</span>
