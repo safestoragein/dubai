@@ -92,6 +92,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/self-storage-dubai/24-hour-access": "/landing/access-24h-hero.webp",
   "/self-storage-dubai/insurance": "/landing/insurance-hero.webp",
   "/self-storage-dubai/vs-warehouse-rental": "/landing/vs-warehouse-hero.webp",
+  "/self-storage-dubai/storage-calculator": "/landing/calculator-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -113,6 +114,7 @@ const SIDE_HERO = new Set([
   "/self-storage-dubai/24-hour-access",
   "/self-storage-dubai/insurance",
   "/self-storage-dubai/vs-warehouse-rental",
+  "/self-storage-dubai/storage-calculator",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -137,6 +139,7 @@ const SMALL_CARD_ICONS = new Set([
   "/self-storage-dubai/24-hour-access",
   "/self-storage-dubai/insurance",
   "/self-storage-dubai/vs-warehouse-rental",
+  "/self-storage-dubai/storage-calculator",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -156,13 +159,19 @@ const TABLE_ICONS = new Set([
   "/self-storage-dubai/24-hour-access",
   "/self-storage-dubai/insurance",
   "/self-storage-dubai/vs-warehouse-rental",
+  "/self-storage-dubai/storage-calculator",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
 ])
 
 /** Pages whose rail cards carry a colour icon rather than the navy square. */
-const COLOUR_CARD_ICONS = new Set(["/guides/best-storage-companies-uae", "/self-storage-dubai/insurance"])
+const COLOUR_CARD_ICONS = new Set([
+  "/guides/best-storage-companies-uae",
+  "/self-storage-dubai/insurance",
+  "/self-storage-dubai/storage-calculator",
+  "/self-storage-dubai/vs-warehouse-rental",
+])
 
 /** Pages that read lighter with smaller headings and card text. */
 const SMALL_TYPE = new Set(["/guides/best-storage-companies-uae"])
@@ -180,6 +189,7 @@ const NO_CARD_NUMBERS = new Set([
   "/self-storage-dubai/24-hour-access",
   "/self-storage-dubai/insurance",
   "/self-storage-dubai/vs-warehouse-rental",
+  "/self-storage-dubai/storage-calculator",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",

@@ -1028,18 +1028,16 @@ export const SILO1_PAGES: SiloPageContent[] = [
     keywords:
       "storage size calculator, storage space calculator dubai, how much storage space do i need, storage unit size calculator, what size storage unit do i need dubai",
     ogTitle: "How Much Storage Space Do You Actually Need?",
-    h1: "Storage Size Calculator — How Much Space Do You Need?",
+    h1: "Storage Size Calculator: How Much Space?",
     hero: [
-      "Because we bill on the floor space your goods occupy rather than on a fixed unit, working out that number in advance is genuinely useful — it is the whole of your monthly cost. This is how to estimate it before anybody quotes you anything, within [self storage in Dubai](/self-storage-dubai).",
-      "The short method: start from your home size, then adjust for the four things people always get wrong. A studio is around **30 sq ft**, a one-bedroom **60–90**, a two-bedroom **120–150**, a three-bedroom villa **240–270**.",
-      "You pay only for **the space your items use**, so a good estimate is the best guide to your monthly cost — get a free, itemised quote to confirm it. Transport is separate and depends on your address and access.",
+      "We bill on the floor space your goods occupy rather than a fixed unit, so working that number out in advance is genuinely useful — it is the whole of your monthly cost. Here is how to estimate it before anybody quotes you, within [self storage in Dubai](/self-storage-dubai).",
+      "Start from your home size, then adjust for the four things people always get wrong. A studio is around **30 sq ft**, a one-bedroom **60–90**, a two-bedroom **120–150**, a three-bedroom villa **240–270**.",
     ],
     sections: [
       {
         kind: "table",
         h2: "Start here: space by home size",
-        intro:
-          "These are real averages from collections in Dubai rather than a manufacturer's chart. The range within each row is mostly about how much is boxed versus loose.",
+        intro: "Real averages from collections in Dubai. The range within each row is mostly about how much is boxed rather than loose.",
         columns: ["What you are storing", "Space"],
         rows: [
           ["10–15 cartons only", "15–20 sq ft"],
@@ -1050,58 +1048,37 @@ export const SILO1_PAGES: SiloPageContent[] = [
           ["3 bedroom villa", "240–270 sq ft"],
           ["4+ bedroom villa", "300+ sq ft (measured on survey)"],
         ],
-        note: "These figures cover the storage space only. [The full price breakdown](/self-storage-dubai/prices) covers what else is in a quote, and [the unit size guide](/self-storage-dubai/unit-sizes) shows what physically fits in each band.",
+        note: "Storage space only. [The price breakdown](/self-storage-dubai/prices) covers what else is in a quote, and [the size guide](/self-storage-dubai/unit-sizes) shows what physically fits in each band.",
       },
       {
         kind: "cards",
         h2: "The four things people always underestimate",
-        intro: "Adjust your first estimate upward if any of these apply. Most people need at least two of them.",
+        intro: "Adjust your first estimate upward if any apply. Most people need at least two.",
         items: [
-          {
-            icon: "🪜",
-            h: "The balcony and the store cupboard",
-            p: "Almost nobody counts these, and in a Dubai flat they hold a surprising amount — luggage, a drying rack, tools, sports kit. Add 10 to 15 per cent.",
-          },
-          {
-            icon: "🚗",
-            h: "The garage",
-            p: "In a villa this is the single biggest miss. Bikes, tools, garden furniture, paint, spare tyres. It can be a quarter of the total on its own.",
-          },
-          {
-            icon: "📦",
-            h: "Loose versus boxed",
-            p: "Sealed cartons stack; loose belongings do not. The same possessions can differ by 30 per cent in floor space depending on whether they were boxed first.",
-          },
-          {
-            icon: "🛏️",
-            h: "The awkward large items",
-            p: "A corner sofa, a treadmill, a wardrobe that does not dismantle, a mattress that must lie flat. Two of these can add more than a room's worth of cartons.",
-          },
+          { icon: "🪜", h: "The balcony and store cupboard", p: "Almost nobody counts these, and a Dubai flat holds a surprising amount in them. Add 10–15 per cent." },
+          { icon: "🚗", h: "The garage", p: "In a villa, the single biggest miss — bikes, tools, garden furniture, spare tyres. A quarter of the total on its own." },
+          { icon: "📦", h: "Loose versus boxed", p: "Sealed cartons stack; loose belongings do not. The same possessions can differ by 30 per cent in floor space." },
+          { icon: "🛏️", h: "The awkward large items", p: "A corner sofa, a treadmill, a wardrobe that will not dismantle. Two of these can add more than a room of cartons." },
         ],
       },
       {
         kind: "steps",
         h2: "The five-minute method",
-        intro: "More accurate than any online slider, and it takes about as long.",
+        intro: "More accurate than any online slider, and about as quick.",
         items: [
           { h: "Pick your starting figure", p: "From the table above, by home size — not by how full the flat feels." },
-          { h: "Walk the property with your phone", p: "Photograph every room, plus the balcony, the store cupboard and the garage. Photograph, do not list." },
-          { h: "Add for the four misses", p: "Balcony and cupboard, garage, loose items, awkward large pieces. Add 10 to 15 per cent for each that applies." },
-          { h: "Subtract what is not going", p: "This is the only step that reduces the number, and it is the most valuable one. Decide by room, not by item." },
-          {
-            h: "Send us the photos",
-            p: "A rough figure plus photographs gets you a real quote the same day, and photographs beat any list you can write. [What happens next](/how-it-works).",
-          },
+          { h: "Walk the property with your phone", p: "Photograph every room, plus the balcony, the cupboard and the garage. Photograph, do not list." },
+          { h: "Add for the four misses", p: "10–15 per cent for each that applies." },
+          { h: "Subtract what is not going", p: "The only step that reduces the number, and the most valuable. Decide by room, not by item." },
+          { h: "Send us the photos", p: "A rough figure plus photographs gets a real quote the same day. [What happens next](/how-it-works)." },
         ],
       },
       {
         kind: "prose",
-        h2: "Why we do not put a slider on this page",
+        h2: "Why there is no slider on this page",
         paras: [
-          "Because sliders are consistently wrong in this market, and wrong in the direction that suits the operator. They ask for bedroom counts and item tick-boxes and then output a confident number that ignores whether anything was boxed, what the balcony holds, and whether the sofa is a three-seater or an L-shape.",
-          "The result is a customer who was told 90 square feet, is billed for 130, and reasonably feels misled — even though the crew did nothing wrong. We would rather give you a range you can trust and then measure the actual figure at collection.",
-          "The number on your invoice is always the measured floor space your goods occupy once racked, and you are told it after collection. If your estimate was high, the bill is lower than you planned for. That is the correct direction for a surprise to run.",
-          "If you would rather understand the whole thing as renting an amount of space, [storage space for rent](/self-storage-dubai/storage-space-for-rent) frames it that way.",
+          "Sliders are consistently wrong in this market, and wrong in the direction that suits the operator. They ask for bedroom counts and tick-boxes, then output a confident number that ignores whether anything was boxed, what the balcony holds, and whether the sofa is an L-shape.",
+          "The result is a customer told 90 sq ft and billed for 130, who reasonably feels misled even though the crew did nothing wrong. We would rather give a range you can trust and measure the real figure at collection — so if your estimate was high, the bill comes in under it. That is the correct direction for a surprise to run.",
         ],
       },
     ],
