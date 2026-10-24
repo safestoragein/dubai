@@ -10,6 +10,7 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import { env } from "@/lib/env"
 import s from "@/components/landing/landing.module.css"
@@ -189,7 +190,7 @@ export default function ShortTermStoragePage() {
               <img
                 src="/landing/short-term-hero-v2.webp"
                 alt="SafeStorage team packing a flat between leases in Dubai"
-                width={1133}
+                width={1733}
                 height={907}
                 loading="eager" decoding="async"
               />
@@ -201,8 +202,10 @@ export default function ShortTermStoragePage() {
           </div>
         </section>
 
+        <LandingTrust />
+
         {/* THE DATE GAP — rest of the live hero copy */}
-        <section className={`${s.section} ${s.wrap}`} id="dates" style={{ paddingTop: 20 }}>
+        <section className={`${s.section} ${s.wrap}`} id="dates" style={{ paddingTop: 0, paddingBottom: 26 }}>
           <Reveal>
             <div className={s.duo}>
               <div className={`${s.panel} ${s.panelHover} ${h.plan}`} style={idx(0)}>
@@ -237,7 +240,7 @@ export default function ShortTermStoragePage() {
         </section>
 
         {/* WHAT A SHORT BOOKING LOOKS LIKE */}
-        <section className={`${s.section} ${s.wrap}`} id="bookings" style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id="bookings" style={{ paddingTop: 0, paddingBottom: 26 }}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>Booking length</span>
@@ -273,7 +276,7 @@ export default function ShortTermStoragePage() {
         </section>
 
         {/* HOW FAST WE CAN COLLECT — dark band */}
-        <section className={s.wrap} id="speed">
+        <section className={s.wrap} id="speed" style={{ paddingBottom: 26 }}>
           <div className={`${s.darkBand} ${s.whyBand}`}>
             <div className={`${s.howHead} ${s.bandHead}`}>
               <div>
@@ -326,7 +329,7 @@ export default function ShortTermStoragePage() {
         </section>
 
         {/* WHAT IT COSTS */}
-        <section className={`${s.section} ${s.wrap}`} id="cost">
+        <section className={`${s.section} ${s.wrap}`} id="cost" style={{ paddingTop: 0, paddingBottom: 26 }}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>Cost</span>
@@ -369,7 +372,7 @@ export default function ShortTermStoragePage() {
         </section>
 
         {/* THE HONEST LIMITATION */}
-        <section className={`${s.section} ${s.wrap}`} id="limitation" style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id="limitation" style={{ paddingTop: 0, paddingBottom: 26 }}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>Good to know</span>
@@ -414,7 +417,7 @@ export default function ShortTermStoragePage() {
         </section>
 
         {/* WHAT WE NEED TO BOOK */}
-        <section className={`${s.section} ${s.wrap}`} id="book" style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id="book" style={{ paddingTop: 0, paddingBottom: 26 }}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>Booking</span>
@@ -460,7 +463,7 @@ export default function ShortTermStoragePage() {
         </section>
 
         {/* FAQ */}
-        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0, paddingBottom: 26 }}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>FAQ</span>

@@ -290,6 +290,52 @@ h2.longH2 {
   }
 }
 
+/* A chip line that moves inside its own card: the track is two identical
+   halves and slides exactly one half, so the loop has no seam. Clipped to the
+   card, with a soft fade at both ends, and paused on hover or focus. */
+.cardMarquee {
+  position: relative;
+  overflow: hidden;
+  margin-top: 12px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.cardMarqueeTrack {
+  display: flex;
+  width: max-content;
+  gap: 8px;
+  animation: cardChips 26s linear infinite;
+}
+.cardMarquee:hover .cardMarqueeTrack,
+.cardMarquee:focus-within .cardMarqueeTrack {
+  animation-play-state: paused;
+}
+.cardMarqueeHalf {
+  display: flex;
+  gap: 8px;
+  padding-right: 8px;
+}
+@keyframes cardChips {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cardMarqueeTrack {
+    animation: none;
+  }
+  .cardMarquee {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .cardMarquee::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .siloCard {
   position: relative;
   display: block;

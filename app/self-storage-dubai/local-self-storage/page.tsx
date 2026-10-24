@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -9,6 +10,10 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import { manrope, sora } from "@/components/landing/fonts"
 import { LandingTrust } from "@/components/landing/landing-top"
 import { CtaBand } from "@/components/landing/page-hero"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import HomeReveal from "@/components/landing/home-reveal"
+import { MilestonesPlayer } from "@/components/landing/milestones-player"
 import { env } from "@/lib/env"
 import ls from "@/components/landing/landing.module.css"
 import lp from "@/components/locations/location-landing.module.css"
@@ -323,33 +328,33 @@ export default function LocalSelfStoragePage() {
         ]}
       />
 
-      <main className={`min-h-screen ${ls.page} ${sora.variable} ${manrope.variable} ${sk.body}`}>
+      {/* sk.body forced every h2 to navy, which made the dark band and the CTA
+          band headings invisible once the body moved to the landing design. The
+          old Tailwind sections it was styling are gone. */}
+      <main className={`min-h-screen ${ls.page} ${sora.variable} ${manrope.variable}`}>
         {/* Hero — copy left, the owner's photo right */}
         <section className={`${ls.hero} ${ls.wrap} ${lp.split2}`}>
-          <div className={lp.split2Inner}>
+          {/* alignItems start: the copy column is taller than the picture, and a
+              centred picture leaves a hole above it */}
+          <div className={lp.split2Inner} style={{ alignItems: "start" }}>
             <div className={`${ls.heroContent} ${lp.split2Copy}`}>
               <span className={ls.heroTag}>Local self storage</span>
               <h1>
                 Local Self Storage in Dubai — <em>We Come to You</em>
               </h1>
               <p>
-                Most people searching for local self storage want one thing: a unit close enough that dropping something
-                off doesn't eat a Saturday. Fair enough. But in Dubai, &ldquo;close&rdquo; is a strange idea. The
-                affordable storage facilities sit in Al Quoz, Ras Al Khor and DIP — industrial areas most residents only
-                see from Sheikh Zayed Road. The genuinely convenient ones charge for that convenience.
-              </p>
-              <p>
-                SafeStorage solves it from the other end. We&rsquo;re a{" "}
+                In Dubai, “close” is a strange idea: the affordable yards sit in Al Quoz, Ras Al Khor and
+                DIP, and the convenient ones charge for being convenient. We solve it from the other end —
+                a{" "}
                 <Link href="/self-storage-dubai" className={sk.inlineLink}>
                   local self storage
                 </Link>{" "}
-                operator that doesn&rsquo;t ask you to drive anywhere. Our team comes to your building, packs what needs
-                packing, itemises every box, and moves it to a secured facility. You get a photo inventory on your phone.
-                When you want something back, you tell us which item and we deliver it.
+                operator that does not ask you to drive anywhere.
               </p>
               <p>
-                You pay only for <strong>the space your items use</strong>. No lock-in,
-                no deposit games, and the quote you get is the price you pay.
+                We come to your building, pack, itemise every box and move it to a secured facility. You
+                pay only for <strong>the space your items use</strong> — no lock-in, and the quote you get
+                is the price you pay.
               </p>
               <div className={ls.heroCta}>
                 <Link className={`${ls.btn} ${ls.btnAccent}`} href="/get-quote">
@@ -360,7 +365,7 @@ export default function LocalSelfStoragePage() {
                 </a>
               </div>
             </div>
-            <div className={lp.split2Photo} style={{ aspectRatio: "1774 / 887" }}>
+            <div className={lp.split2Photo} style={{ aspectRatio: "1733 / 907" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/landing/local-self-storage-photo.webp"
@@ -378,348 +383,195 @@ export default function LocalSelfStoragePage() {
         <LandingTrust />
 
         {/* What "local" actually means */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-6 text-3xl font-bold text-dubai-navy">
-                What &ldquo;local&rdquo; actually means for storage in Dubai
+        {/* WHAT "LOCAL" MEANS — the two columns as a compare board */}
+        <section className={`${ls.section} ${ls.wrap}`} id="local" style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={ls.howHead}>
+            <div>
+              <span className={ls.howEyebrow}>What local means</span>
+              <h2 className={lp.longH2}>
+                Proximity matters less <em>than access.</em>
               </h2>
-              <p className="mb-4 text-gray-700">
-                Here&rsquo;s the thing nobody tells you when you search for a storage unit near you: proximity matters far
-                less than access.
-              </p>
-              <p className="mb-4 text-gray-700">
-                A facility ten minutes from your flat is only useful if you can get into it when you need to, if you can
-                park a loaded car next to it, and if you can find the box you want without unstacking eleven others.
-                Plenty of people rent a unit in Al Quoz because the map says fifteen minutes, then discover the fifteen
-                minutes is at 11am on a Tuesday, not 6pm on a weekday when they&rsquo;d actually go.
-              </p>
-              <p className="mb-8 text-gray-700">
-                We looked at it differently. If the storage company drives, the distance stops being your problem.
-              </p>
-
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[520px] border-collapse text-left text-sm">
-                  <thead>
-                    <tr className="border-b-2 border-gray-200">
-                      <th className="py-3 pr-4 font-semibold text-gray-600">What most local storage means</th>
-                      <th className="py-3 font-semibold text-dubai-navy">What it means with SafeStorage</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {localMeans.map(([a, b]) => (
-                      <tr key={a} className="border-b border-gray-100">
-                        <td className="py-3 pr-4 text-gray-600">{a}</td>
-                        <td className="py-3 font-medium text-dubai-navy">{b}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              <p className="mt-8 text-gray-700">
-                That&rsquo;s the trade-off, stated honestly: you give up the ability to walk into your unit at midnight
-                and rummage. In exchange you never move a box yourself. For most of the households we store for — expats
-                between leases, families mid-renovation, people who&rsquo;ve moved to a smaller place — that&rsquo;s the
-                better deal. If you genuinely need to visit your own stuff twice a week, a drive-up unit in Al Quoz is the
-                more honest recommendation and we&rsquo;ll say so on the phone.
-              </p>
             </div>
+            <p>
+              A yard fifteen minutes away is only useful if you can get in when you need to, park a loaded
+              car beside it and find the right box. If the storage company drives, distance stops being
+              your problem.
+            </p>
           </div>
-        </section>
-
-        {/* Coverage */}
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
-              <h2 className="mb-4 text-3xl font-bold text-dubai-navy">Areas we cover across Dubai</h2>
-              <p className="mb-10 text-gray-700">
-                We collect from and deliver to every part of Dubai. Pickup windows are usually same-day or next-day,
-                depending on how far out you are and what time you call.
-              </p>
-
-              <div className="grid gap-6 md:grid-cols-2">
-                {coverage.map((group) => (
-                  <Card key={group.band}>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2 text-lg">
-                        <MapPin className="h-5 w-5 text-dubai-gold" />
-                        {group.band}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm leading-relaxed text-gray-600">
-                        {group.areas.map((a, i) => (
-                          <span key={a.name}>
-                            {i > 0 && " · "}
-                            {a.href ? (
-                              <Link href={a.href} className="text-dubai-navy underline underline-offset-2">
-                                {a.name}
-                              </Link>
-                            ) : (
-                              a.name
-                            )}
-                          </span>
-                        ))}
-                      </p>
-                    </CardContent>
-                  </Card>
+          <HomeReveal className={`${lp.siloGrid} ${lp.trio}`} style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
+            <article className={lp.siloCard} style={{ cursor: "default" }}>
+              <h3 style={{ color: "#c22e2e" }}>Most local storage</h3>
+              <ul className={ls.crossList}>
+                {localMeans.map(([a]) => (
+                  <li key={a}>{a}</li>
                 ))}
-              </div>
-
-              <p className="mt-8 text-gray-700">
-                We also collect from <strong>Sharjah</strong>, <strong>Ajman</strong> and <strong>Abu Dhabi</strong>.
-                Transport for those is quoted upfront before we dispatch — see{" "}
-                <Link href="/locations" className="text-dubai-navy underline underline-offset-2">
-                  all locations
-                </Link>{" "}
-                for the full list.
-              </p>
-              <blockquote className="mt-6 border-l-4 border-dubai-gold bg-white p-4 text-gray-700">
-                Not sure whether your building is on a same-day route? Send your community name on WhatsApp and
-                we&rsquo;ll tell you straight away.
-              </blockquote>
-            </div>
-          </div>
-        </section>
-
-        {/* Cost */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-4 text-3xl font-bold text-dubai-navy">What it costs</h2>
-              <p className="mb-8 text-gray-700">
-                Storage in Dubai is priced by space and time, and most companies make both deliberately hard to compare.
-                Here&rsquo;s ours.
-              </p>
-
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[560px] border-collapse text-left text-sm">
-                  <thead>
-                    <tr className="border-b-2 border-gray-200">
-                      <th className="py-3 pr-4 font-semibold text-dubai-navy">Home size</th>
-                      <th className="py-3 pr-4 font-semibold text-dubai-navy">Typical space needed</th>
-                      <th className="py-3 font-semibold text-dubai-navy">What usually fits</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {sizes.map((s) => (
-                      <tr key={s.home} className="border-b border-gray-100">
-                        <td className="py-3 pr-4 font-medium text-dubai-navy">{s.home}</td>
-                        <td className="py-3 pr-4 whitespace-nowrap text-gray-700">{s.space}</td>
-                        <td className="py-3 text-gray-600">{s.fits}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              <p className="mt-8 text-gray-700">
-                You pay only for <strong>the space your items use</strong>. Collection, packing materials, loading and
-                inventory are quoted with the storage, so the number you&rsquo;re given covers the job — not just the shelf.
-              </p>
-              <p className="mt-4 text-gray-700">
-                Three things that genuinely change the price: how many floors we&rsquo;re carrying down without a service
-                lift, whether you need packing done or you&rsquo;ve done it yourself, and how far outside Dubai the pickup
-                is. We ask about all three before quoting so there&rsquo;s no adjustment later.
-              </p>
-              <p className="mt-4 text-gray-700">
-                Full breakdown on the{" "}
-                <Link href="/self-storage-dubai/prices" className="text-dubai-navy underline underline-offset-2">
-                  storage pricing page
-                </Link>
-                , and the{" "}
-                <Link href="/self-storage-dubai/unit-sizes" className="text-dubai-navy underline underline-offset-2">
-                  unit size guide
-                </Link>{" "}
-                if you want to sanity-check the space yourself before calling.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* How it works */}
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
-              <h2 className="mb-10 text-3xl font-bold text-dubai-navy">How it works</h2>
-              <ol className="grid gap-6 md:grid-cols-2">
-                {steps.map((s, i) => {
-                  const Icon = s.icon
-                  return (
-                    <li key={s.title} className="flex gap-4 rounded-lg bg-white p-5 shadow-sm">
-                      <div className="flex-none">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-dubai-navy text-white">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="mb-1 font-semibold text-dubai-navy">
-                          {i + 1}. {s.title}
-                        </h3>
-                        <p className="text-sm text-gray-600">{s.body}</p>
-                      </div>
-                    </li>
-                  )
-                })}
-              </ol>
-              <p className="mt-8 text-gray-700">
-                Longer version on the{" "}
-                <Link href="/how-it-works" className="text-dubai-navy underline underline-offset-2">
-                  how it works page
-                </Link>
-                .
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Why people store */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-4 text-3xl font-bold text-dubai-navy">Why people in Dubai use local self storage</h2>
-              <p className="mb-8 text-gray-700">
-                The reasons are boringly consistent, and they&rsquo;re worth naming because they tell you whether this is
-                actually your situation.
-              </p>
-
-              <div className="space-y-6 text-gray-700">
-                <p>
-                  <strong className="text-dubai-navy">Between leases.</strong> Your Ejari ends 3 September, the new place
-                  is ready 20 September. Seventeen days. A hotel with your entire flat in it is not a plan. This is the
-                  single most common reason we get called, and it&rsquo;s usually a two- to four-week booking.
-                </p>
-                <p>
-                  {/* PHASE-2 LINK: → /personal-storage-dubai/ */}
-                  <strong className="text-dubai-navy">Leaving the UAE but not sure for how long.</strong> Shipping a
-                  container home costs more than storing for a year, and you don&rsquo;t yet know if the new job sticks.
-                  Storing while you decide is the cheaper option surprisingly often. We deal with this constantly around
-                  the end of the school year. See{" "}
-                  <Link href="/personal-storage-dubai/expat-storage" className="text-dubai-navy underline underline-offset-2">
-                    storage for expats
-                  </Link>
-                  .
-                </p>
-                <p>
-                  <strong className="text-dubai-navy">Downsizing.</strong> Villa to apartment, or two salaries to one. The
-                  furniture doesn&rsquo;t fit the new place but you&rsquo;re not ready to sell a dining table you paid AED
-                  9,000 for.
-                </p>
-                <p>
-                  <strong className="text-dubai-navy">Renovation.</strong> Contractors work faster in an empty flat and
-                  your sofa doesn&rsquo;t end up under three weeks of gypsum dust.
-                </p>
-                <p>
-                  <strong className="text-dubai-navy">Summer.</strong> Families who go home for July and August and would
-                  rather not leave a full apartment sitting empty on a maintenance-free lease.
-                </p>
-                <p>
-                  {/* PHASE-2 LINK: → /business-storage-dubai/ */}
-                  <strong className="text-dubai-navy">Business overflow.</strong> Stock that outgrew the shop, company
-                  records you&rsquo;re required to retain, exhibition kit used twice a year. That&rsquo;s a different
-                  conversation —{" "}
-                  <Link href="/business-storage-dubai" className="text-dubai-navy underline underline-offset-2">
-                    business storage
-                  </Link>{" "}
-                  covers it.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Trust questions */}
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-4 text-3xl font-bold text-dubai-navy">What makes a storage facility worth trusting</h2>
-              <p className="mb-8 text-gray-700">
-                If you&rsquo;re comparing local self storage companies in Dubai, these are the questions that actually
-                separate them. Ask all six, of us and of anyone else.
-              </p>
-              <ol className="space-y-5">
-                {trustQuestions.map((t, i) => (
-                  <li key={t.q} className="flex gap-4">
-                    <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-dubai-gold text-sm font-semibold text-white">
-                      {i + 1}
-                    </span>
-                    <p className="text-gray-700">
-                      <strong className="text-dubai-navy">{t.q}</strong> {t.a}
-                    </p>
-                  </li>
+              </ul>
+            </article>
+            <article className={lp.siloCard} style={{ cursor: "default" }}>
+              <h3 style={{ color: "#117a4a" }}>With SafeStorage</h3>
+              <ul className={ls.yesList}>
+                {localMeans.map(([, b]) => (
+                  <li key={b}>{b}</li>
                 ))}
-              </ol>
-              <p className="mt-8 text-gray-700">
-                Ask us all six on the phone. We&rsquo;d rather lose a booking than have you find out the answer in month
-                four.
-              </p>
-            </div>
+              </ul>
+            </article>
+          </HomeReveal>
+          <div className={ls.movingTip}>
+            <p>
+              The honest trade: you give up walking into your own unit at midnight, and in exchange you
+              never move a box yourself. If you need to visit twice a week, a drive-up unit in Al Quoz is
+              the better recommendation and we will say so on the phone.
+            </p>
           </div>
         </section>
 
-        {/* Comparison */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-4 text-3xl font-bold text-dubai-navy">
-                Local self storage vs. renting a unit yourself
+        {/* COVERAGE — one moving line per band */}
+        <section className={`${ls.section} ${ls.wrap}`} id="coverage" style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={ls.howHead}>
+            <div>
+              <span className={ls.howEyebrow}>Areas we cover</span>
+              <h2 className={lp.longH2}>
+                Every part <em>of Dubai.</em>
               </h2>
-              <p className="mb-8 text-gray-700">Both are valid. They suit different people.</p>
-
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[620px] border-collapse text-left text-sm">
-                  <thead>
-                    <tr className="border-b-2 border-gray-200">
-                      <th className="py-3 pr-4" />
-                      <th className="py-3 pr-4 font-semibold text-dubai-navy">SafeStorage (managed, door-to-door)</th>
-                      <th className="py-3 font-semibold text-gray-600">Traditional self storage unit</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {comparison.map(([label, ours, theirs]) => (
-                      <tr key={label} className="border-b border-gray-100">
-                        <td className="py-3 pr-4 font-medium text-gray-500">{label}</td>
-                        <td className="py-3 pr-4 font-medium text-dubai-navy">{ours}</td>
-                        <td className="py-3 text-gray-600">{theirs}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              <p className="mt-8 text-gray-700">
-                If you&rsquo;ll be in and out of the unit weekly, rent one. If you need things kept safely and retrieved
-                occasionally, the managed route costs less once you count the van hire and the two Saturdays.
-              </p>
             </div>
+            <p>Pickup is usually same-day or next-day, depending on where you are and when you call.</p>
+          </div>
+          <HomeReveal
+            className={`${lp.siloGrid} ${lp.trio}`}
+            style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}
+          >
+            {coverage.map((band, i) => (
+              <article className={lp.siloCard} key={band.band} style={{ ["--i"]: i, cursor: "default" } as CSSProperties}>
+                <span className={ls.miniIcon} aria-hidden="true">
+                  <MapPin strokeWidth={1.9} />
+                </span>
+                <h3>{band.band}</h3>
+                <div className={lp.cardMarquee}>
+                  <div className={lp.cardMarqueeTrack}>
+                    {/* two identical halves, so the loop has no seam */}
+                    {[0, 1].map((half) => (
+                      <div className={lp.cardMarqueeHalf} key={half} aria-hidden={half === 1}>
+                        {band.areas.map((a) =>
+                          a.href && half === 0 ? (
+                            <Link className={`${ls.chip} ${lp.areaChip}`} href={a.href} key={a.name}>
+                              <span aria-hidden="true">📍</span> {a.name}
+                            </Link>
+                          ) : (
+                            <span className={ls.chip} key={a.name}>
+                              <span aria-hidden="true">📍</span> {a.name}
+                            </span>
+                          ),
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </HomeReveal>
+        </section>
+
+        {/* WHAT IT COSTS — sizes as cards */}
+        <section className={`${ls.section} ${ls.wrap}`} id="cost" style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={ls.howHead}>
+            <div>
+              <span className={ls.howEyebrow}>What it costs</span>
+              <h2 className={lp.longH2}>
+                You pay for the space <em>your things take.</em>
+              </h2>
+            </div>
+            <p>Sizes are estimates — the space is re-measured once your goods are racked.</p>
+          </div>
+          <HomeReveal className={`${ls.miniGrid} ${ls.miniTight}`}>
+            {sizes.map((z, i) => (
+              <div className={ls.miniCard} key={z.home} style={{ ["--i"]: i } as CSSProperties}>
+                <span className={ls.miniIcon}>
+                  <MapPin strokeWidth={1.9} aria-hidden="true" />
+                </span>
+                <span>
+                  <b>
+                    {z.home} · {z.space}
+                  </b>
+                  <small>{z.fits}</small>
+                </span>
+              </div>
+            ))}
+          </HomeReveal>
+          <div className={ls.movingTip}>
+            <p>
+              One rate on measured space, with collection, materials, transport and the inventory in the
+              quote. The{" "}
+              <Link href="/self-storage-dubai/prices">storage prices page</Link> sets out what varies.
+            </p>
+          </div>
+        </section>
+
+        {/* HOW IT WORKS — the five steps as the timeline */}
+        <section className={`${ls.section} ${ls.wrap}`} id="how" style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={ls.howHead}>
+            <div>
+              <span className={ls.howEyebrow}>How it works</span>
+              <h2 className={lp.longH2}>
+                One phone call, <em>then we drive.</em>
+              </h2>
+            </div>
+          </div>
+          <MilestonesPlayer>
+            <ol className={ls.milestones} style={{ ["--steps"]: steps.length } as CSSProperties}>
+              {steps.map((st, i) => (
+                <li className={ls.milestone} key={st.title} style={{ ["--i"]: i } as CSSProperties}>
+                  <span className={ls.milestoneDot} aria-hidden="true">
+                    <st.icon />
+                  </span>
+                  <span className={ls.milestoneYear}>Step {i + 1}</span>
+                  <b>{st.title}</b>
+                  <small>{st.body}</small>
+                </li>
+              ))}
+            </ol>
+          </MilestonesPlayer>
+        </section>
+
+        {/* WHAT TO ASK — dark band */}
+        <section className={`${ls.darkBand} ${ls.whyBand}`}>
+          <div className={ls.wrap}>
+            <div className={ls.bandHead}>
+              <span className={ls.howEyebrow}>Before you book anyone</span>
+              <h2>
+                Six questions <br className={ls.mBreak} />
+                <em>worth asking.</em>
+              </h2>
+            </div>
+            <FeatScroller>
+              {trustQuestions.map((q) => (
+                <article className={ls.feat} key={q.q}>
+                  <div className={ls.featIcon}>
+                    <ShieldCheck strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3>{q.q}</h3>
+                  <p>{q.a}</p>
+                </article>
+              ))}
+            </FeatScroller>
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-8 text-3xl font-bold text-dubai-navy">Common questions</h2>
-              <Accordion type="single" collapsible className="w-full">
-                {faqData.slice(0, 5).map((item, i) => (
-                  <AccordionItem key={item.question} value={`item-${i}`}>
-                    <AccordionTrigger className="text-left font-medium text-dubai-navy">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-gray-600">{item.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-              <p className="mt-6 text-sm text-gray-600">
-                {/* PHASE-2 LINK: → /self-storage-dubai/self-storage-dubai/prohibited-items/ */}
-                Full list on our{" "}
-                <Link href="/self-storage-dubai/prohibited-items" className="text-dubai-navy underline underline-offset-2">
-                  prohibited items page
-                </Link>
-                .
-              </p>
+        <section className={`${ls.section} ${ls.wrap}`} id="faq" style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={ls.howHead}>
+            <div>
+              <span className={ls.howEyebrow}>Good to know</span>
+              <h2 className={lp.longH2}>
+                Common <em>questions.</em>
+              </h2>
             </div>
+          </div>
+          <FaqAccordion items={faqData.slice(0, 5).map((f) => ({ q: f.question, a: f.answer }))} />
+          <div className={ls.movingTip}>
+            <p>
+              Some things cannot be stored at all — the{" "}
+              <Link href="/self-storage-dubai/prohibited-items">prohibited items page</Link> has the list.
+            </p>
           </div>
         </section>
 
