@@ -433,48 +433,30 @@ export const SILO1_PAGES: SiloPageContent[] = [
     keywords:
       "storage room dubai, storage room for rent dubai, extra room storage dubai, store room dubai, spare room storage dubai, box room storage dubai",
     ogTitle: "A Storage Room in Dubai, Without Moving House",
-    h1: "A Storage Room in Dubai — Without Renting A Bigger Flat",
+    h1: "A Storage Room in Dubai — Without the Bigger Flat",
     hero: [
-      "Most people searching for a storage room in Dubai are running a quiet arithmetic: the flat is one room short, and the next size up costs tens of thousands of dirhams a year more. Storage is the cheaper half of that equation, and it is the everyday use of [self storage in Dubai](/self-storage-dubai).",
-      "You do not rent a room. You store the contents of one — the guest bed nobody sleeps in, the second sofa, the boxes in the hallway, the suitcases stacked on the wardrobe — and get the floor space back, **paying only for the space your items use**.",
-      "A room's worth of contents is typically 25 to 40 square feet of stored space. Compare that monthly figure against the annual rent difference between a one-bed and a two-bed in your building, and the decision usually makes itself.",
+      "Most people searching for a storage room in Dubai are running a quiet arithmetic: the flat is one room short, and the next size up costs tens of thousands of dirhams a year more. Storage is the cheaper half of that equation — the everyday use of [self storage in Dubai](/self-storage-dubai).",
+      "You do not rent a room. You store the contents of one — the guest bed nobody sleeps in, the boxes in the hallway, the suitcases on top of the wardrobe — and get the floor space back, **paying only for the space your items use**.",
     ],
     sections: [
       {
         kind: "prose",
         h2: "The Dubai version of this problem",
         paras: [
-          "Dubai flats are designed for living rather than accumulating, and they are unusually short of the things that absorb clutter in other cities: no lofts, no basements, no garden sheds, no under-stairs cupboard. A tower flat has exactly the storage the developer drew, and nothing else.",
-          "Meanwhile the city fills them faster than most. People arrive with nothing, furnish quickly, and then acquire a second household's worth of things over three or four years — a home gym that lasted one January, a stroller after the child outgrew it, four suitcases that live on top of a wardrobe eleven months a year.",
-          "There is also the furnished-let problem, which is specific to here. Landlords increasingly want a property let furnished or unfurnished depending on the tenant, and owners need somewhere for their own furniture to go while somebody else's is in the flat.",
-          "In each case the requirement is the same and it is not a room: it is somewhere for a defined pile of things to be, indoors, retrievable, without a lease.",
+          "Dubai flats are short of everything that absorbs clutter elsewhere: no lofts, no basements, no sheds, no under-stairs cupboard. A tower flat has exactly the storage the developer drew.",
+          "And the city fills them fast — a home gym that lasted one January, a stroller the child outgrew, four suitcases that live on a wardrobe eleven months a year. Then there is the furnished-let problem: owners need somewhere for their own furniture while a tenant's is in the flat.",
+          "In each case the requirement is not a room. It is somewhere for a defined pile of things to be, indoors, retrievable, without a lease.",
         ],
       },
       {
         kind: "cards",
         h2: "What people put in one",
-        intro: "The four most common storage-room bookings we collect in Dubai.",
+        intro: "The four most common storage-room bookings we collect.",
         items: [
-          {
-            icon: "🛏️",
-            h: "A guest room, emptied",
-            p: "Bed, mattress, wardrobe and side tables, so the room becomes an office. Around 30 to 40 sq ft.",
-          },
-          {
-            icon: "🧳",
-            h: "The seasonal and the occasional",
-            p: "Suitcases, winter bedding, Christmas and Diwali boxes, camping and diving kit. Fifteen cartons is about 20 sq ft.",
-          },
-          {
-            icon: "🛋️",
-            h: "Furniture for a furnished let",
-            p: "Your own furniture out while a tenant's is in. Common enough that it has its own rhythm each summer.",
-          },
-          {
-            icon: "👶",
-            h: "The things you are not ready to sell",
-            p: "Cots, strollers, bikes the children have outgrown, and the furniture from a previous flat that will fit the next one.",
-          },
+          { icon: "🛏️", h: "A guest room, emptied", p: "Bed, mattress, wardrobe and side tables, so the room becomes an office. Around 30–40 sq ft." },
+          { icon: "🧳", h: "The seasonal and occasional", p: "Suitcases, winter bedding, festive boxes, camping and diving kit. Fifteen cartons is about 20 sq ft." },
+          { icon: "🛋️", h: "Furniture for a furnished let", p: "Your own furniture out while a tenant's is in. Common enough to have its own rhythm each summer." },
+          { icon: "👶", h: "What you are not ready to sell", p: "Cots, strollers, outgrown bikes, and furniture from a previous flat that will fit the next one." },
         ],
       },
       {
@@ -483,53 +465,46 @@ export const SILO1_PAGES: SiloPageContent[] = [
         intro: "The comparison people actually run before booking.",
         columns: ["Option", "What it costs", "The catch"],
         rows: [
-          ["Move to a bigger flat", "Tens of thousands more per year, plus agency and Ejari", "You are renting a whole room to store a bed"],
-          ["A locker at a nearby yard", "Fixed unit rate, whether filled or not", "Van hire and your Sunday, twice, plus every visit"],
+          ["Move to a bigger flat", "Tens of thousands more a year, plus agency and Ejari", "You are renting a whole room to store a bed"],
+          ["A self-drive unit nearby", "A fixed size, whether you fill it or not", "Van hire and your Sunday, twice, plus every visit"],
           ["Leave it in the hallway", "Nothing", "You paid for that square footage too"],
-          ["Sell it", "Nothing, and you get some back", "Right answer for some of it. Rarely all of it"],
-          ["Collected storage room", "Only the space your items use, with a free itemised quote", "Access is arranged in advance, not unannounced"],
+          ["Sell it", "Nothing, and you get some back", "Right for some of it. Rarely all of it"],
+          ["Collected storage", "Only the space your items use, free itemised quote", "Access is arranged in advance, not unannounced"],
         ],
-        note: "Being honest about the last row: you do not hold a key and you do not drop in. In exchange nobody carries a mattress down a service lift. [How the service works](/how-it-works) sets out the trade in full.",
+        note: "Honest about the last row: you do not hold a key and you do not drop in. In exchange nobody carries a mattress down a service lift. [How the service works](/how-it-works) sets out the trade.",
       },
       {
         kind: "steps",
         h2: "Clearing a room, in practice",
         intro: "Most single-room collections take a morning.",
         items: [
-          { h: "Decide the room, not the items", p: "Deciding item by item is where this stalls. Pick a room and empty it." },
+          { h: "Decide the room, not the items", p: "Item by item is where this stalls. Pick a room and empty it." },
           { h: "Box the loose things", p: "Sealed cartons stack; loose belongings do not, and you are billed on space." },
-          { h: "We collect and wrap", p: "Furniture is wrapped before it leaves the flat. The lift booking is ours to arrange." },
-          {
-            h: "Get any of it back on request",
-            p: "One box or all of it, normally within 24–48 hours. [What that costs per month](/self-storage-dubai/monthly-storage) does not change while it sits there.",
-          },
+          { h: "We collect and wrap", p: "Furniture is wrapped before it leaves the flat, and the lift booking is ours." },
+          { h: "Get any of it back", p: "One box or all of it, normally within 24–48 hours. [The monthly figure](/self-storage-dubai/monthly-storage) does not change while it sits there." },
         ],
       },
     ],
     faqs: [
       {
         q: "How much space does a room's worth of things take?",
-        a: "Typically 25 to 40 square feet once racked — a bed, mattress, wardrobe, side tables and a dozen cartons sits around the middle of that. Billed on that space alone, it is a modest monthly figure against a bigger tenancy.",
+        a: "Typically 25 to 40 sq ft once racked — a bed, mattress, wardrobe, side tables and a dozen cartons sits around the middle of that.",
       },
       {
         q: "Do I actually get a room, or shared space?",
-        a: "Your goods are stored in a managed warehouse, racked and logged under your name, not in a private room you hold a key to. That is what makes it cost what it costs. If a private lockable room is what you need, a self-storage yard is the right product.",
+        a: "Your goods are racked and logged under your name in a managed warehouse, not in a private room you hold a key to. That is what makes it cost what it costs.",
       },
       {
         q: "Can I swap things in and out seasonally?",
-        a: "Yes, and plenty of customers do exactly that — winter bedding out in November, back in March. Each movement is a transport job that is quoted before it happens; the storage price does not change.",
+        a: "Yes — winter bedding out in November, back in March. Each movement is a transport job quoted before it happens; the storage price does not change.",
       },
       {
         q: "Is it cheaper than moving to a bigger flat?",
-        a: "In almost every case in Dubai, substantially. The comparison worth running is the monthly storage figure against the annual rent difference divided by twelve, plus the agency commission and Ejari you would pay to move.",
-      },
-      {
-        q: "What if I need something urgently?",
-        a: "Partial retrieval is normally arranged within 24 to 48 hours to any Dubai address. Tell us at collection which cartons you are most likely to want and they are racked where they can be reached quickly.",
+        a: "In almost every case in Dubai, substantially. Compare the monthly storage figure against the annual rent difference divided by twelve, plus the agency commission and Ejari you would pay to move.",
       },
       {
         q: "Can I store a mattress upright to save space?",
-        a: "We would rather not, and it is worth knowing why: mattresses stored on edge for months deform along the side they rest on. They are stored flat in a cover, which uses slightly more floor space and is the reason the mattress is still usable when it comes back.",
+        a: "We would rather not: mattresses stored on edge for months deform along the side they rest on. They go in flat and in a cover, which is why they are still usable when they come back.",
       },
     ],
     serviceType: "Household storage",

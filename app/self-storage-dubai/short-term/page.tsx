@@ -209,23 +209,25 @@ export default function ShortTermStoragePage() {
           <Reveal>
             <div className={s.duo}>
               <div className={`${s.panel} ${s.panelHover} ${h.plan}`} style={idx(0)}>
-                <div className={`${s.panelIcon} ${h.planIcon} ${h.flip}`} aria-hidden="true">
-                  <CalendarClock size={20} color="var(--accent)" />
+                <div className={`${s.miniIcon} ${h.planIcon} ${h.flip}`} aria-hidden="true">
+                  <CalendarClock strokeWidth={1.9} />
                 </div>
+                <h3>The date gap</h3>
                 <p className={h.panelText}>
                   Your Ejari ends on the 3rd. The new place is ready on the 20th. That&rsquo;s seventeen days of owning a
                   flat&rsquo;s worth of furniture and having nowhere to put it. Hotels don&rsquo;t take sofas.
                 </p>
               </div>
-              <div className={`${s.panel} ${s.panelHover} ${s.panelAccent} ${h.plan}`} style={idx(1)}>
-                <div className={`${s.panelIcon} ${h.planIcon} ${h.drive}`} aria-hidden="true" style={{ background: "#fff" }}>
-                  <ClipboardList size={20} color="var(--accent)" />
+              <div className={`${s.panel} ${s.panelHover} ${h.plan}`} style={idx(1)}>
+                <div className={`${s.miniIcon} ${h.planIcon} ${h.drive}`} aria-hidden="true">
+                  <ClipboardList strokeWidth={1.9} />
                 </div>
+                <h3>What we do about it</h3>
                 <p className={h.panelText}>
-                  We take bookings from <b>two weeks</b>, with no lock-in and no six-month minimum. Our team collects from
-                  your building, packs, itemises everything, stores it, and brings it to the new address when you&rsquo;re
-                  ready. You pay only for <b>the space your items use</b>, as part of the wider{" "}
-                  <Link href="/self-storage-dubai">self storage in Dubai</Link> service.
+                  Bookings from <b>two weeks</b>, no lock-in and no six-month minimum. We collect from your building,
+                  pack, itemise everything, store it and bring it to the new address when you are ready — and you pay
+                  only for <b>the space your items use</b>, as part of{" "}
+                  <Link href="/self-storage-dubai">self storage in Dubai</Link>.
                 </p>
               </div>
             </div>
