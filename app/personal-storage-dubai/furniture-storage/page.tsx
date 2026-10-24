@@ -133,6 +133,16 @@ const scenarios = [
   { Icon: Building2, h: "Villa clearance", p: "Estate or inherited contents, with time to decide and access arranged for buyers or charity collection." },
 ]
 
+/* a colour per card, cycled */
+const TINTS = [
+  { fg: "#ee5824", bg: "rgba(238, 88, 36, 0.12)" },
+  { fg: "#1893d2", bg: "rgba(24, 147, 210, 0.12)" },
+  { fg: "#16a34a", bg: "rgba(22, 163, 74, 0.12)" },
+  { fg: "#7c3aed", bg: "rgba(124, 58, 237, 0.12)" },
+  { fg: "#e11d48", bg: "rgba(225, 29, 72, 0.12)" },
+  { fg: "#d97706", bg: "rgba(217, 119, 6, 0.12)" },
+]
+
 export default function FurnitureStoragePage() {
   return (
     <>
@@ -200,7 +210,7 @@ export default function FurnitureStoragePage() {
           <HomeReveal className={`${s.miniGrid} ${s.miniTight}`}>
             {furnitureTypes.map((f, i) => (
               <div className={s.miniCard} key={f.name} style={{ ["--i"]: i } as CSSProperties}>
-                <span className={s.miniIcon} aria-hidden="true" style={{ fontSize: 18 }}>
+                <span className={s.miniIcon} aria-hidden="true" style={{ fontSize: 18, background: TINTS[i % TINTS.length].bg }}>
                   {f.icon}
                 </span>
                 <span>
@@ -250,7 +260,7 @@ export default function FurnitureStoragePage() {
           <HomeReveal className={`${s.miniGrid} ${s.miniTight}`}>
             {scenarios.map((x, i) => (
               <div className={s.miniCard} key={x.h} style={{ ["--i"]: i } as CSSProperties}>
-                <span className={s.miniIcon}>
+                <span className={s.miniIcon} style={{ background: TINTS[i % TINTS.length].bg, color: TINTS[i % TINTS.length].fg }}>
                   <x.Icon strokeWidth={1.9} aria-hidden="true" />
                 </span>
                 <span>
