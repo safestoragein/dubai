@@ -85,6 +85,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/self-storage-dubai/near-me": "/landing/near-me-hero.webp",
   "/self-storage-dubai/long-term": "/landing/long-term-hero.webp",
   "/self-storage-dubai/storage-space-for-rent": "/landing/space-for-rent-hero.webp",
+  "/self-storage-dubai/monthly-storage": "/landing/monthly-storage-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -99,6 +100,7 @@ const SIDE_HERO = new Set([
   "/self-storage-dubai/near-me",
   "/self-storage-dubai/long-term",
   "/self-storage-dubai/storage-space-for-rent",
+  "/self-storage-dubai/monthly-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -112,6 +114,7 @@ const SMALL_CARD_ICONS = new Set([
   "/self-storage-dubai/near-me",
   "/self-storage-dubai/long-term",
   "/self-storage-dubai/storage-space-for-rent",
+  "/self-storage-dubai/monthly-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -124,6 +127,7 @@ const TABLE_ICONS = new Set([
   "/self-storage-dubai/near-me",
   "/self-storage-dubai/long-term",
   "/self-storage-dubai/storage-space-for-rent",
+  "/self-storage-dubai/monthly-storage",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
@@ -141,6 +145,7 @@ const NO_CARD_NUMBERS = new Set([
   "/self-storage-dubai/near-me",
   "/self-storage-dubai/long-term",
   "/self-storage-dubai/storage-space-for-rent",
+  "/self-storage-dubai/monthly-storage",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
