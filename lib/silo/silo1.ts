@@ -552,14 +552,14 @@ export const SILO1_PAGES: SiloPageContent[] = [
         ],
       },
       {
-        kind: "cards",
+        kind: "steps",
         h2: "What we do about it",
         intro: "Four things, all before the summer rather than during it.",
         items: [
-          { icon: "🏭", h: "Indoors, covered", p: "Not a yard, not a container, not a shaded compound. The single largest factor, and the one most often quietly skipped." },
-          { icon: "📦", h: "Wrapped at your flat", p: "Furniture is wrapped at your property, so nothing is sealed up with Dubai dust already on it." },
-          { icon: "🧱", h: "Racked off the floor", p: "On racking rather than concrete, with air around it — which is what keeps fabric from taking up moisture." },
-          { icon: "📹", h: "Monitored", p: "Multi-angle CCTV over every corridor, entry point, loading area and storage zone." },
+          { h: "Indoors, covered", p: "Not a yard, not a container, not a shaded compound. The single largest factor, and the one most often quietly skipped." },
+          { h: "Wrapped at your flat", p: "Furniture is wrapped at your property, so nothing is sealed up with Dubai dust already on it." },
+          { h: "Racked off the floor", p: "On racking rather than concrete, with air around it — which keeps fabric from taking up moisture." },
+          { h: "Monitored", p: "Multi-angle CCTV over every corridor, entry point, loading area and storage zone." },
         ],
       },
       {
