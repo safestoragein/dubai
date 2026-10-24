@@ -35,6 +35,7 @@ const REDESIGNED = new Set([
   "secure-storage",
   "24-hour-access",
   "insurance",
+  "vs-warehouse-rental",
 ])
 
 export const dynamicParams = false

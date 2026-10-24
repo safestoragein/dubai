@@ -91,6 +91,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/self-storage-dubai/secure-storage": "/landing/secure-storage-hero-v2.webp",
   "/self-storage-dubai/24-hour-access": "/landing/access-24h-hero.webp",
   "/self-storage-dubai/insurance": "/landing/insurance-hero.webp",
+  "/self-storage-dubai/vs-warehouse-rental": "/landing/vs-warehouse-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -111,6 +112,7 @@ const SIDE_HERO = new Set([
   "/self-storage-dubai/secure-storage",
   "/self-storage-dubai/24-hour-access",
   "/self-storage-dubai/insurance",
+  "/self-storage-dubai/vs-warehouse-rental",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -134,6 +136,7 @@ const SMALL_CARD_ICONS = new Set([
   "/self-storage-dubai/secure-storage",
   "/self-storage-dubai/24-hour-access",
   "/self-storage-dubai/insurance",
+  "/self-storage-dubai/vs-warehouse-rental",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -152,6 +155,7 @@ const TABLE_ICONS = new Set([
   "/self-storage-dubai/secure-storage",
   "/self-storage-dubai/24-hour-access",
   "/self-storage-dubai/insurance",
+  "/self-storage-dubai/vs-warehouse-rental",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
@@ -175,6 +179,7 @@ const NO_CARD_NUMBERS = new Set([
   "/self-storage-dubai/secure-storage",
   "/self-storage-dubai/24-hour-access",
   "/self-storage-dubai/insurance",
+  "/self-storage-dubai/vs-warehouse-rental",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
