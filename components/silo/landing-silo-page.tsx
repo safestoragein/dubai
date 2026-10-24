@@ -87,6 +87,9 @@ const HERO_IMAGE: Record<string, string> = {
   "/self-storage-dubai/storage-space-for-rent": "/landing/space-for-rent-hero.webp",
   "/self-storage-dubai/monthly-storage": "/landing/monthly-storage-hero.webp",
   "/self-storage-dubai/storage-room": "/landing/storage-room-hero.webp",
+  "/self-storage-dubai/climate-controlled": "/landing/climate-hero.webp",
+  "/self-storage-dubai/secure-storage": "/landing/secure-storage-hero-v2.webp",
+  "/self-storage-dubai/24-hour-access": "/landing/access-24h-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -103,12 +106,19 @@ const SIDE_HERO = new Set([
   "/self-storage-dubai/storage-space-for-rent",
   "/self-storage-dubai/monthly-storage",
   "/self-storage-dubai/storage-room",
+  "/self-storage-dubai/climate-controlled",
+  "/self-storage-dubai/secure-storage",
+  "/self-storage-dubai/24-hour-access",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/storage-packing-checklist",
   "/guides/dubai-tenancy-and-moving-calendar",
 ])
+
+/** Pages whose hero title needs a notch smaller type: the phrase itself is
+ *  wider than the column at the standard size and would wrap to three lines. */
+const TIGHT_TITLE = new Set(["/self-storage-dubai/climate-controlled"])
 
 /** Pages whose card icons sit in a smaller square than the homepage default. */
 const SMALL_CARD_ICONS = new Set([
@@ -118,6 +128,9 @@ const SMALL_CARD_ICONS = new Set([
   "/self-storage-dubai/storage-space-for-rent",
   "/self-storage-dubai/monthly-storage",
   "/self-storage-dubai/storage-room",
+  "/self-storage-dubai/climate-controlled",
+  "/self-storage-dubai/secure-storage",
+  "/self-storage-dubai/24-hour-access",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -132,6 +145,9 @@ const TABLE_ICONS = new Set([
   "/self-storage-dubai/storage-space-for-rent",
   "/self-storage-dubai/monthly-storage",
   "/self-storage-dubai/storage-room",
+  "/self-storage-dubai/climate-controlled",
+  "/self-storage-dubai/secure-storage",
+  "/self-storage-dubai/24-hour-access",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
@@ -151,6 +167,9 @@ const NO_CARD_NUMBERS = new Set([
   "/self-storage-dubai/storage-space-for-rent",
   "/self-storage-dubai/monthly-storage",
   "/self-storage-dubai/storage-room",
+  "/self-storage-dubai/climate-controlled",
+  "/self-storage-dubai/secure-storage",
+  "/self-storage-dubai/24-hour-access",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -503,7 +522,9 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
         {SIDE_HERO.has(content.path) ? (
           <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
             <div className={p.split2Inner}>
-              <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Tight}`}>
+              <div
+                className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Tight}${TIGHT_TITLE.has(content.path) ? ` ${p.split2Tight}` : ""}`}
+              >
                 <span className={s.heroTag}>{silo.name}</span>
                 <h1>
                   {title} <br />

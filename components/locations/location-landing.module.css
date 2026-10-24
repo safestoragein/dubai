@@ -466,3 +466,18 @@ h2.longH2 {
   font-size: clamp(26px, 2.9vw, 38px);
   line-height: 1.12;
 }
+@media (max-width: 560px) {
+  .heroH1Tight.split2Tight h1 {
+    font-size: 26px;
+  }
+}
+@media (max-width: 400px) {
+  .heroH1Tight.split2Tight h1 {
+    font-size: 23px;
+  }
+}
+@media (max-width: 380px) {
+  .heroH1Tight.split2Tight h1 {
+    font-size: 21px;
+  }
+}
