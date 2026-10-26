@@ -44,34 +44,44 @@ export const SILO2_PAGES: SiloPageContent[] = [
     ogTitle: "Household Storage in Dubai — We Empty The Property",
     h1: "Household Storage in Dubai",
     hero: [
-      "Emptying a whole home is a different job from storing a few boxes, and it is the most common booking we take. It is the core of [personal storage in Dubai](/personal-storage-dubai): the crew arrives, the property is cleared, and everything is held until you have somewhere to put it.",
-      "Whole-home bookings are usually driven by a date rather than a want — a tenancy ending, a handover slipping, a sale completing, a posting starting. That means the collection has to happen on a specific day, and the day is usually not negotiable.",
-      "You pay only for **the floor space your goods occupy**. A one-bedroom is typically 60–90 sq ft, a two-bedroom 120–150, a three-bedroom villa 240–270.",
+      "Emptying a whole home is a different job from storing a few boxes, and it is the most common booking we take. The crew arrives, the property is cleared, and everything is held until you have somewhere to put it.",
+      "You pay only for **the floor space your goods occupy** — part of [personal storage in Dubai](/personal-storage-dubai).",
     ],
     sections: [
       {
         kind: "prose",
-        h2: "What clearing a Dubai property actually involves",
+        h2: "What clearing a Dubai property involves",
         paras: [
-          "More coordination than lifting, which surprises people. In a tower, the service lift usually has to be booked, sometimes days ahead, and some buildings only permit moves inside a fixed window. In a gated community, the vehicle and the crew often need registering with security first. Both of those are ours to arrange, and both are why a self-drive move on a deadline goes wrong.",
-          "The lifting itself is predictable: a studio is two to three hours, a one-bedroom three to five, a three-bedroom villa most of a day. What extends it is loose belongings — a flat where everything small is already boxed loads roughly a third faster than one where it is not.",
-          "The part people forget is the last hour. Handing a property back usually means it has to be empty and clean, and the crew removes furniture rather than rubbish. Decide before the day what is being thrown away and arrange that separately.",
-          "If you are clearing the property because you are leaving the country rather than moving within it, [storage for expats leaving the UAE](/personal-storage-dubai/expat-storage) covers the parts specific to that.",
+          "More coordination than lifting. In a tower the service lift has to be booked days ahead, and some buildings only permit moves inside a fixed window. In a gated community the van and the crew need registering with security. Both are ours to arrange.",
+          "Leaving the country rather than moving within it? [Storage for expats leaving the UAE](/personal-storage-dubai/expat-storage) covers that.",
         ],
       },
       {
-        kind: "checklist",
-        h2: "What to do the week before",
-        intro: "In rough order of how much time each one saves on the day.",
+        kind: "cards",
+        h2: "What decides how long the day runs",
+        intro: "Four things turn a three-hour collection into a seven-hour one.",
         items: [
-          "Box every loose small item. This is the single biggest lever on both the time and the price.",
-          "Decide what is not going — by room, not by item. Deciding item by item on the day is what makes a collection run long.",
-          "Book the service lift, or tell us to, and confirm the building's permitted moving window.",
-          "Empty, defrost and dry the fridge and washing machine. Both need a full day.",
-          "Walk the balcony, the store cupboard and the garage. Everything that cannot be stored lives in those three places.",
-          "Set aside a suitcase of things you need this week — documents, chargers, medication, a change of clothes.",
+          {
+            icon: "📦",
+            h: "Loose belongings",
+            p: "A flat where the small things are already boxed loads about a third faster.",
+          },
+          {
+            icon: "🛗",
+            h: "The service lift",
+            p: "Booked or shared, and whether the building allows it at the hour you arranged.",
+          },
+          {
+            icon: "🗑️",
+            h: "What is not going",
+            p: "The crew removes furniture, not rubbish. Decide that before the day, by room.",
+          },
+          {
+            icon: "🧊",
+            h: "Fridge and washer",
+            p: "Both need emptying, defrosting and drying — a full day before collection.",
+          },
         ],
-        note: "The full list of what cannot go in the van is on [what you can and cannot store](/self-storage-dubai/prohibited-items).",
       },
       {
         kind: "table",
@@ -82,37 +92,41 @@ export const SILO2_PAGES: SiloPageContent[] = [
           ["1 bedroom flat", "3–5 hours", "60–90 sq ft"],
           ["2 bedroom flat", "5–7 hours", "120–150 sq ft"],
           ["3 bedroom villa", "Most of a day", "240–270 sq ft"],
-          ["4+ bedroom villa", "A full day, sometimes two", "300+ sq ft, quoted on survey"],
+          ["4+ bedroom villa", "A full day, sometimes two", "300+ sq ft, on survey"],
         ],
-        note: "Plan to be present for the first twenty minutes and the last ten — the start is where you point at what goes, the end is where you sign the inventory. Everything between is ours.",
+        note: "Sizes are estimated. Be there for the first twenty minutes and the last ten — the start is where you point at what goes, the end is where you sign the inventory.",
+      },
+      {
+        kind: "checklist",
+        h2: "What to do the week before",
+        items: [
+          "Box every loose small item — the single biggest lever on the day.",
+          "Decide what is not going, by room rather than by item.",
+          "Book the service lift, or tell us to.",
+          "Set aside a suitcase for this week — documents, chargers, medication, clothes.",
+        ],
+        note: "What cannot go in the van is on [what you can and cannot store](/self-storage-dubai/prohibited-items).",
       },
     ],
     faqs: [
       {
         q: "Can you clear the whole property in one day?",
-        a: "For anything up to a three-bedroom villa, yes, in a single day. Four bedrooms and above sometimes needs two, and we will tell you that when quoting rather than at 4pm on the day.",
+        a: "For anything up to a three-bedroom villa, yes. Four bedrooms and above sometimes needs two days, and we tell you that when quoting rather than at 4pm on the day.",
       },
       {
         q: "Do I have to be there the whole time?",
-        a: "No. Be there at the start to point at what goes and at the end to sign the inventory. Most customers leave in between, and that is fine as long as someone can let the crew back in.",
+        a: "No. Be there at the start to point at what goes and at the end to sign the inventory. Most customers leave in between.",
       },
       {
         q: "What if my new place is not ready?",
-        a: "That is what the storage is for. Billing is monthly with no minimum and no fixed end date, so a handover that slips by three weeks costs three weeks rather than triggering anything.",
+        a: "That is what the storage is for. Billing is monthly with no minimum and no fixed end date, so a handover that slips by three weeks costs three weeks.",
       },
       {
-        q: "Do you take things to the tip as well?",
-        a: "No — the crew removes what is being stored, not what is being discarded. Arrange disposal separately, and decide what is going before the day rather than during it.",
-      },
-      {
-        q: "Can you deliver to two different addresses later?",
-        a: "Yes. Splitting a delivery across two addresses is common when a household separates or when part of it goes to a new flat and part to a family member. Each delivery is quoted as its own job.",
-      },
-      {
-        q: "How much notice do you need for a whole-home collection?",
-        a: "Two to three days is comfortable for anything up to a 2BHK, and about a week for a villa. In late June and August — the peak of the Dubai moving season — book a week ahead regardless of size.",
+        q: "How much notice do you need?",
+        a: "Two to three days for anything up to a 2BHK, and about a week for a villa. In late June and August — the peak of the Dubai moving season — book a week ahead regardless of size.",
       },
     ],
+
     serviceType: "Household storage",
     cta: {
       h2: "Clearing a property?",
