@@ -11,7 +11,8 @@ import {
   transportEstimateRange,
 } from "@/lib/transport-pricing"
 
-export const EMIRATES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"] as const
+// Fallback only: the form loads the live list (CRM ss_city) from /api/movers-quote/emirates.
+export const EMIRATES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman"] as const
 
 export const MOVE_TYPES = [
   { id: "home", label: "Home / apartment" },

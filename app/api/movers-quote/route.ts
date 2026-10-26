@@ -6,7 +6,7 @@ import { savePaymentAttempt, deviceFromUserAgent } from "@/lib/payment-attempt-d
 import { testCheckoutAmountAed } from "@/lib/test-checkout"
 import { linkPartialToQuote, markMoversEmailSent, saveMoversQuote, setMoversStripeSession, type Pricing } from "@/lib/movers-quote-db"
 import { emailTeam, getCatalogue, summaryRows } from "@/lib/movers-quote-server"
-import { pushMoversQuote } from "@/lib/movers-crm"
+import { getEmirates, pushMoversQuote } from "@/lib/movers-crm"
 import { priceMove, validateAll, type MoversQuote } from "@/lib/movers-quote"
 
 export const runtime = "nodejs"
@@ -76,6 +76,11 @@ export async function POST(request: NextRequest) {
   const errors = validateAll(q)
   if (Object.keys(errors).length) {
     return NextResponse.json({ status: "error", message: "Please check the highlighted fields", errors }, { status: 422 })
+  }
+
+  const emirates = await getEmirates()
+  for (const k of ["fromEmirate", "toEmirate"] as const) {
+    if (!emirates.includes(q[k])) return NextResponse.json({ status: "error", message: "Please check the highlighted fields", errors: { [k]: "Please choose an emirate from the list" } }, { status: 422 })
   }
 
   // ---- price it, server-side, from the same item list /get-quote uses ----

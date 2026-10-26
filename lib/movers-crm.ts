@@ -66,3 +66,28 @@ export function pushMoversQuote(args: {
 
 export const pushMoversPaid = (p: { reference: string; sessionId: string; paymentRef: string; amountAed: number }) =>
   push("paid", { reference: p.reference, stripe_session_id: p.sessionId, payment_ref: p.paymentRef, amount_aed: p.amountAed, paid_at: new Date().toISOString() })
+
+// Emirates offered on the form = active UAE rows of the CRM's ss_city table. Cached for 5 minutes;
+// if the CRM cannot be reached the four service emirates are used so the form still works.
+export const FALLBACK_EMIRATES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman"]
+let emiratesCache: { at: number; list: string[] } | null = null
+
+export async function getEmirates(): Promise<string[]> {
+  if (emiratesCache && Date.now() - emiratesCache.at < 5 * 60 * 1000) return emiratesCache.list
+  const key = process.env.DUBAI_BACK_KEY || ""
+  if (key.length < 32) return FALLBACK_EMIRATES
+  try {
+    const res = await fetch(`${BACK_ROOT}/dubai_movers/dubai_movers_intake/emirates`, {
+      headers: { "X-Dubai-Key": key }, cache: "no-store", signal: AbortSignal.timeout(5000),
+    })
+    const j = (await res.json()) as { emirates?: { name?: string }[] }
+    const list = (j.emirates ?? []).map((e) => String(e.name ?? "").trim()).filter(Boolean)
+    if (res.ok && list.length) {
+      emiratesCache = { at: Date.now(), list }
+      return list
+    }
+  } catch (e) {
+    console.error("[movers-crm] emirates failed", e)
+  }
+  return emiratesCache?.list ?? FALLBACK_EMIRATES
+}

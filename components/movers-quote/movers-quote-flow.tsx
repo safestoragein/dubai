@@ -48,6 +48,10 @@ function YesNo({ value, onChange }: { value: string; onChange: (v: "yes" | "no")
 }
 
 export default function MoversQuoteFlow() {
+  const [emirates, setEmirates] = useState<string[]>([...EMIRATES])
+  useEffect(() => {
+    fetch("/api/movers-quote/emirates").then((r) => r.json()).then((j) => { if (Array.isArray(j.emirates) && j.emirates.length) setEmirates(j.emirates) }).catch(() => {})
+  }, [])
   const [q, setQ] = useState<MoversQuote>(EMPTY_QUOTE)
   const [step, setStep] = useState(0)
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -333,7 +337,7 @@ export default function MoversQuoteFlow() {
                 <div className="grid gap-4 sm:grid-cols-3">
                   <div><label className={label} htmlFor={`mv-${p}-em`}>Emirate</label>
                     <select id={`mv-${p}-em`} className={field} value={q[`${p}Emirate`]} onChange={(e) => set(`${p}Emirate`, e.target.value)}>
-                      {EMIRATES.map((x) => <option key={x}>{x}</option>)}</select></div>
+                      {emirates.map((x) => <option key={x}>{x}</option>)}</select></div>
                   <div><label className={label} htmlFor={`mv-${p}-fl`}>Floor</label>
                     <input id={`mv-${p}-fl`} inputMode="numeric" placeholder="e.g. 12 or Ground" className={field} value={q[`${p}Floor`]} onChange={(e) => set(`${p}Floor`, e.target.value)} /></div>
                   <div><span className={label}>Lift available?</span>
