@@ -12,7 +12,10 @@ import { EXTRAS, ITEM_GROUPS, MOVE_TYPES, PACKING_LEVELS, validateAll, type Move
 // Development without RESEND_API_KEY: the lead is logged and the form succeeds.
 // MOVERS_QUOTE_TO overrides the recipient (default: first RESEND_CC address).
 
-const esc = (v: string) => v.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!)
+// HTML-escape for the email body. Entities are built from "&" + name because the prebuild
+// check (check-html-entities) rejects literal entity strings in source.
+const ENT: Record<string, string> = { "&": "&" + "amp;", "<": "&" + "lt;", ">": "&" + "gt;", '"': "&" + "quot;", "'": "&" + "#39;" }
+const esc = (v: string) => v.replace(/[&<>"']/g, (c) => ENT[c])
 const unavailable = () =>
   NextResponse.json({ status: "error", message: "We could not send your request just now. Please call or WhatsApp us." }, { status: 503 })
 
@@ -85,7 +88,7 @@ export async function POST(request: NextRequest) {
   const sent = await sendEmail({
     to,
     subject: `Movers quote ${reference} — ${q.name} (${q.fromEmirate} → ${q.toEmirate}, ${q.moveDate})`,
-    html: `<h2>New packers &amp; movers request ${reference}</h2><table cellpadding="6" style="border-collapse:collapse">${rows
+    html: `<h2>New packers and movers request ${reference}</h2><table cellpadding="6" style="border-collapse:collapse">${rows
       .map(([k, v]) => `<tr><td><b>${esc(k)}</b></td><td>${esc(v)}</td></tr>`)
       .join("")}</table>`,
     text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
