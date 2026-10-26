@@ -383,12 +383,6 @@ export default function MoversQuoteFlow() {
                     : "Our team will confirm the exact transport price based on your actual list of items."}
                 </p>
               </div>
-              {canPay && (
-                <div className="flex items-center justify-between border-t border-[#e6e9ed] bg-[#f5f6f8] px-4 py-3">
-                  <span className="font-semibold text-[#19212e]">Pay now</span>
-                  <span className="text-lg font-bold text-[#ee5824]">AED {pricing.transport.totalAed.toLocaleString()}</span>
-                </div>
-              )}
             </div>
 
             {/* honeypot — hidden from people, bots fill it */}
@@ -411,7 +405,7 @@ export default function MoversQuoteFlow() {
             </button>
           ) : (
             <button type="button" onClick={submit} disabled={busy} className="rounded-lg bg-[#ee5824] px-6 py-3 font-semibold text-white hover:bg-[#d9481a] disabled:opacity-60">
-              {busy ? "Please wait…" : canPay ? `Pay AED ${pricing.transport.totalAed.toLocaleString()} & book` : "Send my request"}
+              {busy ? "Please wait…" : canPay ? "Book slot" : "Send my request"}
             </button>
           )}
         </div>
