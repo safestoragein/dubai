@@ -1,28 +1,40 @@
+import Image from "next/image"
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
+import { Truck, ShieldCheck, Package, Clock, Boxes, Building2, Hammer, FileText } from "lucide-react"
 import SchemaScript from "@/components/schema-script"
-import { Warehouse, Package, Truck, ShieldCheck, Clock, CheckCircle2, ArrowRight, Phone } from "lucide-react"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import { SiloLinks } from "@/components/silo/silo-links"
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { LandingReviews } from "@/components/landing/landing-reviews"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import HomeReveal from "@/components/landing/home-reveal"
+import { env } from "@/lib/env"
+import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
 
 // P1 landing page from the August 2026 SEO audit.
 //
-// SpaceHub owns a ~4,650 searches/month "warehouse" cluster at an average
-// difficulty of 15 (several terms at KD 0-7) that no SafeStorage page addressed
-// at all — the site had a business-storage page and an e-commerce page, neither
-// using warehouse language. This is the lowest-difficulty volume in the market.
-//
 // IMPORTANT — honesty constraint: SafeStorage operates ONE facility, in Dubai
-// Investment Park. This page therefore targets warehouse *storage* intent
-// truthfully: it is positioned as the alternative to signing a warehouse lease,
-// and Al Quoz / Jebel Ali are named as areas we collect from and compare against,
-// never as locations where we operate a warehouse. Claiming facilities we do not
-// run is what got flagged in llms.txt and is a Google Business Profile risk.
+// Investment Park. This page targets warehouse *storage* intent truthfully: it
+// is positioned as the alternative to signing a warehouse lease, and Al Quoz /
+// Jebel Ali are named as areas we collect from and compare against, never as
+// locations where we operate a warehouse.
+//
+// 2026-10-26 redesign (owner's request): rebuilt in the landing design system
+// with the owner's own photo beside the copy. Three site rules were breached by
+// the old copy and are fixed here: the "30 days' notice" scale-down term (no
+// cancellation-notice periods), "a monthly rate excluding VAT" (no VAT wording
+// in prices), and an FAQ asserting we are cheaper than a lease.
 
 export const metadata: Metadata = {
   title: "Warehouse Storage Dubai | Space Without a Lease",
   description:
-    "Warehouse storage in Dubai. Pay for the space you use instead of leasing a whole warehouse — no 3-year lease, no fit-out.",
+    "Warehouse storage in Dubai. Pay for the space you use instead of leasing a whole warehouse — no long lease, no fit-out, no Ejari.",
   keywords:
     "warehouse storage dubai, warehouse dubai, warehouse for rent in dubai, warehouse al quoz, warehouse in dubai, warehouse rent dubai, small warehouse for rent dubai, warehouse space dubai, business storage dubai, jebel ali warehouse",
   alternates: {
@@ -39,10 +51,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "Warehouse storage in Dubai" }],
   },
-  twitter: {
-    card: "summary_large_image",
-    images: ["/og-cover-2026.jpg"],
-  },
+  twitter: { card: "summary_large_image", images: ["/og-cover-2026.jpg"] },
 }
 
 const SIZES = [
@@ -50,48 +59,78 @@ const SIZES = [
   { size: "250 sq ft", equiv: "~12 pallets", use: "Small e-commerce inventory, event equipment" },
   { size: "500 sq ft", equiv: "~25 pallets", use: "Growing online retailer, contractor materials" },
   { size: "1,000 sq ft", equiv: "~50 pallets", use: "Established distributor, full office relocation" },
-  { size: "2,000+ sq ft", equiv: "100+ pallets", use: "Bulk inventory, long-term archive, fit-out storage" },
+  { size: "2,000+ sq ft", equiv: "100+ pallets", use: "Bulk inventory, archive, fit-out storage" },
 ]
 
-const COMPARISON = [
-  ["Commitment", "Month to month", "1–3 year lease, typically"],
-  ["Minimum size", "100 sq ft", "Usually 2,000+ sq ft"],
-  ["Fit-out & racking", "Included — space is ready to use", "Your cost, plus reinstatement at exit"],
-  ["Ejari / trade licence", "Not required to store with us", "Required"],
-  ["DEWA, chiller, insurance", "Included in the rate", "Billed separately"],
-  ["Staffing & handling", "Our team loads, stores and retrieves", "You hire or contract labour"],
-  ["Scaling down", "Reduce space with 30 days' notice", "Lease-break penalty"],
-  ["Transport", "Door-to-door collection and delivery included", "You arrange it"],
+const OURS = [
+  "Month to month, with no lease to break",
+  "From 100 sq ft, not 2,000",
+  "Racking and fit-out included — the space is ready",
+  "No Ejari or trade licence needed to store",
+  "Utilities, chiller and cover included in the rate",
+  "Our team loads, stores and retrieves",
+  "Door-to-door collection and delivery included",
+]
+
+const THEIRS = [
+  "One to three year lease, typically",
+  "Usually 2,000 sq ft minimum",
+  "Fit-out at your cost, plus reinstatement at exit",
+  "Ejari registration required",
+  "DEWA, chiller and insurance billed separately",
+  "You hire or contract the labour",
+  "You arrange the transport",
+]
+
+const INCLUDED = [
+  { Icon: Truck, title: "Door-to-door transport", body: "We collect from your premises anywhere in Dubai and deliver back on request — no lorry to hire." },
+  { Icon: ShieldCheck, title: "Security and compliance", body: "Multi-angle CCTV, logged access control, fire detection and suppression, signed inventory at intake." },
+  { Icon: Package, title: "Racking and handling", body: "Pallet racking, raised platforms and trained staff. Nothing for you to buy or install." },
+  { Icon: Clock, title: "24–48 hour retrieval", body: "Request full or partial retrieval and we deliver within 24–48 hours." },
+]
+
+const WHO = [
+  { Icon: Boxes, title: "E-commerce retailers", body: "Hold stock without committing to a warehouse before volumes justify one.", href: "/business-storage-dubai/ecommerce-fulfilment" },
+  { Icon: Building2, title: "Between premises", body: "Office relocations, showroom refits and lease gaps, for weeks or years.", href: "/business-storage-dubai" },
+  { Icon: Hammer, title: "Contractors and fit-out", body: "Materials, tools and site equipment between projects, delivered to the next job.", href: "/get-quote" },
+  { Icon: FileText, title: "Companies with archives", body: "Records you must retain but that do not belong in office space. Catalogued and retrievable.", href: "/business-storage-dubai/document-storage" },
+]
+
+const AREAS = [
+  "Al Quoz 1–4",
+  "Jebel Ali",
+  "JAFZA",
+  "Dubai Investment Park",
+  "Ras Al Khor",
+  "Dubai South",
+  "Techno Park",
+  "Al Qusais",
+  "Umm Ramool",
+  "Dubai Industrial City",
+  "Business Bay",
+  "DIFC",
 ]
 
 const FAQS = [
   {
     q: "Do you have a warehouse for rent in Dubai?",
-    a: "Not in the traditional sense — and for most businesses that is the point. SafeStorage does not lease you an empty shell that you then have to fit out, insure, staff and commit to for years. We give you a defined, secure area inside our Dubai Investment Park warehouse, charged by the square foot you actually occupy, with racking, security, utilities and handling already included. If you genuinely need your own premises with a trade licence attached to the address, a commercial lease is the right route. If you need space for goods, this is faster, cheaper to start and far easier to exit.",
-  },
-  {
-    q: "How much does warehouse space cost in Dubai?",
-    a: "SafeStorage warehouse storage is charged per sq ft per month for the space you use, and that rate covers the space, racking, security, utilities and door-to-door collection and delivery. A conventional Dubai warehouse lease is typically quoted per square foot per year, and then adds fit-out, DEWA, chiller, insurance, Ejari and labour on top — costs that usually only become visible after you have signed. For anything under roughly 2,000 sq ft, paying only for the space you use is normally the cheaper option once those extras are counted.",
-  },
-  {
-    q: "Do you cover Al Quoz, Jebel Ali and Ras Al Khor?",
-    a: "Yes — we collect from and deliver to Al Quoz, Jebel Ali, JAFZA, Ras Al Khor, Dubai South, DIP, Techno Park and every other industrial and commercial area in Dubai. Your goods are stored at our Dubai Investment Park facility, which sits directly on the Al Quoz–Jebel Ali corridor, so transit to either is short. You do not need to travel to us: our team collects from your premises and delivers back on request.",
+    a: "Not in the traditional sense, and for most businesses that is the point. Rather than an empty shell you fit out, insure and commit to for years, you get a defined, secure area inside our Dubai Investment Park warehouse, charged by the square foot you occupy, with racking, security, utilities and handling included.",
   },
   {
     q: "Can I get a small warehouse for rent in Dubai?",
-    a: "Small units are exactly where conventional leasing breaks down — most Dubai landlords will not split a warehouse below about 2,000 sq ft, which is far more than a growing business needs. We start at 100 sq ft, roughly five pallets, and you can move up in increments as your stock grows. Many customers start at 100–250 sq ft and scale to 1,000 sq ft over a couple of years without ever renegotiating a lease.",
+    a: "Small units are where conventional leasing breaks down — most Dubai landlords will not split a warehouse below about 2,000 sq ft. We start at 100 sq ft, roughly five pallets, and you move up in increments as stock grows, without renegotiating a lease.",
+  },
+  {
+    q: "Do you cover Al Quoz, Jebel Ali and Ras Al Khor?",
+    a: "Yes — we collect from and deliver to Al Quoz, Jebel Ali, JAFZA, Ras Al Khor, Dubai South, DIP, Techno Park and every other industrial area in Dubai. Your goods are stored at our Dubai Investment Park facility, on the Al Quoz–Jebel Ali corridor, so transit either way is short.",
   },
   {
     q: "Can I access my stock or send items out?",
-    a: "Yes. Tell us what you need and we retrieve and deliver it, typically within 24–48 hours, anywhere in Dubai. You can also visit the facility during business hours (Monday–Sunday 8 AM–8 PM) to check or pick stock yourself. Business customers who need frequent movements can arrange extended and out-of-hours access.",
-  },
-  {
-    q: "Is the warehouse secure and suitable for business inventory?",
-    a: "The facility is a purpose-fitted indoor warehouse with multi-angle CCTV covering every corridor, entry point, loading area and storage zone. Access is controlled and logged, motion alerts trigger after hours, and fire detection and suppression are in place. Goods are stored on raised platforms away from external walls, and everything is inventoried and signed for at intake so there is a documented record of your stock.",
+    a: "Yes. Tell us what you need and we retrieve and deliver it, typically within 24 to 48 hours, anywhere in Dubai. You can also visit during business hours, Monday to Sunday 8am to 8pm, to check or pick stock yourself.",
   },
   {
     q: "Do I need a trade licence to store business goods?",
-    a: "No trade licence or Ejari is required to store goods with us — that is one of the main reasons new and overseas businesses use this route while their Dubai entity is still being set up. We do need to know what you are storing, since prohibited goods such as hazardous materials, flammables, perishables and unlicensed items cannot be accepted. VAT invoices are issued for every payment so the cost is fully claimable as a business expense.",
+    a: "No trade licence or Ejari is required, which is why new and overseas businesses use this route while their Dubai entity is being set up. We do need to know what you are storing, as hazardous, flammable, perishable and unlicensed goods cannot be accepted.",
   },
 ]
 
@@ -119,16 +158,24 @@ const schemas = [
     url: "https://safestorage.ae/business-storage-dubai/warehouse-storage",
     serviceType: "Warehouse Storage",
   },
-  
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: FAQS.slice(0, 5).map((f) => ({
+    mainEntity: FAQS.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   },
+]
+
+const TINTS = [
+  { fg: "#ee5824", bg: "rgba(238, 88, 36, 0.12)" },
+  { fg: "#1893d2", bg: "rgba(24, 147, 210, 0.12)" },
+  { fg: "#16a34a", bg: "rgba(22, 163, 74, 0.12)" },
+  { fg: "#7c3aed", bg: "rgba(124, 58, 237, 0.12)" },
+  { fg: "#e11d48", bg: "rgba(225, 29, 72, 0.12)" },
+  { fg: "#d97706", bg: "rgba(217, 119, 6, 0.12)" },
 ]
 
 export default function WarehouseStorageDubaiPage() {
@@ -143,308 +190,231 @@ export default function WarehouseStorageDubaiPage() {
       />
       <SchemaScript schema={schemas} />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-r from-[#0A2463] to-[#3E92CC] py-16 text-white">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1 rounded-full text-sm mb-5">
-            <Warehouse className="h-4 w-4" />
-            Warehouse storage in Dubai
-          </div>
-          <h1 className="text-3xl md:text-5xl font-bold mb-5">
-            Warehouse Storage in Dubai — Space Without the Lease
-          </h1>
-          <p className="text-lg text-white/90 mb-8">
-            Pay for the square footage you actually use, from 100 sq ft upward, with
-            transparent pricing and no hidden fees. Racking, security, utilities
-            and door-to-door collection are included. No 3-year lease, no fit-out,
-            no Ejari.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/get-quote"
-              className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c02a50] transition-colors"
-            >
-              Get a Free Quote
-            </Link>
-            <a
-              href="tel:+971505773388"
-              className="inline-flex items-center justify-center gap-2 bg-white text-[#0A2463] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-            >
-              <Phone className="h-4 w-4" />
-              +971 50 577 3388
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Intro */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-6">
-            Looking for a Warehouse for Rent in Dubai?
-          </h2>
-          <p className="text-lg text-gray-700 mb-4">
-            Most businesses searching for a warehouse in Dubai do not actually want a
-            warehouse. They want somewhere secure to put stock, equipment, archives or
-            fit-out materials — and a commercial lease is simply the only option they
-            know about. It is also the most expensive and least flexible one.
-          </p>
-          <p className="text-lg text-gray-700 mb-4">
-            Renting warehouse space in Al Quoz, Jebel Ali or Ras Al Khor typically means
-            a one to three year commitment, a minimum of around 2,000 sq ft, your own
-            fit-out and racking, separate DEWA and chiller accounts, insurance, Ejari
-            registration, and staff to load and unload. For a business storing 20 pallets,
-            almost all of that is wasted spend.
-          </p>
-          <p className="text-lg text-gray-700">
-            SafeStorage gives you a defined, secure area inside our Dubai Investment Park
-            warehouse instead. You are charged per square foot per month, the space comes
-            ready to use, and our team handles collection, storage and retrieval. Scale up
-            as your stock grows or scale down with 30 days&apos; notice — no lease-break
-            penalty either way.
-          </p>
-        </div>
-      </section>
-
-      {/* Sizes */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-3">Warehouse Space Sizes &amp; What Fits</h2>
-          <p className="text-gray-700 mb-8">
-            All sizes are charged per sq ft per month for the space you use.
-            Pallet counts assume standard 1.2 × 1.0 m pallets stacked to normal height.
-          </p>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse bg-white rounded-xl overflow-hidden">
-              <thead>
-                <tr className="bg-[#0A2463] text-white text-left">
-                  <th className="p-4 font-semibold">Space</th>
-                  <th className="p-4 font-semibold">Roughly</th>
-                  <th className="p-4 font-semibold">Typical use</th>
-                </tr>
-              </thead>
-              <tbody>
-                {SIZES.map((s, i) => (
-                  <tr key={s.size} className={i % 2 ? "bg-gray-50" : "bg-white"}>
-                    <td className="p-4 font-semibold text-[#0A2463] whitespace-nowrap">{s.size}</td>
-                    <td className="p-4 text-gray-700 whitespace-nowrap">{s.equiv}</td>
-                    <td className="p-4 text-gray-700">{s.use}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-sm text-gray-600 mt-4">
-            Not sure which you need? Tell us what you are storing and we will size it for
-            you — <Link href="/self-storage-dubai/unit-sizes" className="text-[#D8315B] underline">see the full size guide</Link>.
-          </p>
-        </div>
-      </section>
-
-      {/* Comparison */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-8">
-            SafeStorage vs Leasing Your Own Warehouse
-          </h2>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="text-left border-b-2 border-gray-200">
-                  <th className="p-4 font-semibold text-gray-600"></th>
-                  <th className="p-4 font-semibold text-[#0A2463]">SafeStorage warehouse space</th>
-                  <th className="p-4 font-semibold text-gray-600">Conventional Dubai lease</th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARISON.map(([label, ours, theirs], i) => (
-                  <tr key={label} className={i % 2 ? "bg-gray-50" : "bg-white"}>
-                    <td className="p-4 font-semibold text-[#0A2463] align-top">{label}</td>
-                    <td className="p-4 text-gray-700 align-top">
-                      <span className="inline-flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0 mt-1" />
-                        {ours}
-                      </span>
-                    </td>
-                    <td className="p-4 text-gray-600 align-top">{theirs}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Included */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-8 text-center">What&apos;s Included</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: Truck,
-                title: "Door-to-door transport",
-                body: "We collect from your premises anywhere in Dubai and deliver back on request — no lorry to hire, no separate transport bill.",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Security & compliance",
-                body: "Multi-angle CCTV, logged access control, fire detection and suppression, and a signed inventory at intake.",
-              },
-              {
-                icon: Package,
-                title: "Racking & handling",
-                body: "Pallet racking, raised platforms and trained staff to load, store and retrieve. Nothing for you to buy or install.",
-              },
-              {
-                icon: Clock,
-                title: "24–48 hour retrieval",
-                body: "Request full or partial retrieval and we deliver within 24–48 hours. Visit in person during business hours if you prefer.",
-              },
-            ].map(({ icon: Icon, title, body }) => (
-              <div key={title} className="bg-white rounded-xl p-6 border border-gray-200">
-                <Icon className="h-9 w-9 text-[#D8315B] mb-3" />
-                <h3 className="font-bold text-[#0A2463] mb-2">{title}</h3>
-                <p className="text-gray-700 text-sm">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Areas */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-4">
-            Serving Al Quoz, Jebel Ali, DIP and Every Dubai Industrial Area
-          </h2>
-          <p className="text-gray-700 mb-4">
-            Our facility is at Building 23, Warehouse 5, Dubai Investment Park (DIP-1) —
-            positioned on the corridor between Al Quoz and Jebel Ali, with quick access to
-            Sheikh Zayed Road and Emirates Road. That matters for turnaround: collections
-            from Al Quoz, Jebel Ali, JAFZA, Ras Al Khor, Techno Park and Dubai South are
-            short runs rather than cross-city trips.
-          </p>
-          <p className="text-gray-700 mb-6">
-            You do not need to travel to the warehouse at all. Our team collects from your
-            office, shop, showroom or existing unit and delivers back whenever you need
-            stock — which is what makes this practical for businesses based anywhere in
-            Dubai, not just the industrial belt.
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {[
-              "Al Quoz 1–4",
-              "Jebel Ali",
-              "JAFZA",
-              "Dubai Investment Park",
-              "Ras Al Khor",
-              "Dubai South",
-              "Techno Park",
-              "Al Qusais",
-              "Umm Ramool",
-              "Dubai Industrial City",
-              "Business Bay",
-              "DIFC",
-            ].map((area) => (
-              <span
-                key={area}
-                className="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full"
-              >
-                {area}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Who uses it */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-8">Who Uses Warehouse Storage in Dubai</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "E-commerce and online retailers",
-                body: "Hold inventory without committing to a warehouse before volumes justify one. Scale space up through peak season and back down afterwards. Pair it with our e-commerce storage service for stock you move frequently.",
-                href: "/business-storage-dubai/ecommerce-fulfilment",
-                link: "E-commerce storage",
-              },
-              {
-                title: "Businesses between premises",
-                body: "Office relocations, showroom refits and lease gaps. Store furniture, stock and equipment for a few weeks or a few years without signing anything long-term.",
-                href: "/business-storage-dubai",
-                link: "Business storage",
-              },
-              {
-                title: "Contractors and fit-out firms",
-                body: "Materials, tools and site equipment between projects, collected and delivered to site when the next job starts.",
-                href: "/get-quote",
-                link: "Get a quote",
-              },
-              {
-                title: "Companies with archives",
-                body: "Paper records that must be retained for compliance but do not belong in expensive office space. Catalogued and retrievable on request.",
-                href: "/business-storage-dubai/document-storage",
-                link: "Document storage",
-              },
-            ].map((c) => (
-              <div key={c.title} className="bg-white rounded-xl p-6 border border-gray-200">
-                <h3 className="text-lg font-bold text-[#0A2463] mb-2">{c.title}</h3>
-                <p className="text-gray-700 mb-3">{c.body}</p>
-                <Link href={c.href} className="text-[#D8315B] font-semibold inline-flex items-center hover:underline">
-                  {c.link}
-                  <ArrowRight className="ml-1 h-4 w-4" />
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* hero: copy on the left, the owner's picture on the right */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Tight}`}>
+              <span className={s.heroTag}>Warehouse storage Dubai</span>
+              <h1>
+                Warehouse Storage Dubai <br className={s.mBreakDesk} />
+                <em>Space Without the Lease</em>
+              </h1>
+              <p>
+                Pay for the square footage you actually use, from 100 sq ft up. Racking,
+                security, utilities and door-to-door collection included. No long lease, no
+                fit-out, no Ejari.
+              </p>
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a Free Quote →
                 </Link>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
+                </a>
+              </div>
+            </div>
+            <div className={p.split2Photo} style={{ aspectRatio: "1733 / 907" } as CSSProperties}>
+              <Image
+                src="/landing/warehouse-storage-hero.webp"
+                alt="SafeStorage staff moving pallets into the Dubai Investment Park warehouse"
+                width={1733}
+                height={907}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <LandingTrust />
+
+        {/* what's included — dark band */}
+        <section className={`${s.darkBand} ${s.whyBand}`} style={{ marginTop: 18 }}>
+          <div className={s.wrap}>
+            <div className={s.bandHead}>
+              <span className={s.howEyebrow}>Every booking</span>
+              <h2>
+                The space comes ready <br className={s.mBreak} />
+                <em>to put stock in.</em>
+              </h2>
+            </div>
+            <FeatScroller>
+              {INCLUDED.map((f) => (
+                <article className={s.feat} key={f.title}>
+                  <div className={s.featIcon}>
+                    <f.Icon strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3>{f.title}</h3>
+                  <p>{f.body}</p>
+                </article>
+              ))}
+            </FeatScroller>
+          </div>
+        </section>
+
+        {/* sizes */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 26, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>At a glance</span>
+              <h2 className={p.longH2}>
+                What fits in <em>how much space.</em>
+              </h2>
+            </div>
+            <p>Pallet counts assume standard 1.2 × 1.0 m pallets at normal stacking height.</p>
+          </div>
+          <HomeReveal className={p.siloRail}>
+            {SIZES.map((z, i) => (
+              <article className={p.siloCard} key={z.size} style={{ ["--i"]: i, cursor: "default" } as CSSProperties}>
+                <span
+                  className={s.miniIcon}
+                  aria-hidden="true"
+                  style={{ background: TINTS[i % TINTS.length].bg, color: TINTS[i % TINTS.length].fg }}
+                >
+                  <Boxes size={17} strokeWidth={1.9} />
+                </span>
+                <h3>{z.size}</h3>
+                <ul className={s.miniFacts}>
+                  <li>{z.equiv}</li>
+                  <li>{z.use}</li>
+                </ul>
+              </article>
+            ))}
+          </HomeReveal>
+          <div className={s.movingTip}>
+            <span aria-hidden="true">📐</span>
+            <p>
+              Sizes are estimated. Not sure which you need? Tell us what you are storing and we will size it
+              for you — <Link href="/self-storage-dubai/unit-sizes">see the full size guide</Link>.
+            </p>
+          </div>
+        </section>
+
+        {/* vs leasing */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>The comparison</span>
+              <h2 className={p.longH2}>
+                Storing with us <em>vs leasing a warehouse.</em>
+              </h2>
+            </div>
+            <p>Most businesses searching for a warehouse want somewhere secure to put stock, not a building.</p>
+          </div>
+          <HomeReveal className={`${p.siloGrid} ${p.duo}`}>
+            <article className={p.siloCard} style={{ ["--i"]: 0, cursor: "default" } as CSSProperties}>
+              <h3>Space with SafeStorage</h3>
+              <ul className={s.yesList}>
+                {OURS.map((x) => (
+                  <li key={x}>{x}</li>
+                ))}
+              </ul>
+            </article>
+            <article className={p.siloCard} style={{ ["--i"]: 1, cursor: "default" } as CSSProperties}>
+              <h3>A conventional Dubai lease</h3>
+              <ul className={s.crossList}>
+                {THEIRS.map((x) => (
+                  <li key={x}>{x}</li>
+                ))}
+              </ul>
+            </article>
+          </HomeReveal>
+        </section>
+
+        {/* who uses it */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Who uses it</span>
+              <h2 className={p.longH2}>
+                Four businesses <em>that store here.</em>
+              </h2>
+            </div>
+          </div>
+          <HomeReveal className={`${s.miniGrid} ${s.miniTight}`} style={{ ["--cols"]: 4 } as CSSProperties}>
+            {WHO.map((w, i) => (
+              <Link className={`${s.miniCard} ${s.miniLink}`} href={w.href} key={w.title} style={{ ["--i"]: i } as CSSProperties}>
+                <span
+                  className={s.miniIcon}
+                  aria-hidden="true"
+                  style={{ background: TINTS[i % TINTS.length].bg, color: TINTS[i % TINTS.length].fg }}
+                >
+                  <w.Icon size={17} strokeWidth={1.9} />
+                </span>
+                <div>
+                  <b>{w.title}</b>
+                  <small>{w.body}</small>
+                </div>
+                <span className={s.miniArrow} aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            ))}
+          </HomeReveal>
+        </section>
+
+        {/* areas */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Where we collect</span>
+              <h2 className={p.longH2}>
+                Every Dubai <em>industrial area.</em>
+              </h2>
+            </div>
+            <p>
+              Our facility is at Building 23, Warehouse 5, Dubai Investment Park — on the corridor between
+              Al Quoz and Jebel Ali. You never need to travel to it; we collect and deliver.
+            </p>
+          </div>
+          <div className={s.areaMarquees}>
+            {[AREAS.slice(0, 6), AREAS.slice(6)].map((row, r) => (
+              <div className={s.marquee} key={r}>
+                <div className={`${s.marqueeTrack} ${r === 1 ? s.marqueeReverse : ""}`}>
+                  {[0, 1].map((copy) => (
+                    <ul className={`${s.marqueeGroup} ${s.chipGroup}`} aria-hidden={copy === 1 || undefined} key={copy}>
+                      {row.map((area) => (
+                        <li key={area}>
+                          <span className={s.chip}>{area}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-8">
-            Warehouse Storage Dubai — Frequently Asked Questions
-          </h2>
-          <div className="space-y-5">
-            {FAQS.map((f) => (
-              <div key={f.q} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <h3 className="text-lg font-bold text-[#0A2463] mb-2">{f.q}</h3>
-                <p className="text-gray-700">{f.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        <LandingReviews padTop={0} />
 
-      {/* CTA */}
-      <section className="py-16 bg-[#0A2463] text-white">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
-          <h2 className="text-3xl font-bold mb-4">Tell Us What You Need to Store</h2>
-          <p className="text-white/85 mb-8">
-            Send us a rough idea of your stock — pallets, boxes, equipment — and we will
-            size the space and quote a monthly rate excluding VAT. No obligation, and the
-            quote holds for 14 days.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/get-quote"
-              className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c02a50] transition-colors"
-            >
-              Get a Free Quote
-            </Link>
-            <a
-              href="https://wa.me/971505773388"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-            >
-              WhatsApp Us
-            </a>
+        {/* five questions */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0, paddingBottom: 28 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Good to know</span>
+              <h2 className={p.longH2}>
+                Common <em>questions.</em>
+              </h2>
+            </div>
           </div>
-        </div>
-      </section>
+          <FaqAccordion items={FAQS} />
+        </section>
+
+        <CtaBand
+          title="Tell us what you need to store"
+          blurb="Send a rough idea of your stock — pallets, boxes, equipment — and we will size the space and send a free, itemised quote. No obligation."
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
+      </div>
+
       <SiloLinks path="/business-storage-dubai/warehouse-storage" />
     </>
   )

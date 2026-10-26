@@ -432,6 +432,16 @@ h2.longH2 {
 
 /* a three-across variant of the silo cards (the expat ship/store/sell
    comparison), stacking the same way the four-across grid does */
+/* Two cards side by side: a compare pair. Stacks on phones. */
+.siloGrid.duo {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 760px) {
+  .siloGrid.duo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .siloGrid.trio {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }

@@ -2038,6 +2038,12 @@
   gap: 11px;
   border-radius: 14px;
 }
+/* .miniTight resets the card padding, which was wiping out the room .miniLink
+   leaves for the absolutely positioned arrow - the text ran underneath it. */
+.miniTight > .miniLink {
+  padding-right: 38px;
+}
+
 .miniTight > .miniCard b {
   font-size: 14px;
 }
