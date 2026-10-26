@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import { clientIp } from "@/lib/client-ip"
 import { savePartialLead } from "@/lib/movers-quote-db"
+import { pushMoversPartial } from "@/lib/movers-crm"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -29,5 +30,6 @@ export async function POST(request: NextRequest) {
   }
 
   await savePartialLead({ leadKey, name, phone, email, step, ip: clientIp(request), userAgent: request.headers.get("user-agent") || undefined })
+  await pushMoversPartial({ leadKey, name, phone, email, step })
   return NextResponse.json({ status: true })
 }

@@ -9,6 +9,7 @@ import { saveQuotationCapture, claimFinalizeParams } from "@/lib/quotation-db"
 import { savePaymentAttempt, updateAttemptStatus } from "@/lib/payment-attempt-db"
 import { markMoversExpired, markMoversPaid } from "@/lib/movers-quote-db"
 import { emailTeam } from "@/lib/movers-quote-server"
+import { pushMoversPaid } from "@/lib/movers-crm"
 import type Stripe from "stripe"
 
 export const runtime = "nodejs"
@@ -170,7 +171,10 @@ export async function POST(request: Request) {
         stripe_payment_intent: paymentRef,
       })
       try {
-        const row = await markMoversPaid(String(session.metadata.reference ?? ""), session.id, paymentRef)
+        const reference = String(session.metadata.reference ?? "")
+        const row = await markMoversPaid(reference, session.id, paymentRef)
+        // Tell the CRM (idempotent there too); a failure is logged inside and never fails the webhook.
+        await pushMoversPaid({ reference, sessionId: session.id, paymentRef, amountAed })
         if (row) {
           await emailTeam(
             `PAID — movers quote ${row.reference} — ${row.name} (AED ${amountAed})`,

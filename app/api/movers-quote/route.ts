@@ -6,6 +6,7 @@ import { savePaymentAttempt, deviceFromUserAgent } from "@/lib/payment-attempt-d
 import { testCheckoutAmountAed } from "@/lib/test-checkout"
 import { linkPartialToQuote, markMoversEmailSent, saveMoversQuote, setMoversStripeSession, type Pricing } from "@/lib/movers-quote-db"
 import { emailTeam, getCatalogue, summaryRows } from "@/lib/movers-quote-server"
+import { pushMoversQuote } from "@/lib/movers-crm"
 import { priceMove, validateAll, type MoversQuote } from "@/lib/movers-quote"
 
 export const runtime = "nodejs"
@@ -143,8 +144,16 @@ export async function POST(request: NextRequest) {
     }
   }
 
+  // Mirror to the CRM ("Dubai Packers & Movers" screens). Failure is logged, never shown to the customer.
+  // Re-sent on booking too, so the CRM row carries the Stripe session and "pending" payment status.
+  const pushQuote = (stripeSessionId?: string) =>
+    pushMoversQuote({ reference, leadKey: leadKey || undefined, q, catalogue, pricing, stripeSessionId })
+
   // The quotation step ends here: saved, team notified, nothing to pay yet.
-  if (mode === "quote") return NextResponse.json({ status: "success", reference, payment: "none" })
+  if (mode === "quote") {
+    await pushQuote()
+    return NextResponse.json({ status: "success", reference, payment: "none" })
+  }
 
   // 3) payment
   if (payable && amountAed) {
@@ -205,14 +214,17 @@ export async function POST(request: NextRequest) {
         device_type: deviceFromUserAgent(ua),
         ip_address: ip ?? null,
       })
+      await pushQuote(session.id)
       return NextResponse.json({ status: "success", reference, payment: "checkout", url: session.url })
     } catch (e) {
       console.error("[movers-quote] Stripe session creation failed", reference, e)
       // The request itself is saved/emailed, so the team can still follow up.
+      await pushQuote()
       return NextResponse.json({ status: "success", reference, payment: "unavailable" })
     }
   }
 
+  await pushQuote()
   return NextResponse.json({
     status: "success",
     reference,
