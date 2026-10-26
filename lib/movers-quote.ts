@@ -67,7 +67,7 @@ export const EMPTY_QUOTE: MoversQuote = {
   name: "", phone: "", email: "", moveType: "", homeSize: "", moveDate: "", flexibleDate: false,
   fromAddress: "", fromEmirate: "Dubai", fromFloor: "", fromLift: "", fromLat: null, fromLng: null,
   toAddress: "", toEmirate: "Dubai", toFloor: "", toLift: "",
-  services: [], packing: "full", items: {}, itemsUnsure: false, extras: [], notes: "",
+  services: [], packing: "", items: {}, itemsUnsure: false, extras: [], notes: "",
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
@@ -92,7 +92,7 @@ export function validateStep(step: number, q: MoversQuote): Record<string, strin
   }
   if (step === 2) {
     const n = Object.values(q.items).reduce((a, b) => a + b, 0)
-    if (n === 0 && !q.itemsUnsure) e.items = "Add your main items, or tick “I’m not sure — the team will survey”"
+    if (n === 0) e.items = "Add at least one item to your cart"
   }
   return e
 }

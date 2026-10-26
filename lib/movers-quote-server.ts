@@ -1,7 +1,7 @@
 // Server helpers for the movers quote: item catalogue lookup (cached) and the team email.
 import "server-only"
 import { ccAddresses, isEmailEnabled, sendEmail } from "@/lib/email/send"
-import { EXTRAS, ITEMS_URL, MOVE_TYPES, PACKING_LEVELS, parseCatalogue, type CatalogueItem, type MoversQuote } from "@/lib/movers-quote"
+import { ITEMS_URL, MOVE_TYPES, parseCatalogue, type CatalogueItem, type MoversQuote } from "@/lib/movers-quote"
 
 let cache: { at: number; items: CatalogueItem[] } | null = null
 
@@ -36,10 +36,7 @@ export function summaryRows(q: MoversQuote, extra: [string, string][] = []): [st
     ["Move", `${label(MOVE_TYPES, q.moveType)} · ${q.homeSize} · ${q.moveDate}${q.flexibleDate ? " (flexible)" : ""}`],
     ["From", `${q.fromAddress}, ${q.fromEmirate} · floor ${q.fromFloor || "-"} · lift ${q.fromLift}`],
     ["To", `${q.toAddress}, ${q.toEmirate} · floor ${q.toFloor || "-"} · lift ${q.toLift}`],
-    ["Packing", label(PACKING_LEVELS, q.packing)],
-    ["Extras", q.extras.map((x) => label(EXTRAS, x)).join(", ") || "-"],
     ["Items", q.itemsUnsure ? "Not sure — survey needed" : items || "-"],
-    ["Notes", q.notes || "-"],
   ]
 }
 

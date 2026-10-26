@@ -1,11 +1,11 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { CheckCircle2, ChevronLeft, ChevronRight, Minus, Plus, PhoneCall, MessageCircle, Search, Truck } from "lucide-react"
+import { CheckCircle2, ChevronLeft, ChevronRight, Minus, Plus, PhoneCall, MessageCircle, Search, ShoppingCart, Trash2, Truck } from "lucide-react"
 import { env } from "@/lib/env"
 import AddressInput from "./address-input"
 import {
-  EMIRATES, EMPTY_QUOTE, EXTRAS, HOME_SIZES, ITEMS_URL, MOVE_TYPES, PACKING_LEVELS,
+  EMIRATES, EMPTY_QUOTE, HOME_SIZES, ITEMS_URL, MOVE_TYPES,
   parseCatalogue, priceMove, validateStep, type CatalogueItem, type MoversQuote,
 } from "@/lib/movers-quote"
 
@@ -46,8 +46,6 @@ function YesNo({ value, onChange }: { value: string; onChange: (v: "yes" | "no")
     </div>
   )
 }
-
-const toggle = (list: string[], id: string) => (list.includes(id) ? list.filter((x) => x !== id) : [...list, id])
 
 export default function MoversQuoteFlow() {
   const [q, setQ] = useState<MoversQuote>(EMPTY_QUOTE)
@@ -187,7 +185,6 @@ export default function MoversQuoteFlow() {
     d.setDate(d.getDate() + 2)
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`
   })()
-  const labelOf = (list: readonly { id: string; label: string }[], id: string) => list.find((x) => x.id === id)?.label || id
 
   if (reference) {
     return (
@@ -291,6 +288,31 @@ export default function MoversQuoteFlow() {
               <h2 className="text-xl font-bold text-[#19212e]" style={{ fontFamily: "var(--font-sora)" }}>What are we moving?</h2>
               <p className="mt-1 text-sm text-[#56606f]">Search and add your items. This sizes the load and the transport price. Rough numbers are fine.</p>
             </div>
+            {/* Cart — selected items live here, at the top, and stay visible while you search */}
+            <div className="sticky top-2 z-10 rounded-xl border border-[#ee5824]/40 bg-[#fff8f4] p-4 shadow-sm">
+              <div className="flex items-center justify-between">
+                <h3 className="flex items-center gap-2 text-sm font-bold text-[#19212e]"><ShoppingCart className="h-4 w-4 text-[#ee5824]" aria-hidden="true" /> Your cart</h3>
+                <span className="text-xs font-semibold text-[#56606f]">{itemCount} item{itemCount === 1 ? "" : "s"}</span>
+              </div>
+              {itemCount === 0 ? (
+                <p className="mt-2 text-sm text-[#56606f]">Nothing added yet. Search below and tap + to add items.</p>
+              ) : (
+                <ul className="mt-3 grid max-h-48 gap-2 overflow-y-auto sm:grid-cols-2">
+                  {Object.entries(q.items).map(([name, n]) => (
+                    <li key={name} className="flex items-center justify-between gap-2 rounded-lg bg-white px-3 py-2 text-sm">
+                      <span className="truncate font-medium text-[#344050]" title={name}>{name}</span>
+                      <span className="flex flex-none items-center gap-1.5">
+                        <button type="button" aria-label={`Remove one ${name}`} onClick={() => setItem(name, -1)} className="grid h-7 w-7 place-items-center rounded-full border border-[#e1e4e9]"><Minus className="h-3.5 w-3.5" /></button>
+                        <b className="w-5 text-center tabular-nums">{n}</b>
+                        <button type="button" aria-label={`Add one ${name}`} onClick={() => setItem(name, 1)} className="grid h-7 w-7 place-items-center rounded-full bg-[#ee5824] text-white"><Plus className="h-3.5 w-3.5" /></button>
+                        <button type="button" aria-label={`Remove ${name} from cart`} onClick={() => setItem(name, -99)} className="ml-1 grid h-7 w-7 place-items-center rounded-full text-[#d45f50] hover:bg-[#fff0ee]"><Trash2 className="h-3.5 w-3.5" /></button>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <Err m={errors.items} />
+            </div>
             <div className="relative">
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#8b93a0]" aria-hidden="true" />
               <input aria-label="Search items" placeholder="Search items, e.g. sofa, fridge, bed" className={`${field} pl-9`} value={search} onChange={(e) => setSearch(e.target.value)} />
@@ -298,7 +320,7 @@ export default function MoversQuoteFlow() {
             {catalogueState === "loading" && <p className="text-sm text-[#8b93a0]">Loading items…</p>}
             {catalogueState === "error" && (
               <p role="alert" className="rounded-lg bg-[#fff0ee] p-3 text-sm text-[#d45f50]">
-                We could not load the item list. Tick “I’m not sure” below and our team will survey, or call us.
+                We could not load the item list. Please refresh the page or call us and our team will help.
               </p>
             )}
             {catalogueState === "ready" && (() => {
@@ -329,53 +351,12 @@ export default function MoversQuoteFlow() {
                 </div>
               )
             })()}
-            {itemCount > 0 && (
-              <div className="rounded-xl bg-[#f5f6f8] p-4">
-                <h3 className="mb-2 text-sm font-bold text-[#19212e]">Your list ({itemCount} item{itemCount === 1 ? "" : "s"})</h3>
-                <ul className="grid gap-1 text-sm text-[#344050] sm:grid-cols-2">
-                  {Object.entries(q.items).map(([name, n]) => (
-                    <li key={name} className="flex justify-between gap-2"><span>{name}</span><b>× {n}</b></li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <label className="flex items-center gap-2 text-sm text-[#56606f]">
-              <input type="checkbox" checked={q.itemsUnsure} onChange={(e) => { set("itemsUnsure", e.target.checked); if (e.target.checked) set("items", {}) }} />
-              I’m not sure. The team will survey or call me. (No online payment.)
-            </label>
-            <Err m={errors.items} />
           </div>
         )}
 
         {step === 3 && (
           <div className="grid gap-6">
-            <h2 className="text-xl font-bold text-[#19212e]" style={{ fontFamily: "var(--font-sora)" }}>Packing, extras and review</h2>
-            <div><span className={label}>How much packing?</span>
-              <div className="grid gap-2 sm:grid-cols-3">
-                {PACKING_LEVELS.map((p) => (
-                  <button key={p.id} type="button" aria-pressed={q.packing === p.id} onClick={() => set("packing", p.id)}
-                    className={`rounded-lg border p-3 text-left ${q.packing === p.id ? "border-[#ee5824] bg-[#fff0e9]" : "border-[#e1e4e9]"}`}>
-                    <b className="block text-sm text-[#19212e]">{p.label}</b><span className="text-xs text-[#56606f]">{p.note}</span>
-                  </button>
-                ))}
-              </div></div>
-            <div><span className={label}>Extras (optional)</span>
-              <div className="flex flex-wrap gap-2">{EXTRAS.map((x) => <Chip key={x.id} on={q.extras.includes(x.id)} onClick={() => set("extras", toggle(q.extras, x.id))}>{x.label}</Chip>)}</div></div>
-            <div><label className={label} htmlFor="mv-notes">Anything else we should know?</label>
-              <textarea id="mv-notes" rows={3} maxLength={1000} className={field} value={q.notes} onChange={(e) => set("notes", e.target.value)} placeholder="Parking restrictions, building move-in hours, fragile items…" /></div>
-
-            {/* Transport quote — same tiers, estimate range and 60 km rule as /get-quote */}
-            <div className="rounded-xl border border-[#e6e9ed] bg-[#f5f6f8] p-4 text-sm text-[#344050]">
-              <h3 className="mb-2 font-bold text-[#19212e]">Your request</h3>
-              <dl className="grid gap-x-6 gap-y-1 sm:grid-cols-[auto_1fr]">
-                <dt className="font-semibold">Contact</dt><dd>{q.name} · {q.phone} · {q.email}</dd>
-                <dt className="font-semibold">Move</dt><dd>{labelOf(MOVE_TYPES, q.moveType)} · {q.homeSize} · {q.moveDate}</dd>
-                <dt className="font-semibold">From</dt><dd>{q.fromAddress}, {q.fromEmirate}{q.fromFloor ? ` · floor ${q.fromFloor}` : ""} · lift {q.fromLift}</dd>
-                <dt className="font-semibold">To</dt><dd>{q.toAddress}, {q.toEmirate}{q.toFloor ? ` · floor ${q.toFloor}` : ""} · lift {q.toLift}</dd>
-                <dt className="font-semibold">Items</dt><dd>{q.itemsUnsure ? "Not sure — survey needed" : `${itemCount} items · ${pricing.pallets} pallet${pricing.pallets === 1 ? "" : "s"}`}</dd>
-              </dl>
-            </div>
-
+            <h2 className="text-xl font-bold text-[#19212e]" style={{ fontFamily: "var(--font-sora)" }}>Your quote</h2>
             <div className="overflow-hidden rounded-2xl border border-[#e6e9ed]">
               <div className="flex items-center gap-3 bg-[#19212e] px-4 py-3 text-white">
                 <Truck className="h-5 w-5 text-[#ffac88]" aria-hidden="true" />
