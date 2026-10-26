@@ -1,16 +1,18 @@
 import { NextRequest, NextResponse } from "next/server"
 import { ccAddresses, isEmailEnabled, sendEmail } from "@/lib/email/send"
+import { clientIp } from "@/lib/client-ip"
+import { markMoversEmailSent, saveMoversQuote } from "@/lib/movers-quote-db"
 import { EXTRAS, ITEM_GROUPS, MOVE_TYPES, PACKING_LEVELS, validateAll, type MoversQuote } from "@/lib/movers-quote"
 
 // Packers & movers quote intake (separate from the storage funnel — nothing here touches
 // /get-quote or its CRM endpoints).
 //
-// There is no CRM endpoint for movers leads yet, so each request is emailed to the team via
-// Resend (reply-to = the customer). If the email cannot be sent the form answers 503 and shows
-// the customer a "call us" message — it never claims "received" for a lead that went nowhere
-// (the /contact form once swallowed every enquiry this way — BUSINESS.md §10.1).
-// Development without RESEND_API_KEY: the lead is logged and the form succeeds.
-// MOVERS_QUOTE_TO overrides the recipient (default: first RESEND_CC address).
+// There is no CRM endpoint for movers leads yet. Each request is stored in the movers_quotes /
+// movers_quote_items tables (lib/movers-quote-db.ts) and a copy is emailed to the team via Resend
+// (reply-to = the customer). If neither works the form answers 503 and shows a "call us" message —
+// it never claims "received" for a lead that went nowhere (the /contact form once swallowed every
+// enquiry this way — BUSINESS.md §10.1). MOVERS_QUOTE_TO overrides the recipient
+// (default: first RESEND_CC address).
 
 // HTML-escape for the email body. Entities are built from "&" + name because the prebuild
 // check (check-html-entities) rejects literal entity strings in source.
@@ -76,25 +78,45 @@ export async function POST(request: NextRequest) {
 
   const reference = `MV-${Date.now().toString(36).toUpperCase()}`
 
-  if (!isEmailEnabled()) {
-    if (process.env.NODE_ENV === "production") return unavailable()
-    console.info("[movers-quote] dev submission", reference, JSON.stringify(q))
-    return NextResponse.json({ status: "success", reference })
+  // 1) Save to the database (the record the team works from). 2) Email the team a copy.
+  // The customer only sees success if at least one of the two worked.
+  let saved = false
+  try {
+    await saveMoversQuote(reference, q, {
+      ip: clientIp(request),
+      userAgent: request.headers.get("user-agent") || undefined,
+      sourcePage: "/packers-and-movers/get-quote",
+    })
+    saved = true
+  } catch (e) {
+    console.error("[movers-quote] database save failed", reference, e)
   }
 
+  let emailed = false
   const to = process.env.MOVERS_QUOTE_TO || ccAddresses()[0]
-  if (!to) return unavailable()
-  const rows = summary(q)
-  const sent = await sendEmail({
-    to,
-    subject: `Movers quote ${reference} — ${q.name} (${q.fromEmirate} → ${q.toEmirate}, ${q.moveDate})`,
-    html: `<h2>New packers and movers request ${reference}</h2><table cellpadding="6" style="border-collapse:collapse">${rows
-      .map(([k, v]) => `<tr><td><b>${esc(k)}</b></td><td>${esc(v)}</td></tr>`)
-      .join("")}</table>`,
-    text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
-    replyTo: q.email,
-  })
-  if (!sent.sent) return unavailable()
+  if (isEmailEnabled() && to) {
+    const rows = summary(q)
+    const sent = await sendEmail({
+      to,
+      subject: `Movers quote ${reference} — ${q.name} (${q.fromEmirate} → ${q.toEmirate}, ${q.moveDate})`,
+      html: `<h2>New packers and movers request ${reference}</h2><table cellpadding="6" style="border-collapse:collapse">${rows
+        .map(([k, v]) => `<tr><td><b>${esc(k)}</b></td><td>${esc(v)}</td></tr>`)
+        .join("")}</table>`,
+      text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
+      replyTo: q.email,
+    })
+    emailed = sent.sent
+    if (emailed && saved) await markMoversEmailSent(reference).catch(() => {})
+  }
+
+  if (!saved && !emailed) {
+    // Development with no database and no Resend: log the lead so the flow can still be tested.
+    if (process.env.NODE_ENV !== "production") {
+      console.info("[movers-quote] dev submission (not stored)", reference, JSON.stringify(q))
+      return NextResponse.json({ status: "success", reference })
+    }
+    return unavailable()
+  }
 
   return NextResponse.json({ status: "success", reference })
 }
