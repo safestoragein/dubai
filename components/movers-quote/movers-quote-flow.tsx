@@ -252,10 +252,7 @@ export default function MoversQuoteFlow() {
                   <option value="">Select size</option>{HOME_SIZES.map((h) => <option key={h}>{h}</option>)}
                 </select><Err m={errors.homeSize} /></div>
               <div><label className={label} htmlFor="mv-date">Moving date</label>
-                <input id="mv-date" type="date" min={today} className={field} value={q.moveDate} onChange={(e) => set("moveDate", e.target.value)} /><Err m={errors.moveDate} />
-                <label className="mt-2 flex items-center gap-2 text-sm text-[#56606f]">
-                  <input type="checkbox" checked={q.flexibleDate} onChange={(e) => set("flexibleDate", e.target.checked)} /> My date is flexible
-                </label></div>
+                <input id="mv-date" type="date" min={today} className={field} value={q.moveDate} onChange={(e) => set("moveDate", e.target.value)} /><Err m={errors.moveDate} /></div>
             </div>
           </div>
         )}
@@ -372,7 +369,7 @@ export default function MoversQuoteFlow() {
               <h3 className="mb-2 font-bold text-[#19212e]">Your request</h3>
               <dl className="grid gap-x-6 gap-y-1 sm:grid-cols-[auto_1fr]">
                 <dt className="font-semibold">Contact</dt><dd>{q.name} · {q.phone} · {q.email}</dd>
-                <dt className="font-semibold">Move</dt><dd>{labelOf(MOVE_TYPES, q.moveType)} · {q.homeSize} · {q.moveDate}{q.flexibleDate ? " (flexible)" : ""}</dd>
+                <dt className="font-semibold">Move</dt><dd>{labelOf(MOVE_TYPES, q.moveType)} · {q.homeSize} · {q.moveDate}</dd>
                 <dt className="font-semibold">From</dt><dd>{q.fromAddress}, {q.fromEmirate}{q.fromFloor ? ` · floor ${q.fromFloor}` : ""} · lift {q.fromLift}</dd>
                 <dt className="font-semibold">To</dt><dd>{q.toAddress}, {q.toEmirate}{q.toFloor ? ` · floor ${q.toFloor}` : ""} · lift {q.toLift}</dd>
                 <dt className="font-semibold">Items</dt><dd>{q.itemsUnsure ? "Not sure — survey needed" : `${itemCount} items · ${pricing.pallets} pallet${pricing.pallets === 1 ? "" : "s"}`}</dd>
