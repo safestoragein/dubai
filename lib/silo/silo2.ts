@@ -868,43 +868,50 @@ export const SILO2_PAGES: SiloPageContent[] = [
     ogTitle: "Clothes and Wardrobe Storage in Dubai",
     h1: "Clothes and Wardrobe Storage in Dubai",
     hero: [
-      "Clothing is cheap to store and easy to ruin, and the difference is almost entirely in how it went into the box. This is one of the smallest and most common bookings inside [personal storage in Dubai](/personal-storage-dubai).",
-      "Three things ruin stored clothes in this climate and all three are preventable: **storing anything unwashed**, **sealing garments in plastic**, and **hanging heavy items on wire for months**. None of them cost anything to avoid.",
-      "A full wardrobe's contents is typically 10 to 20 square feet once boxed, which, **billed on space used**, is a very small monthly figure against the cost of replacing a wardrobe.",
+      "Clothing is easy to ruin in storage, and the difference is almost entirely in how it went into the box. This is one of the smallest and most common bookings inside [personal storage in Dubai](/personal-storage-dubai).",
+      "Three things ruin stored clothes in this climate and all three are preventable: **storing anything unwashed**, **sealing garments in plastic**, and **hanging heavy items on wire for months**. A full wardrobe is typically 10 to 20 sq ft once boxed (estimated), billed on the space used.",
     ],
     sections: [
       {
-        kind: "prose",
+        kind: "cards",
         h2: "The three things that ruin clothes here",
-        paras: [
-          "**Storing them unwashed.** Body oils and perspiration are invisible on a garment when you put it away and are what moths and silverfish are attracted to. They also oxidise over months into yellow marks that were not there when it went in — this is the cause of the mysterious stains people find on stored white shirts.",
-          "**Sealing in plastic.** Vacuum bags and plastic tubs feel like protection and are the opposite in a humid climate: they trap moisture against fabric with no way out, and natural fibres need to breathe. Cotton and wool sealed airtight through a Dubai summer is how mould happens. Breathable cotton covers and cardboard cartons are better.",
-          "**Hanging heavy garments on wire.** Coats, suits and anything with weight distort at the shoulder over months on a thin hanger, and the distortion does not come out. Either use broad hangers or box them flat.",
-          "None of this is exotic. It is the same advice a good dry cleaner gives, and it is worth more than any storage feature.",
+        intro: "All preventable, and none of them cost anything to avoid.",
+        items: [
+          {
+            icon: "🧺",
+            h: "Storing them unwashed",
+            p: "Body oils are invisible when you pack a garment. They attract moths, and they oxidise into yellow marks over months — the mystery stains on stored white shirts.",
+          },
+          {
+            icon: "🛍️",
+            h: "Sealing in plastic",
+            p: "Vacuum bags feel like protection and are the opposite here: they trap moisture against fabric with no way out. Cotton and wool need to breathe.",
+          },
+          {
+            icon: "🧥",
+            h: "Heavy garments on wire",
+            p: "Coats and suits distort at the shoulder over months on a thin hanger, and the distortion does not come out. Use broad hangers or box them flat.",
+          },
         ],
       },
       {
         kind: "checklist",
         h2: "Packing a wardrobe properly",
         items: [
-          "Wash or dry-clean everything first, and let it dry completely. This is the single most important step.",
-          "Remove dry-cleaning plastic before storing. It is designed to get the garment home, not to store it.",
-          "Box in cardboard or breathable fabric containers rather than sealed plastic tubs.",
-          "Fold knitwear rather than hanging it — hanging stretches the shoulders of anything with weight.",
-          "Use broad hangers for suits, coats and jackets if they are going away hung.",
-          "Interleave anything delicate with acid-free tissue rather than newspaper, which transfers ink.",
-          "Cedar or lavender rather than mothballs. Naphthalene odour permeates fabric and is very hard to remove afterwards.",
-          "Label by season and by person. In a shared household this is the difference between a swap and a search.",
+          "Wash or dry-clean everything first and let it dry completely — the single most important step.",
+          "Remove the dry-cleaning plastic. It is designed to get the garment home, not to store it.",
+          "Box in cardboard or breathable fabric rather than sealed plastic tubs.",
+          "Fold knitwear rather than hanging it, and use broad hangers for anything that stays hung.",
+          "Cedar or lavender rather than mothballs — naphthalene odour permeates fabric and is very hard to remove.",
+          "Label by season and by person. In a shared household that is the difference between a swap and a search.",
         ],
       },
       {
         kind: "prose",
-        h2: "What is worth storing and what is not",
+        h2: "What is worth storing, and what is not",
         paras: [
-          "Worth storing: winter clothing you only need for trips home, occasion wear, anything of real quality that you are between sizes on, children's clothes being kept for a younger sibling, and traditional or formal wear used a few times a year.",
-          "Not worth storing: fast-fashion basics, anything you have not worn in two years and do not have a specific reason to keep, and anything already stained. A stain that has been sitting for six months is much harder to remove than one addressed now.",
-          "Wedding dresses and heirloom garments are a specific case — they want acid-free tissue, a box rather than a hanger, and to be declared so they are handled and recorded individually rather than as part of a household carton.",
-          "If the clothing is going away as part of a seasonal rotation rather than a one-way move, [seasonal storage](/personal-storage-dubai/seasonal-storage) covers how to set that up so the swap is quick.",
+          "**Worth it:** winter clothing you only need for trips home, occasion and traditional wear, anything of real quality you are between sizes on, and children's clothes kept for a younger sibling. **Not worth it:** fast-fashion basics, anything unworn for two years without a reason, and anything already stained — a stain sitting for six months is far harder to remove than one dealt with now.",
+          "Wedding dresses and heirloom garments are a specific case: acid-free tissue, a box rather than a hanger, and declared so they are recorded individually. Rotating seasonally instead of moving once? [Seasonal storage](/personal-storage-dubai/seasonal-storage) covers how that is set up.",
         ],
       },
     ],
@@ -918,14 +925,6 @@ export const SILO2_PAGES: SiloPageContent[] = [
         a: "Yes, and it is the most important step. Body oils and perspiration are invisible when you pack a garment, attract insects, and oxidise into yellow marks over months.",
       },
       {
-        q: "Can I store clothes on hangers?",
-        a: "Yes, on broad hangers rather than wire, and preferably not for years. Anything with weight — coats, suits, heavy jackets — distorts at the shoulder over long periods on a thin hanger.",
-      },
-      {
-        q: "How much space does a wardrobe take?",
-        a: "A full wardrobe's contents is typically 10 to 20 square feet once boxed. It is one of the cheapest things to store, and one of the highest-value uses of a small booking.",
-      },
-      {
         q: "What about moths in the UAE?",
         a: "Clothes moths and silverfish both exist here and both go for soiled natural fibres rather than clean ones. Washing before storage does more than any repellent. Use cedar or lavender rather than mothballs, whose odour is very difficult to get out of fabric.",
       },
@@ -934,6 +933,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
         a: "Yes — declare it so it is handled and listed individually. It wants acid-free tissue and a box rather than a hanger, which is different from how the rest of a wardrobe is packed.",
       },
     ],
+
     serviceType: "Clothing storage",
     cta: {
       h2: "Storing a wardrobe?",
