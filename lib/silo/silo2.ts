@@ -468,9 +468,8 @@ export const SILO2_PAGES: SiloPageContent[] = [
     ogTitle: "Luggage Storage in Dubai — Collected, Not Queued For",
     h1: "Luggage Storage in Dubai",
     hero: [
-      "Luggage storage in most cities means a locker at a station. Dubai does not really have that, and what it has instead is a collection service — which is what this is, as part of [personal storage in Dubai](/personal-storage-dubai).",
-      "The bags are collected from wherever you are — a hotel, a flat you are handing back, an office, an airport hotel — and held for as long as you need, then delivered to whichever address you name. **There is no minimum period**, so three days is three days.",
-      "It is not a left-luggage counter you walk up to. It is booked in advance, and retrieval is normally arranged within 24 to 48 hours, which is the trade-off worth understanding before you rely on it.",
+      "In most cities, luggage storage means leaving a bag at a station counter. Dubai does not really have that — what it has instead is a collection service, part of [personal storage in Dubai](/personal-storage-dubai).",
+      "Bags are collected from wherever you are and held for as long as you need, then delivered to whichever address you name. **There is no minimum period**, so three days is three days.",
     ],
     sections: [
       {
@@ -480,18 +479,18 @@ export const SILO2_PAGES: SiloPageContent[] = [
         items: [
           {
             icon: "🏨",
-            h: "The gap between a checkout and a flight",
-            p: "A late-night departure after a midday checkout, with more bags than a hotel concierge wants to hold for nine hours.",
+            h: "Checkout to flight",
+            p: "A late-night departure after a midday checkout, with more bags than a concierge wants to hold for nine hours.",
           },
           {
             icon: "🔁",
             h: "Between two leases",
-            p: "The flat is handed back, the next one is not ready, and you are in a hotel for two weeks with six suitcases you cannot fit in the room.",
+            p: "The flat is handed back, the next is not ready, and you are in a hotel with six suitcases you cannot fit in the room.",
           },
           {
             icon: "🎓",
-            h: "Students over the summer",
-            p: "The residence closes, you fly home for three months, and shipping the contents of a room twice makes no sense. See [student storage](/personal-storage-dubai/student-storage).",
+            h: "Students over summer",
+            p: "The residence closes and you fly home for three months — see [student storage](/personal-storage-dubai/student-storage).",
           },
           {
             icon: "💼",
@@ -504,17 +503,15 @@ export const SILO2_PAGES: SiloPageContent[] = [
         kind: "prose",
         h2: "What this is and is not",
         paras: [
-          "**It is not walk-up left luggage.** You cannot arrive at a counter with a bag. Collection is booked in advance and the bags are picked up from you, which is better for anything more than one bag and worse for a spontaneous two hours.",
-          "**Retrieval takes 24 to 48 hours.** If you need the bag back tomorrow morning, say so when booking. If you need it back in three hours, this is the wrong service and a hotel concierge is the right one.",
-          "**There is no minimum.** Days are fine. Most bookings run weeks or months, but a four-day booking is priced as four days and nobody will push you into a month.",
-          "**Passports stay with you.** Do not store documents, medication or anything you will need at short notice — see [what you can and cannot store](/self-storage-dubai/prohibited-items) for the rest of that list.",
+          "**It is not walk-up left luggage.** Collection is booked in advance and the bags are picked up from you — better for several bags, worse for a spontaneous two hours. **Retrieval takes 24 to 48 hours**, so if you need a bag back the same morning, this is the wrong service.",
+          "**Passports stay with you.** Do not store documents, medication or anything you will need at short notice — see [what you can and cannot store](/self-storage-dubai/prohibited-items).",
         ],
       },
       {
         kind: "steps",
         h2: "How a luggage booking runs",
         items: [
-          { h: "Tell us the count and the dates", p: "How many bags, where they are now, and roughly how long." },
+          { h: "Tell us the count and dates", p: "How many bags, where they are now, and roughly how long." },
           { h: "We collect", p: "From a hotel lobby, a flat, or an office — whatever address suits you." },
           { h: "Logged and stored", p: "Each bag is listed on the inventory you sign, and stored indoors." },
           {
@@ -527,7 +524,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
     faqs: [
       {
         q: "Can I drop bags off myself?",
-        a: "You can, by arrangement. Most people find collection easier because it removes the trip, and the price is the same either way — you are billed on storage rather than on transport direction.",
+        a: "You can, by arrangement. Most people find collection easier because it removes the trip, and you are billed on storage rather than on transport direction.",
       },
       {
         q: "How quickly can I get a bag back?",
@@ -535,21 +532,14 @@ export const SILO2_PAGES: SiloPageContent[] = [
       },
       {
         q: "Is there a minimum number of days?",
-        a: "No. Days are fine and there is no minimum period. A four-day booking is charged as four days.",
-      },
-      {
-        q: "How much does luggage storage cost?",
-        a: "It is billed on the space the bags occupy, which for a handful of suitcases is a small monthly figure. Transport is quoted separately on the addresses involved.",
+        a: "No. Days are fine and there is no minimum period — a four-day booking is four days.",
       },
       {
         q: "Can you deliver to the airport?",
-        a: "We deliver to addresses rather than to airport terminals. The usual arrangement is delivery to your airport hotel the evening before a flight, which works well and is what most customers do.",
-      },
-      {
-        q: "Can I store bags and get some contents out mid-booking?",
-        a: "Yes, but it is a retrieval like any other — the bag comes to you rather than someone opening it. If you need seasonal contents rotated, pack them into separate bags at the start.",
+        a: "We deliver to addresses rather than to airport terminals. The usual arrangement is delivery to your airport hotel the evening before a flight, which is what most customers do.",
       },
     ],
+
     serviceType: "Luggage storage",
     cta: {
       h2: "Bags with nowhere to go?",
