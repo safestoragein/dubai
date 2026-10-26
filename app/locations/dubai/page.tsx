@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -137,7 +138,15 @@ export default function Page() {
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1771 / 888" } as CSSProperties}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/landing/dubai-hub-photo.webp" alt="SafeStorage crew collecting boxes and furniture in Dubai" loading="eager" decoding="async" />
+              <Image
+                src="/landing/dubai-hub-photo.webp"
+                alt="SafeStorage crew collecting boxes and furniture in Dubai"
+                width={1400}
+                height={702}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
+              />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>
                 <span>6,700+ Google reviews</span>

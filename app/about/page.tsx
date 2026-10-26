@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import { CheckCircle2, Flag, Users, Award, Globe2 } from "lucide-react"
@@ -132,11 +133,13 @@ export default function AboutPage() {
             <div className={p.split2Photo} style={{ aspectRatio: "1677 / 938" }}>
               {/* loading="lazy" on purpose: React preloads a non-lazy <img>, and every
                   page that prefetches this route then downloads this picture too. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/about-photo.webp"
                 alt="The SafeStorage Dubai team packing and loading a customer's home"
-                loading="lazy" decoding="async"
+                width={1400}
+                height={783}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

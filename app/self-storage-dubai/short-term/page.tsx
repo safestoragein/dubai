@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -186,13 +187,14 @@ export default function ShortTermStoragePage() {
               </div>
             </div>
             <div className={h.split2Photo}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/short-term-hero-v2.webp"
                 alt="SafeStorage team packing a flat between leases in Dubai"
                 width={1733}
                 height={907}
-                loading="eager" decoding="async"
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

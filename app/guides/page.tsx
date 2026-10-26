@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -174,11 +175,14 @@ export default function GuidesHubPage() {
               </div>
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/guides-banner-v2.webp"
                 alt="A SafeStorage Dubai crew loading a truck outside a villa, with the city behind"
-                loading="eager" decoding="async"
+                width={1400}
+                height={736}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

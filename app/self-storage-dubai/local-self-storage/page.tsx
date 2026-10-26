@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -366,11 +367,14 @@ export default function LocalSelfStoragePage() {
               </div>
             </div>
             <div className={lp.split2Photo} style={{ aspectRatio: "1733 / 907" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/local-self-storage-photo.webp"
                 alt="SafeStorage team collecting and packing a home in Dubai"
-                loading="eager" decoding="async"
+                width={1733}
+                height={907}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
               />
               <div className={ls.heroRating}>
                 <strong>4.9★</strong>

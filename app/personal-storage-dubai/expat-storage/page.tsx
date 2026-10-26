@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -251,11 +252,14 @@ export default function ExpatLeavingUAEPage() {
               </div>
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1670 / 941" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/expat-photo.webp"
                 alt="A SafeStorage Dubai crew collecting an expat's belongings from a Dubai apartment"
-                loading="eager" decoding="async"
+                width={1400}
+                height={789}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

@@ -259,11 +259,14 @@ export default function TopPlacesDubai2026() {
               </div>
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1730 / 909" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/best-places-photo.webp"
                 alt="Best places in Dubai — the Burj Khalifa, Palm Jumeirah, Museum of the Future, the Marina, Miracle Garden and Global Village"
-                loading="eager" decoding="async"
+                width={1400}
+                height={736}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>
@@ -306,7 +309,7 @@ export default function TopPlacesDubai2026() {
             {places.map((place, i) => (
               <article className={pl.place} style={idx(i)} key={place.id}>
                 <div className={pl.shot}>
-                  <Image src={place.image} alt={place.name} width={1730} height={909} />
+                  <Image src={place.image} alt={place.name} width={1730} height={909} sizes="(max-width: 900px) 94vw, 600px" quality={85} />
                   <span className={pl.rating}>
                     <span aria-hidden="true">★</span> {place.rating}
                   </span>

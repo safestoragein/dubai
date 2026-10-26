@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -218,12 +219,14 @@ export default function ProhibitedItemsPage() {
               </div>
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1734 / 907" } as CSSProperties}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/prohibited-items-hero.webp"
                 alt="The nine groups SafeStorage cannot store: liquids and chemicals, food, flammables and gas, weapons, drugs, paints, animals, valuables and cash"
+                width={1734}
+                height={907}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
                 loading="eager"
-                decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

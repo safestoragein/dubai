@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -133,11 +134,13 @@ export default function Contact() {
             <div className={p.split2Photo} style={{ aspectRatio: "1672 / 941" }}>
               {/* loading="lazy" on purpose: React preloads a non-lazy <img>, and every
                   page that prefetches this route then downloads this picture too. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/contact-photo.webp"
                 alt="A SafeStorage Dubai consultant helping a customer at the front desk"
-                loading="lazy" decoding="async"
+                width={1400}
+                height={788}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

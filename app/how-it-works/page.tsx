@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -156,13 +157,13 @@ export default function HowItWorks() {
             <div className={h.split2Photo}>
               {/* loading="lazy" on purpose: React preloads a non-lazy <img>, and every
                   page that prefetches this route then downloads this picture too. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/how-hero-scene-v2.webp"
                 alt="SafeStorage team loading boxes into a SafeStorage van in Dubai"
                 width={1672}
                 height={941}
-                loading="lazy" decoding="async"
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>
@@ -191,8 +192,14 @@ export default function HowItWorks() {
               {steps.map(({ img, when, title }, i) => (
                 <li className={`${h.photoStep} ${h.plan}`} style={idx(i)} key={title}>
                   <div className={h.photoFrame}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={img} alt={`Step ${i + 1}: ${when}`} width={375} height={452} loading="lazy" decoding="async" />
+                    <Image
+                      src={img}
+                      alt={`Step ${i + 1}: ${when}`}
+                      width={375}
+                      height={452}
+                      sizes="(max-width: 900px) 45vw, 250px"
+                      quality={88}
+                    />
                     <span className={h.stepBadge} style={idx(i)} aria-hidden="true">
                       {i + 1}
                     </span>

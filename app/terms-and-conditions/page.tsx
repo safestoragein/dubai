@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { Metadata } from "next"
 import Link from "next/link"
 
@@ -83,11 +84,14 @@ export default function TermsAndConditionsPage() {
               </div>
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1670 / 942" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/terms-photo.webp"
                 alt="A SafeStorage Dubai consultant going through the storage agreement with a customer"
-                loading="eager" decoding="async"
+                width={1400}
+                height={790}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

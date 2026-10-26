@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -217,11 +218,14 @@ export default function TestimonialsPage() {
             {/* owner, 2026-09-23: the 4.9 card goes top-right, over the
                 "More Space Happier Lives" banner, not over the review cards */}
             <div className={p.split2Photo} style={{ aspectRatio: "1670 / 942" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/testimonials-photo.webp"
                 alt="SafeStorage Dubai customers holding five-star review cards in the reception"
-                loading="eager" decoding="async"
+                width={1400}
+                height={790}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

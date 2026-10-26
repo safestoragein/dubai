@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -186,12 +187,14 @@ export default function ElectronicsStoragePage() {
               </div>
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1733 / 907" } as CSSProperties}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/electronics-storage-hero.webp"
                 alt="A SafeStorage crew member bubble-wrapping a television in a Dubai apartment"
+                width={1733}
+                height={907}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
                 loading="eager"
-                decoding="async"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

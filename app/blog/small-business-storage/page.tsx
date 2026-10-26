@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import { Info } from "lucide-react"
@@ -93,13 +94,14 @@ export default function SmallBusinessStoragePage() {
               <p className={h.metaLine}>Updated April 2025 · 9 min read · By SafeStorage Dubai</p>
             </div>
             <div className={h.split2Photo}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/small-business-hero-v2.webp"
                 alt="SafeStorage team helping a Dubai small business pack and store stock"
                 width={1263}
                 height={907}
-                loading="eager" decoding="async"
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>

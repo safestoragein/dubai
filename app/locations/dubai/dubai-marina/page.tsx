@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -170,13 +171,14 @@ export default function DubaiMarinaPage() {
             <div className={h.split2Photo}>
               <picture>
                 <source media="(max-width: 640px)" srcSet="/landing/dubai-marina-hero-m.webp" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/landing/dubai-marina-hero-side.webp"
                   alt="SafeStorage movers collecting boxes from a Dubai Marina apartment"
-                  width={1733}
-                  height={907}
-                  loading="eager" decoding="async"
+                  width={1400}
+                  height={733}
+                  sizes="(max-width: 900px) 94vw, 50vw"
+                  quality={85}
+                  loading="eager"
                 />
               </picture>
               <div className={s.heroRating}>

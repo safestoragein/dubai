@@ -48,6 +48,9 @@ const nextConfig = {
 
   images: {
     formats: ['image/avif', 'image/webp'],
+    // Next 16 only honours qualities listed here; an unlisted quality prop
+    // silently falls back to 75, which softened the hero photos.
+    qualities: [75, 85, 88],
     // Display optimized images inline (Next defaults to "attachment", which makes
     // the /_next/image URL download instead of render when opened directly).
     contentDispositionType: 'inline',

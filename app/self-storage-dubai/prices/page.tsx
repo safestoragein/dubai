@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -200,12 +201,14 @@ export default function StoragePricesPage() {
               </div>
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1733 / 907" } as CSSProperties}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/landing/prices-hero.webp"
                 alt="A customer getting a free SafeStorage quote at home in Dubai, with boxes packed and ready"
+                width={1733}
+                height={907}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
                 loading="eager"
-                decoding="async"
               />
               {/* top LEFT here: the picture's own quote card lives in the top right */}
               <div className={s.heroRating} style={{ right: "auto", left: 18 }}>
