@@ -99,6 +99,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/personal-storage-dubai/motorbike-storage": "/landing/motorbike-storage-hero.webp",
   "/personal-storage-dubai/luggage-storage": "/landing/luggage-storage-hero.webp",
   "/personal-storage-dubai/seasonal-storage": "/landing/seasonal-storage-hero.webp",
+  "/personal-storage-dubai/renovation-storage": "/landing/renovation-storage-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -127,6 +128,7 @@ const SIDE_HERO = new Set([
   "/personal-storage-dubai/motorbike-storage",
   "/personal-storage-dubai/luggage-storage",
   "/personal-storage-dubai/seasonal-storage",
+  "/personal-storage-dubai/renovation-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -158,6 +160,7 @@ const SMALL_CARD_ICONS = new Set([
   "/personal-storage-dubai/motorbike-storage",
   "/personal-storage-dubai/luggage-storage",
   "/personal-storage-dubai/seasonal-storage",
+  "/personal-storage-dubai/renovation-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -184,6 +187,7 @@ const TABLE_ICONS = new Set([
   "/personal-storage-dubai/motorbike-storage",
   "/personal-storage-dubai/luggage-storage",
   "/personal-storage-dubai/seasonal-storage",
+  "/personal-storage-dubai/renovation-storage",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
@@ -200,6 +204,7 @@ const COLOUR_CARD_ICONS = new Set([
   "/personal-storage-dubai/motorbike-storage",
   "/personal-storage-dubai/luggage-storage",
   "/personal-storage-dubai/seasonal-storage",
+  "/personal-storage-dubai/renovation-storage",
   "/self-storage-dubai/vs-warehouse-rental",
 ])
 
@@ -226,6 +231,7 @@ const NO_CARD_NUMBERS = new Set([
   "/personal-storage-dubai/motorbike-storage",
   "/personal-storage-dubai/luggage-storage",
   "/personal-storage-dubai/seasonal-storage",
+  "/personal-storage-dubai/renovation-storage",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -323,6 +329,7 @@ function RowIcon({ label, i }: { label: string; i: number }) {
  *  follows it in the h1 becomes the orange accent. */
 const H1_SPLIT: Record<string, string> = {
   "/personal-storage-dubai/motorbike-storage": "Motorbike and Bicycle",
+  "/personal-storage-dubai/renovation-storage": "Storage During a",
 }
 
 function splitH1(h1: string): [string, string] {

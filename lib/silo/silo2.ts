@@ -670,31 +670,42 @@ export const SILO2_PAGES: SiloPageContent[] = [
     h1: "Storage During a Renovation in Dubai",
     hero: [
       "Two things are true of every renovation: it takes longer than the contractor said, and dust gets absolutely everywhere. Both are why furniture ends up in [personal storage in Dubai](/personal-storage-dubai) rather than under sheets in the next room.",
-      "You can take the whole property at once or work **room by room as the job moves through it**, collecting in stages and delivering back the same way, so you are never paying to store more than you need to.",
-      "There is no fixed end date and no minimum term, which is the point. A job that overruns by six weeks costs six weeks and requires no phone call, no renegotiation and no penalty.",
+      "Take the whole property at once or work **room by room as the job moves through it**. There is no fixed end date and no minimum term, so a job that overruns by six weeks needs no phone call and no renegotiation.",
     ],
     sections: [
       {
-        kind: "prose",
-        h2: "Why sheeting furniture in the next room does not work",
-        paras: [
-          "Construction dust in this region is fine, abrasive and relentless. It gets under dust sheets, into upholstery, into the mechanism of anything with a mechanism, and into electronics through vents. A sofa that spent six weeks in a room adjacent to a bathroom rip-out is not a clean sofa, and it is not something a cleaner fully fixes.",
-          "It is also in the way. A renovation with furniture stacked in the two rooms not being worked on takes longer, because the trades are working around it, and it moves several times as the job progresses. Each move is another chance for damage.",
-          "The third problem is theft and breakage exposure — a property with contractors coming and going for weeks is a property where nobody can say who was in which room when. Furniture that is not there cannot be damaged or lost.",
-          "The counter-argument is cost, and it is a fair one. What tips it is usually the answer to one question: what would it cost to replace the two or three most valuable things in the room? That is normally several months of storage.",
+        kind: "cards",
+        h2: "Why sheeting the next room does not work",
+        intro: "Three reasons, and only the first one is the obvious one.",
+        items: [
+          {
+            icon: "🧹",
+            h: "The dust wins",
+            p: "Construction dust here is fine and abrasive. It gets under sheets, into upholstery, and into electronics through the vents — and a cleaner does not fully fix it.",
+          },
+          {
+            icon: "🚧",
+            h: "It is in the way",
+            p: "Trades working around stacked furniture take longer, and every room the pile moves to is another chance for damage.",
+          },
+          {
+            icon: "🔑",
+            h: "Open house for weeks",
+            p: "With contractors coming and going, nobody can say who was in which room when. Furniture that is not there cannot be damaged or lost.",
+          },
         ],
       },
       {
         kind: "steps",
         h2: "Running it room by room",
-        intro: "The approach that keeps the bill lowest across a long job.",
+        intro: "The approach that keeps the stored volume lowest across a long job.",
         items: [
-          { h: "Sequence with your contractor", p: "Get their room order in writing before booking anything. It is the schedule the collections follow." },
-          { h: "Collect one room ahead", p: "Clear the next room while they finish the current one. It keeps the site moving and the stored volume low." },
-          { h: "Deliver back behind them", p: "Rooms that are finished get refurnished, so you live in the house rather than around it." },
+          { h: "Sequence with your contractor", p: "Get their room order in writing before booking. It is the schedule the collections follow." },
+          { h: "Collect one room ahead", p: "Clear the next room while they finish the current one. The site keeps moving and less is in storage." },
+          { h: "Deliver back behind them", p: "Finished rooms get refurnished, so you live in the house rather than around it." },
           {
             h: "Expect the overrun",
-            p: "It costs nothing extra — [billing is monthly with no end date](/personal-storage-dubai) and no renegotiation.",
+            p: "[Billing is monthly with no end date](/personal-storage-dubai), so the extra weeks need no renegotiation.",
           },
         ],
       },
@@ -702,41 +713,32 @@ export const SILO2_PAGES: SiloPageContent[] = [
         kind: "checklist",
         h2: "Renovation-specific things worth knowing",
         items: [
-          "Tell the contractor the collection date before you agree the start date. Trades arriving to a full house is a bad first day.",
-          "Anything already dusty should be cleaned before wrapping, not after. Dust sealed under wrap transfers to everything racked near it.",
-          "Get the electronics out first. Fine dust through a vent is the most expensive renovation damage and the easiest to prevent — see [electronics storage](/personal-storage-dubai/electronics-storage).",
-          "Curtains and rugs out too. They hold construction dust more thoroughly than anything else in the house.",
-          "Do not store paint, thinners, adhesives or solvents left over by the contractor. None of them can be stored.",
-          "Keep one room genuinely usable if you are living there through the work, and store from the others rather than shuffling between them.",
+          "Tell the contractor the collection date before you agree the start date.",
+          "Get the electronics out first — dust through a vent is the least reversible damage. See [electronics storage](/personal-storage-dubai/electronics-storage).",
+          "Curtains and rugs out too. They hold construction dust better than anything else in the house.",
+          "Do not store paint, thinners, adhesives or solvents left over by the contractor — none of them can be stored.",
         ],
       },
     ],
     faqs: [
       {
         q: "Can I store just one room at a time?",
-        a: "Yes, and it is usually the cheapest way to run a long renovation. Each collection and each delivery is quoted as its own transport job, and you only ever pay to store what is currently out of the house.",
+        a: "Yes, and it is the usual way to run a long renovation. Each collection and each delivery is quoted as its own transport job, and you only ever store what is currently out of the house.",
       },
       {
         q: "What if the renovation overruns?",
-        a: "Nothing happens. Billing is monthly with no fixed end date, so an overrun costs the extra weeks and requires no call, no new agreement and no penalty. Renovations overrunning is the normal case rather than the exception.",
+        a: "Nothing happens. Billing is monthly with no fixed end date, so an overrun requires no call, no new agreement and no penalty. Renovations overrunning is the normal case rather than the exception.",
       },
       {
         q: "Can you deliver back in stages?",
         a: "Yes. Refurnishing rooms as they are finished is how most customers run it, so you can live in the house rather than around the work.",
       },
       {
-        q: "Should I store the electronics?",
-        a: "Those first, if you store anything. Fine construction dust drawn through vents is the most expensive and least reversible renovation damage, and a TV or a computer in an adjacent room is not protected by a sheet.",
-      },
-      {
         q: "Can you take leftover paint away at the end?",
         a: "No — paint, thinners, solvents and adhesives are all flammable and cannot be stored or transported. Dispose of them through the municipal route rather than putting them in the van.",
       },
-      {
-        q: "How much notice do you need between rooms?",
-        a: "A couple of days for each stage is comfortable. Give us the contractor's room sequence at the start and the whole set of collections can be pencilled in at once.",
-      },
     ],
+
     serviceType: "Renovation storage",
     cta: {
       h2: "Renovating?",
