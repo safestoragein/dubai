@@ -25,7 +25,7 @@ import { SILOS } from "@/lib/silo/silos"
  */
 
 /* Pages redesigned in the homepage design; the rest still use the older renderer. */
-const REDESIGNED = new Set(["household-storage", "apartment-storage", "villa-storage"])
+const REDESIGNED = new Set(["household-storage", "apartment-storage", "villa-storage", "motorbike-storage"])
 
 export const dynamicParams = false
 

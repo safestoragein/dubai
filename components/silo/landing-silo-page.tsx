@@ -96,6 +96,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/personal-storage-dubai/household-storage": "/landing/household-hero-v2.webp",
   "/personal-storage-dubai/apartment-storage": "/landing/apartment-storage-hero.webp",
   "/personal-storage-dubai/villa-storage": "/landing/villa-storage-hero.webp",
+  "/personal-storage-dubai/motorbike-storage": "/landing/motorbike-storage-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -121,6 +122,7 @@ const SIDE_HERO = new Set([
   "/personal-storage-dubai/household-storage",
   "/personal-storage-dubai/apartment-storage",
   "/personal-storage-dubai/villa-storage",
+  "/personal-storage-dubai/motorbike-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -149,6 +151,7 @@ const SMALL_CARD_ICONS = new Set([
   "/personal-storage-dubai/household-storage",
   "/personal-storage-dubai/apartment-storage",
   "/personal-storage-dubai/villa-storage",
+  "/personal-storage-dubai/motorbike-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -172,6 +175,7 @@ const TABLE_ICONS = new Set([
   "/personal-storage-dubai/household-storage",
   "/personal-storage-dubai/apartment-storage",
   "/personal-storage-dubai/villa-storage",
+  "/personal-storage-dubai/motorbike-storage",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
@@ -185,6 +189,7 @@ const COLOUR_CARD_ICONS = new Set([
   "/personal-storage-dubai/household-storage",
   "/personal-storage-dubai/apartment-storage",
   "/personal-storage-dubai/villa-storage",
+  "/personal-storage-dubai/motorbike-storage",
   "/self-storage-dubai/vs-warehouse-rental",
 ])
 
@@ -208,6 +213,7 @@ const NO_CARD_NUMBERS = new Set([
   "/personal-storage-dubai/household-storage",
   "/personal-storage-dubai/apartment-storage",
   "/personal-storage-dubai/villa-storage",
+  "/personal-storage-dubai/motorbike-storage",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -300,6 +306,13 @@ function RowIcon({ label, i }: { label: string; i: number }) {
 }
 
 /** "Title: Accent words" → [title, accent]. The H1 text is unchanged; only its styling splits. */
+/** Pages whose h1 needs a different break than splitH1 would choose, to keep
+ *  the hero title inside two lines. The value is the first line; whatever
+ *  follows it in the h1 becomes the orange accent. */
+const H1_SPLIT: Record<string, string> = {
+  "/personal-storage-dubai/motorbike-storage": "Motorbike and Bicycle",
+}
+
 function splitH1(h1: string): [string, string] {
   const m = h1.match(/^(.*?[:,])\s+(.+)$/)
   if (m) return [m[1], m[2]]
@@ -519,7 +532,10 @@ function ExploreCard({ href, label, blurb }: { href: string; label: string; blur
 
 export default function LandingSiloPage({ content, hub = false }: { content: SiloPageContent; hub?: boolean }) {
   const silo = SILOS[content.silo]
-  const [title, accent] = splitH1(content.h1)
+  const h1Lead = H1_SPLIT[content.path]
+  const [title, accent] = h1Lead
+    ? [h1Lead, content.h1.slice(h1Lead.length).trim()]
+    : splitH1(content.h1)
 
   // Explore row. A child links to its 3–5 siblings (rule 2); a hub links down to
   // every child and across to the other hubs (rule 4).

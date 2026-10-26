@@ -355,8 +355,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
     ogTitle: "Motorbike and Bike Storage in Dubai",
     h1: "Motorbike and Bicycle Storage in Dubai",
     hero: [
-      "Two-wheelers store easily and cheaply — they take a fraction of the space a car does — but they suffer more from standing still, because everything on them is smaller and more sensitive. This sits alongside vehicle storage inside [personal storage in Dubai](/personal-storage-dubai).",
-      "The bookings split three ways: riders leaving the UAE for a stretch, summer storage for cyclists who stop riding between May and October, and apartment residents whose building will not let them keep a bike in the flat or the parking bay.",
+      "Two-wheelers store easily — they take a fraction of the space a car does — but they suffer more from standing still, because everything on them is smaller and more sensitive. Part of [personal storage in Dubai](/personal-storage-dubai).",
       "Everything is stored indoors and covered. **Lithium batteries are handled separately** and must be discussed before booking — that is a fire safety question, not an administrative one.",
     ],
     sections: [
@@ -364,23 +363,35 @@ export const SILO2_PAGES: SiloPageContent[] = [
         kind: "prose",
         h2: "The lithium battery question, first",
         paras: [
-          "E-bikes, e-scooters and modern power tools carry lithium-ion packs, and a damaged or degraded pack in a hot warehouse is a genuine fire risk rather than a theoretical one. This is the single thing to sort out before you book anything.",
-          "Removable packs should come off the bike and be discussed with us rather than sent along inside a box. Non-removable packs mean the whole machine needs to be raised at quoting rather than arriving unannounced on collection day.",
-          "A pack stored at full charge or fully flat degrades faster than one stored around half charge, which is worth knowing whoever ends up holding it. Six months at 100 per cent will measurably shorten a pack's life.",
-          "None of this makes an e-bike unstorable. It makes it a conversation before the crew arrives rather than after. The general list of what cannot be stored at all is on [what you can and cannot store](/self-storage-dubai/prohibited-items).",
+          "E-bikes, e-scooters and modern power tools carry lithium-ion packs, and a damaged or degraded pack in a hot warehouse is a genuine fire risk. Removable packs should come off the bike and be discussed with us; non-removable packs need raising at quoting rather than arriving unannounced on collection day.",
+          "None of this makes an e-bike unstorable — it makes it a conversation before the crew arrives. The general list is on [what you can and cannot store](/self-storage-dubai/prohibited-items).",
         ],
       },
       {
-        kind: "checklist",
-        h2: "Preparing a motorbike for months of standing",
+        kind: "steps",
+        h2: "Preparing a bike for months of standing",
         intro: "More important than for a car, because the components are smaller.",
         items: [
-          "Fill the tank and add a fuel stabiliser. A small tank degrades proportionally faster than a large one.",
-          "Disconnect the battery or use a maintainer. A motorbike battery in a Dubai summer can be dead in under a month connected.",
-          "Over-inflate the tyres slightly. Narrow tyres flat-spot faster than car tyres and at lower weight.",
-          "Wash, dry and lubricate the chain. A chain stored dirty in humid air is a chain that comes back seized.",
-          "Do not leave it on the side stand for months if you can avoid it — a paddock stand or centre stand keeps the weight off the suspension and the tyres.",
-          "Cover it, but with something breathable. A plastic sheet traps humidity against the metal, which is worse than no cover.",
+          {
+            h: "Fuel and battery",
+            p: "Fill the tank and add a stabiliser. Disconnect the battery or use a maintainer — a bike battery can be dead in under a month here.",
+          },
+          {
+            h: "Tyres",
+            p: "Over-inflate slightly. Narrow tyres flat-spot faster than car tyres and at lower weight.",
+          },
+          {
+            h: "Chain",
+            p: "Wash, dry and lubricate it. A chain stored dirty in humid air is the one that comes back seized.",
+          },
+          {
+            h: "Stand",
+            p: "A paddock or centre stand keeps weight off the suspension and tyres. Avoid months on the side stand.",
+          },
+          {
+            h: "Cover",
+            p: "Something breathable. A plastic sheet traps humidity against the metal, which is worse than no cover.",
+          },
         ],
       },
       {
@@ -390,17 +401,17 @@ export const SILO2_PAGES: SiloPageContent[] = [
           {
             icon: "☀️",
             h: "Summer storage",
-            p: "Cyclists who stop riding between May and October and do not want a road bike taking a room in the flat until November.",
+            p: "Cyclists who stop riding between May and October and do not want a road bike taking a room in the flat.",
           },
           {
             icon: "✈️",
             h: "Leaving the UAE",
-            p: "A bike is worth keeping rather than selling at short notice. Storage for the posting costs a fraction of replacing it. See [expat storage](/personal-storage-dubai/expat-storage).",
+            p: "A bike worth keeping rather than selling at short notice — see [expat storage](/personal-storage-dubai/expat-storage).",
           },
           {
             icon: "🏢",
             h: "Building rules",
-            p: "Many Dubai towers do not permit bikes in flats, lifts or parking bays. This is the most common reason for a single-bike booking.",
+            p: "Many Dubai towers do not permit bikes in flats, lifts or parking bays. The most common single-bike booking.",
           },
           {
             icon: "🔧",
@@ -412,30 +423,23 @@ export const SILO2_PAGES: SiloPageContent[] = [
     ],
     faqs: [
       {
-        q: "How much space does a motorbike take?",
-        a: "Far less than a car — a motorbike is broadly comparable to a large wardrobe in footprint, and a bicycle much less again. Two-wheelers are among the cheapest things to store here.",
-      },
-      {
         q: "Can I store an e-bike or e-scooter?",
         a: "Raise it before booking. Removable lithium packs need to come off and be discussed; non-removable packs need to be flagged at quoting. This is a fire safety requirement rather than a formality.",
+      },
+      {
+        q: "How much space does a motorbike take?",
+        a: "Far less than a car — a motorbike is broadly comparable to a large wardrobe in footprint, and a bicycle much less again.",
       },
       {
         q: "Do you store bicycles over the summer?",
         a: "Yes, and it is one of the steadiest seasonal bookings — road and gravel bikes go in around May and come back in October. Indoor covered storage is what keeps components from corroding in the humidity.",
       },
       {
-        q: "Should I leave the bike on its side stand?",
-        a: "Preferably not for months. A paddock or centre stand keeps weight off the suspension and stops the tyres flat-spotting on one point, which is the main mechanical cost of long standing.",
-      },
-      {
         q: "Will the chain seize?",
         a: "Not if it is washed, dried and lubricated before storage. A chain put away dirty in humid air is the most common thing that comes back unusable, and it takes ten minutes to prevent.",
       },
-      {
-        q: "What about registration while it is stored?",
-        a: "Renewal remains your responsibility and it is worth diarising before you travel. Tell us if the registration will lapse during the storage period.",
-      },
     ],
+
     serviceType: "Motorbike storage",
     cta: {
       h2: "Storing two wheels?",
