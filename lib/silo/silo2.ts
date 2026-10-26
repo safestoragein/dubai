@@ -155,45 +155,42 @@ export const SILO2_PAGES: SiloPageContent[] = [
     ogTitle: "Apartment Storage in Dubai — Including The Lift Booking",
     h1: "Apartment Storage in Dubai",
     hero: [
-      "A Dubai apartment has exactly the storage the developer drew and nothing else — no loft, no basement, no garage, no under-stairs cupboard. That structural fact is why so much of [personal storage in Dubai](/personal-storage-dubai) is tower flats rather than villas.",
-      "The other half of the problem is access. Most towers require the service lift to be booked in advance, many restrict moves to a fixed window, and some want the crew registered with building management first. **We arrange all of that** — it is the part that derails a self-drive move.",
-      "Storage is billed **on measured space**, so you pay only for what your items use. A studio is around 30 sq ft, a one-bedroom 60–90, a two-bedroom 120–150.",
+      "A Dubai apartment has exactly the storage the developer drew — no loft, no basement, no garage. That is why so much of [personal storage in Dubai](/personal-storage-dubai) is tower flats.",
+      "The other half is access, and **we arrange all of it**: the service lift, the moving window, the permit. You pay only for the space your items use.",
     ],
     sections: [
       {
         kind: "prose",
         h2: "The service lift is the whole job",
         paras: [
-          "In a Dubai tower, the difference between a three-hour collection and a seven-hour one is almost never the amount of furniture. It is whether the service lift was booked, whether it is shared with another move that day, and whether the building permits the crew to use it at the hour you have arranged.",
-          "Buildings vary enormously and none of it is published. Some want 48 hours' notice and a refundable deposit; some only allow moves between specific hours; some in the Marina and Downtown restrict moves on certain days entirely. A few require a no-objection letter from the owner.",
-          "We deal with building management on this because we do it several times a week and know which towers want what. If you are moving yourself, the single most useful thing you can do is call your building three days before rather than one.",
-          "There is a related trap on delivery: a new building's move-in slot usually has to be booked separately from the move-out slot, and people book only the first. Tell us both addresses when you book and both get arranged.",
+          "The difference between a three-hour collection and a seven-hour one is almost never the amount of furniture. It is whether the lift was booked, whether it is shared with another move, and whether the building allows it at the hour you arranged.",
+          "Buildings vary and none of it is published. We deal with building management because we do it several times a week.",
         ],
       },
       {
         kind: "cards",
-        h2: "What apartment residents actually store",
-        intro: "Four bookings that account for most tower collections.",
+        h2: "What apartment residents store",
+        intro: "Four bookings that cover most tower collections.",
         items: [
           {
             icon: "🚪",
             h: "A room, to get it back",
-            p: "The guest bed and wardrobe out so the second bedroom becomes an office. Around 30–40 sq ft, and far cheaper than the next flat up.",
+            p: "Guest bed and wardrobe out, so the second bedroom becomes an office.",
           },
           {
             icon: "🧳",
             h: "The seasonal pile",
-            p: "Suitcases, winter bedding, sports kit, festival boxes. In a flat with one store cupboard, this is what fills it.",
+            p: "Suitcases, winter bedding, sports kit — what fills the one store cupboard.",
           },
           {
             icon: "🛋️",
-            h: "Your furniture, while it is let furnished",
-            p: "Owner's furniture out while a tenant's is in. A steady summer rhythm in this city.",
+            h: "Furniture while it is let",
+            p: "Your furniture out while a tenant's is in. A steady summer rhythm here.",
           },
           {
             icon: "📅",
             h: "The gap between leases",
-            p: "Ejari ends on the 3rd, the new place is ready on the 20th. [Short term storage](/self-storage-dubai/short-term) is the page for that specifically.",
+            p: "Ejari ends on the 3rd, the new place is ready on the 20th — [short term storage](/self-storage-dubai/short-term).",
           },
         ],
       },
@@ -201,41 +198,32 @@ export const SILO2_PAGES: SiloPageContent[] = [
         kind: "checklist",
         h2: "Getting a tower collection right",
         items: [
-          "Tell us the floor, and whether there is a service lift or only passenger lifts. It changes the crew size.",
-          "Confirm your building's permitted moving hours — some towers do not allow moves in the evening or on Fridays.",
-          "Ask whether a move-out permit or NOC is needed. Older buildings in Deira and Bur Dubai often want one.",
-          "Check parking for the van. Some Marina and JLT towers have no loading bay and need a bay reserved.",
-          "Box loose items first. In a flat this matters more than in a villa, because everything goes through one lift.",
-          "If you are moving into another tower, give us that address too so the move-in slot gets booked as well.",
+          "Tell us the floor, and whether there is a service lift or only passenger lifts.",
+          "Confirm your building's permitted moving hours.",
+          "Ask whether a move-out permit or NOC is needed.",
+          "Moving into another tower? Give us that address too.",
         ],
       },
     ],
     faqs: [
       {
         q: "Do you book the service lift for me?",
-        a: "Yes, as part of arranging the collection. Tell us the building and the floor when you book, and we deal with building management — including the move-in slot at the new address if you are moving to another tower.",
+        a: "Yes, as part of arranging the collection. Tell us the building and the floor when you book — including the move-in slot at the new address if you are moving to another tower.",
       },
       {
         q: "What if my building only allows moves at certain times?",
-        a: "That is common and it is planned around. Tell us the permitted window when you book and the collection is scheduled inside it. Discovering the restriction on the day is what causes a failed move.",
+        a: "Tell us the permitted window when you book and the collection is scheduled inside it. Discovering the restriction on the day is what causes a failed move.",
       },
       {
         q: "I am on the 30th floor with one lift. Is that a problem?",
-        a: "Not a problem, but it does lengthen the job, and it is the main thing that separates a three-hour collection from a six-hour one. We size the crew for it rather than being surprised by it.",
-      },
-      {
-        q: "How much of a small flat can I actually store?",
-        a: "As much or as little as you like — billing is on the space used. A common studio booking is a bed, a wardrobe and a dozen cartons, at around 30 sq ft.",
+        a: "Not a problem, but it lengthens the job. We size the crew for it rather than being surprised by it.",
       },
       {
         q: "Can you collect if I am not there?",
-        a: "Someone has to let the crew in and sign the inventory, but it does not have to be you. Name the person in advance and they can handle the collection.",
-      },
-      {
-        q: "Is there parking for your van at my building?",
-        a: "Usually, but some towers in the Marina, JLT and Business Bay need a loading bay reserved in advance. Tell us the building and we will check rather than arriving and finding out.",
+        a: "Someone has to let the crew in and sign the inventory, but it does not have to be you. Name the person in advance.",
       },
     ],
+
     serviceType: "Apartment storage",
     cta: {
       h2: "Living in a tower?",
