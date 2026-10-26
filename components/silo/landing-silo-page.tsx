@@ -95,6 +95,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/self-storage-dubai/storage-calculator": "/landing/calculator-hero.webp",
   "/personal-storage-dubai/household-storage": "/landing/household-hero-v2.webp",
   "/personal-storage-dubai/apartment-storage": "/landing/apartment-storage-hero.webp",
+  "/personal-storage-dubai/villa-storage": "/landing/villa-storage-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -119,6 +120,7 @@ const SIDE_HERO = new Set([
   "/self-storage-dubai/storage-calculator",
   "/personal-storage-dubai/household-storage",
   "/personal-storage-dubai/apartment-storage",
+  "/personal-storage-dubai/villa-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -146,6 +148,7 @@ const SMALL_CARD_ICONS = new Set([
   "/self-storage-dubai/storage-calculator",
   "/personal-storage-dubai/household-storage",
   "/personal-storage-dubai/apartment-storage",
+  "/personal-storage-dubai/villa-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -168,6 +171,7 @@ const TABLE_ICONS = new Set([
   "/self-storage-dubai/storage-calculator",
   "/personal-storage-dubai/household-storage",
   "/personal-storage-dubai/apartment-storage",
+  "/personal-storage-dubai/villa-storage",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
@@ -180,6 +184,7 @@ const COLOUR_CARD_ICONS = new Set([
   "/self-storage-dubai/storage-calculator",
   "/personal-storage-dubai/household-storage",
   "/personal-storage-dubai/apartment-storage",
+  "/personal-storage-dubai/villa-storage",
   "/self-storage-dubai/vs-warehouse-rental",
 ])
 
@@ -202,6 +207,7 @@ const NO_CARD_NUMBERS = new Set([
   "/self-storage-dubai/storage-calculator",
   "/personal-storage-dubai/household-storage",
   "/personal-storage-dubai/apartment-storage",
+  "/personal-storage-dubai/villa-storage",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",

@@ -253,31 +253,34 @@ export const SILO2_PAGES: SiloPageContent[] = [
     h1: "Villa Storage in Dubai",
     hero: [
       "A villa collection is not just a bigger flat collection. It has three areas a flat does not — the garage, the garden and usually a maid's room — and between them they routinely account for a third of the volume. Underestimating them is the most common quoting error in [personal storage in Dubai](/personal-storage-dubai).",
-      "A three-bedroom villa's contents typically occupy **240–270 sq ft** in storage, and four bedrooms and above is quoted on survey. **Space used is the whole of the monthly figure**, so you pay only for what your goods occupy.",
-      "Villa collections are usually a full day and sometimes two. Access is generally easier than a tower — a driveway rather than a service lift — but gated communities need the vehicle and crew registered with security in advance.",
+      "You pay only for **the space your goods occupy**. Access is easier than a tower — a driveway rather than a service lift — but gated communities need the crew registered with security first.",
     ],
     sections: [
       {
-        kind: "prose",
-        h2: "Where villa volume actually is",
-        paras: [
-          "**The garage.** Bikes, tools, a spare fridge, garden furniture, paint, sports equipment, boxes that arrived with the last move and were never opened. In Arabian Ranches, Dubai Hills, Damac Hills and the Springs this is regularly the single largest room by stored volume, and almost nobody counts it when estimating.",
-          "**The garden and terrace.** Outdoor dining sets, loungers, parasols, a barbecue, planters. Outdoor furniture is bulky, awkward and usually dirty, and it needs cleaning before storage rather than after.",
-          "**The maid's room.** Frequently used as overflow storage already, which means it is dense and rarely inventoried by the household.",
-          "Add those three to your estimate before anything else. A villa that felt like 200 sq ft on a room count is usually 260 once the garage is in the number — [the size calculator](/self-storage-dubai/storage-calculator) walks through the adjustment.",
-        ],
-      },
-      {
-        kind: "checklist",
-        h2: "The villa-specific pre-collection list",
-        intro: "Most of these do not apply to a flat at all.",
+        kind: "cards",
+        h2: "Where villa volume actually hides",
+        intro: "Three areas a flat does not have, and the one adjustment that fixes most estimates.",
         items: [
-          "Return the gas cylinder to the supplier. Villa kitchens and barbecues almost always have one and it cannot be stored or transported.",
-          "Dispose of paint, thinners, pool chemicals, pesticides and jerry cans. The garage is where every prohibited item lives — see [what you can and cannot store](/self-storage-dubai/prohibited-items).",
-          "Clean the outdoor furniture. Sand and dust go into the wrap otherwise, and come out on everything else.",
-          "Drain and dry anything with water in it — pressure washer, garden hose reel, water feature, spare fridge.",
-          "Register the vehicle and crew with community security if you are in a gated development.",
-          "Decide about the garden plants now. They cannot be stored, and they are the thing people leave until the last hour.",
+          {
+            icon: "🚗",
+            h: "The garage",
+            p: "Bikes, tools, a spare fridge, garden furniture, boxes never opened since the last move. Regularly the largest room by volume — and almost nobody counts it.",
+          },
+          {
+            icon: "🌴",
+            h: "The garden and terrace",
+            p: "Dining sets, loungers, parasols, a barbecue, planters. Bulky, awkward and usually dirty — clean it before storage, not after.",
+          },
+          {
+            icon: "🚪",
+            h: "The maid's room",
+            p: "Often used as overflow storage already, so it is dense and rarely inventoried by the household.",
+          },
+          {
+            icon: "📐",
+            h: "The adjustment",
+            p: "A villa that felt like 200 sq ft on a room count is usually 260 once the garage is in — [the size calculator](/self-storage-dubai/storage-calculator) walks through it.",
+          },
         ],
       },
       {
@@ -290,7 +293,19 @@ export const SILO2_PAGES: SiloPageContent[] = [
           ["4 bedroom villa", "A full day, sometimes two", "300–380 sq ft"],
           ["5+ bedroom villa", "Two days", "Quoted on survey"],
         ],
-        note: "For anything four bedrooms and above we would rather survey than estimate. It is free, takes about half an hour, and it is the difference between a quote and a guess.",
+        note: "Sizes are estimated. For four bedrooms and above we would rather survey than estimate — it is free, takes about half an hour, and it is the difference between a quote and a guess.",
+      },
+      {
+        kind: "checklist",
+        h2: "The villa-specific list",
+        intro: "Most of these do not apply to a flat at all.",
+        items: [
+          "Return the gas cylinder to the supplier — it cannot be stored or transported.",
+          "Dispose of paint, thinners, pool chemicals and pesticides. The garage is where every prohibited item lives — see [what you can and cannot store](/self-storage-dubai/prohibited-items).",
+          "Clean the outdoor furniture, and drain anything with water in it.",
+          "Register the vehicle and crew with community security if you are in a gated development.",
+          "Decide about the garden plants now — nothing living goes into the warehouse.",
+        ],
       },
     ],
     faqs: [
@@ -310,15 +325,8 @@ export const SILO2_PAGES: SiloPageContent[] = [
         q: "Do you need access permits for gated communities?",
         a: "Most gated developments require the vehicle and crew to be registered with security in advance. Tell us the community when booking and it is arranged; turning up unregistered means waiting at the gate.",
       },
-      {
-        q: "What about the garden plants?",
-        a: "Plants cannot be stored — nothing living goes into the warehouse. Decide what happens to them before the day, because it is the item most often left to the final hour.",
-      },
-      {
-        q: "Can you store a car from the garage too?",
-        a: "Yes, vehicle storage is a normal booking, but it is quoted separately from the household collection. Keep the fuel level low and have the registration documents in order.",
-      },
     ],
+
     serviceType: "Villa storage",
     cta: {
       h2: "Clearing a villa?",
