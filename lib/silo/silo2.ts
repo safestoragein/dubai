@@ -569,8 +569,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
     h1: "Seasonal Storage in Dubai",
     hero: [
       "Almost every Dubai household has a pile of things used for about six weeks a year and stored for the other forty-six, in a flat with nowhere to store anything. Rotating that pile out is one of the simplest uses of [personal storage in Dubai](/personal-storage-dubai).",
-      "The seasons here run the opposite way to most places. **Outdoor equipment comes out in October and goes away in May**, and the summer is when the balcony furniture, the camping kit and the barbecue have nowhere to be.",
-      "Because there is no minimum term and billing is monthly on space used, a genuine rotation costs very little — a few cartons and some bulky items is a small monthly figure, and each swap is a short transport job.",
+      "The seasons here run the opposite way to most places. **Outdoor equipment comes out in October and goes away in May** — and you pay only for the space it occupies, with no minimum term.",
     ],
     sections: [
       {
@@ -581,7 +580,7 @@ export const SILO2_PAGES: SiloPageContent[] = [
           {
             icon: "⛺",
             h: "Camping and desert kit",
-            p: "Out from October to April, stored May to September. Tents, cool boxes, chairs, recovery gear — bulky and used hard for one season.",
+            p: "Out from October to April, stored May to September. Bulky, and used hard for one season.",
           },
           {
             icon: "🪑",
@@ -591,23 +590,23 @@ export const SILO2_PAGES: SiloPageContent[] = [
           {
             icon: "🎄",
             h: "Festival and celebration boxes",
-            p: "Christmas, Diwali, Eid decorations. Used for a fortnight, stored for fifty weeks, and always in the way.",
+            p: "Christmas, Diwali, Eid decorations. Used for a fortnight, stored for fifty weeks, always in the way.",
           },
           {
             icon: "🧥",
             h: "Winter clothes and travel bedding",
-            p: "Coats and thick bedding for trips home. See [wardrobe storage](/personal-storage-dubai/wardrobe-storage) for the clothing side properly.",
+            p: "Coats and thick bedding for trips home — see [wardrobe storage](/personal-storage-dubai/wardrobe-storage).",
           },
         ],
       },
       {
         kind: "steps",
         h2: "Setting up a rotation that works",
-        intro: "The difference between a rotation and a one-way pile is entirely in how it is packed.",
+        intro: "The difference between a rotation and a one-way pile is how it is packed.",
         items: [
-          { h: "Pack by season, not by room", p: "One set of boxes that all come back in October. Mixing seasons is what makes a swap into a search." },
+          { h: "Pack by season, not by room", p: "One set of boxes that all come back in October. Mixing seasons turns a swap into a search." },
           { h: "Label the season on the box", p: "'Winter — camping' beats a list. You will read the label; you will not read the list." },
-          { h: "Tell us it is a rotation", p: "Rotating goods are racked accessibly rather than densely, which costs slightly more space and saves the swap." },
+          { h: "Tell us it is a rotation", p: "Rotating goods are racked accessibly rather than densely, which is what makes the swap quick." },
           {
             h: "Book the swap a week out",
             p: "October and May are the two busy fortnights. [Retrieval takes 24–48 hours](/self-storage-dubai/24-hour-access) but the popular weeks fill.",
@@ -618,21 +617,15 @@ export const SILO2_PAGES: SiloPageContent[] = [
         kind: "prose",
         h2: "What not to store between seasons",
         paras: [
-          "Anything with fuel in it. Camping stoves, generators and gas canisters are the classic seasonal items that cannot be stored, and they are exactly what people pack in the bottom of a camping box without thinking about it. Empty the stove and return the canister.",
-          "Anything damp. A tent packed away damp after a February trip and stored through a Dubai summer will not be a tent in October. Dry everything fully — this is the single most common seasonal storage failure.",
-          "Cool boxes with anything organic in them, and barbecues with grease on them. Both are pest problems rather than smell problems.",
-          "Anything with a lithium battery that you are not going to check on for six months. Head torches, power banks and inflator pumps all fall in here — take the batteries out. The full list of what cannot be stored is on [what you can and cannot store](/self-storage-dubai/prohibited-items).",
+          "**Anything with fuel in it, and anything damp.** Camping stoves and gas canisters cannot be stored — empty the stove and return the canister. A tent packed away damp after a February trip will not be a tent by October; drying everything fully is the single most common seasonal failure.",
+          "**Cool boxes with anything organic in them, and lithium batteries you will not check for six months.** Head torches, power banks and inflator pumps all count — take the batteries out. The full list is on [what you can and cannot store](/self-storage-dubai/prohibited-items).",
         ],
       },
     ],
     faqs: [
       {
         q: "Can I swap items between seasons?",
-        a: "Yes, and that is what most seasonal bookings are. Each swap is a transport job quoted before it happens; the monthly storage figure changes only if the volume changes.",
-      },
-      {
-        q: "How much does a small seasonal booking cost?",
-        a: "It is billed on the space used, so you pay only for what the kit occupies. A camping set, a barbecue and six cartons is typically 15 to 25 square feet.",
+        a: "Yes, and that is what most seasonal bookings are. Each swap is a transport job quoted before it happens, and the storage changes only if the volume changes.",
       },
       {
         q: "When are the busy weeks?",
@@ -643,14 +636,11 @@ export const SILO2_PAGES: SiloPageContent[] = [
         a: "Yes, dried completely first. A tent stored damp through a Dubai summer is the most reliable way to ruin one, and it cannot be undone in October.",
       },
       {
-        q: "What about the gas canister for my camping stove?",
-        a: "It cannot be stored or transported. Pressurised canisters are on the prohibited list for good reason in this climate — remove it before collection day.",
-      },
-      {
         q: "Do you store Christmas trees and decorations?",
-        a: "Yes, and it is a very common small booking. Artificial trees box well; keep the box they came in if you still have it, because it halves the space they occupy.",
+        a: "Yes, and it is a very common small booking. Artificial trees box well — keep the box they came in if you still have it, because it halves the space they occupy.",
       },
     ],
+
     serviceType: "Seasonal storage",
     cta: {
       h2: "Rotating the seasons?",
