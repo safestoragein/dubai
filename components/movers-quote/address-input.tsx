@@ -8,7 +8,7 @@ import { loadGoogleMapsScript } from "@/lib/google-maps-loader"
 export default function AddressInput({ id, value, onChange, className, placeholder }: {
   id: string
   value: string
-  onChange: (v: string) => void
+  onChange: (v: string, geo?: { lat: number; lng: number }) => void
   className?: string
   placeholder?: string
 }) {
@@ -24,14 +24,15 @@ export default function AddressInput({ id, value, onChange, className, placehold
         if (dead || !ref.current || !window.google?.maps?.places) return
         ac = new window.google.maps.places.Autocomplete(ref.current, {
           componentRestrictions: { country: "AE" },
-          fields: ["formatted_address", "name"],
+          fields: ["formatted_address", "name", "geometry"],
         })
         ac.addListener("place_changed", () => {
           const p = ac!.getPlace()
           const text = [p.name, p.formatted_address].filter(Boolean)
           // "Marina Plaza, Dubai Marina - Dubai" — keep the building/place name when Google gives one.
           const v = p.formatted_address && p.name && !p.formatted_address.startsWith(p.name) ? text.join(", ") : p.formatted_address || p.name
-          if (v) cb.current(v)
+          const loc = p.geometry?.location
+          if (v) cb.current(v, loc ? { lat: loc.lat(), lng: loc.lng() } : undefined)
         })
       })
       .catch(() => {})

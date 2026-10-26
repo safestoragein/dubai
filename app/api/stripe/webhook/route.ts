@@ -7,6 +7,8 @@ import { NextResponse } from "next/server"
 import { getStripe } from "@/lib/stripe"
 import { saveQuotationCapture, claimFinalizeParams } from "@/lib/quotation-db"
 import { savePaymentAttempt, updateAttemptStatus } from "@/lib/payment-attempt-db"
+import { markMoversExpired, markMoversPaid } from "@/lib/movers-quote-db"
+import { emailTeam } from "@/lib/movers-quote-server"
 import type Stripe from "stripe"
 
 export const runtime = "nodejs"
@@ -45,6 +47,8 @@ export async function POST(request: Request) {
       event_type: event.type,
       failure_message: "Customer left checkout without paying (session expired)",
     })
+    // Packers & movers checkout (no-op for every other session).
+    await markMoversExpired(s.id).catch(() => {})
     return NextResponse.json({ received: true })
   }
 
@@ -153,6 +157,37 @@ export async function POST(request: Request) {
         return NextResponse.json({ received: false }, { status: 500 })
       }
       return NextResponse.json({ received: true, purpose: "retrieval_payment" })
+    }
+
+    // ---- Packers & movers transport payment (/packers-and-movers/get-quote) ----
+    // Marks the movers_quotes row paid (idempotent) and tells the team. Handled and returned here so
+    // none of the storage-booking logic below runs. A DB failure answers 500 so Stripe retries.
+    if (session.metadata?.purpose === "movers_payment") {
+      const paymentRef =
+        typeof session.payment_intent === "string" ? session.payment_intent : session.id
+      await updateAttemptStatus(session.id, "succeeded", {
+        event_type: event.type,
+        stripe_payment_intent: paymentRef,
+      })
+      try {
+        const row = await markMoversPaid(String(session.metadata.reference ?? ""), session.id, paymentRef)
+        if (row) {
+          await emailTeam(
+            `PAID — movers quote ${row.reference} — ${row.name} (AED ${amountAed})`,
+            [
+              ["Reference", row.reference], ["Paid", `AED ${amountAed}`], ["Stripe", paymentRef],
+              ["Name", row.name], ["Phone", row.phone], ["Email", row.email], ["Move date", row.move_date],
+              ["From", `${row.from_address}, ${row.from_emirate}`], ["To", `${row.to_address}, ${row.to_emirate}`],
+              ["Pallets", String(row.pallets ?? "-")],
+            ],
+            row.email
+          ).catch(() => false)
+        }
+      } catch (error) {
+        console.error("[webhook] movers_payment: could not record the payment:", error)
+        return NextResponse.json({ received: false }, { status: 500 })
+      }
+      return NextResponse.json({ received: true, purpose: "movers_payment" })
     }
 
     // ---- Due payment (UAE customer paying storage dues from the CRM link) ----

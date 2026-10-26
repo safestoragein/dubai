@@ -7,7 +7,7 @@
 // Server-only — never import this from a client component.
 import "server-only"
 import mysql from "mysql2/promise"
-import { ITEM_GROUPS, type MoversQuote } from "@/lib/movers-quote"
+import type { CatalogueItem, MoversQuote } from "@/lib/movers-quote"
 
 let pool: mysql.Pool | null = null
 
@@ -85,14 +85,52 @@ async function ensureTables(): Promise<void> {
        CONSTRAINT fk_movers_item_quote FOREIGN KEY (quote_id) REFERENCES movers_quotes (id) ON DELETE CASCADE
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`
   )
+  // Pricing / payment columns, added if missing (portable: MySQL has no ADD COLUMN IF NOT EXISTS).
+  const add: [string, string, string][] = [
+    ["movers_quotes", "pickup_lat", "DECIMAL(10,7) DEFAULT NULL"],
+    ["movers_quotes", "pickup_lng", "DECIMAL(10,7) DEFAULT NULL"],
+    ["movers_quotes", "distance_km", "DECIMAL(7,2) DEFAULT NULL"],
+    ["movers_quotes", "total_points", "DECIMAL(8,2) DEFAULT NULL"],
+    ["movers_quotes", "pallets", "SMALLINT UNSIGNED DEFAULT NULL"],
+    ["movers_quotes", "transport_base_aed", "DECIMAL(10,2) DEFAULT NULL"],
+    ["movers_quotes", "transport_surcharge_aed", "DECIMAL(10,2) DEFAULT NULL"],
+    ["movers_quotes", "transport_total_aed", "DECIMAL(10,2) DEFAULT NULL"],
+    ["movers_quotes", "amount_due_aed", "DECIMAL(10,2) DEFAULT NULL"],
+    ["movers_quotes", "payment_status", "VARCHAR(20) NOT NULL DEFAULT 'none'"], // none | pending | paid | expired | custom_quote
+    ["movers_quotes", "stripe_session_id", "VARCHAR(255) DEFAULT NULL"],
+    ["movers_quotes", "stripe_payment_ref", "VARCHAR(255) DEFAULT NULL"],
+    ["movers_quotes", "paid_at", "DATETIME DEFAULT NULL"],
+    ["movers_quote_items", "points", "DECIMAL(6,2) DEFAULT NULL"],
+  ]
+  const [cols] = await p.query<mysql.RowDataPacket[]>(
+    `SELECT TABLE_NAME AS t, COLUMN_NAME AS c FROM information_schema.COLUMNS
+      WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME IN ('movers_quotes','movers_quote_items')`
+  )
+  const have = new Set(cols.map((r) => `${r.t}.${r.c}`))
+  for (const [t, c, def] of add) {
+    if (!have.has(`${t}.${c}`)) await p.query(`ALTER TABLE ${t} ADD COLUMN ${c} ${def}`)
+  }
   ensured = true
 }
 
 const now = () => new Date().toISOString().slice(0, 19).replace("T", " ")
 
+export type Pricing = {
+  points: number
+  pallets: number
+  baseAed: number
+  surchargeAed: number
+  totalAed: number
+  distanceKm: number | null
+  amountDueAed: number | null
+  paymentStatus: "none" | "pending" | "custom_quote"
+}
+
 export async function saveMoversQuote(
   reference: string,
   q: MoversQuote,
+  pricing: Pricing,
+  catalogue: CatalogueItem[],
   meta: { ip?: string; userAgent?: string; sourcePage?: string }
 ): Promise<number> {
   await ensureTables()
@@ -104,23 +142,27 @@ export async function saveMoversQuote(
       `INSERT INTO movers_quotes
         (reference, name, phone, email, move_type, home_size, move_date, flexible_date,
          from_address, from_emirate, from_floor, from_lift, to_address, to_emirate, to_floor, to_lift,
-         packing_level, extras, items_unsure, notes, source_page, ip_address, user_agent, created_at, updated_at)
-       VALUES (?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?,?)`,
+         packing_level, extras, items_unsure, notes, source_page, ip_address, user_agent, created_at, updated_at,
+         pickup_lat, pickup_lng, distance_km, total_points, pallets, transport_base_aed, transport_surcharge_aed,
+         transport_total_aed, amount_due_aed, payment_status)
+       VALUES (?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?,?,?)`,
       [
         reference, q.name, q.phone, q.email, q.moveType, q.homeSize, q.moveDate, q.flexibleDate ? 1 : 0,
         q.fromAddress, q.fromEmirate, q.fromFloor || null, q.fromLift, q.toAddress, q.toEmirate, q.toFloor || null, q.toLift,
         q.packing, q.extras.join(",") || null, q.itemsUnsure ? 1 : 0, q.notes || null,
         meta.sourcePage?.slice(0, 200) || null, meta.ip?.slice(0, 45) || null, meta.userAgent?.slice(0, 300) || null, t, t,
+        q.fromLat, q.fromLng, pricing.distanceKm, pricing.points, pricing.pallets, pricing.baseAed, pricing.surchargeAed,
+        pricing.totalAed, pricing.amountDueAed, pricing.paymentStatus,
       ]
     )
     const quoteId = res.insertId
 
-    const catalogue = new Map(ITEM_GROUPS.flatMap((g) => g.items.map((i) => [i.id, { group: g.group, label: i.label }] as const)))
+    const points = new Map(catalogue.map((c) => [c.name, c.points]))
     const rows = Object.entries(q.items)
-      .filter(([id]) => catalogue.has(id)) // unknown codes are dropped, never stored
-      .map(([id, n]) => [quoteId, catalogue.get(id)!.group, id, catalogue.get(id)!.label, n])
+      .filter(([name]) => points.has(name))
+      .map(([name, n]) => [quoteId, "Items", name.slice(0, 30), name.slice(0, 80), n, points.get(name)])
     if (rows.length) {
-      await conn.query(`INSERT INTO movers_quote_items (quote_id, item_group, item_code, item_label, quantity) VALUES ?`, [rows])
+      await conn.query(`INSERT INTO movers_quote_items (quote_id, item_group, item_code, item_label, quantity, points) VALUES ?`, [rows])
     }
     await conn.commit()
     return quoteId
@@ -134,4 +176,43 @@ export async function saveMoversQuote(
 
 export async function markMoversEmailSent(reference: string): Promise<void> {
   await getPool().query(`UPDATE movers_quotes SET email_sent = 1, updated_at = ? WHERE reference = ?`, [now(), reference])
+}
+
+export async function setMoversStripeSession(reference: string, sessionId: string): Promise<void> {
+  await getPool().query(`UPDATE movers_quotes SET stripe_session_id = ?, updated_at = ? WHERE reference = ?`, [sessionId, now(), reference])
+}
+
+export type MoversRow = {
+  reference: string; name: string; phone: string; email: string; move_date: string
+  from_address: string; from_emirate: string; to_address: string; to_emirate: string
+  amount_due_aed: string | null; pallets: number | null
+}
+
+/**
+ * Called by the Stripe webhook. Idempotent: returns the row only the FIRST time it flips to paid,
+ * so Stripe's retries never send the team a second "paid" email.
+ */
+export async function markMoversPaid(reference: string, sessionId: string, paymentRef: string): Promise<MoversRow | null> {
+  await ensureTables()
+  const t = now()
+  const [res] = await getPool().query<mysql.ResultSetHeader>(
+    `UPDATE movers_quotes SET payment_status = 'paid', status = IF(status = 'new', 'booked', status),
+            stripe_session_id = ?, stripe_payment_ref = ?, paid_at = ?, updated_at = ?
+      WHERE reference = ? AND payment_status <> 'paid'`,
+    [sessionId, paymentRef, t, t, reference]
+  )
+  if (!res.affectedRows) return null
+  const [rows] = await getPool().query<mysql.RowDataPacket[]>(
+    `SELECT reference, name, phone, email, move_date, from_address, from_emirate, to_address, to_emirate, amount_due_aed, pallets
+       FROM movers_quotes WHERE reference = ?`,
+    [reference]
+  )
+  return (rows[0] as MoversRow) ?? null
+}
+
+export async function markMoversExpired(sessionId: string): Promise<void> {
+  await getPool().query(
+    `UPDATE movers_quotes SET payment_status = 'expired', updated_at = ? WHERE stripe_session_id = ? AND payment_status = 'pending'`,
+    [now(), sessionId]
+  )
 }

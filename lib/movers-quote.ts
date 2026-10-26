@@ -1,6 +1,15 @@
 // Packers & movers quote — shared by the wizard (client) and /api/movers-quote (server).
 // Deliberately separate from the storage quote (/get-quote): no storage points, no pallets.
-// No prices anywhere (owner rule, CLAUDE.md): the team replies with a free, itemised quote.
+// Transport is priced exactly like /get-quote: items -> storage points -> pallets (16 points each)
+// -> vehicle tier + surcharge, with the same 60 km service radius. See lib/transport-pricing.ts.
+
+import {
+  POINTS_PER_PALLET,
+  SERVICE_RADIUS_KM,
+  calculateTransportPrice,
+  distanceFromServiceOriginKm,
+  transportEstimateRange,
+} from "@/lib/transport-pricing"
 
 export const EMIRATES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"] as const
 
@@ -26,25 +35,6 @@ export const EXTRAS = [
   { id: "pets_plants", label: "Plants or delicate items" },
 ] as const
 
-export const ITEM_GROUPS: { group: string; items: { id: string; label: string }[] }[] = [
-  { group: "Bedroom", items: [
-    { id: "bed_double", label: "Double / queen bed" }, { id: "bed_king", label: "King bed" }, { id: "bed_single", label: "Single bed" },
-    { id: "wardrobe", label: "Wardrobe" }, { id: "chest", label: "Chest of drawers" }, { id: "bedside", label: "Bedside table" },
-  ] },
-  { group: "Living room", items: [
-    { id: "sofa", label: "Sofa (per seat group)" }, { id: "tv_unit", label: "TV unit" }, { id: "tv", label: "TV" },
-    { id: "coffee_table", label: "Coffee / side table" }, { id: "bookshelf", label: "Bookshelf" }, { id: "rug", label: "Rug" },
-  ] },
-  { group: "Kitchen & dining", items: [
-    { id: "fridge", label: "Fridge" }, { id: "washer", label: "Washing machine" }, { id: "dishwasher", label: "Dishwasher" },
-    { id: "oven", label: "Oven / cooker" }, { id: "dining_table", label: "Dining table" }, { id: "dining_chair", label: "Dining chair" },
-  ] },
-  { group: "Office & other", items: [
-    { id: "desk", label: "Desk" }, { id: "office_chair", label: "Office chair" }, { id: "cabinet", label: "Filing cabinet" },
-    { id: "bicycle", label: "Bicycle" }, { id: "treadmill", label: "Treadmill / gym equipment" }, { id: "boxes", label: "Boxes already packed" },
-  ] },
-]
-
 export type MoversQuote = {
   name: string
   phone: string
@@ -57,12 +47,16 @@ export type MoversQuote = {
   fromEmirate: string
   fromFloor: string
   fromLift: "yes" | "no" | ""
+  /** Pickup coordinates from the address suggestion; null when typed by hand. */
+  fromLat: number | null
+  fromLng: number | null
   toAddress: string
   toEmirate: string
   toFloor: string
   toLift: "yes" | "no" | ""
   services: string[]
   packing: string
+  /** Backend item name -> quantity (same catalogue as /get-quote). */
   items: Record<string, number>
   itemsUnsure: boolean
   extras: string[]
@@ -71,7 +65,7 @@ export type MoversQuote = {
 
 export const EMPTY_QUOTE: MoversQuote = {
   name: "", phone: "", email: "", moveType: "", homeSize: "", moveDate: "", flexibleDate: false,
-  fromAddress: "", fromEmirate: "Dubai", fromFloor: "", fromLift: "",
+  fromAddress: "", fromEmirate: "Dubai", fromFloor: "", fromLift: "", fromLat: null, fromLng: null,
   toAddress: "", toEmirate: "Dubai", toFloor: "", toLift: "",
   services: [], packing: "full", items: {}, itemsUnsure: false, extras: [], notes: "",
 }
@@ -105,3 +99,66 @@ export function validateStep(step: number, q: MoversQuote): Record<string, strin
 
 export const validateAll = (q: MoversQuote) =>
   [0, 1, 2].reduce<Record<string, string>>((acc, s) => ({ ...acc, ...validateStep(s, q) }), {})
+
+/** One row of the shared item list (https://safestorage.in/back/app/dubai_items_list). */
+export type CatalogueItem = { name: string; points: number }
+
+export const ITEMS_URL = "https://safestorage.in/back/app/dubai_items_list"
+
+export function parseCatalogue(json: unknown): CatalogueItem[] {
+  const rows = (json as { data?: unknown })?.data
+  if (!Array.isArray(rows)) return []
+  const out: CatalogueItem[] = []
+  for (const r of rows as Record<string, unknown>[]) {
+    const name = String(r.storage_item_name ?? "").trim()
+    const points = parseFloat(String(r.storage_item_point ?? ""))
+    if (name && Number.isFinite(points) && points > 0) out.push({ name, points })
+  }
+  return out
+}
+
+/** Emirate name -> the city_slug transport-pricing keys its service anchors on. */
+export const emirateSlug = (name: string) => (name === "Abu Dhabi" ? "abudhabi" : name.toLowerCase().replace(/\s+/g, ""))
+
+export type MovePricing = {
+  points: number
+  pallets: number
+  transport: ReturnType<typeof calculateTransportPrice>
+  range: ReturnType<typeof transportEstimateRange>
+  distanceKm: number | null
+  outOfRange: boolean
+  unknownItems: string[]
+}
+
+/** The same chain /get-quote runs, shared by the wizard (display) and the server (what is actually charged). */
+export function priceMove(
+  items: Record<string, number>,
+  catalogue: CatalogueItem[],
+  fromEmirate: string,
+  lat: number | null,
+  lng: number | null
+): MovePricing {
+  const byName = new Map(catalogue.map((c) => [c.name, c.points]))
+  let points = 0
+  const unknownItems: string[] = []
+  for (const [name, qty] of Object.entries(items)) {
+    const p = byName.get(name)
+    if (p === undefined) unknownItems.push(name)
+    else points += p * qty
+  }
+  const pallets = Math.ceil(points / POINTS_PER_PALLET - 1e-9)
+  const transport = calculateTransportPrice(pallets)
+  const distanceKm =
+    lat !== null && lng !== null && Number.isFinite(lat) && Number.isFinite(lng)
+      ? distanceFromServiceOriginKm(lat, lng, emirateSlug(fromEmirate))
+      : null
+  return {
+    points,
+    pallets,
+    transport,
+    range: transportEstimateRange(transport.totalAed),
+    distanceKm,
+    outOfRange: distanceKm !== null && distanceKm > SERVICE_RADIUS_KM,
+    unknownItems,
+  }
+}
