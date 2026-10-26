@@ -4,7 +4,7 @@ import { clientIp } from "@/lib/client-ip"
 import { getStripe, isStripeEnabled, toFils, CURRENCY } from "@/lib/stripe"
 import { savePaymentAttempt, deviceFromUserAgent } from "@/lib/payment-attempt-db"
 import { testCheckoutAmountAed } from "@/lib/test-checkout"
-import { markMoversEmailSent, saveMoversQuote, setMoversStripeSession, type Pricing } from "@/lib/movers-quote-db"
+import { linkPartialToQuote, markMoversEmailSent, saveMoversQuote, setMoversStripeSession, type Pricing } from "@/lib/movers-quote-db"
 import { emailTeam, getCatalogue, summaryRows } from "@/lib/movers-quote-server"
 import { priceMove, validateAll, type MoversQuote } from "@/lib/movers-quote"
 
@@ -18,6 +18,11 @@ export const dynamic = "force-dynamic"
 // the item names — the browser never decides what is charged. In range -> Stripe Checkout for the
 // transport total; the signed webhook (purpose "movers_payment") is what marks it paid. Out of
 // range, or "not sure about my items" -> no payment, the team prices it and calls.
+//
+// Two calls, like /get-quote's funnel: mode "quote" is sent when the customer finishes step 3 and
+// saves the quotation (and emails the team); mode "book" (the final button) updates that same row
+// and starts the Stripe checkout. A visitor who only typed contact details and left is captured by
+// /api/movers-quote/partial instead.
 //
 // Every request is stored in movers_quotes / movers_quote_items first and a copy is emailed to the
 // team second. If neither works the form answers 503 and shows a "call us" message — it never claims
@@ -40,6 +45,10 @@ export async function POST(request: NextRequest) {
 
   // Honeypot: bots fill the hidden field; answer as if it worked and drop it.
   if (str(raw.website)) return NextResponse.json({ status: "success", reference: "MV-0" })
+
+  const mode = raw.mode === "quote" ? "quote" : "book"
+  const existingRef = /^MV-[A-Z0-9]{3,20}$/.test(str(raw.reference, 24)) ? str(raw.reference, 24) : undefined
+  const leadKey = /^[A-Za-z0-9_-]{8,64}$/.test(str(raw.leadKey, 64)) ? str(raw.leadKey, 64) : ""
 
   const items: Record<string, number> = {}
   if (raw.items && typeof raw.items === "object") {
@@ -77,7 +86,7 @@ export async function POST(request: NextRequest) {
   }
 
   const stripe = getStripe()
-  const payable = !q.itemsUnsure && price.pallets > 0 && !price.outOfRange && price.transport.totalAed > 0 && !!stripe && isStripeEnabled()
+  const payable = mode === "book" && !q.itemsUnsure && price.pallets > 0 && !price.outOfRange && price.transport.totalAed > 0 && !!stripe && isStripeEnabled()
   // Same live-mode tester override /api/checkout honours; a no-op unless TEST_CHECKOUT_EMAILS is set.
   const amountAed = payable ? testCheckoutAmountAed(q.email) ?? price.transport.totalAed : null
 
@@ -92,23 +101,28 @@ export async function POST(request: NextRequest) {
     paymentStatus: payable ? "pending" : price.outOfRange ? "custom_quote" : "none",
   }
 
-  const reference = `MV-${Date.now().toString(36).toUpperCase()}`
+  let reference = `MV-${Date.now().toString(36).toUpperCase()}`
+  let created = true
   const ua = request.headers.get("user-agent") || undefined
   const ip = clientIp(request)
 
   // 1) database
   let saved = false
   try {
-    await saveMoversQuote(reference, q, pricing, catalogue, { ip, userAgent: ua, sourcePage: "/packers-and-movers/get-quote" })
+    const r = await saveMoversQuote(reference, q, pricing, catalogue, { ip, userAgent: ua, sourcePage: "/packers-and-movers/get-quote" }, existingRef)
+    reference = r.reference
+    created = r.created
     saved = true
+    if (leadKey) await linkPartialToQuote(leadKey, reference)
   } catch (e) {
     console.error("[movers-quote] database save failed", reference, e)
   }
 
   // 2) email the team a copy (for a payable request this is the "payment pending" lead; the
   //    webhook sends the "PAID" mail when the money lands)
-  const status = payable ? "payment pending" : price.outOfRange ? "out of service area — custom quote" : q.itemsUnsure ? "survey needed" : "no payment (Stripe off)"
-  const emailed = await emailTeam(
+  const status = mode === "quote" ? "quotation saved (not booked yet)" : payable ? "payment pending" : price.outOfRange ? "out of service area — custom quote" : q.itemsUnsure ? "survey needed" : "no payment (Stripe off)"
+  // Only the first save of a quotation emails the team; later updates (back/forward, booking) do not.
+  const emailed = !created ? true : await emailTeam(
     `Movers quote ${reference} — ${q.name} (${q.fromEmirate} → ${q.toEmirate}, ${q.moveDate})`,
     summaryRows(q, [
       ["Reference", reference], ["Status", status],
@@ -118,7 +132,7 @@ export async function POST(request: NextRequest) {
     ]),
     q.email
   )
-  if (emailed && saved) await markMoversEmailSent(reference).catch(() => {})
+  if (emailed && saved && created) await markMoversEmailSent(reference).catch(() => {})
 
   if (!saved && !emailed) {
     if (process.env.NODE_ENV !== "production" && !isEmailEnabled()) {
@@ -128,6 +142,9 @@ export async function POST(request: NextRequest) {
       return unavailable()
     }
   }
+
+  // The quotation step ends here: saved, team notified, nothing to pay yet.
+  if (mode === "quote") return NextResponse.json({ status: "success", reference, payment: "none" })
 
   // 3) payment
   if (payable && amountAed) {

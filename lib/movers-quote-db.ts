@@ -85,6 +85,25 @@ async function ensureTables(): Promise<void> {
        CONSTRAINT fk_movers_item_quote FOREIGN KEY (quote_id) REFERENCES movers_quotes (id) ON DELETE CASCADE
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`
   )
+  await p.query(
+    `CREATE TABLE IF NOT EXISTS movers_partial_leads (
+       id              INT UNSIGNED NOT NULL AUTO_INCREMENT,
+       lead_key        VARCHAR(64)  NOT NULL,
+       name            VARCHAR(100) DEFAULT NULL,
+       phone           VARCHAR(30)  DEFAULT NULL,
+       email           VARCHAR(120) DEFAULT NULL,
+       step_reached    TINYINT UNSIGNED NOT NULL DEFAULT 0,
+       quote_reference VARCHAR(24)  DEFAULT NULL,
+       ip_address      VARCHAR(45)  DEFAULT NULL,
+       user_agent      VARCHAR(300) DEFAULT NULL,
+       created_at      DATETIME     NOT NULL,
+       updated_at      DATETIME     NOT NULL,
+       PRIMARY KEY (id),
+       UNIQUE KEY uq_lead_key (lead_key),
+       KEY idx_phone (phone),
+       KEY idx_email (email)
+     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`
+  )
   // Pricing / payment columns, added if missing (portable: MySQL has no ADD COLUMN IF NOT EXISTS).
   const add: [string, string, string][] = [
     ["movers_quotes", "pickup_lat", "DECIMAL(10,7) DEFAULT NULL"],
@@ -126,36 +145,76 @@ export type Pricing = {
   paymentStatus: "none" | "pending" | "custom_quote"
 }
 
+/**
+ * Insert the quotation, or update it when `existingRef` names an unpaid row for the SAME email
+ * (the customer went back and changed something, or is now booking). References are guessable
+ * base36 timestamps, so the email match is what stops one visitor overwriting another's quote.
+ * Returns the reference actually used and whether a new row was created.
+ */
 export async function saveMoversQuote(
   reference: string,
   q: MoversQuote,
   pricing: Pricing,
   catalogue: CatalogueItem[],
-  meta: { ip?: string; userAgent?: string; sourcePage?: string }
-): Promise<number> {
+  meta: { ip?: string; userAgent?: string; sourcePage?: string },
+  existingRef?: string
+): Promise<{ reference: string; created: boolean }> {
   await ensureTables()
   const conn = await getPool().getConnection()
   try {
     await conn.beginTransaction()
     const t = now()
-    const [res] = await conn.query<mysql.ResultSetHeader>(
-      `INSERT INTO movers_quotes
-        (reference, name, phone, email, move_type, home_size, move_date, flexible_date,
-         from_address, from_emirate, from_floor, from_lift, to_address, to_emirate, to_floor, to_lift,
-         packing_level, extras, items_unsure, notes, source_page, ip_address, user_agent, created_at, updated_at,
-         pickup_lat, pickup_lng, distance_km, total_points, pallets, transport_base_aed, transport_surcharge_aed,
-         transport_total_aed, amount_due_aed, payment_status)
-       VALUES (?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?,?,?)`,
-      [
-        reference, q.name, q.phone, q.email, q.moveType, q.homeSize, q.moveDate, q.flexibleDate ? 1 : 0,
-        q.fromAddress, q.fromEmirate, q.fromFloor || null, q.fromLift, q.toAddress, q.toEmirate, q.toFloor || null, q.toLift,
-        q.packing, q.extras.join(",") || null, q.itemsUnsure ? 1 : 0, q.notes || null,
-        meta.sourcePage?.slice(0, 200) || null, meta.ip?.slice(0, 45) || null, meta.userAgent?.slice(0, 300) || null, t, t,
-        q.fromLat, q.fromLng, pricing.distanceKm, pricing.points, pricing.pallets, pricing.baseAed, pricing.surchargeAed,
-        pricing.totalAed, pricing.amountDueAed, pricing.paymentStatus,
-      ]
-    )
-    const quoteId = res.insertId
+
+    let quoteId = 0
+    let created = true
+    if (existingRef) {
+      const [found] = await conn.query<mysql.RowDataPacket[]>(
+        `SELECT id, email, payment_status FROM movers_quotes WHERE reference = ? FOR UPDATE`,
+        [existingRef]
+      )
+      const row = found[0]
+      if (row && row.payment_status !== "paid" && String(row.email).toLowerCase() === q.email.toLowerCase()) {
+        quoteId = row.id
+        created = false
+        reference = existingRef
+      }
+    }
+
+    if (created) {
+      const [res] = await conn.query<mysql.ResultSetHeader>(
+        `INSERT INTO movers_quotes
+          (reference, name, phone, email, move_type, home_size, move_date, flexible_date,
+           from_address, from_emirate, from_floor, from_lift, to_address, to_emirate, to_floor, to_lift,
+           packing_level, extras, items_unsure, notes, source_page, ip_address, user_agent, created_at, updated_at,
+           pickup_lat, pickup_lng, distance_km, total_points, pallets, transport_base_aed, transport_surcharge_aed,
+           transport_total_aed, amount_due_aed, payment_status)
+         VALUES (?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?,?,?)`,
+        [
+          reference, q.name, q.phone, q.email, q.moveType, q.homeSize, q.moveDate, q.flexibleDate ? 1 : 0,
+          q.fromAddress, q.fromEmirate, q.fromFloor || null, q.fromLift, q.toAddress, q.toEmirate, q.toFloor || null, q.toLift,
+          q.packing, q.extras.join(",") || null, q.itemsUnsure ? 1 : 0, q.notes || null,
+          meta.sourcePage?.slice(0, 200) || null, meta.ip?.slice(0, 45) || null, meta.userAgent?.slice(0, 300) || null, t, t,
+          q.fromLat, q.fromLng, pricing.distanceKm, pricing.points, pricing.pallets, pricing.baseAed, pricing.surchargeAed,
+          pricing.totalAed, pricing.amountDueAed, pricing.paymentStatus,
+        ]
+      )
+      quoteId = res.insertId
+    } else {
+      await conn.query(
+        `UPDATE movers_quotes SET name=?, phone=?, move_type=?, home_size=?, move_date=?,
+                from_address=?, from_emirate=?, from_floor=?, from_lift=?, to_address=?, to_emirate=?, to_floor=?, to_lift=?,
+                pickup_lat=?, pickup_lng=?, distance_km=?, total_points=?, pallets=?, transport_base_aed=?,
+                transport_surcharge_aed=?, transport_total_aed=?, amount_due_aed=?, payment_status=?, updated_at=?
+          WHERE id = ?`,
+        [
+          q.name, q.phone, q.moveType, q.homeSize, q.moveDate,
+          q.fromAddress, q.fromEmirate, q.fromFloor || null, q.fromLift, q.toAddress, q.toEmirate, q.toFloor || null, q.toLift,
+          q.fromLat, q.fromLng, pricing.distanceKm, pricing.points, pricing.pallets, pricing.baseAed,
+          pricing.surchargeAed, pricing.totalAed, pricing.amountDueAed, pricing.paymentStatus, t, quoteId,
+        ]
+      )
+      await conn.query(`DELETE FROM movers_quote_items WHERE quote_id = ?`, [quoteId])
+    }
 
     const points = new Map(catalogue.map((c) => [c.name, c.points]))
     const rows = Object.entries(q.items)
@@ -165,13 +224,39 @@ export async function saveMoversQuote(
       await conn.query(`INSERT INTO movers_quote_items (quote_id, item_group, item_code, item_label, quantity, points) VALUES ?`, [rows])
     }
     await conn.commit()
-    return quoteId
+    return { reference, created }
   } catch (e) {
     await conn.rollback().catch(() => {})
     throw e
   } finally {
     conn.release()
   }
+}
+
+/** Abandoned-enquiry capture: one row per browser (lead_key), updated on every exit. Never throws. */
+export async function savePartialLead(p: {
+  leadKey: string; name: string; phone: string; email: string; step: number; ip?: string; userAgent?: string
+}): Promise<void> {
+  try {
+    await ensureTables()
+    const t = now()
+    await getPool().query(
+      `INSERT INTO movers_partial_leads (lead_key, name, phone, email, step_reached, ip_address, user_agent, created_at, updated_at)
+       VALUES (?,?,?,?,?,?,?,?,?)
+       ON DUPLICATE KEY UPDATE name = VALUES(name), phone = VALUES(phone), email = VALUES(email),
+         step_reached = GREATEST(step_reached, VALUES(step_reached)), updated_at = VALUES(updated_at)`,
+      [p.leadKey, p.name || null, p.phone || null, p.email || null, p.step, p.ip?.slice(0, 45) || null, p.userAgent?.slice(0, 300) || null, t, t]
+    )
+  } catch (e) {
+    console.error("[movers-quote] partial lead save failed", e)
+  }
+}
+
+/** The customer went on to a real quotation, so the partial row is no longer a lead to chase. */
+export async function linkPartialToQuote(leadKey: string, reference: string): Promise<void> {
+  try {
+    await getPool().query(`UPDATE movers_partial_leads SET quote_reference = ?, updated_at = ? WHERE lead_key = ?`, [reference, now(), leadKey])
+  } catch {}
 }
 
 export async function markMoversEmailSent(reference: string): Promise<void> {

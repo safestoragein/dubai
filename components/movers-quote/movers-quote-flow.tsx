@@ -60,6 +60,9 @@ export default function MoversQuoteFlow() {
   const [catalogue, setCatalogue] = useState<CatalogueItem[]>([])
   const [catalogueState, setCatalogueState] = useState<"loading" | "ready" | "error">("loading")
   const [search, setSearch] = useState("")
+  const [leadKey, setLeadKey] = useState("") // identifies this browser's partial lead
+  const [quoteRef, setQuoteRef] = useState("") // set once the quotation is saved (end of step 3)
+  const lastPartialSig = useRef("")
   const top = useRef<HTMLDivElement>(null)
 
   // Restore a saved draft (browser only). Never blocks the form if storage is unavailable.
@@ -67,11 +70,14 @@ export default function MoversQuoteFlow() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY)
       if (raw) {
-        const d = JSON.parse(raw) as { q?: MoversQuote; step?: number }
+        const d = JSON.parse(raw) as { q?: MoversQuote; step?: number; leadKey?: string; quoteRef?: string }
+        if (d.leadKey) setLeadKey(d.leadKey)
+        if (d.quoteRef) setQuoteRef(d.quoteRef)
         if (d.q) setQ({ ...EMPTY_QUOTE, ...d.q })
         if (typeof d.step === "number" && d.step >= 0 && d.step < STEPS.length) setStep(d.step)
       }
     } catch {}
+    setLeadKey((k) => k || (globalThis.crypto?.randomUUID?.() ?? `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 10)}`))
     setLoaded(true)
   }, [])
 
@@ -104,10 +110,37 @@ export default function MoversQuoteFlow() {
   useEffect(() => {
     if (!loaded || reference) return
     const t = setTimeout(() => {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ q, step })) } catch {}
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ q, step, leadKey, quoteRef })) } catch {}
     }, 400)
     return () => clearTimeout(t)
-  }, [q, step, loaded, reference])
+  }, [q, step, loaded, reference, leadKey, quoteRef])
+
+  // Abandoned-enquiry capture (same idea as /get-quote): the visitor typed any one of name / phone /
+  // email and then hides or closes the tab. Skipped once a quotation exists (the team already has them)
+  // and de-duplicated, so tabbing in and out sends one record, not ten.
+  useEffect(() => {
+    if (!loaded || !leadKey || quoteRef || reference) return
+    const send = () => {
+      const name = q.name.trim(), phone = q.phone.trim(), email = q.email.trim()
+      if (!name && !phone && !email) return
+      const sig = `${name}|${phone}|${email}|${step}`
+      if (sig === lastPartialSig.current) return
+      lastPartialSig.current = sig
+      const body = JSON.stringify({ leadKey, name, phone, email, step })
+      try {
+        if (!navigator.sendBeacon?.("/api/movers-quote/partial", new Blob([body], { type: "text/plain" }))) throw new Error("beacon refused")
+      } catch {
+        fetch("/api/movers-quote/partial", { method: "POST", body, keepalive: true }).catch(() => {})
+      }
+    }
+    const onHide = () => { if (document.visibilityState === "hidden") send() }
+    document.addEventListener("visibilitychange", onHide)
+    window.addEventListener("pagehide", send)
+    return () => {
+      document.removeEventListener("visibilitychange", onHide)
+      window.removeEventListener("pagehide", send)
+    }
+  }, [loaded, leadKey, quoteRef, reference, q.name, q.phone, q.email, step])
 
   const set = <K extends keyof MoversQuote>(k: K, v: MoversQuote[K]) => {
     setQ((p) => ({ ...p, [k]: v }))
@@ -120,10 +153,39 @@ export default function MoversQuoteFlow() {
     top.current?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
-  const next = () => {
+  const next = async () => {
     const e = validateStep(step, q)
     setErrors(e)
-    if (Object.keys(e).length === 0) go(step + 1)
+    if (Object.keys(e).length) return
+    // Finishing step 3 (items) is the commit point, as on /get-quote: save the quotation now,
+    // before the customer sees the price and the booking step.
+    if (step === 2) {
+      setBusy(true)
+      setServerError("")
+      try {
+        const res = await fetch("/api/movers-quote", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...q, mode: "quote", reference: quoteRef, leadKey, website: hp }),
+        })
+        const data = await res.json().catch(() => ({}))
+        if (res.ok && data.status === "success") {
+          setQuoteRef(data.reference || "")
+        } else if (res.status === 422 && data.errors) {
+          setErrors(data.errors)
+          return
+        } else {
+          setServerError(data.message || "Something went wrong. Please try again or call us.")
+          return
+        }
+      } catch {
+        setServerError("We could not reach the server. Please check your connection or call us.")
+        return
+      } finally {
+        setBusy(false)
+      }
+    }
+    go(step + 1)
   }
 
   const setItem = (id: string, delta: number) => {
@@ -152,7 +214,7 @@ export default function MoversQuoteFlow() {
       const res = await fetch("/api/movers-quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...q, website: hp }),
+        body: JSON.stringify({ ...q, mode: "book", reference: quoteRef, leadKey, website: hp }),
       })
       const data = await res.json().catch(() => ({}))
       if (res.ok && data.status === "success") {
@@ -351,6 +413,7 @@ export default function MoversQuoteFlow() {
                 </div>
               )
             })()}
+            {serverError && <p role="alert" className="rounded-lg bg-[#fff0ee] p-3 text-sm text-[#d45f50]">{serverError} <a className="font-semibold underline" href={env.PHONE_LINK}>Call us</a></p>}
           </div>
         )}
 
@@ -400,8 +463,8 @@ export default function MoversQuoteFlow() {
             </button>
           ) : <span />}
           {step < 3 ? (
-            <button type="button" onClick={next} className="inline-flex items-center gap-1 rounded-lg bg-[#ee5824] px-6 py-3 font-semibold text-white hover:bg-[#d9481a]">
-              Continue <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            <button type="button" onClick={next} disabled={busy} className="inline-flex items-center gap-1 rounded-lg bg-[#ee5824] px-6 py-3 font-semibold text-white hover:bg-[#d9481a] disabled:opacity-60">
+              {busy ? "Saving…" : "Continue"} <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </button>
           ) : (
             <button type="button" onClick={submit} disabled={busy} className="rounded-lg bg-[#ee5824] px-6 py-3 font-semibold text-white hover:bg-[#d9481a] disabled:opacity-60">
