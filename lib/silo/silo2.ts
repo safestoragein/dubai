@@ -767,9 +767,8 @@ export const SILO2_PAGES: SiloPageContent[] = [
     ogTitle: "Sports and Gym Equipment Storage in Dubai",
     h1: "Sports and Gym Equipment Storage in Dubai",
     hero: [
-      "The Dubai home gym has a predictable arc: bought in January, used enthusiastically until March, and then occupying a quarter of a bedroom until somebody decides what to do about it. Storage is what people decide, and it is one of the more cheerful bookings in [personal storage in Dubai](/personal-storage-dubai).",
-      "Beyond that there is the seasonal half — dive gear, paddleboards, kayaks and desert kit that gets used between October and April and then has nowhere to be for five months.",
-      "It is all bulky and low value per cubic foot, which makes it exactly the wrong thing to keep in a Dubai flat and exactly the right thing to store, **paying only for the space it uses**.",
+      "The Dubai home gym has a predictable arc: bought in January, used enthusiastically until March, then occupying a quarter of a bedroom until somebody decides what to do about it. Storage is what people decide — part of [personal storage in Dubai](/personal-storage-dubai).",
+      "Then there is the seasonal half: dive gear, paddleboards and desert kit used between October and April with nowhere to be for five months. All of it is bulky, and you pay only for **the space it uses**.",
     ],
     sections: [
       {
@@ -778,23 +777,23 @@ export const SILO2_PAGES: SiloPageContent[] = [
         items: [
           {
             icon: "🏃",
-            h: "Treadmills and large cardio machines",
-            p: "Fold them if they fold, and store upright if the manufacturer allows. These are heavy, awkward, and the single biggest item in most home gyms.",
+            h: "Treadmills and cardio",
+            p: "Fold them if they fold, and store upright if the manufacturer allows. The single biggest item in most home gyms.",
           },
           {
             icon: "🏋️",
             h: "Weights and racks",
-            p: "Dense and heavy rather than bulky. Plates and dumbbells take very little floor space but need racking that can carry the load — tell us the total weight.",
+            p: "Dense rather than bulky. Plates take little floor space but need racking that carries the load — tell us the total weight.",
           },
           {
             icon: "🤿",
-            h: "Dive and watersports gear",
-            p: "Everything must be rinsed in fresh water and fully dried. Salt left on a regulator or a wetsuit over a summer is corrosive and permanent.",
+            h: "Dive and watersports",
+            p: "Rinse in fresh water and dry fully. Salt left on a regulator or wetsuit over a summer is corrosive and permanent.",
           },
           {
             icon: "⛳",
-            h: "Golf, tennis and racquet sports",
-            p: "Bags store well upright. Take any electronics — rangefinders, trolley batteries — out and store them separately.",
+            h: "Golf and racquet sports",
+            p: "Bags store well upright. Take the electronics out — rangefinders, trolley batteries — and store them separately.",
           },
         ],
       },
@@ -803,34 +802,29 @@ export const SILO2_PAGES: SiloPageContent[] = [
         h2: "The preparation that matters",
         intro: "Sports equipment fails in storage for boringly consistent reasons.",
         items: [
-          "Rinse and fully dry anything that has been in the sea. Salt is the number one killer of stored watersports gear in this region.",
-          "Deflate paddleboards and kayaks if they are inflatable, and roll rather than fold along the same crease every time.",
-          "Take the batteries out of everything — trolleys, rangefinders, bike computers, dive computers.",
-          "Wipe down gym equipment. Sweat left on a bench or a grip through a summer is both a smell and a corrosion problem.",
-          "Loosen the string tension on racquets if they are going away for a long period.",
-          "Bag and label the small parts — treadmill bolts, rack pins, kayak fittings. Reassembly without them is the frustrating part.",
-          "Wetsuits are stored flat or on a wide hanger, never folded on a crease for months.",
+          "Rinse and fully dry anything that has been in the sea. Salt is the number one killer of stored watersports gear here.",
+          "Deflate paddleboards and kayaks, and roll rather than fold along the same crease.",
+          "Take the batteries out of everything — trolleys, rangefinders, bike and dive computers.",
+          "Bag and label the small parts: treadmill bolts, rack pins, kayak fittings. Reassembly without them is the frustrating part.",
         ],
       },
       {
-        kind: "prose",
+        kind: "table",
         h2: "Sizing a home gym booking",
-        paras: [
-          "Home gym equipment is unusual because it is heavy without being especially bulky, and floor space rather than weight is what you are billed on. A full rack, a bench and 150 kilos of plates occupies remarkably little floor area once racked properly.",
-          "A typical Dubai home gym — treadmill, bench, adjustable dumbbells, a rack, a mat — comes out around 25 to 40 square feet. A single treadmill on its own is closer to 10.",
-          "What does add space is anything that will not dismantle. A fixed multi-gym or a large cable machine takes what it takes, and it is worth telling us the model before collection so the right crew and vehicle arrive.",
-          "If this is a seasonal rotation rather than a one-way trip, say so — [seasonal storage](/personal-storage-dubai/seasonal-storage) covers how rotating goods are racked so a swap is quick.",
+        columns: ["What you are storing", "Typical floor space"],
+        rows: [
+          ["A single treadmill", "~10 sq ft"],
+          ["Treadmill, bench, dumbbells, rack, mat", "25–40 sq ft"],
+          ["Weights and plates only", "Very little — dense, not bulky"],
+          ["Fixed multi-gym or cable machine", "Quoted on the model"],
         ],
+        note: "Sizes are estimated, and you are billed on floor space rather than weight. Anything that will not dismantle is worth naming before collection so the right crew and vehicle arrive. Rotating seasonally? Say so — [seasonal storage](/personal-storage-dubai/seasonal-storage) covers how that is racked.",
       },
     ],
     faqs: [
       {
         q: "Can you move a treadmill or a multi-gym?",
         a: "Yes, and we would like the model in advance. Large fixed equipment needs the right crew and sometimes the right vehicle, and that is a booking question rather than a collection-day surprise.",
-      },
-      {
-        q: "How much space does a home gym take?",
-        a: "A typical set — treadmill, bench, dumbbells, rack, mat — is around 25 to 40 square feet once racked. Weights are dense rather than bulky, so they cost less space than people assume.",
       },
       {
         q: "Do you store dive equipment?",
@@ -841,14 +835,11 @@ export const SILO2_PAGES: SiloPageContent[] = [
         a: "Deflate it and roll rather than fold. Storing one folded on the same crease for months creates a weak line in the seam that eventually becomes a leak.",
       },
       {
-        q: "Can I store a bicycle with the gym equipment?",
-        a: "Yes, and bikes are among the cheapest things to store by space. Anything with a lithium battery — an e-bike or an electric trolley — needs raising before booking.",
-      },
-      {
-        q: "Is heavy equipment charged differently?",
-        a: "You are billed on floor space rather than weight, so weights and plates are cheap to store. Do tell us the total weight though, because it determines how and where it is racked.",
+        q: "Is heavy equipment handled differently?",
+        a: "You are billed on floor space rather than weight. Do tell us the total weight though, because it determines how and where it is racked.",
       },
     ],
+
     serviceType: "Sports equipment storage",
     cta: {
       h2: "Getting the room back from the home gym?",
