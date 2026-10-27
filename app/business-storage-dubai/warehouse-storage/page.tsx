@@ -216,7 +216,7 @@ export default function WarehouseStorageDubaiPage() {
             </div>
             <div className={p.split2Photo} style={{ aspectRatio: "1733 / 907" } as CSSProperties}>
               <Image
-                src="/landing/warehouse-storage-hero.webp"
+                src="/landing/warehouse-storage-hero-v2.webp"
                 alt="SafeStorage staff moving pallets into the Dubai Investment Park warehouse"
                 width={1733}
                 height={907}
