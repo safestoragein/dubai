@@ -29,6 +29,7 @@ const navItems: NavItem[] = [
       { href: "/personal-storage-dubai", label: "Personal Storage" },
     ],
   },
+  { href: "/packers-and-movers/get-quote", label: "Packers & Movers" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact Us" },
