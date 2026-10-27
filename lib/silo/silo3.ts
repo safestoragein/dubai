@@ -38,18 +38,30 @@ export const SILO3_PAGES: SiloPageContent[] = [
     h1: "Archive Storage in Dubai",
     hero: [
       "An archive differs from document storage in one respect that matters financially: it is measured in years and it grows every year. Managing that growth is the whole discipline, and it belongs inside [business storage in Dubai](/business-storage-dubai).",
-      "The failure mode is well known. A company boxes its back years, stores them, adds a year each January, never destroys anything because nobody is certain what may be destroyed, and ten years later is paying to store a decade of paper nobody can identify.",
       "The fix is boring and it works: index at box level, **write a destruction-eligible date on every box at the point of boxing**, and review annually. That is the difference between an archive and an accumulation.",
     ],
     sections: [
       {
-        kind: "prose",
-        h2: "Setting a retention schedule you can actually run",
-        paras: [
-          "Start from the legal requirement, which is a question for your accountant or legal adviser rather than for us — retention obligations in the UAE vary by entity type, by mainland or free-zone status, and by record class, and we deliberately publish no figure here.",
-          "Then add your own commercial requirement on top, which is usually longer for contracts and shorter for routine correspondence. The result is a schedule with perhaps five or six record classes, not fifty.",
-          "Apply it at the point of boxing rather than at the point of review. A box that arrives with a destruction-eligible date already on it needs a decision once, ten years early, when someone still knows what is in it. A box reviewed cold in 2034 needs someone to open it and work it out.",
-          "Then diarise one review a year. It takes an afternoon and it is the only thing standing between a managed archive and a decade of unexplained cartons — which is what [document storage](/business-storage-dubai/document-storage) becomes without it.",
+        kind: "steps",
+        h2: "A retention schedule you can actually run",
+        intro: "Four decisions, made once, that keep an archive from becoming a decade of unexplained cartons.",
+        items: [
+          {
+            h: "Start from the legal requirement",
+            p: "A question for your accountant or legal adviser, not for us — it varies by entity type, by mainland or free-zone status, and by record class.",
+          },
+          {
+            h: "Add your commercial requirement",
+            p: "Usually longer for contracts, shorter for routine correspondence. The result is five or six record classes, not fifty.",
+          },
+          {
+            h: "Apply it at boxing, not at review",
+            p: "A box that arrives with its destruction date already on it needs one decision, while someone still knows what is inside.",
+          },
+          {
+            h: "Diarise one review a year",
+            p: "It takes an afternoon, and it is the only thing standing between a managed archive and [document storage](/business-storage-dubai/document-storage) that only grows.",
+          },
         ],
       },
       {
@@ -58,23 +70,23 @@ export const SILO3_PAGES: SiloPageContent[] = [
         items: [
           {
             icon: "📑",
-            h: "Statutory and financial records",
+            h: "Statutory and financial",
             p: "The classes with a mandated retention period. Confirm the applicable period with your adviser and box by year and class.",
           },
           {
             icon: "✍️",
             h: "Contracts and agreements",
-            p: "Usually kept longer than the statutory minimum for commercial reasons — a contract's useful life outlasts its retention obligation.",
+            p: "Usually kept longer than the statutory minimum — a contract's useful life outlasts its retention obligation.",
           },
           {
             icon: "👥",
             h: "HR and payroll files",
-            p: "Sensitive, and subject to your own data-protection obligations, which storage does not discharge. Box these separately from general records.",
+            p: "Sensitive, and subject to your own data-protection obligations, which storage does not discharge. Box these separately.",
           },
           {
             icon: "🏗️",
-            h: "Project and technical records",
-            p: "Drawings, certifications and handover documents, often needed years later and almost never indexed well at the time.",
+            h: "Project and technical",
+            p: "Drawings, certifications and handover documents — needed years later and almost never indexed well at the time.",
           },
         ],
       },
@@ -82,14 +94,13 @@ export const SILO3_PAGES: SiloPageContent[] = [
         kind: "checklist",
         h2: "Archive hygiene that pays for itself",
         items: [
-          "Uniform box sizes. Mixed cartons rack badly and the same paper costs measurably more space.",
+          "Uniform box sizes. Mixed cartons rack badly and the same paper takes measurably more space.",
           "One index, in your systems, not only in ours. An archive you cannot audit independently is a liability.",
-          "Destruction-eligible date on every box, written at boxing.",
+          "A destruction-eligible date on every box, written at boxing.",
           "Separate anything containing personal data, and know which boxes those are.",
-          "Scan the small number of records you actually retrieve, rather than retrieving them repeatedly.",
           "One annual review, diarised. Without it the schedule is a document rather than a practice.",
         ],
-        note: "Boxes that are eligible for destruction should actually be destroyed. Ask us to arrange it — the point of the schedule is that the archive gets smaller sometimes.",
+        note: "Boxes eligible for destruction should actually be destroyed — ask us to arrange it. The point of a schedule is that the archive sometimes gets smaller.",
       },
     ],
     faqs: [
@@ -103,21 +114,14 @@ export const SILO3_PAGES: SiloPageContent[] = [
       },
       {
         q: "Can you destroy records when they are due?",
-        a: "Ask us to arrange it when a box reaches its destruction-eligible date. The reason we ask you to write that date at boxing is precisely so this can happen without someone having to open the box and work it out years later.",
+        a: "Ask us to arrange it when a box reaches its destruction-eligible date. The reason we ask you to write that date at boxing is precisely so this can happen without someone opening the box years later.",
       },
       {
         q: "What about records containing personal data?",
         a: "They remain subject to your own data-protection obligations, which storing them offsite does not discharge. Box them separately and know which boxes they are, because that is what makes a subject request answerable.",
       },
-      {
-        q: "How much does a large archive cost?",
-        a: "It is billed on the space used. Four hundred boxes is roughly 160 square feet. For volumes above that we would rather survey and review the index than quote from a box count.",
-      },
-      {
-        q: "Can we add to the archive each year?",
-        a: "Yes, and most customers do it every January. The addition is a small collection; the useful discipline is doing the annual destruction review at the same time so the archive does not only grow.",
-      },
     ],
+
     serviceType: "Archive storage",
     cta: {
       h2: "Archiving a decade of paper?",
