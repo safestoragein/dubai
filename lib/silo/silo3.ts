@@ -489,19 +489,16 @@ export const SILO3_PAGES: SiloPageContent[] = [
     ogTitle: "Retail Stock Storage in Dubai",
     h1: "Retail Stock Storage in Dubai",
     hero: [
-      "A stockroom in a Dubai mall is the most expensive storage in the country, and most of what is in it has not moved for months. Getting the slow half of it out is one of the highest-return uses of [business storage in Dubai](/business-storage-dubai).",
-      "The arrangement is straightforward: **seasonal and slow-moving ranges go offsite**, the backroom holds only what replenishes the floor this week, and stock is called forward as the season turns.",
-      "Storage is **billed only on the space your stock uses** — worth putting directly next to your rent per square foot, because the comparison is usually not close.",
+      "A stockroom in a Dubai mall is the most expensive storage in the country, and most of what is in it has not moved for months. Getting the slow half out is one of the highest-return uses of [business storage in Dubai](/business-storage-dubai).",
+      "The arrangement is straightforward: **seasonal and slow-moving ranges go offsite**, the backroom holds only what replenishes the floor this week, and stock is called forward as the season turns. You are billed only on the space your stock uses.",
     ],
     sections: [
       {
         kind: "prose",
         h2: "The arithmetic that makes this obvious",
         paras: [
-          "Work out your rent per square foot per month, including service charge. Then work out roughly what proportion of your backroom holds stock that has not moved in sixty days. Multiply.",
-          "For most Dubai retail — mall or high street — that number is considerably larger than the storage cost of the same square footage, and the gap widens the better the location. A prime mall unit is paying premium retail rates to warehouse last season's range.",
-          "The second saving is less obvious and often larger: a backroom that is not full works better. Stock is findable, deliveries can be received without a Tetris problem, and staff spend less time moving boxes to reach other boxes.",
-          "The third is that it makes seasonal buying less frightening. Ranges can be bought when the price is right rather than when there is space for them, and held offsite until the season turns.",
+          "Work out your rent per square foot per month, including service charge. Then work out roughly what proportion of your backroom holds stock that has not moved in sixty days, and multiply. A prime mall unit is paying premium retail rates to warehouse last season's range.",
+          "The second saving is less obvious and often larger: a backroom that is not full works better. Stock is findable, deliveries can be received without a Tetris problem, and ranges can be bought when the price is right rather than when there is space for them.",
         ],
       },
       {
@@ -521,7 +518,7 @@ export const SILO3_PAGES: SiloPageContent[] = [
           {
             icon: "🪧",
             h: "Fixtures, display and VM",
-            p: "Mannequins, shelving, seasonal display units and signage between campaigns. Bulky, valuable and never needed at once.",
+            p: "Mannequins, shelving, seasonal display units and signage between campaigns. Bulky, valuable, never needed at once.",
           },
           {
             icon: "📦",
@@ -535,9 +532,18 @@ export const SILO3_PAGES: SiloPageContent[] = [
         h2: "Setting it up without disrupting trade",
         intro: "Do this once, properly, and it runs itself.",
         items: [
-          { h: "Split the backroom by velocity", p: "This week's replenishment stays; sixty-days-untouched goes. Do not split by category." },
-          { h: "Collect outside trading hours", p: "Mall loading bays have windows and permits — tell us the centre and we will work to them." },
-          { h: "Count it in against your SKUs", p: "So your stock system and the offsite balance agree from day one. [Inventory storage](/business-storage-dubai/inventory-storage) covers the discipline." },
+          {
+            h: "Split the backroom by velocity",
+            p: "This week's replenishment stays; sixty-days-untouched goes. Do not split by category.",
+          },
+          {
+            h: "Collect outside trading hours",
+            p: "Mall loading bays have windows and permits — tell us the centre and we will work to them.",
+          },
+          {
+            h: "Count it in against your SKUs",
+            p: "So your stock system and the offsite balance agree from day one. [Inventory storage](/business-storage-dubai/inventory-storage) covers the discipline.",
+          },
           {
             h: "Call forward as the season turns",
             p: "Normally 24–48 hours' notice. Plan the seasonal changeover a week ahead rather than the night before.",
@@ -559,18 +565,11 @@ export const SILO3_PAGES: SiloPageContent[] = [
         a: "Those are among the most worthwhile things to store — bulky, valuable, and only needed for defined campaigns. Wrapped and racked they store well between seasons.",
       },
       {
-        q: "How do I keep my stock system accurate?",
-        a: "Count everything in against your own SKU references at the start and log every release against them. Stock that goes offsite without being counted properly is stock whose number is wrong from then on.",
-      },
-      {
-        q: "Is this cheaper than my stockroom?",
-        a: "Get a free, itemised storage quote and compare it against your rent plus service charge per square foot. For most Dubai retail locations it is not a close comparison, and the better the location the wider the gap.",
-      },
-      {
         q: "Can I store for multiple branches?",
         a: "Yes, and deliveries can go to different branches from the same stock. Say so at setup so releases can be requested per branch rather than being untangled afterwards.",
       },
     ],
+
     serviceType: "Retail stock storage",
     cta: {
       h2: "Paying mall rent for cardboard?",
