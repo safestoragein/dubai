@@ -148,22 +148,37 @@ export const SILO3_PAGES: SiloPageContent[] = [
     keywords:
       "3pl dubai, third party logistics dubai, 3pl services uae, logistics provider dubai, outsourced fulfilment dubai",
     ogTitle: "3PL in Dubai — When It Is Worth It",
-    h1: "3PL in Dubai — What It Adds, And What It Costs You",
+    h1: "3PL in Dubai — What It Adds and Costs",
     hero: [
-      "3PL is where a provider takes over storage, picking, packing, shipping and returns as one service. It is a genuine step up from [business storage in Dubai](/business-storage-dubai) and it is not simply a bigger version of it.",
-      "The reason to be careful is that 3PL is bought too early more often than too late. It adds a per-order cost to every order you ship and it takes the packing experience out of your hands, and both of those are real prices rather than footnotes.",
-      "This page is the decision framework rather than a pitch. If storage plus your own packing still works, it is usually the better answer — [e-commerce storage](/business-storage-dubai/ecommerce-fulfilment) is that arrangement.",
+      "3PL is where a provider takes over storage, picking, packing, shipping and returns as one service. It is a genuine step up from [business storage in Dubai](/business-storage-dubai), not a bigger version of it.",
+      "It is bought too early more often than too late: it adds a per-order cost to every order and takes the packing experience out of your hands. This page is the decision framework rather than a pitch.",
     ],
     sections: [
       {
-        kind: "prose",
+        kind: "cards",
         h2: "What 3PL actually adds",
-        paras: [
-          "**Per-order picking and packing.** Somebody other than you assembles each order. This is the core of it and the thing storage does not do.",
-          "**Courier integration.** Orders flow to a courier with tracking generated automatically rather than you booking pickups.",
-          "**Returns handling.** Received, inspected, graded and restocked or written off, which in a category with high return rates is a substantial amount of labour.",
-          "**Stock visibility.** A system you can see levels in, usually with an API into your store, rather than asking someone what the count is.",
-          "Those four are worth real money once volume is high enough. Below that threshold you are paying a per-order fee to avoid work you were doing in twenty minutes a day.",
+        intro: "Four things storage does not do — worth real money once volume is high enough.",
+        items: [
+          {
+            icon: "📦",
+            h: "Picking and packing",
+            p: "Somebody other than you assembles each order. This is the core of it, and the thing storage does not do.",
+          },
+          {
+            icon: "🚚",
+            h: "Courier integration",
+            p: "Orders flow to a courier with tracking generated automatically, rather than you booking pickups.",
+          },
+          {
+            icon: "↩️",
+            h: "Returns handling",
+            p: "Received, inspected, graded and restocked or written off — substantial labour in a high-return category.",
+          },
+          {
+            icon: "📊",
+            h: "Stock visibility",
+            p: "A system you can see levels in, usually with an API into your store, rather than asking someone for a count.",
+          },
         ],
       },
       {
@@ -173,24 +188,22 @@ export const SILO3_PAGES: SiloPageContent[] = [
         columns: ["Signal", "Roughly", "What it means"],
         rows: [
           ["Daily order volume", "30+ consistently", "Below this, per-order fees usually cost more than your own time"],
-          ["Time on fulfilment", "Over 2 hours a day", "The point where packing is displacing work only you can do"],
+          ["Time on fulfilment", "Over 2 hours a day", "The point where packing displaces work only you can do"],
           ["SKU count", "Over 50", "Manual picking accuracy falls away here"],
           ["Return rate", "Over 15%", "Returns handling becomes a job rather than a task"],
-          ["Growth", "Doubling year on year", "You will cross the thresholds mid-year rather than at a convenient time"],
+          ["Growth", "Doubling year on year", "You will cross the thresholds mid-year rather than conveniently"],
         ],
-        note: "If most of these are no, hold bulk stock in storage, keep working stock with you, and revisit in six months. That arrangement costs a fraction and is reversible.",
+        note: "If most of these are no, hold bulk stock in storage, keep working stock with you, and revisit in six months — that arrangement is reversible.",
       },
       {
         kind: "checklist",
-        h2: "What to ask any 3PL in Dubai before signing",
+        h2: "What to ask any 3PL before signing",
         intro: "The questions that separate providers, rather than the ones on their brochure.",
         items: [
-          "What exactly is per-order pricing, including pick fees, pack fees, courier handover and returns? Ask for a worked example on your actual basket.",
-          "What is the cut-off time for same-day dispatch, and what happens to orders after it?",
+          "What exactly is per-order pricing — pick, pack, courier handover, returns? Ask for a worked example on your actual basket.",
+          "What is the cut-off for same-day dispatch, and what happens to orders after it?",
           "How are stock discrepancies handled — reported, absorbed, or charged?",
-          "What is the notice period and what happens to your stock if you leave?",
           "Can you see live stock levels, and is there an API into your store?",
-          "Who packs during a peak week, and what happens to their SLA in November?",
           "What is the storage charge on slow-moving stock, and does it escalate over time?",
         ],
         note: "The last one catches people. Many 3PL contracts price storage to encourage turnover, which is expensive if part of your range is deliberately slow-moving — that part may be better left in [plain warehouse storage](/business-storage-dubai/warehouse-storage).",
@@ -206,22 +219,15 @@ export const SILO3_PAGES: SiloPageContent[] = [
         a: "Broadly, once you are shipping 30 or more orders a day consistently, spending over two hours a day on fulfilment, carrying more than about 50 SKUs, or growing fast enough that you will cross those lines mid-year.",
       },
       {
-        q: "What does 3PL cost me beyond money?",
-        a: "Control of the unboxing experience, and immediacy. If your packaging is part of your brand, or if you regularly slip a note or a sample into orders, that becomes a specification you negotiate rather than something you just do.",
-      },
-      {
         q: "Can I split — some products 3PL, some stored?",
         a: "Yes, and it is often the sensible arrangement. Fast-moving lines go to fulfilment; slow-moving or bulky lines sit in plain storage where you are not paying turnover-oriented rates on stock that does not turn over.",
-      },
-      {
-        q: "What is the difference between 3PL and a fulfilment centre?",
-        a: "In practice the terms are used interchangeably in this market. What matters is the actual service list — picking, packing, courier integration, returns and stock visibility — rather than the label on the website.",
       },
       {
         q: "How do I move away from a 3PL later?",
         a: "Check the notice period and the stock-return terms before you sign, not after. Getting stock out of a 3PL you are leaving is the part of the relationship that is hardest to negotiate once it has begun.",
       },
     ],
+
     serviceType: "Logistics advisory",
     cta: {
       h2: "Not sure if you are ready?",
