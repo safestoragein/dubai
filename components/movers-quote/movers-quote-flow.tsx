@@ -14,6 +14,7 @@ const STEPS = ["Your move", "Addresses", "Items", "Quote & book"]
 // Shown before the customer searches (matched by name against the live item list).
 const POPULAR = /^(bed|double|queen|king|single|wardrobe|sofa|couch|tv|television|fridge|refrigerator|washing|dining|table|chair|desk|mattress|cabinet|carton|box|bicycle|cycle|treadmill|oven|dishwasher)/i
 const STORAGE_KEY = "movers-quote-draft-v1"
+const DRAFT_TTL_MS = 12 * 60 * 60 * 1000 // an unbooked draft is dropped after 12h so a new visit starts fresh
 
 const field =
   "w-full rounded-lg border border-[#e1e4e9] bg-white px-3 py-2.5 text-base text-[#19212e] outline-none focus:border-[#ee5824] focus:ring-2 focus:ring-[#ee5824]/20"
@@ -74,7 +75,8 @@ export default function MoversQuoteFlow() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY)
       if (raw) {
-        const d = JSON.parse(raw) as { q?: MoversQuote; step?: number; leadKey?: string; quoteRef?: string }
+        const d = JSON.parse(raw) as { q?: MoversQuote; step?: number; leadKey?: string; quoteRef?: string; savedAt?: number }
+        if (!d.savedAt || Date.now() - d.savedAt > DRAFT_TTL_MS) { localStorage.removeItem(STORAGE_KEY); throw new Error("stale") }
         if (d.leadKey) setLeadKey(d.leadKey)
         if (d.quoteRef) setQuoteRef(d.quoteRef)
         if (d.q) setQ({ ...EMPTY_QUOTE, ...d.q })
@@ -114,7 +116,7 @@ export default function MoversQuoteFlow() {
   useEffect(() => {
     if (!loaded || reference) return
     const t = setTimeout(() => {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ q, step, leadKey, quoteRef })) } catch {}
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ q, step, leadKey, quoteRef, savedAt: Date.now() })) } catch {}
     }, 400)
     return () => clearTimeout(t)
   }, [q, step, loaded, reference, leadKey, quoteRef])
@@ -466,6 +468,11 @@ export default function MoversQuoteFlow() {
               <ChevronLeft className="h-4 w-4" aria-hidden="true" /> Back
             </button>
           ) : <span />}
+          {step === 3 && (
+            <button type="button" onClick={() => { try { localStorage.removeItem(STORAGE_KEY) } catch {} window.location.reload() }} className="text-sm font-semibold text-[#56606f] underline">
+              Start a new quote
+            </button>
+          )}
           {step < 3 ? (
             <button type="button" onClick={next} disabled={busy} className="inline-flex items-center gap-1 rounded-lg bg-[#ee5824] px-6 py-3 font-semibold text-white hover:bg-[#d9481a] disabled:opacity-60">
               {busy ? "Saving…" : "Continue"} <ChevronRight className="h-4 w-4" aria-hidden="true" />
