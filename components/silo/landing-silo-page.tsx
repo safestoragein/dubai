@@ -105,6 +105,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/business-storage-dubai/archive-storage": "/landing/archive-storage-hero.webp",
   "/business-storage-dubai/3pl-services": "/landing/3pl-services-hero.webp",
   "/business-storage-dubai/inventory-storage": "/landing/inventory-storage-hero.webp",
+  "/business-storage-dubai/pallet-storage": "/landing/pallet-storage-hero-v3.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -139,6 +140,7 @@ const SIDE_HERO = new Set([
   "/business-storage-dubai/archive-storage",
   "/business-storage-dubai/3pl-services",
   "/business-storage-dubai/inventory-storage",
+  "/business-storage-dubai/pallet-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -179,6 +181,7 @@ const SMALL_CARD_ICONS = new Set([
   "/business-storage-dubai/archive-storage",
   "/business-storage-dubai/3pl-services",
   "/business-storage-dubai/inventory-storage",
+  "/business-storage-dubai/pallet-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -211,10 +214,16 @@ const TABLE_ICONS = new Set([
   "/business-storage-dubai/archive-storage",
   "/business-storage-dubai/3pl-services",
   "/business-storage-dubai/inventory-storage",
+  "/business-storage-dubai/pallet-storage",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
 ])
+
+/** Pages whose table sits on ONE scrolling line instead of wrapping to a
+  * second row. Only for tables with more than five rows, and only where the
+  * rows are independent facts rather than a comparison you read down. */
+const TABLE_RAIL = new Set(["/business-storage-dubai/pallet-storage"])
 
 /** Pages whose rail cards carry a colour icon rather than the navy square. */
 const COLOUR_CARD_ICONS = new Set([
@@ -233,6 +242,7 @@ const COLOUR_CARD_ICONS = new Set([
   "/business-storage-dubai/archive-storage",
   "/business-storage-dubai/3pl-services",
   "/business-storage-dubai/inventory-storage",
+  "/business-storage-dubai/pallet-storage",
   "/self-storage-dubai/vs-warehouse-rental",
 ])
 
@@ -265,6 +275,7 @@ const NO_CARD_NUMBERS = new Set([
   "/business-storage-dubai/archive-storage",
   "/business-storage-dubai/3pl-services",
   "/business-storage-dubai/inventory-storage",
+  "/business-storage-dubai/pallet-storage",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -419,6 +430,7 @@ function SectionView({
   index,
   smallIcons = false,
   tableIcons = false,
+  tableRail = false,
   colourIcons = false,
   hideNumbers = false,
 }: {
@@ -426,6 +438,7 @@ function SectionView({
   index: number
   smallIcons?: boolean
   tableIcons?: boolean
+  tableRail?: boolean
   colourIcons?: boolean
   hideNumbers?: boolean
 }) {
@@ -448,9 +461,9 @@ function SectionView({
         <section className={`${s.section} ${s.wrap}`} id={id} style={SEC}>
           <Head title={section.h2} eyebrow={EYEBROW.table} intro={section.intro} />
           <Cards
-            className={tableIcons ? `${s.colList} ${g.grid}` : s.colList}
+            className={tableRail ? p.siloRail : tableIcons ? `${s.colList} ${g.grid}` : s.colList}
             animate={tableIcons}
-            style={tableIcons ? ({ ["--cols"]: section.rows.length <= 5 ? section.rows.length : 4 } as CSSProperties) : undefined}
+            style={!tableRail && tableIcons ? ({ ["--cols"]: section.rows.length <= 5 ? section.rows.length : 4 } as CSSProperties) : undefined}
           >
             {section.rows.map((row, ri) => (
               <div
@@ -697,6 +710,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
             index={i}
             smallIcons={SMALL_CARD_ICONS.has(content.path)}
             tableIcons={TABLE_ICONS.has(content.path)}
+            tableRail={TABLE_RAIL.has(content.path)}
             colourIcons={COLOUR_CARD_ICONS.has(content.path)}
             hideNumbers={NO_CARD_NUMBERS.has(content.path)}
             key={section.h2}

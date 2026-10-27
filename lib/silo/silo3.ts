@@ -369,19 +369,35 @@ export const SILO3_PAGES: SiloPageContent[] = [
     ogTitle: "Pallet Storage in Dubai",
     h1: "Pallet Storage in Dubai",
     hero: [
-      "Palletised goods are the easiest thing to store well and the easiest thing to get wrong before they arrive. Almost every problem is decided by the pallet itself rather than by the warehouse, and that is worth knowing before the truck leaves your supplier. This is the palletised end of [business storage in Dubai](/business-storage-dubai).",
-      "Pallets are **racked rather than floor-stacked**, which is what allows any pallet to be reached without moving the ones in front of it — and it is the difference between a 24-hour release and a two-day one.",
-      "Pallet bookings are quoted on the number of positions and the movement pattern rather than purely on floor area, because a pallet that moves weekly costs more to handle than one that sits for a year.",
+      "Palletised goods are the easiest thing to store well and the easiest thing to get wrong before they arrive. Almost every problem is decided by the pallet itself rather than by the warehouse — the palletised end of [business storage in Dubai](/business-storage-dubai).",
+      "Pallets are **racked rather than floor-stacked**, so any pallet can be reached without moving the ones in front of it. That is the difference between a 24-hour release and a two-day one.",
     ],
     sections: [
       {
-        kind: "prose",
+        kind: "cards",
         h2: "What decides whether a pallet stores well",
-        paras: [
-          "**The pallet itself.** A broken, split or non-standard pallet cannot be racked safely and has to be re-palletised on arrival, which is a cost and a delay. Check the condition of what your supplier is sending, because you will be told about it at our gate rather than at theirs.",
-          "**How it is wrapped.** Loosely wrapped loads shift in transit and arrive leaning. A leaning pallet cannot go into a rack and has to be rebuilt. Wrap tightly, corner-board anything with sharp edges, and do not overhang the pallet footprint.",
-          "**Overhang.** Goods that extend past the pallet edge are the single most common reason a load cannot be racked. Rack beams are sized to the pallet, not to your box dimensions.",
-          "**Weight and distribution.** Tell us the weight per pallet. A heavy pallet is fine; an unexpectedly heavy pallet arriving unannounced is a handling problem, and an unevenly loaded one is a safety problem.",
+        intro: "Four things settled at your supplier's loading bay, not at our gate.",
+        items: [
+          {
+            icon: "🪵",
+            h: "The pallet itself",
+            p: "A broken, split or non-standard pallet cannot be racked safely and has to be re-palletised on arrival — a cost and a delay.",
+          },
+          {
+            icon: "🎞️",
+            h: "How it is wrapped",
+            p: "Loosely wrapped loads shift in transit and arrive leaning. A leaning pallet cannot go into a rack and has to be rebuilt.",
+          },
+          {
+            icon: "📏",
+            h: "Overhang",
+            p: "Goods extending past the pallet edge are the commonest reason a load cannot be racked. Rack beams are sized to the pallet, not your boxes.",
+          },
+          {
+            icon: "⚖️",
+            h: "Weight and distribution",
+            p: "A heavy pallet is fine; an unexpectedly heavy one is a handling problem, and an unevenly loaded one is a safety problem.",
+          },
         ],
       },
       {
@@ -390,35 +406,46 @@ export const SILO3_PAGES: SiloPageContent[] = [
         columns: ["Question", "Standard answer", "Tell us if different"],
         rows: [
           ["Pallet type", "Standard Euro or industry pallet", "Non-standard, oversized or slip-sheeted loads"],
-          ["Racking", "Racked, individually reachable", "If you want cheaper floor-stacked block storage"],
+          ["Racking", "Racked, individually reachable", "If you want floor-stacked block storage"],
           ["Release time", "24–48 hours on notice", "If you need same-day as a regular pattern"],
           ["Inbound", "Received with advance notice", "Unannounced deliveries may be turned away"],
           ["Stacking", "Not stacked unless designed to be", "If your loads are designed to double-stack"],
           ["Counting", "Counted in against your reference", "If batch or serial tracking is needed"],
         ],
-        note: "Floor-stacked block storage is cheaper per pallet and slower to retrieve from, because pallets at the back are behind pallets at the front. It suits stock that goes in and comes out as a whole batch — see [warehouse storage](/business-storage-dubai/warehouse-storage) for that shape.",
+        note: "Floor-stacked block storage is slower to retrieve from, because pallets at the back sit behind pallets at the front. It suits stock that goes in and comes out as a whole batch — see [warehouse storage](/business-storage-dubai/warehouse-storage) for that shape.",
       },
       {
-        kind: "checklist",
+        kind: "steps",
         h2: "Before your pallets arrive",
+        intro: "Most pallet problems are prevented before the truck leaves your supplier.",
         items: [
-          "Send the delivery note and expected pallet count in advance. Unannounced trucks are the main cause of a wasted delivery run.",
-          "Confirm weight per pallet and whether any are unevenly loaded.",
-          "Check nothing overhangs the pallet footprint. This is the commonest reason a load has to be rebuilt on arrival.",
-          "Wrap tightly and corner-board sharp edges. A load that shifts in transit arrives unrackable.",
-          "Say whether the loads are designed to be double-stacked. Most are not, and we will not assume it.",
-          "Give us your own pallet reference so releases can be requested against it — see [inventory storage](/business-storage-dubai/inventory-storage) on why your references rather than new ones.",
+          {
+            h: "Send the delivery note",
+            p: "With the expected pallet count, in advance. Unannounced trucks are the main cause of a wasted delivery run.",
+          },
+          {
+            h: "Confirm the weights",
+            p: "Weight per pallet, and flag anything unevenly loaded so it is handled correctly on arrival.",
+          },
+          {
+            h: "Check the footprint",
+            p: "Nothing should overhang the pallet edge. This is the commonest reason a load has to be rebuilt at the gate.",
+          },
+          {
+            h: "Wrap it properly",
+            p: "Tightly, with corner boards on sharp edges. A load that shifts in transit arrives unrackable.",
+          },
+          {
+            h: "Give us your reference",
+            p: "So releases can be requested against it — [inventory storage](/business-storage-dubai/inventory-storage) covers why your references rather than new ones.",
+          },
         ],
       },
     ],
     faqs: [
       {
-        q: "How is pallet storage priced?",
-        a: "On the number of positions held and the movement pattern rather than purely on floor area, because handling frequency is a real cost. A pallet that sits for a year and one that moves weekly are not the same job.",
-      },
-      {
         q: "Can I get a specific pallet back without moving others?",
-        a: "Yes, that is what racking is for — each position is individually reachable. Floor-stacked block storage is cheaper and does not give you that, which is the trade between the two.",
+        a: "Yes, that is what racking is for — each position is individually reachable. Floor-stacked block storage does not give you that, which is the trade between the two.",
       },
       {
         q: "What if my pallets are damaged on arrival?",
@@ -429,14 +456,11 @@ export const SILO3_PAGES: SiloPageContent[] = [
         a: "Advance notice is needed so goods can be received and booked in against your account. A truck arriving unannounced may have to be turned away, which is expensive for everybody.",
       },
       {
-        q: "Can pallets be double-stacked to save cost?",
+        q: "Can pallets be double-stacked?",
         a: "Only where the load is designed for it, and we will not assume it. Tell us if yours are — double-stackable loads genuinely reduce the positions needed.",
       },
-      {
-        q: "What is the maximum weight per pallet?",
-        a: "Tell us the weight and we will confirm it against the racking. A heavy pallet is normally fine; an unexpectedly heavy one arriving unannounced is a handling and safety problem.",
-      },
     ],
+
     serviceType: "Pallet storage",
     cta: {
       h2: "Sending pallets?",
