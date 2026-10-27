@@ -177,6 +177,11 @@ export default function MoversQuoteFlow() {
         const data = await res.json().catch(() => ({}))
         if (res.ok && data.status === "success") {
           setQuoteRef(data.reference || "")
+          // Conversion hook for GTM: fires only once the quotation is really saved.
+          try {
+            const w = window as unknown as { dataLayer?: unknown[] }
+            ;(w.dataLayer = w.dataLayer || []).push({ event: "packers_quote_submitted", quote_reference: data.reference || "" })
+          } catch {}
         } else if (res.status === 422 && data.errors) {
           setErrors(data.errors)
           return
@@ -474,7 +479,7 @@ export default function MoversQuoteFlow() {
             </button>
           )}
           {step < 3 ? (
-            <button type="button" onClick={next} disabled={busy} className="inline-flex items-center gap-1 rounded-lg bg-[#ee5824] px-6 py-3 font-semibold text-white hover:bg-[#d9481a] disabled:opacity-60">
+            <button type="button" onClick={next} disabled={busy} id={step === 2 ? "submit-packers-form" : undefined} className={`${step === 2 ? "submit-packers-form " : ""}inline-flex items-center gap-1 rounded-lg bg-[#ee5824] px-6 py-3 font-semibold text-white hover:bg-[#d9481a] disabled:opacity-60`}>
               {busy ? "Saving…" : "Continue"} <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </button>
           ) : (
