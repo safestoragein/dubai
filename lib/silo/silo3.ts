@@ -256,21 +256,10 @@ export const SILO3_PAGES: SiloPageContent[] = [
     ogTitle: "Inventory Storage in Dubai",
     h1: "Inventory Storage in Dubai",
     hero: [
-      "Storing inventory is mostly an accounting problem wearing a warehouse costume. The goods are easy; the hard part is that your system and the physical count must agree, and that discipline is the substance of inventory work inside [business storage in Dubai](/business-storage-dubai).",
-      "Stock is **counted in against your own SKU references**, racked, and released against those same references. Discrepancies between what arrives and what your paperwork says are reported to you rather than quietly reconciled at our end.",
-      "What this does not do is replace your inventory system. We hold goods and tell you accurately what we hold; the master record stays yours, which is the correct arrangement and the only one that survives an audit.",
+      "Storing inventory is mostly an accounting problem wearing a warehouse costume. The goods are easy; the hard part is that your system and the physical count must agree — the substance of inventory work inside [business storage in Dubai](/business-storage-dubai).",
+      "Stock is **counted in against your own SKU references**, racked, and released against those same references. This does not replace your inventory system: the master record stays yours, which is the only arrangement that survives an audit.",
     ],
     sections: [
-      {
-        kind: "prose",
-        h2: "Getting the count right at the start",
-        paras: [
-          "Almost every inventory storage problem traces back to the first day. Stock that goes in without being counted properly is stock whose count is wrong forever, and no amount of later care recovers it.",
-          "Send your SKU list before the goods arrive, in whatever format your system exports. Goods are counted in against it, and anything that does not match — a short shipment, an unlisted SKU, a mixed carton — is raised with you at that point rather than after it has been racked.",
-          "Use your own references rather than letting a new set be invented at the warehouse. Two reference systems for the same stock is the single most reliable way to make an archive of goods unusable, and it is very hard to unwind later.",
-          "Agree a unit of measure and stick to it. “Twelve” meaning twelve cartons in your system and twelve pieces in the count is the most common discrepancy we see, and it is entirely a definitions problem rather than a physical one.",
-        ],
-      },
       {
         kind: "cards",
         h2: "What good inventory storage looks like",
@@ -283,17 +272,40 @@ export const SILO3_PAGES: SiloPageContent[] = [
           {
             icon: "🏷️",
             h: "Your references, not new ones",
-            p: "Stock is held and released against the references your own system uses.",
+            p: "Stock is held and released against the references your own system already uses.",
           },
           {
             icon: "📆",
             h: "Cycle counts you can request",
-            p: "Periodic counts of part of the stock, so the reconciliation is continuous rather than a January crisis.",
+            p: "Periodic counts of part of the stock, so reconciliation is continuous rather than a January crisis.",
           },
           {
             icon: "📤",
-            h: "Releases logged against the same list",
+            h: "Releases logged to the same list",
             p: "So the running balance in your system and the physical balance stay in step. Normally 24–48 hours per release.",
+          },
+        ],
+      },
+      {
+        kind: "steps",
+        h2: "Getting the count right at the start",
+        intro: "Almost every inventory problem traces back to the first day. Stock counted badly is counted wrong forever.",
+        items: [
+          {
+            h: "Send the SKU list first",
+            p: "Before the goods arrive, in whatever format your system exports. It is what everything is counted against.",
+          },
+          {
+            h: "Count in against it",
+            p: "A short shipment, an unlisted SKU or a mixed carton is raised with you at that point — not after it has been racked.",
+          },
+          {
+            h: "Use your own references",
+            p: "Two reference systems for the same stock is the most reliable way to make goods unusable, and very hard to unwind later.",
+          },
+          {
+            h: "Agree the unit of measure",
+            p: "\"Twelve\" meaning cartons in your system and pieces in the count is the most common discrepancy there is.",
           },
         ],
       },
@@ -305,8 +317,7 @@ export const SILO3_PAGES: SiloPageContent[] = [
           "Send the SKU list in advance and update it when it changes, rather than after a mismatch.",
           "Request a cycle count on your fastest-moving lines quarterly rather than counting everything annually.",
           "Never let stock be released verbally without a written request against a reference.",
-          "Flag anything with a batch number, expiry date or serial requirement at setup. Retrofitting batch discipline is painful.",
-          "Reconcile after every release rather than monthly. Errors are cheap to find on the day and expensive to find in aggregate.",
+          "Flag anything with a batch number, expiry date or serial requirement at setup — retrofitting that is painful.",
         ],
         note: "For palletised stock, [pallet storage](/business-storage-dubai/pallet-storage) covers the handling side; the counting discipline above applies either way.",
       },
@@ -325,18 +336,11 @@ export const SILO3_PAGES: SiloPageContent[] = [
         a: "Yes. Cycle counts of part of the stock on a regular cadence are far more useful than one annual full count, because they catch drift while it is still small enough to explain.",
       },
       {
-        q: "Do you handle batch numbers and expiry dates?",
-        a: "Flag the requirement at setup rather than later. Batch and expiry discipline changes how goods are racked and released, and retrofitting it onto stock already in place is genuinely difficult.",
-      },
-      {
         q: "How are goods released?",
-        a: "Against a written request referencing your own SKU or reference, normally within 24 to 48 hours. Verbal releases are what break a running balance, so we do not do them.",
-      },
-      {
-        q: "Can stock volume change month to month?",
-        a: "Yes — you are billed on the space held each month, which is the main reason seasonal businesses use this rather than leasing for their peak.",
+        a: "Against a written request referencing your own SKU, normally within 24 to 48 hours. Verbal releases are what break a running balance, so we do not do them.",
       },
     ],
+
     serviceType: "Inventory storage",
     cta: {
       h2: "Storing stock?",
