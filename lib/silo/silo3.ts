@@ -898,21 +898,10 @@ export const SILO3_PAGES: SiloPageContent[] = [
     ogTitle: "Storage for Free Zone Companies in Dubai",
     h1: "Storage for Free Zone Companies in Dubai",
     hero: [
-      "A very large number of Dubai companies hold a licence attached to a flexi-desk and have nowhere at all to put physical things. Stock, samples, records and equipment end up in a villa spare room, and that arrangement stops working at about the point the business starts working. This is that gap, inside [business storage in Dubai](/business-storage-dubai).",
-      "**What storage does:** holds your goods and records securely, receives inbound shipments with notice, and releases what you need — normally within 24 to 48 hours.",
-      "**What storage cannot do**, and it is worth being blunt because people ask: it is not a licensed address, it is not a registered premises, and it does not satisfy any requirement your free zone has for you to hold physical space. If your licence needs premises, you need premises.",
+      "A great many Dubai companies hold a licence attached to a flexi-desk and have nowhere at all to put physical things. Stock, samples, records and equipment end up in a villa spare room, and that stops working about when the business starts working. This is that gap, inside [business storage in Dubai](/business-storage-dubai).",
+      "**What storage does:** holds your goods and records securely, receives inbound shipments with notice, and releases what you need in 24 to 48 hours. **What it cannot do**, bluntly: it is not a licensed address, not a registered premises, and it does not satisfy any free-zone requirement to hold physical space.",
     ],
     sections: [
-      {
-        kind: "prose",
-        h2: "The customs and free-zone point, honestly",
-        paras: [
-          "Free zones in the UAE have specific customs positions, and goods held inside a free zone are treated differently from goods held on the mainland. Our facilities are mainland, which means goods stored with us have cleared into the mainland rather than sitting in a free zone under a customs suspension.",
-          "For most flexi-desk companies selling domestically, that is exactly what they want and it is the simpler arrangement. For a business re-exporting under a customs regime, it is not, and a free-zone bonded facility is the right answer instead.",
-          "The distinction matters and it is not one to guess at. If your model involves re-export, duty suspension or bonded goods, take advice specific to your licence and your goods before storing anything anywhere — including with us.",
-          "If you are simply a licensed company that needs somewhere for stock, samples and records to live, none of that applies and the arrangement is the same as any other business storage.",
-        ],
-      },
       {
         kind: "cards",
         h2: "What flexi-desk companies actually store",
@@ -920,12 +909,12 @@ export const SILO3_PAGES: SiloPageContent[] = [
           {
             icon: "📦",
             h: "Stock and samples",
-            p: "The first thing that outgrows a spare room. Received with notice and released as you need it — see [inventory storage](/business-storage-dubai/inventory-storage).",
+            p: "The first thing that outgrows a spare room. Received with notice and released as needed — see [inventory storage](/business-storage-dubai/inventory-storage).",
           },
           {
             icon: "📁",
             h: "Company records",
-            p: "A licensed company generates paper regardless of whether it has an office. [Document storage](/business-storage-dubai/document-storage) covers the retention side.",
+            p: "A licensed company generates paper whether or not it has an office. [Document storage](/business-storage-dubai/document-storage) covers the retention side.",
           },
           {
             icon: "🪑",
@@ -940,14 +929,21 @@ export const SILO3_PAGES: SiloPageContent[] = [
         ],
       },
       {
+        kind: "prose",
+        h2: "The customs and free-zone point, honestly",
+        paras: [
+          "Goods held inside a free zone are treated differently from goods held on the mainland. **Our facility is mainland**, so goods stored with us have cleared into the mainland rather than sitting under a customs suspension. For most flexi-desk companies selling domestically that is exactly what they want, and it is the simpler arrangement.",
+          "For a business re-exporting under a customs regime it is not, and a free-zone bonded facility is the right answer instead. If your model involves re-export, duty suspension or bonded goods, take advice specific to your licence and your goods before storing anything anywhere — including with us.",
+        ],
+      },
+      {
         kind: "checklist",
         h2: "Practical points for a free-zone company",
         items: [
           "Confirm whether your licence carries any requirement to hold physical premises. Storage does not satisfy one.",
-          "If your model involves re-export or bonded goods, take advice before storing anywhere — mainland storage is a customs decision, not just a logistics one.",
+          "If your model involves re-export or bonded goods, take advice first — mainland storage is a customs decision, not just a logistics one.",
           "Give us your licence details at setup so the account is in the company name rather than a personal one.",
           "Notify inbound shipments in advance so goods are received against your account rather than turned away.",
-          "Keep the storage account and your accounting records aligned — stock held offsite is still stock on your books.",
           "Confirm the record retention period that applies to your entity with your accountant. We store to your schedule and publish no figure of our own.",
         ],
       },
@@ -966,18 +962,11 @@ export const SILO3_PAGES: SiloPageContent[] = [
         a: "Yes, with advance notice of what is arriving and when, so goods are received and booked in against your account. Give us the licence details at setup so the account is in the company name.",
       },
       {
-        q: "Do I need a trade licence to store goods?",
-        a: "Not for the storage itself. Your own licensing obligations for what you trade in remain yours, and storage neither creates nor discharges them.",
-      },
-      {
-        q: "Can I store company records as well as stock?",
-        a: "Yes, and most free-zone companies end up storing both. Records should be boxed and indexed properly, with the retention period confirmed by your accountant rather than assumed.",
-      },
-      {
         q: "What happens if my licence is not renewed?",
         a: "The stored goods are yours regardless, and the storage account continues on the same terms. Tell us if the account name needs changing so it stays aligned with whoever actually owns the goods.",
       },
     ],
+
     serviceType: "Business storage",
     cta: {
       h2: "Licence but no premises?",

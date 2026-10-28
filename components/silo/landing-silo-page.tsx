@@ -110,6 +110,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/business-storage-dubai/office-relocation-storage": "/landing/office-relocation-hero.webp",
   "/business-storage-dubai/equipment-storage": "/landing/equipment-storage-hero.webp",
   "/business-storage-dubai/exhibition-storage": "/landing/exhibition-storage-hero.webp",
+  "/business-storage-dubai/free-zone-storage": "/landing/free-zone-storage-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -149,6 +150,7 @@ const SIDE_HERO = new Set([
   "/business-storage-dubai/office-relocation-storage",
   "/business-storage-dubai/equipment-storage",
   "/business-storage-dubai/exhibition-storage",
+  "/business-storage-dubai/free-zone-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -194,6 +196,7 @@ const SMALL_CARD_ICONS = new Set([
   "/business-storage-dubai/office-relocation-storage",
   "/business-storage-dubai/equipment-storage",
   "/business-storage-dubai/exhibition-storage",
+  "/business-storage-dubai/free-zone-storage",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -231,6 +234,7 @@ const TABLE_ICONS = new Set([
   "/business-storage-dubai/office-relocation-storage",
   "/business-storage-dubai/equipment-storage",
   "/business-storage-dubai/exhibition-storage",
+  "/business-storage-dubai/free-zone-storage",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
@@ -263,6 +267,7 @@ const COLOUR_CARD_ICONS = new Set([
   "/business-storage-dubai/office-relocation-storage",
   "/business-storage-dubai/equipment-storage",
   "/business-storage-dubai/exhibition-storage",
+  "/business-storage-dubai/free-zone-storage",
   "/self-storage-dubai/vs-warehouse-rental",
 ])
 
@@ -300,6 +305,7 @@ const NO_CARD_NUMBERS = new Set([
   "/business-storage-dubai/office-relocation-storage",
   "/business-storage-dubai/equipment-storage",
   "/business-storage-dubai/exhibition-storage",
+  "/business-storage-dubai/free-zone-storage",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -401,6 +407,7 @@ const H1_SPLIT: Record<string, string> = {
   "/personal-storage-dubai/wardrobe-storage": "Clothes and Wardrobe",
   "/business-storage-dubai/3pl-services": "3PL in Dubai —",
   "/business-storage-dubai/exhibition-storage": "Exhibition and Event",
+  "/business-storage-dubai/free-zone-storage": "Storage for Free Zone",
 }
 
 function splitH1(h1: string): [string, string] {
