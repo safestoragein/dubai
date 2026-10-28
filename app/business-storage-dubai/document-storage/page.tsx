@@ -1,3 +1,5 @@
+import Image from "next/image"
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import {
@@ -9,13 +11,15 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
-import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
+import { LandingTrust } from "@/components/landing/landing-top"
 import { LandingConnect } from "@/components/landing/landing-connect"
-import { UspRail } from "@/components/landing/usp-rail"
 import { FeatScroller } from "@/components/landing/feat-scroller"
 import { MilestonesPlayer } from "@/components/landing/milestones-player"
 import FaqAccordion from "@/components/landing/faq-accordion"
+import { LandingReviews } from "@/components/landing/landing-reviews"
+import { env } from "@/lib/env"
 import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
 
 export const metadata: Metadata = {
   title: { absolute: "Document Storage & Records Archival Dubai | SafeStorage UAE" },
@@ -57,22 +61,13 @@ const steps = [
 
 const users = [
   { Icon: Scale, title: "Law firms", body: "Client files and case records off-site — freeing DIFC and JLT office space." },
-  { Icon: Calculator, title: "Accounting & finance", body: "VAT records and audit files kept 5+ years, cheaper than office cabinets." },
+  { Icon: Calculator, title: "Accounting & finance", body: "VAT records and audit files kept for their retention period, out of office square footage." },
   { Icon: Home, title: "Real estate", body: "Title deeds, sales agreements and DLD records with 10-year retention." },
   { Icon: Briefcase, title: "HR & recruitment", body: "Contracts, visa documents and payroll files, kept as Labour Law requires." },
   { Icon: Stethoscope, title: "Clinics & healthcare", body: "Patient record archives stored off-site in a controlled environment." },
   { Icon: Users, title: "Individuals & families", body: "Passports, certificates, deeds and wills — safe from fire, theft and floods." },
 ]
 
-const reviews = [
-  { name: "Ibrahim S.", role: "Law Firm Partner · DIFC", text: "We store 5 years of closed client files. Boxes are always ready when we arrive, and we turned our old storage room into a meeting room." },
-  { name: "Laleh K.", role: "Finance Director · Business Bay", text: "Our VAT audit needed records from 2018–2022. Everything was labelled by year and came back in perfect condition. The auditors were satisfied." },
-  { name: "Dr. Mahesh R.", role: "Clinic Owner · Al Quoz", text: "Some patient records must be kept for years. Having them off-site in a secure, access-controlled environment gives me confidence." },
-  // The three below are published elsewhere on the site (homepage reviews and /testimonials).
-  { name: "Sarah Mitchell", role: "Managing Director · Consulting Firm", text: "As a business owner, I needed reliable document storage. Their dedicated consultant understood our compliance needs perfectly." },
-  { name: "Faisal Al Rashid", role: "Palm Jumeirah", text: "We stored over 200 boxes of stock and office equipment. The indexing system made it easy to retrieve specific items. Great for businesses." },
-  { name: "Priya Sharma", role: "Jumeirah", text: "We stored office furniture when we downsized. A consultant assessed the volume, gave a transparent quote and handled everything. Great value for money." },
-]
 
 const faqs = [
   {
@@ -110,6 +105,16 @@ const explore = [
   { Icon: MapPin, t: "Local self storage", b: "Storage near you across Dubai.", href: "/self-storage-dubai/local-self-storage" },
   { Icon: Truck, t: "Areas we collect from", b: "Every emirate and district.", href: "/locations" },
   { Icon: ClipboardCheck, t: "How it works", b: "From first call to delivery back.", href: "/how-it-works" },
+]
+
+/** A colour per card, in order, so the row is not six navy squares. */
+const TINTS = [
+  { fg: "#ee5824", bg: "rgba(238, 88, 36, 0.12)" },
+  { fg: "#1893d2", bg: "rgba(24, 147, 210, 0.12)" },
+  { fg: "#16a34a", bg: "rgba(22, 163, 74, 0.12)" },
+  { fg: "#7c3aed", bg: "rgba(124, 58, 237, 0.12)" },
+  { fg: "#e11d48", bg: "rgba(225, 29, 72, 0.12)" },
+  { fg: "#d97706", bg: "rgba(217, 119, 6, 0.12)" },
 ]
 
 const schemas = [
@@ -156,20 +161,50 @@ export default function DocumentStoragePage() {
       <SchemaScript schema={schemas} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        <SplitHero
-          eyebrow="Document & records storage"
-          title="Document Storage in Dubai –"
-          titleAccent="Secure Archive & Records"
-          blurb="Free up office space and stay compliant with UAE retention rules. Secure, access-controlled storage where you pay only for the space you use."
-          image="/landing/svc-document.jpg"
-          imagePosition="center 50%"
-          ctaLabel="Get a Free Quote"
-        />
+        {/* hero: copy on the left, the owner's picture on the right */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Tight}`}>
+              <span className={s.heroTag}>Document &amp; records storage</span>
+              <h1>
+                Document Storage Dubai <br className={s.mBreakDesk} />
+                <em>Secure Archive &amp; Records</em>
+              </h1>
+              <p>
+                Free up office space and keep records to their retention period. Boxes are collected,
+                logged against your own references and held in access-controlled storage.
+              </p>
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a Free Quote →
+                </Link>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
+                </a>
+              </div>
+            </div>
+            <div className={p.split2Photo} style={{ aspectRatio: "1733 / 907" } as CSSProperties}>
+              <Image
+                src="/landing/document-storage-hero.webp"
+                alt="A SafeStorage crew member logging document boxes into the archive racking in Dubai"
+                width={1733}
+                height={907}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <LandingTrust />
 
         {/* RETENTION */}
-        <section className={`${s.section} ${s.wrap}`} id="retention">
+        <section className={`${s.section} ${s.wrap}`} id="retention" style={{ paddingTop: 26, paddingBottom: 26 }}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>UAE retention rules</span>
@@ -234,7 +269,7 @@ export default function DocumentStoragePage() {
         </section>
 
         {/* PROCESS */}
-        <section className={`${s.section} ${s.wrap}`} id="process">
+        <section className={`${s.section} ${s.wrap}`} id="process" style={{ paddingTop: 0, paddingBottom: 26 }}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>Getting started</span>
@@ -261,64 +296,38 @@ export default function DocumentStoragePage() {
         </section>
 
         {/* WHO USES IT */}
-        <section className={`${s.section} ${s.wrap}`} id="who" style={{ paddingTop: 0 }}>
-          <UspRail
-            head={
-              <div className={s.uspHead}>
-                <span className={s.howEyebrow}>Who uses it</span>
-                <h2>
-                  Trusted by <em>records-heavy teams.</em>
-                </h2>
-              </div>
-            }
-          >
-            {users.map(({ Icon, title, body }, i) => (
-              <article className={s.usp} key={title}>
-                <span className={s.uspNum} aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className={s.uspIcon} aria-hidden="true">
-                  <Icon />
-                </div>
-                <h3>{title}</h3>
-                <p>{body}</p>
-              </article>
-            ))}
-          </UspRail>
-          <p className={s.scrollHint}>Swipe for more →</p>
-        </section>
-
-        {/* REVIEWS */}
-        <section className={`${s.section} ${s.wrap}`} id="reviews" style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id="who" style={{ paddingTop: 0, paddingBottom: 26 }}>
           <div className={s.howHead}>
             <div>
-              <span className={s.howEyebrow}>Testimonials</span>
+              <span className={s.howEyebrow}>Who uses it</span>
               <h2>
-                What our <em>clients say.</em>
+                Trusted by <em>records-heavy teams.</em>
               </h2>
             </div>
           </div>
-          <div className={s.revTrack}>
-            {reviews.map((r) => (
-              <div className={s.revCard} key={r.name}>
-                <div className={s.revStars} aria-label="Rated 5 out of 5">
-                  ★★★★★
+          <div className={`${s.miniGrid} ${s.miniTight}`}>
+            {users.map(({ Icon, title, body }, i) => (
+              <article className={s.miniCard} key={title}>
+                <span
+                  className={s.miniIcon}
+                  aria-hidden="true"
+                  style={{ background: TINTS[i % TINTS.length].bg, color: TINTS[i % TINTS.length].fg }}
+                >
+                  <Icon size={17} strokeWidth={1.9} />
+                </span>
+                <div>
+                  <b>{title}</b>
+                  <small>{body}</small>
                 </div>
-                <p className={s.revText}>&ldquo;{r.text}&rdquo;</p>
-                <div className={s.revTop}>
-                  <div>
-                    <div className={s.revName}>{r.name}</div>
-                    <div className={s.revRole}>{r.role}</div>
-                  </div>
-                </div>
-              </div>
+              </article>
             ))}
           </div>
-          <p className={s.scrollHint}>Swipe for more →</p>
         </section>
 
+        <LandingReviews padTop={0} />
+
         {/* FAQ */}
-        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0, paddingBottom: 28 }}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>Good to know</span>
@@ -330,11 +339,11 @@ export default function DocumentStoragePage() {
               More answers? <Link href="/faq" style={{ color: "var(--accent)", fontWeight: 600 }}>View all FAQs →</Link>
             </p>
           </div>
-          <FaqAccordion items={faqs} />
+          <FaqAccordion items={faqs.slice(0, 5)} />
         </section>
 
         {/* EXPLORE */}
-        <section className={`${s.section} ${s.wrap}`} id="explore" style={{ paddingTop: 0 }}>
+        <section className={`${s.section} ${s.wrap}`} id="explore" style={{ paddingTop: 0, paddingBottom: 28 }}>
           <div className={s.howHead}>
             <div>
               <span className={s.howEyebrow}>Explore</span>
