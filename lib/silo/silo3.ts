@@ -798,19 +798,31 @@ export const SILO3_PAGES: SiloPageContent[] = [
     ogTitle: "Exhibition and Event Storage in Dubai",
     h1: "Exhibition and Event Storage in Dubai",
     hero: [
-      "Dubai's exhibition calendar is dense and it is concentrated — GITEX, Gulfood, Arab Health, the Dubai World Trade Centre programme and the Expo City venues put most of the year's shows into a handful of months. Stands need somewhere to be for the rest of it, and that is what this part of [business storage in Dubai](/business-storage-dubai) does.",
-      "Stands, displays, AV, furniture and collateral are stored between shows and **delivered to the venue for build-up** on the date you give us. Getting that date right is more of this job than the storage is.",
-      "The thing that separates a good exhibition booking from a bad one is entirely how it was packed at breakdown. A stand crated properly at 11pm on the last night is a stand that goes up cleanly next time.",
+      "Dubai's exhibition calendar is dense and concentrated — GITEX, Gulfood, Arab Health and the World Trade Centre programme put most of the year's shows into a handful of months. Stands need somewhere to be for the rest of it, inside [business storage in Dubai](/business-storage-dubai).",
+      "Stands, displays, AV and collateral are stored between shows and **delivered to the venue for build-up** on the date you give us. Getting that date right is more of this job than the storage is.",
     ],
     sections: [
       {
-        kind: "prose",
+        kind: "steps",
         h2: "Build-up timing is the whole risk",
-        paras: [
-          "Venue build-up windows are fixed, short and unforgiving. A delivery that misses its slot at the World Trade Centre does not simply arrive later — it may not be able to get onto the floor at all, and your stand does not go up.",
-          "So give us the build-up date and the delivery window as early as you have them, not the week before. In the busy months the whole city's exhibition freight is moving at once and the roads around the venue are the constraint rather than the warehouse.",
-          "Venue paperwork is the second half of it. Most halls require vehicle passes, contractor registration and sometimes a specific delivery slot booked through the organiser. That is yours to obtain from the organiser, and it needs to exist before the vehicle leaves.",
-          "Plan the breakdown collection at the same time as the build-up delivery. Stands left on a floor after the tear-down window are a problem that escalates by the hour.",
+        intro: "Venue windows are fixed, short and unforgiving. A delivery that misses its slot may not get onto the floor at all.",
+        items: [
+          {
+            h: "Give us the date early",
+            p: "The build-up date and delivery window as soon as you have them — not the week before. In the busy months the whole city's show freight moves at once.",
+          },
+          {
+            h: "Get the venue paperwork",
+            p: "Vehicle passes, contractor registration and any organiser-booked slot are yours to obtain, and must exist before the vehicle leaves.",
+          },
+          {
+            h: "Delivery to the hall",
+            p: "We deliver into the build-up window you gave us. The roads around the venue are the constraint, not the warehouse.",
+          },
+          {
+            h: "Book the breakdown now too",
+            p: "At the same time as the delivery. A stand left on the floor after its tear-down window is a problem that escalates by the hour.",
+          },
         ],
       },
       {
@@ -823,9 +835,8 @@ export const SILO3_PAGES: SiloPageContent[] = [
           "Bag and label every fixing, pin and connector by section. Missing fittings are what stops a build the following year.",
           "Roll graphics rather than folding them. A folded crease in a printed panel is permanent.",
           "Keep the build instructions with the crates, not in someone's laptop.",
-          "Separate consumables and collateral — brochures, giveaways — from structure. They date, and they should not be racked as though they will be used again.",
-          "Note anything damaged at breakdown while you can still see it, so it is repaired before the next show rather than discovered at build-up.",
         ],
+        note: "Note anything damaged at breakdown while you can still see it, so it is repaired before the next show rather than discovered at build-up.",
       },
       {
         kind: "table",
@@ -837,7 +848,7 @@ export const SILO3_PAGES: SiloPageContent[] = [
           ["Custom build, larger", "100+ sq ft", "Palletised and crated, quoted on survey"],
           ["Event AV and staging", "Varies", "Flight-cased; see [equipment storage](/business-storage-dubai/equipment-storage)"],
         ],
-        note: "Held between shows, an annual stand costs a small fraction of rebuilding it — which is the comparison worth making, because rebuilding is what happens when a stand is stored badly.",
+        note: "Sizes are estimated. Keep printed collateral separate from the structure — brochures and giveaways date, and should not be racked as though they will certainly be used again.",
       },
     ],
     faqs: [
@@ -857,15 +868,8 @@ export const SILO3_PAGES: SiloPageContent[] = [
         q: "How should a stand be packed for storage?",
         a: "Crated rather than wrapped, with graphics rolled, fixings bagged and labelled by section, and the build instructions kept with the crates. This is decided at breakdown, when nobody wants to do it, and it determines whether the next build goes smoothly.",
       },
-      {
-        q: "Do you store event AV and staging?",
-        a: "Yes. Flight-cased equipment racks well and is straightforward. Anything with a lithium battery needs raising before booking.",
-      },
-      {
-        q: "What about brochures and giveaways?",
-        a: "They can be stored, but keep them separate from the stand structure — printed collateral dates, and storing it as though it will definitely be used again is how a crate of obsolete brochures gets held for three years.",
-      },
     ],
+
     serviceType: "Exhibition storage",
     cta: {
       h2: "Between shows?",
