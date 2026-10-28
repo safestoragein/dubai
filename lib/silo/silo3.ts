@@ -598,33 +598,43 @@ export const SILO3_PAGES: SiloPageContent[] = [
     ogTitle: "Office Storage in Dubai — Between Two Leases",
     h1: "Office Storage in Dubai",
     hero: [
-      "Office moves in Dubai rarely line up cleanly. The old lease ends before the new fit-out finishes, or a downsizing leaves two floors of furniture with nowhere to go — and that gap is the most common commercial booking in [business storage in Dubai](/business-storage-dubai).",
-      "Collections are normally done **outside working hours or over a weekend**, because an office cannot be emptied around people trying to work in it, and most buildings restrict move-outs to specific windows anyway.",
-      "Everything is logged at item level — desks, chairs, screens, storage units, IT — so what comes back is what went in, and so an asset register can be reconciled afterwards rather than reconstructed.",
+      "Office moves in Dubai rarely line up cleanly. The old lease ends before the new fit-out finishes, or a downsizing leaves two floors of furniture with nowhere to go — the most common commercial booking in [business storage in Dubai](/business-storage-dubai).",
+      "Collections are normally done **outside working hours or over a weekend**, and everything is logged at item level — desks, chairs, screens, IT — so an asset register can be reconciled afterwards rather than reconstructed.",
     ],
     sections: [
       {
-        kind: "prose",
+        kind: "cards",
         h2: "The three shapes an office booking takes",
-        paras: [
-          "**The lease gap.** The old office has to be handed back on a date; the new one is not ready. Everything goes into storage for the gap and comes out to the new address. This is the simplest case and the most common.",
-          "**The fit-out.** You are staying in the building but the floor is being rebuilt. Furniture and IT go out, the work happens, and it comes back in stages as areas are finished — the same room-by-room logic as a home renovation, at a larger scale.",
-          "**The downsizing.** You are taking less space and have more furniture than the new floor holds. The surplus is stored while you decide whether to sell it, keep it for a future expansion, or use it in a second location. This is the one where storage most often prevents a bad decision made under time pressure.",
-          "In all three the constraint is the building rather than the furniture. Most Dubai commercial towers require move-out permits, restrict the service lift to defined windows, and want the crew registered — all of which is arranged in advance rather than negotiated on the day.",
+        intro: "In all three the constraint is the building, not the furniture.",
+        items: [
+          {
+            icon: "📅",
+            h: "The lease gap",
+            p: "The old office is handed back on a date; the new one is not ready. Everything goes in for the gap and comes out to the new address.",
+          },
+          {
+            icon: "🔨",
+            h: "The fit-out",
+            p: "You stay in the building while the floor is rebuilt. Furniture and IT go out and come back in stages as areas are finished.",
+          },
+          {
+            icon: "📉",
+            h: "The downsizing",
+            p: "More furniture than the new floor holds. The surplus is stored while you decide — the case where storage most often prevents a rushed decision.",
+          },
         ],
       },
       {
         kind: "checklist",
         h2: "Getting an office move right",
         items: [
-          "Confirm the building's move-out window and permit requirements at both addresses, not just the one you are leaving.",
+          "Confirm the move-out window and permit requirements at **both** addresses, not just the one you are leaving.",
           "Back up and image every machine before it moves, and take the drives out of anything critical.",
           "Photograph the desk and cable layout per workstation. Reassembly without it takes far longer than anyone budgets.",
-          "Label by department and destination, not by which room it came from — the new floor plan is not the old one.",
+          "Label by department and destination, not by the room it came from — the new floor plan is not the old one.",
           "Decide what is not going before the day. An office move is where the surplus furniture problem gets discovered at 9pm.",
-          "Keep original licences, leases and statutory documents with you rather than in a box — see [document storage](/business-storage-dubai/document-storage) for the archive side.",
-          "Tell us the item count and whether desks are bench-style or individual. It changes the crew size more than the headcount does.",
         ],
+        note: "Keep original licences, leases and statutory documents with you rather than in a box — [document storage](/business-storage-dubai/document-storage) covers the archive side.",
       },
       {
         kind: "table",
@@ -636,7 +646,7 @@ export const SILO3_PAGES: SiloPageContent[] = [
           ["30–60 desks", "A weekend", "400–800 sq ft"],
           ["60+ desks", "Phased, quoted on survey", "Survey required"],
         ],
-        note: "Anything above about 30 desks we would rather survey than estimate. It is free, and on an office move a wrong estimate is a failed handover rather than an inconvenience.",
+        note: "Sizes are estimated. Above about 30 desks we would rather survey than estimate — it is free, and on an office move a wrong estimate is a failed handover rather than an inconvenience.",
       },
     ],
     faqs: [
@@ -656,15 +666,8 @@ export const SILO3_PAGES: SiloPageContent[] = [
         q: "What if the new office is not ready on time?",
         a: "That is what the storage is for. Billing is monthly with no fixed end date, so a fit-out that overruns costs the extra weeks and needs no renegotiation.",
       },
-      {
-        q: "Can you deliver back in stages during a fit-out?",
-        a: "Yes, and for a phased fit-out that is normal — areas get refurnished as they are completed, so the business can occupy the finished part while work continues elsewhere.",
-      },
-      {
-        q: "What do we do with surplus furniture after downsizing?",
-        a: "Store it while you decide rather than deciding in the last week of a lease. A few months of storage regularly costs less than the difference between a considered disposal and a rushed one.",
-      },
     ],
+
     serviceType: "Office storage",
     cta: {
       h2: "Moving or refitting an office?",
