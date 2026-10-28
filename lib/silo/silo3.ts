@@ -696,44 +696,46 @@ export const SILO3_PAGES: SiloPageContent[] = [
     ogTitle: "Equipment Storage in Dubai — Between Jobs",
     h1: "Equipment Storage in Dubai",
     hero: [
-      "Contractors, trades and event businesses all share a problem: the kit is expensive, it is needed intermittently, and between jobs it lives in a van, a villa garage or a corner of somebody's office. Storing it properly is one of the plainer uses of [business storage in Dubai](/business-storage-dubai).",
-      "Two rules govern almost everything here and both are safety rather than preference: **nothing with fuel in it**, and **lithium batteries must be raised before booking**. Petrol tools, generators and gas equipment cannot be stored, and a degraded lithium pack in a hot warehouse is a genuine fire risk.",
-      "Everything else — hand tools, corded power tools, scaffolding, staging, cabling, test equipment, catering kit — stores straightforwardly, indoors and racked, **billed only on the space it uses**.",
+      "Contractors, trades and event businesses share a problem: the kit is expensive, needed intermittently, and between jobs it lives in a van or a villa garage. Storing it properly is one of the plainer uses of [business storage in Dubai](/business-storage-dubai).",
+      "Two rules govern almost everything, and both are safety rather than preference: **nothing with fuel in it**, and **lithium batteries must be raised before booking**. Everything else stores straightforwardly, indoors and racked.",
     ],
     sections: [
       {
-        kind: "prose",
-        h2: "The fuel and battery rules, in detail",
-        paras: [
-          "**Petrol and diesel equipment cannot be stored with fuel in it.** Generators, compactors, pressure washers, cut-off saws and pumps all fall in here. Drained and dried, most can be stored; with a full tank they cannot travel in the van, let alone sit in a warehouse.",
-          "**Gas equipment cannot be stored at all while it holds a cylinder.** Cylinders go back to the supplier. This catches catering and event businesses more than construction ones.",
-          "**Lithium batteries need raising at quoting.** Cordless tool packs, survey equipment, drone batteries and large power banks all need discussing rather than arriving in a crate. Packs stored around half charge degrade far less than packs stored full or flat, which is worth knowing whoever holds them.",
-          "None of this makes equipment unstorable — it makes it a conversation before collection day. The general list is on [what you can and cannot store](/self-storage-dubai/prohibited-items), and it is short.",
+        kind: "table",
+        h2: "The fuel and battery rules",
+        intro: "None of this makes equipment unstorable. It makes it a conversation before collection day.",
+        columns: ["What it is", "The rule"],
+        rows: [
+          ["Petrol and diesel kit", "Drained and run dry before collection — generators, compactors, pressure washers, cut-off saws, pumps"],
+          ["Gas equipment", "Cannot be stored while it holds a cylinder. Cylinders go back to the supplier"],
+          ["Lithium batteries", "Raise at quoting. Packs stored around half charge degrade far less than full or flat ones"],
+          ["Everything else", "Hand and corded tools, scaffolding, staging, cabling, test and catering kit — stores normally"],
         ],
+        note: "The general list of what cannot be stored is on [what you can and cannot store](/self-storage-dubai/prohibited-items), and it is short.",
       },
       {
         kind: "cards",
         h2: "What businesses store between jobs",
         items: [
           {
-            icon: "🔧",
+            icon: "🧰",
             h: "Trade tools and small plant",
-            p: "Corded tools, hand tools, ladders, staging. Clean and dry before storing; damp tools in humid air corrode faster than people expect.",
+            p: "Corded tools, hand tools, ladders, staging. Clean and dry first — damp tools in humid air corrode faster than people expect.",
           },
           {
             icon: "🎪",
             h: "Event and AV kit",
-            p: "Staging, lighting, cabling, flight cases. Flight-cased equipment racks well and is among the easiest things to store — see [exhibition storage](/business-storage-dubai/exhibition-storage).",
+            p: "Staging, lighting, cabling, flight cases. Flight-cased kit racks well — see [exhibition storage](/business-storage-dubai/exhibition-storage).",
           },
           {
-            icon: "🍽️",
+            icon: "🍳",
             h: "Catering equipment",
-            p: "Cleaned thoroughly first — anything organic left on equipment is a pest problem rather than a smell one. Gas cylinders go back to the supplier.",
+            p: "Cleaned thoroughly first. Anything organic left on equipment is a pest problem rather than a smell one.",
           },
           {
-            icon: "📐",
+            icon: "🧭",
             h: "Survey and test equipment",
-            p: "Cased, and with batteries discussed at booking. Calibration dates are worth diarising before a long storage period.",
+            p: "Cased, with batteries discussed at booking. Calibration dates are worth diarising before a long gap.",
           },
         ],
       },
@@ -741,13 +743,11 @@ export const SILO3_PAGES: SiloPageContent[] = [
         kind: "checklist",
         h2: "Preparing equipment for a long gap",
         items: [
-          "Drain fuel from anything that holds it, and run it dry rather than just emptying the tank.",
+          "Run fuel equipment dry rather than just emptying the tank.",
           "Clean and fully dry everything. Corrosion in storage is almost always a damp-when-stored problem.",
-          "Remove and separately handle lithium batteries; raise anything non-removable at booking.",
-          "Case what has a case. Flight-cased and boxed equipment racks properly; loose equipment costs more space and travels worse.",
-          "Photograph configurations and label cables per unit, the same as with any IT equipment.",
-          "Note calibration and service due dates before storing, and diarise them — equipment that comes out of storage out of calibration is not usable on day one.",
-          "Tell us the total weight if you are storing anything heavy, so it is racked appropriately.",
+          "Remove lithium batteries and handle them separately; raise anything non-removable at booking.",
+          "Case what has a case. Flight-cased kit racks properly; loose equipment costs more space and travels worse.",
+          "Note calibration and service dates before storing — kit that comes out of calibration is not usable on day one.",
         ],
       },
     ],
@@ -765,18 +765,11 @@ export const SILO3_PAGES: SiloPageContent[] = [
         a: "Yes, and it stores well because it stacks. Tell us the weight and the quantity so it is racked appropriately — this is one category where weight rather than bulk decides the handling.",
       },
       {
-        q: "Is equipment storage priced differently from goods?",
-        a: "It is billed on space at the same rate. What can differ is handling, if the equipment is heavy or needs specific racking, and that is quoted at setup rather than added later.",
-      },
-      {
         q: "Can I get equipment out at short notice for a job?",
         a: "Normally within 24 to 48 hours. If your work pattern involves frequent short-notice call-offs, say so at setup so the kit is racked accessibly rather than densely.",
       },
-      {
-        q: "Do you store catering equipment?",
-        a: "Yes, cleaned thoroughly first. Anything organic left on equipment is a pest issue in a shared warehouse, and gas cylinders must go back to the supplier before collection.",
-      },
     ],
+
     serviceType: "Equipment storage",
     cta: {
       h2: "Kit sitting in a van between jobs?",
