@@ -129,33 +129,39 @@ export const SILO5_PAGES: SiloPageContent[] = [
     keywords:
       "apartment movers in dubai, apartment movers dubai, flat movers dubai, moving apartment dubai, tower move dubai, apartment relocation dubai",
     ogTitle: "Apartment Movers in Dubai — Both Lifts Booked",
-    h1: "Apartment Movers in Dubai: Both Buildings' Lifts Booked",
+    h1: "Apartment Movers Dubai: Both Lifts Booked",
     introH2: "Apartment moving in Dubai, in brief",
     hero: [
       "A tower-to-tower move in Dubai is a logistics problem before it is a lifting problem, and the thing that goes wrong is almost always the same: someone booked the move-out lift and forgot the move-in one. Both are arranged as part of [moving and storage in Dubai](/moving-storage-dubai).",
-      "**We deal with both buildings.** Service lift bookings, permitted moving windows, move-out permits, NOCs where the building wants one, and loading-bay access at each end.",
-      "If the two dates do not meet — and Ejari end dates and handover dates rarely do — everything goes into storage for the gap rather than into a hotel room.",
+      "**We deal with both buildings** — lift bookings, permitted windows, move-out permits, NOCs and loading-bay access at each end. If the two dates do not meet, everything goes into storage for the gap rather than into a hotel room.",
     ],
     sections: [
       {
         kind: "prose",
         h2: "The building is the constraint, not the furniture",
         paras: [
-          "The difference between a three-hour move and a seven-hour one in a Dubai tower is almost never the amount of stuff. It is whether the lift was booked, whether it is being shared with another move that day, and whether the building permits work at the hour you arranged.",
-          "None of this is published anywhere. Some towers want 48 hours' notice and a refundable deposit; some restrict moves to specific hours; some in the Marina, JLT and Downtown do not permit moves on certain days at all. Older buildings in Deira and Bur Dubai often want a move-out permit or an owner's NOC.",
-          "We do several of these a week and know which buildings want what, which is most of the value. If you are moving yourself, the single most useful thing you can do is call both buildings three days out rather than one.",
-          "The other frequent failure is parking. Several Marina and JLT towers have no usable loading bay, and a bay has to be reserved. A van that cannot park is a move that has not started.",
+          "The difference between a three-hour move and a seven-hour one is almost never the amount of stuff. It is whether the lift was booked, whether it is shared with another move that day, and whether the building permits work at the hour you arranged.",
+          "None of it is published. Some towers want 48 hours' notice and a deposit; some restrict moves to set hours; older buildings in Deira and Bur Dubai often want a permit or an owner's NOC. Parking is the other frequent failure — several Marina and JLT towers have no usable loading bay, and a van that cannot park is a move that has not started.",
         ],
       },
       {
         kind: "steps",
         h2: "How a tower-to-tower move runs",
         items: [
-          { h: "Both addresses at booking", p: "Not just the one you are leaving. This is the step people skip and the one that costs a day." },
-          { h: "We arrange both buildings", p: "Lift slots, permits, registration and loading bay at each end." },
-          { h: "Pack, load, transport, unload", p: "A 1BHK is three to five hours end to end when both lifts are booked; considerably longer when they are not." },
           {
-            h: "Or into storage if the dates do not meet",
+            h: "Both addresses at booking",
+            p: "Not just the one you are leaving. This is the step people skip and the one that costs a day.",
+          },
+          {
+            h: "We arrange both buildings",
+            p: "Lift slots, permits, crew registration and the loading bay at each end.",
+          },
+          {
+            h: "Pack, load, move, unload",
+            p: "A 1BHK is three to five hours end to end when both lifts are booked — considerably longer when they are not.",
+          },
+          {
+            h: "Or storage if the dates do not meet",
             p: "Common, and it costs the gap rather than a month. [Packing services](/moving-storage-dubai/packing-services) covers the packing half.",
           },
         ],
@@ -164,23 +170,18 @@ export const SILO5_PAGES: SiloPageContent[] = [
         kind: "checklist",
         h2: "What to confirm before the day",
         items: [
-          "The permitted moving window at both buildings, and whether either restricts certain days.",
-          "Whether a move-out permit or owner's NOC is required — common in older Deira and Bur Dubai buildings.",
-          "Whether the new building needs its move-in slot booked separately, which most do.",
+          "The permitted moving window at **both** buildings, and whether either restricts certain days.",
+          "Whether a move-out permit or owner's NOC is needed — common in older Deira and Bur Dubai buildings.",
+          "Whether the new building needs its move-in slot booked separately. Most do.",
           "Loading bay or van parking at both ends.",
-          "Whether the service lift is shared and how long you have it for.",
-          "Box everything loose beforehand. In a tower this matters more than in a villa because it all goes through one lift.",
         ],
+        note: "Box everything loose beforehand. In a tower this matters more than in a villa, because it all goes through one lift.",
       },
     ],
     faqs: [
       {
         q: "Do you book the service lift?",
         a: "Yes, at both buildings, as part of arranging the move. Give us both addresses when you book — arranging the move-out slot and forgetting the move-in slot is the commonest reason a tower move fails.",
-      },
-      {
-        q: "What if my building only allows moves at certain times?",
-        a: "That is normal and it is planned around. Tell us the permitted window and the move is scheduled inside it. Discovering the restriction on the day is what turns a move into a failed handover.",
       },
       {
         q: "How long does a flat move take?",
@@ -194,11 +195,8 @@ export const SILO5_PAGES: SiloPageContent[] = [
         q: "Is there parking for your van?",
         a: "Usually, though some Marina, JLT and Business Bay towers have no usable loading bay and need one reserved in advance. Tell us the buildings and we check rather than arriving and finding out.",
       },
-      {
-        q: "Can you move me on a Friday or in the evening?",
-        a: "Where the building permits it, yes. Several towers restrict exactly those slots, which is why we confirm the window with the building rather than assuming it is available.",
-      },
     ],
+
     serviceType: "Apartment moving",
     cta: {
       h2: "Moving between towers?",
@@ -321,24 +319,13 @@ export const SILO5_PAGES: SiloPageContent[] = [
     keywords:
       "packing and moving companies dubai, packing services dubai, packing and moving dubai, professional packers dubai, moving boxes dubai, packing company dubai",
     ogTitle: "Packing Services in Dubai — What Is Included",
-    h1: "Packing and Moving in Dubai: What We Wrap, What You Do",
+    h1: "Packing in Dubai: What We Wrap",
     introH2: "Packing services, in brief",
     hero: [
-      "Furniture wrapping is included in every collection rather than being a line item you add, and that is worth stating plainly, because most packing and moving companies in Dubai price it separately. It is part of the standard service in [moving and storage in Dubai](/moving-storage-dubai).",
-      "**What is included:** wrapping furniture at your property before it moves, protective materials, dismantling and reassembling what is designed to come apart, and carrying and loading.",
-      "**What is worth doing yourself:** boxing loose small items. Not because we will not do it, but because it is the single biggest thing that lowers your bill — sealed cartons stack squarely and loose belongings do not, and you are billed on the space your things occupy.",
+      "Furniture wrapping is included in every collection rather than a line item you add — worth stating plainly, because most packing and moving companies in Dubai price it separately. Part of the standard service in [moving and storage in Dubai](/moving-storage-dubai).",
+      "**Included:** wrapping furniture at your property, the materials, dismantling and reassembling what comes apart, and the loading. **Worth doing yourself:** boxing loose small items — the single biggest thing that lowers your bill.",
     ],
     sections: [
-      {
-        kind: "prose",
-        h2: "Why boxing it yourself saves real money",
-        paras: [
-          "You are billed on the floor space your goods occupy once racked, not on item count. Sealed uniform cartons stack into a dense, square block. Loose belongings — a lamp, a laundry basket, a bag of cables, three cushions and a plant pot — do not stack at all, and the air between them is space you are paying for.",
-          "The difference is not marginal. The same contents can occupy around 30 per cent more floor space unboxed, and that difference persists for every month of the booking, not just the first.",
-          "It also shortens the collection substantially, because loading pre-boxed items is fast and packing them on site is not. A flat where the small items are already boxed loads roughly a third quicker.",
-          "Use uniform box sizes if you can. Mixed cartons rack badly for the same reason loose items do, and free boxes from a supermarket are rarely the same size twice.",
-        ],
-      },
       {
         kind: "cards",
         h2: "What we wrap as standard",
@@ -346,12 +333,12 @@ export const SILO5_PAGES: SiloPageContent[] = [
           {
             icon: "🛋️",
             h: "Upholstery",
-            p: "Sofas and armchairs fully wrapped at your property, not sheeted and not wrapped later at the warehouse.",
+            p: "Sofas and armchairs fully wrapped at your property — not sheeted, and not wrapped later at the warehouse.",
           },
           {
             icon: "🪑",
             h: "Hard furniture",
-            p: "Tables, wardrobes and units wrapped, with legs and panels removed where the piece is designed to come apart.",
+            p: "Tables, wardrobes and units wrapped, with legs and panels off where the piece is designed to come apart.",
           },
           {
             icon: "🛏️",
@@ -361,25 +348,29 @@ export const SILO5_PAGES: SiloPageContent[] = [
           {
             icon: "📺",
             h: "Screens and glass",
-            p: "Wrapped and carried upright, and racked upright with nothing resting on them.",
+            p: "Wrapped and carried upright, then racked upright with nothing resting on them.",
           },
         ],
       },
       {
+        kind: "prose",
+        h2: "Why boxing it yourself saves real money",
+        paras: [
+          "You are billed on the floor space your goods occupy once racked, not on item count. Sealed uniform cartons stack into a dense square block; a lamp, a laundry basket, a bag of cables and three cushions do not stack at all, and the air between them is space you pay for every month.",
+          "It also shortens the collection. A flat where the small items are already boxed loads roughly a third quicker — and uniform box sizes matter, because mixed cartons rack badly for the same reason loose items do.",
+        ],
+      },
+      {
         kind: "checklist",
-        h2: "Packing well, in ten lines",
+        h2: "Packing well, in five lines",
         items: [
-          "Uniform box sizes wherever possible. It is worth buying them rather than collecting mismatched ones.",
           "Heavy items in small boxes, light items in big ones — the opposite of what everyone does first.",
           "Fill every box to the top. A half-full box crushes under the one above it.",
-          "Label the room it is going TO, not the room it came from.",
-          "Seal properly across the seam. A box that opens in transit is a box whose contents are now loose.",
-          "Books flat, not spine-down, and in small boxes.",
+          "Label the room it is going **to**, not the room it came from.",
           "Plates on edge like records, not stacked flat. They survive far better.",
-          "Bag cables per device and photograph any complicated configuration before unplugging.",
-          "Keep a single suitcase of live essentials with you — documents, chargers, medication, a change of clothes.",
-          "Do not box anything on the [prohibited list](/self-storage-dubai/prohibited-items) — the balcony, the kitchen cupboard and the garage are where all of it lives.",
+          "Keep one suitcase of live essentials with you — documents, chargers, medication, a change of clothes.",
         ],
+        note: "Do not box anything on the [prohibited list](/self-storage-dubai/prohibited-items) — the balcony, the kitchen cupboard and the garage are where all of it lives.",
       },
     ],
     faqs: [
@@ -389,25 +380,18 @@ export const SILO5_PAGES: SiloPageContent[] = [
       },
       {
         q: "Will you pack my small items if I ask?",
-        a: "Tell us at quoting and it can be arranged, but understand the trade — you will pay for the labour and for the extra space that hurried on-site packing usually occupies. Doing it yourself over a few evenings is genuinely cheaper.",
-      },
-      {
-        q: "Do you supply boxes?",
-        a: "Ask when booking. What matters more than where they come from is that they are uniform — mixed carton sizes rack badly and cost measurably more floor space than matching ones.",
+        a: "Tell us at quoting and it can be arranged, but understand the trade — you pay for the labour and for the extra space that hurried on-site packing usually occupies.",
       },
       {
         q: "Do you dismantle and reassemble furniture?",
-        a: "Yes, for anything designed to come apart, and we reassemble on delivery. Flag anything that was assembled in place and has never been moved, because those need more time and sometimes cannot be reassembled to the same standard.",
-      },
-      {
-        q: "How much does boxing things myself actually save?",
-        a: "The same contents can occupy around 30 per cent more floor space unboxed, and you pay that difference every month of the booking rather than once. It also cuts roughly a third off the collection time.",
+        a: "Yes, for anything designed to come apart, and we reassemble on delivery. Flag anything assembled in place that has never been moved, because those need more time and sometimes cannot be reassembled to the same standard.",
       },
       {
         q: "What should I definitely not pack?",
         a: "Anything flammable or pressurised, anything perishable, and anything you will need at short notice. Passports, Emirates ID, medication and tenancy paperwork stay with you in a suitcase, not in a carton.",
       },
     ],
+
     serviceType: "Packing services",
     cta: {
       h2: "Packing before a move?",
