@@ -114,6 +114,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/moving-storage-dubai/villa-movers": "/landing/villa-movers-hero.webp",
   "/moving-storage-dubai/packing-services": "/landing/packing-services-hero.webp",
   "/moving-storage-dubai/apartment-movers": "/landing/apartment-movers-hero.webp",
+  "/moving-storage-dubai/inter-emirate-moving": "/landing/inter-emirate-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -157,6 +158,7 @@ const SIDE_HERO = new Set([
   "/moving-storage-dubai/villa-movers",
   "/moving-storage-dubai/packing-services",
   "/moving-storage-dubai/apartment-movers",
+  "/moving-storage-dubai/inter-emirate-moving",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -206,6 +208,7 @@ const SMALL_CARD_ICONS = new Set([
   "/moving-storage-dubai/villa-movers",
   "/moving-storage-dubai/packing-services",
   "/moving-storage-dubai/apartment-movers",
+  "/moving-storage-dubai/inter-emirate-moving",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -247,6 +250,7 @@ const TABLE_ICONS = new Set([
   "/moving-storage-dubai/villa-movers",
   "/moving-storage-dubai/packing-services",
   "/moving-storage-dubai/apartment-movers",
+  "/moving-storage-dubai/inter-emirate-moving",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
@@ -283,6 +287,7 @@ const COLOUR_CARD_ICONS = new Set([
   "/moving-storage-dubai/villa-movers",
   "/moving-storage-dubai/packing-services",
   "/moving-storage-dubai/apartment-movers",
+  "/moving-storage-dubai/inter-emirate-moving",
   "/self-storage-dubai/vs-warehouse-rental",
 ])
 
@@ -324,6 +329,7 @@ const NO_CARD_NUMBERS = new Set([
   "/moving-storage-dubai/villa-movers",
   "/moving-storage-dubai/packing-services",
   "/moving-storage-dubai/apartment-movers",
+  "/moving-storage-dubai/inter-emirate-moving",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",

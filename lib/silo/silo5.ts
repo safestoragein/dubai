@@ -421,19 +421,16 @@ export const SILO5_PAGES: SiloPageContent[] = [
     h1: "Moving Between Emirates",
     introH2: "Moving between emirates, in brief",
     hero: [
-      "Inter-emirate moves are the quiet majority of UAE relocations — Dubai to Abu Dhabi for a job, Dubai to Sharjah or Ajman for rent, Sharjah to Dubai for a commute. All of them are handled as part of [moving and storage in Dubai](/moving-storage-dubai).",
-      "We operate warehouses in **Dubai, Sharjah and Ajman**, and collect from Abu Dhabi, Al Ain and the Northern Emirates as a service with storage at the nearest facility. Where your goods end up is stated per emirate rather than implied.",
-      "The problem specific to these moves is almost never the distance. It is that the two tenancies are governed by different municipalities and rarely align, so the gap between them is measured in weeks.",
+      "Inter-emirate moves are the quiet majority of UAE relocations — Dubai to Abu Dhabi for a job, Dubai to Sharjah or Ajman for rent, Sharjah to Dubai for a commute. All handled as part of [moving and storage in Dubai](/moving-storage-dubai).",
+      "We operate warehouses in **Dubai, Sharjah and Ajman**, and collect from Abu Dhabi, Al Ain and the Northern Emirates with storage at the nearest facility. The problem is almost never the distance — it is that the two tenancies run on different calendars and rarely meet.",
     ],
     sections: [
       {
         kind: "prose",
         h2: "Why the dates never line up",
         paras: [
-          "Each emirate runs its own tenancy registration and its own conventions, and the practical consequence is that a lease ending in Sharjah and one starting in Dubai are two unrelated calendars that happen to be near each other.",
-          "Add the two things that always slip — a landlord's handover and a new employer's start date — and a fortnight's gap is the normal case rather than bad luck. People plan for the move and not for the gap, and then spend three weeks in a hotel with their possessions in a van.",
-          "Storage is the obvious answer and it is cheap for a short period: no minimum term, monthly billing, and a fortnight charged as a fortnight. Empty the old property on its date, hold everything, and deliver when the new one exists.",
-          "The other timing point is traffic rather than tenancy. A Dubai to Abu Dhabi move that starts at 7am spends a long time on the E11; one that starts at 10am does not. We plan around it and it is worth knowing why the crew wants a mid-morning start.",
+          "Each emirate runs its own tenancy registration and its own conventions, so a lease ending in Sharjah and one starting in Dubai are two unrelated calendars that happen to sit near each other. Add a landlord's handover and an employer's start date, both of which slip, and a fortnight's gap is the normal case rather than bad luck.",
+          "Storage covers it with no minimum term: empty the old property on its date, hold everything, deliver when the new one exists. The other timing point is traffic rather than tenancy — a Dubai to Abu Dhabi move starting at 7am spends a long time on the E11, and one starting mid-morning does not.",
         ],
       },
       {
@@ -454,12 +451,11 @@ export const SILO5_PAGES: SiloPageContent[] = [
         h2: "Inter-emirate specifics",
         items: [
           "Confirm both tenancy dates in writing before booking, and assume at least one will move.",
-          "Check the new emirate's tenancy registration requirements — they are not the same as Dubai's Ejari.",
-          "Update your address for vehicle registration, and check whether the new emirate affects your Salik and toll arrangements.",
-          "Confirm access at both ends — a Sharjah tower and a Dubai one have different rules, and neither publishes them.",
+          "Check the new emirate's tenancy registration — it is not the same as Dubai's Ejari.",
+          "Update your address for vehicle registration, and check your Salik and toll arrangements.",
           "Plan the start time around the traffic direction, not just the distance.",
-          "If there is a gap, book the storage at the same time as the move rather than as a panic on the day.",
         ],
+        note: "If there is a gap, book the storage at the same time as the move rather than as a panic on the day.",
       },
     ],
     faqs: [
@@ -479,15 +475,8 @@ export const SILO5_PAGES: SiloPageContent[] = [
         q: "Are my goods stored in the emirate I am moving to?",
         a: "In Dubai, Sharjah and Ajman, yes — we have warehouses in each. Abu Dhabi and the Northern Emirates are served as collection areas with storage at the nearest facility, and the location pages say so rather than implying a local warehouse.",
       },
-      {
-        q: "Is transport priced by distance?",
-        a: "Distance is part of it, but access matters at least as much. A ground-floor villa with parking and a ninth-floor flat with a shared service lift are not the same job even on the same route.",
-      },
-      {
-        q: "Do I need to re-register anything after moving emirates?",
-        a: "Tenancy registration differs by emirate and is not the same as Dubai's Ejari, and your vehicle registration address may need updating. Both are worth checking before the move rather than after.",
-      },
     ],
+
     serviceType: "Inter-emirate moving",
     cta: {
       h2: "Moving to another emirate?",
