@@ -4,6 +4,7 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import { emirateFaqs } from "@/lib/emirate-faqs"
 import { storageLocationSentence } from "@/lib/facilities"
 import { SILOS, MONEY_PAGE, HUB_ORDER, moneyAnchor } from "@/lib/silo/silos"
+import EmirateHubLanding from "./emirate-hub-landing"
 import type { EmirateDef } from "@/lib/areas/types"
 import { EMIRATES } from "@/lib/areas/registry"
 import {
@@ -35,7 +36,22 @@ import {
  * pages and across to the five silo hubs, and area pages link back up. That is
  * why "do you cover my area" works without flattening the silo.
  */
+/**
+ * Emirates the owner has supplied a hero photo for. Those hubs are drawn in
+ * the homepage design; the rest keep the renderer below untouched, so adding
+ * one never restyles the others. Add an entry and that hub moves over.
+ */
+const HUB_HERO: Record<string, { src: string; alt: string }> = {
+  "abu-dhabi": {
+    src: "/landing/abu-dhabi-hub-hero.webp",
+    alt: "A SafeStorage crew loading boxes into the van in Abu Dhabi, with the Sheikh Zayed Grand Mosque behind",
+  },
+}
+
 export default function EmirateHub({ emirate }: { emirate: EmirateDef }) {
+  const hero = HUB_HERO[emirate.slug]
+  if (hero) return <EmirateHubLanding emirate={emirate} heroImage={hero.src} heroAlt={hero.alt} />
+
   const others = EMIRATES.filter((e) => e.slug !== emirate.slug)
   const base = `/locations/${emirate.slug}`
   const areas = [
