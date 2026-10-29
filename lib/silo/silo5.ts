@@ -32,35 +32,43 @@ export const SILO5_PAGES: SiloPageContent[] = [
     keywords:
       "villa movers in dubai, villa movers and packers in dubai, villa movers dubai, villa moving dubai, house movers dubai, villa relocation dubai",
     ogTitle: "Villa Movers in Dubai",
-    h1: "Villa Movers in Dubai: The Whole House, Garage Included",
+    h1: "Villa Movers in Dubai: The Garage Counted",
     introH2: "Villa moving in Dubai, in brief",
     hero: [
-      "A villa move is a full day's work and sometimes two, and it is bigger than people expect for one reason: the garage, the garden and the maid's room are not in anybody's mental model of the house. This is the villa end of [moving and storage in Dubai](/moving-storage-dubai).",
-      "Where we are most useful is when the dates do not line up — and with villas they frequently do not, because handover and possession dates on larger properties slip more than on flats. **Everything can go into storage for the gap** and come out to the new address when it exists.",
-      "Villa collections are usually easier for access than towers — a driveway rather than a service lift — but gated communities need the vehicle and crew registered with security beforehand.",
+      "A villa move is a full day's work, sometimes two, and bigger than people expect for one reason: the garage, the garden and the maid's room are not in anybody's mental model of the house. The villa end of [moving and storage in Dubai](/moving-storage-dubai).",
+      "When the dates do not line up — and with villas they often do not — **everything goes into storage for the gap** and comes out to the new address when it exists.",
     ],
     sections: [
       {
-        kind: "prose",
-        h2: "What makes a villa move bigger than the room count suggests",
-        paras: [
-          "**The garage.** In Arabian Ranches, Dubai Hills, Damac Hills, the Springs and the Meadows this is regularly the single largest space by volume: bikes, tools, garden furniture, a spare fridge, boxes from the last move that were never opened.",
-          "**The garden and terrace.** Outdoor dining sets, loungers, parasols, planters and a barbecue. Bulky, awkward, and always dirtier than expected — clean it before it is wrapped or the dust travels with it.",
-          "**The maid's room.** Usually already functioning as overflow storage, densely packed, and rarely inventoried by the household before the day.",
-          "Count those three before you agree a date. A villa quoted on bedrooms alone comes in low, and a crew sized for that quote runs out of day. For anything four bedrooms and up we would rather survey — it is free and takes half an hour.",
+        kind: "cards",
+        h2: "Why a villa move is bigger than the room count",
+        intro: "Three spaces nobody counts, often a third of the job between them.",
+        items: [
+          {
+            icon: "🚗",
+            h: "The garage",
+            p: "Regularly the largest space by volume — bikes, tools, garden furniture, a spare fridge.",
+          },
+          {
+            icon: "🌴",
+            h: "The garden and terrace",
+            p: "Dining sets, loungers, parasols, a barbecue. Bulky, and dirtier than expected — clean it before it is wrapped.",
+          },
+          {
+            icon: "🚪",
+            h: "The maid's room",
+            p: "Usually already working as overflow storage: densely packed, rarely inventoried before the day.",
+          },
         ],
       },
       {
         kind: "checklist",
         h2: "Villa-specific preparation",
         items: [
-          "Return the gas cylinder to the supplier. Every villa has one and it cannot be moved or stored.",
-          "Clear the garage of paint, thinners, pool chemicals, pesticides and jerry cans — none of them can travel.",
-          "Register the vehicle and crew with community security if you are in a gated development.",
-          "Clean outdoor furniture before the day, and drain anything holding water.",
-          "Decide about the plants. They cannot be stored and they are always the last-hour problem.",
-          "Sort the pool and garden equipment, which is usually in a shed nobody has opened this year.",
-          "Confirm the new property's access — some communities restrict vehicle size or delivery hours.",
+          "Return the gas cylinder to the supplier — it cannot be moved or stored.",
+          "Clear the garage of paint, thinners, pool chemicals and pesticides.",
+          "Register the vehicle and crew with community security in a gated development.",
+          "Decide about the plants. They cannot be stored and are always the last-hour problem.",
         ],
       },
       {
@@ -73,7 +81,7 @@ export const SILO5_PAGES: SiloPageContent[] = [
           ["4 bed villa", "A full day, sometimes two", "300–380 sq ft"],
           ["5+ bed villa", "Two days", "Quoted on survey"],
         ],
-        note: "If the dates line up you never touch storage and the goods go straight to the new address. If they do not, [packing services](/moving-storage-dubai/packing-services) and storage cover the gap without a second decision.",
+        note: "Sizes are estimated. If the dates line up the goods go straight to the new address; if not, storage covers the gap.",
       },
     ],
     faqs: [
@@ -93,15 +101,8 @@ export const SILO5_PAGES: SiloPageContent[] = [
         q: "Do you need community access permits?",
         a: "Most gated communities require the vehicle and crew to be registered with security in advance. Tell us the community at booking; arriving unregistered means waiting at the gate with a paid crew.",
       },
-      {
-        q: "Can you move outdoor and garden furniture?",
-        a: "Yes. Clean it first, because sand and dust otherwise go into the wrap and transfer to everything packed near it. Anything holding water should be drained and dried.",
-      },
-      {
-        q: "Should I get a survey?",
-        a: "For four bedrooms and above, yes. It is free, takes about half an hour, and it is the difference between a quote and a guess on a job where a wrong guess costs you a handover date.",
-      },
     ],
+
     serviceType: "Villa moving",
     cta: {
       h2: "Moving a villa?",
