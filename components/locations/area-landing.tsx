@@ -2,9 +2,11 @@ import Image from "next/image"
 import Link from "next/link"
 import type { CSSProperties } from "react"
 import {
+  Armchair,
   BedDouble,
   Boxes,
   Building2,
+  CalendarDays,
   ClipboardList,
   Globe,
   HardHat,
@@ -14,6 +16,7 @@ import {
   MoveVertical,
   Package,
   PackageOpen,
+  Plane,
   RotateCcw,
   Ruler,
   ShieldCheck,
@@ -64,6 +67,14 @@ import p from "@/components/locations/location-landing.module.css"
  * any other district, so it is never reused.
  */
 export const AREA_HERO: Record<string, { src: string; alt: string }> = {
+  "abu-dhabi/al-reem-island": {
+    src: "/landing/al-reem-island-hero.webp",
+    alt: "A SafeStorage crew loading wrapped furniture into the van outside a tower on Al Reem Island, Abu Dhabi",
+  },
+  "abu-dhabi/al-mushrif": {
+    src: "/landing/al-mushrif-hero.webp",
+    alt: "A SafeStorage crew wheeling a wrapped armchair to the van outside a villa in Al Mushrif, Abu Dhabi",
+  },
   "abu-dhabi/al-khalidiyah": {
     src: "/landing/al-khalidiyah-hero.webp",
     alt: "A SafeStorage crew wrapping a sofa and loading the van outside an apartment building in Al Khalidiyah, Abu Dhabi",
@@ -134,6 +145,9 @@ const USE_ICON: Record<string, typeof Boxes> = {
   "🚚": Truck,
   "🪜": MoveVertical,
   "🛏️": BedDouble,
+  "🪑": Armchair,
+  "📅": CalendarDays,
+  "✈️": Plane,
 }
 
 export default function AreaLanding({
@@ -172,7 +186,7 @@ export default function AreaLanding({
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
         {/* hero: copy on the left, the owner's picture on the right */}
-        <section className={`${s.hero} ${s.wrap} ${p.split2} ${p.split2Wrap}`}>
+        <section className={`${s.hero} ${s.wrap} ${p.split2} ${p.split2Wrap} ${p.areaHero}`}>
           <div className={p.split2Inner}>
             <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Area}`}>
               <span className={s.heroTag}>

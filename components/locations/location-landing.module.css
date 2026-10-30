@@ -504,14 +504,14 @@ h2.longH2 {
    from 360px up to 1920px. The class is doubled in the selector so it outranks
    .hero h1 in landing.module.css, which is otherwise last in the cascade. */
 .heroH1Area.heroH1Area h1 {
-  font-size: clamp(20px, 2.3vw, 32px);
+  font-size: clamp(19px, 2.3vw, 32px);
   line-height: 1.14;
 }
 /* below 900px the picture drops under the copy, so the title has the full
    width to itself and can come back up — measured the same way. */
 @media (max-width: 900px) {
   .heroH1Area.heroH1Area h1 {
-    font-size: clamp(20px, 5.4vw, 38px);
+    font-size: clamp(19px, 5vw, 36px);
   }
 }
 
@@ -530,4 +530,16 @@ h2.longH2 {
 .proseFlush.proseFlush {
   margin-left: 0;
   margin-right: 0;
+}
+
+/* The district hero gives the copy the wider column rather than the picture.
+   A district title is the name plus the whole promise, which is the longest
+   h1 on the site; without this it has to drop a size to stay on two lines. */
+/* only while the two columns exist: below 900px .split2Inner stacks, and
+   this rule is more specific than that one, so unscoped it kept the hero in
+   two columns on a phone and the title ran to five lines. */
+@media (min-width: 901px) {
+  .areaHero .split2Inner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  }
 }
