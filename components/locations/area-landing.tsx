@@ -8,7 +8,9 @@ import {
   Building2,
   CalendarDays,
   ClipboardList,
+  Frame,
   Globe,
+  GraduationCap,
   HardHat,
   Home,
   Luggage,
@@ -67,6 +69,10 @@ import p from "@/components/locations/location-landing.module.css"
  * any other district, so it is never reused.
  */
 export const AREA_HERO: Record<string, { src: string; alt: string }> = {
+  "abu-dhabi/saadiyat-island": {
+    src: "/landing/saadiyat-island-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped framed artwork to the van outside a villa on Saadiyat Island, Abu Dhabi",
+  },
   "abu-dhabi/al-reem-island": {
     src: "/landing/al-reem-island-hero.webp",
     alt: "A SafeStorage crew loading wrapped furniture into the van outside a tower on Al Reem Island, Abu Dhabi",
@@ -148,6 +154,8 @@ const USE_ICON: Record<string, typeof Boxes> = {
   "🪑": Armchair,
   "📅": CalendarDays,
   "✈️": Plane,
+  "🖼️": Frame,
+  "🎓": GraduationCap,
 }
 
 export default function AreaLanding({
