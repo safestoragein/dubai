@@ -16,6 +16,7 @@ import { SILOS, HUB_ORDER, MONEY_PAGE, moneyAnchor } from "@/lib/silo/silos"
 import { emirateFontVars } from "./fonts"
 import HeroPreload from "./hero-preload"
 import s from "./emirate-theme.module.css"
+import AreaLanding, { AREA_HERO } from "./area-landing"
 
 /**
  * Shared renderer for every district page, in every emirate.
@@ -39,6 +40,13 @@ import s from "./emirate-theme.module.css"
  * facility at all.
  */
 export default function AreaPage({ area, emirate }: { area: Area; emirate: EmirateDef }) {
+  // Districts the owner has supplied a photo for are drawn in the homepage
+  // design instead. Everything below is the original renderer, untouched, and
+  // still draws the other districts. See area-landing.tsx for why it is gated.
+  const landing = AREA_HERO[`${emirate.slug}/${area.slug}`]
+  if (landing)
+    return <AreaLanding area={area} emirate={emirate} heroImage={landing.src} heroAlt={landing.alt} />
+
   // `nearby` may point at a data-driven area OR at one of the hand-written
   // pages listed in staticAreas — the link grid must not silently drop a
   // neighbour just because its page happens to be a .tsx file.

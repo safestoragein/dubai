@@ -5,7 +5,8 @@ import AreaPage from "@/components/locations/area-page"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { EMIRATE_BY_SLUG, dynamicAreaParams } from "@/lib/areas/registry"
-import { emirateFaqs, faqPageSchema } from "@/lib/emirate-faqs"
+import { faqPageSchema } from "@/lib/emirate-faqs"
+import { hasAreaLanding, visibleAreaFaqs } from "@/components/locations/area-landing"
 import { RETRIEVAL_WINDOW } from "@/lib/company-facts"
 
 /*
@@ -79,18 +80,14 @@ export default async function Page({ params }: { params: Promise<{ area: string 
 
   const url = `https://safestorage.ae/locations/${emirate.slug}/${area.slug}`
 
-  // Must be the SAME list the template renders: the area's own two questions
-  // followed by the canonical ten, localised.
-  const faqs = [
-    ...area.faqs,
-    ...emirateFaqs({
-      emirate: emirate.name,
-      facilityKey: emirate.facilityKey,
-      sampleDistricts: emirate.sampleDistricts,
-      university: emirate.university,
-      district: area.name,
-    }),
-  ]
+  // Must be the SAME list the template renders. visibleAreaFaqs owns that
+  // decision: districts drawn in the homepage design show five questions,
+  // the rest show the area's own followed by the canonical ten.
+  const faqs = visibleAreaFaqs(area, emirate)
+
+  // A district drawn in the homepage design renders SiloBreadcrumb, which
+  // emits its own BreadcrumbList — a second one here would be a duplicate.
+  const landing = hasAreaLanding(area, emirate)
 
   const schemas = [
     locationBusinessSchema({ name: area.name, url, serves: [area.name, emirate.name] }),
@@ -113,21 +110,30 @@ export default async function Page({ params }: { params: Promise<{ area: string 
       isPartOf: { "@id": "https://safestorage.ae/#website" },
       inLanguage: "en-AE",
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
-        { "@type": "ListItem", position: 2, name: "Locations", item: "https://safestorage.ae/locations" },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: emirate.name,
-          item: `https://safestorage.ae/locations/${emirate.slug}`,
-        },
-        { "@type": "ListItem", position: 4, name: area.name, item: url },
-      ],
-    },
+    ...(landing
+      ? []
+      : [
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Locations",
+                item: "https://safestorage.ae/locations",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: emirate.name,
+                item: `https://safestorage.ae/locations/${emirate.slug}`,
+              },
+              { "@type": "ListItem", position: 4, name: area.name, item: url },
+            ],
+          },
+        ]),
     faqPageSchema(faqs),
   ]
 

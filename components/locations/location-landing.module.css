@@ -491,3 +491,39 @@ h2.longH2 {
     font-size: 21px;
   }
 }
+
+/* A district h1 carries the district name AND the whole promise — the longest
+   title on the site. It sits last in this file on purpose: it has to win over
+   the .split2 h1 sizes above, including their phone overrides, because the
+   clamp here already covers every width. The numbers were measured rather
+   than guessed — this is the largest size that keeps the title to two lines
+   from 360px up to 1920px. The class is doubled in the selector so it outranks
+   .hero h1 in landing.module.css, which is otherwise last in the cascade. */
+.heroH1Area.heroH1Area h1 {
+  font-size: clamp(20px, 2.3vw, 32px);
+  line-height: 1.14;
+}
+/* below 900px the picture drops under the copy, so the title has the full
+   width to itself and can come back up — measured the same way. */
+@media (max-width: 900px) {
+  .heroH1Area.heroH1Area h1 {
+    font-size: clamp(20px, 5.4vw, 38px);
+  }
+}
+
+/* .hero is a 1400px wrap while every section below it is 1180px, so above
+   1180px the hero copy starts 110px to the left of every section heading.
+   This pulls the split hero back onto the same line as the rest of the page.
+   Doubled in the selector for the same cascade reason as .heroH1Area. */
+.split2Wrap.split2Wrap {
+  max-width: 1180px;
+}
+
+/* .prose is centred inside its section (max-width 1000, auto margins), which
+   on a left-aligned page leaves the paragraphs 66px to the right of the
+   heading above them and the callout below. This flushes it left; the 1000px
+   measure stays, because that is what keeps the lines readable. */
+.proseFlush.proseFlush {
+  margin-left: 0;
+  margin-right: 0;
+}
