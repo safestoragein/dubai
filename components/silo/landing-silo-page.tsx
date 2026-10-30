@@ -1,6 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import {
+  BadgeCheck,
+  Banknote,
   Boxes,
   Building2,
   CalendarDays,
@@ -9,11 +11,12 @@ import {
   FileText,
   Hammer,
   Home,
+  IdCard,
   Lightbulb,
   MapPinned,
   Moon,
   Package,
-  Banknote,
+  Plane,
   Sofa,
   Sun,
   Truck,
@@ -115,6 +118,7 @@ const HERO_IMAGE: Record<string, string> = {
   "/moving-storage-dubai/packing-services": "/landing/packing-services-hero.webp",
   "/moving-storage-dubai/apartment-movers": "/landing/apartment-movers-hero.webp",
   "/moving-storage-dubai/inter-emirate-moving": "/landing/inter-emirate-hero.webp",
+  "/moving-storage-dubai/leaving-uae-checklist": "/landing/leaving-uae-hero.webp",
 }
 const DEFAULT_HERO_IMAGE = "/landing/movers-illustration.jpg"
 
@@ -159,6 +163,7 @@ const SIDE_HERO = new Set([
   "/moving-storage-dubai/packing-services",
   "/moving-storage-dubai/apartment-movers",
   "/moving-storage-dubai/inter-emirate-moving",
+  "/moving-storage-dubai/leaving-uae-checklist",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -170,6 +175,7 @@ const SIDE_HERO = new Set([
  *  wider than the column at the standard size and would wrap to three lines. */
 const TIGHT_TITLE = new Set([
   "/self-storage-dubai/climate-controlled",
+  "/moving-storage-dubai/leaving-uae-checklist",
   "/personal-storage-dubai/sports-equipment-storage",
 ])
 
@@ -209,6 +215,7 @@ const SMALL_CARD_ICONS = new Set([
   "/moving-storage-dubai/packing-services",
   "/moving-storage-dubai/apartment-movers",
   "/moving-storage-dubai/inter-emirate-moving",
+  "/moving-storage-dubai/leaving-uae-checklist",
   "/guides/best-storage-companies-dubai",
   "/guides/best-storage-companies-uae",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -251,6 +258,7 @@ const TABLE_ICONS = new Set([
   "/moving-storage-dubai/packing-services",
   "/moving-storage-dubai/apartment-movers",
   "/moving-storage-dubai/inter-emirate-moving",
+  "/moving-storage-dubai/leaving-uae-checklist",
   "/guides/how-much-does-storage-cost-in-dubai",
   "/guides/dubai-tenancy-and-moving-calendar",
   "/guides/best-storage-companies-uae",
@@ -259,6 +267,11 @@ const TABLE_ICONS = new Set([
 /** Pages whose table sits on ONE scrolling line instead of wrapping to a
   * second row. Only for tables with more than five rows, and only where the
   * rows are independent facts rather than a comparison you read down. */
+/** Pages whose side hero is capped at the 1180px section width, so the
+ *  title lines up with every heading beneath it instead of starting
+ *  110px to their left. */
+const HERO_FLUSH = new Set(["/moving-storage-dubai/leaving-uae-checklist"])
+
 const TABLE_RAIL = new Set(["/business-storage-dubai/pallet-storage"])
 
 /** Pages whose rail cards carry a colour icon rather than the navy square. */
@@ -288,6 +301,7 @@ const COLOUR_CARD_ICONS = new Set([
   "/moving-storage-dubai/packing-services",
   "/moving-storage-dubai/apartment-movers",
   "/moving-storage-dubai/inter-emirate-moving",
+  "/moving-storage-dubai/leaving-uae-checklist",
   "/self-storage-dubai/vs-warehouse-rental",
 ])
 
@@ -330,6 +344,7 @@ const NO_CARD_NUMBERS = new Set([
   "/moving-storage-dubai/packing-services",
   "/moving-storage-dubai/apartment-movers",
   "/moving-storage-dubai/inter-emirate-moving",
+  "/moving-storage-dubai/leaving-uae-checklist",
   "/guides/best-storage-companies-uae",
   "/guides/best-storage-companies-dubai",
   "/guides/how-much-does-storage-cost-in-dubai",
@@ -379,6 +394,11 @@ function rowIcon(label: string) {
   if (/charge|fee|cost|price|trip/.test(t)) return Banknote
   if (/visit|see|site/.test(t)) return MapPinned
   if (/who|team|contractor|staff/.test(t)) return Users
+  if (/loan|credit|card|bank|deposit|refund/.test(t)) return Banknote
+  if (/attest|certificate|document|paperwork|passport/.test(t)) return FileText
+  if (/letter|clearance|notice|confirm/.test(t)) return BadgeCheck
+  if (/ship|shipping|container|freight|fly|flight/.test(t)) return Plane
+  if (/visa|residency|cancel/.test(t)) return IdCard
   return Boxes
 }
 
@@ -697,7 +717,9 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
         className={`${s.page} ${sora.variable} ${manrope.variable}${SMALL_TYPE.has(content.path) ? ` ${g.smallType}` : ""}`}
       >
         {SIDE_HERO.has(content.path) ? (
-          <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
+          <section
+            className={`${s.hero} ${s.wrap} ${p.split2}${HERO_FLUSH.has(content.path) ? ` ${p.split2Wrap}` : ""}`}
+          >
             <div className={p.split2Inner}>
               <div
                 className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Tight}${TIGHT_TITLE.has(content.path) ? ` ${p.split2Tight}` : ""}`}

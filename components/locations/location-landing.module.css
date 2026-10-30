@@ -471,8 +471,12 @@ h2.longH2 {
 }
 
 /* A hero whose picture sits beside the copy has a narrower column, so the
-   title comes down a step and keeps to two or three lines. */
-.split2Tight h1 {
+   title comes down a step and keeps to two or three lines.
+   The class is doubled in the selector because .hero h1 in landing.module.css
+   has the same specificity and comes later in the cascade — without this the
+   rule never applied and every page that opted in still rendered at 48px.
+   The phone overrides below were unaffected: they already carry two classes. */
+.split2Tight.split2Tight h1 {
   font-size: clamp(26px, 2.9vw, 38px);
   line-height: 1.12;
 }

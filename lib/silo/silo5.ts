@@ -512,23 +512,24 @@ export const SILO5_PAGES: SiloPageContent[] = [
     ],
     sections: [
       {
-        kind: "steps",
+        kind: "cards",
         h2: "Eight to twelve weeks out",
         items: [
-          { h: "Give notice on the tenancy", p: "Check the notice period in the contract — it is often 90 days and it is often missed." },
-          { h: "Decide ship, sell or store", p: "Deciding early is what keeps you out of a forced sale. Storing does not preclude either of the others." },
-          { h: "Tell the school", p: "Transfer certificates and attested records take longer than anyone expects, and cannot be rushed at the end." },
-          { h: "Start on the car", p: "Selling or exporting a vehicle takes weeks, and any outstanding finance must clear before it can be transferred." },
+          { icon: "🔑", h: "Give notice on the tenancy", p: "Check the notice period in the contract — it is often 90 days and it is often missed." },
+          { icon: "📦", h: "Decide ship, sell or store", p: "Deciding early is what keeps you out of a forced sale. Storing does not preclude either of the others." },
+          { icon: "🏫", h: "Tell the school", p: "Transfer certificates and attested records take longer than anyone expects, and cannot be rushed at the end." },
+          { icon: "🚗", h: "Start on the car", p: "Selling or exporting a vehicle takes weeks, and any outstanding finance must clear before it can be transferred." },
         ],
       },
       {
-        kind: "steps",
+        kind: "table",
         h2: "Four to six weeks out",
-        items: [
-          { h: "Book the storage or the shipping", p: "Late June and August are the busiest weeks of the Dubai year and slots go early." },
-          { h: "Get documents attested", p: "Degrees, marriage and birth certificates. Do this while you still hold a residency visa." },
-          { h: "Clear loans and credit cards", p: "This one is not optional and it is slow. An outstanding liability can prevent departure." },
-          { h: "Request the clearance letters", p: "From your bank once cleared, and from your landlord for the deposit." },
+        columns: ["Task", "Why it sits here"],
+        rows: [
+          ["Book the storage or the shipping", "Late June and August are the busiest weeks of the Dubai year and slots go early."],
+          ["Get documents attested", "Degrees, marriage and birth certificates. Do this while you still hold a residency visa."],
+          ["Clear loans and credit cards", "This one is not optional and it is slow. An outstanding liability can prevent departure."],
+          ["Request the clearance letters", "From your bank once cleared, and from your landlord for the deposit."],
         ],
       },
       {
@@ -578,10 +579,6 @@ export const SILO5_PAGES: SiloPageContent[] = [
       {
         q: "What about my car?",
         a: "Start eight to twelve weeks out. Any outstanding finance has to clear before a transfer, and selling in the final fortnight means selling when everyone else is also selling.",
-      },
-      {
-        q: "How long does the whole process take?",
-        a: "Plan for eight to twelve weeks. It can be done faster, but the parts that cannot be rushed — attestation, loan clearance, pet relocation, school records — are exactly the parts that block departure.",
       },
     ],
     serviceType: "Relocation guidance",
