@@ -130,7 +130,7 @@ export function renderQuotationEmail(d: QuotationEmailData): string {
   <tr><td style="background:#ffffff;padding:22px 40px 18px;font-family:${F};" class="px">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
       <td style="vertical-align:middle;">
-        <img src="${LOGO_URL}" width="150" height="56" alt="SafeStorage"
+        <img src="${LOGO_URL}" width="150" height="39" alt="SafeStorage"
              style="display:block;border:0;outline:none;text-decoration:none;width:150px;height:auto;max-width:150px;">
       </td>
       <td align="right" style="vertical-align:middle;"><span style="font-size:12px;color:${FAINT};">Dubai &middot; Since 2015 globally</span></td>

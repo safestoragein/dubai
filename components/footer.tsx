@@ -23,8 +23,8 @@ export default function Footer() {
               <Image
                 src="/images/design-mode/logo.png"
                 alt="SafeStorage Dubai Logo"
-                width={180}
-                height={60}
+                width={185}
+                height={48}
                 className="h-12 w-auto brightness-0 invert"
                 priority
               />
@@ -118,9 +118,13 @@ export default function Footer() {
                   +971 50 577 3388
                 </a>
               </li>
-              <li className="flex items-center gap-2">
+              {/* min-w-0 + break-all: this is the longest string in the footer
+                  and, as a flex child, it would not shrink below its own width
+                  — which pushed it past the column and gave the whole page a
+                  27px sideways scroll between 1024px and 1200px. */}
+              <li className="flex items-center gap-2 min-w-0">
                 <Mail className="h-4 w-4 text-dubai-gold shrink-0" />
-                <a href={env.EMAIL_LINK} className="hover:text-dubai-gold transition-colors">
+                <a href={env.EMAIL_LINK} className="hover:text-dubai-gold transition-colors min-w-0 break-all">
                   {env.EMAIL}
                 </a>
               </li>

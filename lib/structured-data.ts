@@ -14,8 +14,8 @@ export const organizationSchema = {
   logo: {
     "@type": "ImageObject",
     url: "https://safestorage.ae/images/design-mode/logo.png",
-    width: 180,
-    height: 60
+    width: 770,
+    height: 200
   },
   image: "https://safestorage.ae/images/storage-facility-background.png",
   description: "Dubai's most trusted storage partner since 2015. Secure indoor units, 24/7 security, and door-to-door service.",

@@ -79,14 +79,15 @@ export default function Header() {
       {/* Dubai-style decorative top border */}
       <div className="h-1 w-full bg-gradient-to-r from-dubai-gold via-dubai-sand to-dubai-gold"></div>
 
-      <div className="container px-4 md:px-6 h-16 flex items-center justify-between lg:justify-start lg:space-x-6">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
+      <div className="container px-4 md:px-6 h-16 flex items-center justify-between xl:justify-start xl:space-x-6">
+        {/* Logo — shrink-0 because this is a flex row: without it the nav
+            squeezes the logo to nothing between 1024px and 1100px */}
+        <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/images/design-mode/logo.png"
             alt="SafeStorage Dubai Logo"
-            width={180}
-            height={60}
+            width={185}
+            height={48}
             className="h-12 w-auto"
             priority
           />
@@ -94,7 +95,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden p-2 rounded-md hover:bg-dubai-sand/10 transition-colors"
+          className="xl:hidden p-2 rounded-md hover:bg-dubai-sand/10 transition-colors"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -102,7 +103,7 @@ export default function Header() {
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center">
+        <nav className="hidden xl:flex items-center space-x-6 flex-1 justify-center">
           {navItems.map((item) =>
             item.children ? (
               <div
@@ -164,7 +165,7 @@ export default function Header() {
         </nav>
 
         {/* Desktop Contact & CTA */}
-        <div className="hidden lg:flex items-center space-x-3">
+        <div className="hidden xl:flex items-center space-x-3">
           <CountrySwitcher />
           <LanguageToggle />
           <a
@@ -193,7 +194,7 @@ export default function Header() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-[calc(100%)] left-0 right-0 bg-white border-b border-dubai-gold/20 shadow-lg lg:hidden max-h-[80vh] overflow-y-auto"
+              className="absolute top-[calc(100%)] left-0 right-0 bg-white border-b border-dubai-gold/20 shadow-lg xl:hidden max-h-[80vh] overflow-y-auto"
             >
               <div className="container px-4 py-4 flex flex-col space-y-3">
                 {navItems.map((item) =>
