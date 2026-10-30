@@ -24,6 +24,7 @@ import {
   ShieldCheck,
   Sofa,
   Truck,
+  Waves,
 } from "lucide-react"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import { emirateFaqs } from "@/lib/emirate-faqs"
@@ -69,6 +70,10 @@ import p from "@/components/locations/location-landing.module.css"
  * any other district, so it is never reused.
  */
 export const AREA_HERO: Record<string, { src: string; alt: string }> = {
+  "abu-dhabi/al-raha": {
+    src: "/landing/al-raha-hero.webp",
+    alt: "A SafeStorage crew loading wrapped furniture into the van outside a waterfront building in Al Raha, Abu Dhabi",
+  },
   "abu-dhabi/saadiyat-island": {
     src: "/landing/saadiyat-island-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped framed artwork to the van outside a villa on Saadiyat Island, Abu Dhabi",
@@ -155,6 +160,7 @@ const USE_ICON: Record<string, typeof Boxes> = {
   "📅": CalendarDays,
   "✈️": Plane,
   "🖼️": Frame,
+  "🏖️": Waves,
   "🎓": GraduationCap,
 }
 
