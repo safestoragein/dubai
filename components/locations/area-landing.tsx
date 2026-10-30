@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import type { CSSProperties } from "react"
 import {
+  BedDouble,
   Boxes,
   Building2,
   ClipboardList,
@@ -10,6 +11,7 @@ import {
   Home,
   Luggage,
   MapPin,
+  MoveVertical,
   Package,
   PackageOpen,
   RotateCcw,
@@ -62,6 +64,10 @@ import p from "@/components/locations/location-landing.module.css"
  * any other district, so it is never reused.
  */
 export const AREA_HERO: Record<string, { src: string; alt: string }> = {
+  "abu-dhabi/al-khalidiyah": {
+    src: "/landing/al-khalidiyah-hero.webp",
+    alt: "A SafeStorage crew wrapping a sofa and loading the van outside an apartment building in Al Khalidiyah, Abu Dhabi",
+  },
   "abu-dhabi/al-bateen": {
     src: "/landing/al-bateen-hero.webp",
     alt: "A SafeStorage crew wrapping furniture and loading the van outside a villa in Al Bateen, Abu Dhabi",
@@ -126,6 +132,8 @@ const USE_ICON: Record<string, typeof Boxes> = {
   "🛋️": Sofa,
   "🧳": Luggage,
   "🚚": Truck,
+  "🪜": MoveVertical,
+  "🛏️": BedDouble,
 }
 
 export default function AreaLanding({
