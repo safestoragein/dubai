@@ -291,35 +291,76 @@ export function renderQuotationEmail(d: QuotationEmailData): string {
 }
 
 /** Plain-text alternative. HTML-only mail is penalised by spam filters. */
+/**
+ * The plain-text half of the same email.
+ *
+ * Every section the HTML carries appears here too, in the same order and the same words. That
+ * is the point: a quotation whose text part is a stub reads to a spam filter as a message
+ * hiding its content behind markup, and this one carries a payment link. It is also what a
+ * text-only client, a screen reader and a forwarded-to-SMS copy actually show.
+ *
+ * Kept deliberately plain — no box drawing, no alignment padding — because none of it survives
+ * a narrow phone window, and a wrapped ASCII table is harder to read than a list.
+ */
 export function renderQuotationText(d: QuotationEmailData): string {
   const items = d.items.map((i) => `  - ${i.name} x${i.quantity}`).join("\n")
   const transport = d.transportCustomQuote
-    ? "Door-to-door pickup: our team will price this and get in touch (your address is outside our standard pickup area)."
-    : `Door-to-door pickup: AED ${money(d.transportAed)} one-time`
+    ? "DOOR-TO-DOOR PICKUP: our team will price this and get in touch (your address is outside our standard pickup area)."
+    : `DOOR-TO-DOOR PICKUP: AED ${money(d.transportAed)} one-time
+We collect, load and transport everything to our warehouse. Includes labour and packing.`
 
   return `${d.firstName}, your storage quotation is ready.
 
-Quote SS-${d.quotationId}
-${d.itemCount} item${d.itemCount === 1 ? "" : "s"} · an estimated ${d.totalSqft} sq ft of secure shared warehouse.
-Nothing is booked yet, and no payment is needed to hold this price.
+Greetings from SafeStorage. Please find your quotation below — we store anything you care
+about. Nothing is booked yet, and no payment is needed to hold this price.
 
-MONTHLY STORAGE
-AED ${money(d.monthlyStorageAed)} / month
-Estimated ${d.totalSqft} sq ft at AED 12 per sq ft. Billed monthly, cancel anytime.
+MONTHLY STORAGE: AED ${money(d.monthlyStorageAed)} per month
+Estimated ${d.totalSqft} sq ft at AED 12 / sq ft. Billed monthly, cancel anytime.
 
 ${transport}
-Or drop off yourself: AED ${money(d.selfDropTokenAed)} token, which comes off your storage bill.
 
-Choose a pickup date:
+Prefer to drop off yourself? Bring your items to our warehouse for an AED ${money(
+    d.selfDropTokenAed
+  )} token
+that comes off your storage bill.
+
+CHOOSE A PICKUP DATE
 ${d.bookingUrl}
+Your slot is confirmed once transport is paid.
 
 WHAT YOU'RE STORING
 ${items}
 
 QUOTE DETAILS
   Quote reference: SS-${d.quotationId}
-  Estimated space: ${d.totalSqft} sq ft, ${d.totalPallets} pallet${d.totalPallets === 1 ? "" : "s"}
+  Estimated space: ${d.totalSqft} sq ft, ${d.totalPallets} pallet${
+    d.totalPallets === 1 ? "" : "s"
+  }
   Storage type   : Shared warehouse${d.pickupAddress ? `\n  Pickup address : ${d.pickupAddress}` : ""}
+
+HOW IT WORKS
+  1. Our relationship manager calls to explain the process after booking.
+  2. On pickup day, our transport team packs everything listed in the quotation.
+  3. Inventory is prepared from the actual packed items and moved to the warehouse safely.
+  4. Our warehouse manager acknowledges receipt; any damages are notified.
+  5. Your dashboard is updated with inventory, stacking images and final charges.
+  6. You receive a welcome note with complete details.
+  7. If you arrange your own transport, handing-over charges apply based on volume and item list.
+  8. KYC is mandatory and must be uploaded at the time of pickup.
+
+STATE-OF-THE-ART FACILITIES
+  - TV and laptops stored in dedicated racking systems
+  - Barcode tracking for every item stored
+  - Periodical pest control services
+  - 24x7 security and CCTV coverage
+  - Modular fire extinguishers, fire alarm and shutter alarm systems
+  - Items stored on wooden pallets
+
+DISMANTLE & REASSEMBLE
+We dismantle and reassemble cots with normal nuts and bolts. Hydraulic items, chipboard items
+and crockery units will not be dismantled or reassembled. AC, electronics, chipboard, hydraulic
+and crockery items — and any work requiring a special technician (electrician, plumber or
+carpenter) — must be handled by the customer.
 
 PAYMENT TERMS
   1. Any change in the number of items affects both storage and transport charges.
@@ -327,9 +368,34 @@ PAYMENT TERMS
   3. Storage is billed monthly and settled separately, starting from the pickup date.
   4. You can regenerate the quotation through our portal to verify updated costs.
 
-This quotation is valid for 7 days.
+TERMS & CONDITIONS
+  1. This quotation is based on the items mentioned; the price may change based on the actual
+     number and volume of items received.
+  2. We do not store liquids, packed or any food items, edibles, ornaments, cosmetics, medicines
+     or flammable items. Empty LPG cylinders are allowed; any gas will be diffused before storage.
+  3. Transport charges cover pickup from your location to the SafeStorage warehouse only.
+     Delivery charges are estimated at retrieval based on location, floor and lift availability.
+  4. A valid VAT / TRN number must be provided in advance before a tax invoice is generated.
+  5. Zero cancellation fees before 48 hours of pickup.
+  6. Lift-to-loading area distance cannot exceed 100 metres; beyond that, charges apply based on
+     storage charges.
+  7. If payment is not made within 7 days of billing, late charges apply on the unpaid amount.
+  8. Please disconnect the water connection for washing machines and purifiers to avoid leakage,
+     and keep them ready for pickup.
+  9. This quotation is valid for 7 days only.
+  10. For day-wise or weekly storage in the first month, a minimum of one full month's storage
+      charge is mandatory.
+  11. If you opt for self-transport at retrieval, mandatory handing-over charges apply based on
+      the volume of goods.
+  12. For partial retrieval above 50% of items, handover charges are updated accordingly.
+  13. Please book your retrieval slot at least one week in advance, subject to availability.
 
-Questions? ${d.supportPhone} or ${d.supportEmail}
-You received this because you requested a quote at safestorage.ae.
+Questions about your quote? Just reply to this email, call ${d.supportPhone},
+or reach us at ${d.supportEmail}.
+
+SafeStorage Dubai · This quotation is valid for 7 days.
+© 2015–2026 SafeStorage · All rights reserved.
+
+You're receiving this because you requested a storage quotation from SafeStorage.
 `
 }
