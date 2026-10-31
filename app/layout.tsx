@@ -233,6 +233,12 @@ export default function RootLayout({
                     is in the first paint rather than appearing after hydration. */}
                 <StickyMobileCta />
               </SiteChrome>
+              {/* Leo, the lead-capture chat widget. One self-mounting bundle:
+                  it renders inside a shadow root, so its Tailwind reset cannot
+                  reach this page and this page's CSS cannot reach into it.
+                  lazyOnload keeps it out of the critical path - a chat launcher
+                  has no business competing with the page for first paint. */}
+              <Script src="/safestorage-chat-widget.iife.js" strategy="lazyOnload" />
               <ViewportZoomReset />
               <AdAttributionCapture />
             </MotionProvider>
