@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
 import EmirateHub from "@/components/locations/emirate-hub"
+import { hubLandingFaqs } from "@/components/locations/emirate-hub-landing"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { EMIRATE_BY_SLUG } from "@/lib/areas/registry"
-import { emirateFaqs, faqPageSchema } from "@/lib/emirate-faqs"
+import { faqPageSchema } from "@/lib/emirate-faqs"
 
 /*
  * /locations/ras-al-khaimah — emirate hub.
@@ -43,17 +44,10 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  // The FAQ schema is built from the SAME array the hub renders, so the markup
-  // cannot claim a question the page does not show.
-  const faqs = [
-    ...emirate.hub.faqs,
-    ...emirateFaqs({
-      emirate: emirate.name,
-      facilityKey: emirate.facilityKey,
-      sampleDistricts: emirate.sampleDistricts,
-      university: emirate.university,
-    }),
-  ]
+  // The FAQ schema is built from the SAME five the hub renders, so the markup
+  // cannot claim a question the page does not show. It used to be built from the
+  // full hub list, which declared thirteen questions against five on the page.
+  const faqs = hubLandingFaqs(emirate)
 
   const schemas = [
     locationBusinessSchema({ name: emirate.name, url, serves: [emirate.name] }),

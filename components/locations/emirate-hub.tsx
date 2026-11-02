@@ -50,6 +50,10 @@ const HUB_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/fujairah-hub-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped sofa to the van outside a Fujairah villa, with Fujairah Fort and the Hajar mountains behind",
   },
+  "ras-al-khaimah": {
+    src: "/landing/ras-al-khaimah-hub-hero.webp",
+    alt: "Two SafeStorage crew carrying a wrapped armchair into the van on the corniche, with the loaded van and packed boxes beside them",
+  },
 }
 
 export default function EmirateHub({ emirate }: { emirate: EmirateDef }) {
