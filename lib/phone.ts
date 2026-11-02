@@ -49,3 +49,22 @@ export function validatePhone(raw: string): string | null {
 
   return null
 }
+
+/**
+ * E.164 form (+971501234567) for ad-platform enhanced conversions, which hash the
+ * number and match it against the Google account. The form accepts several
+ * spellings, so normalise them: "+971 50 577 3388", "00971...", "971...", a UAE
+ * national number with the trunk 0 ("050 577 3388") or without it ("50 577 3388").
+ * Numbers that already carry "+" or "00" are overseas and keep their own code.
+ * Returns "" for anything that does not look like a number.
+ */
+export function toE164(raw: string): string {
+  const value = (raw || "").trim()
+  const digits = phoneDigits(value)
+  if (digits.length < MIN_DIGITS || digits.length > MAX_DIGITS) return ""
+  if (value.startsWith("+")) return `+${digits}`
+  if (digits.startsWith("00")) return `+${digits.slice(2)}`
+  if (digits.startsWith("971")) return `+${digits}`
+  if (digits.startsWith("0")) return `+971${digits.slice(1)}`
+  return `+971${digits}`
+}

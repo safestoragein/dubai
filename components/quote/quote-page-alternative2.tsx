@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import WorkingPlacesAutocomplete from "@/components/ui/working-places-autocomplete"
-import { sanitizePhoneInput, validatePhone } from "@/lib/phone"
+import { sanitizePhoneInput, validatePhone, toE164 } from "@/lib/phone"
 import { getAdAttribution } from "@/lib/ad-attribution"
 import {
   calculateTransportPrice,
@@ -944,6 +944,12 @@ export default function QuotePage() {
             quotation_id: String(quotationId),
             customer_id: String(finalCustomerId),
             items_selected: formData.selectedItems.length,
+            // Enhanced-conversion data: the GTM Request quote tag sends these as
+            // user-provided data, which Google hashes and matches to the ad click,
+            // so later Qualified lead / Paid Booking rows match on email or phone
+            // even without a click ID.
+            user_email: (formData.email || '').trim().toLowerCase(),
+            user_phone: toE164(formData.phone),
           })
         } catch {}
 
