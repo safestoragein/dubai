@@ -46,6 +46,10 @@ const HUB_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/abu-dhabi-hub-hero.webp",
     alt: "A SafeStorage crew loading boxes into the van in Abu Dhabi, with the Sheikh Zayed Grand Mosque behind",
   },
+  fujairah: {
+    src: "/landing/fujairah-hub-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped sofa to the van outside a Fujairah villa, with Fujairah Fort and the Hajar mountains behind",
+  },
 }
 
 export default function EmirateHub({ emirate }: { emirate: EmirateDef }) {

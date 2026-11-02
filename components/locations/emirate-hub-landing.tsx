@@ -53,6 +53,26 @@ const SILO_ICON: Record<string, typeof Boxes> = {
   s6: Archive,
 }
 
+/**
+ * The FAQs this hub puts on the page.
+ *
+ * Exported because the page's FAQPage JSON-LD has to be built from the SAME
+ * list. The hub copy carries far more questions than the design shows - on
+ * Fujairah it was thirteen against the five rendered - and schema that claims
+ * questions a visitor cannot see is a structured-data violation, not a
+ * harmless extra. One source, so the two cannot drift.
+ */
+export function hubLandingFaqs(emirate: EmirateDef) {
+  return [
+    ...emirate.hub.faqs,
+    ...emirateFaqs({
+      emirate: emirate.name,
+      facilityKey: emirate.facilityKey,
+      sampleDistricts: emirate.sampleDistricts,
+      university: emirate.university,
+    }),
+  ].slice(0, 5)
+}
 export default function EmirateHubLanding({
   emirate,
   heroImage,
@@ -69,15 +89,7 @@ export default function EmirateHubLanding({
     ...(emirate.staticAreas ?? []),
   ].sort((a, b) => a.name.localeCompare(b.name))
 
-  const faqs = [
-    ...emirate.hub.faqs,
-    ...emirateFaqs({
-      emirate: emirate.name,
-      facilityKey: emirate.facilityKey,
-      sampleDistricts: emirate.sampleDistricts,
-      university: emirate.university,
-    }),
-  ].slice(0, 5)
+  const faqs = hubLandingFaqs(emirate)
 
   // the orange ending the rest of the site uses: split before the emirate name
   const h1 = emirate.hub.h1
