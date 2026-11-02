@@ -1,9 +1,56 @@
 import type { Metadata } from "next"
-import LocationPage from "@/components/locations/location-page"
+import type { CSSProperties } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import {
+  Building2,
+  ClipboardList,
+  Flag,
+  HardHat,
+  Home,
+  KeyRound,
+  MapPin,
+  PackageOpen,
+  RotateCcw,
+  Ruler,
+  ShieldCheck,
+  Sofa,
+  Truck,
+} from "lucide-react"
 import SchemaScript from "@/components/schema-script"
-import { locationBusinessSchema } from "@/lib/structured-data"
-import AreaLinks from "@/components/locations/area-links"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
+import { locationBusinessSchema } from "@/lib/structured-data"
+import { faqPageSchema } from "@/lib/emirate-faqs"
+import { storageLocationSentence } from "@/lib/facilities"
+import { SILOS, MONEY_PAGE, HUB_ORDER, moneyAnchor } from "@/lib/silo/silos"
+import { CCTV_COVERAGE, RETRIEVAL_WINDOW } from "@/lib/company-facts"
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { LandingReviews } from "@/components/landing/landing-reviews"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import { MilestonesPlayer } from "@/components/landing/milestones-player"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import { env } from "@/lib/env"
+import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
+
+/*
+ * /locations/dubai/dubai-hills — the district page, in the homepage design.
+ *
+ * This district is written by hand rather than drawn from lib/areas, because
+ * its copy is its own: the golf-course communities, the off-plan handover gap,
+ * the Al Quoz business strip. Routing it through AreaPage would have replaced
+ * all of that with the registry's one-line blurb, so the page keeps its own
+ * facts and only the presentation changes.
+ *
+ * The copy here is the copy that was already on the page, cut down. Nothing is
+ * invented and no price appears: the old page's "167+ Dubai Hills customers ·
+ * Premium service since 2020" line is gone rather than restyled, and so is the
+ * FAQ that stated a cancellation-notice period.
+ */
+
+const URL = "https://safestorage.ae/locations/dubai/dubai-hills"
 
 export const metadata: Metadata = {
   title: "Dubai Hills Estate Storage — Door-to-door Pickup",
@@ -13,33 +60,132 @@ export const metadata: Metadata = {
     "dubai hills estate storage, storage dubai hills, storage near dubai hills mall, al quoz storage, dubai hills villa storage, storage emaar dubai hills",
   openGraph: {
     images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    url: "https://safestorage.ae/locations/dubai/dubai-hills",
+    url: URL,
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
     type: "website",
   },
   alternates: {
-    canonical: "https://safestorage.ae/locations/dubai/dubai-hills",
+    canonical: URL,
     // The Arabic counterpart uses the SAME slug on purpose — see
     // lib/ar/emirates.ts. Translating it would break this pairing, and the
     // pairing is precisely why this page was re-pathed under /dubai/: English
     // sat at /locations/dubai-hills while Arabic sat at
     // /ar/locations/dubai/dubai-hills, so the two never resolved as alternates.
     languages: {
-      "en-AE": "https://safestorage.ae/locations/dubai/dubai-hills",
+      "en-AE": URL,
       "ar-AE": "https://safestorage.ae/ar/locations/dubai/dubai-hills",
-      "x-default": "https://safestorage.ae/locations/dubai/dubai-hills",
+      "x-default": URL,
     },
   },
 }
 
-const dubaiHillsSchemas = [
+/*
+ * Five questions, and the FAQPage schema is built from this same array — so the
+ * markup can never carry a question the page does not show. The old page listed
+ * ten; these are the five that get asked, with the answers cut to the two or
+ * three sentences that actually answer them.
+ */
+const FAQS = [
+  {
+    q: "Does SafeStorage cover all Dubai Hills Estate sub-communities?",
+    a: "Yes — Golf Place I and II, Fairway Vistas, Maple 1/2/3, Park Heights I and II, Park Ridge, Acacia, Golfville, Sidra I/II/III, Elysian Mansions and the apartment towers, including the Address Dubai Hills residences and the buildings around Dubai Hills Mall. If you cannot see your community, call +971505773388 — every Dubai Hills address qualifies for door-to-door collection.",
+  },
+  {
+    q: "Can you store my things while I wait for a Dubai Hills handover?",
+    a: "Yes, and it is one of the most common reasons people call. You start when you have to leave your current property and finish when the new one is ready. If the handover slips you simply carry on month to month, then we deliver to your Dubai Hills address when you confirm the date.",
+  },
+  {
+    q: "How is premium furniture packed?",
+    a: "Everything is wrapped at your property before it moves. Polished and painted surfaces get stretch film and soft padding, glass gets a custom cover, marble tops get foam-padded edge protection, and large artwork is sandwiched between foam boards. Items are photographed before and after wrapping.",
+  },
+  {
+    q: "How long does collection from Dubai Hills take?",
+    a: `The crew normally reaches a Dubai Hills address within 20–25 minutes, depending on Al Khail Road. A full villa takes a multi-person team three to six hours. For a large clearance, book two to three days ahead so the right crew size is free.`,
+  },
+  {
+    q: "Is Al Quoz covered for business storage?",
+    a: "Yes — Al Quoz 1, 2, 3 and 4, residential and industrial. We hold excess stock, archived documents, equipment and office furniture for Al Quoz businesses, and send a vehicle sized to the volume.",
+  },
+]
+
+/** The communities the old page listed, as chips rather than three columns of bullets. */
+const COMMUNITIES = [
+  "Golf Place I & II",
+  "Fairway Vistas",
+  "Maple 1, 2, 3",
+  "Park Heights I & II",
+  "Park Ridge",
+  "Acacia & Golfville",
+  "Sidra I, II, III",
+  "Elysian Mansions",
+  "Dubai Hills Mall area",
+  "Address Dubai Hills",
+  "Al Quoz 1–4",
+  "Umm Suqeim 2 & 3",
+  "Nad Al Sheba 1–4",
+  "Al Barsha South",
+  "Mohammed Bin Rashid City",
+]
+
+/** Neighbouring district pages this one links across to. */
+const NEARBY = [
+  { slug: "al-quoz", name: "Al Quoz" },
+  { slug: "al-barsha", name: "Al Barsha" },
+  { slug: "business-bay", name: "Business Bay" },
+  { slug: "downtown-dubai", name: "Downtown Dubai" },
+  { slug: "jumeirah", name: "Jumeirah" },
+  { slug: "dubai-marina", name: "Dubai Marina" },
+]
+
+const TINTS = [
+  { fg: "#ee5824", bg: "rgba(238, 88, 36, 0.12)" },
+  { fg: "#1893d2", bg: "rgba(24, 147, 210, 0.12)" },
+  { fg: "#16a34a", bg: "rgba(22, 163, 74, 0.12)" },
+  { fg: "#7c3aed", bg: "rgba(124, 58, 237, 0.12)" },
+  { fg: "#e11d48", bg: "rgba(225, 29, 72, 0.12)" },
+  { fg: "#d97706", bg: "rgba(217, 119, 6, 0.12)" },
+]
+
+const USES = [
+  {
+    Icon: Sofa,
+    title: "Villa clearances",
+    desc: "Golf Place, Fairway Vistas and Maple generate real volume. Full-villa clearance, wrapped and catalogued.",
+  },
+  {
+    Icon: KeyRound,
+    title: "Waiting on a handover",
+    desc: "Bought off-plan and have to leave your current home first? Store month to month until the keys arrive.",
+  },
+  {
+    Icon: HardHat,
+    title: "Extensions and landscaping",
+    desc: "Rooms cleared while the work runs, and put back where you want them when it finishes.",
+  },
+  {
+    Icon: Flag,
+    title: "Golf kit over the summer",
+    desc: "Clubs, bags and trolleys held indoors from May to September instead of cooking in a car boot.",
+  },
+  {
+    Icon: Building2,
+    title: "Al Quoz business storage",
+    desc: "Stock, archives, equipment and office furniture for the workshops and showrooms along the strip.",
+  },
+  {
+    Icon: Home,
+    title: "Between tenancies",
+    desc: "Everything held while you move, then delivered to the next address — all of it or part of it.",
+  },
+]
+
+const schemas = [
   locationBusinessSchema({
     name: "Dubai Hills Estate",
-    url: "https://safestorage.ae/locations/dubai/dubai-hills",
-    serves: ["Al Quoz", "Umm Suqeim", "Nad Al Sheba"]
+    url: URL,
+    serves: ["Al Quoz", "Umm Suqeim", "Nad Al Sheba"],
   }),
-
   {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -47,7 +193,7 @@ const dubaiHillsSchemas = [
     description:
       "Premium secure storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup from all Dubai Hills communities. Al Quoz and Umm Suqeim also covered.",
     provider: { "@id": "https://safestorage.ae/#organization" },
-    url: "https://safestorage.ae/locations/dubai/dubai-hills",
+    url: URL,
     areaServed: [
       { "@type": "Place", name: "Dubai Hills Estate" },
       { "@type": "Place", name: "Al Quoz" },
@@ -59,18 +205,28 @@ const dubaiHillsSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://safestorage.ae/locations/dubai/dubai-hills#webpage",
+    "@id": `${URL}#webpage`,
     // Must equal the rendered <title>: the `title` above is a plain string, so the
     // root layout template appends " | SafeStorage Dubai" to it.
     name: "Dubai Hills Estate Storage — Door-to-door Pickup | SafeStorage Dubai",
     description:
       "Storage for Dubai Hills Estate villas and apartments. Door-to-Door pickup service, secure units, flexible plans. Al Quoz also covered.",
-    url: "https://safestorage.ae/locations/dubai/dubai-hills",
+    url: URL,
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
-    dateModified: "2026-04-21",
+    dateModified: "2026-11-02",
   },
-  
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://safestorage.ae/locations" },
+      { "@type": "ListItem", position: 3, name: "Dubai", item: "https://safestorage.ae/locations/dubai" },
+      { "@type": "ListItem", position: 4, name: "Dubai Hills Estate", item: URL },
+    ],
+  },
+  faqPageSchema(FAQS),
 ]
 
 export default function DubaiHillsPage() {
@@ -84,174 +240,321 @@ export default function DubaiHillsPage() {
           { name: "Dubai Hills Estate" },
         ]}
       />
-      <SchemaScript schema={dubaiHillsSchemas} />
-      <LocationPage
-        location="Dubai Hills Estate"
-        areas={["Dubai Hills Estate", "Emaar Hills", "Park Heights", "Park Ridge", "Golf Place", "Al Quoz", "Nad Al Sheba"]}
-        distance="15-20 minutes"
-        intro="Family villa storage for Dubai Hills Estate — garden furniture, seasonal items and full-room clearances during extensions and landscaping work."
-        benefits={[
-          "Expert care for premium Dubai Hills villa contents",
-          "Door-to-Door pickup from all Dubai Hills sub-communities",
-          "Ideal for new residents awaiting villa completion",
-          "Al Quoz warehousing and business storage also covered",
-        ]}
-      />
+      <SchemaScript schema={schemas} />
 
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-4">Storage in Dubai Hills Estate &amp; Al Quoz</h2>
-          <p className="text-sm text-gray-500 mb-6">
-            Dubai Hills storage specialists · 167+ Dubai Hills customers · Premium service since 2020
-          </p>
-          <p className="text-lg text-gray-700 mb-6">
-            Dubai Hills Estate is one of Emaar&apos;s flagship master-planned communities — a prestigious collection
-            of golf-course-facing villas, townhouses, and apartment towers set around the 18-hole Dubai Hills Golf
-            Club. As one of Dubai&apos;s fastest-growing and most sought-after residential addresses, Dubai Hills
-            attracts premium buyers and renters who expect the same quality in their storage provider as in their
-            home. SafeStorage has been serving Dubai Hills residents since 2020 and is the trusted choice for villa
-            furniture storage, renovation clearance, and apartment storage in the community.
-          </p>
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* hero: copy on the left, the owner's picture on the right */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2} ${p.split2Wrap} ${p.areaHero}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Area}`}>
+              <span className={s.heroTag}>Dubai · Dubai Hills Estate</span>
+              <h1>
+                Storage for Dubai Hills — <em>we collect, store and bring it back.</em>
+              </h1>
+              <p>Villa and apartment storage across Dubai Hills Estate, and Al Quoz next door.</p>
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a Free Quote →
+                </Link>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
+                </a>
+              </div>
+            </div>
+            <div className={p.split2Photo} style={{ aspectRatio: "1400 / 788" } as CSSProperties}>
+              <Image
+                src="/landing/dubai-hills-hero.webp"
+                alt="A SafeStorage crew loading wrapped furniture into the van while a family packs boxes outside their Dubai Hills Estate villa, with the golf course and the Dubai skyline behind"
+                width={1400}
+                height={788}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-10">
+        <LandingTrust />
+
+        {/* dark band: breaks the page up and states the service plainly */}
+        <section className={`${s.darkBand} ${s.whyBand}`} style={{ marginTop: 18 }}>
+          <div className={s.wrap}>
+            <div className={s.bandHead}>
+              <span className={s.howEyebrow}>What is included</span>
+              <h2>
+                We come to Dubai Hills <br className={s.mBreak} />
+                <em>and take it from there.</em>
+              </h2>
+            </div>
+            <FeatScroller>
+              {[
+                {
+                  Icon: Home,
+                  h: "Collected from your door",
+                  pp: "The crew comes to your Dubai Hills address, wraps what is going and loads it.",
+                },
+                {
+                  Icon: PackageOpen,
+                  h: "Wrapped where it stands",
+                  pp: "Furniture is wrapped at your property before it moves, not later at the warehouse.",
+                },
+                { Icon: ShieldCheck, h: "Indoors and covered", pp: CCTV_COVERAGE },
+                {
+                  Icon: Ruler,
+                  h: "Only the space you use",
+                  pp: "Billed on the floor space your items occupy, not on a size you have to fill. No minimum term.",
+                },
+              ].map((c) => (
+                <article className={s.feat} key={c.h}>
+                  <div className={s.featIcon}>
+                    <c.Icon strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3>{c.h}</h3>
+                  <p>{c.pp}</p>
+                </article>
+              ))}
+            </FeatScroller>
+          </div>
+        </section>
+
+        {/* why people here call — the district's own reasons, as cards */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 26, paddingBottom: 26 }}>
+          <div className={s.howHead}>
             <div>
-              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Villa Storage — Dubai Hills &amp; Golf Place</h3>
-              <p className="text-gray-700 mb-3">
-                Dubai Hills villas — particularly those in Golf Place, Fairway Vistas, and Maple — are premium,
-                large-format properties that generate substantial storage volumes when renovating or between tenancies.
-                SafeStorage provides full-villa clearance with premium packing, secure storage, and
-                white-glove delivery back on request.
-              </p>
-              <p className="text-gray-700">
-                Our Dubai Hills team brings premium-grade packing materials for all villa pickups — thick blankets,
-                corner protectors, custom stretch wrap, and bubble wrap for delicate surfaces. For villas being
-                staged for sale, we provide photo-catalogued storage so specific pieces can be easily retrieved
-                for the staging layout.
-              </p>
+              <span className={s.howEyebrow}>What Dubai Hills stores</span>
+              <h2>
+                Why people here <em>call us.</em>
+              </h2>
             </div>
+            <p>Golf-course villas, towers around the mall, and the Al Quoz strip next door.</p>
+          </div>
+          <div className={s.miniGrid}>
+            {USES.map((u, i) => (
+              <div className={s.miniCard} key={u.title}>
+                <span
+                  className={s.miniIcon}
+                  aria-hidden="true"
+                  style={
+                    {
+                      background: TINTS[i % TINTS.length].bg,
+                      color: TINTS[i % TINTS.length].fg,
+                      boxShadow: "none",
+                    } as CSSProperties
+                  }
+                >
+                  <u.Icon />
+                </span>
+                <div>
+                  <b>{u.title}</b>
+                  <small>{u.desc}</small>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* the district in detail, and where things actually go */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
             <div>
-              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">New Resident Storage — Awaiting Villa Handover</h3>
-              <p className="text-gray-700 mb-3">
-                Dubai Hills Estate has substantial ongoing development, meaning many residents buy off-plan and
-                await handover of their villa or apartment. In the interim, they often need to clear their current
-                property but have nowhere to take their belongings until the new property is ready. SafeStorage
-                bridges this gap perfectly.
-              </p>
-              <p className="text-gray-700">
-                We store your current home&apos;s contents on flexible monthly terms until your Dubai Hills property
-                is handed over and ready to move into. There is no penalty if the handover is delayed — you simply
-                continue month-to-month until the move-in day, then we deliver everything to your new address.
-              </p>
+              <span className={s.howEyebrow}>In brief</span>
+              <h2 className={p.longH2}>
+                Storage in Dubai Hills, <em>specifically.</em>
+              </h2>
             </div>
           </div>
+          <div className={`${s.prose} ${p.proseFlush}`}>
+            <p>
+              Dubai Hills Estate is one of Emaar&apos;s master-planned communities — golf-course-facing
+              villas, townhouses and apartment towers set around the 18-hole Dubai Hills Golf Club.
+              Much of it is still being handed over, which is why so many calls here are about the gap
+              between leaving one home and getting into the next.
+            </p>
+            <p>
+              The villas in Golf Place, Fairway Vistas and Maple are large-format properties, so a
+              renovation or a change of tenancy produces a lot at once. We wrap it at the property,
+              photograph and list it, and bring back all of it or part of it when you ask.
+            </p>
+          </div>
+          <div className={s.movingTip}>
+            <span aria-hidden="true">📍</span>
+            <p>
+              <strong>Where your things actually go.</strong> {storageLocationSentence("dubai")} We
+              collect from your address in Dubai Hills, so you do not need to drive anything anywhere.
+              Transport is quoted separately and confirmed before anything is booked.
+            </p>
+          </div>
+        </section>
 
-          <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
-            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Dubai Hills &amp; Surrounding Areas Covered</h3>
-            <div className="grid md:grid-cols-3 gap-4 text-gray-700">
-              <div>
-                <p className="font-semibold mb-2">Dubai Hills Communities</p>
-                <ul className="space-y-1 text-sm">
-                  <li>• Golf Place I &amp; II</li>
-                  <li>• Fairway Vistas</li>
-                  <li>• Maple (1, 2, 3)</li>
-                  <li>• Park Heights I &amp; II</li>
-                  <li>• Park Ridge</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-semibold mb-2">More Dubai Hills</p>
-                <ul className="space-y-1 text-sm">
-                  <li>• Acacia &amp; Golfville</li>
-                  <li>• Sidra (I, II, III)</li>
-                  <li>• Elysian Mansions</li>
-                  <li>• Dubai Hills Mall area</li>
-                  <li>• Address Dubai Hills</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-semibold mb-2">Adjacent Areas</p>
-                <ul className="space-y-1 text-sm">
-                  <li>• Al Quoz (1, 2, 3, 4)</li>
-                  <li>• Umm Suqeim 2 &amp; 3</li>
-                  <li>• Nad Al Sheba 1, 2, 3, 4</li>
-                  <li>• Al Barsha South</li>
-                  <li>• Mohammed Bin Rashid City</li>
-                </ul>
-              </div>
+        {/* the collection, as the four steps it actually is */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>How it works</span>
+              <h2 className={p.longH2}>
+                Four steps, <em>door to door.</em>
+              </h2>
             </div>
           </div>
+          <MilestonesPlayer>
+            <ol className={s.milestones} style={{ ["--steps"]: 4 } as CSSProperties}>
+              {[
+                {
+                  Icon: ClipboardList,
+                  t: "Tell us what you have",
+                  b: "A room count or a rough list is enough for a free, itemised quote.",
+                },
+                {
+                  Icon: Truck,
+                  t: "We come to Dubai Hills",
+                  b: "The crew arrives on the agreed date, wraps everything and loads the van.",
+                },
+                {
+                  Icon: ShieldCheck,
+                  t: "Logged and stored",
+                  b: "Everything is listed on the inventory you sign, then held indoors under camera.",
+                },
+                {
+                  Icon: RotateCcw,
+                  t: "Delivered back",
+                  b: `All of it or part of it, to the address you choose, normally within ${RETRIEVAL_WINDOW}.`,
+                },
+              ].map((st, i) => (
+                <li className={s.milestone} key={st.t} style={{ ["--i"]: i } as CSSProperties}>
+                  <span className={s.milestoneDot} aria-hidden="true">
+                    <st.Icon />
+                  </span>
+                  <span className={s.milestoneYear}>Step {i + 1}</span>
+                  <b>{st.t}</b>
+                  <small>{st.b}</small>
+                </li>
+              ))}
+            </ol>
+          </MilestonesPlayer>
+        </section>
 
-          <div className="bg-[#0A2463] rounded-xl p-8 text-white mb-8">
-            <h3 className="text-xl font-bold mb-3">Dubai Hills Customer Testimonials</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white/10 rounded-lg p-4">
-                <p className="text-white/90 text-sm mb-3">&ldquo;We bought in Golf Place and had to leave our Marina apartment 3 months before handover. SafeStorage stored everything perfectly — every piece of furniture came back in the same condition it left. Premium service that matched the quality we expected.&rdquo;</p>
-                <p className="text-white/70 text-xs font-semibold">— James W., Golf Place I, Dubai Hills Estate</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-4">
-                <p className="text-white/90 text-sm mb-3">&ldquo;Renovating our Maple 3 villa took 4 months instead of 2. SafeStorage stored all our furniture without complaint and extended our plan easily. When we finally moved back in, the team placed furniture in exactly the rooms we requested. Brilliant.&rdquo;</p>
-                <p className="text-white/70 text-xs font-semibold">— Anna T., Maple 3 Villa, Dubai Hills</p>
-              </div>
+        {/* the communities the old page listed in three columns of bullets */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Covered</span>
+              <h2 className={p.longH2}>
+                Every community, <em>and the ones next door.</em>
+              </h2>
             </div>
+            <p>Door-to-door collection from all of these addresses.</p>
           </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {COMMUNITIES.map((c, i) => (
+              <span
+                className={s.chip}
+                key={c}
+                style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+              >
+                <span
+                  aria-hidden="true"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 20,
+                    height: 20,
+                    borderRadius: 6,
+                    flex: "none",
+                    background: TINTS[i % TINTS.length].bg,
+                    color: TINTS[i % TINTS.length].fg,
+                  }}
+                >
+                  <MapPin size={12} strokeWidth={2.2} />
+                </span>
+                {c}
+              </span>
+            ))}
+          </div>
+        </section>
 
-          <div className="text-center">
-            <p className="text-lg text-gray-700 mb-4">Door-to-Door pickup storage for Dubai Hills villas and apartments — get your quote today.</p>
-            <a href="/get-quote" className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c02a50] transition-colors">
-              Get a Free Quote
-            </a>
-          </div>
-        </div>
-      </section>
+        <LandingReviews padTop={0} />
 
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-8 text-center">Frequently Asked Questions — Dubai Hills Estate Storage</h2>
-          <div className="space-y-5">
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage cover all Dubai Hills Estate sub-communities?</h3>
-              <p className="text-gray-700">Yes. SafeStorage covers all Dubai Hills Estate sub-communities including Golf Place I and II, Fairway Vistas, Maple 1/2/3, Park Heights I and II, Park Ridge, Acacia, Golfville, Sidra I/II/III, Elysian Mansions, and all apartment towers within Dubai Hills. We also cover the Address Dubai Hills hotel residences and all buildings in the Dubai Hills Mall area. If your community isn&apos;t listed, call +971505773388 — all Dubai Hills addresses qualify for our door-to-door pickup service.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can SafeStorage store villa contents while waiting for a Dubai Hills handover?</h3>
-              <p className="text-gray-700">Yes. Storing your current home&apos;s contents while waiting for a Dubai Hills handover is one of our most common requests. We provide flexible month-to-month storage — you start when you need to vacate your current property and end when your Dubai Hills villa or apartment is ready for move-in. There is no penalty if the handover is delayed (a common occurrence in Dubai real estate). We simply extend your plan month by month until you confirm the move-in date, then coordinate delivery to your new Dubai Hills address.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">What packing standards does SafeStorage use for Dubai Hills premium furniture?</h3>
-              <p className="text-gray-700">For Dubai Hills villa and apartment pickups, we use premium packing standards throughout. All furniture is wrapped with thick professional blankets. Polished, lacquered, and painted surfaces receive stretch film and soft padding. Glass surfaces get tempered glass protection or custom cardboard covers. Marble-top furniture receives foam-padded edge protection. Large art pieces are wrapped in acid-free tissue and sandwiched between foam boards. All items are documented with photographs before and after wrapping. We recognise that Dubai Hills residents have invested significantly in their properties and belongings.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Al Quoz industrial area covered for business storage?</h3>
-              <p className="text-gray-700">Yes. Al Quoz is fully covered by SafeStorage — both the residential areas (Al Quoz 1, 2, 3, 4) and the industrial area. Al Quoz is a major hub for businesses, workshops, showrooms, and warehouses. SafeStorage provides commercial storage for Al Quoz businesses including excess stock storage, document archiving, equipment storage, and office furniture storage. We regularly serve businesses along the Sheikh Zayed Road-facing Al Quoz strip and the industrial Al Quoz 3 and 4 areas. Commercial pickup from Al Quoz businesses is available with appropriate vehicle sizing for any volume.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">How long does pickup take from Dubai Hills Estate?</h3>
-              <p className="text-gray-700">Our team typically reaches Dubai Hills Estate addresses within 20–25 minutes of confirmation, depending on daily traffic on Al Khail Road. For large-volume villa pickups, we allocate a multi-person team with the appropriate vehicle and typically complete the pickup within 3–6 hours depending on the villa size. For same-day service, please confirm your request before 12 PM. For large villa clearances, we recommend booking 2–3 days in advance to ensure the right crew size is available for your specific volume.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is Mohammed Bin Rashid City (MBR City) near Dubai Hills covered?</h3>
-              <p className="text-gray-700">Yes. Mohammed Bin Rashid City (MBR City) — including District One, Meydan, and the various MBR City residential sub-developments — is within our Dubai Hills service zone. MBR City residents have access to the same door-to-door service as Dubai Hills. Meydan Racecourse area and the various Meydan residential developments are also covered. Pickup times from MBR City are typically 15–25 minutes depending on the specific community within the large MBR City development.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Does SafeStorage handle golf equipment storage for Dubai Hills Golf Club members?</h3>
-              <p className="text-gray-700">Yes. Golf equipment storage is a popular seasonal service for Dubai Hills residents and Dubai Hills Golf Club members. We store full sets of golf clubs, golf bags, electric trolleys, push trolleys, golf shoes, apparel, and related equipment. For the hot summer months (May–September) when golf is less actively played, many Dubai Hills residents store their full golf kit with us rather than leaving it in car boots or garages where heat can damage club grips, bags, and electronic components. Contact us to arrange seasonal golf equipment storage.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Are Nad Al Sheba residents covered by Dubai Hills SafeStorage?</h3>
-              <p className="text-gray-700">Yes. Nad Al Sheba — all four sections (1, 2, 3, 4) — is within our Dubai Hills service zone. Nad Al Sheba has both older villa communities and newer developments and all receive door-to-door service from SafeStorage. Nad Al Sheba 3 and 4, being newer Emaar-developed communities, are particularly active for our renovation and new-handover storage services. Pickup times from Nad Al Sheba are typically 15–20 minutes.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can I access or retrieve specific items stored from my Dubai Hills villa?</h3>
-              <p className="text-gray-700">Yes. All items stored from your Dubai Hills villa are photographed and catalogued in a digital inventory you can access. If you need specific items returned — for example, a specific chair for your temporary apartment, a specific document, or seasonal clothing — you can request those specific items and we will deliver them to any Dubai address within 24–48 hours. There is no requirement to retrieve everything at once. Partial retrievals are fully supported on most plans. This is particularly useful for customers waiting for long Dubai Hills villa renovations.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is there a minimum storage period for Dubai Hills customers?</h3>
-              <p className="text-gray-700">No. There is no minimum storage period for Dubai Hills or any other SafeStorage area. You can store for as little as one week or as long as you need. Monthly billing with 14 days&apos; cancellation notice applies. This flexibility is particularly important for Dubai Hills customers waiting for villa handovers or renovation completions, where timelines are often uncertain and may extend beyond initial estimates without warning.</p>
+        {/* five questions — the same five the FAQPage schema carries */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Good to know</span>
+              <h2 className={p.longH2}>
+                Questions from <em>Dubai Hills.</em>
+              </h2>
             </div>
           </div>
-        </div>
-      </section>
-      <AreaLinks emirate="dubai" area="dubai-hills" />
+          <FaqAccordion items={FAQS} />
+        </section>
+
+        {/* Exception B of the linking plan: a district page links to its emirate
+            hub, its neighbours, the money page and the silo hubs — nothing else. */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Nearby</span>
+              <h2 className={p.longH2}>
+                We also collect from <em>these areas.</em>
+              </h2>
+            </div>
+            <p>Same crews, same service. Each page carries what matters locally.</p>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {NEARBY.map((n, i) => (
+              <Link
+                href={`/locations/dubai/${n.slug}`}
+                className={s.chip}
+                key={n.slug}
+                style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+              >
+                <span
+                  aria-hidden="true"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 20,
+                    height: 20,
+                    borderRadius: 6,
+                    flex: "none",
+                    background: TINTS[i % TINTS.length].bg,
+                    color: TINTS[i % TINTS.length].fg,
+                  }}
+                >
+                  <MapPin size={12} strokeWidth={2.2} />
+                </span>
+                {n.name}
+              </Link>
+            ))}
+          </div>
+          <div className={s.miniFacts} style={{ marginTop: 20 }}>
+            <li style={{ listStyle: "none" }}>
+              <Link href="/locations/dubai">All Dubai areas</Link>
+            </li>
+            {HUB_ORDER.filter((k) => k !== "s4").map((k) => (
+              <li key={SILOS[k].hub} style={{ listStyle: "none" }}>
+                <Link href={SILOS[k].hub}>{SILOS[k].name}</Link>
+              </li>
+            ))}
+            <li style={{ listStyle: "none" }}>
+              <Link href={MONEY_PAGE}>{moneyAnchor("/locations/dubai/dubai-hills")}</Link>
+            </li>
+          </div>
+        </section>
+
+        <CtaBand
+          title="Storing something from Dubai Hills?"
+          blurb="Free quote, no survey fee, and nothing booked until you agree both numbers — the storage and the transport."
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
+      </div>
     </>
   )
 }
