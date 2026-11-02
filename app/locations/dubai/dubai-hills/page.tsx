@@ -449,32 +449,51 @@ export default function DubaiHillsPage() {
             </div>
             <p>Door-to-door collection from all of these addresses.</p>
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-            {COMMUNITIES.map((c, i) => (
-              <span
-                className={s.chip}
-                key={c}
-                style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
-              >
-                <span
-                  aria-hidden="true"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: 20,
-                    height: 20,
-                    borderRadius: 6,
-                    flex: "none",
-                    background: TINTS[i % TINTS.length].bg,
-                    color: TINTS[i % TINTS.length].fg,
-                  }}
-                >
-                  <MapPin size={12} strokeWidth={2.2} />
-                </span>
-                {c}
-              </span>
-            ))}
+          {/*
+            One line that keeps moving, rather than three wrapped rows. The track
+            holds two identical halves and slides exactly one half, so the loop
+            has no visible seam; the second half is aria-hidden so a screen
+            reader hears the list once. Hovering pauses it.
+          */}
+          <div className={s.areaMarquees}>
+            <div className={s.marquee}>
+              <div className={s.marqueeTrack}>
+                {[0, 1].map((half) => (
+                  <div
+                    className={`${s.marqueeGroup} ${s.chipGroup}`}
+                    key={half}
+                    aria-hidden={half === 1}
+                    style={{ gap: 12 }}
+                  >
+                    {COMMUNITIES.map((c, i) => (
+                      <span
+                        className={s.chip}
+                        key={`${half}-${c}`}
+                        style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+                      >
+                        <span
+                          aria-hidden="true"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: 20,
+                            height: 20,
+                            borderRadius: 6,
+                            flex: "none",
+                            background: TINTS[i % TINTS.length].bg,
+                            color: TINTS[i % TINTS.length].fg,
+                          }}
+                        >
+                          <MapPin size={12} strokeWidth={2.2} />
+                        </span>
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
