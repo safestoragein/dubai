@@ -737,15 +737,6 @@ export default function QuotePage() {
 
     // If moving from Step 2 to Step 3, save all data to database first
     if (currentStep === 2) {
-      // Push event to Google Tag Manager dataLayer
-      if (typeof window !== 'undefined' && (window as any).dataLayer) {
-        (window as any).dataLayer.push({
-          'event': 'quote_step2_continue',
-          'step': 2,
-          'items_selected': formData.selectedItems.length
-        })
-      }
-
       console.log('🚀 Moving from Step 2 to Step 3 - Saving data to database...')
       setIsSubmitting(true)
       
@@ -940,6 +931,22 @@ export default function QuotePage() {
         }))
 
         console.log('🎉 All data saved successfully!')
+
+        // Request Quote conversion for Google Tag Manager. Fired ONLY here, once the
+        // customer, quotation and items are all saved, and carries the quotation ID
+        // (also usable as the conversion transaction_id for de-duplication). It used to
+        // be a GTM click trigger on the Continue button, which fired on the click itself -
+        // even with no items selected and nothing saved.
+        try {
+          const w = window as unknown as { dataLayer?: unknown[] }
+          ;(w.dataLayer = w.dataLayer || []).push({
+            event: 'request_quote',
+            quotation_id: String(quotationId),
+            customer_id: String(finalCustomerId),
+            items_selected: formData.selectedItems.length,
+          })
+        } catch {}
+
         toast.success('Quote data saved successfully!')
         
       } catch (error) {
@@ -2246,17 +2253,11 @@ export default function QuotePage() {
                     whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                     whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                     id={currentStep === 2 ? 'quote-step2-continue' : undefined}
-                    data-gtm-event={currentStep === 2 ? 'quote_step2_continue' : undefined}
-                    // dubai_2ndstep_trigger is read by GTM's {{Click Classes}}
-                    // ("Request Quote Trigger"), so it must sit on the element the
-                    // click actually lands on. [&>*]:pointer-events-none is what
-                    // makes that true: the button's children are a <span>Continue</span>
-                    // and an ArrowRight <svg>, and GTM reports the DEEPEST clicked
-                    // element — click the word "Continue" and {{Click Classes}}
-                    // returns the span's classes, not the button's, so the trigger
-                    // would silently miss most real clicks. Making the children
-                    // transparent to hit-testing sends every click to the button.
-                    className={`flex items-center gap-2 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold shadow-lg shadow-blue-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed ${currentStep === 2 ? 'gtm-quote-step2-continue dubai_2ndstep_trigger [&>*]:pointer-events-none' : ''}`}
+                    // NO GTM click-class trigger here on purpose: the Request Quote
+                    // conversion is the `request_quote` dataLayer event pushed in
+                    // handleNext after the quotation is saved. A click trigger fires
+                    // on validation failures and failed saves too.
+                    className="flex items-center gap-2 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold shadow-lg shadow-blue-200 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting && currentStep === 2 ? (
                       <>
