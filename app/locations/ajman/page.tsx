@@ -1,30 +1,49 @@
 import type { Metadata } from "next"
+import type { CSSProperties } from "react"
+import Image from "next/image"
 import Link from "next/link"
+import {
+  Building2,
+  ClipboardList,
+  Home,
+  KeyRound,
+  MapPin,
+  MoveVertical,
+  PackageOpen,
+  RotateCcw,
+  Ruler,
+  ShieldCheck,
+  Sofa,
+  Truck,
+} from "lucide-react"
 import SchemaScript from "@/components/schema-script"
+import SiloBreadcrumb from "@/components/silo-breadcrumb"
+import LocalProof from "@/components/locations/local-proof"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { storageLocationSentence } from "@/lib/facilities"
 import { emirateFaqs } from "@/lib/emirate-faqs"
-import LocalProof from "@/components/locations/local-proof"
-import { emirateFontVars } from "@/components/locations/fonts"
-import HeroPreload from "@/components/locations/hero-preload"
-import s from "@/components/locations/emirate-theme.module.css"
+import { SILOS, MONEY_PAGE, HUB_ORDER, moneyAnchor } from "@/lib/silo/silos"
 import { EMIRATES } from "@/lib/areas/registry"
-import {
-  PHONE,
-  PHONE_DISPLAY,
-  EMAIL,
-  HOURS_DISPLAY,
-  CCTV_COVERAGE,
-  FACILITY_ACCESS_NOTE,
-  RATING_VALUE,
-  REVIEW_COUNT_DISPLAY,
-  RETRIEVAL_WINDOW,
-} from "@/lib/company-facts"
+import { CCTV_COVERAGE, FACILITY_ACCESS_NOTE, RETRIEVAL_WINDOW } from "@/lib/company-facts"
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { LandingReviews } from "@/components/landing/landing-reviews"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import { MilestonesPlayer } from "@/components/landing/milestones-player"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import { env } from "@/lib/env"
+import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
 
 /*
- * Ajman — the smallest of the three (~110/mo: self storage ajman, storage in
- * ajman, storage space in ajman) but the cheapest storage CPC in the UAE at
- * roughly ₹196, which is why it is worth a page at all.
+ * Ajman — the emirate hub, in the homepage design.
+ *
+ * Ajman and Sharjah are the two hubs written by hand rather than drawn by
+ * EmirateHub, and this one keeps its own copy: the commuter pattern, the Free
+ * Zone stock, and the "what we do not offer" paragraph that says plainly this
+ * is a managed service and not a yard with keys. That paragraph earns its place
+ * and stays.
  *
  * SafeStorage operates a warehouse in Ajman, so goods collected here stay in
  * the emirate. That address is NOT published yet — lib/facilities.ts owns which
@@ -50,12 +69,18 @@ const AJMAN_AREAS = [
   "Al Zahra",
 ]
 
-const faqs = emirateFaqs({
+/*
+ * Five questions, and the FAQPage schema below is built from this same array.
+ * It used to render every question emirateFaqs returns while the schema carried
+ * only the first five, so the markup and the page disagreed about what the page
+ * contained. One slice, used twice.
+ */
+const FAQS = emirateFaqs({
   emirate: "Ajman",
   facilityKey: "ajman",
   sampleDistricts: ["Al Nuaimiya", "Al Rashidiya"],
   university: "Ajman University",
-})
+}).slice(0, 5)
 
 export const metadata: Metadata = {
   title: { absolute: "Self Storage Ajman | Storage Space With Door-to-Door Pickup" },
@@ -115,7 +140,7 @@ const schemas = [
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.slice(0, 5).map((f) => ({
+    mainEntity: FAQS.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -123,354 +148,397 @@ const schemas = [
   },
 ]
 
+const TINTS = [
+  { fg: "#ee5824", bg: "rgba(238, 88, 36, 0.12)" },
+  { fg: "#1893d2", bg: "rgba(24, 147, 210, 0.12)" },
+  { fg: "#16a34a", bg: "rgba(22, 163, 74, 0.12)" },
+  { fg: "#7c3aed", bg: "rgba(124, 58, 237, 0.12)" },
+  { fg: "#e11d48", bg: "rgba(225, 29, 72, 0.12)" },
+  { fg: "#d97706", bg: "rgba(217, 119, 6, 0.12)" },
+]
+
+/** The reasons Ajman actually calls — the page's own three, plus its coverage rows. */
+const USES = [
+  {
+    Icon: KeyRound,
+    title: "Moving to Dubai or Sharjah",
+    desc: "Many Ajman residents work further down the coast. We hold everything between the tenancy that ends and the one that starts.",
+  },
+  {
+    Icon: Sofa,
+    title: "Furniture from a family flat",
+    desc: "Ajman flats are larger and cheaper than Dubai's, and they fill up accordingly. What you are keeping but cannot live around comes to us.",
+  },
+  {
+    Icon: Building2,
+    title: "Business and Free Zone stock",
+    desc: "Inventory, files and equipment off floor space you are paying commercial rates for, brought back when you need it.",
+  },
+  {
+    Icon: MoveVertical,
+    title: "Flats and villas",
+    desc: "Lift bookings and building permissions handled by the crew, not left to you.",
+  },
+  {
+    Icon: Truck,
+    title: "Cross-emirate moves",
+    desc: "Delivery to Dubai or Sharjah rather than back to Ajman, if that is where you are going.",
+  },
+  {
+    Icon: Home,
+    title: "Between tenancies",
+    desc: "Collected before you hand the keys back, delivered when the next place is ready.",
+  },
+]
+
 export default function AjmanPage() {
   return (
     <>
+      <SiloBreadcrumb
+        trail={[
+          { name: "Home", href: "/" },
+          { name: "Locations", href: "/locations" },
+          { name: "Ajman" },
+        ]}
+      />
       <SchemaScript schema={schemas} />
 
-      <div className={`${s.page} ${emirateFontVars}`}>
-        <HeroPreload />
-        <nav className={`${s.wrap} ${s.crumbs}`} aria-label="Breadcrumb">
-          <Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/locations">Locations</Link> &nbsp;/&nbsp;{" "}
-          <span>Ajman</span>
-        </nav>
-
-        {/* ---------- hero ---------- */}
-        <section className={`${s.hero} ${s.wrap}`}>
-          <div className={s.heroInner}>
-            <div className={s.heroRating}>
-              <strong>{RATING_VALUE}/5</strong>
-              <span>{REVIEW_COUNT_DISPLAY} reviews worldwide</span>
-            </div>
-            <div className={s.heroContent}>
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* hero: copy on the left, the owner's picture on the right */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2} ${p.split2Wrap} ${p.areaHero}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Area}`}>
               <span className={s.heroTag}>Serving Ajman</span>
               <h1>
-                Storage for Ajman — <em>we collect, store and bring it back</em>
+                Storage for Ajman — <em>we collect, store and bring it back.</em>
               </h1>
-              <p className={s.heroSlogan}>No driving to a unit. No van hire. No lifting.</p>
-              <p>
-                We pick up from your door in Ajman, store it securely in our Ajman facility, and deliver it back
-                whenever you ask. You are billed on the
-                space your things actually occupy, not a unit size you have to fill.
-              </p>
+              <p>We pick up from your door and store it in our own Ajman facility.</p>
               <div className={s.heroCta}>
-                <Link href="/get-quote" className={`${s.btn} ${s.btnAccent}`}>
-                  Get a free quote →
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a Free Quote →
                 </Link>
-                <a href={`tel:${PHONE}`} className={`${s.btn} ${s.btnGhost}`}>
-                  Call {PHONE_DISPLAY}
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
                 </a>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* ---------- trust strip ---------- */}
-        <section className={s.wrap}>
-          <div className={s.trust}>
-            <div className={s.trustItem}>
-              <div className={`${s.trustIcon} ${s.tOrange}`}>💰</div>
-              <strong className={s.vOrange}>Pay per sqft</strong>
-              <b>Only the space you use</b>
-              <small>No hidden fees</small>
-            </div>
-            <div className={s.trustItem}>
-              <div className={`${s.trustIcon} ${s.tGold}`}>★</div>
-              <strong className={s.vGold}>{RATING_VALUE}/5</strong>
-              <b>{REVIEW_COUNT_DISPLAY} reviews</b>
-              <small>worldwide</small>
-            </div>
-            <div className={s.trustItem}>
-              <div className={`${s.trustIcon} ${s.tBlue}`}>🚚</div>
-              <strong className={s.vBlue}>Door to door</strong>
-              <b>Collected in Ajman</b>
-              <small>We pack and load</small>
-            </div>
-            <div className={s.trustItem}>
-              <div className={`${s.trustIcon} ${s.tPurple}`}>🗓️</div>
-              <strong className={s.vPurple}>No minimum</strong>
-              <b>Store a fortnight</b>
-              <small>or for years</small>
-            </div>
-          </div>
-          <hr className={s.rule} />
-        </section>
-
-        {/* ---------- uses ---------- */}
-        <section className={`${s.section} ${s.wrap}`}>
-          <div className={s.sectionHead}>
-            <span className={s.eyebrow}>What Ajman stores with us</span>
-            <h2>
-              Storage Space in Ajman for <em>Whatever Is In The Way</em>
-            </h2>
-          </div>
-          <div className={s.useGrid}>
-            <article className={s.useCard}>
-              <div className={s.useIcon}>🔑</div>
-              <h3>Moving to Dubai or Sharjah</h3>
-              <p>
-                A great many Ajman residents work further down the coast and eventually move. We hold
-                everything between the tenancy that ends and the one that starts.
-              </p>
-            </article>
-            <article className={s.useCard}>
-              <div className={s.useIcon}>🛋️</div>
-              <h3>Furniture from a family flat</h3>
-              <p>
-                Ajman flats are larger and cheaper than Dubai&apos;s, and they fill up accordingly. The
-                furniture you are keeping but cannot live around comes to us.
-              </p>
-            </article>
-            <article className={s.useCard}>
-              <div className={s.useIcon}>🏢</div>
-              <h3>Business and Free Zone stock</h3>
-              <p>
-                Inventory, files and equipment off floor space you are paying commercial rates for, brought
-                back when you need it.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        {/* ---------- coverage ---------- */}
-        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
-          <div className={s.split}>
-            <div>
-              <span className={s.eyebrow}>Collection coverage</span>
-              <h2>
-                We Come to <em>Your Address</em> in Ajman
-              </h2>
-              <p className={s.splitBlurb}>
-                We operate a warehouse in Ajman itself, so your things stay in the emirate. Transport is a
-                local job, quoted on your actual address and told to you up front.
-              </p>
-              <div className={s.typeList}>
-                <div className={s.typeRow}>
-                  <div>
-                    <h3>Flats and villas</h3>
-                    <p>Lift bookings and building permissions handled by our crew</p>
-                  </div>
-                  <span className={s.circleBtn}>↗</span>
-                </div>
-                <div className={s.typeRow}>
-                  <div>
-                    <h3>Businesses and Free Zone units</h3>
-                    <p>Stock and equipment collected outside trading hours where needed</p>
-                  </div>
-                  <span className={s.circleBtn}>↗</span>
-                </div>
-                <div className={s.typeRow}>
-                  <div>
-                    <h3>Cross-emirate moves</h3>
-                    <p>Delivery to Dubai or Sharjah rather than back to Ajman, if that is where you are going</p>
-                  </div>
-                  <span className={s.circleBtn}>↗</span>
-                </div>
+            <div className={p.split2Photo} style={{ aspectRatio: "1400 / 788" } as CSSProperties}>
+              <Image
+                src="/landing/ajman-hero.webp"
+                alt="A family on their balcony above the water reading a storage quote, with packed SafeStorage boxes beside them"
+                width={1400}
+                height={788}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
               </div>
             </div>
+          </div>
+        </section>
 
-            <aside className={s.areaCard}>
-              <h3>Districts we collect from</h3>
-              <p>Not a list of facilities — a list of places our van comes to.</p>
-              <div className={s.areaChips}>
-                {AJMAN_AREAS.map((a) => (
-                  <span key={a}>{a}</span>
+        <LandingTrust />
+
+        {/* dark band: the old "a unit is only cheap if you do the moving" argument */}
+        <section className={`${s.darkBand} ${s.whyBand}`} style={{ marginTop: 18 }}>
+          <div className={s.wrap}>
+            <div className={s.bandHead}>
+              <span className={s.howEyebrow}>Why not a storage yard</span>
+              <h2>
+                A yard is only cheap <br className={s.mBreak} />
+                <em>if you do the moving.</em>
+              </h2>
+            </div>
+            <FeatScroller>
+              {[
+                {
+                  Icon: Truck,
+                  h: "We do the lifting",
+                  pp: "A quoted yard rate never includes the van, the driver or the two men. Our collection does.",
+                },
+                {
+                  Icon: Ruler,
+                  h: "Measured, not guessed",
+                  pp: "Billed on the floor space your items occupy, so half-empty space is not your problem.",
+                },
+                { Icon: ShieldCheck, h: "Indoors and covered", pp: CCTV_COVERAGE },
+                {
+                  Icon: RotateCcw,
+                  h: "Partial retrieval",
+                  pp: `One box or all of it, normally within ${RETRIEVAL_WINDOW}.`,
+                },
+              ].map((c) => (
+                <article className={s.feat} key={c.h}>
+                  <div className={s.featIcon}>
+                    <c.Icon strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3>{c.h}</h3>
+                  <p>{c.pp}</p>
+                </article>
+              ))}
+            </FeatScroller>
+          </div>
+        </section>
+
+        {/* why people here call — the hub's own reasons, as cards */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 26, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>What Ajman stores</span>
+              <h2>
+                Why people here <em>call us.</em>
+              </h2>
+            </div>
+            <p>Commuter flats, Free Zone units, and moves that cross an emirate line.</p>
+          </div>
+          <div className={s.miniGrid}>
+            {USES.map((u, i) => (
+              <div className={s.miniCard} key={u.title}>
+                <span
+                  className={s.miniIcon}
+                  aria-hidden="true"
+                  style={
+                    {
+                      background: TINTS[i % TINTS.length].bg,
+                      color: TINTS[i % TINTS.length].fg,
+                      boxShadow: "none",
+                    } as CSSProperties
+                  }
+                >
+                  <u.Icon />
+                </span>
+                <div>
+                  <b>{u.title}</b>
+                  <small>{u.desc}</small>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* the emirate in brief, the facility claim, and what we do NOT offer */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>In brief</span>
+              <h2 className={p.longH2}>
+                Storage in Ajman, <em>specifically.</em>
+              </h2>
+            </div>
+          </div>
+          <div className={`${s.prose} ${p.proseFlush}`}>
+            <p>
+              Ajman is the most affordable place to rent on this stretch of coast, which is exactly
+              why so many of its residents work somewhere else. Al Nuaimiya, Al Rashidiya and the
+              Corniche towers are full of people commuting into Sharjah and Dubai, and that produces
+              the same pattern as the rest of the northern emirates: frequent moves, handovers that
+              never align, and flats with more furniture than cupboard space.
+            </p>
+            <p>
+              <strong>What we do not offer.</strong> This is a managed service, not a yard with keys.
+              We collect, we store and we deliver back on request — normally within {RETRIEVAL_WINDOW}.
+              What you do not get is a unit you can drive to and open at any hour. If that is what you
+              want, an Ajman self-storage yard will serve you better than we will, and we would rather
+              say so here than after you have booked. {FACILITY_ACCESS_NOTE}.
+            </p>
+          </div>
+          <div className={s.movingTip}>
+            <span aria-hidden="true">📍</span>
+            <p>
+              <strong>Where your things actually go.</strong> {storageLocationSentence("ajman")} We
+              collect from your address in Ajman, so you do not need to drive anything anywhere.
+              Transport is quoted separately and confirmed before anything is booked.
+            </p>
+          </div>
+        </section>
+
+        {/* the collection, as the four steps it actually is */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>How it works</span>
+              <h2 className={p.longH2}>
+                Four steps, <em>door to door.</em>
+              </h2>
+            </div>
+          </div>
+          <MilestonesPlayer>
+            <ol className={s.milestones} style={{ ["--steps"]: 4 } as CSSProperties}>
+              {[
+                {
+                  Icon: ClipboardList,
+                  t: "Tell us what you have",
+                  b: "A room count or a rough list is enough for a free, itemised quote.",
+                },
+                {
+                  Icon: Truck,
+                  t: "We come to Ajman",
+                  b: "The crew arrives on the agreed date, wraps everything and loads the van.",
+                },
+                {
+                  Icon: PackageOpen,
+                  t: "Logged and stored",
+                  b: "Everything is listed on the inventory you sign, then held indoors under camera.",
+                },
+                {
+                  Icon: RotateCcw,
+                  t: "Delivered back",
+                  b: `All of it or part of it, to the address you choose, normally within ${RETRIEVAL_WINDOW}.`,
+                },
+              ].map((st, i) => (
+                <li className={s.milestone} key={st.t} style={{ ["--i"]: i } as CSSProperties}>
+                  <span className={s.milestoneDot} aria-hidden="true">
+                    <st.Icon />
+                  </span>
+                  <span className={s.milestoneYear}>Step {i + 1}</span>
+                  <b>{st.t}</b>
+                  <small>{st.b}</small>
+                </li>
+              ))}
+            </ol>
+          </MilestonesPlayer>
+        </section>
+
+        {/* the districts the van comes to */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Collection coverage</span>
+              <h2 className={p.longH2}>
+                We come to <em>your address.</em>
+              </h2>
+            </div>
+            <p>Not a list of facilities — a list of places our van comes to.</p>
+          </div>
+          {/*
+            One line that keeps moving, rather than wrapped rows. The track holds
+            two identical halves and slides exactly one half, so the loop has no
+            visible seam; the second half is aria-hidden so a screen reader hears
+            the list once. Hovering pauses it.
+          */}
+          <div className={s.areaMarquees}>
+            <div className={s.marquee}>
+              <div className={s.marqueeTrack}>
+                {[0, 1].map((half) => (
+                  <div
+                    className={`${s.marqueeGroup} ${s.chipGroup}`}
+                    key={half}
+                    aria-hidden={half === 1}
+                    style={{ gap: 12 }}
+                  >
+                    {AJMAN_AREAS.map((a, i) => (
+                      <span
+                        className={s.chip}
+                        key={`${half}-${a}`}
+                        style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+                      >
+                        <span
+                          aria-hidden="true"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: 20,
+                            height: 20,
+                            borderRadius: 6,
+                            flex: "none",
+                            background: TINTS[i % TINTS.length].bg,
+                            color: TINTS[i % TINTS.length].fg,
+                          }}
+                        >
+                          <MapPin size={12} strokeWidth={2.2} />
+                        </span>
+                        {a}
+                      </span>
+                    ))}
+                  </div>
                 ))}
               </div>
-              <p className={s.areaNote}>
-                {storageLocationSentence("ajman")} Transport between your address and the facility is quoted
-                separately and confirmed before anything is booked — so the number you are given is the number
-                you pay.
-              </p>
-            </aside>
-          </div>
-        </section>
-
-        {/* ---------- dark band ---------- */}
-        <section className={s.wrap}>
-          <div className={s.darkBand}>
-            <span className={s.eyebrow}>Why not a self-storage unit</span>
-            <h2>
-              A Unit in Ajman Is Only Cheap If <em>You Do The Moving</em>
-            </h2>
-            <div className={s.featGrid}>
-              <article className={s.feat}>
-                <div className={s.featIcon}>🚚</div>
-                <h3>We do the lifting</h3>
-                <p>A quoted unit rate never includes the van, the driver or the two men. Our collection does.</p>
-              </article>
-              <article className={s.feat}>
-                <div className={s.featIcon}>📐</div>
-                <h3>Measured, not guessed</h3>
-                <p>Billed on the floor space your items occupy, so a half-empty unit is not your problem.</p>
-              </article>
-              <article className={s.feat}>
-                <div className={s.featIcon}>🔒</div>
-                <h3>Indoors and covered</h3>
-                <p>{CCTV_COVERAGE}</p>
-              </article>
-              <article className={s.feat}>
-                <div className={s.featIcon}>↩️</div>
-                <h3>Partial retrieval</h3>
-                <p>One box or all of it, normally within {RETRIEVAL_WINDOW}.</p>
-              </article>
             </div>
-          </div>
-        </section>
-
-        {/* ---------- pricing ---------- */}
-        <section className={`${s.section} ${s.wrap}`}>
-          <div className={s.priceBand}>
-            <div>
-              <span className={s.eyebrow}>Pricing</span>
-              <h2>
-                One Rate, <em>Told To You Up Front</em>
-              </h2>
-              <p>
-                Storage is charged on the space you actually use. Transport is quoted separately against your
-                actual address — you see both numbers before you commit.
-              </p>
-              <ul className={s.priceList}>
-                <li>No minimum storage term</li>
-                <li>No charge for the quote or the survey</li>
-                <li>Wrapping and loading included in the collection</li>
-                <li>Partial retrieval without closing the account</li>
-              </ul>
-              <Link href="/get-quote" className={`${s.btn} ${s.btnAccent}`}>
-                Get your Ajman quote →
-              </Link>
-            </div>
-            <div className={s.priceTag}>
-              <strong>Free quote</strong>
-              <span>
-                itemised, before you commit
-              </span>
-            </div>
-          </div>
-        </section>
-
-        {/* ---------- prose ---------- */}
-        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
-          <div className={s.prose}>
-            <h2>Storage in Ajman, Explained Properly</h2>
-            <p>
-              Ajman is the most affordable place to rent on this stretch of coast, which is exactly why so many
-              of its residents work somewhere else. Al Nuaimiya, Al Rashidiya and the Corniche towers are full
-              of people commuting into Sharjah and Dubai, and that produces the same storage pattern as the
-              rest of the northern emirates: frequent moves, cross-border handovers that never align, and flats
-              with more furniture than cupboard space.
-            </p>
-            <p>
-              We operate a warehouse in Ajman, so goods collected in the emirate are stored in the emirate
-              rather than driven down the coast and back. Storage is charged at the
-              same rate wherever you are, on the floor
-              space your items actually occupy, and transport is quoted against your real address rather than
-              a table.
-            </p>
-            <h3>What we do not offer</h3>
-            <p>
-              This is a managed service, not a yard with keys. We collect, we store and we deliver back on
-              request — normally within {RETRIEVAL_WINDOW}. What you do not get is a unit you can drive to and
-              open at any hour. If that is what you actually want, an Ajman self-storage yard will serve you
-              better than we will, and we would rather say it here than after you have booked.{" "}
-              {FACILITY_ACCESS_NOTE}.
-            </p>
           </div>
         </section>
 
         {/* Renders nothing until real Ajman quotes exist — see lib/local-proof.ts. */}
         <LocalProof emirateSlug="ajman" emirate="Ajman" />
 
-        {/* ---------- FAQ ---------- */}
-        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
-          <div className={s.sectionHead}>
-            <span className={s.eyebrow}>Questions from Ajman</span>
-            <h2>
-              Before You <em>Book</em>
-            </h2>
-          </div>
-          <div className={s.faqList}>
-            {faqs.map((f) => (
-              <article key={f.q} className={s.faqItem}>
-                <h3>{f.q}</h3>
-                <p>{f.a}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+        <LandingReviews padTop={0} />
 
-        {/* ---------- internal links ---------- */}
-        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
-          <div className={s.sectionHead}>
-            <span className={s.eyebrow}>Also serving</span>
-            <h2>
-              Storage Elsewhere in <em>the Northern Emirates</em>
-            </h2>
-          </div>
-          <div className={s.areaLinks}>
-            <Link href="/locations/sharjah" className={s.areaLink}>
-              Sharjah
-              <span>↗</span>
-            </Link>
-            <Link href="/moving-storage-dubai" className={s.areaLink}>
-              Moving storage
-              <span>↗</span>
-            </Link>
-            <Link href="/locations/sharjah/al-nahda" className={s.areaLink}>
-              Al Nahda
-              <span>↗</span>
-            </Link>
-            <Link href="/locations" className={s.areaLink}>
-              All locations
-              <span>↗</span>
-            </Link>
-          </div>
-        </section>
-
-        {/* ---------- closing CTA ---------- */}
-        {/* The other emirates — the same strip EmirateHub renders, so every
-            emirate hub links to every other one. Sharjah and Ajman have their
-            own page files rather than using that component, and would otherwise
-            be the two holes in the ring. */}
-        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0 }}>
-          <div className={s.sectionHead} style={{ marginBottom: 22 }}>
-            <h2 style={{ fontSize: 26 }}>Storage in the <em>other emirates</em></h2>
-          </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}>
-            {EMIRATES.filter((e) => e.slug !== "ajman").map((e) => (
-              <Link
-                key={e.slug}
-                href={`/locations/${e.slug}`}
-                className={`${s.btn} ${s.btnGhost}`}
-              >
-                Storage in {e.name}
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className={s.wrap} style={{ paddingBottom: 72 }}>
-          <div className={s.finalCta}>
-            <h2>
-              Tell Us What Is In The Way. <em>We Will Come And Get It.</em>
-            </h2>
-            <p>
-              Free quote, no survey fee, nothing booked until you agree both numbers — the storage and the
-              transport. {HOURS_DISPLAY}.
-            </p>
-            <div className={s.finalCtaBtns}>
-              <Link href="/get-quote" className={`${s.btn} ${s.btnAccent}`}>
-                Get a free quote →
-              </Link>
-              <a href={`tel:${PHONE}`} className={`${s.btn} ${s.btnGhost}`}>
-                Call {PHONE_DISPLAY}
-              </a>
-              <a href={`mailto:${EMAIL}`} className={`${s.btn} ${s.btnGhost}`}>
-                {EMAIL}
-              </a>
+        {/* five questions — the same five the FAQPage schema carries */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Good to know</span>
+              <h2 className={p.longH2}>
+                Questions from <em>Ajman.</em>
+              </h2>
             </div>
           </div>
+          <FaqAccordion items={FAQS} />
         </section>
+
+        {/* the ring of emirate hubs, plus the silo hubs and the money page */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Also serving</span>
+              <h2 className={p.longH2}>
+                Storage in <em>the other emirates.</em>
+              </h2>
+            </div>
+            <p>Same crews, same service. Each page carries what matters locally.</p>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {EMIRATES.filter((e) => e.slug !== "ajman").map((e, i) => (
+              <Link
+                href={`/locations/${e.slug}`}
+                className={s.chip}
+                key={e.slug}
+                style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+              >
+                <span
+                  aria-hidden="true"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 20,
+                    height: 20,
+                    borderRadius: 6,
+                    flex: "none",
+                    background: TINTS[i % TINTS.length].bg,
+                    color: TINTS[i % TINTS.length].fg,
+                  }}
+                >
+                  <MapPin size={12} strokeWidth={2.2} />
+                </span>
+                {e.name}
+              </Link>
+            ))}
+          </div>
+          <div className={s.miniFacts} style={{ marginTop: 20 }}>
+            <li style={{ listStyle: "none" }}>
+              <Link href="/locations">All locations</Link>
+            </li>
+            {HUB_ORDER.filter((k) => k !== "s4").map((k) => (
+              <li key={SILOS[k].hub} style={{ listStyle: "none" }}>
+                <Link href={SILOS[k].hub}>{SILOS[k].name}</Link>
+              </li>
+            ))}
+            <li style={{ listStyle: "none" }}>
+              <Link href={MONEY_PAGE}>{moneyAnchor("/locations/ajman")}</Link>
+            </li>
+          </div>
+        </section>
+
+        <CtaBand
+          title="Tell us what is in the way."
+          blurb="Free quote, no survey fee, and nothing booked until you agree both numbers — the storage and the transport."
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
       </div>
     </>
   )
