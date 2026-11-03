@@ -1,9 +1,58 @@
 import type { Metadata } from "next"
-import LocationPage from "@/components/locations/location-page"
+import type { CSSProperties } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import {
+  Camera,
+  ClipboardList,
+  Flower2,
+  HardHat,
+  Home,
+  MapPin,
+  PackageOpen,
+  Plane,
+  RotateCcw,
+  Ruler,
+  ShieldCheck,
+  Truck,
+  Waves,
+} from "lucide-react"
 import SchemaScript from "@/components/schema-script"
-import { locationBusinessSchema } from "@/lib/structured-data"
-import AreaLinks from "@/components/locations/area-links"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
+import { locationBusinessSchema } from "@/lib/structured-data"
+import { faqPageSchema } from "@/lib/emirate-faqs"
+import { storageLocationSentence } from "@/lib/facilities"
+import { SILOS, MONEY_PAGE, HUB_ORDER, moneyAnchor } from "@/lib/silo/silos"
+import { CCTV_COVERAGE, RETRIEVAL_WINDOW } from "@/lib/company-facts"
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { LandingReviews } from "@/components/landing/landing-reviews"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import { MilestonesPlayer } from "@/components/landing/milestones-player"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import { env } from "@/lib/env"
+import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
+
+/*
+ * /locations/dubai/palm-jumeirah — the district page, in the homepage design.
+ *
+ * Written by hand rather than drawn from lib/areas, because its copy is its
+ * own: the Trunk, the sixteen Fronds and the Crescent each behave differently,
+ * and the jet-ski and garden-furniture seasons are real reasons people here
+ * call. Routing it through AreaPage would have replaced all of that with the
+ * registry's one-line blurb.
+ *
+ * The copy is the copy that was already on the page, cut down. Removed rather
+ * than restyled: "189+ Palm Jumeirah customers · Serving all 16 Fronds since
+ * 2019" (a count nothing supports, and a date that contradicts the site's own
+ * "since 2015"), "we have never had a logistics issue on the Palm" (an absolute
+ * nobody can stand behind), the word "units" for what we sell, and the annual
+ * prepaid plans "with a wide range of discounts", which is a price claim.
+ */
+
+const URL = "https://safestorage.ae/locations/dubai/palm-jumeirah"
 
 export const metadata: Metadata = {
   title: "Palm Jumeirah Storage — Villa & Apartment",
@@ -13,33 +62,128 @@ export const metadata: Metadata = {
     "palm jumeirah storage, storage palm jumeirah dubai, villa storage palm jumeirah, furniture storage palm fronds, palm jumeirah self storage, storage near palm jumeirah",
   openGraph: {
     images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    url: "https://safestorage.ae/locations/dubai/palm-jumeirah",
+    url: URL,
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
     type: "website",
   },
   alternates: {
-    canonical: "https://safestorage.ae/locations/dubai/palm-jumeirah",
+    canonical: URL,
     // The Arabic counterpart uses the SAME slug on purpose — see
     // lib/ar/emirates.ts. Translating it would break this pairing, and the
     // pairing is precisely why this page was re-pathed under /dubai/: English
     // sat at /locations/palm-jumeirah while Arabic sat at
     // /ar/locations/dubai/palm-jumeirah, so the two never resolved as alternates.
     languages: {
-      "en-AE": "https://safestorage.ae/locations/dubai/palm-jumeirah",
+      "en-AE": URL,
       "ar-AE": "https://safestorage.ae/ar/locations/dubai/palm-jumeirah",
-      "x-default": "https://safestorage.ae/locations/dubai/palm-jumeirah",
+      "x-default": URL,
     },
   },
 }
 
-const palmJumeirahSchemas = [
+/*
+ * Five questions, and the FAQPage schema is built from this same array — so the
+ * markup can never carry a question the page does not show. The old page listed
+ * ten, with answers of 120 words or more.
+ */
+const FAQS = [
+  {
+    q: "Do you cover the whole Palm, including the Crescent?",
+    a: "Yes — the Trunk including Shoreline Apartments and the Golden Mile, all sixteen Fronds, and the Crescent, which covers One Palm, Atlantis The Royal Residences, Waldorf Astoria Residences and the rest. The Crescent developments each have their own access procedure, so we confirm it with your building before the day.",
+  },
+  {
+    q: "Can you clear a whole Signature Villa?",
+    a: "Yes, and it is one of the most common reasons the Palm calls. A four to six bedroom villa takes a multi-person crew and a day. Everything is wrapped at the property, photographed and listed before it moves, so you always know what is held.",
+  },
+  {
+    q: "Can a van get in on the Fronds?",
+    a: "Yes. We size the vehicle to the Frond — a smaller van for the tighter ends, a larger one where the driveway allows. The team calls before the collection to agree the approach for your villa.",
+  },
+  {
+    q: "Can you store a jet ski or paddleboards?",
+    a: `Yes. Jet skis, personal watercraft, RIBs and small boats go into covered bays rather than outdoors, collected from a private jetty, a marina or your driveway. Kayaks, paddleboards, diving gear and wetsuits are stored the same way and come back within ${RETRIEVAL_WINDOW} when the season starts.`,
+  },
+  {
+    q: "I am leaving Dubai — can you hold a villa's contents long term?",
+    a: "Yes. Shipping a whole villa home is rarely worth it, so people store while they decide what to keep, ship, sell or give away. The account is managed remotely, there is no minimum term, and you can retrieve part of it without closing it.",
+  },
+]
+
+/** The parts of the Palm the old page listed, as chips rather than prose. */
+const PALM_AREAS = [
+  "Palm Trunk",
+  "All 16 Fronds",
+  "Signature Villas",
+  "Garden Homes",
+  "Shoreline Apartments",
+  "Golden Mile",
+  "Palm Crescent",
+  "One Palm",
+  "Atlantis The Royal Residences",
+  "Waldorf Astoria Residences",
+  "Royal Atlantis Residences",
+  "Fairmont Residences",
+]
+
+/** Neighbouring district pages this one links across to. */
+const NEARBY = [
+  { slug: "dubai-marina", name: "Dubai Marina" },
+  { slug: "jumeirah", name: "Jumeirah" },
+  { slug: "al-barsha", name: "Al Barsha" },
+  { slug: "business-bay", name: "Business Bay" },
+  { slug: "downtown-dubai", name: "Downtown Dubai" },
+  { slug: "dubai-hills", name: "Dubai Hills" },
+]
+
+const TINTS = [
+  { fg: "#ee5824", bg: "rgba(238, 88, 36, 0.12)" },
+  { fg: "#1893d2", bg: "rgba(24, 147, 210, 0.12)" },
+  { fg: "#16a34a", bg: "rgba(22, 163, 74, 0.12)" },
+  { fg: "#7c3aed", bg: "rgba(124, 58, 237, 0.12)" },
+  { fg: "#e11d48", bg: "rgba(225, 29, 72, 0.12)" },
+  { fg: "#d97706", bg: "rgba(217, 119, 6, 0.12)" },
+]
+
+const USES = [
+  {
+    Icon: HardHat,
+    title: "Villa renovation",
+    desc: "A Signature Villa or Garden Home cleared in a day, wrapped and catalogued, and put back room by room afterwards.",
+  },
+  {
+    Icon: Camera,
+    title: "Staging a sale",
+    desc: "A decluttered villa photographs better. Personal items and surplus furniture go out before the viewings and come back after.",
+  },
+  {
+    Icon: Waves,
+    title: "Water sports kit",
+    desc: "Jet skis, paddleboards, kayaks, diving gear and wetsuits held in covered bays through the hot months.",
+  },
+  {
+    Icon: Flower2,
+    title: "Garden furniture",
+    desc: "Outdoor seating, planters, cushions and the barbecue indoors from May, back out when the season returns.",
+  },
+  {
+    Icon: Plane,
+    title: "Leaving Dubai",
+    desc: "The villa's contents held while you decide what to ship, sell or give away. Managed remotely from wherever you land.",
+  },
+  {
+    Icon: Home,
+    title: "Between tenancies",
+    desc: "Everything held across the gap between one lease ending and the next starting.",
+  },
+]
+
+const schemas = [
   locationBusinessSchema({
     name: "Palm Jumeirah",
-    url: "https://safestorage.ae/locations/dubai/palm-jumeirah",
-    serves: ["Palm Fronds", "Palm Trunk", "Palm Crescent", "Shoreline Apartments"]
+    url: URL,
+    serves: ["Palm Fronds", "Palm Trunk", "Palm Crescent", "Shoreline Apartments"],
   }),
-
   {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -47,7 +191,7 @@ const palmJumeirahSchemas = [
     description:
       "Premium villa and apartment storage for Palm Jumeirah residents. Door-to-Door pickup from all Fronds, Trunk, and Crescent. Secure, flexible monthly plans.",
     provider: { "@id": "https://safestorage.ae/#organization" },
-    url: "https://safestorage.ae/locations/dubai/palm-jumeirah",
+    url: URL,
     areaServed: [
       { "@type": "Place", name: "Palm Jumeirah" },
       { "@type": "Place", name: "Palm Fronds" },
@@ -60,18 +204,28 @@ const palmJumeirahSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://safestorage.ae/locations/dubai/palm-jumeirah#webpage",
+    "@id": `${URL}#webpage`,
     // Must equal the rendered <title>: the `title` above is a plain string, so the
     // root layout template appends " | SafeStorage Dubai" to it.
     name: "Palm Jumeirah Storage — Villa & Apartment | SafeStorage Dubai",
     description:
       "Storage for Palm Jumeirah villas and apartments. Door-to-Door pickup from all Fronds, Trunk & Crescent. Secure and 24/7 monitored. Same-day available.",
-    url: "https://safestorage.ae/locations/dubai/palm-jumeirah",
+    url: URL,
     isPartOf: { "@id": "https://safestorage.ae/#website" },
     inLanguage: "en-AE",
-    dateModified: "2026-04-21",
+    dateModified: "2026-11-03",
   },
-  
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://safestorage.ae/locations" },
+      { "@type": "ListItem", position: 3, name: "Dubai", item: "https://safestorage.ae/locations/dubai" },
+      { "@type": "ListItem", position: 4, name: "Palm Jumeirah", item: URL },
+    ],
+  },
+  faqPageSchema(FAQS),
 ]
 
 export default function PalmJumeirahPage() {
@@ -85,152 +239,340 @@ export default function PalmJumeirahPage() {
           { name: "Palm Jumeirah" },
         ]}
       />
-      <SchemaScript schema={palmJumeirahSchemas} />
-      <LocationPage
-        location="Palm Jumeirah"
-        areas={["Palm Trunk", "Palm Fronds (all 16)", "Palm Crescent", "Shoreline Apartments", "Garden Homes", "Signature Villas"]}
-        distance="20-25 minutes"
-        intro="Discreet storage for Palm villas, Shoreline apartments and Golden Mile residences, with careful handling for furniture and pieces of high value."
-        benefits={[
-          "Full villa clearance and furniture storage service",
-          "Expert team familiar with Palm access roads and security",
-          "Premium packing for high-value villa contents",
-          "Flexible short and long-term plans for Palm residents",
-        ]}
-      />
+      <SchemaScript schema={schemas} />
 
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-4">Storage for Palm Jumeirah Villas &amp; Apartments</h2>
-          <p className="text-sm text-gray-500 mb-6">
-            Specialist Palm Jumeirah storage team · Serving all 16 Fronds since 2019 · 189+ Palm Jumeirah customers
-          </p>
-          <p className="text-lg text-gray-700 mb-6">
-            Palm Jumeirah is home to some of Dubai&apos;s most prestigious residential properties — from the iconic
-            Signature Villas and Garden Homes on the Fronds to the Shoreline Apartments on the Trunk and the ultra-luxury
-            residences on the Crescent. SafeStorage serves every part of the Palm with the same premium, hands-off
-            storage service that has made us the trusted choice for Dubai&apos;s most discerning residents since 2015.
-          </p>
-          <p className="text-lg text-gray-700 mb-8">
-            Our dedicated Palm Jumeirah team understands the unique logistics of this iconic community — from navigating
-            the Palm Monorail corridor to managing access through the Atlantis and One Palm entry checkpoints. Whether
-            you are storing a villa&apos;s worth of furniture during a full renovation or simply need secure storage for
-            seasonal garden furniture, water sports equipment, or personal belongings, SafeStorage delivers the same
-            white-glove service that Palm Jumeirah residents expect.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-10">
-            <div>
-              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Villa Storage — Palm Fronds &amp; Garden Homes</h3>
-              <p className="text-gray-700 mb-3">
-                Palm Jumeirah villas — particularly the Signature Villas and Garden Homes on the 16 Fronds — are among
-                the largest and most valuable residential properties in the UAE. When these properties undergo renovation,
-                are being sold, or require seasonal clearance, the volume of items to be stored can be substantial.
-                SafeStorage provides full-villa clearance with professional packing, transport, and secure
-                storage for all contents.
-              </p>
-              <p className="text-gray-700">
-                Our team can mobilise a multi-person crew to clear a Palm Frond villa within a single day. All furniture
-                is wrapped with premium blankets, corner protectors, and stretch film. Fragile items, artwork, and
-                luxury furniture pieces receive individual attention with specialist packing materials. Everything is
-                inventoried with photographs before storage so you always know exactly what is held and where.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Apartment Storage — Shoreline &amp; Crescent</h3>
-              <p className="text-gray-700 mb-3">
-                The Shoreline Apartments on the Palm Trunk and the luxury residences on the Crescent — including One
-                Palm, Atlantis The Royal Residences, and Waldorf Astoria Residences — represent a different storage
-                need. Apartment residents typically need storage for overflow items, seasonal belongings, water sports
-                equipment, and furniture during renovation.
-              </p>
-              <p className="text-gray-700">
-                SafeStorage serves the Shoreline Apartments (all 11 buildings), the Golden Mile, the Fairmont
-                Residences, and all Crescent-facing residential developments. Our team handles building access and
-                security protocols at each development, ensuring smooth pickups without inconvenience to building
-                management or other residents.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
-            <h3 className="text-xl font-bold text-[#0A2463] mb-4">Popular Storage Uses — Palm Jumeirah Residents</h3>
-            <ul className="space-y-3 text-gray-700">
-              <li>• <strong>Property sale staging:</strong> Declutter and store personal items before professional photography and viewings to maximise sale appeal</li>
-              <li>• <strong>Seasonal item storage:</strong> Garden furniture, holiday decorations, winter clothing, and items not needed year-round</li>
-              <li>• <strong>Water sports equipment:</strong> Jet skis (in-water or trailered), kayaks, paddleboards, diving gear, wetsuits, and water toys</li>
-              <li>• <strong>Expat departure storage:</strong> Keep villa contents safely stored while you decide what to ship, sell, or donate after leaving Dubai</li>
-              <li>• <strong>Between-tenancy storage:</strong> Store belongings during the gap between lease end and new property possession</li>
-            </ul>
-          </div>
-
-          <div className="bg-[#0A2463] rounded-xl p-8 text-white mb-8">
-            <h3 className="text-xl font-bold mb-3">What Palm Jumeirah Residents Say</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white/10 rounded-lg p-4">
-                <p className="text-white/90 text-sm mb-3">&ldquo;We were renovating our Signature Villa on Frond N and needed to store the entire contents — 6 bedrooms worth of furniture and art. SafeStorage sent a crew of four and cleared everything in one day. Eight months later, everything came back in perfect condition.&rdquo;</p>
-                <p className="text-white/70 text-xs font-semibold">— Ahmed K., Signature Villa, Frond N, Palm Jumeirah</p>
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* hero: copy on the left, the owner's picture on the right */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2} ${p.split2Wrap} ${p.areaHero}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Area}`}>
+              <span className={s.heroTag}>Dubai · Palm Jumeirah</span>
+              <h1>
+                Storage for the Palm — <em>we collect, store and bring it back.</em>
+              </h1>
+              <p>Villa and apartment storage across the Trunk, Fronds and Crescent.</p>
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a Free Quote →
+                </Link>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
+                </a>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
-                <p className="text-white/90 text-sm mb-3">&ldquo;Stored my paddleboards, kayak, and jet ski trailer with SafeStorage over the summer. They picked up from my Shoreline apartment parking, stored everything safely, and brought it back when the season started. Excellent service, will use every year.&rdquo;</p>
-                <p className="text-white/70 text-xs font-semibold">— David M., Shoreline Apartments, Palm Jumeirah</p>
+            </div>
+            <div className={p.split2Photo} style={{ aspectRatio: "1400 / 788" } as CSSProperties}>
+              <Image
+                src="/landing/palm-jumeirah-hero.webp"
+                alt="A SafeStorage crew carrying a wrapped sofa out of a Palm Jumeirah villa to the van, with Atlantis across the water behind them"
+                width={1400}
+                height={788}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
               </div>
             </div>
           </div>
+        </section>
 
-          <div className="text-center">
-            <p className="text-lg text-gray-700 mb-4">Need storage for your Palm Jumeirah villa or apartment? Get your free quote now.</p>
-            <a href="/get-quote" className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c02a50] transition-colors">
-              Get a Free Quote
-            </a>
-          </div>
-        </div>
-      </section>
+        <LandingTrust />
 
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-3xl font-bold text-[#0A2463] mb-8 text-center">Frequently Asked Questions — Palm Jumeirah Storage</h2>
-          <div className="space-y-5">
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you cover all parts of Palm Jumeirah including the Crescent?</h3>
-              <p className="text-gray-700">Yes. SafeStorage covers every part of Palm Jumeirah — the Trunk (including Shoreline Apartments and Golden Mile), all 16 numbered Fronds (Signature Villas, Garden Homes, and Frond-facing apartments), and the Crescent (including One Palm, Atlantis The Royal Residences, Waldorf Astoria Residences, and all Crescent-facing developments). We have dedicated access arrangements for each section of the Palm and are familiar with the security and entry procedures at all residential developments.</p>
+        {/* dark band: breaks the page up and states the service plainly */}
+        <section className={`${s.darkBand} ${s.whyBand}`} style={{ marginTop: 18 }}>
+          <div className={s.wrap}>
+            <div className={s.bandHead}>
+              <span className={s.howEyebrow}>What is included</span>
+              <h2>
+                We come to the Palm <br className={s.mBreak} />
+                <em>and take it from there.</em>
+              </h2>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can you store the entire contents of a Palm Jumeirah Signature Villa?</h3>
-              <p className="text-gray-700">Yes. Full-villa clearance is one of our most common Palm Jumeirah services. Signature Villas typically have 4–6 bedrooms with substantial furniture and personal contents. Our team can mobilise a multi-person crew with a large vehicle fleet to clear the entire villa in a single day. All items are professionally packed, photographed, and catalogued before transport. We store everything in secure units and return items to any Dubai address when your villa renovation, sale, or lease transition is complete. Request a villa assessment quote by calling +971505773388.</p>
+            <FeatScroller>
+              {[
+                {
+                  Icon: Home,
+                  h: "Collected from your door",
+                  pp: "The crew comes to your Palm address, wraps what is going and loads it.",
+                },
+                {
+                  Icon: PackageOpen,
+                  h: "Wrapped where it stands",
+                  pp: "Furniture is wrapped at your property before it moves, not later at the warehouse.",
+                },
+                { Icon: ShieldCheck, h: "Indoors and covered", pp: CCTV_COVERAGE },
+                {
+                  Icon: Ruler,
+                  h: "Only the space you use",
+                  pp: "Billed on the floor space your items occupy, not on a size you have to fill. No minimum term.",
+                },
+              ].map((c) => (
+                <article className={s.feat} key={c.h}>
+                  <div className={s.featIcon}>
+                    <c.Icon strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3>{c.h}</h3>
+                  <p>{c.pp}</p>
+                </article>
+              ))}
+            </FeatScroller>
+          </div>
+        </section>
+
+        {/* why people here call — the district's own reasons, as cards */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 26, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>What the Palm stores</span>
+              <h2>
+                Why people here <em>call us.</em>
+              </h2>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is parking accessible for pickup trucks on the Palm Fronds?</h3>
-              <p className="text-gray-700">Yes, our team is fully experienced with Palm Frond access and vehicle logistics. Each Frond has designated access roads and residential driveways. We use appropriately sized vehicles for each Frond — smaller vehicles for tighter Frond ends and larger vehicles for Frond-side access where space permits. Our team contacts you before the pickup to confirm the best access approach for your specific Frond and villa location. We have never had a logistics issue on the Palm that prevented a successful pickup.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can you store a jet ski or personal watercraft from Palm Jumeirah?</h3>
-              <p className="text-gray-700">Yes. SafeStorage stores jet skis, personal watercraft, RIBs, and small boats in our vehicle storage bays. For jet skis on the Palm, we coordinate collection from private jetties, marinas, or home driveways. The jet ski is secured on its trailer or we can arrange trailer hire if needed. All watercraft are stored in covered, secure bays rather than outdoor spaces. Water sports equipment including kayaks, paddleboards, and inflatable watercraft can also be stored and are available for same-week retrieval when the season begins.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">What happens to my belongings while the Palm villa is on the market for sale?</h3>
-              <p className="text-gray-700">Storing belongings during a sale is a smart approach — decluttered, minimally furnished properties photograph better and sell faster. SafeStorage stores all personal items, excess furniture, and non-essential belongings during your Palm villa&apos;s sale period. Our flexible monthly plans mean you only pay for the months you actually need storage. When your villa sells and you have your new property, we deliver everything to your new address. Many Palm villa sellers find that storage actually accelerates their sale by enabling professional staging with minimal personal items visible.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Is the Atlantis and One Palm Crescent area fully covered?</h3>
-              <p className="text-gray-700">Yes. The Palm Crescent — including Atlantis The Palm residences, Atlantis The Royal Residences, One Palm, Waldorf Astoria Residences, Royal Atlantis Residences, and all other Crescent-facing developments — is fully within our Palm Jumeirah service zone. The Crescent has specific security and access protocols that our team is familiar with, ensuring smooth pickups without delays. For residences within gated Crescent developments, we recommend calling ahead to schedule access with your building security team and our logistics coordinator simultaneously.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Can an expat leaving Palm Jumeirah store their villa contents long-term?</h3>
-              <p className="text-gray-700">Absolutely. Long-term expat storage is one of our most popular Palm Jumeirah services. When Palm residents relocate internationally, the cost and logistics of shipping an entire villa&apos;s worth of furniture and belongings overseas is often impractical. SafeStorage provides an affordable alternative: secure storage on flexible monthly terms while you settle in your home country and decide what to keep, ship, sell, or donate. We manage your account entirely remotely. Annual prepaid plans (with a wide range of discounts) are particularly popular with expats who know they will be abroad for at least a year.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">How long does it take to return items to my Palm Jumeirah villa after storage?</h3>
-              <p className="text-gray-700">Standard delivery back to Palm Jumeirah is within 24–48 hours of requesting return. For full-villa deliveries, we schedule a specific date and time and our full team arrives to unload and place items in the rooms you specify. For partial retrievals of specific items, we deliver those items within 24 hours in most cases. Same-day delivery for urgent requests is available if confirmed before 12 PM. During the delivery, our team carries all items to your specified rooms — you do not need to do any lifting or organising beyond telling us where you want each piece placed.</p>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0A2463] mb-2">Do you store garden furniture from Palm Jumeirah villas seasonally?</h3>
-              <p className="text-gray-700">Yes. Garden furniture storage is a popular seasonal service for Palm Frond villa owners. During summer (May–September), when Dubai&apos;s heat peaks, high-quality garden furniture can degrade rapidly if left outdoors. SafeStorage collects outdoor furniture, planters, outdoor cushions and covers, barbecue equipment, and garden accessories at the start of summer and stores them safely indoors until October when the outdoor season resumes. Seasonal storage plans with automatic renewal are available for Palm residents who want to make this a regular annual arrangement.</p>
+            <p>Villas on the Fronds, apartments on the Trunk, and a season that decides half of it.</p>
+          </div>
+          <div className={s.miniGrid}>
+            {USES.map((u, i) => (
+              <div className={s.miniCard} key={u.title}>
+                <span
+                  className={s.miniIcon}
+                  aria-hidden="true"
+                  style={
+                    {
+                      background: TINTS[i % TINTS.length].bg,
+                      color: TINTS[i % TINTS.length].fg,
+                      boxShadow: "none",
+                    } as CSSProperties
+                  }
+                >
+                  <u.Icon />
+                </span>
+                <div>
+                  <b>{u.title}</b>
+                  <small>{u.desc}</small>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* the district in detail, and where things actually go */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>In brief</span>
+              <h2 className={p.longH2}>
+                Storage on Palm Jumeirah, <em>specifically.</em>
+              </h2>
             </div>
           </div>
-        </div>
-      </section>
-      <AreaLinks emirate="dubai" area="palm-jumeirah" />
+          <div className={`${s.prose} ${p.proseFlush}`}>
+            <p>
+              The Palm is three different jobs wearing one name. The Signature Villas and Garden Homes
+              on the Fronds are among the largest homes in the country, so a renovation or a sale
+              produces a great deal at once. The Shoreline Apartments and the Golden Mile on the Trunk
+              are the opposite — overflow, seasonal things and kit that has nowhere to live in a flat.
+            </p>
+            <p>
+              The Crescent sits somewhere between the two and has the tightest access. Each
+              development runs its own security procedure, so we agree the approach with your building
+              before the day rather than turning up and finding out. Vehicles are sized to the Frond,
+              and everything is wrapped, photographed and listed at your property before it moves.
+            </p>
+          </div>
+          <div className={s.movingTip}>
+            <span aria-hidden="true">📍</span>
+            <p>
+              <strong>Where your things actually go.</strong> {storageLocationSentence("dubai")} We
+              collect from your address on the Palm, so you do not need to drive anything anywhere.
+              Transport is quoted separately and confirmed before anything is booked.
+            </p>
+          </div>
+        </section>
+
+        {/* the collection, as the four steps it actually is */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>How it works</span>
+              <h2 className={p.longH2}>
+                Four steps, <em>door to door.</em>
+              </h2>
+            </div>
+          </div>
+          <MilestonesPlayer>
+            <ol className={s.milestones} style={{ ["--steps"]: 4 } as CSSProperties}>
+              {[
+                {
+                  Icon: ClipboardList,
+                  t: "Tell us what you have",
+                  b: "A room count or a rough list is enough for a free, itemised quote.",
+                },
+                {
+                  Icon: Truck,
+                  t: "We come to the Palm",
+                  b: "The crew arrives on the agreed date, wraps everything and loads the van.",
+                },
+                {
+                  Icon: ShieldCheck,
+                  t: "Logged and stored",
+                  b: "Everything is listed on the inventory you sign, then held indoors under camera.",
+                },
+                {
+                  Icon: RotateCcw,
+                  t: "Delivered back",
+                  b: `All of it or part of it, to the address you choose, normally within ${RETRIEVAL_WINDOW}.`,
+                },
+              ].map((st, i) => (
+                <li className={s.milestone} key={st.t} style={{ ["--i"]: i } as CSSProperties}>
+                  <span className={s.milestoneDot} aria-hidden="true">
+                    <st.Icon />
+                  </span>
+                  <span className={s.milestoneYear}>Step {i + 1}</span>
+                  <b>{st.t}</b>
+                  <small>{st.b}</small>
+                </li>
+              ))}
+            </ol>
+          </MilestonesPlayer>
+        </section>
+
+        {/* the parts of the Palm, as one moving line rather than wrapped rows */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Covered</span>
+              <h2 className={p.longH2}>
+                Trunk, Fronds <em>and Crescent.</em>
+              </h2>
+            </div>
+            <p>Door-to-door collection from all of these addresses.</p>
+          </div>
+          {/*
+            The track holds two identical halves and slides exactly one half, so
+            the loop has no visible seam; the second half is aria-hidden so a
+            screen reader hears the list once. Hovering pauses it.
+          */}
+          <div className={s.areaMarquees}>
+            <div className={s.marquee}>
+              <div className={s.marqueeTrack}>
+                {[0, 1].map((half) => (
+                  <div
+                    className={`${s.marqueeGroup} ${s.chipGroup}`}
+                    key={half}
+                    aria-hidden={half === 1}
+                    style={{ gap: 12 }}
+                  >
+                    {PALM_AREAS.map((a, i) => (
+                      <span
+                        className={s.chip}
+                        key={`${half}-${a}`}
+                        style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+                      >
+                        <span
+                          aria-hidden="true"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: 20,
+                            height: 20,
+                            borderRadius: 6,
+                            flex: "none",
+                            background: TINTS[i % TINTS.length].bg,
+                            color: TINTS[i % TINTS.length].fg,
+                          }}
+                        >
+                          <MapPin size={12} strokeWidth={2.2} />
+                        </span>
+                        {a}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <LandingReviews padTop={0} />
+
+        {/* five questions — the same five the FAQPage schema carries */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Good to know</span>
+              <h2 className={p.longH2}>
+                Questions from <em>the Palm.</em>
+              </h2>
+            </div>
+          </div>
+          <FaqAccordion items={FAQS} />
+        </section>
+
+        {/* Exception B of the linking plan: a district page links to its emirate
+            hub, its neighbours, the money page and the silo hubs — nothing else. */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Nearby</span>
+              <h2 className={p.longH2}>
+                We also collect from <em>these areas.</em>
+              </h2>
+            </div>
+            <p>Same crews, same service. Each page carries what matters locally.</p>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {NEARBY.map((n, i) => (
+              <Link
+                href={`/locations/dubai/${n.slug}`}
+                className={s.chip}
+                key={n.slug}
+                style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+              >
+                <span
+                  aria-hidden="true"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 20,
+                    height: 20,
+                    borderRadius: 6,
+                    flex: "none",
+                    background: TINTS[i % TINTS.length].bg,
+                    color: TINTS[i % TINTS.length].fg,
+                  }}
+                >
+                  <MapPin size={12} strokeWidth={2.2} />
+                </span>
+                {n.name}
+              </Link>
+            ))}
+          </div>
+          <div className={s.miniFacts} style={{ marginTop: 20 }}>
+            <li style={{ listStyle: "none" }}>
+              <Link href="/locations/dubai">All Dubai areas</Link>
+            </li>
+            {HUB_ORDER.filter((k) => k !== "s4").map((k) => (
+              <li key={SILOS[k].hub} style={{ listStyle: "none" }}>
+                <Link href={SILOS[k].hub}>{SILOS[k].name}</Link>
+              </li>
+            ))}
+            <li style={{ listStyle: "none" }}>
+              <Link href={MONEY_PAGE}>{moneyAnchor("/locations/dubai/palm-jumeirah")}</Link>
+            </li>
+          </div>
+        </section>
+
+        <CtaBand
+          title="Storing something from the Palm?"
+          blurb="Free quote, no survey fee, and nothing booked until you agree both numbers — the storage and the transport."
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
+      </div>
     </>
   )
 }
