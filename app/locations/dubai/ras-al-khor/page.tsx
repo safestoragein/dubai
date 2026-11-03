@@ -265,7 +265,7 @@ export default function RasAlKhorPage() {
             <div className={p.split2Photo} style={{ aspectRatio: "1400 / 788" } as CSSProperties}>
               <Image
                 src="/landing/ras-al-khor-hero.webp"
-                alt="A SafeStorage crew loading the van outside a Ras Al Khor property, with the wildlife sanctuary sign, flamingos on the creek and the Dubai skyline behind"
+                alt="A SafeStorage crew loading boxes into the van, with racked cartons in the warehouse behind them"
                 width={1400}
                 height={788}
                 sizes="(max-width: 900px) 94vw, 50vw"
