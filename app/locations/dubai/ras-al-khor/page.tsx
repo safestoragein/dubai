@@ -1,76 +1,233 @@
 import type { Metadata } from "next"
-import LocationPage from "@/components/locations/location-page"
+import type { CSSProperties } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import {
+  Armchair,
+  Boxes,
+  ClipboardList,
+  FileText,
+  HardHat,
+  Home,
+  MapPin,
+  PackageOpen,
+  RotateCcw,
+  Ruler,
+  ShieldCheck,
+  Store,
+  Truck,
+  Wrench,
+} from "lucide-react"
 import SchemaScript from "@/components/schema-script"
-import { locationBusinessSchema } from "@/lib/structured-data"
-import AreaLinks from "@/components/locations/area-links"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
+import { locationBusinessSchema } from "@/lib/structured-data"
+import { faqPageSchema } from "@/lib/emirate-faqs"
+import { storageLocationSentence } from "@/lib/facilities"
+import { SILOS, MONEY_PAGE, HUB_ORDER, moneyAnchor } from "@/lib/silo/silos"
+import { CCTV_COVERAGE, RETRIEVAL_WINDOW } from "@/lib/company-facts"
+import { manrope, sora } from "@/components/landing/fonts"
+import { CtaBand } from "@/components/landing/page-hero"
+import { LandingTrust } from "@/components/landing/landing-top"
+import { LandingReviews } from "@/components/landing/landing-reviews"
+import { FeatScroller } from "@/components/landing/feat-scroller"
+import { MilestonesPlayer } from "@/components/landing/milestones-player"
+import FaqAccordion from "@/components/landing/faq-accordion"
+import { env } from "@/lib/env"
+import s from "@/components/landing/landing.module.css"
+import p from "@/components/locations/location-landing.module.css"
+
+/*
+ * /locations/dubai/ras-al-khor — the district page, in the homepage design.
+ *
+ * Written by hand rather than drawn from lib/areas, because this district is
+ * not like the others. It is the emirate's furniture and fit-out heartland, its
+ * used-car trading centre and a protected wetland, with long-standing villa
+ * communities around the edge — so the page is mostly a business page, and the
+ * registry's one-line blurb would have thrown all of it away.
+ *
+ * The copy is the copy that was already here, cut down. Two things changed
+ * rather than moved: the page sold "units" throughout and promised goods held
+ * "in a unit assigned to your account", which is the private-unit wording the
+ * business rules do not allow - storage is shared space, billed on what you
+ * occupy. The honest limits stay exactly as they were: no vehicles, no produce.
+ */
+
+const URL = "https://safestorage.ae/locations/dubai/ras-al-khor"
 
 export const metadata: Metadata = {
-  title: { absolute: "Storage Units Ras Al Khor | Industrial & Self Storage | SafeStorage" },
+  title: { absolute: "Storage Ras Al Khor | Industrial & Self Storage | SafeStorage" },
   description:
-    "Secure storage in Ras Al Khor, Dubai. Self storage and industrial overflow units with door-to-door collection for furniture traders, workshops and residents.",
+    "Secure storage in Ras Al Khor, Dubai. Business overflow and household storage with door-to-door collection for furniture traders, workshops and residents.",
   keywords:
-    "Storage Ras Al Khor, Ras Al Khor storage units, Ras Al Khor Industrial storage, furniture storage Ras Al Khor, warehouse storage Ras Al Khor, Nad Al Sheba storage, Al Aweer storage, International City storage, Dragon Mart trader storage, Nad Al Hamar storage, Al Warqa storage, business storage Ras Al Khor, showroom stock storage Dubai, SafeStorage Ras Al Khor",
+    "Storage Ras Al Khor, Ras Al Khor storage, Ras Al Khor Industrial storage, furniture storage Ras Al Khor, warehouse storage Ras Al Khor, Nad Al Sheba storage, Al Aweer storage, International City storage, Dragon Mart trader storage, Nad Al Hamar storage, Al Warqa storage, business storage Ras Al Khor, showroom stock storage Dubai, SafeStorage Ras Al Khor",
   openGraph: {
     images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
-    url: "https://safestorage.ae/locations/dubai/ras-al-khor",
+    url: URL,
     siteName: "SafeStorage Dubai",
     locale: "en_AE",
     type: "website",
   },
   alternates: {
-    canonical: "https://safestorage.ae/locations/dubai/ras-al-khor",
+    canonical: URL,
     // The Arabic counterpart uses the SAME slug on purpose — see
     // lib/ar/emirates.ts. Translating it would break this pairing, and the
     // pairing is precisely why this page was re-pathed under /dubai/: English
     // sat at /locations/ras-al-khor while Arabic sat at
     // /ar/locations/dubai/ras-al-khor, so the two never resolved as alternates.
     languages: {
-      "en-AE": "https://safestorage.ae/locations/dubai/ras-al-khor",
+      "en-AE": URL,
       "ar-AE": "https://safestorage.ae/ar/locations/dubai/ras-al-khor",
-      "x-default": "https://safestorage.ae/locations/dubai/ras-al-khor",
+      "x-default": URL,
     },
   },
 }
 
-const rasAlKhorSchemas = [
+/*
+ * Five questions, and the FAQPage schema is built from this same array — so the
+ * markup can never carry a question the page does not show. The old page listed
+ * twelve, several of them 120 words long.
+ */
+const FAQS = [
+  {
+    q: "Do you collect from all three Ras Al Khor industrial areas?",
+    a: "Yes — Industrial 1, 2 and 3, plus Nad Al Hamar, Al Aweer and the residential districts around them. Crews work off the Ras Al Khor Road and Al Khail Road access points, so units deep inside the blocks are still straightforward. A business moving stock on a cycle can set a standing weekly or monthly collection instead of booking each time.",
+  },
+  {
+    q: "Can furniture makers store finished stock?",
+    a: "Yes, and it is the most frequent request from this area — finished pieces awaiting delivery, ex-display stock pulled off the floor, seasonal ranges before a launch, contract orders staged ahead of a handover. Everything is wrapped before loading and held indoors rather than in an open yard, which matters for upholstery and veneer. Part loads can be called forward, so you draw down only what a delivery needs.",
+  },
+  {
+    q: "Do you cover International City and Dragon Mart?",
+    a: "Yes. International City borders Ras Al Khor and sits inside this zone, all clusters, along with the trading community around Dragon Mart. Shops use us for bulk inventory between restocks, packaging and container overflow. Stock is catalogued on intake and returned in part loads, so you can call forward a single product line.",
+  },
+  {
+    q: "Can you store anything from the Al Aweer market?",
+    a: (
+      "No produce, food or perishables — that applies across every SafeStorage site without exception. What we do take is everything around the produce: crates, pallets, packaging stock, weighing and handling equipment, display stands, promotional material and archived trade paperwork. The full list is on our prohibited items page."
+    ),
+  },
+  {
+    q: "Can you empty a whole showroom or workshop?",
+    a: `Yes. Crew and vehicles are assigned in proportion to the volume, and a showroom or workshop can usually be emptied in a day, or split across visits so you keep trading. Everything is photographed and catalogued on the way out and comes back as your operation calls for it, normally within ${RETRIEVAL_WINDOW}.`,
+  },
+]
+
+/** The areas the old page listed in two columns of bullets. */
+const AREAS = [
+  "Ras Al Khor Industrial 1",
+  "Ras Al Khor Industrial 2",
+  "Ras Al Khor Industrial 3",
+  "Ras Al Khor residential",
+  "Nad Al Hamar",
+  "Al Aweer",
+  "Al Khail Gate",
+  "Nad Al Sheba 1–4",
+  "Al Warqa 1–5",
+  "International City",
+  "Dubai Festival City",
+  "Al Rashidiya",
+]
+
+/** Neighbouring district pages this one links across to. */
+const NEARBY = [
+  { slug: "mirdif", name: "Mirdif" },
+  { slug: "dubai-silicon-oasis", name: "Dubai Silicon Oasis" },
+  { slug: "business-bay", name: "Business Bay" },
+  { slug: "al-quoz", name: "Al Quoz" },
+  { slug: "deira", name: "Deira" },
+  { slug: "dubai-investment-park", name: "Dubai Investment Park" },
+]
+
+const TINTS = [
+  { fg: "#ee5824", bg: "rgba(238, 88, 36, 0.12)" },
+  { fg: "#1893d2", bg: "rgba(24, 147, 210, 0.12)" },
+  { fg: "#16a34a", bg: "rgba(22, 163, 74, 0.12)" },
+  { fg: "#7c3aed", bg: "rgba(124, 58, 237, 0.12)" },
+  { fg: "#e11d48", bg: "rgba(225, 29, 72, 0.12)" },
+  { fg: "#d97706", bg: "rgba(217, 119, 6, 0.12)" },
+]
+
+const USES = [
+  {
+    Icon: Armchair,
+    title: "Furniture and fit-out stock",
+    desc: "Finished pieces between production and delivery, ex-display stock, and joinery staged before a site is ready.",
+  },
+  {
+    Icon: Boxes,
+    title: "Marble, stone and fittings",
+    desc: "Boxed tiles, fixtures, sample stock and discontinued ranges off ground you need for working material.",
+  },
+  {
+    Icon: Wrench,
+    title: "Workshop and parts trade",
+    desc: "Parts inventory, tools, diagnostic kit and out-of-season tyres. The parts side only — vehicles we cannot take.",
+  },
+  {
+    Icon: Store,
+    title: "Al Aweer and Dragon Mart traders",
+    desc: "Crates, pallets, packaging, display stands and handling equipment through the quiet months. No produce.",
+  },
+  {
+    Icon: FileText,
+    title: "Records and archives",
+    desc: "Cartons numbered, labelled and logged against a barcode, named-carton retrieval, and certified destruction after.",
+  },
+  {
+    Icon: HardHat,
+    title: "Villa renovation",
+    desc: "Nad Al Sheba and Nad Al Hamar homes cleared for a rebuild, catalogued, and put back when the site is handed over.",
+  },
+]
+
+const schemas = [
   locationBusinessSchema({
     name: "Ras Al Khor",
-    url: "https://safestorage.ae/locations/dubai/ras-al-khor",
+    url: URL,
     serves: ["Nad Al Hamar", "Al Aweer", "Nad Al Sheba", "Al Warqa", "International City", "Al Rashidiya"],
   }),
-
   {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'Document Archival & Storage in Ras Al Khor',
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Document Archival & Storage in Ras Al Khor",
     description:
-      'Fireproof, barcode-indexed records storage for Ras Al Khor traders, manufacturers and workshops, with named-carton retrieval inside two working days and certified destruction.',
-    provider: { '@id': 'https://safestorage.ae/#organization' },
-    url: 'https://safestorage.ae/locations/dubai/ras-al-khor',
+      "Fireproof, barcode-indexed records storage for Ras Al Khor traders, manufacturers and workshops, with named-carton retrieval inside two working days and certified destruction.",
+    provider: { "@id": "https://safestorage.ae/#organization" },
+    url: URL,
     areaServed: [
-      { '@type': 'Place', name: 'Ras Al Khor' },
-      { '@type': 'Place', name: 'Nad Al Hamar' },
-      { '@type': 'Place', name: 'Al Aweer' },
-      { '@type': 'Place', name: 'Nad Al Sheba' },
-      { '@type': 'Place', name: 'International City' },
+      { "@type": "Place", name: "Ras Al Khor" },
+      { "@type": "Place", name: "Nad Al Hamar" },
+      { "@type": "Place", name: "Al Aweer" },
+      { "@type": "Place", name: "Nad Al Sheba" },
+      { "@type": "Place", name: "International City" },
     ],
-    serviceType: 'Document Storage',
+    serviceType: "Document Storage",
   },
   {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': 'https://safestorage.ae/locations/dubai/ras-al-khor#webpage',
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${URL}#webpage`,
     // Must match the page <title> above — link-preview / interlinking tools read
     // this WebPage name and showed it in place of the title when they disagreed.
-    name: 'Storage Units Ras Al Khor | Industrial & Self Storage | SafeStorage',
+    name: "Storage Ras Al Khor | Industrial & Self Storage | SafeStorage",
     description:
-      'Secure storage in Ras Al Khor, Dubai. Self storage and industrial overflow units with door-to-door collection for furniture traders, workshops and residents.',
-    url: 'https://safestorage.ae/locations/dubai/ras-al-khor',
-    isPartOf: { '@id': 'https://safestorage.ae/#website' },
-    inLanguage: 'en-AE',
+      "Secure storage in Ras Al Khor, Dubai. Business overflow and household storage with door-to-door collection for furniture traders, workshops and residents.",
+    url: URL,
+    isPartOf: { "@id": "https://safestorage.ae/#website" },
+    inLanguage: "en-AE",
+    dateModified: "2026-11-03",
   },
-  
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://safestorage.ae" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://safestorage.ae/locations" },
+      { "@type": "ListItem", position: 3, name: "Dubai", item: "https://safestorage.ae/locations/dubai" },
+      { "@type": "ListItem", position: 4, name: "Ras Al Khor", item: URL },
+    ],
+  },
+  faqPageSchema(FAQS),
 ]
 
 export default function RasAlKhorPage() {
@@ -84,326 +241,351 @@ export default function RasAlKhorPage() {
           { name: "Ras Al Khor" },
         ]}
       />
-    <SchemaScript schema={rasAlKhorSchemas} />
-    <LocationPage
-      location="Ras Al Khor"
-      areas={[
-        "Ras Al Khor Industrial Area 1",
-        "Ras Al Khor Industrial Area 2",
-        "Ras Al Khor Industrial Area 3",
-        "Nad Al Hamar",
-        "Al Aweer",
-        "Nad Al Sheba",
-      ]}
-      distance="25-30 minutes"
-      intro="Ras Al Khor runs on stock. Furniture showrooms, stone yards, parts traders and workshops all hold more than their floor space allows. We collect from your unit on the Ras Al Khor Road corridor, store it under cover, and bring it back on the day you ask for it."
-      benefits={[
-        "Built for furniture and showroom stock overflow",
-        "Suits Ras Al Khor Industrial workshops and trading units",
-        "Collection direct from your yard or loading bay",
-        "Practical for Nad Al Sheba and Al Warqa villa families",
-      ]}
-      features={{
-        doorToDoor: "We load from your Ras Al Khor unit and return items whenever you call for them",
-        security: "Cameras covering every angle, entry logged on arrival, motion alerts once the site closes",
-        clean: "Sealed indoor units that keep stone dust, sawdust and yard grit off your stock",
-      }}
-    />
-    {/* Static rich-text section for SEO — server-rendered */}
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Document Archival &amp; Storage — Ras Al Khor</h2>
-        <p className="text-lg text-gray-700 mb-6">
-          SafeStorage works with traders, manufacturers and households across Ras Al Khor Industrial 1, 2 and 3, plus
-          Nad Al Hamar, Al Aweer, Nad Al Sheba and the surrounding creek-side communities. Collections run off the Ras
-          Al Khor Road and Al Khail Road junctions, which keeps loading straightforward even for units set deep inside
-          the industrial blocks.
-        </p>
+      <SchemaScript schema={schemas} />
 
-        <div className="grid md:grid-cols-2 gap-8 mb-10">
-          <div>
-            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Records Management for Ras Al Khor Traders</h3>
-            <p className="text-gray-700 mb-3">
-              Trading companies in Ras Al Khor accumulate paperwork faster than most sectors. Customs paperwork, bills
-              of lading, supplier invoices, delivery notes, warranty claims and staff files build up over years, and
-              almost none of it can legally be thrown away.
-            </p>
-            <p className="text-gray-700">
-              We take that volume off your premises. Each carton is numbered, labelled and logged against a barcode
-              before it goes into a fireproof unit. Ask for a specific carton later and our team locates it against
-              the index and returns it to your Ras Al Khor address inside two working days. Once records pass their
-              retention window, we arrange certified destruction and issue paperwork confirming it.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Industrial &amp; Trading Unit Overflow</h3>
-            <p className="text-gray-700 mb-3">
-              Rent per square foot in Ras Al Khor Industrial is priced for production and dispatch, not for holding
-              slow stock. Yet most units here give up a third of their floor to goods that turn over once or twice a
-              year.
-            </p>
-            <p className="text-gray-700">
-              We take that volume on monthly terms. Space runs from small consolidated lots up to units above 1,000 sq
-              ft, and you adjust the footprint as your stock cycle moves. Traders bringing in seasonal containers use
-              us as a staging point, drawing goods down as orders land rather than paying for a permanent second unit
-              that stands half empty for eight months of the year.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
-          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Household Storage — Nad Al Sheba, Al Warqa &amp; Nad Al Hamar</h3>
-          <p className="text-gray-700 mb-4">
-            The villa communities east of the creek sit within easy reach of our collection route. Families in these
-            neighbourhoods typically call us for:
-          </p>
-          <ul className="space-y-2 text-gray-700">
-            <li>• <strong>Extension and rebuild work:</strong> contents cleared out while the villa is opened up</li>
-            <li>• <strong>Majlis and guest room furniture:</strong> pieces kept aside outside the entertaining season</li>
-            <li>• <strong>Relocation gaps:</strong> belongings held between handover dates on two properties</li>
-            <li>• <strong>Garden and outdoor sets:</strong> patio furniture and shade structures stored over summer</li>
-            <li>• <strong>Trading stock from home:</strong> cartons and samples for family businesses run from the villa</li>
-          </ul>
-        </div>
-
-        <div className="bg-white rounded-xl p-8 border border-gray-200 mb-8">
-          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Areas Served — Ras Al Khor &amp; Neighbouring Communities</h3>
-          <div className="grid md:grid-cols-2 gap-4 text-gray-700">
-            <ul className="space-y-1">
-              <li>• Ras Al Khor Industrial 1, 2 &amp; 3</li>
-              <li>• Nad Al Hamar</li>
-              <li>• Al Aweer</li>
-              <li>• Al Khail Gate</li>
-              <li>• Ras Al Khor residential</li>
-            </ul>
-            <ul className="space-y-1">
-              <li>• Nad Al Sheba 1, 2, 3 &amp; 4</li>
-              <li>• Al Warqa 1–5</li>
-              <li>• International City</li>
-              <li>• Dubai Festival City</li>
-              <li>• Al Rashidiya</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="text-center">
-          <p className="text-lg text-gray-700 mb-4">
-            Trading, manufacturing or living in Ras Al Khor? Get your free quote now.
-          </p>
-          <a
-            href="/get-quote"
-            className="inline-block bg-[#D8315B] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c02a50] transition-colors"
-          >
-            Get a Free Quote
-          </a>
-        </div>
-      </div>
-    </section>
-
-    {/* Extended Detail Section */}
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-3xl font-bold text-[#0A2463] mb-6">Ras Al Khor Storage — Comprehensive Guide for Businesses &amp; Residents</h2>
-        <p className="text-lg text-gray-700 mb-6">
-          Ras Al Khor occupies an unusual position in Dubai. It is the city&apos;s furniture and fit-out heartland,
-          its used-car trading centre, and the site of a protected wetland where flamingos feed on the creek — all
-          inside the same postcode. Around the industrial blocks sit long-established residential communities in Nad
-          Al Sheba, Al Warqa and Nad Al Hamar.
-        </p>
-        <p className="text-lg text-gray-700 mb-8">
-          That mix produces storage demand of every shape. A furniture manufacturer clearing a showroom floor, a parts
-          trader holding imported stock between shipments, and a family emptying a villa for a rebuild all need
-          something different from a storage provider. We run one service across all of it: quoted by volume,
-          collected from your door, stored indoors, returned when called for.
-        </p>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-10">
-          <div>
-            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Furniture, Fit-Out &amp; Showroom Stock</h3>
-            <p className="text-gray-700 mb-3">
-              More furniture passes through Ras Al Khor than anywhere else in the emirate. Manufacturers,
-              upholsterers, joinery workshops, mattress suppliers and showroom operators all cluster here, and all of
-              them face the same squeeze — display space is finite, production keeps running, and finished goods have
-              nowhere to sit.
-            </p>
-            <p className="text-gray-700 mb-3">
-              We hold finished pieces between production and delivery, ex-display units withdrawn from the floor,
-              seasonal ranges waiting for a launch window, and contract orders staged ahead of a project handover.
-              Items are wrapped before loading and stored in sealed indoor units, which matters for upholstery and
-              veneer far more than it does for boxed goods. Nothing sits in an open yard.
-            </p>
-            <p className="text-gray-700">
-              Fit-out contractors working on hotel, retail and office projects use the same arrangement to stage
-              joinery and loose furniture ahead of a site becoming ready.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Marble, Stone &amp; Building Materials Traders</h3>
-            <p className="text-gray-700 mb-3">
-              The stone yards and sanitaryware traders along the industrial strip carry heavy, slow-moving inventory
-              that occupies premium ground. Sample slabs, discontinued ranges, fixtures held for a project that has
-              been delayed, and packaging stock all take up room needed for working material.
-            </p>
-            <p className="text-gray-700">
-              We take the non-working volume on flexible terms. Boxed tiles, fixtures, fittings and sample stock are
-              catalogued on collection so you can call forward exactly what a quotation requires without hunting
-              through a yard.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-10">
-          <div>
-            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Auto Traders &amp; Workshop Storage</h3>
-            <p className="text-gray-700 mb-3">
-              Ras Al Khor&apos;s used-vehicle market and the parts trade that surrounds it generate constant storage
-              pressure. Traders store parts inventory that outgrows the shelf, tools and diagnostic equipment between
-              jobs, tyres and wheels out of season, and years of registration paperwork, service records and sale
-              documents.
-            </p>
-            <p className="text-gray-700">
-              We store the parts, tools and paperwork side of the trade only. Vehicles themselves are not something we
-              take, so a car needing storage will have to go elsewhere.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold text-[#0A2463] mb-3">Al Aweer Market Traders</h3>
-            <p className="text-gray-700 mb-3">
-              The wholesale market at Al Aweer supports hundreds of trading businesses, and while we cannot store
-              produce of any kind, the surrounding operation generates plenty that we can take. Crates, pallets,
-              packaging inventory, weighing and handling equipment, promotional material, display stands and archived
-              trade documentation all come to us regularly.
-            </p>
-            <p className="text-gray-700">
-              Traders working seasonal import cycles find monthly terms particularly useful, since equipment sitting
-              idle for months no longer needs to occupy rented ground.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-gray-50 rounded-xl p-8 mb-8">
-          <h3 className="text-xl font-bold text-[#0A2463] mb-4">International City &amp; Dragon Mart Traders</h3>
-          <p className="text-gray-700 mb-4">
-            International City sits directly alongside Ras Al Khor and falls inside this collection zone, together
-            with the enormous trading community based around Dragon Mart. Shop operators there work with limited
-            back-of-house space and high stock turnover.
-          </p>
-          <p className="text-gray-700">
-            We hold bulk inventory between restocks, packaging and shipping materials, and overflow from container
-            arrivals that cannot fit behind the shop. Goods are catalogued on intake and delivered back in part loads,
-            so a trader can call forward one product line rather than an entire consignment. Residents across the
-            International City clusters also use us for household storage, particularly between tenancy dates.
-            International City is additionally covered by our{" "}
-            <a href="/locations/dubai/dubai-silicon-oasis" className="text-[#3E92CC] hover:underline">
-              Dubai Silicon Oasis service zone
-            </a>{" "}
-            — either page will get you to the same team.
-          </p>
-        </div>
-
-        <div className="bg-gray-50 rounded-xl p-8 mb-8">
-          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Nad Al Sheba &amp; the Creek-Side Villas</h3>
-          <p className="text-gray-700 mb-4">
-            Nad Al Sheba&apos;s villa districts and the older plots around Nad Al Hamar are substantial family homes,
-            and they are renovated often. Work of this scale usually runs six months or longer, and most owners prefer
-            the contents out of the building entirely rather than sheeted up in a back room.
-          </p>
-          <p className="text-gray-700">
-            We clear the house with a dedicated crew, photograph and catalogue every item, hold it in a unit assigned
-            to your account, and return it once the site is handed back. If something is needed partway through, we
-            deliver that item alone and leave the rest in place.
-          </p>
-        </div>
-
-        <div className="bg-gray-50 rounded-xl p-8">
-          <h3 className="text-xl font-bold text-[#0A2463] mb-4">Commercial Storage Options for Ras Al Khor Businesses</h3>
-          <div className="grid md:grid-cols-2 gap-4 text-gray-700">
-            <div>
-              <p className="font-semibold mb-2">Records &amp; Document Management</p>
-              <ul className="space-y-1 text-sm">
-                <li>• Fireproof cartons for regulated and financial records</li>
-                <li>• Barcode index against every carton logged</li>
-                <li>• Named-file delivery within two working days</li>
-                <li>• Certified destruction with confirming paperwork</li>
-                <li>• Custody trail suitable for audit review</li>
-              </ul>
+      <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+        {/* hero: copy on the left, the owner's picture on the right */}
+        <section className={`${s.hero} ${s.wrap} ${p.split2} ${p.split2Wrap} ${p.areaHero}`}>
+          <div className={p.split2Inner}>
+            <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Area}`}>
+              <span className={s.heroTag}>Dubai · Ras Al Khor</span>
+              <h1>
+                Storage for Ras Al Khor — <em>we collect, store and bring it back.</em>
+              </h1>
+              <p>Trade stock, records and household goods, collected from your door.</p>
+              <div className={s.heroCta}>
+                <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  Get a Free Quote →
+                </Link>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call +971505773388
+                </a>
+              </div>
             </div>
-            <div>
-              <p className="font-semibold mb-2">Trade &amp; Equipment Storage</p>
-              <ul className="space-y-1 text-sm">
-                <li>• Footprints from small consolidated lots to 1,000+ sq ft</li>
-                <li>• Finished furniture and ex-display stock</li>
-                <li>• Import overflow and staged container goods</li>
-                <li>• Tools, plant and handling equipment between jobs</li>
-                <li>• Rolling monthly terms with no fixed tie-in</li>
-              </ul>
+            <div className={p.split2Photo} style={{ aspectRatio: "1400 / 788" } as CSSProperties}>
+              <Image
+                src="/landing/ras-al-khor-hero.webp"
+                alt="A SafeStorage crew loading the van outside a Ras Al Khor property, with the wildlife sanctuary sign, flamingos on the creek and the Dubai skyline behind"
+                width={1400}
+                height={788}
+                sizes="(max-width: 900px) 94vw, 50vw"
+                quality={85}
+                loading="eager"
+              />
+              <div className={s.heroRating}>
+                <strong>4.9★</strong>
+                <span>6,700+ Google reviews</span>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    {/* FAQ Section */}
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-3xl font-bold text-[#0A2463] mb-4 text-center">Frequently Asked Questions — Ras Al Khor Storage</h2>
-        <p className="text-gray-600 text-center mb-10">
-          Common questions from Ras Al Khor traders, furniture businesses, International City shop operators and
-          residents of Nad Al Sheba and Al Warqa.
-        </p>
-        <div className="space-y-6">
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Does SafeStorage collect from all three Ras Al Khor industrial areas?</h3>
-            <p className="text-gray-700">Yes. Ras Al Khor Industrial 1, 2 and 3 are all inside this collection zone, along with Nad Al Hamar, Al Aweer and the residential districts nearby. Our crews work off the Ras Al Khor Road and Al Khail Road access points, so even units set deep inside the blocks are straightforward to reach. Businesses moving stock on a regular cycle can arrange a standing weekly or monthly collection instead of booking each time. Call or message +971505773388 to arrange a slot.</p>
+        <LandingTrust />
+
+        {/* dark band: breaks the page up and states the service plainly */}
+        <section className={`${s.darkBand} ${s.whyBand}`} style={{ marginTop: 18 }}>
+          <div className={s.wrap}>
+            <div className={s.bandHead}>
+              <span className={s.howEyebrow}>What is included</span>
+              <h2>
+                We come to Ras Al Khor <br className={s.mBreak} />
+                <em>and take it from there.</em>
+              </h2>
+            </div>
+            <FeatScroller>
+              {[
+                {
+                  Icon: Truck,
+                  h: "Loaded from your bay",
+                  pp: "The crew comes to your yard, loading bay or front door, wraps what is going and loads it.",
+                },
+                {
+                  Icon: PackageOpen,
+                  h: "Wrapped where it stands",
+                  pp: "Stock is wrapped at your premises before it moves, not later at the warehouse.",
+                },
+                { Icon: ShieldCheck, h: "Indoors and covered", pp: CCTV_COVERAGE },
+                {
+                  Icon: Ruler,
+                  h: "Only the space you use",
+                  pp: "Billed on the floor space your goods occupy, not on a size you have to fill. No minimum term.",
+                },
+              ].map((c) => (
+                <article className={s.feat} key={c.h}>
+                  <div className={s.featIcon}>
+                    <c.Icon strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3>{c.h}</h3>
+                  <p>{c.pp}</p>
+                </article>
+              ))}
+            </FeatScroller>
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can furniture manufacturers store finished stock with SafeStorage?</h3>
-            <p className="text-gray-700">Yes, and it is one of the most frequent requests we handle from this area. We hold finished pieces awaiting delivery, ex-display units pulled from the showroom floor, seasonal ranges ahead of launch, and contract orders staged before a project handover. Everything is wrapped before loading and stored in sealed indoor units rather than open yards, which protects upholstery, veneer and polished surfaces. Part loads can be called forward, so you draw down what a delivery needs rather than releasing the whole consignment. See our <a href="/personal-storage-dubai/furniture-storage" className="text-[#3E92CC] hover:underline">furniture storage page</a> for handling detail.</p>
+        </section>
+
+        {/* why people here call — the district's own reasons, as cards */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 26, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>What Ras Al Khor stores</span>
+              <h2>
+                Why businesses here <em>call us.</em>
+              </h2>
+            </div>
+            <p>Showrooms, stone yards, workshops and the villa districts across the creek.</p>
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is this cheaper than renting a second unit in Ras Al Khor Industrial?</h3>
-            <p className="text-gray-700">For stock that turns over slowly, it usually is. Industrial rent here is priced for production and dispatch, so using that floor to hold goods moving once or twice a year is expensive space poorly spent. With us you pay against the volume you actually occupy, with no setup charge and no annual commitment. Send us your dimensions or a few photographs and we will set the two figures side by side so the comparison is clear.</p>
+          <div className={s.miniGrid}>
+            {USES.map((u, i) => (
+              <div className={s.miniCard} key={u.title}>
+                <span
+                  className={s.miniIcon}
+                  aria-hidden="true"
+                  style={
+                    {
+                      background: TINTS[i % TINTS.length].bg,
+                      color: TINTS[i % TINTS.length].fg,
+                      boxShadow: "none",
+                    } as CSSProperties
+                  }
+                >
+                  <u.Icon />
+                </span>
+                <div>
+                  <b>{u.title}</b>
+                  <small>{u.desc}</small>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you cover International City and the Dragon Mart trading community?</h3>
-            <p className="text-gray-700">Yes. International City borders Ras Al Khor and sits inside this zone, covering all clusters as well as the trading businesses operating around Dragon Mart. Shop operators use us for bulk inventory between restocks, packaging materials, and overflow from container arrivals. Stock is catalogued on intake and returned in part loads, so you can call forward a single product line. Residents across the clusters also store household goods with us, most often between tenancy dates.</p>
+        </section>
+
+        {/* the district in detail, and where things actually go */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>In brief</span>
+              <h2 className={p.longH2}>
+                Storage in Ras Al Khor, <em>specifically.</em>
+              </h2>
+            </div>
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can you store produce or goods from the Al Aweer market?</h3>
-            <p className="text-gray-700">We cannot accept produce, food or perishable goods of any description — that restriction applies across every SafeStorage unit without exception. What we do store for Al Aweer traders is everything around the produce: crates, pallets, packaging inventory, weighing and handling equipment, display stands, promotional material and archived trade paperwork. Traders working seasonal import cycles use us to hold equipment during the quiet months. Our full list is on the <a href="/self-storage-dubai/prohibited-items" className="text-[#3E92CC] hover:underline">prohibited items page</a>.</p>
+          <div className={`${s.prose} ${p.proseFlush}`}>
+            <p>
+              Ras Al Khor holds an unusual position in Dubai. It is the city&apos;s furniture and
+              fit-out heartland, its used-car trading centre, and a protected wetland where flamingos
+              feed on the creek — all inside one postcode, with long-settled villa communities in Nad
+              Al Sheba, Al Warqa and Nad Al Hamar around the edge.
+            </p>
+            <p>
+              Floor space here is priced for production and dispatch, not for holding stock that turns
+              over once or twice a year. We take that slow volume on monthly terms so the ground you
+              rent goes back to working material. Goods are wrapped at your premises, catalogued on
+              collection and called forward in part loads, so a trader can release one product line
+              rather than a whole consignment.
+            </p>
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">How do I retrieve a specific document carton once it is in storage?</h3>
-            <p className="text-gray-700">Contact your consultant by phone, WhatsApp or email and quote the carton reference or describe the file. Our team locates it against the barcode index and delivers it to your Ras Al Khor address within two working days. Requests placed before midday can often be returned the same day. Delivery inside Dubai forms part of the service, and any charge beyond that is stated in your agreement before you commit.</p>
+          <div className={s.movingTip}>
+            <span aria-hidden="true">📍</span>
+            <p>
+              <strong>What we cannot take.</strong> No produce, food or perishables, and no vehicles,
+              whatever their condition. Everything around the produce — crates, pallets, packaging,
+              handling equipment, display stands and trade paperwork — is fine, and so is the parts and
+              tools side of the motor trade. The full list is on the{" "}
+              <Link href="/self-storage-dubai/prohibited-items">prohibited items page</Link>.
+            </p>
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Are Nad Al Sheba, Al Warqa and Nad Al Hamar included?</h3>
-            <p className="text-gray-700">All three are covered, along with Al Rashidiya and Al Khail Gate. These are among our steadier residential collection areas, mostly villa renovation work and families moving between properties. Journey time is broadly 25 to 30 minutes. Message +971505773388 with your community and street and we will confirm the slot. Al Warqa and Al Rashidiya residents can also book through our <a href="/locations/dubai/mirdif" className="text-[#3E92CC] hover:underline">Mirdif service zone</a>.</p>
+          <div className={s.movingTip}>
+            <span aria-hidden="true">📍</span>
+            <p>
+              <strong>Where your things actually go.</strong> {storageLocationSentence("dubai")} We
+              collect from your address in Ras Al Khor, so you do not need to drive anything anywhere.
+              Transport is quoted separately and confirmed before anything is booked.
+            </p>
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">What does storage cost for a Ras Al Khor business?</h3>
-            <p className="text-gray-700">Charging is by volume, so you are billed for the space your goods occupy rather than a fixed unit size. Business footprints run from small consolidated lots up to 1,000 sq ft and beyond. No setup fee, no minimum term, no charges introduced later. A consultant will price your requirement against volume, how often you need access, and collection frequency. Full detail sits on our <a href="/self-storage-dubai/prices" className="text-[#3E92CC] hover:underline">pricing page</a>.</p>
+        </section>
+
+        {/* the collection, as the four steps it actually is */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>How it works</span>
+              <h2 className={p.longH2}>
+                Four steps, <em>door to door.</em>
+              </h2>
+            </div>
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Can you empty an entire showroom or workshop in Ras Al Khor?</h3>
-            <p className="text-gray-700">Yes. For a full clearance we assign crew and vehicles in proportion to the volume involved. A showroom or workshop can generally be emptied within a single day, or split across scheduled visits if you need to keep trading while it happens. Every item is catalogued and photographed and placed into units assigned to your account, and goods are returned as your operation calls for them. This works well during a relocation, a refit or a lease changeover.</p>
+          <MilestonesPlayer>
+            <ol className={s.milestones} style={{ ["--steps"]: 4 } as CSSProperties}>
+              {[
+                {
+                  Icon: ClipboardList,
+                  t: "Tell us what you have",
+                  b: "Dimensions, a stock list or a few photographs are enough for a free, itemised quote.",
+                },
+                {
+                  Icon: Truck,
+                  t: "We come to Ras Al Khor",
+                  b: "The crew arrives on the agreed date, wraps everything and loads from your bay.",
+                },
+                {
+                  Icon: ShieldCheck,
+                  t: "Logged and stored",
+                  b: "Everything is listed on the inventory you sign, then held indoors under camera.",
+                },
+                {
+                  Icon: RotateCcw,
+                  t: "Called forward",
+                  b: `All of it or one product line, to the address you choose, normally within ${RETRIEVAL_WINDOW}.`,
+                },
+              ].map((st, i) => (
+                <li className={s.milestone} key={st.t} style={{ ["--i"]: i } as CSSProperties}>
+                  <span className={s.milestoneDot} aria-hidden="true">
+                    <st.Icon />
+                  </span>
+                  <span className={s.milestoneYear}>Step {i + 1}</span>
+                  <b>{st.t}</b>
+                  <small>{st.b}</small>
+                </li>
+              ))}
+            </ol>
+          </MilestonesPlayer>
+        </section>
+
+        {/* the areas, as one moving line rather than two columns of bullets */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Covered</span>
+              <h2 className={p.longH2}>
+                The industrial blocks <em>and the creek side.</em>
+              </h2>
+            </div>
+            <p>Door-to-door collection from all of these addresses.</p>
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Do you handle marble, stone and sanitaryware stock?</h3>
-            <p className="text-gray-700">We store boxed and packaged material — tiles, fixtures, fittings, sample stock and discontinued ranges. Everything is catalogued on collection so you can call forward precisely what a quotation needs instead of searching a yard. Loose slabs and uncrated stone need to be assessed first, since weight and handling limits apply, so send photographs and dimensions before booking and we will confirm what we can take.</p>
+          {/*
+            The track holds two identical halves and slides exactly one half, so
+            the loop has no visible seam; the second half is aria-hidden so a
+            screen reader hears the list once. Hovering pauses it.
+          */}
+          <div className={s.areaMarquees}>
+            <div className={s.marquee}>
+              <div className={s.marqueeTrack}>
+                {[0, 1].map((half) => (
+                  <div
+                    className={`${s.marqueeGroup} ${s.chipGroup}`}
+                    key={half}
+                    aria-hidden={half === 1}
+                    style={{ gap: 12 }}
+                  >
+                    {AREAS.map((a, i) => (
+                      <span
+                        className={s.chip}
+                        key={`${half}-${a}`}
+                        style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+                      >
+                        <span
+                          aria-hidden="true"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: 20,
+                            height: 20,
+                            borderRadius: 6,
+                            flex: "none",
+                            background: TINTS[i % TINTS.length].bg,
+                            color: TINTS[i % TINTS.length].fg,
+                          }}
+                        >
+                          <MapPin size={12} strokeWidth={2.2} />
+                        </span>
+                        {a}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">Is there storage for a villa renovation in Nad Al Sheba?</h3>
-            <p className="text-gray-700">Yes, and renovations of that scale are routine work for us. A dedicated crew empties the property, photographs and catalogues the contents, and holds everything in a unit assigned to you. It comes back once the site is handed over. If a particular item is needed while work continues, we deliver that piece on its own. Villa renovation storage here typically runs six months or longer on rolling monthly terms.</p>
+        </section>
+
+        <LandingReviews padTop={0} />
+
+        {/* five questions — the same five the FAQPage schema carries */}
+        <section className={`${s.section} ${s.wrap}`} id="faq" style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Good to know</span>
+              <h2 className={p.longH2}>
+                Questions from <em>Ras Al Khor.</em>
+              </h2>
+            </div>
           </div>
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-[#0A2463] mb-3">What cannot be placed in a SafeStorage unit?</h3>
-            <p className="text-gray-700">For safety and regulatory reasons we do not accept food or grocery items, liquids, detergents, cosmetics, jewellery or ornaments, medicines, or masala and spice items. We also cannot take hazardous material, flammable liquids or gases, explosives, perishables, live plants or animals, illegal substances, cash or negotiable instruments, or anything giving off a strong odour. Vehicles are not accepted at all, whatever their condition or fuel level. If a particular item is uncertain, ask us before booking. Almost all household, trade and commercial goods are accepted without issue.</p>
+          <FaqAccordion items={FAQS} />
+        </section>
+
+        {/* Exception B of the linking plan: a district page links to its emirate
+            hub, its neighbours, the money page and the silo hubs — nothing else. */}
+        <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }}>
+          <div className={s.howHead}>
+            <div>
+              <span className={s.howEyebrow}>Nearby</span>
+              <h2 className={p.longH2}>
+                We also collect from <em>these areas.</em>
+              </h2>
+            </div>
+            <p>Same crews, same service. Each page carries what matters locally.</p>
           </div>
-        </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {NEARBY.map((n, i) => (
+              <Link
+                href={`/locations/dubai/${n.slug}`}
+                className={s.chip}
+                key={n.slug}
+                style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+              >
+                <span
+                  aria-hidden="true"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 20,
+                    height: 20,
+                    borderRadius: 6,
+                    flex: "none",
+                    background: TINTS[i % TINTS.length].bg,
+                    color: TINTS[i % TINTS.length].fg,
+                  }}
+                >
+                  <MapPin size={12} strokeWidth={2.2} />
+                </span>
+                {n.name}
+              </Link>
+            ))}
+          </div>
+          <div className={s.miniFacts} style={{ marginTop: 20 }}>
+            <li style={{ listStyle: "none" }}>
+              <Link href="/locations/dubai">All Dubai areas</Link>
+            </li>
+            {HUB_ORDER.filter((k) => k !== "s4").map((k) => (
+              <li key={SILOS[k].hub} style={{ listStyle: "none" }}>
+                <Link href={SILOS[k].hub}>{SILOS[k].name}</Link>
+              </li>
+            ))}
+            <li style={{ listStyle: "none" }}>
+              <Link href={MONEY_PAGE}>{moneyAnchor("/locations/dubai/ras-al-khor")}</Link>
+            </li>
+          </div>
+        </section>
+
+        <CtaBand
+          title="Storing something from Ras Al Khor?"
+          blurb="Free quote, no survey fee, and nothing booked until you agree both numbers — the storage and the transport."
+          whatsAppLabel="WhatsApp Us"
+          callLabel="Call Now"
+        />
       </div>
-    </section>
-      <AreaLinks emirate="dubai" area="ras-al-khor" />
     </>
   )
 }
