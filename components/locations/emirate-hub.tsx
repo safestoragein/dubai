@@ -54,6 +54,10 @@ const HUB_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/ras-al-khaimah-hub-hero.webp",
     alt: "Two SafeStorage crew carrying a wrapped armchair into the van on the corniche, with the loaded van and packed boxes beside them",
   },
+  "umm-al-quwain": {
+    src: "/landing/umm-al-quwain-hub-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped sofa into a villa in Umm Al Quwain, with the old watchtower and the lagoon behind and the Umm Al Quwain sign beside the door",
+  },
 }
 
 export default function EmirateHub({ emirate }: { emirate: EmirateDef }) {
