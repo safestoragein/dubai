@@ -102,6 +102,18 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/al-qulayaah-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped cabinet to the van in Al Qulayaah, Sharjah, with the Cultural Square monument behind",
   },
+  "sharjah/al-taawun": {
+    src: "/landing/al-taawun-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped sofa to the van in Al Taawun, Sharjah, with the towers and the mosque behind",
+  },
+  "sharjah/industrial-areas": {
+    src: "/landing/sharjah-industrial-hero.webp",
+    alt: "A SafeStorage crew wheeling a wrapped pallet into the van outside a warehouse in the Sharjah Industrial Areas",
+  },
+  "sharjah/maysaloon": {
+    src: "/landing/maysaloon-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped cabinet to the van in Maysaloon, Sharjah, with the mosque and towers behind",
+  },
   "abu-dhabi/saadiyat-island": {
     src: "/landing/saadiyat-island-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped framed artwork to the van outside a villa on Saadiyat Island, Abu Dhabi",
@@ -122,6 +134,20 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/al-bateen-hero.webp",
     alt: "A SafeStorage crew wrapping furniture and loading the van outside a villa in Al Bateen, Abu Dhabi",
   },
+}
+
+/**
+ * A shorter label for the headline and the closing CTA, for a district whose
+ * real name will not fit a two-line headline on a 360px screen.
+ *
+ * "Industrial Areas 1-18" ran to three lines in the hero and three again in the
+ * CTA band, with the heading already at its minimum 19px. The full name is
+ * still correct and still appears everywhere else on the page; only those two
+ * headlines use the short form, and districts absent from this map are
+ * unaffected.
+ */
+const AREA_SHORT_NAME: Record<string, string> = {
+  "sharjah/industrial-areas": "Industrial Areas",
 }
 
 /** Whether this district is drawn in the homepage design. */
@@ -213,6 +239,8 @@ export default function AreaLanding({
   const nearby = area.nearby.map((slug) => bySlug[slug]).filter(Boolean)
   const areaCount = emirate.areas.length + (emirate.staticAreas?.length ?? 0)
   const base = `/locations/${emirate.slug}`
+  const shortName = AREA_SHORT_NAME[`${emirate.slug}/${area.slug}`] ?? area.name
+  const longTitle = Boolean(AREA_SHORT_NAME[`${emirate.slug}/${area.slug}`])
   const faqs = visibleAreaFaqs(area, emirate)
 
   return (
@@ -230,12 +258,12 @@ export default function AreaLanding({
         {/* hero: copy on the left, the owner's picture on the right */}
         <section className={`${s.hero} ${s.wrap} ${p.split2} ${p.split2Wrap} ${p.areaHero}`}>
           <div className={p.split2Inner}>
-            <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Area}`}>
+            <div className={`${s.heroContent} ${p.split2Copy} ${p.heroH1Area} ${longTitle ? p.heroH1Long : ""}`}>
               <span className={s.heroTag}>
                 {emirate.name} · {area.name}
               </span>
               <h1>
-                Storage for {area.name} — <em>we collect, store and bring it back.</em>
+                Storage for {shortName} — <em>we collect, store and bring it back.</em>
               </h1>
               <p>{area.blurb}</p>
               <div className={s.heroCta}>
@@ -495,7 +523,7 @@ export default function AreaLanding({
         )}
 
         <CtaBand
-          title={`Storing something from ${area.name}?`}
+          title={`Storing something from ${shortName}?`}
           blurb="Free quote, no survey fee, and nothing booked until you agree both numbers — the storage and the transport."
           whatsAppLabel="WhatsApp Us"
           callLabel="Call Now"
