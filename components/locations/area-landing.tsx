@@ -114,6 +114,10 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/maysaloon-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped cabinet to the van in Maysaloon, Sharjah, with the mosque and towers behind",
   },
+  "sharjah/muwaileh": {
+    src: "/landing/muwaileh-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped chest of drawers to the van in Muwaileh, Sharjah, with the University City arch behind",
+  },
   "abu-dhabi/saadiyat-island": {
     src: "/landing/saadiyat-island-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped framed artwork to the van outside a villa on Saadiyat Island, Abu Dhabi",
