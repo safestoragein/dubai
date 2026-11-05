@@ -98,6 +98,10 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/al-nabba-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped cabinet to the van on a busy Al Nabba street in Sharjah, with shops and flats behind",
   },
+  "sharjah/al-nahda": {
+    src: "/landing/al-nahda-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped sofa into an Al Nahda building in Sharjah, with the tower blocks and the metro line behind",
+  },
   "sharjah/al-qasimia": {
     src: "/landing/al-qasimia-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped chest of drawers to the van in Al Qasimia, Sharjah, with the mosque and towers behind",
