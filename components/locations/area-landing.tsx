@@ -90,6 +90,10 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/al-layyah-hero.webp",
     alt: "A SafeStorage crew loading boxes into the van on an Al Layyah street in Sharjah, with the mosque behind",
   },
+  "sharjah/al-majaz": {
+    src: "/landing/al-majaz-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped sofa into an Al Majaz building in Sharjah, with the lagoon fountains and the Eye of the Emirates behind",
+  },
   "sharjah/al-nabba": {
     src: "/landing/al-nabba-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped cabinet to the van on a busy Al Nabba street in Sharjah, with shops and flats behind",
