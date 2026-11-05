@@ -118,6 +118,14 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/muwaileh-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped chest of drawers to the van in Muwaileh, Sharjah, with the University City arch behind",
   },
+  "sharjah/rolla": {
+    src: "/landing/rolla-hero.webp",
+    alt: "A SafeStorage crew wheeling a wrapped pallet up the van ramp in Rolla, Sharjah, with Rolla Square behind",
+  },
+  "sharjah/university-city": {
+    src: "/landing/university-city-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped armchair to the van in Sharjah University City, with the campus buildings behind",
+  },
   "abu-dhabi/saadiyat-island": {
     src: "/landing/saadiyat-island-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped framed artwork to the van outside a villa on Saadiyat Island, Abu Dhabi",
@@ -152,6 +160,7 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
  */
 const AREA_SHORT_NAME: Record<string, string> = {
   "sharjah/industrial-areas": "Industrial Areas",
+  "sharjah/university-city": "University City",
 }
 
 /** Whether this district is drawn in the homepage design. */
