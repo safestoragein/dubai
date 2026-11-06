@@ -5,7 +5,8 @@ import AreaPage from "@/components/locations/area-page"
 import SchemaScript from "@/components/schema-script"
 import { locationBusinessSchema } from "@/lib/structured-data"
 import { EMIRATE_BY_SLUG, dynamicAreaParams } from "@/lib/areas/registry"
-import { emirateFaqs, faqPageSchema } from "@/lib/emirate-faqs"
+import { faqPageSchema } from "@/lib/emirate-faqs"
+import { visibleAreaFaqs } from "@/components/locations/area-landing"
 import { RETRIEVAL_WINDOW } from "@/lib/company-facts"
 
 /*
@@ -79,18 +80,12 @@ export default async function Page({ params }: { params: Promise<{ area: string 
 
   const url = `https://safestorage.ae/locations/${emirate.slug}/${area.slug}`
 
-  // Must be the SAME list the template renders: the area's own two questions
-  // followed by the canonical ten, localised.
-  const faqs = [
-    ...area.faqs,
-    ...emirateFaqs({
-      emirate: emirate.name,
-      facilityKey: emirate.facilityKey,
-      sampleDistricts: emirate.sampleDistricts,
-      university: emirate.university,
-      district: area.name,
-    }),
-  ]
+  // Must be the SAME list the template renders. visibleAreaFaqs owns that
+  // decision: districts drawn in the homepage design show five questions,
+  // the rest show the area's own followed by the canonical ten. Building the
+  // list here by hand made the markup promise twelve questions on a page that
+  // displayed five.
+  const faqs = visibleAreaFaqs(area, emirate)
 
   const schemas = [
     locationBusinessSchema({ name: area.name, url, serves: [area.name, emirate.name] }),
