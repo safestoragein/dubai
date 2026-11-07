@@ -94,6 +94,18 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/al-nuaimiya-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped chest of drawers into an Al Nuaimiya building in Ajman, with the apartment blocks behind",
   },
+  "ajman/al-rashidiya": {
+    src: "/landing/al-rashidiya-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped armchair into an Al Rashidiya building in Ajman, with the palms and low-rise villas behind",
+  },
+  "ajman/al-rumailah": {
+    src: "/landing/al-rumailah-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped sofa into an Al Rumailah building in Ajman, with the creek and the mosque minaret behind",
+  },
+  "ajman/al-zahra": {
+    src: "/landing/al-zahra-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped armchair into an Al Zahra building in Ajman, with the mosque and palm-lined road behind",
+  },
   "sharjah/abu-shagara": {
     src: "/landing/abu-shagara-hero.webp",
     alt: "A SafeStorage crew handing a box to a family outside their Abu Shagara building in Sharjah, with the van loaded behind them",
