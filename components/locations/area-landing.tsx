@@ -202,6 +202,14 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/al-bateen-hero.webp",
     alt: "A SafeStorage crew wrapping furniture and loading the van outside a villa in Al Bateen, Abu Dhabi",
   },
+  "abu-dhabi/yas-island": {
+    src: "/landing/yas-island-hero.webp",
+    alt: "A SafeStorage consultant going through the inventory with a family beside their boxes on Yas Island, Abu Dhabi, with the theme parks and hotels behind",
+  },
+  "abu-dhabi/mussafah": {
+    src: "/landing/mussafah-hero.webp",
+    alt: "A SafeStorage crew scanning and logging cartons outside a Mussafah warehouse in Abu Dhabi, with the racking and the loading bay behind",
+  },
 }
 
 /**
