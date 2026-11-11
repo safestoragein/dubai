@@ -110,6 +110,10 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/corniche-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped mattress into a building on the Ajman Corniche, with the sea and the waterfront towers behind",
   },
+  "ajman/emirates-city": {
+    src: "/landing/emirates-city-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped sofa into an Emirates City building in Ajman, with the mid-rise towers and palms behind",
+  },
   "ajman/free-zone": {
     src: "/landing/free-zone-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped office chair into a unit at Ajman Free Zone, with the office blocks and the entrance sign behind",
