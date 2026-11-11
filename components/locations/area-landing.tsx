@@ -210,6 +210,22 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/mussafah-hero.webp",
     alt: "A SafeStorage crew scanning and logging cartons outside a Mussafah warehouse in Abu Dhabi, with the racking and the loading bay behind",
   },
+  "dubai/jlt": {
+    src: "/landing/jlt-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped sofa to the van in Jumeirah Lake Towers, Dubai, with the lake and the towers behind",
+  },
+  "dubai/international-city": {
+    src: "/landing/international-city-hero.webp",
+    alt: "A SafeStorage crew packing a customer's things into cartons in International City, Dubai, with the country-cluster buildings and the entrance sign behind",
+  },
+  "dubai/discovery-gardens": {
+    src: "/landing/discovery-gardens-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped armchair out to the van in Discovery Gardens, Dubai, with the low-rise blocks and the community sign behind",
+  },
+  "abu-dhabi/al-shamkha": {
+    src: "/landing/al-shamkha-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped armchair out of a villa in Al Shamkha, Abu Dhabi, with the family watching from the doorway and the van at the kerb",
+  },
 }
 
 /**
@@ -225,9 +241,18 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
 const AREA_SHORT_NAME: Record<string, string> = {
   "ajman/corniche": "Corniche",
   "ajman/free-zone": "Free Zone",
+  "dubai/jlt": "JLT",
   "sharjah/industrial-areas": "Industrial Areas",
   "sharjah/university-city": "University City",
 }
+
+/**
+ * Districts whose name runs past two lines at 360px but has no sensible short
+ * form — "International City" is simply what the place is called. They keep
+ * the full name and take the smaller headline size that the districts above
+ * already get.
+ */
+const AREA_LONG_TITLE = new Set(["dubai/discovery-gardens", "dubai/international-city"])
 
 /** Whether this district is drawn in the homepage design. */
 export function hasAreaLanding(area: Area, emirate: EmirateDef) {
@@ -319,7 +344,9 @@ export default function AreaLanding({
   const areaCount = emirate.areas.length + (emirate.staticAreas?.length ?? 0)
   const base = `/locations/${emirate.slug}`
   const shortName = AREA_SHORT_NAME[`${emirate.slug}/${area.slug}`] ?? area.name
-  const longTitle = Boolean(AREA_SHORT_NAME[`${emirate.slug}/${area.slug}`])
+  const longTitle =
+    Boolean(AREA_SHORT_NAME[`${emirate.slug}/${area.slug}`]) ||
+    AREA_LONG_TITLE.has(`${emirate.slug}/${area.slug}`)
   const faqs = visibleAreaFaqs(area, emirate)
 
   return (
