@@ -120,7 +120,7 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
   },
   "ajman/garden-city": {
     src: "/landing/garden-city-hero.webp",
-    alt: "A SafeStorage crew carrying a wrapped chair into a Garden City villa in Ajman, with the community entrance sign and palms behind",
+    alt: "A SafeStorage crew carrying a wrapped desk and office chair into a Garden City home in Ajman, with the community entrance sign and the townhouses behind",
   },
   "sharjah/abu-shagara": {
     src: "/landing/abu-shagara-hero.webp",
