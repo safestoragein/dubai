@@ -106,6 +106,18 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/al-zahra-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped armchair into an Al Zahra building in Ajman, with the mosque and palm-lined road behind",
   },
+  "ajman/corniche": {
+    src: "/landing/corniche-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped mattress into a building on the Ajman Corniche, with the sea and the waterfront towers behind",
+  },
+  "ajman/free-zone": {
+    src: "/landing/free-zone-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped office chair into a unit at Ajman Free Zone, with the office blocks and the entrance sign behind",
+  },
+  "ajman/garden-city": {
+    src: "/landing/garden-city-hero.webp",
+    alt: "A SafeStorage crew carrying a wrapped chair into a Garden City villa in Ajman, with the community entrance sign and palms behind",
+  },
   "sharjah/abu-shagara": {
     src: "/landing/abu-shagara-hero.webp",
     alt: "A SafeStorage crew handing a box to a family outside their Abu Shagara building in Sharjah, with the van loaded behind them",
@@ -199,6 +211,8 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
  * unaffected.
  */
 const AREA_SHORT_NAME: Record<string, string> = {
+  "ajman/corniche": "Corniche",
+  "ajman/free-zone": "Free Zone",
   "sharjah/industrial-areas": "Industrial Areas",
   "sharjah/university-city": "University City",
 }
