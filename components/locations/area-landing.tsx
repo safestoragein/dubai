@@ -234,6 +234,10 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/meydan-hero.webp",
     alt: "A couple booking a collection from their balcony in Meydan, Dubai, with SafeStorage cartons beside them and the racecourse grandstand behind",
   },
+  "dubai/motor-city": {
+    src: "/landing/motor-city-hero.webp",
+    alt: "A SafeStorage packer boxing sports kit and a helmet in a Motor City garage in Dubai, with the bike and the Autodrome behind",
+  },
   "abu-dhabi/khalifa-city": {
     src: "/landing/khalifa-city-hero.webp",
     alt: "A SafeStorage crew wheeling a wrapped sofa into the warehouse in Khalifa City, Abu Dhabi, with the racking inside and the mosque minarets behind",
