@@ -222,6 +222,22 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/discovery-gardens-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped armchair out to the van in Discovery Gardens, Dubai, with the low-rise blocks and the community sign behind",
   },
+  "dubai/al-warqa": {
+    src: "/landing/al-warqa-hero.webp",
+    alt: "A SafeStorage packer boxing seasonal clothes with a customer on a villa terrace in Al Warqa, Dubai, with the houses and palms behind",
+  },
+  "dubai/al-furjan": {
+    src: "/landing/al-furjan-hero.webp",
+    alt: "A SafeStorage packer bubble-wrapping a framed picture in an Al Furjan home in Dubai, with the owners watching and the townhouses through the window",
+  },
+  "dubai/meydan": {
+    src: "/landing/meydan-hero.webp",
+    alt: "A couple booking a collection from their balcony in Meydan, Dubai, with SafeStorage cartons beside them and the racecourse grandstand behind",
+  },
+  "abu-dhabi/khalifa-city": {
+    src: "/landing/khalifa-city-hero.webp",
+    alt: "A SafeStorage crew wheeling a wrapped sofa into the warehouse in Khalifa City, Abu Dhabi, with the racking inside and the mosque minarets behind",
+  },
   "abu-dhabi/al-shamkha": {
     src: "/landing/al-shamkha-hero.webp",
     alt: "A SafeStorage crew carrying a wrapped armchair out of a villa in Al Shamkha, Abu Dhabi, with the family watching from the doorway and the van at the kerb",
