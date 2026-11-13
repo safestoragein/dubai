@@ -67,10 +67,10 @@ export default function GetQuote() {
       {/* Static introductory content for SEO — server-rendered */}
       <section className="bg-gradient-to-r from-[#0A2463] to-[#3E92CC] py-12 text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Get Your Free Storage Quote in Dubai</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Get Your Free Storage Quote in UAE</h1>
           <p className="text-lg text-white/90 mb-2">
             Tell us what you need to store and we&apos;ll give you a transparent, no-obligation quote in minutes.
-            Pay only for the space you use, with door-to-door service across Dubai.
+            Pay only for the space you use, with door-to-door service across the UAE.
           </p>
         </div>
       </section>

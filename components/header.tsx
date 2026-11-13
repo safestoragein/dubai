@@ -66,7 +66,7 @@ export default function Header() {
       {/* Top bar with phone number */}
       <div className="bg-dubai-navy text-white py-1.5">
         <div className="container px-4 md:px-6 flex justify-between items-center text-sm">
-          <span className="hidden md:block">Dubai&apos;s Most Trusted Storage Partner</span>
+          <span className="hidden md:block">UAE&apos;s Most Trusted Storage Partner</span>
           <div className="flex items-center gap-4 mx-auto md:mx-0">
             <a href={env.PHONE_LINK} className="flex items-center gap-2 hover:text-dubai-gold transition-colors">
               <Phone className="h-4 w-4" />
