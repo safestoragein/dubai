@@ -24,7 +24,7 @@ export default function FloatingContactButtons() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
-          className="fixed hidden lg:block lg:bottom-6 lg:right-6 z-50"
+          className="fixed hidden lg:block lg:bottom-44 lg:right-5 z-50"
         >
           <div className="relative">
             {/* Expanded buttons */}
