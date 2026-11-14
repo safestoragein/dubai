@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { MessageCircle, Phone, X } from "lucide-react"
+import { Headset, MessageCircle, Phone, X } from "lucide-react"
 import { m, AnimatePresence } from "framer-motion"
 import { env } from "@/lib/env"
 
@@ -75,7 +75,7 @@ export default function FloatingContactButtons() {
               whileTap={{ scale: 0.9 }}
               animate={{ rotate: isExpanded ? 180 : 0 }}
             >
-              {isExpanded ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
+              {isExpanded ? <X className="h-6 w-6" /> : <Headset className="h-6 w-6" />}
             </m.button>
           </div>
         </m.div>
