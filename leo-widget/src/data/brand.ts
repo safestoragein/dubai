@@ -2,7 +2,7 @@ export const BRAND = {
   name: "SafeStorage Dubai",
   // Assistant identity — change these two lines and the whole widget follows
   // (header, avatars, greeting). Nothing hardcodes the name any more.
-  assistant: "Leo",
+  assistant: "Storo",
   assistantRole: "AI Assistant",
   navy: "#0A2463",
   navyDark: "#071A47",

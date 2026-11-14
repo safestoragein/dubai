@@ -61,8 +61,8 @@ const TICKET_EMAIL_STEP = {
 // Appears 1.5 s after load and retires 10 s after load (1.5 + 8.5) — the UAE
 // brief was "hide the greeting 10 seconds after the visitor lands".
 const TEASER_DELAY_MS = 1500;
-const TEASER_LIFE_MS = 8500;
-const TEASER_SEEN_KEY = "leo_teaser_seen";
+const TEASER_LIFE_MS = 13500; // 1.5 s delay + 13.5 s = hides 15 s after load
+const TEASER_SEEN_KEY = "storo_teaser_seen";
 
 function teaserAlreadySeen(): boolean {
   try {
@@ -142,8 +142,8 @@ export function ChatWidget() {
   const c = useLeoChat();
   const path = usePathname();
   const inset = useBodyInset(path);
-  // The /get-quote page is already a quote form, so the "get a price" nudge
-  // would only talk over it. The launcher itself stays.
+  // The /get-quote page is already a quote form, so the whole widget (launcher
+  // and nudge) stays off it.
   const onQuotePage = /^\/get-quote\/?$/.test(path);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -295,6 +295,8 @@ export function ChatWidget() {
       behavior: "smooth",
     });
   }, [c.messages, c.phase]);
+
+  if (onQuotePage) return null;
 
   // The site's own floating WhatsApp / Call button is lifted above this corner
   // (components/floating-contact-buttons.tsx), so the launcher takes the bottom.
