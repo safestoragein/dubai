@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Launcher attention states.
+
+   The widget is injected into pages we do not control, so everything here is
+   namespaced under .storo- and defined in this file rather than as Tailwind
+   config: the bundle ships one <style> block and must not depend on the host
+   page's stylesheet, or on Tailwind classes the host might also define.
+
+   All of it is switched off under prefers-reduced-motion. A launcher that
+   pulses forever is exactly what that setting exists to stop.
+   ────────────────────────────────────────────────────────────────────────── */
+
+@keyframes storo-ring {
+  0%   { transform: scale(1);    opacity: .45; }
+  70%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+/* A slow breath rather than a bounce: the launcher sits on the page for the
+   whole visit, and anything livelier reads as an advert after ten seconds. */
+@keyframes storo-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+
+@keyframes storo-teaser-in {
+  from { opacity: 0; transform: translateY(6px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+@keyframes storo-teaser-out {
+  from { opacity: 1; transform: translateY(0)   scale(1); }
+  to   { opacity: 0; transform: translateY(4px) scale(.98); }
+}
+
+.storo-ring    { animation: storo-ring 2.4s cubic-bezier(0, 0, .2, 1) infinite; }
+.storo-breathe { animation: storo-breathe 3.2s ease-in-out infinite; }
+.storo-teaser-in  { animation: storo-teaser-in .28s cubic-bezier(.16, 1, .3, 1) both; }
+.storo-teaser-out { animation: storo-teaser-out .2s ease-in both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .storo-ring    { animation: none; opacity: 0; }
+  .storo-breathe { animation: none; }
+  .storo-teaser-in,
+  .storo-teaser-out { animation: none; }
+}
+
+/* ── iOS: never auto-zoom on focus ─────────────────────────────────────────
+   Safari zooms the whole page in whenever a focused form control has a
+   font-size below 16px. That shrinks the VISUAL viewport, so a sheet sized to
+   the layout viewport no longer fits what you can see — the panel runs off the
+   right edge and the customer has to pinch out to carry on. 16px is the
+   documented threshold; every control here is text-sm (14px), so they are all
+   bumped on phone-sized screens. Desktop keeps its 14px.
+
+   ID specificity beats Tailwind's single-class .text-sm without !important. */
+@media (max-width: 640px) {
+  #safestorage-leo-root input,
+  #safestorage-leo-root textarea,
+  #safestorage-leo-root select {
+    font-size: 16px;
+  }
+}
+
+/* ── Placement in the safestorage.ae page ──────────────────────────────────
+   --ss-inset is the space the page reserves at the bottom of <body> for its
+   fixed mobile CTA bar (read in ChatWidget). The launcher floats above it. */
+.ss-dock { right: 1.25rem; bottom: calc(1.25rem + var(--ss-inset, 0px)); }
+
+@media (max-width: 640px) {
+  .ss-dock { right: .75rem; bottom: calc(.75rem + var(--ss-inset, 0px)); }
+  /* iOS zooms the page when a focused field is under 16px. */
+  :host input, :host textarea, :host select { font-size: 16px; }
+}
