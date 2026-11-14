@@ -162,6 +162,19 @@ export async function priceBasket(picked: { name: string; qty: number }[]): Prom
   return { items, totalPoints, pallets, sqft, sharedPrice, closedPrice, transport: calculateTransportPrice(pallets) }
 }
 
+/**
+ * Parse the JSON object out of a PHP response that may carry junk around it.
+ * Prod runs CodeIgniter with display_errors on and some endpoints end with a
+ * stray `1` (e.g. `{"status":true,...}1`), so a strict JSON.parse throws on
+ * perfectly good, already-saved responses.
+ */
+export function parseLooseJson<T>(text: string): T {
+  const start = text.indexOf("{")
+  const end = text.lastIndexOf("}")
+  if (start === -1 || end <= start) throw new Error("no JSON object in response")
+  return JSON.parse(text.slice(start, end + 1)) as T
+}
+
 // ── PHP calls ────────────────────────────────────────────────────────────────
 async function postForm<T>(path: string, fields: Record<string, string>): Promise<T> {
   const res = await fetch(`${BACKEND}/${path}`, {
@@ -172,7 +185,7 @@ async function postForm<T>(path: string, fields: Record<string, string>): Promis
   })
   const text = await res.text()
   try {
-    return JSON.parse(text) as T
+    return parseLooseJson<T>(text)
   } catch {
     throw new Error(`${path}: non-JSON response (HTTP ${res.status}): ${text.slice(0, 160)}`)
   }

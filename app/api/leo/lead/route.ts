@@ -5,7 +5,7 @@
 // those are priced by the team and never get an automatic quotation.
 import { NextResponse } from "next/server"
 import { clientIp } from "@/lib/client-ip"
-import { isDryRun, postFormText, tooMany } from "@/lib/leo-quote"
+import { isDryRun, parseLooseJson, postFormText, tooMany } from "@/lib/leo-quote"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -61,7 +61,7 @@ export async function POST(request: Request) {
     })
     let id: string | undefined
     try {
-      const j = JSON.parse(r.text) as { status?: boolean; lead_id?: number | string }
+      const j = parseLooseJson<{ status?: boolean; lead_id?: number | string }>(r.text)
       if (!j.status) throw new Error("not saved")
       id = j.lead_id != null ? String(j.lead_id) : undefined
     } catch {
