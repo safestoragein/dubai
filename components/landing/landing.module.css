@@ -1347,7 +1347,13 @@
   .darkBand .bandHead h2 {
     font-size: calc((100vw - 84px) / 15.4);
     line-height: 1.15;
-    white-space: nowrap;
+    /* The size above is cut so the two <br>-separated halves each sit on one
+       line, and they do — but nowrap made that a promise the longest area
+       names could not keep: "We come to Barsha Heights (TECOM)" ran 58px past
+       a 390px screen and took the whole page sideways with it. Wrapping is
+       allowed as the escape hatch; every title that already fits is untouched,
+       because text only wraps once it has run out of room. */
+    text-wrap: balance;
   }
 }
 .bandHead h2 {

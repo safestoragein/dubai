@@ -316,7 +316,7 @@ export default function TestimonialsPage() {
               reviews.
             </p>
           </div>
-          <HomeReveal className={`${z.steps} ${z.steps5} ${z.moves}`}>
+          <HomeReveal className={`${z.steps} ${z.steps5} ${z.moves} ${z.smEmoji}`}>
             {story.map((b, i) => (
               <div className={`${z.step} ${fx.floatBox}`} style={idx(i)} key={b.title}>
                 <span className={z.stepEmoji} aria-hidden="true">

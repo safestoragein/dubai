@@ -244,3 +244,10 @@
 .moves > *:nth-child(5) .stepEmoji {
   animation: grow 3.6s ease-in-out infinite;
 }
+
+/* /testimonials runs its story emoji a notch smaller (owner, 2026-11-12).
+   Opt-in class — the other pages on .step keep the 32px above. */
+.smEmoji .stepEmoji {
+  font-size: 24px;
+  margin-bottom: 10px;
+}

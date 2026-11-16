@@ -242,6 +242,14 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/arabian-ranches-hero.webp",
     alt: "A SafeStorage packer handing a carton to a resident outside her villa in Arabian Ranches, Dubai, with the loaded van and the community sign behind",
   },
+  "dubai/barsha-heights-tecom": {
+    src: "/landing/barsha-heights-tecom-hero.webp",
+    alt: "A SafeStorage packer handing a carton to a resident outside her tower in Barsha Heights (TECOM), Dubai, with the loaded van and the community sign behind",
+  },
+  "dubai/damac-hills": {
+    src: "/landing/damac-hills-hero.webp",
+    alt: "A SafeStorage packer handing a carton to a resident outside her villa in DAMAC Hills, Dubai, with the loaded van, the golf course and the community sign behind",
+  },
   "abu-dhabi/khalifa-city": {
     src: "/landing/khalifa-city-hero.webp",
     alt: "A SafeStorage crew wheeling a wrapped sofa into the warehouse in Khalifa City, Abu Dhabi, with the racking inside and the mosque minarets behind",
@@ -265,6 +273,11 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
 const AREA_SHORT_NAME: Record<string, string> = {
   "ajman/corniche": "Corniche",
   "ajman/free-zone": "Free Zone",
+  // TECOM is the old name the area is still signposted by; the headline carries
+  // the current one and the full "Barsha Heights (TECOM)" stays in the
+  // breadcrumb, the title and the body copy. In brackets it ran to three lines
+  // at every width and pushed the page sideways on a phone.
+  "dubai/barsha-heights-tecom": "Barsha Heights",
   "dubai/jlt": "JLT",
   "sharjah/industrial-areas": "Industrial Areas",
   "sharjah/university-city": "University City",
