@@ -289,6 +289,23 @@ const AREA_SHORT_NAME: Record<string, string> = {
  * the full name and take the smaller headline size that the districts above
  * already get.
  */
+/**
+ * Name for the dark band's "We come to …" heading, where the shorter one is
+ * needed for a different reason than in the hero.
+ *
+ * That heading is held to one line on phones (landing.module.css), so a name
+ * past about twenty characters does not wrap — it runs off the screen and
+ * takes the page's horizontal scroll with it. "Barsha Heights (TECOM)" ran
+ * 58px past a 390px screen. Only the heading is shortened: the breadcrumb,
+ * the page title, the body copy and the feature cards keep the full name.
+ *
+ * Separate from AREA_SHORT_NAME on purpose — that map is about the hero, and
+ * reusing it here would reword five pages that are fine as they are.
+ */
+const AREA_BAND_NAME: Record<string, string> = {
+  "dubai/barsha-heights-tecom": "Barsha Heights",
+}
+
 const AREA_LONG_TITLE = new Set([
   "dubai/arabian-ranches",
   "dubai/discovery-gardens",
@@ -388,6 +405,7 @@ export default function AreaLanding({
   const longTitle =
     Boolean(AREA_SHORT_NAME[`${emirate.slug}/${area.slug}`]) ||
     AREA_LONG_TITLE.has(`${emirate.slug}/${area.slug}`)
+  const bandName = AREA_BAND_NAME[`${emirate.slug}/${area.slug}`] ?? area.name
   const faqs = visibleAreaFaqs(area, emirate)
 
   return (
@@ -448,7 +466,7 @@ export default function AreaLanding({
             <div className={s.bandHead}>
               <span className={s.howEyebrow}>What is included</span>
               <h2>
-                We come to {area.name} <br className={s.mBreak} />
+                We come to {bandName} <br className={s.mBreak} />
                 <em>and take it from there.</em>
               </h2>
             </div>
