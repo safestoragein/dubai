@@ -238,6 +238,10 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/motor-city-hero.webp",
     alt: "A SafeStorage packer boxing sports kit and a helmet in a Motor City garage in Dubai, with the bike and the Autodrome behind",
   },
+  "dubai/arabian-ranches": {
+    src: "/landing/arabian-ranches-hero.webp",
+    alt: "A SafeStorage packer handing a carton to a resident outside her villa in Arabian Ranches, Dubai, with the loaded van and the community sign behind",
+  },
   "abu-dhabi/khalifa-city": {
     src: "/landing/khalifa-city-hero.webp",
     alt: "A SafeStorage crew wheeling a wrapped sofa into the warehouse in Khalifa City, Abu Dhabi, with the racking inside and the mosque minarets behind",
@@ -272,7 +276,11 @@ const AREA_SHORT_NAME: Record<string, string> = {
  * the full name and take the smaller headline size that the districts above
  * already get.
  */
-const AREA_LONG_TITLE = new Set(["dubai/discovery-gardens", "dubai/international-city"])
+const AREA_LONG_TITLE = new Set([
+  "dubai/arabian-ranches",
+  "dubai/discovery-gardens",
+  "dubai/international-city",
+])
 
 /** Whether this district is drawn in the homepage design. */
 export function hasAreaLanding(area: Area, emirate: EmirateDef) {
