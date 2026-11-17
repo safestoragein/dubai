@@ -250,6 +250,10 @@ export const AREA_HERO: Record<string, { src: string; alt: string }> = {
     src: "/landing/damac-hills-hero.webp",
     alt: "A SafeStorage packer handing a carton to a resident outside her villa in DAMAC Hills, Dubai, with the loaded van, the golf course and the community sign behind",
   },
+  "dubai/nad-al-sheba": {
+    src: "/landing/nad-al-sheba-hero.webp",
+    alt: "A SafeStorage packer handing a carton to a resident outside her villa in Nad Al Sheba, Dubai, with the loaded van, the community sign and the Burj Khalifa behind",
+  },
   "abu-dhabi/khalifa-city": {
     src: "/landing/khalifa-city-hero.webp",
     alt: "A SafeStorage crew wheeling a wrapped sofa into the warehouse in Khalifa City, Abu Dhabi, with the racking inside and the mosque minarets behind",
