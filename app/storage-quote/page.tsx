@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Barcode, CalendarDays, Camera, Clock, Droplets, Lock, ShieldCheck, Snowflake, UserCheck, Wind } from "lucide-react"
+import { Barcode, CalendarDays, Camera, Clock, Droplets, Lock, ShieldCheck, Snowflake, Truck, UserCheck, Wind, Zap } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
 import { LandingReviews } from "@/components/landing/landing-reviews"
@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
   alternates: { canonical: "https://safestorage.ae/get-quote" },
 }
+
+const CHIPS = [
+  { Icon: Truck, t: "Doorstep pickup" },
+  { Icon: ShieldCheck, t: "CCTV secured" },
+  { Icon: CalendarDays, t: "No lock-in" },
+  { Icon: Zap, t: "Quote in 2 mins" },
+]
 
 const FACTS = [
   { v: "4.9 / 5", l: "Google rating · 6,700+ reviews" },
@@ -90,38 +97,57 @@ export default function StorageQuotePage() {
   return (
     <div className={`${s.page} ${q.root} ${sora.variable} ${manrope.variable}`}>
       <section className={q.hero} id="top">
-        <div className={q.wide}>
-          <div className={q.topRow}>
-            <div className={q.copy}>
-              <div className={q.kicker}>Storage, made simple</div>
-              <h1>More room for what matters.</h1>
-              <p className={q.lede}>
-                We pick up, securely store, and return your belongings when you need them.{" "}
-                <span className={q.ctaNote}>No obligation · Reply within 15 minutes</span>
-              </p>
+        <div className={`${q.wide} ${q.heroRow}`}>
+          <div className={q.left}>
+            <div className={q.kicker}>Storage, made simple</div>
+            <h1>
+              More room for <em>what matters.</em>
+            </h1>
+            <p className={q.lede}>
+              We pick up, securely store, and return your belongings when you need them. Doorstep service across the UAE,
+              with no lock-in.
+            </p>
+
+            <div className={q.chipRow}>
+              {CHIPS.map(({ Icon, t }) => (
+                <div className={q.chip} key={t}>
+                  <Icon aria-hidden="true" />
+                  <span>{t}</span>
+                </div>
+              ))}
             </div>
 
-            <div className={q.trust}>
-              <div className={q.trustItem}>
+            <figure className={q.quote}>
+              <div className={q.stars} aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>
+                Stored my entire villa furniture for 6 months during renovation. Everything came back in perfect
+                condition thanks to their careful handling and clean units.
+              </blockquote>
+              <figcaption>
+                <span className={q.av}>AH</span>
+                <span>
+                  <b>Ahmed Hassan</b>
+                  <small>Villa owner, Dubai Marina</small>
+                </span>
+              </figcaption>
+            </figure>
+
+            <div className={q.proof}>
+              <div className={q.score}>
+                <strong>4.9</strong>
+                <span className={q.stars} aria-hidden="true">★</span>
+                <small>
+                  Google rating
+                  <br />
+                  across the UAE
+                </small>
+              </div>
+              <span className={q.vr} aria-hidden="true" />
+              <div className={q.count}>
                 <GoogleG />
                 <span>
-                  <b>4.9/5</b> on Google ·<br />6,700+ reviews
-                </span>
-              </div>
-              <div className={q.trustItem}>
-                <ShieldCheck strokeWidth={1.6} aria-hidden="true" />
-                <span>
-                  <b>CCTV</b>
-                  <br />
-                  monitored
-                </span>
-              </div>
-              <div className={q.trustItem}>
-                <CalendarDays strokeWidth={1.6} aria-hidden="true" />
-                <span>
-                  <b>Serving UAE</b>
-                  <br />
-                  since 2015
+                  <strong>6,700+</strong>
+                  <small>Google reviews</small>
                 </span>
               </div>
             </div>

@@ -1,26 +1,24 @@
 "use client"
 
-import { useState } from "react"
-import { ArrowRight, CheckCircle2, Clock, Lock, ShieldCheck } from "lucide-react"
+import { useRef, useState } from "react"
+import { ArrowRight, Building2, CalendarDays, CheckCircle2, ChevronDown, Mail, MapPin, Phone, ShieldCheck, User, ArrowUpDown } from "lucide-react"
 import { env } from "@/lib/env"
 import s from "./landing.module.css"
 import q from "./storage-quote.module.css"
 
 /* ------------------------------------------------------------------ *
  * Quick storage-quote form (/storage-quote) — the Dubai twin of
- * safestorage.in/storage-quote, as a two-step bar.
+ * safestorage.in/storage-quote. One complete card, all fields visible.
  *
- *  Step 1  name · mobile · emirate   → "Continue" also saves a partial lead
- *                                       (/api/save-partial-lead, the route
- *                                       /get-quote uses) so a visitor who
- *                                       stops after step 1 is not lost.
- *  Step 2  email · area · floor · lift → posts to /api/insert-customer-
- *                                       details-dubai (ss_leads, source
- *                                       dubai_website, country AE).
+ * Submit posts to /api/insert-customer-details-dubai (ss_leads, source
+ * dubai_website, country AE). That route only carries name / phone /
+ * email / storage_size, and storage_size becomes the lead's "Storage
+ * size: …" message, so emirate, area, floor and lift are packed into it
+ * as one readable line for the sales rep.
  *
- * That route only carries name / phone / email / storage_size, and
- * storage_size becomes the lead's "Storage size: …" message, so emirate,
- * area, floor and lift are packed into it as one readable line.
+ * A visitor who types a valid name + mobile and then leaves is not lost:
+ * once, when the mobile field loses focus, the partial lead is saved via
+ * /api/save-partial-lead (the route /get-quote uses).
  * ------------------------------------------------------------------ */
 
 const EMIRATES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"]
@@ -39,42 +37,27 @@ function uaeMobile(raw: string): string | null {
 }
 
 export default function StorageQuoteForm() {
-  const [step, setStep] = useState<1 | 2>(1)
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle")
+  const partialSent = useRef(false)
 
-  const read = (form: HTMLFormElement) => {
+  function savePartial(form: HTMLFormElement | null) {
+    if (!form || partialSent.current) return
     const d = new FormData(form)
-    return (k: string) => String(d.get(k) || "").trim()
-  }
-
-  function validateStep1(v: (k: string) => string): Errors {
-    const e: Errors = {}
-    if (v("name").length < 2) e.name = "Please enter your name"
-    if (!uaeMobile(v("mobile"))) e.mobile = "Enter a valid UAE mobile"
-    if (!v("emirate")) e.emirate = "Please select your emirate"
-    return e
-  }
-
-  function onContinue(form: HTMLFormElement | null) {
-    if (!form) return
-    const v = read(form)
-    if (v("website")) return
-    const e = validateStep1(v)
-    setErrors(e)
-    if (Object.keys(e).length) return
-    setStep(2)
-    // Keep step-1 details even if the visitor stops here. Fire-and-forget.
+    const name = String(d.get("name") || "").trim()
+    const mob = uaeMobile(String(d.get("mobile") || ""))
+    if (name.length < 2 || !mob || String(d.get("website") || "")) return
+    partialSent.current = true
     try {
       fetch("/api/save-partial-lead", {
         method: "POST",
         keepalive: true,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          customer_name: v("name"),
-          customer_contact1: `+971${uaeMobile(v("mobile"))}`,
-          customer_email: "",
-          storage_type: `storage-quote step 1 — ${v("emirate")}`,
+          customer_name: name,
+          customer_contact1: `+971${mob}`,
+          customer_email: String(d.get("email") || "").trim(),
+          storage_type: `storage-quote partial — ${String(d.get("emirate") || "")}`.trim(),
         }),
       }).catch(() => {})
     } catch {
@@ -84,25 +67,25 @@ export default function StorageQuoteForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const v = read(e.currentTarget)
+    const d = new FormData(e.currentTarget)
+    const v = (k: string) => String(d.get(k) || "").trim()
 
     // Honeypot: bots fill the hidden field. Pretend it worked and send nothing.
     if (v("website")) {
       setStatus("ok")
       return
     }
-    if (step === 1) return onContinue(e.currentTarget)
 
-    const next: Errors = validateStep1(v)
+    const next: Errors = {}
+    if (v("name").length < 2) next.name = "Please enter your name"
+    const mob = uaeMobile(v("mobile"))
+    if (!mob) next.mobile = "Enter a valid UAE mobile"
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v("email"))) next.email = "Enter a valid e-mail"
-    if (v("area").length < 2) next.area = "Enter your pickup area"
-    if (!v("floor")) next.floor = "Select floor"
-    if (!v("lift")) next.lift = "Choose"
+    if (!v("emirate")) next.emirate = "Select your emirate"
+    if (v("area").length < 2) next.area = "Please enter your pickup area"
+    if (!v("floor")) next.floor = "Select the floor"
+    if (!v("lift")) next.lift = "Please choose"
     setErrors(next)
-    if (next.name || next.mobile || next.emirate) {
-      setStep(1)
-      return
-    }
     if (Object.keys(next).length) return
 
     setStatus("sending")
@@ -112,7 +95,7 @@ export default function StorageQuoteForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           customer_name: v("name"),
-          customer_contact1: `+971${uaeMobile(v("mobile"))}`,
+          customer_contact1: `+971${mob}`,
           customer_email: v("email"),
           storage_type: "household",
           storage_size: `Quick form (/storage-quote) — ${v("emirate")}, ${v("area")}; floor ${v("floor")}; lift ${v("lift")}`,
@@ -126,135 +109,164 @@ export default function StorageQuoteForm() {
     }
   }
 
+  const shell = (children: React.ReactNode) => (
+    <div className={q.formCol} id="quote">
+      <span className={q.pill}>
+        <ShieldCheck aria-hidden="true" /> Pickup &amp; Delivery · Across the UAE
+      </span>
+      {children}
+    </div>
+  )
+
   if (status === "ok") {
-    return (
-      <div className={q.bar} id="quote" role="status">
+    return shell(
+      <div className={q.card} role="status">
         <div className={q.done}>
           <div className={q.tick}>
             <CheckCircle2 />
           </div>
-          <div>
-            <h2>Thank you!</h2>
-            <p>Our team will call you shortly with your storage quote.</p>
-          </div>
+          <h2>Thank you!</h2>
+          <p>Our team will call you shortly with your storage quote.</p>
           <a className={`${s.btn} ${s.btnAccent}`} href={env.WHATSAPP_LINK} target="_blank" rel="noopener noreferrer nofollow">
             Chat on WhatsApp →
           </a>
         </div>
-      </div>
+      </div>,
     )
   }
 
   const f = (k: Field) => `${q.field} ${errors[k] ? q.bad : ""}`
 
-  return (
-    <form className={q.bar} id="quote" onSubmit={onSubmit} noValidate>
-      <div className={q.stepper} aria-label={`Step ${step} of 2`}>
-        <div className={`${q.st} ${step === 1 ? q.on : q.done}`}>
-          <span className={q.n}>{step === 1 ? "1" : "✓"}</span> Your details
-        </div>
-        <span className={q.ln} aria-hidden="true" />
-        <div className={`${q.st} ${step === 2 ? q.on : ""}`}>
-          <span className={q.n}>2</span> Storage needs
+  return shell(
+    <form className={q.card} onSubmit={onSubmit} noValidate>
+      <div className={q.cardHead}>
+        <span className={q.cardIcon}>
+          <CalendarDays aria-hidden="true" />
+        </span>
+        <div>
+          <h2>Get your storage quote</h2>
+          <p>We will call you back shortly.</p>
         </div>
       </div>
 
-      {/* STEP 1 */}
-      <div className={`${q.fields} ${q.cols4}`} hidden={step !== 1}>
+      <div className={q.row}>
         <div className={f("name")}>
-          <label htmlFor="sq-name">Name</label>
-          <input id="sq-name" name="name" autoComplete="name" placeholder="Enter your name" />
+          <label htmlFor="sq-name">Your name</label>
+          <div className={q.in}>
+            <User aria-hidden="true" />
+            <input id="sq-name" name="name" autoComplete="name" placeholder="Enter your name" />
+          </div>
           <div className={q.err}>{errors.name}</div>
         </div>
         <div className={f("mobile")}>
-          <label htmlFor="sq-mobile">Mobile</label>
-          <div className={q.phone}>
-            <span>+971</span>
-            <input id="sq-mobile" name="mobile" type="tel" inputMode="tel" autoComplete="tel-national" placeholder="50 577 3388" />
+          <label htmlFor="sq-mobile">Mobile number</label>
+          <div className={q.in}>
+            <Phone aria-hidden="true" />
+            <span className={q.cc}>+971</span>
+            <input
+              id="sq-mobile"
+              name="mobile"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel-national"
+              placeholder="50 577 3388"
+              onBlur={(e) => savePartial(e.currentTarget.form)}
+            />
           </div>
           <div className={q.err}>{errors.mobile}</div>
         </div>
+      </div>
+
+      <div className={q.row}>
+        <div className={f("email")}>
+          <label htmlFor="sq-email">Email</label>
+          <div className={q.in}>
+            <Mail aria-hidden="true" />
+            <input id="sq-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" />
+          </div>
+          <div className={q.err}>{errors.email}</div>
+        </div>
         <div className={f("emirate")}>
           <label htmlFor="sq-emirate">Emirate</label>
-          <select id="sq-emirate" name="emirate" defaultValue="">
-            <option value="" disabled>
-              Select your emirate
-            </option>
-            {EMIRATES.map((c) => (
-              <option key={c}>{c}</option>
-            ))}
-          </select>
+          <div className={q.in}>
+            <MapPin aria-hidden="true" />
+            <select id="sq-emirate" name="emirate" defaultValue="">
+              <option value="" disabled>
+                Select your emirate
+              </option>
+              {EMIRATES.map((c) => (
+                <option key={c}>{c}</option>
+              ))}
+            </select>
+            <ChevronDown className={q.chev} aria-hidden="true" />
+          </div>
           <div className={q.err}>{errors.emirate}</div>
-        </div>
-        <div className={q.go}>
-          <button
-            type="button"
-            className={`${s.btn} ${s.btnAccent} ${q.submit}`}
-            onClick={(e) => onContinue(e.currentTarget.form)}
-          >
-            Continue <ArrowRight size={18} aria-hidden="true" />
-          </button>
         </div>
       </div>
 
-      {/* STEP 2 */}
-      <div className={`${q.fields} ${q.cols5}`} hidden={step !== 2}>
-        <div className={f("email")}>
-          <label htmlFor="sq-email">Email</label>
-          <input id="sq-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" />
-          <div className={q.err}>{errors.email}</div>
+      <div className={`${f("area")} ${q.full}`}>
+        <label htmlFor="sq-area">Pickup area</label>
+        <div className={q.in}>
+          <MapPin aria-hidden="true" />
+          <input id="sq-area" name="area" autoComplete="address-level2" placeholder="Area or building, e.g. Dubai Marina" />
         </div>
-        <div className={f("area")}>
-          <label htmlFor="sq-area">Pickup area</label>
-          <input id="sq-area" name="area" autoComplete="address-level2" placeholder="e.g. Marina" />
-          <div className={q.err}>{errors.area}</div>
-        </div>
+        <div className={q.err}>{errors.area}</div>
+      </div>
+
+      <div className={q.row}>
         <div className={f("floor")}>
           <label htmlFor="sq-floor">Floor</label>
-          <select id="sq-floor" name="floor" defaultValue="">
-            <option value="" disabled>
-              Select
-            </option>
-            {FLOORS.map((c) => (
-              <option key={c}>{c}</option>
-            ))}
-          </select>
+          <div className={q.in}>
+            <Building2 aria-hidden="true" />
+            <select id="sq-floor" name="floor" defaultValue="">
+              <option value="" disabled>
+                Select floor
+              </option>
+              {FLOORS.map((c) => (
+                <option key={c}>{c}</option>
+              ))}
+            </select>
+            <ChevronDown className={q.chev} aria-hidden="true" />
+          </div>
           <div className={q.err}>{errors.floor}</div>
         </div>
         <div className={f("lift")}>
-          <label htmlFor="sq-lift">Lift?</label>
-          <select id="sq-lift" name="lift" defaultValue="">
-            <option value="" disabled>
-              Select
-            </option>
-            <option>Yes</option>
-            <option>No</option>
-          </select>
+          <label htmlFor="sq-lift">Lift available?</label>
+          <div className={q.in}>
+            <ArrowUpDown aria-hidden="true" />
+            <select id="sq-lift" name="lift" defaultValue="">
+              <option value="" disabled>
+                Select
+              </option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            <ChevronDown className={q.chev} aria-hidden="true" />
+          </div>
           <div className={q.err}>{errors.lift}</div>
-        </div>
-        <div className={q.go}>
-          <button type="button" className={q.back} onClick={() => setStep(1)}>
-            Back
-          </button>
-          <button className={`${s.btn} ${s.btnAccent} ${q.submit}`} type="submit" disabled={status === "sending"}>
-            {status === "sending" ? "Sending…" : (<>Get my free quote <ArrowRight size={18} aria-hidden="true" /></>)}
-          </button>
         </div>
       </div>
 
       <input className={q.trap} type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
-      <div className={q.assure}>
-        <span><Lock aria-hidden="true" /> 100% privacy</span>
-        <span><ShieldCheck aria-hidden="true" /> No spam, ever</span>
-        <span><Clock aria-hidden="true" /> No lock-in</span>
-      </div>
+      <button className={`${s.btn} ${s.btnAccent} ${q.submit}`} type="submit" disabled={status === "sending"}>
+        {status === "sending" ? (
+          "Sending…"
+        ) : (
+          <>
+            <Phone size={18} aria-hidden="true" /> Get my free quote <ArrowRight size={18} aria-hidden="true" />
+          </>
+        )}
+      </button>
+      <p className={q.privacy}>
+        <ShieldCheck aria-hidden="true" /> 100% privacy. We never spam.
+      </p>
 
       {status === "error" && (
         <p className={q.formErr} role="alert">
           We couldn&apos;t send that just now. Please call <a href={env.PHONE_LINK}>050-577-3388</a> or WhatsApp us.
         </p>
       )}
-    </form>
+    </form>,
   )
 }
