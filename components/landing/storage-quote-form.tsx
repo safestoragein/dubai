@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { CheckCircle2, Clock, Lock, ShieldCheck, Zap } from "lucide-react"
+import { CheckCircle2, Clock, Lock, ShieldCheck } from "lucide-react"
 import { env } from "@/lib/env"
 import s from "./landing.module.css"
 import q from "./storage-quote.module.css"
@@ -112,11 +112,8 @@ export default function StorageQuoteForm() {
 
   return (
     <form className={q.card} onSubmit={onSubmit} noValidate>
-      <div className={q.badge}>
-        <Zap aria-hidden="true" /> Free quote · No obligation · Callback in ~15 min
-      </div>
       <h2>Get your storage quote</h2>
-      <p className={q.cardSub}>We will call you back shortly.</p>
+      <p className={q.cardSub}>Free and no obligation. We call you back in about 15 minutes.</p>
 
       <div className={q.row}>
         <div className={f("name")}>

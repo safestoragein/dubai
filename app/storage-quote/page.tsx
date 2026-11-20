@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import {
-  Barcode, Camera, CalendarCheck, Check, Clock, Droplets, Lock, Phone, Snowflake, Truck, Undo2, UserCheck, Warehouse, Wind,
-} from "lucide-react"
+import { Barcode, Camera, Check, Clock, Droplets, Lock, Snowflake, UserCheck, Wind } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
 import { LandingReviews } from "@/components/landing/landing-reviews"
@@ -24,24 +22,24 @@ export const metadata: Metadata = {
 }
 
 const CHECKS = [
-  "Free doorstep pickup",
+  "Free doorstep pickup and delivery",
   "CCTV monitored, 24×7",
-  "Climate-controlled units",
+  "Climate-controlled indoor units",
   "No lock-in, month to month",
 ]
 
-const STATS = [
-  { v: "4.9", em: "/5", l: "Google rating · 6,700+ reviews" },
-  { v: "100,000", em: "+", l: "Happy customers worldwide" },
-  { v: "10", em: "+", l: "Years of experience, since 2015" },
-  { v: "15", em: " min", l: "Average response time" },
+const FACTS = [
+  { v: "4.9 / 5", l: "Google rating · 6,700+ reviews" },
+  { v: "100,000+", l: "Happy customers worldwide" },
+  { v: "10+ years", l: "Experience, since 2015" },
+  { v: "15 min", l: "Average response time" },
 ]
 
 const STEPS = [
-  { Icon: CalendarCheck, t: "Book online", d: "Tell us what you are storing and pick a pickup date. It takes under two minutes." },
-  { Icon: Truck, t: "Doorstep pickup", d: "Our team arrives at your door, wraps what needs wrapping and loads everything for you." },
-  { Icon: Warehouse, t: "Secure storage", d: "Kept in a clean, CCTV-monitored, pest-controlled facility until you need it back." },
-  { Icon: Undo2, t: "Return on demand", d: "Ask for one box or everything back, delivered to your door whenever you are ready." },
+  { t: "Book online", d: "Tell us what you are storing and pick a pickup date. It takes under two minutes." },
+  { t: "Doorstep pickup", d: "Our team arrives at your door, wraps what needs wrapping and loads everything for you." },
+  { t: "Secure storage", d: "Kept in a clean, CCTV-monitored, pest-controlled facility until you need it back." },
+  { t: "Return on demand", d: "Ask for one box or everything back, delivered to your door whenever you are ready." },
 ]
 
 const WHY = [
@@ -52,7 +50,7 @@ const WHY = [
   { Icon: Lock, t: "Secure access", d: "Controlled and authorised entry only" },
   { Icon: Barcode, t: "Barcoded inventory", d: "Every item logged when it reaches us" },
   { Icon: Clock, t: "Flexible plans", d: "Store for as little as a month" },
-  { Icon: UserCheck, t: "Dedicated manager", d: "One point of contact for a smooth experience" },
+  { Icon: UserCheck, t: "Dedicated manager", d: "One point of contact from pickup to return" },
 ]
 
 const SHOTS = [
@@ -86,26 +84,20 @@ const FAQS = [
 
 export default function StorageQuotePage() {
   return (
-    <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
+    <div className={`${s.page} ${q.root} ${sora.variable} ${manrope.variable}`}>
       <section className={q.hero} id="top">
         <div className={`${s.wrap} ${q.heroGrid}`}>
           <div className={q.copy}>
-            <div className={q.rating}>
-              <span className={q.g} aria-hidden="true">G</span>
-              <div>
-                <strong>4.9</strong>
-              </div>
-              <div>
-                <span className={q.stars} aria-label="5 out of 5 stars">★★★★★</span>
-                <small>6,700+ Google reviews</small>
-              </div>
+            <div className={q.ratingLine}>
+              <span className={q.stars} aria-hidden="true">★★★★★</span>
+              <span>
+                <b>4.9</b> · 6,700+ Google reviews
+              </span>
             </div>
-            <h1>
-              Dubai&apos;s trusted <em>doorstep storage</em>, quoted in 2 minutes
-            </h1>
+            <h1>Dubai&apos;s trusted doorstep storage, quoted in 2 minutes</h1>
             <p className={q.lede}>
               Tell us where you are and what you need to store. We pick up, store it safely and bring it back whenever
-              you ask — with no lock-in.
+              you ask.
             </p>
             <ul className={q.checks}>
               {CHECKS.map((c) => (
@@ -113,39 +105,37 @@ export default function StorageQuotePage() {
               ))}
             </ul>
             <div className={q.callRow}>
-              <Phone size={16} aria-hidden="true" />
               Prefer to talk? <a href={env.PHONE_LINK}>050-577-3388</a>
             </div>
           </div>
 
           <StorageQuoteForm />
         </div>
+      </section>
 
-      <div className={`${s.wrap} ${q.statsWrap}`}>
-        <div className={q.stats}>
-          {STATS.map((x) => (
-            <div className={q.stat} key={x.l}>
-              <strong>{x.v}<em>{x.em}</em></strong>
+      <div className={q.facts}>
+        <div className={`${s.wrap} ${q.factsGrid}`}>
+          {FACTS.map((x) => (
+            <div className={q.fact} key={x.l}>
+              <strong>{x.v}</strong>
               <span>{x.l}</span>
             </div>
           ))}
         </div>
       </div>
-      </section>
 
       <section className={`${s.wrap} ${q.sec}`}>
         <div className={q.secHead}>
-          <span className={s.howEyebrow}>How it works</span>
-          <h2>Storage made completely effortless</h2>
+          <span className={q.eyebrow}>How it works</span>
+          <h2>Storage made simple</h2>
           <p>From doorstep pickup to secure storage and return, we handle the truck, the lifting and the paperwork.</p>
         </div>
-        <div className={q.grid4}>
-          {STEPS.map(({ Icon, t, d }, i) => (
-            <div className={q.tile} key={t}>
-              <div className={q.ico}><Icon aria-hidden="true" /></div>
+        <div className={q.steps}>
+          {STEPS.map((x, i) => (
+            <div className={q.step} key={x.t}>
               <span className={q.num}>0{i + 1}</span>
-              <h3>{t}</h3>
-              <p>{d}</p>
+              <h3>{x.t}</h3>
+              <p>{x.d}</p>
             </div>
           ))}
         </div>
@@ -153,14 +143,15 @@ export default function StorageQuotePage() {
 
       <section className={`${s.wrap} ${q.sec}`}>
         <div className={q.secHead}>
-          <span className={s.howEyebrow}>Our facilities</span>
+          <span className={q.eyebrow}>Our facilities</span>
           <h2>Take a look inside</h2>
-          <p>Clean aisles, sturdy racking and every item stored with care.</p>
         </div>
         <div className={q.gallery}>
           {SHOTS.map((x) => (
             <figure className={q.shot} key={x.src}>
-              <Image src={x.src} alt={x.alt} fill sizes="(max-width: 920px) 100vw, 40vw" />
+              <div className={q.shotImg}>
+                <Image src={x.src} alt={x.alt} fill sizes="(max-width: 920px) 50vw, 380px" />
+              </div>
               <figcaption>
                 {x.t}
                 <small>{x.d}</small>
@@ -172,26 +163,27 @@ export default function StorageQuotePage() {
 
       <section className={`${s.wrap} ${q.sec}`}>
         <div className={q.secHead}>
-          <span className={s.howEyebrow}>Why SafeStorage</span>
+          <span className={q.eyebrow}>Why SafeStorage</span>
           <h2>Built to keep your things safe</h2>
-          <p>The same high standards whether it&apos;s a few boxes or a full home.</p>
         </div>
-        <div className={q.grid4}>
+        <ul className={q.why}>
           {WHY.map(({ Icon, t, d }) => (
-            <div className={q.tile} key={t}>
-              <div className={q.ico}><Icon aria-hidden="true" /></div>
-              <h3>{t}</h3>
-              <p>{d}</p>
-            </div>
+            <li key={t}>
+              <Icon aria-hidden="true" />
+              <div>
+                <b>{t}</b>
+                <span>{d}</span>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
-      <LandingReviews />
+      <LandingReviews padTop={72} />
 
       <section className={`${s.wrap} ${q.faqSec}`}>
         <div className={q.secHead}>
-          <span className={s.howEyebrow}>Good to know</span>
+          <span className={q.eyebrow}>Good to know</span>
           <h2>Quick answers</h2>
         </div>
         <FaqAccordion items={FAQS} />
@@ -201,7 +193,7 @@ export default function StorageQuotePage() {
             <h2>Ready to get started?</h2>
             <p>Fill in the form and our team will call you back shortly.</p>
           </div>
-          <a className={`${s.btn} ${s.btnAccent}`} href="#top">Get a free quote →</a>
+          <a className={`${s.btn} ${s.btnAccent} ${q.cta}`} href="#top">Get a free quote →</a>
         </div>
       </section>
     </div>
