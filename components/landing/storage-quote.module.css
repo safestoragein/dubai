@@ -1,0 +1,355 @@
+/* /storage-quote — quick lead form. Sits inside the landing `.page` wrapper, so
+   it inherits that file's tokens (--accent, --navy, --cream …) and fonts. */
+
+.hero {
+  background:
+    radial-gradient(900px 420px at 85% -10%, rgba(238, 88, 36, 0.22), transparent 60%),
+    linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 100%);
+  color: #fff;
+  padding: 56px 0 72px;
+}
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 48px;
+  align-items: start;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.copy h1 {
+  font-size: clamp(32px, 4.6vw, 52px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 18px 0 16px;
+  color: #fff;
+}
+.copy h1 em {
+  font-style: normal;
+  color: var(--accent-tint);
+}
+.lede {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 520px;
+  margin-bottom: 26px;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.chip svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent-tint);
+  flex: none;
+}
+.callRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.78);
+}
+.callRow a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- form card ---- */
+.card {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 22px;
+  padding: 30px 28px 26px;
+  box-shadow: 0 30px 70px -20px rgba(8, 14, 36, 0.55);
+}
+.card h2 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+  color: var(--navy);
+}
+.cardSub {
+  color: var(--muted);
+  font-size: 13.5px;
+  margin: 0 0 20px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.field {
+  margin-bottom: 14px;
+}
+.row .field {
+  margin-bottom: 0;
+}
+.field label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.field input,
+.field select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 11px;
+  background: var(--cream);
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.field input:focus,
+.field select:focus {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(238, 88, 36, 0.14);
+}
+.field.bad input,
+.field.bad select {
+  border-color: #d64545;
+}
+.err {
+  display: none;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #d64545;
+}
+.field.bad .err {
+  display: block;
+}
+.phone {
+  display: flex;
+}
+.phone span {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1.5px solid var(--line);
+  border-right: 0;
+  border-radius: 11px 0 0 11px;
+  background: #efede5;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy);
+}
+.phone input {
+  border-radius: 0 11px 11px 0;
+}
+.trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.submit {
+  width: 100%;
+  margin-top: 6px;
+  justify-content: center;
+}
+.submit[disabled] {
+  opacity: 0.7;
+  cursor: wait;
+}
+.note {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 12px 0 0;
+}
+.formErr {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fdeeee;
+  color: #a62d2d;
+  font-size: 13px;
+  font-weight: 600;
+}
+.formErr a {
+  text-decoration: underline;
+}
+.done {
+  text-align: center;
+  padding: 18px 4px 6px;
+}
+.tick {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: #e5f5ec;
+  color: #1f7a45;
+  display: grid;
+  place-items: center;
+}
+.tick svg {
+  width: 30px;
+  height: 30px;
+}
+.done h2 {
+  margin-bottom: 8px;
+}
+.done p {
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+/* ---- below the fold ---- */
+.sec {
+  padding: 64px 0 8px;
+}
+.secHead {
+  max-width: 640px;
+  margin-bottom: 30px;
+}
+.secHead h2 {
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 12px 0 8px;
+  color: var(--navy);
+}
+.secHead p {
+  color: var(--muted);
+  margin: 0;
+}
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.tile {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+}
+.tile .num {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+.tile .ico {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(238, 88, 36, 0.1);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+.tile .ico svg {
+  width: 21px;
+  height: 21px;
+}
+.tile h3 {
+  font-size: 16.5px;
+  font-weight: 700;
+  margin: 6px 0 6px;
+  color: var(--navy);
+}
+.tile p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.endBand {
+  margin: 56px 0 64px;
+  border-radius: 24px;
+  background: linear-gradient(160deg, var(--navy-deep), var(--navy));
+  color: #fff;
+  padding: 34px 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.endBand h2 {
+  font-size: 26px;
+  margin: 0 0 4px;
+  color: #fff;
+}
+.endBand p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 920px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .grid4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .hero {
+    padding: 36px 0 48px;
+  }
+  .row {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    padding: 24px 18px 20px;
+  }
+  .grid4 {
+    grid-template-columns: 1fr;
+  }
+  .endBand {
+    padding: 26px 22px;
+  }
+}
