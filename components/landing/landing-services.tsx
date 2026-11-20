@@ -274,7 +274,15 @@ function JourneyScene() {
   )
 }
 
-export function LandingSteps() {
+export function LandingSteps({
+  ctaHref = "/get-quote",
+  showMore = true,
+}: {
+  /** Where the closing button goes. Landing pages with their own form pass "#quote". */
+  ctaHref?: string
+  /** The "See the full process" link; landing pages that must keep the visitor on the form hide it. */
+  showMore?: boolean
+} = {}) {
   return (
     <section className={`${s.section} ${s.wrap}`} id="how-it-works" style={{ paddingTop: 24 }}>
       <div className={s.howHead}>
@@ -341,12 +349,14 @@ export function LandingSteps() {
 
       <div className={s.howCta}>
         <span>Ready to get started?</span>
-        <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+        <Link className={`${s.btn} ${s.btnAccent}`} href={ctaHref}>
           Get a Free Quote →
         </Link>
-        <Link className={s.howMore} href="/how-it-works">
-          See the full process
-        </Link>
+        {showMore ? (
+          <Link className={s.howMore} href="/how-it-works">
+            See the full process
+          </Link>
+        ) : null}
       </div>
     </section>
   )

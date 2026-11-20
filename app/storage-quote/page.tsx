@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Barcode, CalendarDays, Camera, Clock, Droplets, Lock, ShieldCheck, Snowflake, Truck, UserCheck, Wind, Zap } from "lucide-react"
@@ -8,8 +7,7 @@ import { LandingReviews } from "@/components/landing/landing-reviews"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import { env } from "@/lib/env"
 import s from "@/components/landing/landing.module.css"
-import f from "@/components/landing/home-fx.module.css"
-import HomeReveal from "@/components/landing/home-reveal"
+import { LandingSteps } from "@/components/landing/landing-services"
 import q from "@/components/landing/storage-quote.module.css"
 
 // Quick lead form, the Dubai twin of safestorage.in/storage-quote. It is a
@@ -38,13 +36,6 @@ const FACTS = [
   { v: "15 min", l: "Average response time" },
 ]
 
-// Same four steps, words and emoji as the homepage's HomeSteps, so the animation reads the same.
-const STEPS = [
-  { emoji: "📱", t: "Book Online", d: "Tell us what you are storing and pick a pickup date. It takes under two minutes." },
-  { emoji: "🚚", t: "Doorstep Pickup", d: "Our team arrives anywhere in Dubai, wraps what needs wrapping and loads everything for you." },
-  { emoji: "🏬", t: "Secure Storage", d: "Kept in a clean, climate-controlled, CCTV-monitored facility, catalogued item by item." },
-  { emoji: "📦", t: "Return on Demand", d: "Ask for one box or everything back, delivered to your door whenever you are ready." },
-]
 
 const WHY = [
   { Icon: Camera, t: "CCTV monitoring", d: "24×7 surveillance at our facilities" },
@@ -172,41 +163,10 @@ export default function StorageQuotePage() {
         </div>
       </div>
 
-      <section className={`${q.wide} ${q.sec}`} id="how-it-works">
-        <div className={s.howHead}>
-          <div>
-            <span className={s.howEyebrow}>How it works</span>
-            <h2>
-              Storage made <em>completely effortless.</em>
-            </h2>
-          </div>
-          <p>
-            From doorstep pickup to secure storage and return, we handle the truck, the lifting and the paperwork.
-          </p>
-        </div>
-
-        <HomeReveal className={`${f.stepGrid} ${f.in}`}>
-          {STEPS.map((x, i) => (
-            <article className={f.stepCard} key={x.t} style={{ ["--i" as string]: i } as CSSProperties}>
-              <span className={f.stepEmoji} aria-hidden="true">
-                {x.emoji}
-              </span>
-              <span className={f.stepNum} aria-hidden="true">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3>{x.t}</h3>
-              <p>{x.d}</p>
-            </article>
-          ))}
-        </HomeReveal>
-
-        <div className={s.howCta}>
-          <span>Ready to get started?</span>
-          <a className={`${s.btn} ${s.btnAccent}`} href="#quote">
-            Get a Free Quote →
-          </a>
-        </div>
-      </section>
+      {/* The homepage's animated van journey, unchanged; only its button is pointed at the form here. */}
+      <div className={`${q.wide} ${q.journey}`}>
+        <LandingSteps ctaHref="#quote" showMore={false} />
+      </div>
 
       <section className={`${q.wide} ${q.sec}`}>
         <div className={q.secHead}>

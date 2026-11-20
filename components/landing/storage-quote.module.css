@@ -861,3 +861,7 @@
 
 .root.root .card .row { display: grid; grid-template-columns: 1fr 1fr; }
 @media (max-width: 560px) { .root.root .card .row { grid-template-columns: 1fr; } }
+
+/* LandingSteps renders its own 1180 section inside our wide wrapper — let it use the full width */
+.root.root .journey { padding-top: 0; padding-bottom: 0; }
+.root.root .journey > section { max-width: none; padding-left: 0; padding-right: 0; }
