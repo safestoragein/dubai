@@ -121,7 +121,7 @@ export default function StorageQuotePage() {
       {/* Storo/Leo chat launcher is not wanted on this lead-form page. Its host node is appended to <body>
           by the widget bundle, so hide it by id (the loader also skips the script where it can). */}
       <QuoteLinkIntercept />
-      <style>{"#safestorage-leo-root,[data-floating-toast]{display:none!important}"}</style>
+      <style>{"#safestorage-leo-root,[data-floating-toast],[data-sticky-cta] a[href='/get-quote']{display:none!important}[data-sticky-cta]>div{margin:0 0 0 auto!important;width:auto!important;flex-direction:column!important;gap:10px!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}[data-sticky-cta] a{width:48px!important;height:48px!important;box-shadow:0 8px 20px rgba(10,36,99,.3)!important}"}</style>
       <section className={q.hero} id="top">
         <div className={`${q.wide} ${q.heroRow}`}>
           <div className={q.left}>
@@ -220,7 +220,7 @@ export default function StorageQuotePage() {
           {SERVICES.map(({ Icon, t, d, img, pos }) => (
             <article className={q.svc} key={t}>
               <div className={q.svcImg}>
-                <Image src={img} alt={`${t} in Dubai`} fill sizes="(max-width: 560px) 100vw, (max-width: 1100px) 33vw, 20vw" style={{ objectPosition: pos }} />
+                <Image src={img} alt={`${t} in Dubai`} fill loading="eager" sizes="(max-width: 680px) 240px, (max-width: 1100px) 33vw, 20vw" style={{ objectPosition: pos }} />
                 <span className={q.svcIcon}>
                   <Icon aria-hidden="true" />
                 </span>

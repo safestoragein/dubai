@@ -1251,3 +1251,11 @@
   .root.root .wStats > div { padding: 4px 6px; gap: 6px; flex-direction: column; text-align: center; }
   .wStats svg { width: 20px; height: 20px; } .wStats b { font-size: 16px; } .wStats span { font-size: 10.5px; }
 }
+
+/* facilities on tablet/phone: plain stacked tiles (fixes overlap from the 2-row desktop template) */
+@media (max-width: 920px) {
+  .root.root .bento { grid-template-rows: none; grid-auto-rows: auto; }
+  .root.root .tileBig { grid-row: auto; }
+  .root.root .tileImg { min-height: 0; }
+}
+@media (max-width: 920px) { .root.root { padding-bottom: 24px; } }
