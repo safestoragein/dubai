@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Barcode, CalendarDays, Camera, Clock, Droplets, Lock, ShieldCheck, Snowflake, Truck, UserCheck, Wind, Zap } from "lucide-react"
+import { Award, Barcode, CalendarDays, Camera, Clock, Droplets, Lock, ShieldCheck, Snowflake, Star, Truck, UserCheck, Users, Wind, Zap } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
 import { LandingReviews } from "@/components/landing/landing-reviews"
@@ -30,10 +30,10 @@ const CHIPS = [
 ]
 
 const FACTS = [
-  { v: "4.9 / 5", l: "Google rating · 6,700+ reviews" },
-  { v: "100,000+", l: "Happy customers worldwide" },
-  { v: "10+ years", l: "Experience, since 2015" },
-  { v: "15 min", l: "Average response time" },
+  { Icon: Star, v: "4.9 / 5", l: "Google rating globally", s: "6,700+ reviews" },
+  { Icon: Users, v: "100,000+", l: "Happy customers", s: "Homes & businesses worldwide" },
+  { Icon: Award, v: "10+ years", l: "Of experience", s: "Serving customers since 2015" },
+  { Icon: Clock, v: "15 min", l: "Average response", s: "Quick support guarantee" },
 ]
 
 
@@ -154,10 +154,16 @@ export default function StorageQuotePage() {
 
       <div className={q.facts}>
         <div className={`${q.wide} ${q.factsGrid}`}>
-          {FACTS.map((x) => (
-            <div className={q.fact} key={x.l}>
-              <strong>{x.v}</strong>
-              <span>{x.l}</span>
+          {FACTS.map(({ Icon, v, l, s: sub }) => (
+            <div className={q.fact} key={l}>
+              <span className={q.factIcon}>
+                <Icon aria-hidden="true" />
+              </span>
+              <div>
+                <strong>{v}</strong>
+                <b>{l}</b>
+                <span>{sub}</span>
+              </div>
             </div>
           ))}
         </div>

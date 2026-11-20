@@ -865,3 +865,35 @@
 /* LandingSteps renders its own 1180 section inside our wide wrapper — let it use the full width */
 .root.root .journey { padding-top: 0; padding-bottom: 0; }
 .root.root .journey > section { max-width: none; padding-left: 0; padding-right: 0; }
+
+/* ---- stats band v2: navy, icon + number ---- */
+.root.root .facts { background: #14204a; border: 0; }
+.root.root .factsGrid { gap: 0; padding-top: 0; padding-bottom: 0; }
+.root.root .fact {
+  display: flex; align-items: center; justify-content: flex-start; gap: 16px;
+  padding: 30px 28px; text-align: left;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+}
+.root.root .fact:last-child { border-right: 0; }
+.factIcon {
+  width: 52px; height: 52px; flex: none; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #ee5824; color: #fff;
+  box-shadow: 0 0 0 6px rgba(238, 88, 36, 0.18);
+}
+.factIcon svg { width: 24px; height: 24px; }
+.root.root .fact strong {
+  display: block; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.05; color: #fff; letter-spacing: -0.02em;
+}
+.root.root .fact b { display: block; margin-top: 5px; font-size: 14.5px; font-weight: 700; color: #fff; }
+.root.root .fact span:not(.factIcon) { font-size: 13px; color: rgba(255, 255, 255, 0.68); }
+@media (max-width: 920px) {
+  .root.root .fact { padding: 22px 18px; }
+  .root.root .fact:nth-child(2) { border-right: 0; }
+  .root.root .fact:nth-child(-n + 2) { border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+}
+@media (max-width: 560px) {
+  .root.root .factsGrid { grid-template-columns: 1fr; }
+  .root.root .fact { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+  .root.root .fact:last-child { border-bottom: 0; }
+}
