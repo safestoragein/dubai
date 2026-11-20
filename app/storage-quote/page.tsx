@@ -101,7 +101,7 @@ export default function StorageQuotePage() {
           <div className={q.left}>
             <div className={q.kicker}>Storage, made simple</div>
             <h1>
-              More room for <em>what matters.</em>
+              UAE&apos;s <em>No.1</em> Most Trusted Storage Service
             </h1>
             <p className={q.lede}>
               We pick up, securely store, and return your belongings when you need them. Doorstep service across the UAE,
@@ -139,7 +139,7 @@ export default function StorageQuotePage() {
                 <small>
                   Google rating
                   <br />
-                  across the UAE
+                  globally
                 </small>
               </div>
               <span className={q.vr} aria-hidden="true" />
