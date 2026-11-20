@@ -1113,3 +1113,8 @@
   .endIcon { width: 44px; height: 44px; }
   .endBtn { width: 100%; text-align: center; }
 }
+
+/* The full-bleed backdrop on .whySec (inset: 0 -100vmax) overshoots the viewport and made the page
+   scroll sideways. clip (not hidden) so sticky header / positioned children are unaffected. */
+.root.root { overflow-x: clip; }
+.root.root .whySec::before { inset: 0 calc(50% - 50vw); }
