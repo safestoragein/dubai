@@ -169,7 +169,7 @@ export default function StorageQuotePage() {
                 <strong>4.9</strong>
                 <span className={q.stars} aria-hidden="true">★</span>
                 <small>
-                  Google rating
+                  Google rating{" "}
                   <br />
                   globally
                 </small>

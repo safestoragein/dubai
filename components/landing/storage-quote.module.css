@@ -1307,3 +1307,14 @@
   .reelRow .tileImg figcaption { white-space: normal; font-size: 13px; }
 }
 .cx em { background: rgba(60, 20, 5, 0.38); }
+
+/* phones/tablets: headline + CTA + chips, THEN the form, THEN the review card + rating row */
+@media (max-width: 920px) {
+  .root.root .left { display: contents; }
+  .root.root .heroRow { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .root.root .heroRow > .formCol { order: 2; margin: 6px 0 26px; }
+  .root.root .heroRow .left > * { order: 1; min-width: 0; }
+  .root.root .heroRow .left > .quote,
+  .root.root .heroRow .left > .proof { order: 3; }
+  .root.root .heroRow .left > .proof { margin-bottom: 4px; }
+}
