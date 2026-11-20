@@ -30,7 +30,7 @@ const CHIPS = [
 ]
 
 const FACTS = [
-  { Icon: Star, v: "4.9 / 5", l: "Google rating globally", s: "6,700+ reviews" },
+  { Icon: Star, v: "4.9 / 5", l: "Google rating globally", s: "10,000+ reviews" },
   { Icon: Users, v: "100,000+", l: "Happy customers", s: "Homes & businesses worldwide" },
   { Icon: Award, v: "10+ years", l: "Of experience", s: "Serving customers since 2015" },
   { Icon: Clock, v: "15 min", l: "Average response", s: "Quick support guarantee" },
@@ -141,7 +141,7 @@ export default function StorageQuotePage() {
               <div className={q.count}>
                 <GoogleG />
                 <span>
-                  <strong>6,700+</strong>
+                  <strong>10,000+</strong>
                   <small>Google reviews</small>
                 </span>
               </div>
@@ -212,7 +212,7 @@ export default function StorageQuotePage() {
         </ul>
       </section>
 
-      <LandingReviews padTop={72} />
+      <LandingReviews padTop={72} reviewCount="10,000+" />
 
       <section className={`${q.wide} ${q.faqSec}`}>
         <div className={q.secHead}>

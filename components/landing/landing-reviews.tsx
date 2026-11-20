@@ -56,7 +56,15 @@ const reviews = [
   },
 ]
 
-export function LandingReviews({ padTop }: { /** override the section's top padding where the band above already ends in white space */ padTop?: number } = {}) {
+export function LandingReviews({
+  padTop,
+  reviewCount = "6,700+",
+}: {
+  /** override the section's top padding where the band above already ends in white space */
+  padTop?: number
+  /** Google review count quoted in the intro line. Default matches every other page. */
+  reviewCount?: string
+} = {}) {
   const track = useRef<HTMLDivElement>(null)
 
   // 320px card + 16px gap — one card per click, matching the comp.
@@ -77,7 +85,7 @@ export function LandingReviews({ padTop }: { /** override the section's top padd
         </div>
         <p>
           Real experiences from the 100,000+ customers SafeStorage serves worldwide — rated 4.9/5
-          across 6,700+ Google reviews.
+          across {reviewCount} Google reviews.
         </p>
       </div>
 
