@@ -14,6 +14,7 @@ import ViewportZoomReset from "@/components/viewport-zoom-reset"
 import MotionProvider from "@/components/motion-provider"
 import AdAttributionCapture from "@/components/ad-attribution-capture"
 import Script from "next/script"
+import LeoWidgetLoader from "@/components/leo-widget-loader"
 import { allSchemas } from "@/lib/structured-data"
 
 // Optimize font loading
@@ -234,7 +235,7 @@ export default function RootLayout({
                   reach this page and this page's CSS cannot reach into it.
                   lazyOnload keeps it out of the critical path - a chat launcher
                   has no business competing with the page for first paint. */}
-              <Script src="/safestorage-chat-widget.iife.js" strategy="lazyOnload" />
+              <LeoWidgetLoader />
               <ViewportZoomReset />
               <AdAttributionCapture />
             </MotionProvider>

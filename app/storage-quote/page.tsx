@@ -129,6 +129,10 @@ export default function StorageQuotePage() {
               with no lock-in.
             </p>
 
+            <a className={q.heroCta} href="#quote">
+              Get a free quote <span aria-hidden="true">→</span>
+            </a>
+
             <div className={q.chipRow}>
               {CHIPS.map(({ Icon, t }) => (
                 <div className={q.chip} key={t}>

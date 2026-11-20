@@ -1062,3 +1062,33 @@
   .cx tbody th { width: 27%; }
   .cxi { width: 18px; height: 18px; } .cxi svg { width: 10px; height: 10px; } .cxc { gap: 6px; }
 }
+
+/* ---- compact sizing + hero CTA ---- */
+.heroCta {
+  display: inline-flex; align-items: center; gap: 10px; margin: 0 0 22px; padding: 13px 26px; border-radius: 12px;
+  background: var(--accent); color: #fff; font-weight: 800; font-size: 16px; text-decoration: none;
+  box-shadow: 0 12px 24px -12px rgba(238, 88, 36, 0.7); transition: transform 0.2s;
+}
+.heroCta:hover { transform: translateY(-2px); }
+.root.root .left h1 { font-size: clamp(28px, 3.1vw, 44px); }
+.root.root .left .lede { font-size: 16px; margin-bottom: 20px; }
+.sec { padding-top: 56px; }
+.root.root .secHead h2, .root.root .whyHead h2 { font-size: clamp(24px, 2.8vw, 36px); }
+.root.root .secHead p, .root.root .whyHead p { font-size: 16px; }
+.root.root .secHead { margin-bottom: 24px; }
+.root.root .whyHead { margin-bottom: 30px; }
+.root.root .hero { padding: 32px 0 40px; }
+@media (max-width: 920px) {
+  .heroRow { gap: 28px; }
+  .root.root .hero { padding: 22px 0 32px; }
+  .root.root .left h1 { font-size: 27px; line-height: 1.15; margin-bottom: 10px; }
+  .root.root .left .lede { font-size: 15px; line-height: 1.5; margin-bottom: 16px; }
+  .left .kicker { font-size: 11.5px; margin-bottom: 10px; }
+  .heroCta { width: 100%; justify-content: center; padding: 13px 20px; margin-bottom: 18px; }
+  .sec { padding-top: 40px; }
+  .root.root .secHead h2, .root.root .whyHead h2 { font-size: 24px; }
+  .root.root .secHead p, .root.root .whyHead p { font-size: 14.5px; }
+  .root.root .secHead { margin-bottom: 18px; }
+  .root.root .whyHead { margin-bottom: 22px; }
+  .chip { padding: 12px 6px; font-size: 12.5px; }
+}
