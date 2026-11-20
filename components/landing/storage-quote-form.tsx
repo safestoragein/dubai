@@ -17,9 +17,9 @@ import q from "./storage-quote.module.css"
  * size: …" message, so emirate, area, floor and lift are packed into it
  * as one readable line for the sales rep.
  *
- * A visitor who types a valid name + mobile and then leaves is not lost:
- * once, when the mobile field loses focus, the partial lead is saved via
- * /api/save-partial-lead (the route /get-quote uses).
+
+ * No partial lead is saved: a submitted quote goes straight into the customer + quotation
+ * tables (no ss_leads row); a lead row is only written if the quotation could not be created.
  * ------------------------------------------------------------------ */
 
 const EMIRATES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman"]
@@ -52,7 +52,6 @@ export default function StorageQuoteForm() {
   }, [])
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle")
-  const partialSent = useRef(false)
 
   // Pickup area: Google Places suggestions (UAE only). The script loads on first touch of the field so it
   // never costs page speed. The picked place also gives us coordinates for a distance-based transport price.
@@ -107,30 +106,6 @@ export default function StorageQuoteForm() {
     sc.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places&callback=__sqMapsInit`
     sc.async = true
     document.head.appendChild(sc)
-  }
-
-  function savePartial(form: HTMLFormElement | null) {
-    if (!form || partialSent.current) return
-    const d = new FormData(form)
-    const name = String(d.get("name") || "").trim()
-    const mob = uaeMobile(String(d.get("mobile") || ""))
-    if (name.length < 2 || !mob || String(d.get("website") || "")) return
-    partialSent.current = true
-    try {
-      fetch("/api/save-partial-lead", {
-        method: "POST",
-        keepalive: true,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          customer_name: name,
-          customer_contact1: `+971${mob}`,
-          customer_email: String(d.get("email") || "").trim(),
-          storage_type: `storage-quote partial — ${String(d.get("emirate") || "")}`.trim(),
-        }),
-      }).catch(() => {})
-    } catch {
-      /* never block the form on this */
-    }
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -259,7 +234,6 @@ export default function StorageQuoteForm() {
               inputMode="tel"
               autoComplete="tel-national"
               placeholder="50 577 3388"
-              onBlur={(e) => savePartial(e.currentTarget.form)}
             />
           </div>
           <div className={q.err}>{errors.mobile}</div>
