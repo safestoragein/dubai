@@ -121,7 +121,7 @@ export default function StorageQuotePage() {
       {/* Storo/Leo chat launcher is not wanted on this lead-form page. Its host node is appended to <body>
           by the widget bundle, so hide it by id (the loader also skips the script where it can). */}
       <QuoteLinkIntercept />
-      <style>{"#safestorage-leo-root,[data-floating-toast],[data-sticky-cta] a[href='/get-quote']{display:none!important}[data-sticky-cta]>div{margin:0 0 0 auto!important;width:auto!important;flex-direction:column!important;gap:10px!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}[data-sticky-cta] a{width:48px!important;height:48px!important;box-shadow:0 8px 20px rgba(10,36,99,.3)!important}"}</style>
+      <style>{"#safestorage-leo-root,[data-floating-toast],[data-sticky-cta] a[href='/get-quote']{display:none!important}[data-sticky-cta]{padding-left:0!important;padding-right:14px!important;padding-bottom:calc(16px + env(safe-area-inset-bottom))!important}[data-sticky-cta]>div{margin:0 0 0 auto!important;width:fit-content!important;max-width:none!important;align-items:flex-end!important;flex-direction:column!important;gap:10px!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}[data-sticky-cta] a{width:48px!important;height:48px!important;box-shadow:0 8px 20px rgba(10,36,99,.3)!important}"}</style>
       <section className={q.hero} id="top">
         <div className={`${q.wide} ${q.heroRow}`}>
           <div className={q.left}>
