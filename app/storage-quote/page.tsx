@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Award, Barcode, Bike, Boxes, Bug, Building2, CalendarDays, Camera, Check, Clock, Droplet, Droplets, FileText, Home, Lock, MapPin, Package, ShieldCheck, Snowflake, Star, Truck, User, UserCheck, UserRound, Users, Video, Warehouse, Wind, X, Zap } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
+import FacilityReel from "@/components/landing/facility-reel"
 import QuoteLinkIntercept from "@/components/landing/quote-link-intercept"
 import { WHY_ART } from "@/components/landing/why-art"
 import { LandingReviews } from "@/components/landing/landing-reviews"
@@ -53,9 +54,10 @@ const WHY = [
 ]
 
 const SHOTS = [
-  { src: "/organized-warehouse-space.webp", t: "Organised warehouse storage", alt: "Organised pallet racking inside a SafeStorage warehouse", big: true },
-  { src: "/landing/secure-storage-hero-v2.webp", t: "Monitored unit access", alt: "CCTV and controlled access at a SafeStorage facility", pos: "30% center" },
-  { src: "/landing/warehouse-storage-hero-v2.webp", t: "Careful pickup and handling", alt: "SafeStorage team loading a truck at the warehouse", pos: "40% center" },
+  { src: "/landing/facility-1.webp", t: "Multi-level racking", alt: "Multi-level orange and blue pallet racking inside a SafeStorage warehouse, with wrapped furniture and boxes below" },
+  { src: "/landing/facility-2.webp", t: "Wrapped & palletised", alt: "Furniture shrink-wrapped and stored on pallets along a clean warehouse aisle" },
+  { src: "/landing/facility-3.webp", t: "Furniture, protected", alt: "Sofas and mattresses wrapped for storage on racking with a clean concrete floor" },
+  { src: "/landing/facility-4.webp", t: "Proper handling equipment", alt: "Double-height pallet racking with a pallet truck, ladder and wrapped items" },
 ]
 
 const SERVICES = [
@@ -244,16 +246,28 @@ export default function StorageQuotePage() {
           <p>A closer look at where your belongings are handled and stored.</p>
         </div>
 
-        <div className={q.bento}>
+        <div className={q.reelRow}>
+          <figure className={`${q.tileImg} ${q.reelTile}`}>
+            <FacilityReel
+              className={q.reelBox}
+              src="/landing/facility-reel.mp4"
+              poster="/landing/facility-reel-poster.webp"
+              label="SafeStorage Dubai facility reel"
+            />
+            <figcaption>Inside SafeStorage Dubai</figcaption>
+          </figure>
+          <figure className={`${q.tileImg} ${q.reelTile}`}>
+            <FacilityReel
+              className={q.reelBox}
+              src="/landing/facility-ad.mp4"
+              poster="/landing/facility-ad-poster.webp"
+              label="SafeStorage Dubai warehouse, 24/7 protected, safe, secure"
+            />
+            <figcaption>Our Dubai warehouse</figcaption>
+          </figure>
           {SHOTS.map((x) => (
-            <figure className={`${q.tileImg} ${x.big ? q.tileBig : ""}`} key={x.src}>
-              <Image
-                src={x.src}
-                alt={x.alt}
-                fill
-                sizes={x.big ? "(max-width: 920px) 100vw, 58vw" : "(max-width: 920px) 100vw, 40vw"}
-                style={x.pos ? { objectPosition: x.pos } : undefined}
-              />
+            <figure className={q.tileImg} key={x.src}>
+              <Image src={x.src} alt={x.alt} fill sizes="(max-width: 680px) 62vw, (max-width: 1100px) 30vw, 19vw" />
               <figcaption>{x.t}</figcaption>
             </figure>
           ))}
