@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Award, Barcode, Boxes, CalendarDays, Camera, Clock, Droplets, Lock, ShieldCheck, Snowflake, Star, Truck, UserCheck, Users, Video, Wind, Zap } from "lucide-react"
+import { Award, Barcode, Bike, Boxes, Bug, Building2, CalendarDays, Camera, Check, Clock, Droplet, Droplets, FileText, Home, Lock, MapPin, Package, ShieldCheck, Snowflake, Star, Truck, User, UserCheck, UserRound, Users, Video, Warehouse, Wind, X, Zap } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
+import { WHY_ART } from "@/components/landing/why-art"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import { env } from "@/lib/env"
@@ -37,21 +38,40 @@ const FACTS = [
 ]
 
 
+// "Why SafeStorage" cards — same eight as safestorage.in/storage-quote, same order, with the
+// illustration for each from components/landing/why-art.ts (index-matched).
 const WHY = [
-  { Icon: Camera, t: "CCTV monitoring", d: "24×7 surveillance at our facilities" },
-  { Icon: Snowflake, t: "Climate controlled", d: "Indoor units, standard on every booking" },
-  { Icon: Wind, t: "Pest control", d: "Regular professional treatment" },
-  { Icon: Droplets, t: "Clean, dry units", d: "Moisture-free, well-maintained spaces" },
+  { Icon: Video, t: "CCTV monitoring", d: "24×7 surveillance at our facilities" },
+  { Icon: Bug, t: "Pest control", d: "Regular and professional treatment" },
+  { Icon: Droplet, t: "Clean, dry units", d: "Moisture-free and well-maintained spaces" },
   { Icon: Lock, t: "Secure access", d: "Controlled and authorised entry only" },
-  { Icon: Barcode, t: "Barcoded inventory", d: "Every item logged when it reaches us" },
-  { Icon: Clock, t: "Flexible plans", d: "Store for as little as a month" },
-  { Icon: UserCheck, t: "Dedicated manager", d: "One point of contact from pickup to return" },
+  { Icon: Package, t: "Packing materials", d: "High-quality boxes, wraps and more" },
+  { Icon: Truck, t: "Doorstep pickup", d: "We pick up and deliver back to you" },
+  { Icon: CalendarDays, t: "Flexible plans", d: "Store for as little as a month" },
+  { Icon: UserRound, t: "Dedicated manager", d: "A single point of contact for a smooth experience" },
 ]
 
 const SHOTS = [
   { src: "/organized-warehouse-space.webp", t: "Organised warehouse storage", alt: "Organised pallet racking inside a SafeStorage warehouse", big: true },
   { src: "/landing/secure-storage-hero-v2.webp", t: "Monitored unit access", alt: "CCTV and controlled access at a SafeStorage facility", pos: "30% center" },
   { src: "/landing/warehouse-storage-hero-v2.webp", t: "Careful pickup and handling", alt: "SafeStorage team loading a truck at the warehouse", pos: "40% center" },
+]
+
+const SERVICES = [
+  { Icon: Home, t: "Household Storage", d: "Furniture, appliances and full homes, kept safe.", img: "/landing/household-hero-v2.webp", pos: "60% center" },
+  { Icon: Warehouse, t: "Self Storage", d: "Your own space, secured and monitored.", img: "/landing/svc-self-hero.webp", pos: "center 35%" },
+  { Icon: Bike, t: "Bike Storage", d: "Motorbikes stored covered and CCTV-monitored.", img: "/landing/motorbike-storage-hero.webp", pos: "35% center" },
+  { Icon: FileText, t: "Document Storage", d: "Archives and records, organised for easy retrieval.", img: "/landing/svc-document.webp", pos: "center 40%" },
+  { Icon: Building2, t: "Business Storage", d: "Inventory, files and office assets for your business.", img: "/landing/svc-business-hero.webp", pos: "55% center" },
+]
+
+const COMPARE = [
+  { Icon: Lock, t: "Security", us: "24/7 CCTV + Biometric + Barcode", them: "Lock & key only" },
+  { Icon: Bug, t: "Pest Control", us: "Regular fumigation included", them: "Rarely done" },
+  { Icon: Truck, t: "Pickup & Delivery", us: "Hassle-free door-to-door service", them: "Self-transport" },
+  { Icon: CalendarDays, t: "Minimum Duration", us: "1 month (flexible)", them: "6-12 month lock-in" },
+  { Icon: Package, t: "Item Tracking", us: "Barcode per item", them: "No tracking" },
+  { Icon: ShieldCheck, t: "Insurance", us: "Available (Free)", them: "Rarely offered" },
 ]
 
 const FAC_POINTS = [
@@ -180,6 +200,34 @@ export default function StorageQuotePage() {
         <LandingSteps ctaHref="#quote" showMore={false} />
       </div>
 
+      <section className={`${q.wide} ${q.sec}`} id="services">
+        <div className={q.secHead}>
+          <span className={s.howEyebrow}>Our services</span>
+          <h2>Discover our range of storage services</h2>
+          <p>Flexible, secure and convenient storage for every need.</p>
+        </div>
+
+        <div className={q.svcGrid}>
+          {SERVICES.map(({ Icon, t, d, img, pos }) => (
+            <article className={q.svc} key={t}>
+              <div className={q.svcImg}>
+                <Image src={img} alt={`${t} in Dubai`} fill sizes="(max-width: 560px) 100vw, (max-width: 1100px) 33vw, 20vw" style={{ objectPosition: pos }} />
+                <span className={q.svcIcon}>
+                  <Icon aria-hidden="true" />
+                </span>
+              </div>
+              <div className={q.svcBody}>
+                <h3>{t}</h3>
+                <p>{d}</p>
+                <a className={q.svcCta} href="#quote">
+                  Get Quote <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className={`${q.wide} ${q.sec}`}>
         <div className={q.secHead}>
           <span className={s.howEyebrow}>Our facilities</span>
@@ -212,22 +260,76 @@ export default function StorageQuotePage() {
         </ul>
       </section>
 
-      <section className={`${q.wide} ${q.sec}`}>
-        <div className={q.secHead}>
-          <span className={q.eyebrow}>Why SafeStorage</span>
+      <section className={`${q.wide} ${q.sec} ${q.whySec}`}>
+        <div className={q.whyHead}>
+          <div className={q.eyeWrap}>
+            <i className={q.ln} />
+            <span className={q.eyePill}>
+              <Package aria-hidden="true" /> WHY SAFESTORAGE
+            </span>
+            <i className={`${q.ln} ${q.lnr}`} />
+          </div>
           <h2>Built to keep your things safe</h2>
+          <p>The same high standards whether it&apos;s a few boxes or a full home.</p>
         </div>
-        <ul className={q.why}>
-          {WHY.map(({ Icon, t, d }) => (
-            <li key={t}>
-              <Icon aria-hidden="true" />
-              <div>
+
+        <ul className={q.wGrid}>
+          {WHY.map(({ Icon, t, d }, i) => (
+            <li className={q.wCard} key={t}>
+              <div className={q.wText}>
+                <span className={q.wIcon}>
+                  <Icon aria-hidden="true" />
+                </span>
                 <b>{t}</b>
-                <span>{d}</span>
+                <small>{d}</small>
               </div>
+              <div className={q.wArt} aria-hidden="true" dangerouslySetInnerHTML={{ __html: WHY_ART[i] }} />
             </li>
           ))}
         </ul>
+
+        <div className={q.wStats}>
+          <div>
+            <Star aria-hidden="true" />
+            <span><b>4.9</b>Google rating globally</span>
+          </div>
+          <div>
+            <User aria-hidden="true" />
+            <span><b>10,000+</b>Google reviews</span>
+          </div>
+          <div>
+            <MapPin aria-hidden="true" />
+            <span><b>Dubai</b>Door-to-door pickup &amp; delivery</span>
+          </div>
+        </div>
+      </section>
+
+      <section className={`${q.wide} ${q.sec}`} id="compare">
+        <div className={q.whyHead}>
+          <span className={s.howEyebrow}>Compare</span>
+          <h2>Why SafeStorage</h2>
+          <p>SafeStorage vs a traditional warehouse.</p>
+        </div>
+        <div className={q.cxScroll}>
+          <table className={q.cx}>
+            <thead>
+              <tr>
+                <th scope="col"><span className={q.vh}>Feature</span></th>
+                <th scope="col" className={q.cxh}>SafeStorage <em>Best value</em></th>
+                <th scope="col" className={q.cxh2}>Traditional warehouse</th>
+              </tr>
+            </thead>
+            <tbody>
+              {COMPARE.map(({ Icon, t, us, them }) => (
+                <tr key={t}>
+                  <th scope="row"><span className={q.cxt}><Icon aria-hidden="true" /></span>{t}</th>
+                  <td><div className={q.cxc}><span className={`${q.cxi} ${q.cxy}`}><Check aria-hidden="true" /></span><span>{us}</span></div></td>
+                  <td><div className={q.cxc}><span className={`${q.cxi} ${q.cxn}`}><X aria-hidden="true" /></span><span>{them}</span></div></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <LandingReviews padTop={72} reviewCount="10,000+" />
