@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Barcode, CalendarDays, Camera, Clock, Droplets, Lock, ShieldCheck, Snowflake, Truck, UserCheck, Wind, Zap } from "lucide-react"
@@ -7,6 +8,8 @@ import { LandingReviews } from "@/components/landing/landing-reviews"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import { env } from "@/lib/env"
 import s from "@/components/landing/landing.module.css"
+import f from "@/components/landing/home-fx.module.css"
+import HomeReveal from "@/components/landing/home-reveal"
 import q from "@/components/landing/storage-quote.module.css"
 
 // Quick lead form, the Dubai twin of safestorage.in/storage-quote. It is a
@@ -35,11 +38,12 @@ const FACTS = [
   { v: "15 min", l: "Average response time" },
 ]
 
+// Same four steps, words and emoji as the homepage's HomeSteps, so the animation reads the same.
 const STEPS = [
-  { t: "Book online", d: "Tell us what you are storing and pick a pickup date. It takes under two minutes." },
-  { t: "Doorstep pickup", d: "Our team arrives at your door, wraps what needs wrapping and loads everything for you." },
-  { t: "Secure storage", d: "Kept in a clean, CCTV-monitored, pest-controlled facility until you need it back." },
-  { t: "Return on demand", d: "Ask for one box or everything back, delivered to your door whenever you are ready." },
+  { emoji: "📱", t: "Book Online", d: "Tell us what you are storing and pick a pickup date. It takes under two minutes." },
+  { emoji: "🚚", t: "Doorstep Pickup", d: "Our team arrives anywhere in Dubai, wraps what needs wrapping and loads everything for you." },
+  { emoji: "🏬", t: "Secure Storage", d: "Kept in a clean, climate-controlled, CCTV-monitored facility, catalogued item by item." },
+  { emoji: "📦", t: "Return on Demand", d: "Ask for one box or everything back, delivered to your door whenever you are ready." },
 ]
 
 const WHY = [
@@ -168,20 +172,39 @@ export default function StorageQuotePage() {
         </div>
       </div>
 
-      <section className={`${q.wide} ${q.sec}`}>
-        <div className={q.secHead}>
-          <span className={q.eyebrow}>How it works</span>
-          <h2>Storage made simple</h2>
-          <p>From doorstep pickup to secure storage and return, we handle the truck, the lifting and the paperwork.</p>
+      <section className={`${q.wide} ${q.sec}`} id="how-it-works">
+        <div className={s.howHead}>
+          <div>
+            <span className={s.howEyebrow}>How it works</span>
+            <h2>
+              Storage made <em>completely effortless.</em>
+            </h2>
+          </div>
+          <p>
+            From doorstep pickup to secure storage and return, we handle the truck, the lifting and the paperwork.
+          </p>
         </div>
-        <div className={q.steps}>
+
+        <HomeReveal className={`${f.stepGrid} ${f.in}`}>
           {STEPS.map((x, i) => (
-            <div className={q.step} key={x.t}>
-              <span className={q.num}>0{i + 1}</span>
+            <article className={f.stepCard} key={x.t} style={{ ["--i" as string]: i } as CSSProperties}>
+              <span className={f.stepEmoji} aria-hidden="true">
+                {x.emoji}
+              </span>
+              <span className={f.stepNum} aria-hidden="true">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <h3>{x.t}</h3>
               <p>{x.d}</p>
-            </div>
+            </article>
           ))}
+        </HomeReveal>
+
+        <div className={s.howCta}>
+          <span>Ready to get started?</span>
+          <a className={`${s.btn} ${s.btnAccent}`} href="#quote">
+            Get a Free Quote →
+          </a>
         </div>
       </section>
 
