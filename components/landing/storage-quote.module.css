@@ -1290,3 +1290,12 @@
   .reelRow::-webkit-scrollbar { display: none; }
   .reelRow > * { scroll-snap-align: start; }
 }
+
+/* ---- accessibility: WCAG AA contrast (4.5:1) for orange-on-white pairs on this page ---- */
+.root.root { --accent-aa: #c9420f; }
+.root.root .heroCta, .root.root .endBtn, .root.root [class*="btnAccent"] { background: var(--accent-aa); }
+.root.root .svcCta { color: #b23a0b; }
+.root.root .svc:hover .svcCta { background: var(--accent-aa); color: #fff; }
+.root.root [class*="revName"] { color: #b23a0b; }
+.root.root [class*="faqItem"] summary h3 { color: #b23a0b; }
+.endText span { color: #2f6a2b; }
