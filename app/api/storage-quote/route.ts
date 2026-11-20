@@ -12,14 +12,14 @@
 // LEO_DRY_RUN=1 skips every write (used for local testing).
 import { NextResponse, after } from "next/server"
 import { clientIp } from "@/lib/client-ip"
-import { createQuote, isDryRun, postFormText, tooMany } from "@/lib/leo-quote"
+import { createQuote, getEmirates, isDryRun, postFormText, tooMany } from "@/lib/leo-quote"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 export const maxDuration = 60
 
 const str = (v: unknown, max = 300) => (typeof v === "string" ? v.trim().replace(/\s+/g, " ").slice(0, max) : "")
-const EMIRATES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"]
+const EMIRATES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman"] // fallback only; the live list is ss_city (AE) via getEmirates()
 const FLOOR_MAP: Record<string, string> = {
   ground: "ground", basement: "basement", "above 10": ">10",
   "1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "6": "6", "7": "7", "8": "8", "9": "9", "10": "10",
@@ -58,7 +58,8 @@ export async function POST(request: Request) {
   if (digits.startsWith("00971")) digits = digits.slice(5)
   else if (digits.startsWith("971")) digits = digits.slice(3)
   else if (digits.startsWith("0")) digits = digits.slice(1)
-  const emirate = EMIRATES.find((e) => e.toLowerCase() === str(b.emirate, 40).toLowerCase())
+  const live = await getEmirates().then((l) => l.map((e) => e.name)).catch(() => EMIRATES)
+  const emirate = (live.length ? live : EMIRATES).find((e) => e.toLowerCase() === str(b.emirate, 40).toLowerCase())
   const area = str(b.area, 150)
   const floor = FLOOR_MAP[str(b.floor, 20).toLowerCase()]
   const lift = str(b.lift, 5).toLowerCase()

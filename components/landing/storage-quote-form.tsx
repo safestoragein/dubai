@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ArrowRight, Building2, CalendarDays, CheckCircle2, ChevronDown, Mail, MapPin, Phone, ShieldCheck, User, ArrowUpDown } from "lucide-react"
 import { env } from "@/lib/env"
 import { getAdAttribution } from "@/lib/ad-attribution"
@@ -22,7 +22,7 @@ import q from "./storage-quote.module.css"
  * /api/save-partial-lead (the route /get-quote uses).
  * ------------------------------------------------------------------ */
 
-const EMIRATES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"]
+const EMIRATES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman"]
 const FLOORS = ["Ground", "Basement", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Above 10"]
 
 type Field = "name" | "mobile" | "email" | "emirate" | "area" | "floor" | "lift"
@@ -38,6 +38,18 @@ function uaeMobile(raw: string): string | null {
 }
 
 export default function StorageQuoteForm() {
+  // Emirates come from ss_city (country AE) so the list follows what the business has switched on;
+  // the static list only shows until that answers (or if it fails).
+  const [emirates, setEmirates] = useState<string[]>(EMIRATES)
+  useEffect(() => {
+    fetch("/api/leo/emirates")
+      .then((r) => r.json())
+      .then((j: { emirates?: { name: string }[]; data?: { name: string }[] }) => {
+        const list = (j.emirates || j.data || []).map((e) => e.name).filter(Boolean)
+        if (list.length) setEmirates(list)
+      })
+      .catch(() => {})
+  }, [])
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle")
   const partialSent = useRef(false)
@@ -220,7 +232,7 @@ export default function StorageQuoteForm() {
               <option value="" disabled>
                 Select your emirate
               </option>
-              {EMIRATES.map((c) => (
+              {emirates.map((c) => (
                 <option key={c}>{c}</option>
               ))}
             </select>
