@@ -322,7 +322,7 @@ export default function StorageQuotePage() {
           </div>
           <div>
             <MapPin aria-hidden="true" />
-            <span><b>Dubai</b>Door-to-door pickup &amp; delivery</span>
+            <span><b>UAE</b>Pickup &amp; delivery across the UAE</span>
           </div>
         </div>
       </section>

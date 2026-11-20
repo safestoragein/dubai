@@ -1299,3 +1299,11 @@
 .root.root [class*="revName"] { color: #b23a0b; }
 .root.root [class*="faqItem"] summary h3 { color: #b23a0b; }
 .endText span { color: #2f6a2b; }
+
+/* swipe-row tiles must fill their column (aspect-ratio was shrinking them, leaving big gaps) */
+@media (max-width: 680px) {
+  .reelRow { align-items: stretch; justify-items: stretch; gap: 10px; }
+  .reelRow > .tileImg { width: 100%; min-width: 0; height: auto; }
+  .reelRow .tileImg figcaption { white-space: normal; font-size: 13px; }
+}
+.cx em { background: rgba(60, 20, 5, 0.38); }
