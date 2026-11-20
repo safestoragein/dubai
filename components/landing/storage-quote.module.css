@@ -658,3 +658,71 @@
 .root.root .heroGrid { min-height: 0; }
 .root.root .photo { height: clamp(280px, calc(100svh - 104px - 330px), 440px); }
 .root.root .barWrap { padding: 18px 0 20px; }
+
+/* ---- v4: form-first hero, full-width page ---- */
+.root.root .wide,
+.root.root #reviews {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.root.root .hero { padding: 40px 0 36px; }
+.topRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px 48px;
+  margin-bottom: 26px;
+}
+.root.root .copy h1 {
+  font-size: clamp(34px, 4.2vw, 58px);
+  margin: 0 0 10px;
+  white-space: nowrap;
+}
+.root.root .lede { max-width: none; font-size: 18px; margin: 0; }
+.root.root .ctaNote { display: inline-block; margin: 0 0 0 10px; font-size: 15px; }
+.root.root .trust { margin: 0; flex: none; }
+.root.root .bar { padding: 22px 36px 26px; border-radius: 24px; }
+.root.root .stepper { margin-bottom: 20px; }
+.root.root .fields { gap: 22px; }
+.root.root .field input,
+.root.root .field select,
+.root.root .submit { height: 56px; }
+.root.root .field label { font-size: 15px; }
+.root.root .submit { padding: 0 36px; font-size: 17.5px; }
+.root.root .assure { margin-top: 20px; }
+.root.root .cols4 { grid-template-columns: 1.2fr 1.2fr 1.2fr auto; }
+.root.root .cols5 { grid-template-columns: 1.4fr 1.2fr 0.8fr 0.8fr auto; }
+
+@media (max-width: 1100px) {
+  .topRow { flex-direction: column; align-items: flex-start; }
+  .root.root .copy h1 { white-space: normal; }
+}
+@media (max-width: 920px) {
+  .root.root .cols4 { grid-template-columns: 1fr 1fr; }
+  .root.root .cols5 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .root.root .wide,
+  .root.root #reviews { padding-left: 18px; padding-right: 18px; }
+  .root.root .bar { padding: 18px 16px 22px; }
+  .root.root .cols4,
+  .root.root .cols5 { grid-template-columns: 1fr; }
+  .root.root .ctaNote { display: block; margin: 6px 0 0; }
+  .root.root .trust { flex-wrap: wrap; }
+}
+
+/* shared landing sections render their own 1180 wrapper — widen them to match the page */
+.root.root section[id="reviews"] {
+  max-width: 1440px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.root.root [class*="faqList"] {
+  max-width: 1100px;
+}
+@media (max-width: 560px) {
+  .root.root section[id="reviews"] { padding-left: 18px; padding-right: 18px; }
+}

@@ -90,67 +90,49 @@ export default function StorageQuotePage() {
   return (
     <div className={`${s.page} ${q.root} ${sora.variable} ${manrope.variable}`}>
       <section className={q.hero} id="top">
-        <div className={s.wrap}>
-          <div className={q.heroGrid}>
+        <div className={q.wide}>
+          <div className={q.topRow}>
             <div className={q.copy}>
               <div className={q.kicker}>Storage, made simple</div>
               <h1>More room for what matters.</h1>
-              <p className={q.lede}>We pick up, securely store, and return your belongings when you need them.</p>
-              <div className={q.ctaRow}>
-                <a className={`${s.btn} ${s.btnAccent} ${q.cta}`} href="#quote">
-                  Get my free quote →
-                </a>
-              </div>
-              <span className={q.ctaNote}>No obligation · Reply within 15 minutes</span>
-
-              <div className={q.trust}>
-                <div className={q.trustItem}>
-                  <GoogleG />
-                  <span>
-                    <b>4.9/5</b> on Google ·<br />6,700+ reviews
-                  </span>
-                </div>
-                <div className={q.trustItem}>
-                  <ShieldCheck strokeWidth={1.6} aria-hidden="true" />
-                  <span>
-                    <b>CCTV</b>
-                    <br />
-                    monitored
-                  </span>
-                </div>
-                <div className={q.trustItem}>
-                  <CalendarDays strokeWidth={1.6} aria-hidden="true" />
-                  <span>
-                    <b>Serving UAE</b>
-                    <br />
-                    since 2015
-                  </span>
-                </div>
-              </div>
+              <p className={q.lede}>
+                We pick up, securely store, and return your belongings when you need them.{" "}
+                <span className={q.ctaNote}>No obligation · Reply within 15 minutes</span>
+              </p>
             </div>
 
-            <div className={q.photo}>
-              <Image
-                src="/landing/household-hero-v2.webp"
-                alt="SafeStorage crew wrapping a sofa for pickup in a Dubai home"
-                fill
-                priority
-                sizes="(max-width: 920px) 100vw, 55vw"
-              />
-              <div className={q.gBadge}>
-                <GoogleG /> 4.9/5
+            <div className={q.trust}>
+              <div className={q.trustItem}>
+                <GoogleG />
+                <span>
+                  <b>4.9/5</b> on Google ·<br />6,700+ reviews
+                </span>
+              </div>
+              <div className={q.trustItem}>
+                <ShieldCheck strokeWidth={1.6} aria-hidden="true" />
+                <span>
+                  <b>CCTV</b>
+                  <br />
+                  monitored
+                </span>
+              </div>
+              <div className={q.trustItem}>
+                <CalendarDays strokeWidth={1.6} aria-hidden="true" />
+                <span>
+                  <b>Serving UAE</b>
+                  <br />
+                  since 2015
+                </span>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className={`${s.wrap} ${q.barWrap}`}>
           <StorageQuoteForm />
         </div>
       </section>
 
       <div className={q.facts}>
-        <div className={`${s.wrap} ${q.factsGrid}`}>
+        <div className={`${q.wide} ${q.factsGrid}`}>
           {FACTS.map((x) => (
             <div className={q.fact} key={x.l}>
               <strong>{x.v}</strong>
@@ -160,7 +142,7 @@ export default function StorageQuotePage() {
         </div>
       </div>
 
-      <section className={`${s.wrap} ${q.sec}`}>
+      <section className={`${q.wide} ${q.sec}`}>
         <div className={q.secHead}>
           <span className={q.eyebrow}>How it works</span>
           <h2>Storage made simple</h2>
@@ -177,7 +159,7 @@ export default function StorageQuotePage() {
         </div>
       </section>
 
-      <section className={`${s.wrap} ${q.sec}`}>
+      <section className={`${q.wide} ${q.sec}`}>
         <div className={q.secHead}>
           <span className={q.eyebrow}>Our facilities</span>
           <h2>Take a look inside</h2>
@@ -197,7 +179,7 @@ export default function StorageQuotePage() {
         </div>
       </section>
 
-      <section className={`${s.wrap} ${q.sec}`}>
+      <section className={`${q.wide} ${q.sec}`}>
         <div className={q.secHead}>
           <span className={q.eyebrow}>Why SafeStorage</span>
           <h2>Built to keep your things safe</h2>
@@ -217,7 +199,7 @@ export default function StorageQuotePage() {
 
       <LandingReviews padTop={72} />
 
-      <section className={`${s.wrap} ${q.faqSec}`}>
+      <section className={`${q.wide} ${q.faqSec}`}>
         <div className={q.secHead}>
           <span className={q.eyebrow}>Good to know</span>
           <h2>Quick answers</h2>
