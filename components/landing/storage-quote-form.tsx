@@ -118,13 +118,12 @@ export default function StorageQuoteForm() {
       <h2>Get your storage quote</h2>
       <p className={q.cardSub}>We will call you back shortly.</p>
 
-      <div className={f("name")}>
-        <label htmlFor="sq-name">Your name</label>
-        <input id="sq-name" name="name" autoComplete="name" placeholder="Enter your name" />
-        <div className={q.err}>{errors.name}</div>
-      </div>
-
       <div className={q.row}>
+        <div className={f("name")}>
+          <label htmlFor="sq-name">Your name</label>
+          <input id="sq-name" name="name" autoComplete="name" placeholder="Enter your name" />
+          <div className={q.err}>{errors.name}</div>
+        </div>
         <div className={f("mobile")}>
           <label htmlFor="sq-mobile">Mobile number</label>
           <div className={q.phone}>
@@ -133,14 +132,14 @@ export default function StorageQuoteForm() {
           </div>
           <div className={q.err}>{errors.mobile}</div>
         </div>
+      </div>
+
+      <div className={q.row}>
         <div className={f("email")}>
           <label htmlFor="sq-email">Email</label>
           <input id="sq-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" />
           <div className={q.err}>{errors.email}</div>
         </div>
-      </div>
-
-      <div className={q.row}>
         <div className={f("emirate")}>
           <label htmlFor="sq-emirate">Emirate</label>
           <select id="sq-emirate" name="emirate" defaultValue="">
@@ -153,19 +152,19 @@ export default function StorageQuoteForm() {
           </select>
           <div className={q.err}>{errors.emirate}</div>
         </div>
-        <div className={f("area")}>
-          <label htmlFor="sq-area">Pickup area</label>
-          <input id="sq-area" name="area" autoComplete="address-level2" placeholder="e.g. Marina, Al Nahda" />
-          <div className={q.err}>{errors.area}</div>
-        </div>
       </div>
 
-      <div className={q.row}>
+      <div className={`${q.row} ${q.row3}`}>
+        <div className={f("area")}>
+          <label htmlFor="sq-area">Pickup area</label>
+          <input id="sq-area" name="area" autoComplete="address-level2" placeholder="e.g. Marina" />
+          <div className={q.err}>{errors.area}</div>
+        </div>
         <div className={f("floor")}>
           <label htmlFor="sq-floor">Floor</label>
           <select id="sq-floor" name="floor" defaultValue="">
             <option value="" disabled>
-              Select floor
+              Select
             </option>
             {FLOORS.map((c) => (
               <option key={c}>{c}</option>
@@ -174,7 +173,7 @@ export default function StorageQuoteForm() {
           <div className={q.err}>{errors.floor}</div>
         </div>
         <div className={f("lift")}>
-          <label htmlFor="sq-lift">Lift available?</label>
+          <label htmlFor="sq-lift">Lift?</label>
           <select id="sq-lift" name="lift" defaultValue="">
             <option value="" disabled>
               Select

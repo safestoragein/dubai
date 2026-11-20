@@ -24,12 +24,10 @@ export const metadata: Metadata = {
 }
 
 const CHECKS = [
-  "Free doorstep pickup & delivery",
+  "Free doorstep pickup",
   "CCTV monitored, 24×7",
-  "Climate-controlled indoor units",
+  "Climate-controlled units",
   "No lock-in, month to month",
-  "Barcoded inventory of your items",
-  "Callback in about 15 minutes",
 ]
 
 const STATS = [
@@ -122,7 +120,6 @@ export default function StorageQuotePage() {
 
           <StorageQuoteForm />
         </div>
-      </section>
 
       <div className={`${s.wrap} ${q.statsWrap}`}>
         <div className={q.stats}>
@@ -134,6 +131,7 @@ export default function StorageQuotePage() {
           ))}
         </div>
       </div>
+      </section>
 
       <section className={`${s.wrap} ${q.sec}`}>
         <div className={q.secHead}>

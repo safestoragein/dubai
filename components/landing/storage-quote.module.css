@@ -7,13 +7,17 @@
     linear-gradient(160deg, rgba(26, 35, 66, 0.94) 0%, rgba(37, 49, 90, 0.88) 55%, rgba(26, 35, 66, 0.82) 100%),
     url("/landing/warehouse-storage-hero-v2.webp") center / cover no-repeat;
   color: #fff;
-  padding: 56px 0 120px;
+  padding: 28px 0 0;
+  min-height: calc(100svh - 104px);
+  display: flex;
+  flex-direction: column;
 }
 .heroGrid {
+  flex: 1;
+  align-items: center !important;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: 48px;
-  align-items: start;
+  gap: 56px;
 }
 .eyebrow {
   display: inline-flex;
@@ -36,11 +40,11 @@
   background: var(--accent);
 }
 .copy h1 {
-  font-size: clamp(32px, 4.6vw, 52px);
-  line-height: 1.05;
+  font-size: clamp(30px, 3.5vw, 46px);
+  line-height: 1.08;
   font-weight: 800;
   letter-spacing: -0.025em;
-  margin: 18px 0 16px;
+  margin: 0 0 14px;
   color: #fff;
 }
 .copy h1 em {
@@ -48,11 +52,11 @@
   color: var(--accent-tint);
 }
 .lede {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.82);
-  max-width: 520px;
-  margin-bottom: 26px;
+  color: rgba(255, 255, 255, 0.84);
+  max-width: 500px;
+  margin: 0 0 22px;
 }
 .chips {
   display: flex;
@@ -78,19 +82,21 @@
   flex: none;
 }
 .callRow {
-  margin-top: 4px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+  display: inline-flex;
   align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.85);
 }
 .callRow a {
   color: #fff;
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 15px;
 }
 
 /* ---- form card ---- */
@@ -98,29 +104,32 @@
   background: var(--paper);
   color: var(--ink);
   border-radius: 22px;
-  padding: 30px 28px 26px;
+  padding: 24px 24px 20px;
   box-shadow: 0 30px 70px -20px rgba(8, 14, 36, 0.55);
 }
 .card h2 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin: 0 0 4px;
+  margin: 0 0 2px;
   color: var(--navy);
 }
 .cardSub {
   color: var(--muted);
-  font-size: 13.5px;
-  margin: 0 0 20px;
+  font-size: 13px;
+  margin: 0 0 14px;
 }
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 14px;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.row3 {
+  grid-template-columns: 1.25fr 1fr 1fr;
 }
 .field {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .row .field {
   margin-bottom: 0;
@@ -132,17 +141,17 @@
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 .field input,
 .field select {
   width: 100%;
-  padding: 12px 14px;
+  padding: 10px 12px;
   border: 1.5px solid var(--line);
   border-radius: 11px;
   background: var(--cream);
   font-family: var(--font-manrope), "Manrope", sans-serif;
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--ink);
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
@@ -339,9 +348,6 @@
   }
 }
 @media (max-width: 560px) {
-  .hero {
-    padding: 36px 0 48px;
-  }
   .row {
     grid-template-columns: 1fr;
   }
@@ -361,8 +367,8 @@
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  padding: 12px 18px;
-  margin-bottom: 22px;
+  padding: 9px 16px;
+  margin-bottom: 18px;
   border-radius: 16px;
   background: #fff;
   color: var(--ink);
@@ -370,7 +376,7 @@
 }
 .rating strong {
   font-family: var(--font-sora), "Sora", sans-serif;
-  font-size: 30px;
+  font-size: 26px;
   line-height: 1;
   color: var(--navy);
 }
@@ -402,19 +408,20 @@
 .checks {
   list-style: none;
   padding: 0;
-  margin: 0 0 26px;
+  margin: 0 0 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 18px;
-  max-width: 520px;
+  gap: 12px 20px;
+  max-width: 500px;
 }
 .checks li {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.94);
+  white-space: nowrap;
 }
 .checks svg {
   width: 18px;
@@ -427,8 +434,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin: -30px -28px 20px;
-  padding: 10px 14px;
+  margin: -24px -24px 16px;
+  padding: 9px 14px;
   border-radius: 22px 22px 0 0;
   background: linear-gradient(90deg, var(--accent), var(--accent-tint));
   color: #fff;
@@ -444,8 +451,8 @@
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  margin-top: 16px;
-  padding-top: 14px;
+  margin-top: 12px;
+  padding-top: 11px;
   border-top: 1px dashed var(--line);
 }
 .assure span {
@@ -464,22 +471,21 @@
 }
 
 .statsWrap {
-  margin-top: -64px;
-  position: relative;
-  z-index: 2;
+  margin-top: 22px;
+  padding-bottom: 22px;
 }
 .stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  background: var(--paper);
-  border-radius: 22px;
-  box-shadow: 0 24px 60px -24px rgba(26, 35, 66, 0.35);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
 }
 .stat {
-  padding: 24px 18px;
+  padding: 12px 14px;
   text-align: center;
-  border-right: 1px solid var(--line);
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
 }
 .stat:last-child {
   border-right: 0;
@@ -487,19 +493,19 @@
 .stat strong {
   display: block;
   font-family: var(--font-sora), "Sora", sans-serif;
-  font-size: clamp(24px, 3vw, 34px);
+  font-size: clamp(20px, 2.2vw, 26px);
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--navy);
+  color: #fff;
 }
 .stat strong em {
   font-style: normal;
-  color: var(--accent);
+  color: var(--accent-tint);
 }
 .stat span {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .gallery {
@@ -549,6 +555,9 @@
   padding-top: 64px;
 }
 @media (max-width: 920px) {
+  .hero {
+    min-height: 0;
+  }
   .stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -556,7 +565,7 @@
     border-right: 0;
   }
   .stat:nth-child(-n + 2) {
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   }
   .gallery {
     grid-template-columns: 1fr 1fr;
@@ -566,11 +575,17 @@
   }
 }
 @media (max-width: 560px) {
-  .hero {
-    padding-bottom: 96px;
-  }
   .checks {
     grid-template-columns: 1fr;
+  }
+  .checks li {
+    white-space: normal;
+  }
+  .row3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .row3 > :first-child {
+    grid-column: 1 / -1;
   }
   .badge {
     margin: -24px -18px 18px;
@@ -584,7 +599,15 @@
   .shot {
     min-height: 200px;
   }
-  .statsWrap {
-    margin-top: -48px;
-  }
+}
+
+/* hero rhythm + full-width stat strip (the hero is a flex column, so auto-margin wraps shrink) */
+.statsWrap {
+  width: 100%;
+}
+.copy .lede {
+  margin: 0 0 24px;
+}
+.copy .checks {
+  margin: 0 0 26px;
 }
