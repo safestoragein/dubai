@@ -158,22 +158,7 @@ export default function StorageQuoteForm() {
     if (Object.keys(next).length) return
 
     setStatus("sending")
-    // Like safestorage.in: the server answers as soon as the details check out and builds the customer +
-    // quotation in the background. If even that answer is slow, go to the thank-you page anyway
-    // (keepalive lets the request finish after we leave).
-    let gone = false
-    const leave = () => {
-      if (gone) return
-      gone = true
-      try {
-        sessionStorage.setItem("ssl_name", v("name"))
-      } catch {
-        /* ignore */
-      }
-      ;(window as unknown as { dataLayer?: unknown[] }).dataLayer?.push({ event: "storage_quote_submit", form: "storage-quote" })
-      window.location.href = "/thank-you"
-    }
-    const slow = window.setTimeout(leave, 3500)
+    // The server answers once the quotation exists and hands back a signed pass; /thank-you only opens with it.
     try {
       const res = await fetch("/api/storage-quote", {
         method: "POST",
@@ -193,15 +178,23 @@ export default function StorageQuoteForm() {
           attribution: getAdAttribution(),
         }),
       })
-      const j = (await res.json().catch(() => ({}))) as { status?: string; field?: Field; message?: string }
-      window.clearTimeout(slow)
-      if (j.status === "ok") return leave()
-      if (gone) return
+      const j = (await res.json().catch(() => ({}))) as { status?: string; pass?: string; field?: Field; message?: string }
+      ;(window as unknown as { dataLayer?: unknown[] }).dataLayer?.push({ event: "storage_quote_submit", form: "storage-quote" })
+      if (j.status === "ok" && j.pass) {
+        try {
+          sessionStorage.setItem("ssl_name", v("name"))
+        } catch {
+          /* ignore */
+        }
+        window.location.href = `/thank-you?t=${encodeURIComponent(j.pass)}`
+        return
+      }
+      // Saved, but no quotation/pass: confirm in place (the thank-you page is for created quotations only).
+      if (j.status === "ok" || j.status === "saved") return setStatus("ok")
       if (j.field) setErrors({ [j.field]: j.message || "Please check this field" })
       setStatus("error")
     } catch {
-      window.clearTimeout(slow)
-      if (!gone) setStatus("error")
+      setStatus("error")
     }
   }
 

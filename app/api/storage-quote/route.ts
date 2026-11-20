@@ -10,8 +10,9 @@
 // saved through the plain lead endpoint, so a submission is never lost.
 //
 // LEO_DRY_RUN=1 skips every write (used for local testing).
-import { NextResponse, after } from "next/server"
+import { NextResponse } from "next/server"
 import { clientIp } from "@/lib/client-ip"
+import { mintThankYouPass } from "@/lib/thank-you-pass"
 import { createQuote, getEmirates, isDryRun, postFormText, tooMany } from "@/lib/leo-quote"
 
 export const runtime = "nodejs"
@@ -82,37 +83,40 @@ export async function POST(request: Request) {
   const phone = `+971${digits}`
   const attribution = b.attribution
 
-  // Answer the visitor now; build the quotation after the response is sent.
-  after(async () => {
+  // Build the quotation BEFORE answering: /thank-you is only opened for a quotation that really exists,
+  // so the pass below is issued only after createQuote succeeded.
+  try {
+    const out = await createQuote({
+      name, phone, email, emirate, floor, lift,
+      bedrooms: "1 BHK",
+      address: `${area}, ${emirate}`,
+      lat,
+      lng,
+      items: DEFAULT_BASKET,
+      attribution,
+      sendEmail: false,
+    })
+    if (isDryRun()) console.log("[storage-quote] DRY RUN", JSON.stringify(out))
+    if (!out.ok) throw new Error(out.error || "quote not created")
+    const pass = mintThankYouPass(out.quotationId ?? 0)
+    // No pass (no secret configured) is not an error: the quote exists, the form shows its own confirmation.
+    return NextResponse.json({ status: "ok", pass: pass || undefined })
+  } catch (e) {
+    console.error("[storage-quote] quote failed, saving plain lead:", e)
+    if (isDryRun()) return NextResponse.json({ status: "saved" })
+    // The details must never be lost: save them as a plain lead. The visitor is told the team will call,
+    // but is NOT sent to /thank-you (no quotation exists).
     try {
-      const out = await createQuote({
-        name, phone, email, emirate, floor, lift,
-        bedrooms: "1 BHK",
-        address: `${area}, ${emirate}`,
-        lat,
-        lng,
-        items: DEFAULT_BASKET,
-        attribution,
-        sendEmail: false,
+      await postFormText("insert_customer_details_dubai", {
+        customer_name: name,
+        customer_contact1: phone,
+        customer_email: email,
+        storage_size: `Quick form (/storage-quote) — ${emirate}, ${area}; floor ${floor}; lift ${lift}`,
       })
-      if (isDryRun()) console.log("[storage-quote] DRY RUN", JSON.stringify(out))
-      if (!out.ok) throw new Error(out.error || "quote not created")
-    } catch (e) {
-      console.error("[storage-quote] quote failed, saving plain lead:", e)
-      if (isDryRun()) return
-      try {
-        await postFormText("insert_customer_details_dubai", {
-          customer_name: name,
-          customer_contact1: phone,
-          customer_email: email,
-          storage_size: `Quick form (/storage-quote) — ${emirate}, ${area}; floor ${floor}; lift ${lift}`,
-        })
-      } catch (e2) {
-        // Last resort: the server log is the only record left.
-        console.error(`[storage-quote] LEAD name=${name} phone=${phone} email=${email} emirate=${emirate} area=${area}`, e2)
-      }
+      return NextResponse.json({ status: "saved" })
+    } catch (e2) {
+      console.error(`[storage-quote] LEAD name=${name} phone=${phone} email=${email} emirate=${emirate} area=${area}`, e2)
+      return NextResponse.json({ status: "error", message: "Something went wrong. Please call us." }, { status: 502 })
     }
-  })
-
-  return NextResponse.json({ status: "ok" })
+  }
 }
