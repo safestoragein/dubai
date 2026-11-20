@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Award, Barcode, CalendarDays, Camera, Clock, Droplets, Lock, ShieldCheck, Snowflake, Star, Truck, UserCheck, Users, Wind, Zap } from "lucide-react"
+import { Award, Barcode, Boxes, CalendarDays, Camera, Clock, Droplets, Lock, ShieldCheck, Snowflake, Star, Truck, UserCheck, Users, Video, Wind, Zap } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
 import { LandingReviews } from "@/components/landing/landing-reviews"
@@ -49,9 +49,15 @@ const WHY = [
 ]
 
 const SHOTS = [
-  { src: "/landing/warehouse-storage-hero-v2.webp", t: "Clean, organised racking", d: "Every item stored with care", alt: "Organised racking inside a SafeStorage Dubai warehouse" },
-  { src: "/landing/secure-storage-hero-v2.webp", t: "Secure, monitored units", d: "CCTV and controlled access", alt: "Secure storage unit at SafeStorage Dubai" },
-  { src: "/landing/warehouse-fleet.jpg", t: "Our own pickup fleet", d: "Door-to-door, handled by us", alt: "SafeStorage Dubai pickup trucks at the warehouse" },
+  { src: "/organized-warehouse-space.webp", t: "Organised warehouse storage", alt: "Organised pallet racking inside a SafeStorage warehouse", big: true },
+  { src: "/landing/secure-storage-hero-v2.webp", t: "Monitored unit access", alt: "CCTV and controlled access at a SafeStorage facility", pos: "30% center" },
+  { src: "/landing/warehouse-storage-hero-v2.webp", t: "Careful pickup and handling", alt: "SafeStorage team loading a truck at the warehouse", pos: "40% center" },
+]
+
+const FAC_POINTS = [
+  { Icon: Video, t: "CCTV monitored" },
+  { Icon: Boxes, t: "Clean, organised facility" },
+  { Icon: Truck, t: "Handled by our pickup team" },
 ]
 
 const FAQS = [
@@ -176,22 +182,34 @@ export default function StorageQuotePage() {
 
       <section className={`${q.wide} ${q.sec}`}>
         <div className={q.secHead}>
-          <span className={q.eyebrow}>Our facilities</span>
+          <span className={s.howEyebrow}>Our facilities</span>
           <h2>Take a look inside</h2>
+          <p>A closer look at where your belongings are handled and stored.</p>
         </div>
-        <div className={q.gallery}>
+
+        <div className={q.bento}>
           {SHOTS.map((x) => (
-            <figure className={q.shot} key={x.src}>
-              <div className={q.shotImg}>
-                <Image src={x.src} alt={x.alt} fill sizes="(max-width: 920px) 50vw, 380px" />
-              </div>
-              <figcaption>
-                {x.t}
-                <small>{x.d}</small>
-              </figcaption>
+            <figure className={`${q.tileImg} ${x.big ? q.tileBig : ""}`} key={x.src}>
+              <Image
+                src={x.src}
+                alt={x.alt}
+                fill
+                sizes={x.big ? "(max-width: 920px) 100vw, 58vw" : "(max-width: 920px) 100vw, 40vw"}
+                style={x.pos ? { objectPosition: x.pos } : undefined}
+              />
+              <figcaption>{x.t}</figcaption>
             </figure>
           ))}
         </div>
+
+        <ul className={q.facPoints}>
+          {FAC_POINTS.map(({ Icon, t }) => (
+            <li key={t}>
+              <Icon strokeWidth={1.6} aria-hidden="true" />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className={`${q.wide} ${q.sec}`}>

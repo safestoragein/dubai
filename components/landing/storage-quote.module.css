@@ -897,3 +897,57 @@
   .root.root .fact { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
   .root.root .fact:last-child { border-bottom: 0; }
 }
+
+/* ---- facilities: bento ---- */
+.root.root .secHead { max-width: 760px; }
+.root.root .secHead h2 { font-size: clamp(32px, 4vw, 54px); font-weight: 800; letter-spacing: -0.03em; margin: 10px 0 10px; }
+.root.root .secHead p { font-size: 18px; }
+.bento {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  grid-template-rows: repeat(2, clamp(200px, 17vw, 270px));
+  gap: 16px;
+}
+.tileImg {
+  position: relative; margin: 0; overflow: hidden; border-radius: 22px; background: #14204a;
+  box-shadow: 0 14px 34px -20px rgba(20, 32, 74, 0.5);
+}
+.tileBig { grid-row: 1 / span 2; }
+.tileImg img { object-fit: cover; transition: transform 0.6s ease; }
+.tileImg:hover img { transform: scale(1.04); }
+.tileImg::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, transparent 52%, rgba(10, 16, 40, 0.82));
+}
+.tileImg figcaption {
+  position: absolute; z-index: 1; left: 22px; right: 22px; bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+  font-size: clamp(17px, 1.7vw, 24px); font-weight: 800; color: #fff; line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+.tileImg figcaption::before { content: ""; width: 4px; height: 1.4em; border-radius: 2px; background: var(--accent); flex: none; }
+.facPoints {
+  list-style: none; padding: 0; margin: 28px 0 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.facPoints li {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  padding: 8px 12px; font-size: clamp(16px, 1.5vw, 21px); font-weight: 800; color: var(--ink);
+  border-left: 1px solid #d9d3c8;
+}
+.facPoints li:first-child { border-left: 0; }
+.facPoints svg { width: 40px; height: 40px; flex: none; color: var(--accent); }
+@media (max-width: 920px) {
+  .bento { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .tileBig { grid-column: 1 / -1; grid-row: auto; height: 300px; }
+  .tileImg:not(.tileBig) { height: 220px; }
+  .facPoints { grid-template-columns: 1fr; gap: 14px; }
+  .facPoints li { justify-content: flex-start; border-left: 0; }
+}
+@media (max-width: 560px) {
+  .bento { grid-template-columns: 1fr; }
+  .tileBig { height: 240px; }
+}
+
+.root.root .facPoints { margin: 36px 0 0; }
+.root.root .secHead { max-width: 980px; }
