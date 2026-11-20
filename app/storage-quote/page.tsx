@@ -349,11 +349,13 @@ export default function StorageQuotePage() {
         <FaqAccordion items={FAQS} />
 
         <div className={q.endBand}>
-          <div>
-            <h2>Ready to get started?</h2>
-            <p>Fill in the form and our team will call you back shortly.</p>
+          <Package className={q.endIcon} strokeWidth={1.7} aria-hidden="true" />
+          <div className={q.endText}>
+            <span>Let&apos;s make space</span>
+            <h2>Ready for simpler storage?</h2>
+            <p>Request a free quote. Our team will be in touch shortly.</p>
           </div>
-          <a className={`${s.btn} ${s.btnAccent} ${q.cta}`} href="#quote">Get a free quote →</a>
+          <a className={q.endBtn} href="#quote">Get my free quote →</a>
         </div>
       </section>
     </div>

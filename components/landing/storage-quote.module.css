@@ -1092,3 +1092,24 @@
   .root.root .whyHead { margin-bottom: 22px; }
   .chip { padding: 12px 6px; font-size: 12.5px; }
 }
+
+/* ---- end band v2 ---- */
+.root.root .endBand {
+  display: flex; align-items: center; gap: 22px; margin-top: 40px; padding: 26px 32px;
+  background: #f4f1ec; border: 0; border-top: 1px solid #ddd8cf; border-radius: 18px; justify-content: flex-start;
+}
+.endIcon { width: 58px; height: 58px; flex: none; color: var(--ink); }
+.endText { flex: 1; min-width: 0; }
+.endText span { display: block; font-size: 12.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #3f7d3a; margin-bottom: 4px; }
+.root.root .endBand h2 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 4px; color: var(--ink); }
+.root.root .endBand p { font-size: 15px; margin: 0; color: var(--muted); }
+.endBtn {
+  flex: none; padding: 14px 30px; border-radius: 999px; background: var(--accent); color: #fff;
+  font-weight: 800; font-size: 16px; text-decoration: none; box-shadow: 0 12px 24px -12px rgba(238, 88, 36, 0.7); transition: transform 0.2s;
+}
+.endBtn:hover { transform: translateY(-2px); }
+@media (max-width: 680px) {
+  .root.root .endBand { flex-direction: column; align-items: flex-start; padding: 22px 20px; gap: 14px; }
+  .endIcon { width: 44px; height: 44px; }
+  .endBtn { width: 100%; text-align: center; }
+}
