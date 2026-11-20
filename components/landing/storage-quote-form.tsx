@@ -3,6 +3,7 @@
 import { useRef, useState } from "react"
 import { ArrowRight, Building2, CalendarDays, CheckCircle2, ChevronDown, Mail, MapPin, Phone, ShieldCheck, User, ArrowUpDown } from "lucide-react"
 import { env } from "@/lib/env"
+import { getAdAttribution } from "@/lib/ad-attribution"
 import s from "./landing.module.css"
 import q from "./storage-quote.module.css"
 
@@ -89,23 +90,48 @@ export default function StorageQuoteForm() {
     if (Object.keys(next).length) return
 
     setStatus("sending")
+    // Like safestorage.in: the server answers as soon as the details check out and builds the customer +
+    // quotation in the background. If even that answer is slow, go to the thank-you page anyway
+    // (keepalive lets the request finish after we leave).
+    let gone = false
+    const leave = () => {
+      if (gone) return
+      gone = true
+      try {
+        sessionStorage.setItem("ssl_name", v("name"))
+      } catch {
+        /* ignore */
+      }
+      ;(window as unknown as { dataLayer?: unknown[] }).dataLayer?.push({ event: "storage_quote_submit", form: "storage-quote" })
+      window.location.href = "/thank-you"
+    }
+    const slow = window.setTimeout(leave, 3500)
     try {
-      const res = await fetch("/api/insert-customer-details-dubai", {
+      const res = await fetch("/api/storage-quote", {
         method: "POST",
+        keepalive: true,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          customer_name: v("name"),
-          customer_contact1: `+971${mob}`,
-          customer_email: v("email"),
-          storage_type: "household",
-          storage_size: `Quick form (/storage-quote) — ${v("emirate")}, ${v("area")}; floor ${v("floor")}; lift ${v("lift")}`,
+          name: v("name"),
+          phone: `+971${mob}`,
+          email: v("email"),
+          emirate: v("emirate"),
+          area: v("area"),
+          floor: v("floor"),
+          lift: v("lift"),
+          website: v("website"),
+          attribution: getAdAttribution(),
         }),
       })
-      if (!res.ok) throw new Error(String(res.status))
-      setStatus("ok")
-      ;(window as unknown as { dataLayer?: unknown[] }).dataLayer?.push({ event: "storage_quote_submit", form: "storage-quote" })
-    } catch {
+      const j = (await res.json().catch(() => ({}))) as { status?: string; field?: Field; message?: string }
+      window.clearTimeout(slow)
+      if (j.status === "ok") return leave()
+      if (gone) return
+      if (j.field) setErrors({ [j.field]: j.message || "Please check this field" })
       setStatus("error")
+    } catch {
+      window.clearTimeout(slow)
+      if (!gone) setStatus("error")
     }
   }
 

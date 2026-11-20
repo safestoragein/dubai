@@ -232,6 +232,8 @@ export interface QuoteInput {
   lng?: number | null
   items: { name: string; qty: number }[]
   attribution?: unknown
+  /** Send the customer the quotation e-mail + create the resumable capture row. Default true (chat/website). */
+  sendEmail?: boolean
 }
 
 export interface QuoteOutput {
@@ -338,6 +340,7 @@ export async function createQuote(input: QuoteInput): Promise<QuoteOutput> {
   // 4 — email + resumable capture row. Fire-and-wait but never fatal: the
   // quote is saved; a mail-provider outage must not turn it into an error.
   let emailQueued = false
+  if (input.sendEmail === false) return { ...result, customerId, quotationId, emailQueued }
   try {
     const { POST: sendQuotationEmail } = await import("@/app/api/emails/quotation/route")
     const resp = await sendQuotationEmail(
