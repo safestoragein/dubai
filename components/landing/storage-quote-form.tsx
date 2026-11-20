@@ -54,6 +54,61 @@ export default function StorageQuoteForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle")
   const partialSent = useRef(false)
 
+  // Pickup area: Google Places suggestions (UAE only). The script loads on first touch of the field so it
+  // never costs page speed. The picked place also gives us coordinates for a distance-based transport price.
+  const areaRef = useRef<HTMLInputElement>(null)
+  const geo = useRef<{ ac: boolean; picked: boolean; saw: boolean; lat: number | null; lng: number | null }>({ ac: false, picked: false, saw: false, lat: null, lng: null })
+  const mapsLoading = useRef(false)
+  function loadPlaces() {
+    if (mapsLoading.current) return
+    const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    if (!key) return
+    mapsLoading.current = true
+    const init = () => {
+      try {
+        const el = areaRef.current
+        if (!el) return
+        const ac = new google.maps.places.Autocomplete(el, {
+          componentRestrictions: { country: "ae" },
+          fields: ["formatted_address", "name", "geometry"],
+        })
+        geo.current.ac = true
+        el.setAttribute("autocomplete", "off")
+        // If Google rejects the key/referrer, drop the "pick a suggestion" rule: free text must still submit.
+        ;(window as unknown as { gm_authFailure?: () => void }).gm_authFailure = () => {
+          geo.current.ac = false
+        }
+        el.addEventListener("input", () => {
+          geo.current.picked = false
+          geo.current.lat = geo.current.lng = null
+          // Only insist on a pick once Google has actually shown suggestions.
+          window.setTimeout(() => {
+            if (document.querySelector(".pac-container .pac-item")) geo.current.saw = true
+          }, 600)
+        })
+        ac.addListener("place_changed", () => {
+          const pl = ac.getPlace()
+          const loc = pl?.geometry?.location
+          if (loc && (pl.formatted_address || pl.name)) {
+            el.value = pl.formatted_address || pl.name || ""
+            geo.current.picked = true
+            geo.current.lat = loc.lat()
+            geo.current.lng = loc.lng()
+            setErrors((prev) => ({ ...prev, area: undefined }))
+          }
+        })
+      } catch {
+        /* suggestions are an enhancement: free text still works if they fail */
+      }
+    }
+    if (typeof google !== "undefined" && google.maps?.places) return init()
+    ;(window as unknown as { __sqMapsInit?: () => void }).__sqMapsInit = init
+    const sc = document.createElement("script")
+    sc.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places&callback=__sqMapsInit`
+    sc.async = true
+    document.head.appendChild(sc)
+  }
+
   function savePartial(form: HTMLFormElement | null) {
     if (!form || partialSent.current) return
     const d = new FormData(form)
@@ -96,6 +151,7 @@ export default function StorageQuoteForm() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v("email"))) next.email = "Enter a valid e-mail"
     if (!v("emirate")) next.emirate = "Select your emirate"
     if (v("area").length < 2) next.area = "Please enter your pickup area"
+    else if (geo.current.ac && geo.current.saw && !geo.current.picked) next.area = "Please select your address from the suggestions"
     if (!v("floor")) next.floor = "Select the floor"
     if (!v("lift")) next.lift = "Please choose"
     setErrors(next)
@@ -129,6 +185,8 @@ export default function StorageQuoteForm() {
           email: v("email"),
           emirate: v("emirate"),
           area: v("area"),
+          lat: geo.current.picked ? geo.current.lat : null,
+          lng: geo.current.picked ? geo.current.lng : null,
           floor: v("floor"),
           lift: v("lift"),
           website: v("website"),
@@ -246,7 +304,7 @@ export default function StorageQuoteForm() {
         <label htmlFor="sq-area">Pickup area</label>
         <div className={q.in}>
           <MapPin aria-hidden="true" />
-          <input id="sq-area" name="area" autoComplete="address-level2" placeholder="Area or building, e.g. Dubai Marina" />
+          <input id="sq-area" name="area" ref={areaRef} onFocus={loadPlaces} onPointerDown={loadPlaces} autoComplete="off" placeholder="Area or building, e.g. Dubai Marina" />
         </div>
         <div className={q.err}>{errors.area}</div>
       </div>

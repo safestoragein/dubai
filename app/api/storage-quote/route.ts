@@ -73,6 +73,12 @@ export async function POST(request: Request) {
   if (!floor) return bad("floor", "Select the floor")
   if (lift !== "yes" && lift !== "no") return bad("lift", "Please choose")
 
+  // Coordinates of the address picked from Google's suggestions; only trusted if they fall inside the UAE.
+  const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : null)
+  let lat = num(b.lat)
+  let lng = num(b.lng)
+  if (lat === null || lng === null || lat < 22 || lat > 26.6 || lng < 51 || lng > 56.5) { lat = null; lng = null }
+
   const phone = `+971${digits}`
   const attribution = b.attribution
 
@@ -83,6 +89,8 @@ export async function POST(request: Request) {
         name, phone, email, emirate, floor, lift,
         bedrooms: "1 BHK",
         address: `${area}, ${emirate}`,
+        lat,
+        lng,
         items: DEFAULT_BASKET,
         attribution,
         sendEmail: false,
