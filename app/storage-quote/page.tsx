@@ -117,6 +117,9 @@ function GoogleG() {
 export default function StorageQuotePage() {
   return (
     <div className={`${s.page} ${q.root} ${sora.variable} ${manrope.variable}`}>
+      {/* Storo/Leo chat launcher is not wanted on this lead-form page. Its host node is appended to <body>
+          by the widget bundle, so hide it by id (the loader also skips the script where it can). */}
+      <style>{"#safestorage-leo-root{display:none!important}"}</style>
       <section className={q.hero} id="top">
         <div className={`${q.wide} ${q.heroRow}`}>
           <div className={q.left}>
