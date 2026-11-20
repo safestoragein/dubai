@@ -1211,3 +1211,26 @@
   .root.root .fact:last-child { border-right: 0 !important; }
   .root.root .card { padding: 18px 14px 16px; }
 }
+
+/* ================= mobile fit ================= */
+.left, .formCol, .heroRow > * { min-width: 0; }
+@media (max-width: 920px) {
+  .root.root .heroRow { grid-template-columns: minmax(0, 1fr); }
+  .root.root { padding-bottom: 76px; } /* clear the fixed bottom call/quote bar */
+}
+@media (max-width: 680px) {
+  .root.root .wide, .root.root .heroRow { padding-left: 16px; padding-right: 16px; }
+  .root.root .left h1 { font-size: 24px; line-height: 1.18; }
+  .root.root .left .lede { font-size: 14px; }
+  .heroCta { width: 100%; }
+  .chipRow { margin-right: -16px; padding-right: 16px; }
+  .root.root .quote { padding: 14px; }
+  .proof { gap: 14px; }
+  .root.root .formCol { padding: 0 6px 14px 0; }
+  .pill { font-size: 11px; }
+  .root.root .journey { overflow: hidden; }
+  .bento { grid-template-columns: 1fr; }
+  .tileBig { height: 210px; } .tileImg:not(.tileBig) { height: 170px; }
+  .facPoints li { font-size: 14px; }
+  .root.root .whySec::before { inset: 0 -16px; }
+}
