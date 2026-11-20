@@ -1118,3 +1118,96 @@
    scroll sideways. clip (not hidden) so sticky header / positioned children are unaffected. */
 .root.root { overflow-x: clip; }
 .root.root .whySec::before { inset: 0 calc(50% - 50vw); }
+
+/* ================= compact pass 2: smaller type + sections ================= */
+.root.root .hero { padding: 24px 0 30px; }
+.heroRow { gap: 48px; }
+.root.root .left h1 { font-size: clamp(24px, 2.5vw, 36px); margin-bottom: 10px; }
+.root.root .left .lede { font-size: 14.5px; margin-bottom: 16px; max-width: 520px; }
+.left .kicker { font-size: 11.5px; margin-bottom: 10px; }
+.heroCta { padding: 10px 20px; font-size: 14.5px; margin-bottom: 16px; border-radius: 10px; }
+.chipRow { gap: 10px; margin-bottom: 16px; max-width: 520px; }
+.chip { padding: 10px 6px; font-size: 12.5px; gap: 6px; border-radius: 12px; }
+.chip svg { width: 18px; height: 18px; }
+.root.root .quote { padding: 16px 18px; border-radius: 16px; margin-bottom: 14px; }
+.root.root .quote p { font-size: 13.5px; line-height: 1.5; }
+.proof { gap: 18px; }
+
+.root.root .card { padding: 22px 24px 18px; border-radius: 20px; }
+.cardHead { margin-bottom: 14px; gap: 12px; }
+.cardHead h2 { font-size: 19px; }
+.cardHead p { font-size: 12.5px; }
+.root.root .card .row { gap: 12px; margin-bottom: 10px; }
+.root.root .card .full { margin-bottom: 10px; }
+.root.root .card .field label { font-size: 12.5px; margin-bottom: 4px; }
+.root.root .card .in input, .root.root .card .in select { height: 42px; font-size: 14px; padding-left: 40px; border-radius: 10px; }
+.in > svg:first-child { left: 12px; width: 16px; height: 16px; }
+.cc { left: 38px; font-size: 13.5px; }
+.root.root .card .in:has(.cc) input { padding-left: 76px; }
+.root.root .card .submit { height: 46px; font-size: 15px; border-radius: 12px; margin-top: 4px; }
+.privacy { font-size: 12px; margin-top: 10px; }
+
+.root.root .fact { padding: 18px 22px; gap: 12px; }
+.factIcon { width: 40px; height: 40px; box-shadow: 0 0 0 4px rgba(238, 88, 36, 0.18); }
+.factIcon svg { width: 19px; height: 19px; }
+.root.root .fact strong { font-size: clamp(19px, 1.9vw, 24px); }
+.root.root .fact b { font-size: 12.5px; margin-top: 3px; }
+.root.root .fact span:not(.factIcon) { font-size: 11.5px; }
+
+.sec { padding-top: 44px; }
+.root.root .secHead h2, .root.root .whyHead h2 { font-size: clamp(21px, 2.2vw, 30px); }
+.root.root .secHead p, .root.root .whyHead p { font-size: 14px; }
+.root.root .secHead { margin-bottom: 18px; }
+.root.root .whyHead { margin-bottom: 24px; }
+.eyePill { font-size: 12px; padding: 7px 18px; }
+.root.root .whySec { padding-top: 48px; }
+.svcGrid { gap: 14px; }
+.root.root .svcBody h3 { font-size: 15.5px; }
+.root.root .svcBody p { font-size: 12.5px; margin-bottom: 12px; }
+.svcBody { padding: 14px 14px 16px; }
+.svcCta { font-size: 12.5px; padding: 7px 13px; }
+.svcIcon { width: 36px; height: 36px; } .svcIcon svg { width: 18px; height: 18px; }
+.bento { grid-template-rows: repeat(2, clamp(170px, 14vw, 225px)); gap: 12px; }
+.tileImg figcaption { font-size: clamp(14px, 1.3vw, 18px); left: 16px; bottom: 14px; }
+.facPoints { margin-top: 22px; }
+.root.root .facPoints { margin-top: 24px; }
+.facPoints li { font-size: clamp(13px, 1.2vw, 16px); }
+.facPoints svg { width: 30px; height: 30px; }
+.wGrid { gap: 14px; }
+.wCard { min-height: 160px; padding: 18px; border-radius: 18px; }
+.wIcon { width: 40px; height: 40px; margin-bottom: 18px; } .wIcon svg { width: 20px; height: 20px; }
+.wText b { font-size: 14.5px; } .wText small { font-size: 12.5px; }
+.wStats { margin-top: 32px; }
+.wStats svg { width: 26px; height: 26px; } .wStats b { font-size: 21px; } .wStats span { font-size: 12.5px; }
+.cx th, .cx td { padding: 12px 18px; font-size: 14px; }
+.cx thead th { padding: 16px 18px; font-size: 13px; }
+.cxt { width: 34px; height: 34px; } .cxt svg { width: 17px; height: 17px; }
+.cxi { width: 22px; height: 22px; } .cxi svg { width: 13px; height: 13px; }
+.root.root .endBand { padding: 18px 24px; margin-top: 28px; }
+.endIcon { width: 44px; height: 44px; }
+.root.root .endBand h2 { font-size: clamp(18px, 1.9vw, 24px); }
+.root.root .endBand p { font-size: 13.5px; }
+.endBtn { padding: 11px 24px; font-size: 14.5px; }
+
+/* ================= phones: horizontal swipe rows ================= */
+@media (max-width: 680px) {
+  .root.root .left h1 { font-size: 23px; }
+  .root.root .left .lede { font-size: 13.5px; }
+  .chipRow, .svcGrid, .wGrid {
+    display: grid; grid-template-columns: none; grid-auto-flow: column; overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+    scrollbar-width: none; padding-bottom: 6px; margin-right: -18px; padding-right: 18px;
+  }
+  .chipRow::-webkit-scrollbar, .svcGrid::-webkit-scrollbar, .wGrid::-webkit-scrollbar, .root.root .factsGrid::-webkit-scrollbar { display: none; }
+  .chipRow > *, .svcGrid > *, .wGrid > *, .root.root .factsGrid > * { scroll-snap-align: start; }
+  .chipRow { grid-auto-columns: 112px; gap: 10px; max-width: none; }
+  .svcGrid { grid-auto-columns: min(66%, 232px); gap: 12px; }
+  .wGrid { grid-auto-columns: min(74%, 260px); gap: 12px; }
+  .root.root .factsGrid {
+    display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 78%; overflow-x: auto;
+    scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .root.root .fact { border-bottom: 0 !important; border-right: 1px solid rgba(255, 255, 255, 0.14) !important; }
+  .root.root .fact:last-child { border-right: 0 !important; }
+  .root.root .card { padding: 18px 14px 16px; }
+}

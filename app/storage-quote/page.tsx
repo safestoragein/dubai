@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Award, Barcode, Bike, Boxes, Bug, Building2, CalendarDays, Camera, Check, Clock, Droplet, Droplets, FileText, Home, Lock, MapPin, Package, ShieldCheck, Snowflake, Star, Truck, User, UserCheck, UserRound, Users, Video, Warehouse, Wind, X, Zap } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
+import QuoteLinkIntercept from "@/components/landing/quote-link-intercept"
 import { WHY_ART } from "@/components/landing/why-art"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import FaqAccordion from "@/components/landing/faq-accordion"
@@ -119,6 +120,7 @@ export default function StorageQuotePage() {
     <div className={`${s.page} ${q.root} ${sora.variable} ${manrope.variable}`}>
       {/* Storo/Leo chat launcher is not wanted on this lead-form page. Its host node is appended to <body>
           by the widget bundle, so hide it by id (the loader also skips the script where it can). */}
+      <QuoteLinkIntercept />
       <style>{"#safestorage-leo-root{display:none!important}"}</style>
       <section className={q.hero} id="top">
         <div className={`${q.wide} ${q.heroRow}`}>
