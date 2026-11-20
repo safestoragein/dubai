@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Barcode, Camera, Check, Clock, Droplets, Lock, Snowflake, UserCheck, Wind } from "lucide-react"
+import { Barcode, CalendarDays, Camera, Clock, Droplets, Lock, ShieldCheck, Snowflake, UserCheck, Wind } from "lucide-react"
 import { manrope, sora } from "@/components/landing/fonts"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
 import { LandingReviews } from "@/components/landing/landing-reviews"
@@ -20,13 +20,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
   alternates: { canonical: "https://safestorage.ae/get-quote" },
 }
-
-const CHECKS = [
-  "Free doorstep pickup and delivery",
-  "CCTV monitored, 24×7",
-  "Climate-controlled indoor units",
-  "No lock-in, month to month",
-]
 
 const FACTS = [
   { v: "4.9 / 5", l: "Google rating · 6,700+ reviews" },
@@ -82,33 +75,76 @@ const FAQS = [
   },
 ]
 
+function GoogleG() {
+  return (
+    <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true">
+      <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" />
+      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" />
+      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" />
+      <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" />
+    </svg>
+  )
+}
+
 export default function StorageQuotePage() {
   return (
     <div className={`${s.page} ${q.root} ${sora.variable} ${manrope.variable}`}>
       <section className={q.hero} id="top">
-        <div className={`${s.wrap} ${q.heroGrid}`}>
-          <div className={q.copy}>
-            <div className={q.ratingLine}>
-              <span className={q.stars} aria-hidden="true">★★★★★</span>
-              <span>
-                <b>4.9</b> · 6,700+ Google reviews
-              </span>
+        <div className={s.wrap}>
+          <div className={q.heroGrid}>
+            <div className={q.copy}>
+              <div className={q.kicker}>Storage, made simple</div>
+              <h1>More room for what matters.</h1>
+              <p className={q.lede}>We pick up, securely store, and return your belongings when you need them.</p>
+              <div className={q.ctaRow}>
+                <a className={`${s.btn} ${s.btnAccent} ${q.cta}`} href="#quote">
+                  Get my free quote →
+                </a>
+              </div>
+              <span className={q.ctaNote}>No obligation · Reply within 15 minutes</span>
+
+              <div className={q.trust}>
+                <div className={q.trustItem}>
+                  <GoogleG />
+                  <span>
+                    <b>4.9/5</b> on Google ·<br />6,700+ reviews
+                  </span>
+                </div>
+                <div className={q.trustItem}>
+                  <ShieldCheck strokeWidth={1.6} aria-hidden="true" />
+                  <span>
+                    <b>CCTV</b>
+                    <br />
+                    monitored
+                  </span>
+                </div>
+                <div className={q.trustItem}>
+                  <CalendarDays strokeWidth={1.6} aria-hidden="true" />
+                  <span>
+                    <b>Serving UAE</b>
+                    <br />
+                    since 2015
+                  </span>
+                </div>
+              </div>
             </div>
-            <h1>Dubai&apos;s trusted doorstep storage, quoted in 2 minutes</h1>
-            <p className={q.lede}>
-              Tell us where you are and what you need to store. We pick up, store it safely and bring it back whenever
-              you ask.
-            </p>
-            <ul className={q.checks}>
-              {CHECKS.map((c) => (
-                <li key={c}><Check aria-hidden="true" /> {c}</li>
-              ))}
-            </ul>
-            <div className={q.callRow}>
-              Prefer to talk? <a href={env.PHONE_LINK}>050-577-3388</a>
+
+            <div className={q.photo}>
+              <Image
+                src="/landing/household-hero-v2.webp"
+                alt="SafeStorage crew wrapping a sofa for pickup in a Dubai home"
+                fill
+                priority
+                sizes="(max-width: 920px) 100vw, 55vw"
+              />
+              <div className={q.gBadge}>
+                <GoogleG /> 4.9/5
+              </div>
             </div>
           </div>
+        </div>
 
+        <div className={`${s.wrap} ${q.barWrap}`}>
           <StorageQuoteForm />
         </div>
       </section>
@@ -193,7 +229,7 @@ export default function StorageQuotePage() {
             <h2>Ready to get started?</h2>
             <p>Fill in the form and our team will call you back shortly.</p>
           </div>
-          <a className={`${s.btn} ${s.btnAccent} ${q.cta}`} href="#top">Get a free quote →</a>
+          <a className={`${s.btn} ${s.btnAccent} ${q.cta}`} href="#quote">Get a free quote →</a>
         </div>
       </section>
     </div>
