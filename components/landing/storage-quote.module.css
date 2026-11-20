@@ -1259,3 +1259,10 @@
   .root.root .tileImg { min-height: 0; }
 }
 @media (max-width: 920px) { .root.root { padding-bottom: 24px; } }
+
+/* pill sat on top of the card heading on phones/tablets: put it in the flow above the card */
+@media (max-width: 920px) {
+  .root.root .pill { position: relative; top: auto; right: auto; display: flex; width: fit-content; margin: 0 0 12px auto; z-index: 3; font-size: 12px; padding: 6px 12px 6px 8px; }
+  .root.root .formCol { padding-top: 0; }
+  .root.root .formCol::before { top: 44px; }
+}
