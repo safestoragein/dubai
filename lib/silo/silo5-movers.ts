@@ -42,163 +42,97 @@ export const SILO5_MOVERS_PAGES: SiloPageContent[] = [
     crumb: "Furniture Movers",
     navLabel: "Furniture moving",
     navBlurb: "A few big pieces or a whole household, wrapped and delivered intact.",
-    title: "Furniture Movers and Packers in Dubai | Wrapped and Moved",
+    title: "Furniture Movers in Dubai – Single Items to Full Rooms | SafeStorage",
     description:
-      "Furniture movers and packers in Dubai for one sofa or a whole household. We wrap, take apart, carry and deliver, and store pieces between addresses. Free quote.",
+      "Need a sofa, bed or wardrobe moved in Dubai? Our furniture movers wrap, dismantle, move and reassemble. Get a quick quote.",
     keywords:
-      "furniture movers dubai, furniture movers and packers in dubai, furniture movers near me, furniture moving dubai, best furniture movers in dubai, furniture removals dubai, move furniture dubai",
-    ogTitle: "Furniture Movers and Packers in Dubai",
-    h1: "Furniture Movers in Dubai: Wrapped, Carried, Delivered",
-    introH2: "What furniture movers actually do",
+      "furniture movers dubai, furniture moving dubai, single item movers dubai, sofa movers dubai, furniture shifting dubai, furniture movers and packers in dubai, furniture movers near me",
+    ogTitle: "Furniture Movers in Dubai – Single Items to Full Rooms",
+    // 2026-11-21: rewritten from the owner's brief (Page 5), IN PLACE at this URL — the brief's
+    // /movers-dubai/furniture-movers would have duplicated this page. Left out: the AED price
+    // table and "dismantling included/extra" ([CONFIRM], no public pricing), the quote-turnaround
+    // [CONFIRM], gym equipment/pianos [CONFIRM], and "same-week slots" (an availability promise).
+    h1: "Furniture Movers in Dubai – From One Sofa to a Full Room",
+    introH2: "Small jobs, done properly",
     hero: [
-      "Furniture movers and packers in Dubai are usually hired for one of two jobs: a few large pieces going to a new address, or a whole household's furniture going into storage while the next place is made ready. This is the furniture end of [moving and storage in Dubai](/moving-storage-dubai), and it runs differently from a full house move.",
-      "We wrap every piece at your door, take apart what is built to come apart, carry it out and move it to your new address or into storage, with one barcoded inventory so nothing is guessed at later. If you have furniture to move and not a home's worth of boxes, this page is for you.",
-      "Furniture rarely breaks on the day. The damage is done earlier, by a sofa nobody measured against the new lift, or a wardrobe that arrives in six pieces with no agreement on who rebuilds it. Both are settled before the date, not on it.",
+      "Not every move is a full house move. Sometimes you've bought a sofa on Dubizzle, you're sending a wardrobe to a friend's place, or you're clearing a room for guests. Our furniture movers handle small jobs properly: wrapped, dismantled where needed, carried by a trained crew and reassembled at the other end. It is the furniture side of our [moving and storage in Dubai](/moving-storage-dubai) service.",
     ],
     sections: [
       {
-        kind: "prose",
-        h2: "When furniture movers fit better than a full house move",
-        paras: [
-          "A full house move is built around boxes, kitchens and wardrobes of clothes. A furniture move is built around a short list of heavy, awkward items, and the crew, the materials and the timing are different.",
-          "It fits when you are keeping most of your belongings and replacing or relocating the large pieces: a new sofa going upstairs, a bedroom set going to a relative, a dining table leaving a flat that has become too small. It also fits when furniture is the only thing leaving a property, for example after a landlord has asked for a flat to be cleared, or when a furnished let ends and you own the contents.",
-          "The other common case is the household that moves out before the next place is ready. The furniture goes into storage for the gap, comes out when the new address exists, and the smaller things travel with you. We handle the carrying and the storage as one job, so there is one inventory and one number to call.",
-        ],
-      },
-      {
-        kind: "cards",
-        h2: "How each kind of furniture is protected",
-        intro:
-          "Protection depends on the material and the shape, which is why a quote that lists items is more useful than one that lists rooms.",
-        items: [
-          {
-            icon: "🛋️",
-            h: "Sofas and sectionals",
-            p: "Wrapped whole where they fit through the door and in sections where they do not. Fabric and leather are wrapped differently, because leather marks from the friction of the wrap itself.",
-          },
-          {
-            icon: "🛏️",
-            h: "Beds and mattresses",
-            p: "Frames are taken apart and the fittings bagged and labelled to the frame. Mattresses are covered and carried flat, never folded.",
-          },
-          {
-            icon: "🚪",
-            h: "Wardrobes and wall units",
-            p: "Doors come off, shelves come out, and mirrors are wrapped separately. Everything is labelled so the unit goes back together in the order it came apart.",
-          },
-          {
-            icon: "🍽️",
-            h: "Tables and glass",
-            p: "Tops are carried upright with corner protection, and glass inserts travel on their own. A glass top is the item most worth telling us about in advance.",
-          },
-          {
-            icon: "🔌",
-            h: "Appliances",
-            p: "Moved upright, with doors secured and cables bundled. Anything plumbed in needs a technician to disconnect and reconnect, which is outside a moving crew's remit.",
-          },
-          {
-            icon: "🪑",
-            h: "Chairs, cabinets and small pieces",
-            p: "Grouped and wrapped in sets so a dozen dining chairs are one inventory line rather than twelve loose items.",
-          },
-        ],
-      },
-      {
         kind: "checklist",
-        h2: "What we take apart and rebuild",
-        intro:
-          "Dismantling is where most furniture damage happens when it is rushed or left to chance, so it is planned at the quoting stage.",
+        h2: "What we move",
         items: [
-          "Bed frames, bunk beds and divans, with fixings bagged and taped to the piece they belong to.",
-          "Wardrobes, wall units and shelving, including taking doors off their hinges.",
-          "Dining tables with removable legs, and desks that come apart.",
-          "TV brackets and curtain rails, if you want them moved with you.",
-          "Anything that will not fit the new building's lift or stairwell, which we find out about before the day, not during it.",
+          "Sofas, sectionals and recliners.",
+          "Beds, bed frames and mattresses.",
+          "Wardrobes and chests of drawers.",
+          "Dining tables and chairs.",
+          "TV units, bookshelves and desks.",
+          "Freestanding appliances such as fridges and washing machines.",
         ],
-        note: "Fitted units, plumbed-in appliances and split air conditioners need a technician rather than a moving crew. Tell us at the quoting stage and we will say what we can and cannot take down.",
+        note: "Anything plumbed in, fitted to a wall or ducted, such as a split air conditioner, needs a technician to disconnect and reconnect. Tell us when you ask for a quote and we'll say what we can and cannot take down.",
       },
       {
         kind: "steps",
-        h2: "How a furniture-only move runs",
+        h2: "How a furniture move works",
         items: [
+          { h: "Send the items and addresses", p: "Photos of the items and both addresses, on WhatsApp." },
+          { h: "Get a quote", p: "We quote the pieces, not the rooms." },
           {
-            h: "Tell us the items",
-            p: "A list or a set of photos is enough for a small job. For anything larger we do a video walkthrough or a visit, so the quote reflects what is actually there.",
+            h: "We arrive ready",
+            p: "The crew brings blankets, stretch film and tools, and items are wrapped before they leave the room.",
           },
           {
-            h: "Check both buildings",
-            p: "Lift size, stairs, parking and loading access at both ends decide how long the job takes. We book the service lift and any move permit at each building.",
-          },
-          {
-            h: "Wrap and dismantle",
-            p: "Each piece is wrapped at your door. Furniture wrapping is part of every collection, not an add-on.",
-          },
-          {
-            h: "Move or store",
-            p: "Pieces go to the new address, or into storage with a barcoded inventory, or are split between the two.",
-          },
-          {
-            h: "Deliver and rebuild",
-            p: "Beds go up first, because the first night matters. Everything we took apart is put back together.",
+            h: "Dismantle, move and reassemble",
+            p: "Screws and fittings are bagged and labelled per item, so everything goes back together as it came apart.",
           },
         ],
       },
       {
         kind: "prose",
-        h2: "Moving furniture into storage, and getting it back",
+        h2: "What decides the price of a furniture move",
         paras: [
-          "If the furniture is going into storage, the same crew that wraps it carries it to our warehouse, and the barcoded inventory travels with it. Storage is billed monthly on the space your goods occupy, with no lock-in, so a handover that slips costs the extra weeks and nothing else. There is more on how that works in [self storage in Dubai](/self-storage-dubai).",
-          "Retrieval is arranged when your new home is ready. Pieces come out in the order you need them, and the inventory shows exactly what is where, so you can ask for the bed and the dining table first and leave the rest.",
+          "Furniture moves are quoted on the items, not on the number of rooms. What moves the number is the count and size of the pieces, how many need taking apart, how far each one has to be carried from the door or lift to the vehicle, and whether either building restricts moving hours.",
+          "Two moves with the same furniture can be priced very differently because of access alone. Our [cost guide for movers and packers](/moving-storage-dubai/moving-cost) sets out every factor so you can compare quotes like for like.",
         ],
       },
       {
         kind: "prose",
-        h2: "What changes the quote",
+        h2: "Not ready to take it yet?",
         paras: [
-          "Furniture moves are quoted on the items, not on the number of rooms. The factors that move the number are the count and size of the pieces, how many need taking apart, how far the crew has to carry each one from the lift or the door to the vehicle, and whether either building restricts moving hours.",
-          "Two moves with the same furniture can be priced very differently because of access alone: a ground-floor flat with parking at the door and a high-floor flat with a shared lift and a distant loading bay are different jobs. Our [cost guide for movers and packers](/moving-storage-dubai/moving-cost) sets out every factor so you can compare quotes like for like.",
-        ],
-      },
-      {
-        kind: "checklist",
-        h2: "Before the crew arrives",
-        items: [
-          "Measure the widest and tallest pieces against the new doorways, lift and stairwell.",
-          "Empty drawers and wardrobes, or tell us they are staying full so the pieces are handled accordingly.",
-          "Take photos of anything already marked or chipped, so there is a record of its condition beforehand.",
-          "Confirm lift and permit slots with building management at both addresses, or ask us to do it.",
-          "Keep the bed fittings and any small parts with the piece rather than in a separate box.",
+          "We can collect the furniture and keep it in storage until your new place is ready. That's useful during renovation or between leases, and it's covered under [personal storage in Dubai](/personal-storage-dubai).",
+          "Moving your whole home? See our full [movers in Dubai](/movers-dubai) service.",
         ],
       },
     ],
     faqs: [
       {
-        q: "Can you move just one or two pieces of furniture?",
-        a: "Yes. Send photos and the two addresses and we will quote the pieces on their own. A small job is still wrapped and carried properly, and we confirm the building access at both ends before the date.",
+        q: "Can you move just one item?",
+        a: "Yes. Single-item moves are common. Send us a photo for a quote.",
       },
       {
-        q: "Do you dismantle and reassemble furniture?",
-        a: "Yes, for pieces designed to come apart: beds, wardrobes, wall units, desks and tables with removable legs. Fixings are bagged and labelled to each piece, and we rebuild at the new address.",
+        q: "Do you wrap the furniture?",
+        a: "Yes. Every piece is wrapped with moving blankets or stretch film before it's carried out.",
       },
       {
-        q: "Is wrapping included?",
-        a: "Furniture wrapping is part of every collection and is not charged as an add-on. Boxing loose small items is separate, and doing that yourself is the biggest saving on a full move.",
+        q: "Can you pick up furniture I bought online?",
+        a: "Yes. Share the seller's address and a photo, and we'll collect and deliver it to you.",
       },
       {
-        q: "Can furniture go into storage between two addresses?",
-        a: "Yes. It is wrapped, moved to our warehouse and held under a barcoded inventory. Storage is billed monthly with no lock-in, so extending by a week is a week's charge and nothing more.",
+        q: "Do you reassemble beds and wardrobes?",
+        a: "Yes. Our crew dismantles and reassembles most beds, wardrobes and flat-pack furniture.",
       },
       {
-        q: "Do you handle appliances and fitted units?",
-        a: "We move freestanding appliances. Anything plumbed in, fitted to a wall or ducted, such as a split air conditioner, needs a technician to disconnect and reconnect, and we will tell you at quoting stage what falls into that group.",
+        q: "Can you store furniture until my new place is ready?",
+        a: "Yes. We collect it and keep it in storage until you're ready, useful during renovation or between leases.",
       },
     ],
     serviceType: "Furniture moving",
     cta: {
-      h2: "Moving furniture in Dubai?",
-      p: "Send photos and both addresses and we will quote the pieces, not the rooms.",
+      h2: "Get a free quote",
+      p: "Send a photo of the items and both addresses and we'll quote the pieces, not the rooms.",
     },
     siblings: [
+      "/movers-dubai",
       "/moving-storage-dubai/apartment-movers",
       "/moving-storage-dubai/villa-movers",
       "/moving-storage-dubai/packing-services",
