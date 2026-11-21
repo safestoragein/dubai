@@ -8,6 +8,7 @@ import { SILO3_PAGES } from "./silo3"
 import { SILO5_PAGES } from "./silo5"
 import { SILO5_MOVERS_PAGES } from "./silo5-movers"
 import { SILO5_HEAD_PAGES } from "./silo5-head"
+import { SILO6_HEAD_PAGES } from "./silo6-head"
 import { SILO5_AREA_PAGES } from "./silo5-areas"
 import { SILO6_PAGES } from "./silo6"
 import { SILO5_GAP_PAGES } from "./silo5-gaps"
@@ -32,6 +33,7 @@ export const SILO_PAGES: SiloPageContent[] = [
   ...SILO5_PAGES,
   ...SILO5_MOVERS_PAGES,
   ...SILO5_HEAD_PAGES,
+  ...SILO6_HEAD_PAGES,
   ...SILO5_AREA_PAGES,
   ...SILO5_GAP_PAGES,
   ...SILO5_AREA2_PAGES,
