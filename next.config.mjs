@@ -320,7 +320,6 @@ const nextConfig = {
       // ---------------------------------------------------------------------
       { source: '/warehouse-storage',        destination: '/business-storage-dubai/warehouse-storage', permanent: true },
       { source: '/short-term-storage',       destination: '/self-storage-dubai/short-term',            permanent: true },
-      { source: '/movers-dubai',             destination: '/moving-storage-dubai',                     permanent: true },
       { source: '/car-storage-dubai',        destination: '/personal-storage-dubai/car-storage',       permanent: true },
       { source: '/student-storage-dubai',    destination: '/personal-storage-dubai/student-storage',   permanent: true },
       // "Bags and boxes between a checkout and a flight, or for months."

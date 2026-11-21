@@ -43,6 +43,7 @@ import { pageSchemas } from "./silo-page"
 import { HAND_WRITTEN, navFor, pagesInSilo } from "@/lib/silo/registry"
 import { HUB_ORDER, MONEY_PAGE, SILOS, moneyAnchor } from "@/lib/silo/silos"
 import type { CSSProperties, ReactNode } from "react"
+import MoversQuoteRedirect, { MOVERS_QUOTE_PATH } from "@/components/landing/movers-quote-redirect"
 import type { Section, SiloPageContent } from "@/lib/silo/types"
 
 /**
@@ -698,6 +699,8 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
   // the UAE hub, Dubai, Abu Dhabi, Sharjah, Ajman, RAK and Al Ain are all one hop apart.
   const REGIONAL = ["s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12"] as const
   const isRegional = (REGIONAL as readonly string[]).includes(content.silo)
+  // Every regional silo is a moving & storage silo: its quote CTAs go to the movers quote form.
+  const isMovers = isRegional
   const otherHubs = isRegional
     ? REGIONAL.filter((k) => k !== content.silo).map((k) => SILOS[k])
     : HUB_ORDER.filter((k) => k !== content.silo).map((k) => SILOS[k])
@@ -705,6 +708,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
   return (
     <>
       <SchemaScript schema={pageSchemas(content)} />
+      {isMovers && <MoversQuoteRedirect />}
       <SiloBreadcrumb
         trail={
           hub
@@ -731,7 +735,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
                 </h1>
                 <p>{content.description}</p>
                 <div className={s.heroCta}>
-                  <Link className={`${s.btn} ${s.btnAccent}`} href="/get-quote">
+                  <Link className={`${s.btn} ${s.btnAccent}`} href={isMovers ? MOVERS_QUOTE_PATH : "/get-quote"}>
                     Get a Free Quote →
                   </Link>
                   <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>

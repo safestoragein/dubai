@@ -7,6 +7,7 @@ import { SILO2_PAGES } from "./silo2"
 import { SILO3_PAGES } from "./silo3"
 import { SILO5_PAGES } from "./silo5"
 import { SILO5_MOVERS_PAGES } from "./silo5-movers"
+import { SILO5_HEAD_PAGES } from "./silo5-head"
 import { SILO5_AREA_PAGES } from "./silo5-areas"
 import { SILO6_PAGES } from "./silo6"
 import { SILO5_GAP_PAGES } from "./silo5-gaps"
@@ -30,6 +31,7 @@ export const SILO_PAGES: SiloPageContent[] = [
   ...SILO3_PAGES,
   ...SILO5_PAGES,
   ...SILO5_MOVERS_PAGES,
+  ...SILO5_HEAD_PAGES,
   ...SILO5_AREA_PAGES,
   ...SILO5_GAP_PAGES,
   ...SILO5_AREA2_PAGES,
@@ -181,7 +183,7 @@ export const HAND_WRITTEN_PATHS = new Set(Object.keys(HAND_WRITTEN))
 export function dynamicSlugsFor(silo: SiloKey): { page: string }[] {
   const hub = SILOS[silo].hub
   return pagesInSilo(silo)
-    .filter((p) => !HAND_WRITTEN_PATHS.has(p.path))
+    .filter((p) => !HAND_WRITTEN_PATHS.has(p.path) && p.path.startsWith(`${hub}/`))
     .map((p) => ({ page: p.path.slice(hub.length + 1) }))
 }
 

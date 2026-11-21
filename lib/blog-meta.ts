@@ -168,7 +168,6 @@ const LEGACY_BASE: Record<string, string> = {
   "/ecommerce-storage": "/business-storage-dubai/ecommerce-fulfilment",
 
   // ---- Silo 4: moving --------------------------------------------------
-  "/movers-dubai": "/moving-storage-dubai",
   "/international-relocation": "/moving-storage-dubai/international-relocation",
 
   // ---- Retired /storage-dubai/* and /services/* nesting -----------------
