@@ -157,7 +157,7 @@ export const SILO5_HEAD_PAGES: SiloPageContent[] = [
     schemaDescription:
       "Packing, dismantling, moving and storage for apartments, villas and offices across Dubai, booked as one job.",
     cta: {
-      h2: "Get a free moving quote",
+      h2: "Get a free quote",
       p: "Tell us your move date, addresses and home size and we'll arrange a free survey.",
     },
     siblings: [

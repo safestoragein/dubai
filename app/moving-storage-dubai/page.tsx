@@ -204,7 +204,7 @@ export default function MovingStorageDubaiPage() {
           image="/landing/svc-moving-hero.webp"
           side
           imagePosition="center 50%"
-          ctaLabel="Get a Moving Quote"
+          ctaLabel="Get a Free Quote"
         />
 
         <LandingTrust />
@@ -504,7 +504,7 @@ export default function MovingStorageDubaiPage() {
         <CtaBand
           title="Get a moving and storage quote"
           blurb="Tell us the two addresses, the date, and whether anything needs storing. Same-day written quote."
-          ctaLabel="Get a Moving Quote"
+          ctaLabel="Get a Free Quote"
           whatsAppLabel="WhatsApp Us"
           callLabel="Call Now"
         />
