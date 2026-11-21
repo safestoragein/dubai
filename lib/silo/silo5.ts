@@ -217,88 +217,91 @@ export const SILO5_PAGES: SiloPageContent[] = [
     crumb: "Office Movers",
     navLabel: "Office moving",
     navBlurb: "Out of hours, department-labelled, with the gap covered.",
-    title: "Office Movers in Dubai | Out of Hours, Gap Covered",
+    title: "Office Movers in Dubai – After-Hours Office Relocation | SafeStorage",
     description:
-      "Office movers in Dubai: evening and weekend collections, item-level records, and storage for the gap between an old lease ending and a new fit-out finishing.",
+      "Office movers in Dubai who plan around your business: after-hours and weekend moves, IT handling, file storage and furniture assembly. Free survey.",
     keywords:
-      "office movers in dubai, office movers dubai, office relocation dubai, business movers dubai, commercial movers dubai, office moving company dubai",
-    ogTitle: "Office Movers in Dubai",
-    h1: "Office Movers in Dubai: Evenings, Gap Covered",
-    introH2: "Office moving in Dubai, in brief",
+      "office movers dubai, office movers in dubai, office moving dubai, office relocation dubai, commercial movers dubai, office shifting dubai, business movers dubai",
+    ogTitle: "Office Movers in Dubai – After-Hours Office Relocation",
+    // 2026-11-21: rewritten from the owner's brief (Page 6), IN PLACE at this URL (the brief's
+    // /movers-dubai/office-movers would have duplicated it). Left out, all [CONFIRM] / no public
+    // pricing: the AED price table, IT disconnect/reconnect, "we provide trade licence / insurance
+    // certificate for the permit", and the permit-documents FAQ.
+    h1: "Office Movers in Dubai – Relocate Without Losing a Working Day",
+    introH2: "Planned around your business",
     hero: [
-      "An office move is judged on one thing: whether people can work on Monday. Everything else is detail, and the way to protect it is to move outside working hours and to plan for the fit-out overrunning — which is the moving half of [moving and storage in Dubai](/moving-storage-dubai).",
-      "Collections are normally **evenings or a weekend**, because an office cannot be cleared around people working in it, and most Dubai commercial towers restrict move-outs to defined windows anyway.",
-      "Where the new floor is not finished — which is the normal case rather than the exception — everything goes into storage for the gap and comes back in stages as areas complete.",
+      "An office move costs money every hour your team can't work. We plan the move around your business: survey the office, label every desk and crate by zone, move after hours or over the weekend, and set up so your team walks into a working office on Monday. It is the commercial side of our [moving and storage in Dubai](/moving-storage-dubai) service.",
     ],
     sections: [
       {
-        kind: "prose",
-        h2: "Plan for the fit-out overrunning",
-        paras: [
-          "Fit-outs overrun. Not sometimes — as a rule, and usually by weeks rather than days, because approvals, contractor scheduling and snagging all compound. An office move plan that assumes the new floor is ready on the promised date is a plan with one point of failure in it.",
-          "The way to remove that failure is to decouple the two dates. Hand the old floor back on its date, store everything, and move in when the new floor is genuinely finished rather than nominally finished. Billing is monthly with no fixed end, so the overrun costs the weeks it costs and nothing else.",
-          "The alternative — extending the old lease at short notice — is almost always more expensive and sometimes not available at all, because the landlord has already re-let it.",
-          "Phased delivery back works well with this: as areas of the new floor are completed, the furniture for those areas comes back, so the business occupies the finished part while snagging continues elsewhere.",
-        ],
-      },
-      {
         kind: "checklist",
-        h2: "The office move checklist that protects Monday",
+        h2: "What's included",
         items: [
-          "Confirm the move-out window and permit at the old building, and the move-in window at the new one.",
-          "Back up and image every machine, and take drives out of anything critical. Storage should never be the only copy.",
-          "Photograph each workstation's cable layout and bag cables per desk. This is the single biggest time saving on reassembly.",
-          "Label by destination department and new-floor zone, not by which room it came from.",
-          "Decide what is not going before the day. An office move is where the surplus furniture problem surfaces at 9pm.",
-          "Keep licences, leases and statutory originals with you rather than in a crate — see [office and relocation storage](/moving-storage-dubai/international-relocation) for the records side.",
-          "Nominate one person on each side who can make decisions on the day, and make sure the crew knows who they are.",
+          "Site survey and move plan: floor plan, labelling system and timeline.",
+          "Packing of desks, files and equipment in crates and cartons.",
+          "IT equipment handling: monitors, PCs and printers packed in protective materials.",
+          "Workstation dismantling and assembly.",
+          "After-hours and weekend moves.",
+          "Archive and document storage: keep old files with us instead of paying for office space. See [business storage in Dubai](/business-storage-dubai).",
+          "Surplus furniture storage during downsizing or fit-out.",
         ],
       },
       {
-        kind: "table",
-        h2: "Scale and timing",
-        columns: ["Office", "Typical window", "If it goes into storage"],
-        rows: [
-          ["Up to 10 desks", "An evening", "80–150 sq ft"],
-          ["10–30 desks", "A full day or a night", "150–400 sq ft"],
-          ["30–60 desks", "A weekend", "400–800 sq ft"],
-          ["60+ desks", "Phased over two weekends", "Survey required"],
+        kind: "steps",
+        h2: "Office move process",
+        items: [
+          { h: "Survey", p: "We visit both offices and note access, loading bays and building rules." },
+          { h: "Plan", p: "A written move plan with dates, labels and responsibilities." },
+          {
+            h: "Pre-pack",
+            p: "Staff pack personal desk items; we pack shared areas, files and IT.",
+          },
+          { h: "Move", p: "Overnight or weekend, zone by zone." },
+          { h: "Set-up", p: "Furniture assembled and crates placed at the right desk." },
         ],
-        note: "Above about 30 desks we would rather survey than estimate. On an office move a wrong estimate is a Monday morning with no desks, which is a different order of problem from a domestic overrun.",
+      },
+      {
+        kind: "prose",
+        h2: "Building rules in Dubai business districts",
+        paras: [
+          "Offices in Business Bay, DIFC, JLT, Dubai Internet City, Media City and Al Barsha usually need a move permit, a certificate of insurance and a booked service lift or loading bay.",
+          "Ask your facilities management team early what they require, and share it with us when you request a survey so the move plan is built around it.",
+        ],
+      },
+      {
+        kind: "prose",
+        h2: "Office moving prices",
+        paras: [
+          "Office moves are quoted after a survey, based on headcount, volume of furniture and IT, and access at both sites.",
+          "For what drives the number and how to compare quotes like for like, read our [cost guide for movers and packers](/moving-storage-dubai/moving-cost).",
+        ],
       },
     ],
     faqs: [
       {
-        q: "Can you move us over a weekend?",
-        a: "Yes, and for most offices that is how it is done. Evenings and weekends avoid disrupting trading, and most Dubai commercial towers restrict move-outs to those windows in any case.",
+        q: "Can you move our office over the weekend?",
+        a: "Yes. Most office moves are done after hours or over the weekend to avoid downtime.",
       },
       {
-        q: "What happens if the new fit-out is not finished?",
-        a: "Everything goes into storage and comes back when the floor is genuinely ready — in stages if you want to occupy the completed areas first. Billing is monthly with no fixed end date, so an overrun costs weeks rather than triggering a renegotiation.",
+        q: "Do you move servers and IT equipment?",
+        a: "We pack and transport IT equipment in protective materials.",
       },
       {
-        q: "Do you handle IT equipment?",
-        a: "Yes. Back up and image machines beforehand and remove any drive holding critical data. Screens travel and are stored upright, and cables are bagged per workstation.",
+        q: "Can you store furniture and files during a fit-out?",
+        a: "Yes. We can store furniture, archives and equipment and deliver them when the new office is ready.",
       },
       {
-        q: "Who arranges the building permits?",
-        a: "We arrange lift bookings and crew registration at both buildings. Anything the landlord requires from you as tenant — an NOC, a clearance letter — remains yours to obtain, and it is worth starting early.",
-      },
-      {
-        q: "Can you deliver in phases as the fit-out completes?",
-        a: "Yes, and for a phased fit-out that is the sensible approach. Each delivery is quoted as its own job and areas get refurnished as they are handed over.",
-      },
-      {
-        q: "What do we do with surplus furniture after downsizing?",
-        a: "Store it rather than deciding in the final week of a lease. A few months of storage usually costs far less than the difference between a considered disposal and a rushed one.",
+        q: "How is an office move priced?",
+        a: "Office moves are quoted after a survey, based on headcount, volume of furniture and IT, and access at both sites.",
       },
     ],
-    serviceType: "Office moving",
+    serviceType: "Office relocation",
     cta: {
-      h2: "Moving an office?",
-      p: "Assume the fit-out overruns and plan the storage for it. That single assumption protects the date.",
+      h2: "Get a free quote",
+      p: "Book a free office survey and we'll send a written move plan.",
     },
     siblings: [
+      "/movers-dubai",
       "/moving-storage-dubai/apartment-movers",
       "/moving-storage-dubai/packing-services",
       "/moving-storage-dubai/inter-emirate-moving",
