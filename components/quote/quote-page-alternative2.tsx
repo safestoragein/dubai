@@ -1457,7 +1457,7 @@ export default function QuotePage() {
                     <div className="space-y-2">
                       <Label className="text-sm font-semibold text-slate-700">Full Name *</Label>
                       <Input
-                        placeholder="Ahmed Al-Mansouri"
+                        placeholder="Full name"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         className="h-12 border-2 border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-lg"
@@ -1471,7 +1471,7 @@ export default function QuotePage() {
                         inputMode="tel"
                         autoComplete="tel"
                         maxLength={20}
-                        placeholder="+971 50 577 3388"
+                        placeholder="Phone number"
                         value={formData.phone}
                         // Strip letters as they are typed — a bare type="tel" let a
                         // visitor save their name here (see lib/phone.ts).
@@ -1486,7 +1486,7 @@ export default function QuotePage() {
                     <Label className="text-sm font-semibold text-slate-700">Email Address *</Label>
                     <Input
                       type="email"
-                      placeholder="ahmed.mansouri@example.com"
+                      placeholder="Email address"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="h-12 border-2 border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-lg"
@@ -1499,7 +1499,7 @@ export default function QuotePage() {
                     <div className="space-y-4">
                       <WorkingPlacesAutocomplete
                         label="Complete Address *"
-                        placeholder="Villa 123, Dubai Marina, Dubai, UAE"
+                        placeholder="Address"
                         value={formData.address}
                         onChange={(value) => {
                           // Auto-detect the emirate from the Google-selected address
