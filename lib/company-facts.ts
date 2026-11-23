@@ -58,8 +58,8 @@ export const FACILITY_ACCESS_NOTE =
  * UAE-only count. structured-data.ts must mark up this same number.
  */
 export const RATING_VALUE = "4.9"
-export const REVIEW_COUNT = "6700"
-export const REVIEW_COUNT_DISPLAY = "6,700+"
+export const REVIEW_COUNT = "11000"
+export const REVIEW_COUNT_DISPLAY = "11,000+"
 // "worldwide", not "Globally" — the site used "Globally" as a bare adverb
 // ("6700+ Reviews Globally", "customers across Globally"), which is not English
 // and read as hedging on a .ae domain. The qualifier still has to be there: this

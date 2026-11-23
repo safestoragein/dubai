@@ -61,8 +61,8 @@ const tabs: Tab[] = [
       {
         href: "/testimonials",
         title: "Rated 4.9 out of 5 on Google",
-        body: "More than 6,700 verified reviews worldwide from homes and businesses.",
-        foot: "4.9/5 · 6,700+ reviews",
+        body: "More than 11,000 verified reviews worldwide from homes and businesses.",
+        foot: "4.9/5 · 11,000+ reviews",
       },
       {
         href: "/about",

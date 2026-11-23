@@ -15,7 +15,7 @@ export const BRAND = {
   email: "support@safestorage.ae",
   site: "https://safestorage.ae",
   rating: "4.9/5",
-  reviews: "6700+",
+  reviews: "11000+",
 
   // ── Address autocomplete (Google Places) market config ──
   // ISO country code the suggestions are restricted to.

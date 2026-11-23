@@ -38,7 +38,7 @@ import sk from "@/components/silo/silo-landing.module.css"
  *
  * ⚠ Two deliberate omissions, both gated on facts only the client can confirm:
  *
- *   1. NO AggregateRating in the schema. The homepage cites 4.9/5 from 6,700+
+ *   1. NO AggregateRating in the schema. The homepage cites 4.9/5 from 11,000+
  *      reviews, but that is a group-wide figure including India. Marking it up
  *      on a .ae LocalBusiness is a manual-action risk. Add it only with the
  *      verified UAE Google Business Profile count.
@@ -378,7 +378,7 @@ export default function LocalSelfStoragePage() {
               />
               <div className={ls.heroRating}>
                 <strong>4.9★</strong>
-                <span>6,700+ Google reviews</span>
+                <span>11,000+ Google reviews</span>
               </div>
             </div>
           </div>

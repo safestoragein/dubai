@@ -9,7 +9,7 @@ export default function TrustBadges() {
       icon: Star,
       value: "4.9/5",
       label: "Google Rating",
-      subtext: "6,700+ reviews worldwide",
+      subtext: "11,000+ reviews worldwide",
       color: "text-yellow-500",
       bgColor: "bg-yellow-500/10",
     },

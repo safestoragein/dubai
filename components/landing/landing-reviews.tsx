@@ -58,7 +58,7 @@ const reviews = [
 
 export function LandingReviews({
   padTop,
-  reviewCount = "6,700+",
+  reviewCount = "11,000+",
 }: {
   /** override the section's top padding where the band above already ends in white space */
   padTop?: number

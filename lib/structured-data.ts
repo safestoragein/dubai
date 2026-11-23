@@ -146,7 +146,7 @@ export const localBusinessSchema = {
   ],
   // aggregateRating / review deliberately NOT declared here.
   //
-  // The 4.9 / 6,700 figure is the SafeStorage group's worldwide Google rating,
+  // The 4.9 / 11,000 figure is the SafeStorage group's worldwide Google rating,
   // not a rating of this UAE entity — Google cannot reconcile it against the
   // Dubai Business Profile, and self-serving review markup on a LocalBusiness
   // (reviews the business publishes about itself) is ignored at best and a
@@ -154,7 +154,7 @@ export const localBusinessSchema = {
   // sit here were site copy, not verified reviews of this listing.
   //
   // Re-add ONLY when the Dubai Google Business Profile carries verified reviews,
-  // and then publish that UAE count — not the global one. The 6,700 figure stays
+  // and then publish that UAE count — not the global one. The 11,000 figure stays
   // in visible copy, labelled "worldwide", where it is an honest brand claim.
   amenityFeature: [
     { "@type": "LocationFeatureSpecification", name: "24/7 CCTV Security", value: true },
@@ -402,7 +402,7 @@ export const faqSchema = {
       name: "What do customers say about SafeStorage Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai has a 4.9/5 rating on Google with 6,700+ verified reviews globally. Customers praise our: door-to-door service, secure and clean units that keep belongings well protected, transparent pricing with no hidden fees, responsive customer service (15-minute average response), and professional, friendly staff. Read our reviews at our Google Business listing."
+        text: "SafeStorage Dubai has a 4.9/5 rating on Google with 11,000+ verified reviews globally. Customers praise our: door-to-door service, secure and clean units that keep belongings well protected, transparent pricing with no hidden fees, responsive customer service (15-minute average response), and professional, friendly staff. Read our reviews at our Google Business listing."
       }
     },
     // PRACTICAL QUESTIONS
@@ -444,7 +444,7 @@ export const faqSchema = {
       name: "What is the best storage company in Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SafeStorage Dubai holds a 4.9/5 rating across 6,700+ verified Google reviews. It operates from a registered facility at Building 23, Warehouse 5, DIP-1, Dubai, with multi-angle CCTV, logged access control and a signed inventory taken at collection. Pricing is quoted in writing before booking, on month-to-month contracts with no early-termination penalty. Compare on four things: door-to-door collection, a written quote excluding VAT, a documented inventory, and contract flexibility."
+        text: "SafeStorage Dubai holds a 4.9/5 rating across 11,000+ verified Google reviews. It operates from a registered facility at Building 23, Warehouse 5, DIP-1, Dubai, with multi-angle CCTV, logged access control and a signed inventory taken at collection. Pricing is quoted in writing before booking, on month-to-month contracts with no early-termination penalty. Compare on four things: door-to-door collection, a written quote excluding VAT, a documented inventory, and contract flexibility."
       }
     },
     {

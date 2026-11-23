@@ -41,7 +41,7 @@ export default function Footer() {
               </div>
               <span className="text-dubai-sand/80 text-sm">4.9/5 on Google</span>
             </div>
-            <p className="text-dubai-sand/60 text-sm">6,700+ verified reviews worldwide</p>
+            <p className="text-dubai-sand/60 text-sm">11,000+ verified reviews worldwide</p>
           </div>
 
           {/* ---------------------------------------------------------------

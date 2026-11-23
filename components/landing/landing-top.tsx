@@ -47,7 +47,7 @@ export function LandingHero() {
         </div>
         <div className={s.heroRating}>
           <strong>4.9★</strong>
-          <span>6,700+ Google reviews</span>
+          <span>11,000+ Google reviews</span>
         </div>
       </div>
     </section>
@@ -59,7 +59,7 @@ export function LandingHero() {
  * Same five badges as the old trust-badges component, unchanged values.
  * ------------------------------------------------------------------ */
 const badges = [
-  { icon: "⭐", tone: s.tGold, value: s.vGold, v: "4.9/5", label: "Google Rating", sub: "6,700+ reviews worldwide" },
+  { icon: "⭐", tone: s.tGold, value: s.vGold, v: "4.9/5", label: "Google Rating", sub: "11,000+ reviews worldwide" },
   { icon: "🎖️", tone: s.tOrange, value: s.vOrange, v: "10+", label: "Years Global Experience", sub: "Since 2015" },
   { icon: "🛡️", tone: s.tBlue, value: s.vBlue, v: "100,000+", label: "Happy Customers", sub: "Homes & businesses" },
   { icon: "🚚", tone: s.tPurple, value: s.vPurple, v: "Door-to-Door", label: "Pickup & Delivery", sub: "Within Dubai" },
@@ -175,7 +175,7 @@ export function SplitHero({
             />
             <div className={s.heroRating}>
               <strong>4.9★</strong>
-              <span>6,700+ Google reviews</span>
+              <span>11,000+ Google reviews</span>
             </div>
           </div>
         </div>
@@ -220,7 +220,7 @@ export function SplitHero({
         </div>
         <div className={s.heroRating}>
           <strong>4.9★</strong>
-          <span>6,700+ Google reviews</span>
+          <span>11,000+ Google reviews</span>
         </div>
       </div>
     </section>

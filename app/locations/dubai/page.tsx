@@ -149,7 +149,7 @@ export default function Page() {
               />
               <div className={s.heroRating}>
                 <strong>4.9★</strong>
-                <span>6,700+ Google reviews</span>
+                <span>11,000+ Google reviews</span>
               </div>
             </div>
           </div>
