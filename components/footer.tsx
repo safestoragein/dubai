@@ -5,7 +5,6 @@ import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Star, Messag
 import { env } from "@/lib/env"
 import { SOCIAL } from "@/lib/company-facts"
 import FooterCities from "@/components/footer-cities"
-import FooterQuote from "@/components/footer-quote"
 
 
 export default function Footer() {
@@ -185,7 +184,6 @@ export default function Footer() {
 
         <div className="border-t border-white/10">
           <FooterCities />
-          <FooterQuote />
         </div>
 
         {/* CTA Section */}
