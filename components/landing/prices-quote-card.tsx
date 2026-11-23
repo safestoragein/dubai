@@ -48,9 +48,9 @@ export default function PricesQuoteCard({ placement = "hero" }: { placement?: "h
       `${size} sqft`,
       `Page: ${page}`,
       `Form: ${placement}`,
-      `Came from: ${document.referrer || "direct"}`,
+      `Source link: ${document.referrer || "direct"}`,
       attr.ads_landing_page ? `Landing page: ${attr.ads_landing_page}` : "",
-      attr.utm_source ? `utm: ${attr.utm_source}/${attr.utm_medium ?? ""}/${attr.utm_campaign ?? ""}` : "",
+      attr.utm_source ? `UTM: ${attr.utm_source} / ${attr.utm_medium ?? ""} / ${attr.utm_campaign ?? ""}` : "",
       attr.gclid_field ? "gclid: yes" : "",
     ].filter(Boolean)
 
@@ -65,7 +65,7 @@ export default function PricesQuoteCard({ placement = "hero" }: { placement?: "h
           customer_email: v("email"),
           customer_contact1: `+971${mob}`,
           storage_type: "household",
-          storage_size: parts.join(" | ").slice(0, 480),
+          storage_size: parts.join("\n").replace(/[<>]/g, "").slice(0, 480),
         }),
       })
       if (!res.ok) return setStatus("error")
