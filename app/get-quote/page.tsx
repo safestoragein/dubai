@@ -66,7 +66,7 @@ export default function GetQuote() {
       <SchemaScript schema={quoteSchemas} />
       {/* the quote flow is the page: hide the floating Get Free Quote / call / WhatsApp bar here only,
           and the body padding that keeps it clear of the footer */}
-      <style>{"[data-sticky-cta]{display:none!important}body{padding-bottom:0!important}"}</style>
+      <style>{"[data-sticky-cta],[data-site-footer]{display:none!important}body{padding-bottom:0!important}"}</style>
       <Suspense fallback={<div>Loading...</div>}>
         <QuotePage />
       </Suspense>

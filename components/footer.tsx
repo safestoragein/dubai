@@ -10,7 +10,7 @@ import FooterQuote from "@/components/footer-quote"
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-dubai-midnight text-white relative">
+    <footer data-site-footer className="w-full bg-dubai-midnight text-white relative">
       {/* Dubai skyline silhouette */}
       <div className="absolute inset-x-0 top-0 h-16 bg-dubai-midnight overflow-hidden">
       </div>
