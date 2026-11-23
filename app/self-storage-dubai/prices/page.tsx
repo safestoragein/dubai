@@ -20,7 +20,6 @@ import {
 import SchemaScript from "@/components/schema-script"
 import SiloBreadcrumb from "@/components/silo-breadcrumb"
 import { manrope, sora } from "@/components/landing/fonts"
-import { CtaBand } from "@/components/landing/page-hero"
 import { LandingTrust } from "@/components/landing/landing-top"
 import { FeatScroller } from "@/components/landing/feat-scroller"
 import PricesQuoteCard from "@/components/landing/prices-quote-card"
@@ -349,12 +348,29 @@ export default function StoragePricesPage() {
           <FaqAccordion items={faqData} />
         </section>
 
-        <CtaBand
-          title="Get a free, itemised quote"
-          blurb="Tell us your rooms and your dates. You will get the storage and the transport as separate lines, before anything is booked."
-          whatsAppLabel="WhatsApp Us"
-          callLabel="Call Now"
-        />
+        {/* the same quote form again, after the FAQ */}
+        <section className={`${s.section} ${s.wrap}`} id="quote" style={{ paddingTop: 8, paddingBottom: 36 }}>
+          <div className={p.split2Inner}>
+            <div>
+              <h2 className={p.longH2}>
+                Get a free, <em>itemised quote.</em>
+              </h2>
+              <p style={{ margin: "14px 0 22px", maxWidth: 520 }}>
+                Tell us your size and how long you need it. You will get the storage and the transport as
+                separate lines, before anything is booked.
+              </p>
+              <div className={s.heroCta}>
+                <a className={`${s.btn} ${s.btnGhost}`} href={env.WHATSAPP_LINK} target="_blank" rel="noopener noreferrer nofollow">
+                  WhatsApp Us
+                </a>
+                <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={env.PHONE_LINK}>
+                  <span className={s.phIco}>📞</span> Call Now
+                </a>
+              </div>
+            </div>
+            <PricesQuoteCard placement="bottom" />
+          </div>
+        </section>
 
         {/* where to go next */}
         <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 20, paddingBottom: 28 }}>

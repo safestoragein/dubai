@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { useState } from "react"
 import { Box, CheckCircle2 } from "lucide-react"
 import { getAdAttribution } from "@/lib/ad-attribution"
@@ -29,7 +28,7 @@ const DURATIONS = [
   { m: 12, t: "12 Months" },
 ]
 
-export default function PricesQuoteCard() {
+export default function PricesQuoteCard({ placement = "hero" }: { placement?: "hero" | "bottom" }) {
   const [size, setSize] = useState(16)
   const [months, setMonths] = useState(1)
   const [errors, setErrors] = useState<Partial<Record<"name" | "email" | "mobile", string>>>({})
@@ -57,6 +56,7 @@ export default function PricesQuoteCard() {
       `${size} sqft`,
       `${months} month${months > 1 ? "s" : ""}`,
       `Page: ${page}`,
+      `Form: ${placement}`,
       `Came from: ${document.referrer || "direct"}`,
       attr.ads_landing_page ? `Landing page: ${attr.ads_landing_page}` : "",
       attr.utm_source ? `utm: ${attr.utm_source}/${attr.utm_medium ?? ""}/${attr.utm_campaign ?? ""}` : "",
@@ -78,7 +78,7 @@ export default function PricesQuoteCard() {
         }),
       })
       if (!res.ok) return setStatus("error")
-      ;(window as unknown as { dataLayer?: unknown[] }).dataLayer?.push({ event: "storage_quote_submit", form: "prices-hero" })
+      ;(window as unknown as { dataLayer?: unknown[] }).dataLayer?.push({ event: "storage_quote_submit", form: `prices-${placement}` })
       setStatus("ok")
     } catch {
       setStatus("error")
@@ -102,7 +102,6 @@ export default function PricesQuoteCard() {
 
   return (
     <form className={c.card} onSubmit={onSubmit} noValidate>
-      <Image className={c.logo} src="/images/design-mode/logo.png" alt="SafeStorage" width={170} height={56} />
       <p className={c.label}>Select Storage Size</p>
       <div className={c.sizes}>
         {SIZES.map((n) => (
@@ -142,7 +141,6 @@ export default function PricesQuoteCard() {
         {status === "sending" ? "Sending…" : "Get Your Quote →"}
       </button>
       {status === "error" && <p className={c.err} role="alert" style={{ textAlign: "center", marginTop: 10 }}>Something went wrong — please call us or try again.</p>}
-      <p className={c.note}>Free itemised quote · Pay only for the space you use</p>
     </form>
   )
 }
