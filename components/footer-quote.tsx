@@ -14,11 +14,11 @@ export default function FooterQuote() {
   const path = (usePathname() || "").replace(/\/$/, "") || "/"
   if (SKIP_EXACT.has(path)) return null
   return (
-    <div className={`${s.page} ${q.root} ${sora.variable} ${manrope.variable}`} style={{ background: "#faf7f2" }}>
+    <div className={`${s.page} ${q.root} ${sora.variable} ${manrope.variable}`} style={{ background: "transparent" }}>
       {/* the orange backdrop + floating pill are hero-column decoration; they overlap the card at this width */}
       <style>{"#footer-quote::before{display:none!important}#footer-quote>span:first-child{position:static!important;margin:0 auto 12px;display:flex;width:max-content}"}</style>
       <div style={{ maxWidth: 560, margin: "0 auto", padding: "36px 16px 40px" }}>
-        <h3 className="text-xl font-semibold text-slate-900 text-center mb-4">Get a free storage quote</h3>
+        <h3 className="text-xl font-semibold text-dubai-gold text-center mb-4">Get a free storage quote</h3>
         <StorageQuoteForm anchorId="footer-quote" />
       </div>
     </div>

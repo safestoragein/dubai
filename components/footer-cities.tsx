@@ -11,18 +11,18 @@ const SELF: Record<string, string> = { Dubai: "/self-storage-dubai", "Abu Dhabi"
 
 export default function FooterCities() {
   return (
-    <section aria-label="Storage by city" className="bg-white text-slate-900 border-t border-slate-200">
-      <div className="container px-4 md:px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section aria-label="Storage by city" className="text-white">
+      <div className="pt-16 md:pt-20 pb-10 grid grid-cols-2 md:grid-cols-4 gap-8">
         {CITIES.map(({ city, links }) => (
           <div key={city}>
-            <h3 className="text-2xl font-bold mb-5">{city}</h3>
+            <h3 className="text-2xl font-bold mb-5 text-dubai-gold">{city}</h3>
             <ul className="space-y-3">
               <li>
-                <Link href={SELF[city]} prefetch={false} className="text-lg text-slate-800 hover:text-orange-600">Self Storage</Link>
+                <Link href={SELF[city]} prefetch={false} className="text-lg text-white hover:text-dubai-gold">Self Storage</Link>
               </li>
               {links.map(([h, l]) => (
                 <li key={l}>
-                  <Link href={h} prefetch={false} className="text-base text-slate-600 hover:text-orange-600">{l}</Link>
+                  <Link href={h} prefetch={false} className="text-base text-dubai-sand/80 hover:text-dubai-gold">{l}</Link>
                 </li>
               ))}
             </ul>
