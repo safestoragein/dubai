@@ -56,13 +56,13 @@ import p from "@/components/locations/location-landing.module.css"
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Storage Prices in Dubai | What Affects the Cost" },
+  title: { absolute: "Storage Prices in Dubai | From 12 AED/sq ft per Month" },
   description:
-    "What affects the cost of storage in Dubai: space used, duration, floor and lift access, packing, transport distance and extras. Get a free, itemised quote.",
+    "Storage prices in Dubai start from 12 AED per sq ft per month. See what affects the cost: space used, duration, floor and lift access, packing, transport distance and extras. Get a free, itemised quote.",
   keywords:
     "storage in dubai prices, cheap storage dubai, storage cost per month, storage prices dubai, storage cost dubai, affordable storage dubai, low cost storage dubai, how much does storage cost in dubai",
   openGraph: {
-    title: "Storage Prices in Dubai — What Affects the Cost",
+    title: "Storage Prices in Dubai — Starts From 12 AED/sq ft per Month",
     description:
       "What changes a storage quote in Dubai, and why the cheapest storage quote is often the most expensive outcome. Get a free, itemised quote.",
     images: [{ url: "/og-cover-2026.jpg", width: 1200, height: 630, alt: "SafeStorage Dubai" }],
@@ -185,7 +185,7 @@ export default function StoragePricesPage() {
               <span className={s.heroTag}>Storage prices Dubai</span>
               <h1>
                 Storage prices in Dubai — <br className={s.mBreakDesk} />
-                <em>what changes a quote</em>
+                <em>starts from 12 AED / sq ft per month</em>
               </h1>
               <p>
                 Storage here is priced on the space your goods use and how long you store them. You pay
