@@ -486,6 +486,17 @@ export default function QuotePage() {
   // Set when the page was opened from a quotation-email resume link.
   const [resumedQuote, setResumedQuote] = useState<{ name: string; booked: boolean } | null>(null)
   const [formData, setFormData] = useState<FormData>(initialFormData)
+  // Step 1 shows only name / phone / email first; the pickup details appear once those three are
+  // valid, so every visitor leaves at least a contact. Sticky: it never re-hides if they edit a field.
+  const [showPickupFields, setShowPickupFields] = useState(false)
+  useEffect(() => {
+    if (showPickupFields) return
+    const ok =
+      formData.fullName.trim().length >= 2 &&
+      !validatePhone(formData.phone) &&
+      /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email.trim())
+    if (ok) setShowPickupFields(true)
+  }, [formData.fullName, formData.phone, formData.email, showPickupFields])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [apiItems, setApiItems] = useState<ApiItem[]>([])
   const [apiEmirates, setApiEmirates] = useState<{ city_slug: string; city_name: string }[]>([])
@@ -1493,6 +1504,8 @@ export default function QuotePage() {
                     />
                   </div>
 
+                  {showPickupFields && (
+                  <m.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
                   {/* Address Section */}
                   <div className="bg-slate-50 rounded-xl p-6">
                     <h3 className="font-semibold text-slate-800 mb-4">Pickup Location</h3>
@@ -1612,6 +1625,8 @@ export default function QuotePage() {
                       </div>
                     </div>
                   </div>
+                  </m.div>
+                  )}
 
                 </div>
               </m.div>
