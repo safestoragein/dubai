@@ -1,4 +1,3 @@
-import Image from "next/image"
 import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -24,6 +23,7 @@ import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
 import { LandingTrust } from "@/components/landing/landing-top"
 import { FeatScroller } from "@/components/landing/feat-scroller"
+import PricesQuoteCard from "@/components/landing/prices-quote-card"
 import FaqAccordion from "@/components/landing/faq-accordion"
 import HomeReveal from "@/components/landing/home-reveal"
 import { env } from "@/lib/env"
@@ -200,22 +200,7 @@ export default function StoragePricesPage() {
                 </a>
               </div>
             </div>
-            <div className={p.split2Photo} style={{ aspectRatio: "1733 / 907" } as CSSProperties}>
-              <Image
-                src="/landing/prices-hero.webp"
-                alt="A customer getting a free SafeStorage quote at home in Dubai, with boxes packed and ready"
-                width={1733}
-                height={907}
-                sizes="(max-width: 900px) 94vw, 50vw"
-                quality={85}
-                loading="eager"
-              />
-              {/* top LEFT here: the picture's own quote card lives in the top right */}
-              <div className={s.heroRating} style={{ right: "auto", left: 18 }}>
-                <strong>4.9★</strong>
-                <span>6,700+ Google reviews</span>
-              </div>
-            </div>
+            <PricesQuoteCard />
           </div>
         </section>
 
