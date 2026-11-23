@@ -27,6 +27,6 @@
 .go{border:0;cursor:pointer}
 .go:disabled{opacity:.7;cursor:wait}
 .done{text-align:center;padding:12px 0}
-.done svg{width:48px;height:48px;color:#1f9d55}
+.done svg{display:block;margin:0 auto;width:48px;height:48px;color:#1f9d55}
 .done h2{font:800 22px var(--font-sora),sans-serif;color:#25315a;margin:10px 0 6px}
 .done p{color:#68708a;margin:0 0 18px}
