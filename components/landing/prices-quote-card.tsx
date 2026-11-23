@@ -21,7 +21,7 @@ function uaeMobile(raw: string): string | null {
   return /^5\d{8}$/.test(d) ? d : null
 }
 const SIZES = [16, 32, 50, 100]
-export default function PricesQuoteCard({ placement = "hero" }: { placement?: "hero" | "bottom" }) {
+export default function PricesQuoteCard({ placement = "hero" }: { placement?: "hero" | "bottom" | "site" }) {
   const [size, setSize] = useState(16)
   const [errors, setErrors] = useState<Partial<Record<"name" | "email" | "mobile", string>>>({})
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle")
