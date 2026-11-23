@@ -19,9 +19,7 @@ export default function Footer() {
       <div className="absolute inset-0 opacity-5 bg-dubai-pattern"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
-        <FooterCities />
-        <FooterQuote />
-        <div className="grid gap-8 py-12 md:py-14 border-t border-white/10 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid gap-8 py-16 md:py-20 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {/* Logo & About */}
           <div className="space-y-4 col-span-2 md:col-span-3 lg:col-span-2">
             <Link href="/" className="flex items-center">
@@ -183,6 +181,11 @@ export default function Footer() {
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="border-t border-white/10">
+          <FooterCities />
+          <FooterQuote />
         </div>
 
         {/* CTA Section */}
