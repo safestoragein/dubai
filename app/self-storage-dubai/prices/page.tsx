@@ -176,6 +176,9 @@ export default function StoragePricesPage() {
       />
       <SchemaScript schema={pageSchemas} />
 
+      {/* this page has its own quote form: hide the floating mobile Get Free Quote / call / WhatsApp bar
+          (and the body padding that keeps it clear of the footer) here only */}
+      <style>{"[data-sticky-cta]{display:none!important}body{padding-bottom:0!important}"}</style>
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
         {/* hero: copy on the left, the owner's picture on the right */}
         <section className={`${s.hero} ${s.wrap} ${p.split2}`}>
