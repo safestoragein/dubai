@@ -15,6 +15,9 @@ import { SILO5_GAP_PAGES } from "./silo5-gaps"
 import { SILO5_AREA2_PAGES } from "./silo5-areas2"
 import { SILO8_PAGES } from "./silo-regions"
 import { GUIDE_PAGES } from "./guides"
+import { AD_STORAGE_PAGES } from "./city-abu-dhabi"
+import { SHARJAH_STORAGE_PAGES } from "./city-sharjah"
+import { AJMAN_STORAGE_PAGES } from "./city-ajman"
 import { linksIn } from "@/components/silo/rich-text"
 
 /**
@@ -39,6 +42,9 @@ export const SILO_PAGES: SiloPageContent[] = [
   ...SILO5_AREA2_PAGES,
   ...SILO6_PAGES,
   ...SILO8_PAGES,
+  ...AD_STORAGE_PAGES,
+  ...SHARJAH_STORAGE_PAGES,
+  ...AJMAN_STORAGE_PAGES,
   ...GUIDE_PAGES,
 ]
 
@@ -149,6 +155,23 @@ export const HAND_WRITTEN: Record<string, { silo: SiloKey; label: string; blurb:
     silo: "s8",
     label: "All Sharjah movers",
     blurb: "Packing, moving and local storage across Sharjah.",
+  },
+
+  // ---- City storage hubs (hub mode; hand-written route files) -----------------
+  "/self-storage-abu-dhabi": {
+    silo: "s13",
+    label: "Self storage Abu Dhabi",
+    blurb: "Self storage in Abu Dhabi: how it works and what it holds.",
+  },
+  "/self-storage-sharjah": {
+    silo: "s14",
+    label: "Self storage Sharjah",
+    blurb: "Self storage in Sharjah: how it works and what it holds.",
+  },
+  "/self-storage-ajman": {
+    silo: "s15",
+    label: "Self storage Ajman",
+    blurb: "Self storage in Ajman: how it works and what it holds.",
   },
 
   // ---- Guides (moved, with the dated slugs dropped) ------------------------

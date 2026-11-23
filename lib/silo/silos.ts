@@ -108,6 +108,27 @@ export const SILOS: Record<SiloKey, SiloDef> = {
     anchor: "movers in Fujairah",
     blurb: "Collection and moving from Fujairah and the east coast.",
   },
+  s13: {
+    key: "s13",
+    name: "Storage Abu Dhabi",
+    hub: "/self-storage-abu-dhabi",
+    anchor: "self storage in Abu Dhabi",
+    blurb: "Self, household, business and document storage collected from Abu Dhabi.",
+  },
+  s14: {
+    key: "s14",
+    name: "Storage Sharjah",
+    hub: "/self-storage-sharjah",
+    anchor: "self storage in Sharjah",
+    blurb: "Self, household, business and document storage in Sharjah.",
+  },
+  s15: {
+    key: "s15",
+    name: "Storage Ajman",
+    hub: "/self-storage-ajman",
+    anchor: "self storage in Ajman",
+    blurb: "Self, household, business and document storage in Ajman.",
+  },
   guides: {
     key: "guides",
     name: "Guides",
