@@ -6,10 +6,10 @@ import { getAdAttribution } from "@/lib/ad-attribution"
 import { env } from "@/lib/env"
 import c from "./prices-quote-card.module.css"
 
-/** Hero quote form for /self-storage-dubai/prices: size + duration + name / e-mail / mobile.
+/** Hero quote form for /self-storage-dubai/prices: size + name / e-mail / mobile.
  *  Posts to /api/insert-customer-details-dubai -> safestorage.in app/insert_customer_details_dubai -> ss_leads
  *  (source dubai_website, country AE). That endpoint only carries name / phone / email / storage_size, and
- *  storage_size becomes the lead's message, so the size, duration and where the visitor came from are packed
+ *  storage_size becomes the lead's message, so the size and where the visitor came from are packed
  *  into it as one readable line for the sales rep. No price is shown. */
 
 /** UAE mobile -> 9 national digits starting with 5, or null. */
@@ -21,16 +21,8 @@ function uaeMobile(raw: string): string | null {
   return /^5\d{8}$/.test(d) ? d : null
 }
 const SIZES = [16, 32, 50, 100]
-const DURATIONS = [
-  { m: 1, t: "1 Month" },
-  { m: 3, t: "3 Months" },
-  { m: 6, t: "6 Months" },
-  { m: 12, t: "12 Months" },
-]
-
 export default function PricesQuoteCard({ placement = "hero" }: { placement?: "hero" | "bottom" }) {
   const [size, setSize] = useState(16)
-  const [months, setMonths] = useState(1)
   const [errors, setErrors] = useState<Partial<Record<"name" | "email" | "mobile", string>>>({})
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle")
 
@@ -54,7 +46,6 @@ export default function PricesQuoteCard({ placement = "hero" }: { placement?: "h
     const page = window.location.origin + window.location.pathname
     const parts = [
       `${size} sqft`,
-      `${months} month${months > 1 ? "s" : ""}`,
       `Page: ${page}`,
       `Form: ${placement}`,
       `Came from: ${document.referrer || "direct"}`,
@@ -108,14 +99,6 @@ export default function PricesQuoteCard({ placement = "hero" }: { placement?: "h
           <button key={n} type="button" className={c.size} aria-pressed={size === n} onClick={() => setSize(n)}>
             <Box aria-hidden="true" />
             {n} sqft
-          </button>
-        ))}
-      </div>
-      <p className={c.label}>Select Duration</p>
-      <div className={c.durs}>
-        {DURATIONS.map((d) => (
-          <button key={d.m} type="button" className={c.dur} aria-pressed={months === d.m} onClick={() => setMonths(d.m)}>
-            {d.t}
           </button>
         ))}
       </div>
