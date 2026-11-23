@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { env } from "@/lib/env"
+import { getAdAttribution } from "@/lib/ad-attribution"
 import s from "./landing.module.css"
 
 /* ------------------------------------------------------------------ *
@@ -31,6 +32,19 @@ export function LandingConnect() {
         .join(" — "),
     }
 
+    // Where the visitor came from, saved as the lead's message (one item per line).
+    const attr = getAdAttribution()
+    const lead_message = [
+      `Page: ${window.location.origin}${window.location.pathname}`,
+      `Source link: ${document.referrer || "direct"}`,
+      attr.ads_landing_page ? `Landing page: ${attr.ads_landing_page}` : "",
+      attr.utm_source ? `UTM: ${attr.utm_source} / ${attr.utm_medium ?? ""} / ${attr.utm_campaign ?? ""}` : "",
+      String(data.get("details") || "").trim() ? `Storing: ${String(data.get("details")).trim()}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n")
+      .replace(/[<>]/g, "")
+
     if (!payload.customer_name || !payload.customer_contact1) {
       setStatus("error")
       return
@@ -41,7 +55,7 @@ export function LandingConnect() {
       const res = await fetch("/api/save-partial-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, lead_message }),
       })
       if (!res.ok) throw new Error(String(res.status))
       setStatus("ok")

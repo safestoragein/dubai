@@ -39,6 +39,7 @@ export async function POST(request: NextRequest) {
     const customer_contact1 = (data.customer_contact1 || '').trim()
     const customer_email = (data.customer_email || '').trim()
     const storage_type = (data.storage_type || '').trim()
+    const lead_message = String(data.lead_message || '').trim().slice(0, 480)
 
     // Need at least one identifying detail to be worth saving.
     if (!customer_name && !customer_contact1 && !customer_email) {
@@ -53,6 +54,7 @@ export async function POST(request: NextRequest) {
       customer_contact1,
       customer_email,
       storage_type,
+      lead_message,
     })
 
     const backendRes = await fetch(BACKEND_URL, {
