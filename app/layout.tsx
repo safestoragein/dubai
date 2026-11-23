@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { NavigationGuardProvider } from "@/components/providers/navigation-guard"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import FooterCities from "@/components/footer-cities"
+import FooterQuote from "@/components/footer-quote"
 import SiteChrome from "@/components/site-chrome"
 import FloatingContactButtons from "@/components/floating-contact-buttons"
 import SocialProofToast from "@/components/social-proof-toast"
@@ -223,6 +225,8 @@ export default function RootLayout({
               <SiteChrome><Header /></SiteChrome>
               <main className="flex-1">{children}</main>
               <SiteChrome>
+                <FooterCities />
+                <FooterQuote />
                 <Footer />
                 <FloatingContactButtons />
                 <SocialProofToast />

@@ -4,15 +4,7 @@ import { Button } from "@/components/ui/button"
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Star, MessageCircle } from "lucide-react"
 import { env } from "@/lib/env"
 import { SOCIAL } from "@/lib/company-facts"
-import FooterQuote from "@/components/footer-quote"
 
-// City-wise links (owner request 2026-11-23: same pattern as the India footer).
-const CITIES: { city: string; href: string; links: [string, string][] }[] = [
-  { city: "Dubai", href: "/locations/dubai", links: [["/self-storage-dubai", "Self Storage Dubai"], ["/personal-storage-dubai", "Personal Storage Dubai"], ["/business-storage-dubai", "Business Storage Dubai"], ["/moving-storage-dubai", "Moving & Storage Dubai"]] },
-  { city: "Abu Dhabi", href: "/locations/abu-dhabi", links: [["/locations/abu-dhabi", "Self Storage Abu Dhabi"], ["/moving-storage-abu-dhabi", "Moving & Storage Abu Dhabi"]] },
-  { city: "Sharjah", href: "/locations/sharjah", links: [["/locations/sharjah", "Self Storage Sharjah"], ["/moving-storage-sharjah", "Moving & Storage Sharjah"]] },
-  { city: "Ajman", href: "/locations/ajman", links: [["/locations/ajman", "Self Storage Ajman"], ["/moving-storage-ajman", "Moving & Storage Ajman"]] },
-]
 
 export default function Footer() {
   return (
@@ -25,26 +17,7 @@ export default function Footer() {
       <div className="absolute inset-0 opacity-5 bg-dubai-pattern"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
-        {/* City-wise links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 md:pt-20">
-          {CITIES.map(({ city, href, links }) => (
-            <div key={city} className="space-y-3">
-              <h3 className="text-lg font-medium text-dubai-gold">
-                <Link href={href} prefetch={false} className="hover:underline">{city}</Link>
-              </h3>
-              <ul className="space-y-2 text-dubai-sand/80 text-sm">
-                {links.map(([h, l]) => (
-                  <li key={l}>
-                    <Link href={h} prefetch={false} className="hover:text-dubai-gold transition-colors">{l}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <FooterQuote />
-
-        <div className="grid gap-8 py-12 md:py-14 border-t border-white/10 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid gap-8 py-16 md:py-20 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {/* Logo & About */}
           <div className="space-y-4 col-span-2 md:col-span-3 lg:col-span-2">
             <Link href="/" className="flex items-center">

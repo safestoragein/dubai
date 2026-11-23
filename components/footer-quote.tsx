@@ -13,9 +13,9 @@ export default function FooterQuote() {
   const path = (usePathname() || "").replace(/\/$/, "") || "/"
   if (SKIP_EXACT.has(path)) return null
   return (
-    <div className={`${s.page} ${sora.variable} ${manrope.variable}`} style={{ background: "transparent", color: "inherit" }}>
-      <div style={{ maxWidth: 560, margin: "0 auto", padding: "8px 0 40px" }}>
-        <h3 className="text-xl font-semibold text-dubai-gold text-center mb-4">Get a free storage quote</h3>
+    <div className={`${s.page} ${sora.variable} ${manrope.variable}`} style={{ background: "#faf7f2" }}>
+      <div style={{ maxWidth: 560, margin: "0 auto", padding: "36px 16px 40px" }}>
+        <h3 className="text-xl font-semibold text-slate-900 text-center mb-4">Get a free storage quote</h3>
         <StorageQuoteForm anchorId="footer-quote" />
       </div>
     </div>
