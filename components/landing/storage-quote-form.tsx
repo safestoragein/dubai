@@ -37,7 +37,16 @@ function uaeMobile(raw: string): string | null {
   return /^5\d{8}$/.test(d) ? d : null
 }
 
-export default function StorageQuoteForm() {
+/** Always record where the quote was requested: ads_landing_page = the ad landing page if there was one, else
+ *  this page; the referrer (where the visitor came from) is appended so one column carries both. */
+function withPageSource(a: Record<string, string>): Record<string, string> {
+  const page = window.location.origin + window.location.pathname
+  const ref = document.referrer || "direct"
+  const landing = a.ads_landing_page || page
+  return { ...a, ads_landing_page: `${landing} | from: ${ref}`.slice(0, 255) }
+}
+
+export default function StorageQuoteForm({ anchorId = "quote" }: { anchorId?: string } = {}) {
   // Emirates come from ss_city (country AE) so the list follows what the business has switched on;
   // the static list only shows until that answers (or if it fails).
   const [emirates, setEmirates] = useState<string[]>(EMIRATES)
@@ -150,7 +159,9 @@ export default function StorageQuoteForm() {
           floor: v("floor"),
           lift: v("lift"),
           website: v("website"),
-          attribution: getAdAttribution(),
+          attribution: withPageSource(getAdAttribution()),
+          page: window.location.origin + window.location.pathname,
+          referrer: document.referrer || "direct",
         }),
       })
       const j = (await res.json().catch(() => ({}))) as { status?: string; pass?: string; field?: Field; message?: string }
@@ -174,7 +185,7 @@ export default function StorageQuoteForm() {
   }
 
   const shell = (children: React.ReactNode) => (
-    <div className={q.formCol} id="quote">
+    <div className={q.formCol} id={anchorId}>
       <span className={q.pill}>
         <ShieldCheck aria-hidden="true" /> Pickup &amp; Delivery · Across the UAE
       </span>

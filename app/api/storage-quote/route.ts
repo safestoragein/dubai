@@ -111,7 +111,7 @@ export async function POST(request: Request) {
         customer_name: name,
         customer_contact1: phone,
         customer_email: email,
-        storage_size: `Quick form (/storage-quote) — ${emirate}, ${area}; floor ${floor}; lift ${lift}`,
+        storage_size: `Quick form — ${emirate}, ${area}; floor ${floor}; lift ${lift}\nPage: ${str(b.page, 200)}\nSource link: ${str(b.referrer, 200)}`.replace(/[<>]/g, "").slice(0, 480),
       })
       return NextResponse.json({ status: "saved" })
     } catch (e2) {
