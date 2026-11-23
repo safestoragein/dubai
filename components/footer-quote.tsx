@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
 import { manrope, sora } from "@/components/landing/fonts"
 import s from "@/components/landing/landing.module.css"
+import q from "@/components/landing/storage-quote.module.css"
 
 // Pages that are the form itself / transactional screens.
 const SKIP_EXACT = new Set(["/get-quote", "/thank-you", "/storage-quote", "/packers-and-movers/get-quote", "/test-icons", "/feed-state"])
@@ -13,7 +14,9 @@ export default function FooterQuote() {
   const path = (usePathname() || "").replace(/\/$/, "") || "/"
   if (SKIP_EXACT.has(path)) return null
   return (
-    <div className={`${s.page} ${sora.variable} ${manrope.variable}`} style={{ background: "#faf7f2" }}>
+    <div className={`${s.page} ${q.root} ${sora.variable} ${manrope.variable}`} style={{ background: "#faf7f2" }}>
+      {/* the orange backdrop + floating pill are hero-column decoration; they overlap the card at this width */}
+      <style>{"#footer-quote::before{display:none!important}#footer-quote>span:first-child{position:static!important;margin:0 auto 12px;display:flex;width:max-content}"}</style>
       <div style={{ maxWidth: 560, margin: "0 auto", padding: "36px 16px 40px" }}>
         <h3 className="text-xl font-semibold text-slate-900 text-center mb-4">Get a free storage quote</h3>
         <StorageQuoteForm anchorId="footer-quote" />
