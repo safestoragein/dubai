@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { BadgeDollarSign, Bug, CalendarDays, Camera, Package, ShieldCheck, Truck, Droplets, Fingerprint, Lock, ScanBarcode, Snowflake } from "lucide-react"
+import { Bug, CalendarDays, Camera, Package, ShieldCheck, Truck, Droplets, Fingerprint, Lock, ScanBarcode, Snowflake } from "lucide-react"
 import FacilityReel from "@/components/landing/facility-reel"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
 import q from "@/components/landing/storage-quote.module.css"
@@ -215,8 +215,8 @@ export function RentBeforeAfter() {
 /* ------------------------------------------------------------------ hero */
 
 const HERO_CHIPS = [
-  { Icon: BadgeDollarSign, t: "From AED 12 / sq ft" },
   { Icon: CalendarDays, t: "No lease" },
+  { Icon: Snowflake, t: "Indoor storage" },
   { Icon: ShieldCheck, t: "CCTV secured" },
   { Icon: Truck, t: "Doorstep pickup" },
 ]
@@ -252,6 +252,15 @@ export function RentHero() {
               Rent the space your goods occupy, by the square foot, rather than a fixed unit. No lease and no minimum
               term, with doorstep pickup across the UAE.
             </p>
+
+            <div className={r.heroPrice}>
+              <span className={r.heroPriceKicker}>Starts from</span>
+              <span className={r.heroPriceFig}>
+                <b>AED 12</b>
+                <small>per sq ft, per month</small>
+              </span>
+              <span className={r.heroPriceNote}>Pay only for the space your goods occupy</span>
+            </div>
 
             <a className={q.heroCta} href={`#${RENT_FORM_ID}`}>
               Get a free quote <span aria-hidden="true">→</span>

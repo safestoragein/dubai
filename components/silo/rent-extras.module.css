@@ -208,3 +208,42 @@
   .facGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .protGrid { grid-template-columns: 1fr; }
 }
+
+/* ---- price card in the hero ---- */
+.heroPrice {
+  display: grid;
+  width: fit-content;
+  grid-template-columns: auto auto;
+  align-items: baseline;
+  column-gap: 14px;
+  row-gap: 2px;
+  margin: 4px 0 20px;
+  padding: 14px 24px 14px 20px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--line, #e5e4dc);
+  border-left: 5px solid var(--accent, #ee5824);
+  box-shadow: 0 14px 30px -22px rgba(31, 42, 71, 0.45);
+}
+.heroPriceKicker {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent, #ee5824);
+}
+.heroPriceFig { display: contents; }
+.heroPriceFig b {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #14204a;
+}
+.heroPriceFig small { font-size: 15px; font-weight: 600; color: #14204a; }
+.heroPriceNote { grid-column: 1 / -1; font-size: 13px; color: #5d6585; }
+@media (max-width: 680px) {
+  .heroPrice { display: grid; margin-bottom: 16px; }
+  .heroPriceFig b { font-size: 34px; }
+}
