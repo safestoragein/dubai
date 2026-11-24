@@ -30,7 +30,7 @@ import { CtaBand } from "@/components/landing/page-hero"
 import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingSteps } from "@/components/landing/landing-services"
-import { RENT_FORM_ID, RENT_PATH, RentBeforeAfter, RentFacility, RentHero, RentPriceBand, RentProtection } from "./rent-extras"
+import { RENT_FORM_ID, RENT_PATH, RentBeforeAfter, RentFacility, RentCompare, RentHero, RentIntro, RentPriceBand, RentProtection } from "./rent-extras"
 import { LandingConnect } from "@/components/landing/landing-connect"
 import { UspRail } from "@/components/landing/usp-rail"
 import FaqAccordion from "@/components/landing/faq-accordion"
@@ -779,21 +779,27 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
 
         {/* INTRO — the page's opening paragraphs, unchanged. The first carries the
             mandatory up-link to the silo hub. */}
-        <section className={`${s.section} ${s.wrap}`} id="intro" style={SEC_FIRST}>
-          <Head title={content.introH2 ?? "The short version"} eyebrow="In brief" />
-          <div className={s.prose} style={{ margin: 0, maxWidth: 860 }}>
-            {content.hero.map((p, i) => (
-              <p key={i} className={i === 0 ? s.proseLead : undefined}>
-                {renderRich(p)}
-              </p>
-            ))}
-          </div>
-        </section>
+        {content.path === RENT_PATH ? (
+          <RentIntro title={content.introH2 ?? "The short version"} paras={content.hero} />
+        ) : (
+          <section className={`${s.section} ${s.wrap}`} id="intro" style={SEC_FIRST}>
+            <Head title={content.introH2 ?? "The short version"} eyebrow="In brief" />
+            <div className={s.prose} style={{ margin: 0, maxWidth: 860 }}>
+              {content.hero.map((p, i) => (
+                <p key={i} className={i === 0 ? s.proseLead : undefined}>
+                  {renderRich(p)}
+                </p>
+              ))}
+            </div>
+          </section>
+        )}
 
         {content.path === RENT_PATH && <RentPriceBand />}
 
         {content.sections.map((section, i) =>
-          content.path === RENT_PATH && section.kind === "steps" ? (
+          content.path === RENT_PATH && i === 0 && section.kind === "prose" ? (
+            <RentCompare key={section.h2} paras={section.paras} />
+          ) : content.path === RENT_PATH && section.kind === "steps" ? (
             // The rent page swaps its plain step list for the animated van journey from
             // /storage-quote, then follows it with the facility photos, climate/security
             // detail and before/after photos.

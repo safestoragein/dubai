@@ -1,11 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Bug, CalendarDays, Camera, Package, ShieldCheck, Truck, Droplets, Fingerprint, Lock, ScanBarcode, Snowflake } from "lucide-react"
+import { ArrowUpDown, Bug, CalendarDays, Camera, Droplets, FileX2, Fingerprint, Lock, Package, Ruler, ScanBarcode, ShieldCheck, Snowflake, Truck } from "lucide-react"
 import FacilityReel from "@/components/landing/facility-reel"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
 import q from "@/components/landing/storage-quote.module.css"
 import s from "@/components/landing/landing.module.css"
 import BeforeAfter from "./rent-before-after"
+import { renderRich } from "./rich-text"
 import r from "./rent-extras.module.css"
 
 /**
@@ -315,5 +316,106 @@ export function RentHero() {
         </div>
       </section>
     </div>
+  )
+}
+
+/* ------------------------------------------------------ intro: short version */
+
+const INTRO_FACTS = [
+  { Icon: FileX2, t: "No lease, no Ejari", d: "And no minimum term either." },
+  { Icon: Ruler, t: "Measured floor space", d: "You pay for what your goods actually occupy." },
+  { Icon: ArrowUpDown, t: "Moves with you", d: "The monthly figure follows what you store, up or down." },
+]
+
+/** "The short version": the page's opening paragraphs (first one carries the silo up-link) beside three key facts. */
+export function RentIntro({ title, paras }: { title: string; paras: string[] }) {
+  const words = title.split(" ")
+  const accent = words.length > 1 ? words.pop() : ""
+  return (
+    <section className={`${s.section} ${s.wrap}`} id="intro" style={{ paddingTop: 26, paddingBottom: 26 }}>
+      <div className={r.introGrid}>
+        <div className={r.introCopy}>
+          <span className={s.howEyebrow}>In brief</span>
+          <h2>
+            {words.join(" ")} <em>{accent}</em>
+          </h2>
+          <p className={r.introLead}>{renderRich(paras[0] ?? "")}</p>
+          {paras.slice(1).map((p, i) => (
+            <p className={r.introText} key={i}>
+              {renderRich(p)}
+            </p>
+          ))}
+        </div>
+        <ul className={r.facts}>
+          {INTRO_FACTS.map(({ Icon, t: ft, d }) => (
+            <li className={r.fact} key={ft}>
+              <span className={r.factIcon}>
+                <Icon aria-hidden="true" />
+              </span>
+              <span>
+                <b>{ft}</b>
+                <small>{d}</small>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+/* ------------------------------------------- overview: by the foot vs unit */
+
+/** "By the foot, not by the unit": the two paragraphs as a side-by-side comparison. */
+export function RentCompare({ paras }: { paras: string[] }) {
+  return (
+    <section className={`${s.section} ${s.wrap}`} id="rent-compare" style={{ paddingTop: 0, paddingBottom: 26 }}>
+      <div className={s.howHead}>
+        <div>
+          <span className={s.howEyebrow}>Overview</span>
+          <h2>
+            By the foot, not <em>by the unit.</em>
+          </h2>
+        </div>
+        <p>Same space, two ways of paying for it.</p>
+      </div>
+      <div className={r.cmp}>
+        <article className={`${r.cmpCard} ${r.cmpOld}`}>
+          <span className={r.cmpBadge}>Fixed-size units</span>
+          <div className={r.sizes} aria-hidden="true">
+            <span>25 sq ft</span>
+            <span>50 sq ft</span>
+            <span className={r.sizePicked}>100 sq ft</span>
+          </div>
+          <p className={r.cmpResult}>
+            You pay for the <b>whole 100</b>, filled or not.
+          </p>
+          <p className={r.cmpText}>{renderRich(paras[0] ?? "")}</p>
+        </article>
+        <article className={`${r.cmpCard} ${r.cmpNew}`}>
+          <span className={`${r.cmpBadge} ${r.cmpBadgeNew}`}>SafeStorage · by the foot</span>
+          <div className={r.bars} aria-hidden="true">
+            <div className={r.barRow}>
+              <span>2BHK</span>
+              <div className={r.bar}>
+                <i style={{ width: "100%" }} />
+              </div>
+              <em>138 sq ft</em>
+            </div>
+            <div className={r.barRow}>
+              <span>Half back</span>
+              <div className={r.bar}>
+                <i style={{ width: "50%" }} />
+              </div>
+              <em>~69 sq ft</em>
+            </div>
+          </div>
+          <p className={r.cmpResult}>
+            You pay for <b>exactly what you use</b>.
+          </p>
+          <p className={r.cmpText}>{renderRich(paras[1] ?? "")}</p>
+        </article>
+      </div>
+    </section>
   )
 }
