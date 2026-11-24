@@ -242,9 +242,17 @@ export function RentHero({
             <em>{accent}</em>
           </h1>
           <p>{blurb}</p>
-          <p className={r.heroPrice}>
-            Pricing starts from <b>AED 12</b> per sq ft, per month
-          </p>
+          <div className={r.heroPrice}>
+            <span className={r.heroPriceKicker}>Pricing starts from</span>
+            <span className={r.heroPriceFig}>
+              <b>AED 12</b> <small>per sq ft, per month</small>
+            </span>
+          </div>
+          <ul className={r.heroPoints}>
+            <li>No lease, no minimum space</li>
+            <li>Indoor, climate-controlled &amp; CCTV monitored</li>
+            <li>We collect from your door</li>
+          </ul>
           <div className={s.heroCta}>
             <a className={`${s.btn} ${s.btnAccent}`} href={`#${RENT_FORM_ID}`}>
               Get a Free Quote →

@@ -213,18 +213,72 @@
 .heroGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  gap: 48px;
+  gap: 64px;
   align-items: center;
+  padding: 4px 0 6px;
 }
-.heroCopy { max-width: 560px; }
+/* The shared hero rules pack the copy tightly; space it out as one calm column. */
+.heroCopy {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.heroCopy > * { margin: 0 !important; }
+.heroCopy h1 { line-height: 1.08; }
+.heroCopy > p { font-size: 16.5px; line-height: 1.65; max-width: 500px; }
 .heroPrice {
-  margin-top: 14px;
-  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 22px;
+  border-radius: 18px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 14px 30px -22px rgba(31, 42, 71, 0.45);
+}
+.heroPriceKicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--muted);
 }
-.heroPrice b { color: var(--accent); font-family: var(--font-sora), "Sora", sans-serif; font-size: 18px; }
+.heroPriceFig { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.heroPriceFig b {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 34px;
+  line-height: 1.1;
+  color: var(--accent);
+}
+.heroPriceFig small { font-size: 14.5px; color: var(--ink); }
+.heroPoints {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+  font-size: 15px;
+}
+.heroPoints li { position: relative; padding-left: 30px; }
+.heroPoints li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 21px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff0e6;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
 .heroForm { min-width: 0; }
 @media (max-width: 980px) {
-  .heroGrid { grid-template-columns: 1fr; gap: 28px; }
-  .heroCopy { max-width: none; }
+  .heroGrid { grid-template-columns: 1fr; gap: 32px; }
+  .heroCopy { max-width: none; gap: 22px; }
 }
