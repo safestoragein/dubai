@@ -17,6 +17,8 @@ import r from "./rent-extras.module.css"
  * PRICING: the "from AED 12" figure is a deliberate, owner-requested exception to the
  * site-wide no-public-pricing rule (2026-11-24) and applies to THIS page only.
  */
+export const ROOM_PATH = "/self-storage-dubai/storage-room"
+export const RENT_LIKE: ReadonlySet<string> = new Set(["/self-storage-dubai/storage-space-for-rent", ROOM_PATH])
 export const RENT_PATH = "/self-storage-dubai/storage-space-for-rent"
 
 /** Where the page's instant form sits — the CTAs below scroll to it. */
@@ -225,19 +227,27 @@ function GoogleG() {
  * form on the right where the hero photo used to be. The testimonial and rating are the ones already
  * published on /storage-quote. `q.root` carries the colour tokens those styles rely on.
  */
-export function RentHero() {
+export function RentHero({ path = RENT_PATH }: { path?: string }) {
+  const room = path === ROOM_PATH
   return (
     <div className={q.root}>
       <section className={q.hero}>
         <div className={`${q.wide} ${q.heroRow}`}>
           <div className={q.left}>
-            <div className={q.kicker}>Storage space for rent</div>
-            <h1>
-              Storage Space For Rent <em>in Dubai</em>
-            </h1>
+            <div className={q.kicker}>{room ? "Storage room" : "Storage space for rent"}</div>
+            {room ? (
+              <h1>
+                A Storage Room in Dubai — <em>Without the Bigger Flat</em>
+              </h1>
+            ) : (
+              <h1>
+                Storage Space For Rent <em>in Dubai</em>
+              </h1>
+            )}
             <p className={q.lede}>
-              Rent the space your goods occupy, by the square foot, rather than a fixed unit. No lease and no minimum
-              term, with doorstep pickup across the UAE.
+              {room
+                ? "Clear a room without moving to a bigger flat. We collect, wrap and store what is in it, and you pay only for the space it uses. No lease, with doorstep pickup across the UAE."
+                : "Rent the space your goods occupy, by the square foot, rather than a fixed unit. No lease and no minimum term, with doorstep pickup across the UAE."}
             </p>
 
             <div className={r.heroPrice}>
