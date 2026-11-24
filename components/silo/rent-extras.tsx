@@ -212,14 +212,51 @@ export function RentBeforeAfter() {
   )
 }
 
-/* ------------------------------------------------------------- quick form */
+/* ------------------------------------------------------------------ hero */
 
-/** The /storage-quote form, dropped into the page (same card, same save path). `q.root` carries its colour tokens. */
-export function RentQuoteForm() {
+/**
+ * The rent page's hero: headline and call-to-action on the left, the /storage-quote form where the
+ * hero photo used to be. `q.root` carries the form's colour tokens; its cream background is cleared
+ * because the hero already sits on the page background.
+ */
+export function RentHero({
+  tag,
+  title,
+  accent,
+  blurb,
+  phoneLink,
+}: {
+  tag: string
+  title: string
+  accent: string
+  blurb: string
+  phoneLink: string
+}) {
   return (
-    <section className={`${s.section} ${s.wrap}`} id="rent-quote" style={{ paddingTop: 0, paddingBottom: 24 }}>
-      <div className={q.root} style={{ borderRadius: 20, padding: "8px 20px 20px", maxWidth: 760, margin: "0 auto" }}>
-        <StorageQuoteForm anchorId={RENT_FORM_ID} />
+    <section className={`${s.hero} ${s.wrap}`}>
+      <div className={r.heroGrid}>
+        <div className={`${s.heroContent} ${r.heroCopy}`}>
+          <span className={s.heroTag}>{tag}</span>
+          <h1>
+            {title} <br />
+            <em>{accent}</em>
+          </h1>
+          <p>{blurb}</p>
+          <p className={r.heroPrice}>
+            Pricing starts from <b>AED 12</b> per sq ft, per month
+          </p>
+          <div className={s.heroCta}>
+            <a className={`${s.btn} ${s.btnAccent}`} href={`#${RENT_FORM_ID}`}>
+              Get a Free Quote →
+            </a>
+            <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={phoneLink}>
+              <span className={s.phIco}>📞</span> Call: 050-577-3388
+            </a>
+          </div>
+        </div>
+        <div className={`${q.root} ${r.heroForm}`} style={{ background: "transparent" }}>
+          <StorageQuoteForm anchorId={RENT_FORM_ID} />
+        </div>
       </div>
     </section>
   )

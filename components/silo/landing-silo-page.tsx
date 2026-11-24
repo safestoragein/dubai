@@ -30,7 +30,7 @@ import { CtaBand } from "@/components/landing/page-hero"
 import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingSteps } from "@/components/landing/landing-services"
-import { RENT_FORM_ID, RENT_PATH, RentBeforeAfter, RentFacility, RentPriceBand, RentProtection, RentQuoteForm } from "./rent-extras"
+import { RENT_FORM_ID, RENT_PATH, RentBeforeAfter, RentFacility, RentHero, RentPriceBand, RentProtection } from "./rent-extras"
 import { LandingConnect } from "@/components/landing/landing-connect"
 import { UspRail } from "@/components/landing/usp-rail"
 import FaqAccordion from "@/components/landing/faq-accordion"
@@ -722,7 +722,9 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
       <div
         className={`${s.page} ${sora.variable} ${manrope.variable}${SMALL_TYPE.has(content.path) ? ` ${g.smallType}` : ""}`}
       >
-        {SIDE_HERO.has(content.path) ? (
+        {content.path === RENT_PATH ? (
+          <RentHero tag={silo.name} title={title} accent={accent} blurb={content.description} phoneLink={env.PHONE_LINK} />
+        ) : SIDE_HERO.has(content.path) ? (
           <section
             className={`${s.hero} ${s.wrap} ${p.split2}${HERO_FLUSH.has(content.path) ? ` ${p.split2Wrap}` : ""}`}
           >
@@ -788,12 +790,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
           </div>
         </section>
 
-        {content.path === RENT_PATH && (
-          <>
-            <RentPriceBand />
-            <RentQuoteForm />
-          </>
-        )}
+        {content.path === RENT_PATH && <RentPriceBand />}
 
         {content.sections.map((section, i) =>
           content.path === RENT_PATH && section.kind === "steps" ? (
