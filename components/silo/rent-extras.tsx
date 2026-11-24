@@ -19,8 +19,9 @@ import r from "./rent-extras.module.css"
  */
 export const HUB_PATH = "/self-storage-dubai"
 export const PERSONAL_PATH = "/personal-storage-dubai"
+export const SERVICES_PATH = "/self-storage-dubai/storage-services"
 export const ROOM_PATH = "/self-storage-dubai/storage-room"
-export const RENT_LIKE: ReadonlySet<string> = new Set(["/self-storage-dubai/storage-space-for-rent", ROOM_PATH])
+export const RENT_LIKE: ReadonlySet<string> = new Set(["/self-storage-dubai/storage-space-for-rent", ROOM_PATH, SERVICES_PATH])
 export const RENT_PATH = "/self-storage-dubai/storage-space-for-rent"
 
 /** Where the page's instant form sits — the CTAs below scroll to it. */
@@ -232,14 +233,19 @@ function GoogleG() {
 export function RentHero({ path = RENT_PATH }: { path?: string }) {
   const room = path === ROOM_PATH
   const personal = path === PERSONAL_PATH
-  const hub = path === HUB_PATH || personal // no price card on these two
+  const services = path === SERVICES_PATH
+  const hub = path === HUB_PATH || personal || services // no price card on these two
   return (
     <div className={q.root}>
       <section className={q.hero}>
         <div className={`${q.wide} ${q.heroRow}`}>
           <div className={q.left}>
-            <div className={q.kicker}>{personal ? "Personal storage Dubai" : hub ? "Self storage Dubai" : room ? "Storage room" : "Storage space for rent"}</div>
-            {personal ? (
+            <div className={q.kicker}>{services ? "Storage services Dubai" : personal ? "Personal storage Dubai" : hub ? "Self storage Dubai" : room ? "Storage room" : "Storage space for rent"}</div>
+            {services ? (
+              <h1>
+                Storage Services in Dubai: <em>Collection, Storage and Delivery</em>
+              </h1>
+            ) : personal ? (
               <h1>
                 Personal Storage in Dubai – <em>Furniture, Boxes &amp; More</em>
               </h1>
@@ -257,7 +263,9 @@ export function RentHero({ path = RENT_PATH }: { path?: string }) {
               </h1>
             )}
             <p className={q.lede}>
-              {personal
+              {services
+                ? "Doorstep collection, wrapping, indoor storage and delivery back, booked as one service and billed on the space your items use. No lease, across the UAE."
+                : personal
                 ? "Affordable storage for your home and belongings, with door-to-door pickup and no hidden fees. No lease, with doorstep pickup across the UAE."
                 : hub
                 ? "Between apartments, renovating, travelling or decluttering? SafeStorage gives you secure space in Dubai, when and where you need it. No lease, with doorstep pickup across the UAE."

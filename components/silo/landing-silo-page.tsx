@@ -30,7 +30,7 @@ import { CtaBand } from "@/components/landing/page-hero"
 import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingSteps } from "@/components/landing/landing-services"
-import { RENT_FORM_ID, RENT_LIKE, RENT_PATH, RentBeforeAfter, RentFacility, RentCompare, RentHero, RentIntro, RentPriceBand, RentProtection } from "./rent-extras"
+import { RENT_FORM_ID, RENT_LIKE, RENT_PATH, SERVICES_PATH, RentBeforeAfter, RentFacility, RentCompare, RentHero, RentIntro, RentPriceBand, RentProtection } from "./rent-extras"
 import { LandingConnect } from "@/components/landing/landing-connect"
 import { UspRail } from "@/components/landing/usp-rail"
 import FaqAccordion from "@/components/landing/faq-accordion"
@@ -794,7 +794,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
           </section>
         )}
 
-        {RENT_LIKE.has(content.path) && <RentPriceBand />}
+        {RENT_LIKE.has(content.path) && content.path !== SERVICES_PATH && <RentPriceBand />}
 
         {content.sections.map((section, i) =>
           content.path === RENT_PATH && i === 0 && section.kind === "prose" ? (

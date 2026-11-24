@@ -520,6 +520,107 @@ export const SILO1_PAGES: SiloPageContent[] = [
     ],
   },
 
+  /* -------------------------------------------------------- storage-services */
+  {
+    silo: "s1",
+    path: "/self-storage-dubai/storage-services",
+    crumb: "Storage Services",
+    navLabel: "Storage services",
+    navBlurb: "Collection, wrapping, indoor storage and delivery back, in one booking.",
+    title: "Storage Services Dubai | Pickup, Storage & Delivery",
+    description:
+      "Storage services in Dubai from one team: doorstep collection, wrapping, indoor storage billed on the space used, and delivery back whenever you ask. Free quote.",
+    keywords:
+      "storage services dubai, storage services in dubai, storage and pickup dubai, storage company dubai, household storage services dubai, storage solutions dubai",
+    ogTitle: "Storage Services in Dubai: Collection, Storage and Delivery",
+    h1: "Storage Services in Dubai: Collection, Storage and Delivery",
+    hero: [
+      "Storage services in Dubai usually means a list of separate jobs: someone to collect, someone to wrap, somewhere to keep it, someone to bring it back. We run all four as one booking, which is the whole idea of [self storage in Dubai](/self-storage-dubai) done properly.",
+      "You tell us what needs to go and where it is. We collect it, wrap it, store it indoors and deliver any of it back when you ask, **billed on the space your items use** rather than on a fixed unit.",
+    ],
+    sections: [
+      {
+        kind: "prose",
+        h2: "What the service actually covers",
+        paras: [
+          "A storage service is more than the shelf. In a Dubai flat the hard parts are the ones around it: booking a lift slot, getting a wardrobe down a service corridor, finding a vehicle that fits, and being home for all of it.",
+          "So the service starts at your door and ends at your door. The storage in the middle is the simplest part: a covered, managed warehouse where your goods are racked off the floor, logged against a barcoded inventory and watched on camera around the clock.",
+        ],
+      },
+      {
+        kind: "cards",
+        h2: "The services, one by one",
+        intro: "Each is part of the same booking. Use all of them, or only the ones you need.",
+        items: [
+          { icon: "🚚", h: "Doorstep collection", p: "A crew and vehicle come to your flat or villa on the day you choose, across Dubai and the wider UAE." },
+          { icon: "📦", h: "Wrapping and palletising", p: "Furniture is shrink-wrapped before it leaves, then racked on pallets so nothing sits on the floor." },
+          { icon: "🏭", h: "Indoor warehouse storage", p: "Covered and managed, never a yard or container. You are billed on the space your goods occupy." },
+          { icon: "🏷️", h: "Barcode inventory", p: "Every item is logged when it arrives, so one box can come back without disturbing the rest." },
+          { icon: "↩️", h: "Delivery back", p: "One carton or the whole lot, normally within 24 to 48 hours of your request." },
+        ],
+      },
+      {
+        kind: "table",
+        h2: "Which service fits your situation",
+        intro: "Most bookings are one of these five.",
+        columns: ["Your situation", "What you need", "Read more"],
+        rows: [
+          ["One room too many things", "Collection and storage by the foot", "[Storage room](/self-storage-dubai/storage-room)"],
+          ["Between two leases", "Collection, storage, delivery to the new place", "[Short-term storage](/self-storage-dubai/short-term)"],
+          ["Need to see how much space", "A measured estimate before we come", "[Unit sizes guide](/self-storage-dubai/unit-sizes)"],
+          ["Ongoing, month to month", "Storage billed as the amount changes", "[Monthly storage](/self-storage-dubai/monthly-storage)"],
+          ["Want to rent a defined amount", "Space by the square foot, no lease", "[Storage space for rent](/self-storage-dubai/storage-space-for-rent)"],
+        ],
+        note: "Access is arranged in advance rather than walk-in, which is what lets us keep goods racked, wrapped and protected. [How it works](/how-it-works) sets out the trade.",
+      },
+      {
+        kind: "steps",
+        h2: "From first message to stored",
+        intro: "Most bookings are collected within a few days.",
+        items: [
+          { h: "Tell us what and where", p: "A rough list or a few photos is enough to start." },
+          { h: "Get your quote", p: "A free itemised quote, with transport shown as its own line." },
+          { h: "We collect and wrap", p: "The crew handles lift bookings, wrapping and loading." },
+          { h: "Ask for it back", p: "Any of it, any time, delivered to the address you choose." },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What storage services do you offer in Dubai?",
+        a: "Doorstep collection, wrapping and palletising, indoor warehouse storage, barcode inventory and delivery back, all booked together.",
+      },
+      {
+        q: "Can I use only the storage and move things myself?",
+        a: "Collection is part of how the service is set up, so we recommend using it. If you need something different, tell us on the quote form and we will say what is possible.",
+      },
+      {
+        q: "How is the storage billed?",
+        a: "On the space your items use, not a fixed unit. Your itemised quote shows storage and transport separately.",
+      },
+      {
+        q: "Is my furniture protected?",
+        a: "Yes. It is wrapped before collection, stored indoors off the floor and covered by CCTV around the clock.",
+      },
+      {
+        q: "How quickly can I get things back?",
+        a: "Normally within 24 to 48 hours of asking. Each delivery is quoted before it happens.",
+      },
+    ],
+    serviceType: "Household storage",
+    cta: {
+      h2: "Get your storage quote",
+      p: "Tell us what needs to go. You will have the monthly figure the same day.",
+    },
+    siblings: [
+      "/self-storage-dubai/storage-room",
+      "/self-storage-dubai/monthly-storage",
+      "/self-storage-dubai/unit-sizes",
+      "/self-storage-dubai/storage-space-for-rent",
+      "/self-storage-dubai/short-term",
+    ],
+  },
+
   /* ------------------------------------------------------ climate-controlled */
   {
     silo: "s1",
