@@ -96,3 +96,68 @@ export function getAdAttribution(): Record<string, string> {
     return {}
   }
 }
+
+// ---------------------------------------------------------------------------
+// First touch (every visitor, not only ad clicks)
+//
+// captureAdAttribution() above stores nothing unless the landing URL carries ad
+// params, so organic/direct/ChatGPT visitors left no landing page behind. This
+// records WHERE the visitor first arrived — landing path, utm_*, external
+// referrer — once, in a first-party cookie (not localStorage) so the server-side
+// chat route receives it on its own request too. insert_customer_dubai writes it
+// to ss_customer.ft_* (write-once); the India site records the same fields.
+
+const FT_COOKIE = "ss_ft"
+const FT_TTL_S = 90 * 24 * 60 * 60
+
+export function captureFirstTouch(): void {
+  try {
+    if (document.cookie.split("; ").some((c) => c.startsWith(FT_COOKIE + "="))) return // write-once
+    const qs = new URLSearchParams(window.location.search)
+    const g = (k: string) => (qs.get(k) || "").trim().slice(0, 100)
+    let ref = ""
+    try {
+      const r = document.referrer ? new URL(document.referrer) : null
+      if (r && r.host !== window.location.host) ref = (r.origin + r.pathname).slice(0, 300)
+    } catch {}
+    const ft = {
+      s: g("utm_source"), m: g("utm_medium"), c: g("utm_campaign"), x: g("utm_content"),
+      lp: window.location.pathname.slice(0, 255), r: ref, ts: Date.now(),
+    }
+    document.cookie = `${FT_COOKIE}=${encodeURIComponent(JSON.stringify(ft))}; max-age=${FT_TTL_S}; path=/; SameSite=Lax; Secure`
+  } catch {
+    // Cookies blocked — best-effort.
+  }
+}
+
+// Cookie value -> the ss_customer field names insert_customer_dubai understands.
+// Pure (no window), so the server-side chat route can use it on the request's Cookie header.
+export function parseFirstTouchCookie(cookieHeader: string | null | undefined): Record<string, string> {
+  const out: Record<string, string> = {}
+  try {
+    const m = /(?:^|;\s*)ss_ft=([^;]*)/.exec(cookieHeader || "")
+    if (!m) return out
+    const t = JSON.parse(decodeURIComponent(m[1])) as Record<string, unknown>
+    const s = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "")
+    out.ft_utm_source = s(t.s, 100)
+    out.ft_utm_medium = s(t.m, 100)
+    out.ft_utm_campaign = s(t.c, 100)
+    out.ft_utm_content = s(t.x, 100)
+    out.ft_landing_page = s(t.lp, 255)
+    out.ft_referrer = s(t.r, 300)
+    out.ft_ts = typeof t.ts === "number" && Number.isFinite(t.ts) ? String(Math.trunc(t.ts)) : ""
+    for (const k of Object.keys(out)) if (!out[k]) delete out[k]
+  } catch {}
+  return out
+}
+
+// Browser side: first touch + the page the form is being submitted from.
+export function getFirstTouch(): Record<string, string> {
+  try {
+    const out = parseFirstTouchCookie(document.cookie)
+    out.quotation_page_url = window.location.href.slice(0, 500)
+    return out
+  } catch {
+    return {}
+  }
+}

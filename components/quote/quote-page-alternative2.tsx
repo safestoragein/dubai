@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import WorkingPlacesAutocomplete from "@/components/ui/working-places-autocomplete"
 import { sanitizePhoneInput, validatePhone, toE164 } from "@/lib/phone"
-import { getAdAttribution } from "@/lib/ad-attribution"
+import { getAdAttribution, getFirstTouch } from "@/lib/ad-attribution"
 import {
   calculateTransportPrice,
   transportEstimateRange,
@@ -776,6 +776,8 @@ export default function QuotePage() {
             customer_local_city: formData.emirate,
             // gclid / UTM / Ads account captured on landing (lib/ad-attribution.ts)
             ...getAdAttribution(),
+            // first touch (landing page / source / referrer) + the page this form was submitted from
+            ...getFirstTouch(),
           }),
         })
 

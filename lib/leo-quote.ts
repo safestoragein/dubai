@@ -207,6 +207,8 @@ const ATTRIBUTION_KEYS = [
   "gclid_field", "campaign_id_field", "utm_source", "utm_medium", "utm_campaign", "utm_term_field",
   "utm_content", "ads_account_id", "ads_adgroup_id", "ads_keyword", "ads_matchtype",
   "ads_creative_id", "ads_network", "ads_device", "ads_landing_page",
+  "ft_utm_source", "ft_utm_medium", "ft_utm_campaign", "ft_utm_content", "ft_landing_page", "ft_referrer", "ft_ts",
+  "quotation_page_url",
 ] as const
 
 export function cleanAttribution(raw: unknown): Record<string, string> {

@@ -3,6 +3,7 @@
 import { NextResponse } from "next/server"
 import { clientIp } from "@/lib/client-ip"
 import { createQuote, tooMany } from "@/lib/leo-quote"
+import { parseFirstTouchCookie } from "@/lib/ad-attribution"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -65,7 +66,13 @@ export async function POST(request: Request) {
       lat: num(b.pickupLat),
       lng: num(b.pickupLon),
       items,
-      attribution: b.attribution,
+      // The widget bundle only knows ad-click params; first touch + the page the chat sits on
+      // come from this same-origin request (ss_ft cookie, Referer).
+      attribution: {
+        ...(b.attribution && typeof b.attribution === "object" ? (b.attribution as Record<string, unknown>) : {}),
+        ...parseFirstTouchCookie(request.headers.get("cookie")),
+        quotation_page_url: request.headers.get("referer") || "",
+      },
     })
     return NextResponse.json(out)
   } catch (e) {
