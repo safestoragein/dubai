@@ -52,7 +52,7 @@ export function RentPriceBand() {
 
 const SHOTS = [
   { src: "/landing/facility-1.webp", t: "Multi-level racking", alt: "Multi-level orange and blue pallet racking inside a SafeStorage warehouse, with wrapped furniture and boxes below" },
-  { src: "/landing/facility-2.webp", t: "Wrapped & palletised", alt: "Furniture shrink-wrapped and stored on pallets along a clean warehouse aisle" },
+  { src: "/landing/facility-2.webp", t: "Wrapped & palletised", alt: "Boxes racked on shelving and furniture shrink-wrapped on pallets in a clean, secure warehouse bay" },
   { src: "/landing/facility-3.webp", t: "Furniture, protected", alt: "Sofas and mattresses wrapped for storage on racking with a clean concrete floor" },
   { src: "/landing/facility-4.webp", t: "Proper handling equipment", alt: "Double-height pallet racking with a pallet truck, ladder and wrapped items" },
 ]
@@ -187,12 +187,12 @@ export function RentBeforeAfter() {
           caption="Illustrative: a home crowded with boxes, then the same kind of goods wrapped and racked."
         />
         <BeforeAfter
-          before="/landing/rent-room-before-2.webp"
-          after="/landing/rent-room-after-2.webp"
-          beforeAlt="A cluttered storeroom with overflowing shelves, loose furniture and boxes on the floor"
-          afterAlt="Furniture shrink-wrapped and stored on pallets along a clean warehouse aisle"
-          title="Furniture off the floor"
-          caption="Illustrative: loose furniture and clutter, then wrapped and palletised."
+          before="/landing/rent-room-before-4.webp"
+          after="/landing/rent-room-after-4.webp"
+          beforeAlt="A spare bedroom filled with moving boxes, storage tubs, a stroller and a rolled rug"
+          afterAlt="Boxes racked on shelving and furniture shrink-wrapped on pallets in a clean, secure warehouse bay"
+          title="The spare room, cleared"
+          caption="Illustrative: a room full of boxes and clutter, then wrapped and racked."
         />
       </div>
     </section>
