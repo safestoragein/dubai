@@ -386,7 +386,27 @@
 .whyArt svg { width: 100%; height: auto; display: block; transition: transform 0.3s; }
 .whyCard:hover .whyArt svg { transform: scale(1.07) translateY(-2px); }
 @media (max-width: 1100px) { .whyGrid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 620px) { .whyGrid { grid-template-columns: 1fr; } .whyCard { min-height: 150px; } .eyeLn { width: 36px; } }
+/* Phones/tablets: 8 cards would be a very tall stack, so swipe sideways instead. */
+@media (max-width: 900px) {
+  .whyGrid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(78%, 280px);
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    padding: 6px 2px 14px;
+    margin: 0 -2px;
+  }
+  .whyGrid > li { scroll-snap-align: start; }
+  .whyGrid::-webkit-scrollbar { height: 5px; }
+  .whyGrid::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  .whyCard:hover { transform: none; }
+}
+@media (max-width: 620px) { .whyCard { min-height: 170px; } .eyeLn { width: 36px; } }
+.protLinks { margin-top: 22px; }
 
 @media (max-width: 860px) {
   .facGrid { grid-auto-rows: auto; gap: 12px; }
