@@ -17,6 +17,7 @@ import r from "./rent-extras.module.css"
  * PRICING: the "from AED 12" figure is a deliberate, owner-requested exception to the
  * site-wide no-public-pricing rule (2026-11-24) and applies to THIS page only.
  */
+export const HUB_PATH = "/self-storage-dubai"
 export const ROOM_PATH = "/self-storage-dubai/storage-room"
 export const RENT_LIKE: ReadonlySet<string> = new Set(["/self-storage-dubai/storage-space-for-rent", ROOM_PATH])
 export const RENT_PATH = "/self-storage-dubai/storage-space-for-rent"
@@ -229,13 +230,18 @@ function GoogleG() {
  */
 export function RentHero({ path = RENT_PATH }: { path?: string }) {
   const room = path === ROOM_PATH
+  const hub = path === HUB_PATH
   return (
     <div className={q.root}>
       <section className={q.hero}>
         <div className={`${q.wide} ${q.heroRow}`}>
           <div className={q.left}>
-            <div className={q.kicker}>{room ? "Storage room" : "Storage space for rent"}</div>
-            {room ? (
+            <div className={q.kicker}>{hub ? "Self storage Dubai" : room ? "Storage room" : "Storage space for rent"}</div>
+            {hub ? (
+              <h1>
+                Self Storage in Dubai – <em>Secure Units, Fair Rates, Easy Booking</em>
+              </h1>
+            ) : room ? (
               <h1>
                 A Storage Room in Dubai — <em>Without the Bigger Flat</em>
               </h1>
@@ -245,11 +251,14 @@ export function RentHero({ path = RENT_PATH }: { path?: string }) {
               </h1>
             )}
             <p className={q.lede}>
-              {room
+              {hub
+                ? "Between apartments, renovating, travelling or decluttering? SafeStorage gives you secure space in Dubai, when and where you need it. No lease, with doorstep pickup across the UAE."
+                : room
                 ? "Clear a room without moving to a bigger flat. We collect, wrap and store what is in it, and you pay only for the space it uses. No lease, with doorstep pickup across the UAE."
                 : "Rent the space your goods occupy, by the square foot, rather than a fixed unit. No lease and no minimum term, with doorstep pickup across the UAE."}
             </p>
 
+            {!hub && (
             <div className={r.heroPrice}>
               <span className={r.heroPriceKicker}>Starts from</span>
               <span className={r.heroPriceFig}>
@@ -258,6 +267,7 @@ export function RentHero({ path = RENT_PATH }: { path?: string }) {
               </span>
               <span className={r.heroPriceNote}>Pay only for the space your goods occupy</span>
             </div>
+            )}
 
             <a className={q.heroCta} href={`#${RENT_FORM_ID}`}>
               Get a free quote <span aria-hidden="true">→</span>

@@ -10,7 +10,7 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
-import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
+import { LandingTrust } from "@/components/landing/landing-top"
 import { LandingConnect } from "@/components/landing/landing-connect"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingSteps } from "@/components/landing/landing-services"
@@ -20,6 +20,7 @@ import FaqAccordion from "@/components/landing/faq-accordion"
 import s from "@/components/landing/landing.module.css"
 import h from "./hero.module.css"
 import Reveal from "./Reveal"
+import { RentBeforeAfter, RentFacility, RentHero, RentProtection } from "@/components/silo/rent-extras"
 
 export const metadata: Metadata = {
   title: { absolute: "Self Storage Dubai: Flexible Plans & No Lorry | SafeStorage" },
@@ -171,24 +172,13 @@ export default function SelfStorageDubaiPage() {
       <SchemaScript schema={[...pageSchemas, faqSchema]} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        {/* wrapper only swaps the hero wash for a lighter one (see hero.module.css) */}
-        <div className={h.heroVivid}>
-          <SplitHero
-            eyebrow="Self storage Dubai"
-            title="Self Storage in Dubai –"
-            titleAccent="Secure Units, Fair Rates, Easy Booking"
-            blurb="Between apartments, renovating, travelling or decluttering? SafeStorage gives you secure space in Dubai, when and where you need it."
-            image="/landing/svc-self-hero.webp"
-            side
-            imagePosition="center 30%"
-            ctaLabel="Get Instant Quote"
-            phoneLabel="Call +971 50 577 3388"
-          />
-        </div>
+        <RentHero path="/self-storage-dubai" />
 
         <LandingTrust />
 
         <LandingSteps />
+
+        <RentFacility />
 
         {/* WHY */}
         <section className={s.wrap} id="why">
@@ -313,30 +303,8 @@ export default function SelfStorageDubaiPage() {
           </div>
         </section>
 
-        {/* SECURITY */}
-        <section className={`${s.section} ${s.wrap}`} id="security" style={{ paddingTop: 0 }}>
-          <div className={s.howHead}>
-            <div>
-              <span className={s.howEyebrow}>Security</span>
-              <h2>
-                Advanced <em>security systems.</em>
-              </h2>
-            </div>
-            <p>Your belongings deserve the highest level of protection. Our facilities include:</p>
-          </div>
-          <Reveal>
-            <div className={s.tileGrid}>
-              {security.map(({ Icon, label, anim }, i) => (
-                <div className={`${s.tile} ${h.plan}`} style={idx(i)} key={label}>
-                  <span className={`${s.tileIcon} ${h.planIcon} ${h[anim]}`} aria-hidden="true">
-                    <Icon />
-                  </span>
-                  <b>{label}</b>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </section>
+        {/* SECURITY — illustrated grid shared with the rent page */}
+        <RentProtection />
 
         {/* AREAS */}
         <section className={`${s.section} ${s.wrap}`} id="areas" style={{ paddingTop: 0 }}>
@@ -443,6 +411,8 @@ export default function SelfStorageDubaiPage() {
             </Link>
           </div>
         </section>
+
+        <RentBeforeAfter />
 
         <LandingReviews />
 
