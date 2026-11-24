@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Bug, Camera, Package, Droplets, Fingerprint, Lock, ScanBarcode, Snowflake } from "lucide-react"
+import { BadgeDollarSign, Bug, CalendarDays, Camera, Package, ShieldCheck, Truck, Droplets, Fingerprint, Lock, ScanBarcode, Snowflake } from "lucide-react"
 import FacilityReel from "@/components/landing/facility-reel"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
 import q from "@/components/landing/storage-quote.module.css"
@@ -214,58 +214,97 @@ export function RentBeforeAfter() {
 
 /* ------------------------------------------------------------------ hero */
 
-/**
- * The rent page's hero: headline and call-to-action on the left, the /storage-quote form where the
- * hero photo used to be. `q.root` carries the form's colour tokens; its cream background is cleared
- * because the hero already sits on the page background.
- */
-export function RentHero({
-  tag,
-  title,
-  accent,
-  blurb,
-  phoneLink,
-}: {
-  tag: string
-  title: string
-  accent: string
-  blurb: string
-  phoneLink: string
-}) {
+const HERO_CHIPS = [
+  { Icon: BadgeDollarSign, t: "From AED 12 / sq ft" },
+  { Icon: CalendarDays, t: "No lease" },
+  { Icon: ShieldCheck, t: "CCTV secured" },
+  { Icon: Truck, t: "Doorstep pickup" },
+]
+
+function GoogleG() {
   return (
-    <section className={`${s.hero} ${s.wrap}`}>
-      <div className={r.heroGrid}>
-        <div className={`${s.heroContent} ${r.heroCopy}`}>
-          <span className={s.heroTag}>{tag}</span>
-          <h1>
-            {title} <br />
-            <em>{accent}</em>
-          </h1>
-          <p>{blurb}</p>
-          <div className={r.heroPrice}>
-            <span className={r.heroPriceKicker}>Pricing starts from</span>
-            <span className={r.heroPriceFig}>
-              <b>AED 12</b> <small>per sq ft, per month</small>
-            </span>
-          </div>
-          <ul className={r.heroPoints}>
-            <li>No lease, no minimum space</li>
-            <li>Indoor, climate-controlled &amp; CCTV monitored</li>
-            <li>We collect from your door</li>
-          </ul>
-          <div className={s.heroCta}>
-            <a className={`${s.btn} ${s.btnAccent}`} href={`#${RENT_FORM_ID}`}>
-              Get a Free Quote →
+    <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true">
+      <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" />
+      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" />
+      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" />
+      <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" />
+    </svg>
+  )
+}
+
+/**
+ * The rent page's hero — the same layout as the /storage-quote hero (kicker, headline with an accent,
+ * lede, one button, chips, testimonial, rating) so the two pages read as one family, with the quote
+ * form on the right where the hero photo used to be. The testimonial and rating are the ones already
+ * published on /storage-quote. `q.root` carries the colour tokens those styles rely on.
+ */
+export function RentHero() {
+  return (
+    <div className={q.root}>
+      <section className={q.hero}>
+        <div className={`${q.wide} ${q.heroRow}`}>
+          <div className={q.left}>
+            <div className={q.kicker}>Storage space for rent</div>
+            <h1>
+              Storage Space For Rent <em>in Dubai</em>
+            </h1>
+            <p className={q.lede}>
+              Rent the space your goods occupy, by the square foot, rather than a fixed unit. No lease and no minimum
+              term, with doorstep pickup across the UAE.
+            </p>
+
+            <a className={q.heroCta} href={`#${RENT_FORM_ID}`}>
+              Get a free quote <span aria-hidden="true">→</span>
             </a>
-            <a className={`${s.btn} ${s.btnGhost} ${s.btnPhone}`} href={phoneLink}>
-              <span className={s.phIco}>📞</span> Call: 050-577-3388
-            </a>
+
+            <div className={q.chipRow}>
+              {HERO_CHIPS.map(({ Icon, t }) => (
+                <div className={q.chip} key={t}>
+                  <Icon aria-hidden="true" />
+                  <span>{t}</span>
+                </div>
+              ))}
+            </div>
+
+            <figure className={q.quote}>
+              <div className={q.stars} aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>
+                Stored my entire villa furniture for 6 months during renovation. Everything came back in perfect
+                condition thanks to their careful handling and clean units.
+              </blockquote>
+              <figcaption>
+                <span className={q.av}>AH</span>
+                <span>
+                  <b>Ahmed Hassan</b>
+                  <small>Villa owner, Dubai Marina</small>
+                </span>
+              </figcaption>
+            </figure>
+
+            <div className={q.proof}>
+              <div className={q.score}>
+                <strong>4.9</strong>
+                <span className={q.stars} aria-hidden="true">★</span>
+                <small>
+                  Google rating{" "}
+                  <br />
+                  globally
+                </small>
+              </div>
+              <span className={q.vr} aria-hidden="true" />
+              <div className={q.count}>
+                <GoogleG />
+                <span>
+                  <strong>10,000+</strong>
+                  <small>Google reviews</small>
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className={`${q.root} ${r.heroForm}`} style={{ background: "transparent" }}>
+
           <StorageQuoteForm anchorId={RENT_FORM_ID} />
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

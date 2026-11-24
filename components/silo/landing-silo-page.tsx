@@ -723,7 +723,7 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
         className={`${s.page} ${sora.variable} ${manrope.variable}${SMALL_TYPE.has(content.path) ? ` ${g.smallType}` : ""}`}
       >
         {content.path === RENT_PATH ? (
-          <RentHero tag={silo.name} title={title} accent={accent} blurb={content.description} phoneLink={env.PHONE_LINK} />
+          <RentHero />
         ) : SIDE_HERO.has(content.path) ? (
           <section
             className={`${s.hero} ${s.wrap} ${p.split2}${HERO_FLUSH.has(content.path) ? ` ${p.split2Wrap}` : ""}`}
