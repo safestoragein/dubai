@@ -179,12 +179,12 @@ export function RentBeforeAfter() {
       </div>
       <div className={r.baGrid}>
         <BeforeAfter
-          before="/landing/rent-room-before-1.webp"
-          after="/landing/rent-room-after-1.webp"
-          beforeAlt="A narrow home storage room packed floor to ceiling with boxes and plastic tubs"
-          afterAlt="The same kind of goods wrapped and racked on clean shelving in the SafeStorage warehouse"
-          title="The spare room you can walk into again"
-          caption="Illustrative: a box-filled room, then the same goods wrapped and racked."
+          before="/landing/rent-room-before-3.webp"
+          after="/landing/rent-room-after-3.webp"
+          beforeAlt="A Dubai apartment living room crowded with moving boxes, suitcases and household clutter"
+          afterAlt="Boxes racked on shelving and furniture shrink-wrapped on pallets in a clean, secure warehouse bay"
+          title="Get your living space back"
+          caption="Illustrative: a home crowded with boxes, then the same kind of goods wrapped and racked."
         />
         <BeforeAfter
           before="/landing/rent-room-before-2.webp"
