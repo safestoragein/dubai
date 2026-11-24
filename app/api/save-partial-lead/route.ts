@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { leadAttributionFromRequest } from '@/lib/ad-attribution'
 
 // Partial / abandoned-lead capture for the get-quote form.
 //
@@ -55,6 +56,7 @@ export async function POST(request: NextRequest) {
       customer_email,
       storage_type,
       lead_message,
+      ...leadAttributionFromRequest(request.headers.get('cookie'), request.headers.get('referer')),
     })
 
     const backendRes = await fetch(BACKEND_URL, {

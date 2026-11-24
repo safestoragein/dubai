@@ -58,6 +58,12 @@ export function captureAdAttribution(): void {
       landing_page: (window.location.origin + window.location.pathname).slice(0, 255),
     }
     localStorage.setItem(KEY, JSON.stringify(stored))
+    // Also a cookie, so same-origin API routes (contact / connect / partial-lead forms, chat) see the click server-side.
+    try {
+      const g = getAdAttribution()
+      const slim = { gclid_field: g.gclid_field, ads_landing_page: g.ads_landing_page }
+      document.cookie = `ss_ad=${encodeURIComponent(JSON.stringify(slim))}; max-age=${TTL_MS / 1000}; path=/; SameSite=Lax; Secure`
+    } catch {}
   } catch {
     // Storage blocked (private mode etc.) — attribution is best-effort.
   }
@@ -160,4 +166,21 @@ export function getFirstTouch(): Record<string, string> {
   } catch {
     return {}
   }
+}
+
+// Server side (API routes): everything a ss_leads row needs from the request's cookies + Referer.
+export function leadAttributionFromRequest(cookieHeader: string | null | undefined, referer: string | null | undefined): Record<string, string> {
+  const out: Record<string, string> = { ...parseFirstTouchCookie(cookieHeader) }
+  delete out.ft_ts
+  try {
+    const m = /(?:^|;\s*)ss_ad=([^;]*)/.exec(cookieHeader || "")
+    if (m) {
+      const a = JSON.parse(decodeURIComponent(m[1])) as Record<string, unknown>
+      if (typeof a.gclid_field === "string") out.gclid_field = a.gclid_field.slice(0, 255)
+      if (typeof a.ads_landing_page === "string") out.ads_landing_page = a.ads_landing_page.slice(0, 255)
+    }
+  } catch {}
+  if (referer) out.quotation_page_url = referer.slice(0, 500)
+  for (const k of Object.keys(out)) if (!out[k]) delete out[k]
+  return out
 }

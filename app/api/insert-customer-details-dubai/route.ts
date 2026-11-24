@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { leadAttributionFromRequest } from '@/lib/ad-attribution'
 
 export async function POST(request: NextRequest) {
   try {
@@ -57,6 +58,9 @@ export async function POST(request: NextRequest) {
         storage_size: storage_size || ''
       })
     }
+
+    const attr = leadAttributionFromRequest(request.headers.get('cookie'), request.headers.get('referer'))
+    for (const [k, v] of Object.entries(attr)) formBody.set(k, v)
 
     console.log('Submitting to API:', apiUrl)
     console.log('Form data:', formBody.toString())
