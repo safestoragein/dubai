@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpDown, Bug, CalendarDays, Camera, Droplets, FileX2, Fingerprint, Lock, Package, Ruler, ScanBarcode, ShieldCheck, Snowflake, Truck } from "lucide-react"
+import { ArrowUpDown, Bug, CalendarDays, Camera, Droplet, Droplets, FileX2, Fingerprint, Lock, Package, Ruler, ScanBarcode, ShieldCheck, Snowflake, Truck, User, Video } from "lucide-react"
 import FacilityReel from "@/components/landing/facility-reel"
 import StorageQuoteForm from "@/components/landing/storage-quote-form"
 import q from "@/components/landing/storage-quote.module.css"
@@ -101,69 +101,55 @@ export function RentFacility() {
 
 /* ---------------------------------------------- climate, CCTV & security */
 
-const PROTECT = [
-  {
-    Icon: Snowflake,
-    t: "Climate-controlled, indoors",
-    d: "Stored in a covered, managed warehouse — never a yard, container or shade structure — and racked off the floor.",
-  },
-  {
-    Icon: Droplets,
-    t: "Clean and dry",
-    d: "Moisture-free, well-maintained space, so veneer, fabric, electronics and paper come back as they went in.",
-  },
-  {
-    Icon: Camera,
-    t: "24×7 CCTV",
-    d: "Multi-angle camera monitoring across the storage floor, around the clock.",
-  },
-  {
-    Icon: Lock,
-    t: "Controlled access",
-    d: "Authorised entry only. Visits are arranged in advance so your items can be pulled and reached.",
-  },
-  {
-    Icon: Fingerprint,
-    t: "Biometric entry",
-    d: "Entry to the storage area is by biometric access, not a shared key.",
-  },
-  {
-    Icon: ScanBarcode,
-    t: "Barcode inventory",
-    d: "Every item is logged against a barcoded inventory when it reaches us, so we can find and return it.",
-  },
-  {
-    Icon: Package,
-    t: "Wrapped and palletised",
-    d: "Furniture is shrink-wrapped and racked on pallets, so nothing sits on the floor or is stacked on anything fragile.",
-  },
-  {
-    Icon: Bug,
-    t: "Pest control",
-    d: "Regular professional treatment of the facility.",
-  },
+const WHY_ART: Record<string, string> = {
+  cam: "<svg viewBox=\"0 0 120 100\" aria-hidden=\"true\"><path d=\"M104 56v22H88\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"7\" stroke-linecap=\"round\"/><rect x=\"96\" y=\"70\" width=\"14\" height=\"14\" rx=\"3\" fill=\"#e2e8f0\"/><g transform=\"rotate(-12 55 42)\"><rect x=\"12\" y=\"22\" width=\"80\" height=\"40\" rx=\"17\" fill=\"#f8fafc\" stroke=\"#d5dbe5\" stroke-width=\"2\"/><circle cx=\"37\" cy=\"42\" r=\"16\" fill=\"#1e293b\"/><circle cx=\"37\" cy=\"42\" r=\"10\" fill=\"#031a5b\"/><circle cx=\"33\" cy=\"38\" r=\"3.2\" fill=\"#fff\" opacity=\".75\"/><rect x=\"62\" y=\"32\" width=\"24\" height=\"7\" rx=\"3.5\" fill=\"#f05200\"/></g></svg>",
+  pest: "<svg viewBox=\"0 0 120 100\" aria-hidden=\"true\"><path d=\"M60 8l34 12v26c0 24-15 40-34 48-19-8-34-24-34-48V20z\" fill=\"#031a5b\" stroke=\"#f05200\" stroke-width=\"5\" stroke-linejoin=\"round\"/><g fill=\"#fff\"><ellipse cx=\"60\" cy=\"52\" rx=\"10\" ry=\"13\"/><circle cx=\"60\" cy=\"35\" r=\"6\"/></g><g stroke=\"#fff\" stroke-width=\"3\" stroke-linecap=\"round\"><path d=\"M50 46l-9-5M50 54h-11M51 62l-8 7M70 46l9-5M70 54h11M69 62l8 7\"/></g><path d=\"M34 22L86 80\" stroke=\"#f05200\" stroke-width=\"7\" stroke-linecap=\"round\"/></svg>",
+  dry: "<svg viewBox=\"0 0 120 100\" aria-hidden=\"true\"><path d=\"M14 90V26l34-14h58v78z\" fill=\"#cfd5de\"/><path d=\"M14 26l34-14v78H14z\" fill=\"#aeb6c3\"/><rect x=\"48\" y=\"22\" width=\"52\" height=\"68\" rx=\"2\" fill=\"#f05200\"/><g stroke=\"#d04600\" stroke-width=\"2\"><path d=\"M48 32h52M48 42h52M48 52h52M48 62h52M48 72h52M48 82h52\"/></g><rect x=\"68\" y=\"14\" width=\"14\" height=\"5\" rx=\"1\" fill=\"#031a5b\"/><rect x=\"48\" y=\"86\" width=\"52\" height=\"4\" fill=\"#e2e8f0\"/></svg>",
+  keypad: "<svg viewBox=\"0 0 120 100\" aria-hidden=\"true\"><rect x=\"40\" y=\"6\" width=\"46\" height=\"88\" rx=\"8\" fill=\"#1e293b\"/><rect x=\"45\" y=\"11\" width=\"36\" height=\"78\" rx=\"5\" fill=\"#0f172a\"/><g fill=\"#38bdf8\" font-family=\"Poppins,Arial\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\"><text x=\"53\" y=\"29\">1</text><text x=\"63\" y=\"29\">2</text><text x=\"73\" y=\"29\">3</text><text x=\"53\" y=\"42\">4</text><text x=\"63\" y=\"42\">5</text><text x=\"73\" y=\"42\">6</text><text x=\"53\" y=\"55\">7</text><text x=\"63\" y=\"55\">8</text><text x=\"73\" y=\"55\">9</text><text x=\"63\" y=\"68\">0</text></g><rect x=\"52\" y=\"76\" width=\"22\" height=\"7\" rx=\"3.5\" fill=\"#cbd5e1\"/></svg>",
+  boxes: "<svg viewBox=\"0 0 120 100\" aria-hidden=\"true\"><rect x=\"62\" y=\"48\" width=\"52\" height=\"40\" rx=\"3\" fill=\"#d9a566\"/><path d=\"M62 48h52l-5-9H67z\" fill=\"#e9c08a\"/><rect x=\"82\" y=\"39\" width=\"12\" height=\"49\" fill=\"#f4dcb4\"/><rect x=\"14\" y=\"58\" width=\"52\" height=\"34\" rx=\"3\" fill=\"#d9a566\"/><path d=\"M14 58h52l-5-9H19z\" fill=\"#e9c08a\"/><rect x=\"34\" y=\"49\" width=\"12\" height=\"43\" fill=\"#f4dcb4\"/><path d=\"M88 62l8 4v9l-8 4-8-4v-9z\" fill=\"#f05200\"/><path d=\"M40 70l6 3v7l-6 3-6-3v-7z\" fill=\"#f05200\"/><rect x=\"92\" y=\"70\" width=\"22\" height=\"22\" rx=\"11\" fill=\"#f8fafc\" stroke=\"#d5dbe5\"/></svg>",
+  truck: "<svg viewBox=\"0 0 120 100\" aria-hidden=\"true\"><rect x=\"6\" y=\"22\" width=\"72\" height=\"52\" rx=\"4\" fill=\"#fff\" stroke=\"#d5dbe5\" stroke-width=\"2\"/><path d=\"M78 36h20l14 16v22H78z\" fill=\"#f8fafc\" stroke=\"#d5dbe5\" stroke-width=\"2\" stroke-linejoin=\"round\"/><path d=\"M84 41h11l9 11H84z\" fill=\"#cbd5e1\"/><path d=\"M42 33l12 6v14l-12 6-12-6V39z\" fill=\"#f05200\"/><path d=\"M30 39l12 6 12-6M42 45v14\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"/><rect x=\"6\" y=\"70\" width=\"106\" height=\"6\" fill=\"#1e293b\"/><circle cx=\"30\" cy=\"78\" r=\"9\" fill=\"#1e293b\"/><circle cx=\"30\" cy=\"78\" r=\"4\" fill=\"#cbd5e1\"/><circle cx=\"92\" cy=\"78\" r=\"9\" fill=\"#1e293b\"/><circle cx=\"92\" cy=\"78\" r=\"4\" fill=\"#cbd5e1\"/></svg>",
+  cal: "<svg viewBox=\"0 0 120 100\" aria-hidden=\"true\"><rect x=\"22\" y=\"18\" width=\"80\" height=\"72\" rx=\"8\" fill=\"#fff\" stroke=\"#d5dbe5\" stroke-width=\"2\"/><path d=\"M22 26a8 8 0 018-8h64a8 8 0 018 8v14H22z\" fill=\"#f05200\"/><g fill=\"none\" stroke=\"#f05200\" stroke-width=\"4\" stroke-linecap=\"round\"><path d=\"M40 10v14M56 10v14M72 10v14M88 10v14\"/></g><g fill=\"#e2e8f0\"><rect x=\"32\" y=\"48\" width=\"10\" height=\"8\" rx=\"2\"/><rect x=\"48\" y=\"48\" width=\"10\" height=\"8\" rx=\"2\"/><rect x=\"64\" y=\"48\" width=\"10\" height=\"8\" rx=\"2\"/><rect x=\"80\" y=\"48\" width=\"10\" height=\"8\" rx=\"2\"/><rect x=\"32\" y=\"62\" width=\"10\" height=\"8\" rx=\"2\"/><rect x=\"48\" y=\"62\" width=\"10\" height=\"8\" rx=\"2\"/><rect x=\"32\" y=\"76\" width=\"10\" height=\"8\" rx=\"2\"/><rect x=\"48\" y=\"76\" width=\"10\" height=\"8\" rx=\"2\"/></g><circle cx=\"82\" cy=\"72\" r=\"15\" fill=\"#f05200\" stroke=\"#fff\" stroke-width=\"3\"/><path d=\"M75 72l5 5 9-10\" fill=\"none\" stroke=\"#fff\" stroke-width=\"3.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+  agent: "<svg viewBox=\"0 0 120 100\" aria-hidden=\"true\"><path d=\"M18 100c0-22 18-32 42-32s42 10 42 32z\" fill=\"#031a5b\"/><path d=\"M48 68l12 12 12-12\" fill=\"#fff\"/><circle cx=\"60\" cy=\"38\" r=\"20\" fill=\"#f1c7a8\"/><path d=\"M38 38c0-16 10-24 22-24s22 8 22 24c-5-9-12-13-22-13s-17 4-22 13z\" fill=\"#2b1d17\"/><path d=\"M40 40c0-18 8-27 20-27s20 9 20 27\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"4\" stroke-linecap=\"round\"/><rect x=\"34\" y=\"38\" width=\"7\" height=\"14\" rx=\"3.5\" fill=\"#1e293b\"/><rect x=\"79\" y=\"38\" width=\"7\" height=\"14\" rx=\"3.5\" fill=\"#1e293b\"/><path d=\"M82 50q-2 12-16 12\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" stroke-linecap=\"round\"/><circle cx=\"53\" cy=\"39\" r=\"2\" fill=\"#2b1d17\"/><circle cx=\"67\" cy=\"39\" r=\"2\" fill=\"#2b1d17\"/><path d=\"M53 48q7 6 14 0\" fill=\"none\" stroke=\"#b4563a\" stroke-width=\"2.4\" stroke-linecap=\"round\"/><path d=\"M90 84l5 2.5v5l-5 2.5-5-2.5v-5z\" fill=\"#f05200\"/></svg>",
+}
+
+const WHY = [
+  { Icon: Video, t: "CCTV monitoring", d: "24×7 surveillance at our facility", art: "cam" },
+  { Icon: Bug, t: "Pest control", d: "Regular and professional treatment", art: "pest" },
+  { Icon: Droplet, t: "Clean, dry space", d: "Moisture-free and well-maintained spaces", art: "dry" },
+  { Icon: Lock, t: "Secure access", d: "Controlled and authorised entry only", art: "keypad" },
+  { Icon: Package, t: "Wrapped & palletised", d: "Shrink-wrapped and racked off the floor", art: "boxes" },
+  { Icon: Truck, t: "Doorstep pickup", d: "We pick up and deliver back to you", art: "truck" },
+  { Icon: CalendarDays, t: "Flexible plans", d: "No lease, billed monthly on the space you use", art: "cal" },
+  { Icon: User, t: "Dedicated support", d: "A single point of contact for a smooth experience", art: "agent" },
 ]
 
+/** "Why SafeStorage" grid, copied from the Indian site's /storage-quote (illustrated feature cards). */
 export function RentProtection() {
   return (
     <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 26 }} id="rent-protection">
-      <div className={s.howHead}>
-        <div>
-          <span className={s.howEyebrow}>Climate control &amp; security</span>
-          <h2>
-            Indoors, climate-controlled and <em>watched 24×7.</em>
-          </h2>
+      <div className={r.whyHead}>
+        <div className={r.eyeWrap}>
+          <i className={r.eyeLn} />
+          <span className={r.eyePill}>
+            <Package aria-hidden="true" />
+            WHY SAFESTORAGE
+          </span>
+          <i className={`${r.eyeLn} ${r.eyeLnR}`} />
         </div>
-        <p>What you rent is not just floor space — it is a managed, monitored environment.</p>
+        <h2>Built to keep your things safe</h2>
+        <p>The same high standards whether it’s a few boxes or a full house.</p>
       </div>
-      <ul className={r.protGrid}>
-        {PROTECT.map(({ Icon, t, d }) => (
-          <li className={r.prot} key={t}>
-            <span className={r.protIcon}>
-              <Icon aria-hidden="true" />
-            </span>
-            <b>{t}</b>
-            <small>{d}</small>
+      <ul className={r.whyGrid}>
+        {WHY.map(({ Icon, t, d, art }) => (
+          <li className={r.whyCard} key={t}>
+            <div className={r.whyText}>
+              <span className={r.whyIcon}>
+                <Icon aria-hidden="true" />
+              </span>
+              <b>{t}</b>
+              <small>{d}</small>
+            </div>
+            <div className={r.whyArt} aria-hidden="true" dangerouslySetInnerHTML={{ __html: WHY_ART[art] }} />
           </li>
         ))}
       </ul>

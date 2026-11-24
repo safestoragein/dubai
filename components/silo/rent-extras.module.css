@@ -352,3 +352,35 @@
   .introGrid { grid-template-columns: 1fr; gap: 28px; }
   .cmp { grid-template-columns: 1fr; }
 }
+
+/* ---- "Why SafeStorage" illustrated cards (copied from safestorage.in/storage-quote) ---- */
+.whyHead { text-align: center; margin-bottom: 40px; }
+.whyHead h2 { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.15; font-weight: 800; color: var(--navy); margin: 0 0 12px; letter-spacing: -0.02em; }
+.whyHead p { color: var(--muted); font-size: 17px; max-width: 58ch; margin: 0 auto; }
+.eyeWrap { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 18px; }
+.eyeLn { display: block; width: 96px; height: 1px; background: linear-gradient(90deg, transparent, #f05200); }
+.eyeLnR { transform: scaleX(-1); }
+.eyePill {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #fff; border: 1.5px solid #ffd9c7; border-radius: 999px;
+  padding: 9px 24px; color: #f05200; font-weight: 700; font-size: 13.4px; letter-spacing: 0.08em;
+  box-shadow: 0 6px 18px rgba(240, 82, 0, 0.1);
+}
+.eyePill svg { width: 20px; height: 20px; }
+.whyGrid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.whyCard {
+  position: relative; overflow: hidden; min-height: 196px; padding: 22px;
+  background: radial-gradient(circle at 82% 40%, #fff0e6 0, transparent 62%), #fff;
+  border: 1px solid var(--line); border-radius: 20px; transition: 0.22s;
+}
+.whyCard:hover { transform: translateY(-5px); border-color: #f05200; box-shadow: 0 18px 40px rgba(240, 82, 0, 0.16); }
+.whyText { position: relative; z-index: 1; width: 57%; }
+.whyIcon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: #fdeee6; color: #f05200; margin-bottom: 26px; }
+.whyIcon svg { width: 27px; height: 27px; }
+.whyText b { display: block; font-size: 16.8px; color: var(--navy); letter-spacing: -0.01em; margin-bottom: 4px; }
+.whyText small { display: block; color: var(--muted); font-size: 13.8px; line-height: 1.4; }
+.whyArt { position: absolute; right: 10px; bottom: 10px; width: 40%; max-width: 150px; }
+.whyArt svg { width: 100%; height: auto; display: block; transition: transform 0.3s; }
+.whyCard:hover .whyArt svg { transform: scale(1.07) translateY(-2px); }
+@media (max-width: 1100px) { .whyGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .whyGrid { grid-template-columns: 1fr; } .whyCard { min-height: 150px; } .eyeLn { width: 36px; } }
