@@ -31,6 +31,7 @@ const REDESIGNED = new Set([
   "storage-space-for-rent",
   "monthly-storage",
   "storage-room",
+  "storage-services",
   "climate-controlled",
   "secure-storage",
   "24-hour-access",
