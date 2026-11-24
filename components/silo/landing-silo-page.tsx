@@ -29,6 +29,8 @@ import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
 import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
 import { LandingReviews } from "@/components/landing/landing-reviews"
+import { LandingSteps } from "@/components/landing/landing-services"
+import { RENT_FORM_ID, RENT_PATH, RentBeforeAfter, RentFacility, RentPriceBand, RentProtection, RentQuoteForm } from "./rent-extras"
 import { LandingConnect } from "@/components/landing/landing-connect"
 import { UspRail } from "@/components/landing/usp-rail"
 import FaqAccordion from "@/components/landing/faq-accordion"
@@ -42,7 +44,7 @@ import { renderRich } from "./rich-text"
 import { pageSchemas } from "./silo-page"
 import { HAND_WRITTEN, navFor, pagesInSilo } from "@/lib/silo/registry"
 import { HUB_ORDER, MONEY_PAGE, SILOS, moneyAnchor } from "@/lib/silo/silos"
-import type { CSSProperties, ReactNode } from "react"
+import { Fragment, type CSSProperties, type ReactNode } from "react"
 import MoversQuoteRedirect, { MOVERS_QUOTE_PATH } from "@/components/landing/movers-quote-redirect"
 import type { Section, SiloPageContent } from "@/lib/silo/types"
 
@@ -786,7 +788,28 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
           </div>
         </section>
 
-        {content.sections.map((section, i) => (
+        {content.path === RENT_PATH && (
+          <>
+            <RentPriceBand />
+            <RentQuoteForm />
+          </>
+        )}
+
+        {content.sections.map((section, i) =>
+          content.path === RENT_PATH && section.kind === "steps" ? (
+            // The rent page swaps its plain step list for the animated van journey from
+            // /storage-quote, then follows it with the facility photos, climate/security
+            // detail and before/after photos.
+            <Fragment key={section.h2}>
+              <LandingSteps ctaHref={`#${RENT_FORM_ID}`} showMore={false} />
+              <p className={s.wrap} style={{ marginTop: -8, marginBottom: 26, color: "var(--muted)", fontSize: 14 }}>
+                The monthly figure follows what you store — see <Link href="/self-storage-dubai/monthly-storage" style={{ color: "var(--accent)", fontWeight: 600 }}>monthly billing</Link>.
+              </p>
+              <RentFacility />
+              <RentProtection />
+              <RentBeforeAfter />
+            </Fragment>
+          ) : (
           <SectionView
             section={section}
             index={i}
@@ -797,7 +820,8 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
             hideNumbers={NO_CARD_NUMBERS.has(content.path)}
             key={section.h2}
           />
-        ))}
+          ),
+        )}
 
         {NO_REVIEWS.has(content.path) ? null : <LandingReviews padTop={0} />}
 

@@ -64,6 +64,7 @@ server, then rebuild + restart (redeploy).
   Say "pay only for the space you use" / "free, itemised quote". Third-party figures (rents, competitors, freight) are OK.
   Blog posts come from the safestorage.in feed; `stripOwnPrice()` + `FEED_RULES` in `lib/blog-meta.ts` filter prices and ISO claims out of them — keep it.
   Before every deploy: `grep -rnE "12(\.65)? ?AED|AED ?12\b" app components lib data public` must show only third-party numbers.
+- **EXCEPTION (owner, 2026-11-24): `/self-storage-dubai/storage-space-for-rent` shows "Pricing starts from AED 12 per sq ft per month"** (price band in `components/silo/rent-extras.tsx` + the first FAQ in `lib/silo/silo1.ts`). Keep it there; the rule still applies to every other page, so the pre-deploy grep will show these hits.
 - **No lockers / no private units.** Storage is SHARED space. Don't write "locker", "dedicated unit", "your unit",
   "individually assigned area". Sizes are shown in **sq ft** (never m²) and marked "(Estimated)".
 - **No cancellation-notice periods** (e.g. "7/30 days' notice") in page copy.

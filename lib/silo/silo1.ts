@@ -289,24 +289,24 @@ export const SILO1_PAGES: SiloPageContent[] = [
     ],
     faqs: [
       {
-        q: "Is there a minimum amount of space I have to rent?",
-        a: "No. Ten boxes is a normal booking and is billed as ten boxes' worth of floor space.",
+        q: "How much does it cost to rent storage space in Dubai?",
+        a: "Pricing starts from AED 12 per sq ft per month, billed on the floor space your goods actually occupy once racked. Door-to-door transport is quoted as its own one-off figure, and you see both numbers before you book.",
       },
       {
-        q: "Do I sign a lease or a tenancy contract?",
-        a: "No lease, no Ejari and no fixed term. It is a monthly service agreement, and the space you occupy can go up or down without a new one.",
+        q: "Do I sign a lease, and is there a minimum amount of space?",
+        a: "No lease, no Ejari and no fixed term — it is a monthly service agreement. There is no minimum either: ten boxes is a normal booking. If you need more space later, we collect the extra items and the stored volume increases from that month.",
       },
       {
         q: "How do you measure the space I am renting?",
-        a: "By the floor area your goods occupy once racked, including how they are stacked. You are told the figure after collection, and it is what appears on the invoice.",
+        a: "By the floor area your goods occupy once racked, including how they are stacked. You are told the figure after collection, and it is what appears on the invoice. Take items back and the figure drops the following month.",
       },
       {
-        q: "What if I need more space suddenly?",
-        a: "Nothing needs renegotiating — we collect the extra items as their own job and the stored volume increases from that month.",
+        q: "Is the storage space climate controlled and secure?",
+        a: "Yes. Goods are stored indoors in a covered, managed warehouse, racked off the floor, clean and dry. The facility has 24×7 CCTV, controlled and authorised access only, and a barcoded inventory so every item can be found and returned.",
       },
       {
-        q: "Can I rent storage space for my business?",
-        a: "Yes: stock, records, event equipment and retail overflow are all normal. Bookings needing pallet handling are better set up through the business storage side.",
+        q: "Can I get to my things, and what can't I store?",
+        a: "Visits are arranged in advance so your items can be pulled and reached, and we can deliver anything back to your door on a date you choose. Hazardous, flammable and perishable goods cannot be stored — the prohibited items list has the full detail.",
       },
     ],
     serviceType: "Storage space rental",
