@@ -1,11 +1,12 @@
 "use client"
 
+import { useEffect } from "react"
 import Script from "next/script"
 import { usePathname } from "next/navigation"
 
 // Pages where the Leo/Storo chat launcher must not appear (lead-form landing pages
 // already put the form in the hero). Everything else loads it as before.
-const NO_WIDGET = ["/storage-quote", "/thank-you"]
+const NO_WIDGET = ["/storage-quote", "/thank-you", "/self-storage-dubai/storage-space-for-rent"]
 
 // On desktop the round "customer support" button owns the bottom-right corner, so the Storo launcher
 // is lifted to sit directly above it (56px button + 16px gap, from the 20px corner inset). The widget
@@ -33,6 +34,13 @@ function liftStoro() {
 
 export default function LeoWidgetLoader() {
   const path = (usePathname() || "").replace(/\/$/, "")
-  if (NO_WIDGET.includes(path)) return null
+  const blocked = NO_WIDGET.includes(path)
+  // If the widget was already loaded on an earlier page (client-side navigation), hide it here
+  // and show it again elsewhere.
+  useEffect(() => {
+    const el = document.getElementById("safestorage-leo-root")
+    if (el) el.style.display = blocked ? "none" : ""
+  }, [blocked])
+  if (blocked) return null
   return <Script src="/safestorage-chat-widget.iife.js" strategy="lazyOnload" onReady={liftStoro} />
 }
