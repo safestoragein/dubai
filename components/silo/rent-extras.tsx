@@ -18,6 +18,7 @@ import r from "./rent-extras.module.css"
  * site-wide no-public-pricing rule (2026-11-24) and applies to THIS page only.
  */
 export const HUB_PATH = "/self-storage-dubai"
+export const PERSONAL_PATH = "/personal-storage-dubai"
 export const ROOM_PATH = "/self-storage-dubai/storage-room"
 export const RENT_LIKE: ReadonlySet<string> = new Set(["/self-storage-dubai/storage-space-for-rent", ROOM_PATH])
 export const RENT_PATH = "/self-storage-dubai/storage-space-for-rent"
@@ -230,14 +231,19 @@ function GoogleG() {
  */
 export function RentHero({ path = RENT_PATH }: { path?: string }) {
   const room = path === ROOM_PATH
-  const hub = path === HUB_PATH
+  const personal = path === PERSONAL_PATH
+  const hub = path === HUB_PATH || personal // no price card on these two
   return (
     <div className={q.root}>
       <section className={q.hero}>
         <div className={`${q.wide} ${q.heroRow}`}>
           <div className={q.left}>
-            <div className={q.kicker}>{hub ? "Self storage Dubai" : room ? "Storage room" : "Storage space for rent"}</div>
-            {hub ? (
+            <div className={q.kicker}>{personal ? "Personal storage Dubai" : hub ? "Self storage Dubai" : room ? "Storage room" : "Storage space for rent"}</div>
+            {personal ? (
+              <h1>
+                Personal Storage in Dubai – <em>Furniture, Boxes &amp; More</em>
+              </h1>
+            ) : hub ? (
               <h1>
                 Self Storage in Dubai – <em>Secure Units, Fair Rates, Easy Booking</em>
               </h1>
@@ -251,7 +257,9 @@ export function RentHero({ path = RENT_PATH }: { path?: string }) {
               </h1>
             )}
             <p className={q.lede}>
-              {hub
+              {personal
+                ? "Affordable storage for your home and belongings, with door-to-door pickup and no hidden fees. No lease, with doorstep pickup across the UAE."
+                : hub
                 ? "Between apartments, renovating, travelling or decluttering? SafeStorage gives you secure space in Dubai, when and where you need it. No lease, with doorstep pickup across the UAE."
                 : room
                 ? "Clear a room without moving to a bigger flat. We collect, wrap and store what is in it, and you pay only for the space it uses. No lease, with doorstep pickup across the UAE."

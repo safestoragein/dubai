@@ -7,7 +7,7 @@ import SiloBreadcrumb from "@/components/silo-breadcrumb"
 
 import { manrope, sora } from "@/components/landing/fonts"
 import { CtaBand } from "@/components/landing/page-hero"
-import { LandingTrust, SplitHero } from "@/components/landing/landing-top"
+import { LandingTrust } from "@/components/landing/landing-top"
 import { LandingSteps } from "@/components/landing/landing-services"
 import { LandingReviews } from "@/components/landing/landing-reviews"
 import { LandingConnect } from "@/components/landing/landing-connect"
@@ -18,6 +18,7 @@ import { personalFaqs } from "./faqs"
 import s from "@/components/landing/landing.module.css"
 import h from "./hero.module.css"
 import Reveal from "./Reveal"
+import { RentBeforeAfter, RentFacility, RentHero, RentProtection } from "@/components/silo/rent-extras"
 
 export const metadata: Metadata = {
   // `absolute` so the root template does not append a second brand; the full
@@ -121,24 +122,14 @@ export default function PersonalStoragePage() {
       <SchemaScript schema={personalStorageSchemas} />
 
       <div className={`${s.page} ${sora.variable} ${manrope.variable}`}>
-        {/* H1 carries the target term "Personal Storage Dubai". The wrapper only
-            swaps the hero wash for a lighter one (see hero.module.css). */}
-        <div className={h.heroVivid}>
-          <SplitHero
-            eyebrow="Personal storage Dubai"
-            title="Personal Storage in Dubai –"
-            titleAccent="Furniture, Boxes & More"
-            blurb="Affordable storage for your home and belongings, with door-to-door pickup and no hidden fees."
-            image="/landing/svc-personal-hero.webp"
-            side
-            imagePosition="center 30%"
-            ctaLabel="Get Your Free Quote"
-          />
-        </div>
+        {/* H1 carries the target term "Personal Storage Dubai". */}
+        <RentHero path="/personal-storage-dubai" />
 
         <LandingTrust />
 
         <LandingSteps />
+
+        <RentFacility />
 
         {/* WHY */}
         <section className={s.wrap} id="why">
@@ -168,6 +159,8 @@ export default function PersonalStoragePage() {
         </section>
 
         {/* WHO WE HELP */}
+        <RentProtection />
+
         <section className={`${s.section} ${s.wrap}`} id="who-we-help">
           <UspRail
             head={
@@ -263,6 +256,8 @@ export default function PersonalStoragePage() {
             ))}
           </div>
         </section>
+
+        <RentBeforeAfter />
 
         <LandingReviews />
 
