@@ -805,9 +805,11 @@ export default function LandingSiloPage({ content, hub = false }: { content: Sil
             // detail and before/after photos.
             <Fragment key={section.h2}>
               <LandingSteps ctaHref={`#${RENT_FORM_ID}`} showMore={false} />
-              <p className={s.wrap} style={{ marginTop: -8, marginBottom: 26, color: "var(--muted)", fontSize: 14 }}>
-                The monthly figure follows what you store — see <Link href="/self-storage-dubai/monthly-storage" style={{ color: "var(--accent)", fontWeight: 600 }}>monthly billing</Link>.
-              </p>
+              <section className={`${s.section} ${s.wrap}`} style={{ paddingTop: 0, paddingBottom: 10 }}>
+                <p style={{ margin: 0, color: "var(--muted)", fontSize: 14 }}>
+                  The monthly figure follows what you store — see <Link href="/self-storage-dubai/monthly-storage" style={{ color: "var(--accent)", fontWeight: 600 }}>monthly billing</Link>.
+                </p>
+              </section>
               <RentFacility />
               <RentProtection />
               <RentBeforeAfter />
