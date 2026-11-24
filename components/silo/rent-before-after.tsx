@@ -29,9 +29,9 @@ export default function BeforeAfter({
   return (
     <figure className={r.ba}>
       <div className={r.baFrame} style={{ ["--p" as string]: `${pos}%` }}>
-        <Image src={after} alt={afterAlt} fill sizes="(max-width: 760px) 94vw, 46vw" />
+        <Image src={after} alt={afterAlt} fill sizes="(max-width: 760px) 94vw, 46vw" unoptimized />
         <div className={r.baTop}>
-          <Image src={before} alt={beforeAlt} fill sizes="(max-width: 760px) 94vw, 46vw" />
+          <Image src={before} alt={beforeAlt} fill sizes="(max-width: 760px) 94vw, 46vw" unoptimized />
         </div>
         <span className={`${r.baTag} ${r.baTagL}`}>Before</span>
         <span className={`${r.baTag} ${r.baTagR}`}>After</span>
