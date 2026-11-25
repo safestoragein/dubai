@@ -98,7 +98,7 @@ export async function POST(request: Request) {
     })
     if (isDryRun()) console.log("[storage-quote] DRY RUN", JSON.stringify(out))
     if (!out.ok) throw new Error(out.error || "quote not created")
-    const pass = mintThankYouPass(out.quotationId ?? 0)
+    const pass = mintThankYouPass(out.quotationId ?? 0, out.customerId)
     // No pass (no secret configured) is not an error: the quote exists, the form shows its own confirmation.
     return NextResponse.json({ status: "ok", pass: pass || undefined })
   } catch (e) {
