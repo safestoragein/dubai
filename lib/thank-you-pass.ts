@@ -14,32 +14,21 @@ const TTL_MS = 60 * 60 * 1000 // refreshing the page keeps working for an hour
 const secret = () => process.env.JWT_SECRET || (process.env.NODE_ENV !== "production" ? "dev-only-thank-you-secret" : "")
 const sign = (body: string, s: string) => crypto.createHmac("sha256", s).update(`thank-you:${body}`).digest("hex").slice(0, 32)
 
-// leadId = the CRM customer_id (the "actual CRM lead ID"). It rides inside the signed body so the
-// conversion claim can dedupe on it without trusting anything the browser sends.
-export function mintThankYouPass(quotationId: string | number, leadId?: string | number): string {
+export function mintThankYouPass(quotationId: string | number): string {
   const s = secret()
   if (!s) return ""
-  const body = leadId ? `${Date.now() + TTL_MS}.${quotationId}.${leadId}` : `${Date.now() + TTL_MS}.${quotationId}`
+  const body = `${Date.now() + TTL_MS}.${quotationId}`
   return `${body}.${sign(body, s)}`
-}
-
-/** Verified contents of a pass, or null. leadId is null for passes minted without one. */
-export function parseThankYouPass(pass: string | null | undefined): { quotationId: string; leadId: string | null } | null {
-  if (!verifyThankYouPass(pass)) return null
-  const parts = (pass as string).split(".")
-  return { quotationId: parts[1], leadId: parts.length === 4 ? parts[2] : null }
 }
 
 export function verifyThankYouPass(pass: string | null | undefined): boolean {
   const s = secret()
   if (!s || !pass || pass.length > 120) return false
   const parts = pass.split(".")
-  if (parts.length !== 3 && parts.length !== 4) return false
-  const sig = parts[parts.length - 1]
-  const [exp, qid] = parts
+  if (parts.length !== 3) return false
+  const [exp, qid, sig] = parts
   if (!/^\d{10,15}$/.test(exp) || !/^\d{1,12}$/.test(qid) || Number(exp) < Date.now()) return false
-  if (parts.length === 4 && !/^\d{1,12}$/.test(parts[2])) return false
-  const expected = sign(parts.slice(0, -1).join("."), s)
+  const expected = sign(`${exp}.${qid}`, s)
   if (expected.length !== sig.length) return false
   try {
     return crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(sig))

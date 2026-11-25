@@ -169,8 +169,6 @@ export default function StorageQuoteForm({ anchorId = "quote" }: { anchorId?: st
       if (j.status === "ok" && j.pass) {
         try {
           sessionStorage.setItem("ssl_name", v("name"))
-          // Read once by /thank-you for the enhanced-conversion data, then removed.
-          sessionStorage.setItem("ssl_ec", JSON.stringify({ email: v("email"), phone: `+971${mob}` }))
         } catch {
           /* ignore */
         }

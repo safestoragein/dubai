@@ -3,7 +3,6 @@ import { CalendarCheck, CheckCircle2, Home, MessageCircle, PhoneCall, Search, Tr
 import { manrope, sora } from "@/components/landing/fonts"
 import { PHONE, PHONE_DISPLAY } from "@/lib/company-facts"
 import ThankYouName from "./thank-you-name"
-import LeadTracker from "./lead-tracker"
 import t from "./thank-you.module.css"
 
 const STEPS = [
@@ -17,7 +16,6 @@ const WA = `https://wa.me/${PHONE.replace(/\D/g, "")}?text=${encodeURIComponent(
 export default function ThankYouPage() {
   return (
     <main className={`${t.page} ${sora.variable} ${manrope.variable}`}>
-      <LeadTracker />
       {/* Already submitted: no "Get Free Quote" bar, booking toast or chat launcher over the confirmation. */}
       <style>{"#safestorage-leo-root,[data-floating-toast],[data-sticky-cta] a[href='/get-quote']{display:none!important}[data-sticky-cta]>div{margin:0 0 0 auto!important;width:fit-content!important;max-width:none!important;flex-direction:column!important;align-items:flex-end!important;gap:10px!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;backdrop-filter:none!important}[data-sticky-cta]{padding-left:0!important;padding-right:14px!important;padding-bottom:calc(16px + env(safe-area-inset-bottom))!important}[data-sticky-cta] a{width:48px!important;height:48px!important;box-shadow:0 8px 20px rgba(10,36,99,.3)!important}"}</style>
       <section className={t.wrap}>
