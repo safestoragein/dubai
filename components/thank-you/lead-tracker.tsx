@@ -4,10 +4,6 @@ import { useEffect } from "react"
 import { reportLead } from "@/lib/report-lead"
 
 // Reports the lead through GTM once per submission (retry-safe, see lib/report-lead.ts). Renders nothing.
-async function sha256Hex(v: string): Promise<string> {
-  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(v))
-  return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("")
-}
 
 export default function LeadTracker() {
   useEffect(() => {
@@ -33,7 +29,6 @@ export default function LeadTracker() {
           /* ignore */
         }
       },
-      sha256: sha256Hex,
       location: window.location,
     })
   }, [])

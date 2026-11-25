@@ -1,5 +1,6 @@
 "use client"
 
+import { hashContact } from "@/lib/lead-hash"
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight, Building2, CalendarDays, CheckCircle2, ChevronDown, Mail, MapPin, Phone, ShieldCheck, User, ArrowUpDown } from "lucide-react"
 import { env } from "@/lib/env"
@@ -169,8 +170,8 @@ export default function StorageQuoteForm({ anchorId = "quote" }: { anchorId?: st
       if (j.status === "ok" && j.pass) {
         try {
           sessionStorage.setItem("ssl_name", v("name"))
-          // Read once by /thank-you for the enhanced-conversion data, then removed.
-          sessionStorage.setItem("ssl_ec", JSON.stringify({ email: v("email"), phone: `+971${mob}` }))
+          // Read once by /thank-you for the enhanced-conversion data, then removed. SHA-256 only: no raw email/phone stored.
+          sessionStorage.setItem("ssl_ec", JSON.stringify(await hashContact(v("email"), `+971${mob}`)))
         } catch {
           /* ignore */
         }

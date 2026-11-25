@@ -16,9 +16,8 @@ function mk(over: Partial<ReportDeps> & { claimAnswer?: unknown; claimOk?: boole
       return { ok: over.claimOk ?? true, json: async () => over.claimAnswer ?? { fire: true, claim: "c".repeat(32), submission_id: "375", lead_id: "188" } }
     },
     dataLayer,
-    readEc: () => ({ email: "  Ali@Example.COM ", phone: "+971 50 123 4567" }),
+    readEc: () => ({ sha256_email_address: H("ali@example.com"), sha256_phone_number: H("+971501234567") }),
     clearEc: vi.fn(),
-    sha256: sha,
     location: { origin: "https://safestorage.ae", pathname: "/thank-you" },
     ...over,
   }
@@ -70,7 +69,7 @@ describe("reportLead", () => {
     expect(() => (dataLayer[0].eventCallback as () => void)()).not.toThrow()
   })
   it("omits user_data fields it cannot normalise", async () => {
-    const { deps, dataLayer } = mk({ readEc: () => ({ email: "", phone: "abc" }) })
+    const { deps, dataLayer } = mk({ readEc: () => ({ sha256_email_address: "not-a-hash", sha256_phone_number: "abc" }) })
     await reportLead(deps)
     expect(dataLayer[0].user_data).toEqual({})
   })

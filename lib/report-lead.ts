@@ -3,15 +3,14 @@
 //  2. push generate_lead with a GTM eventCallback (GTM calls it after ALL tags for the event fired)
 //  3. only then tell the server "confirmed". No GTM / tab closed first => never confirmed => the claim lease
 //     expires and the same submission may report again (server caps total attempts).
-// Raw email/phone never reach the dataLayer: they are normalised and SHA-256 hashed first.
+// Only SHA-256 hashes of email/phone are ever stored or pushed (hashed at submit time, see lib/lead-hash.ts).
 
 export interface ReportDeps {
   pass: string
   fetchFn: (url: string, init: RequestInit) => Promise<{ ok: boolean; json: () => Promise<unknown> }>
   dataLayer: unknown[]
-  readEc: () => { email?: string; phone?: string }
+  readEc: () => { sha256_email_address?: string; sha256_phone_number?: string }
   clearEc: () => void
-  sha256: (v: string) => Promise<string>
   location: { origin: string; pathname: string }
 }
 
@@ -25,11 +24,10 @@ export async function reportLead(d: ReportDeps): Promise<"pushed" | "skipped" | 
     if (!j.fire || !j.claim || !j.submission_id) return "skipped"
 
     const ec = d.readEc()
-    const email = (ec.email || "").trim().toLowerCase()
-    const phone = (ec.phone || "").replace(/[^\d+]/g, "")
     const user_data: Record<string, string> = {}
-    if (email) user_data.sha256_email_address = await d.sha256(email)
-    if (/^\+\d{8,15}$/.test(phone)) user_data.sha256_phone_number = await d.sha256(phone)
+    const isHash = (v: unknown): v is string => typeof v === "string" && /^[a-f0-9]{64}$/.test(v)
+    if (isHash(ec.sha256_email_address)) user_data.sha256_email_address = ec.sha256_email_address
+    if (isHash(ec.sha256_phone_number)) user_data.sha256_phone_number = ec.sha256_phone_number
 
     d.dataLayer.push({
       event: "generate_lead",

@@ -1,5 +1,6 @@
 "use client"
 
+import { hashContact } from "@/lib/lead-hash"
 import { useEffect, useRef, useState } from "react"
 import { CheckCircle2, ChevronLeft, ChevronRight, Minus, Plus, PhoneCall, MessageCircle, Search, ShoppingCart, Trash2, Truck } from "lucide-react"
 import { env } from "@/lib/env"
@@ -180,7 +181,8 @@ export default function MoversQuoteFlow() {
           // Conversion hook for GTM: fires only once the quotation is really saved.
           try {
             const w = window as unknown as { dataLayer?: unknown[] }
-            ;(w.dataLayer = w.dataLayer || []).push({ event: "packers_quote_submitted", quote_reference: data.reference || "" })
+            const user_data = await hashContact(q.email, q.phone).catch(() => ({}))
+            ;(w.dataLayer = w.dataLayer || []).push({ event: "packers_quote_submitted", quote_reference: data.reference || "", user_data })
           } catch {}
         } else if (res.status === 422 && data.errors) {
           setErrors(data.errors)
