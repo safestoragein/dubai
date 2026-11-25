@@ -38,6 +38,9 @@ const DEFAULT_BASKET = [
   { name: "Personal box - Large", qty: 8 },
 ]
 
+// Recent successful submissions, keyed phone|email (single Next process on the AE box).
+const RECENT = new Map<string, { t: number; p: Promise<Record<string, unknown> | null> }>()
+
 export async function POST(request: Request) {
   let b: Record<string, unknown>
   try {
@@ -83,6 +86,19 @@ export async function POST(request: Request) {
   const phone = `+971${digits}`
   const attribution = b.attribution
 
+  // Idempotency: the same visitor submitting twice within 90s (double click on a slow network, second tab, a
+  // client retry) must get the SAME quotation and pass, not a second quotation - a second quotation would be
+  // reported as a second conversion. Concurrent duplicates wait for the first and share its answer.
+  const dupKey = `${phone}|${email}`
+  const prior = RECENT.get(dupKey)
+  if (prior && Date.now() - prior.t < 90_000) {
+    const same = await prior.p
+    if (same) return NextResponse.json(same)
+  }
+  let settle: (v: Record<string, unknown> | null) => void = () => {}
+  RECENT.set(dupKey, { t: Date.now(), p: new Promise((r) => { settle = r }) })
+  for (const [k, v] of RECENT) if (Date.now() - v.t > 90_000) RECENT.delete(k)
+
   // Build the quotation BEFORE answering: /thank-you is only opened for a quotation that really exists,
   // so the pass below is issued only after createQuote succeeded.
   try {
@@ -100,8 +116,11 @@ export async function POST(request: Request) {
     if (!out.ok) throw new Error(out.error || "quote not created")
     const pass = mintThankYouPass(out.quotationId ?? 0, out.customerId)
     // No pass (no secret configured) is not an error: the quote exists, the form shows its own confirmation.
-    return NextResponse.json({ status: "ok", pass: pass || undefined })
+    const okBody = { status: "ok", pass: pass || undefined }
+    settle(okBody)
+    return NextResponse.json(okBody)
   } catch (e) {
+    settle(null)
     console.error("[storage-quote] quote failed, saving plain lead:", e)
     if (isDryRun()) return NextResponse.json({ status: "saved" })
     // The details must never be lost: save them as a plain lead. The visitor is told the team will call,
